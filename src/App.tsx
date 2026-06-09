@@ -23,7 +23,7 @@ import {
   Sparkles, Bot, Zap, Target, Globe, Filter, Workflow, MessageSquare, Code2,
   Search, LineChart, TrendingUp, Users, Clock, DollarSign, Heart, ArrowRight,
   Check, Star, Phone, Mail, ChevronDown, Rocket, Plus, ShieldCheck, Building2,
-  Calendar, Cpu, Compass, PenTool, Settings2,
+  Calendar, Cpu, Compass, PenTool, Settings2, ChevronLeft, ChevronRight,
 } from 'lucide-react';
 
 /* ------------------------------------------------------------------ */
@@ -62,6 +62,7 @@ interface Content {
   features: { tag: string; t1: string; tg: string; items: { title: string; sub: string }[] };
   process: { tag: string; t1: string; tg: string; step: string; items: { title: string; desc: string }[] };
   cases: { tag: string; t1: string; tg: string; items: { summary: string; labels: string[]; suffix: string[] }[] };
+  showcase: { tag: string; t1: string; tg: string; sub: string; cta: string; items: { title: string; tag: string }[] };
   testimonials: { tag: string; t1: string; tg: string; items: { role: string; quote: string }[] };
   pricing: { tag: string; t1: string; tg: string; sub: string; popular: string; items: { name: string; tagline: string; cta: string; features: string[] }[] };
   faq: { tag: string; t1: string; tg: string; items: { q: string; a: string }[] };
@@ -74,7 +75,7 @@ interface Content {
 const CONTENT: Record<Lang, Content> = {
   /* ----------------------------- NEDERLANDS ----------------------------- */
   nl: {
-    nav: ['Diensten', 'Resultaten', 'Werkwijze', 'Cases', 'Prijzen', 'FAQ'],
+    nav: ['Diensten', 'Resultaten', 'Showcase', 'Werkwijze', 'Cases', 'Prijzen', 'FAQ'],
     bookCall: 'Plan een gesprek',
     hero: {
       badge: 'Website • Marketing • Sales groei',
@@ -131,6 +132,19 @@ const CONTENT: Record<Lang, Content> = {
         { summary: 'Intake, planning en opvolging geautomatiseerd met AVG-bewuste AI-agents.', labels: ['Boekingen', 'No-shows', 'Admin-uren'], suffix: ['%', '% lager', '+ bespaard'] },
       ],
     },
+    showcase: {
+      tag: 'Uitgelicht werk', t1: 'Een greep uit', tg: 'wat we bouwen',
+      sub: 'Blader door de boog — sleep, klik of gebruik de pijlen om door onze projecten te navigeren.',
+      cta: 'Bekijk project',
+      items: [
+        { title: 'AI-leadmotor', tag: 'Automatisering' },
+        { title: 'Converterende website', tag: 'Webdesign' },
+        { title: 'Realtime groei-dashboard', tag: 'Analytics' },
+        { title: 'Multichannel-campagnes', tag: 'Marketing' },
+        { title: 'AI-supportagent', tag: 'Chatbots' },
+        { title: 'Maatwerk-integraties', tag: 'Software' },
+      ],
+    },
     testimonials: {
       tag: 'Geliefd bij ondernemers', t1: 'Vertrouwd door', tg: 'ambitieuze teams',
       items: [
@@ -175,7 +189,7 @@ const CONTENT: Record<Lang, Content> = {
 
   /* ------------------------------- ENGLISH ------------------------------ */
   en: {
-    nav: ['Services', 'Results', 'Process', 'Case Studies', 'Pricing', 'FAQ'],
+    nav: ['Services', 'Results', 'Showcase', 'Process', 'Case Studies', 'Pricing', 'FAQ'],
     bookCall: 'Book a Call',
     hero: {
       badge: 'Website • Marketing • Sales Growth',
@@ -232,6 +246,19 @@ const CONTENT: Record<Lang, Content> = {
         { summary: 'Automated intake, scheduling, and follow-up with HIPAA-aware AI agents.', labels: ['Bookings', 'No-shows', 'Admin hours'], suffix: ['%', '% lower', '+ saved'] },
       ],
     },
+    showcase: {
+      tag: 'Featured work', t1: 'A glimpse of', tg: 'what we build',
+      sub: 'Browse the arc — drag, click, or use the arrows to move through our projects.',
+      cta: 'View project',
+      items: [
+        { title: 'AI Lead Engine', tag: 'Automation' },
+        { title: 'High-Converting Website', tag: 'Web Design' },
+        { title: 'Real-Time Growth Dashboard', tag: 'Analytics' },
+        { title: 'Multi-Channel Campaigns', tag: 'Marketing' },
+        { title: 'AI Support Agent', tag: 'Chatbots' },
+        { title: 'Custom Integrations', tag: 'Software' },
+      ],
+    },
     testimonials: {
       tag: 'Loved by operators', t1: 'Trusted by', tg: 'ambitious teams',
       items: [
@@ -276,7 +303,7 @@ const CONTENT: Record<Lang, Content> = {
 
   /* ------------------------------- العربية ------------------------------ */
   ar: {
-    nav: ['الخدمات', 'النتائج', 'آلية العمل', 'دراسات الحالة', 'الأسعار', 'الأسئلة'],
+    nav: ['الخدمات', 'النتائج', 'معرض', 'آلية العمل', 'دراسات الحالة', 'الأسعار', 'الأسئلة'],
     bookCall: 'احجز مكالمة',
     hero: {
       badge: 'نمو الموقع • التسويق • المبيعات',
@@ -331,6 +358,19 @@ const CONTENT: Record<Lang, Content> = {
         { summary: 'استبدال التواصل اليدوي بمحرّك عملاء بالذكاء الاصطناعي وتوجيه CRM تلقائي.', labels: ['نمو الإيرادات', 'عملاء / شهر', 'دورة البيع'], suffix: ['%', '', '% أسرع'] },
         { summary: 'بناء تدفقات تسويق مؤتمتة ووكلاء دعم بالذكاء عبر المسار.', labels: ['العائد على الإنفاق', 'تكلفة الدعم', 'التحويل'], suffix: ['x', '% أقل', 'x'] },
         { summary: 'أتمتة الاستقبال والجدولة والمتابعة بوكلاء ذكاء متوافقين مع الخصوصية.', labels: ['الحجوزات', 'عدم الحضور', 'ساعات إدارية'], suffix: ['%', '% أقل', '+ موفّرة'] },
+      ],
+    },
+    showcase: {
+      tag: 'أعمال مختارة', t1: 'لمحة عمّا', tg: 'نبنيه',
+      sub: 'تصفّح القوس — اسحب أو انقر أو استخدم الأسهم للتنقّل بين مشاريعنا.',
+      cta: 'استعرض المشروع',
+      items: [
+        { title: 'محرّك العملاء بالذكاء', tag: 'أتمتة' },
+        { title: 'موقع عالي التحويل', tag: 'تصميم الويب' },
+        { title: 'لوحة نمو فورية', tag: 'تحليلات' },
+        { title: 'حملات متعددة القنوات', tag: 'تسويق' },
+        { title: 'وكيل دعم بالذكاء', tag: 'روبوتات' },
+        { title: 'تكاملات مخصّصة', tag: 'برمجيات' },
       ],
     },
     testimonials: {
@@ -560,7 +600,7 @@ function Nav() {
   const { t } = useLang();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const ids = ['services', 'features', 'process', 'cases', 'pricing', 'faq'];
+  const ids = ['services', 'features', 'showcase', 'process', 'cases', 'pricing', 'faq'];
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
@@ -1057,6 +1097,272 @@ function CaseMetric({ label, to, decimals = 0, suffix = '' }: { label: string; t
 }
 
 /* ------------------------------------------------------------------ */
+/* Showcase — interactive curved carousel of abstract brand visuals    */
+/* ------------------------------------------------------------------ */
+type Motif = 'orbits' | 'rings' | 'bars' | 'waves' | 'nodes' | 'blobs';
+
+const SHOWCASE_ICONS = [Bot, Globe, LineChart, Workflow, MessageSquare, Code2];
+const SHOWCASE_VISUALS: { from: string; to: string; accent: string; motif: Motif }[] = [
+  { from: PALETTE.blue,   to: PALETTE.cyan,   accent: PALETTE.sky,    motif: 'orbits' },
+  { from: PALETTE.violet, to: PALETTE.blue,   accent: PALETTE.sky,    motif: 'rings' },
+  { from: PALETTE.cyan,   to: PALETTE.blue2,  accent: PALETTE.violet, motif: 'bars' },
+  { from: PALETTE.blue2,  to: PALETTE.violet, accent: PALETTE.cyan,   motif: 'waves' },
+  { from: PALETTE.sky,    to: PALETTE.blue,   accent: PALETTE.violet, motif: 'nodes' },
+  { from: PALETTE.blue,   to: PALETTE.violet, accent: PALETTE.sky,    motif: 'blobs' },
+];
+
+const NODE_PTS = [[60, 90], [155, 60], [255, 110], [95, 205], [205, 215], [140, 305], [262, 285]];
+const NODE_EDGES = [[0, 1], [1, 2], [0, 3], [1, 4], [3, 4], [3, 5], [4, 5], [4, 6], [2, 6]];
+const BAR_HEIGHTS = [120, 180, 96, 214, 150, 244, 168];
+
+/** A self-contained abstract cover graphic in the brand palette (no photos needed). */
+function AbstractCover({ index }: { index: number }) {
+  const v = SHOWCASE_VISUALS[index];
+  const gid = `sc-grad-${index}`;
+  const rid = `sc-rad-${index}`;
+  const a = v.accent;
+  return (
+    <svg viewBox="0 0 320 400" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 h-full w-full" aria-hidden>
+      <defs>
+        <linearGradient id={gid} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor={v.from} />
+          <stop offset="1" stopColor={v.to} />
+        </linearGradient>
+        <radialGradient id={rid} cx="0.28" cy="0.18" r="0.95">
+          <stop offset="0" stopColor="#ffffff" stopOpacity="0.4" />
+          <stop offset="0.55" stopColor="#ffffff" stopOpacity="0" />
+        </radialGradient>
+      </defs>
+      <rect width="320" height="400" fill={`url(#${gid})`} />
+      <rect width="320" height="400" fill={`url(#${rid})`} />
+
+      {v.motif === 'orbits' && (
+        <>
+          {[60, 108, 158, 208].map((r, k) => (
+            <ellipse key={k} cx="160" cy="180" rx={r} ry={r * 0.82} fill="none" stroke="#ffffff" strokeOpacity={0.3 - k * 0.05} strokeWidth="1.4" />
+          ))}
+          <circle cx="160" cy="36" r="7" fill={a} />
+          <circle cx="42" cy="182" r="5" fill="#ffffff" fillOpacity="0.85" />
+          <circle cx="276" cy="214" r="6" fill={a} />
+        </>
+      )}
+
+      {v.motif === 'rings' && (
+        <>
+          {[0, 1, 2, 3].map((k) => {
+            const r = 72 + k * 46;
+            return <path key={k} d={`M ${160 - r} 224 A ${r} ${r} 0 0 1 ${160 + r} 224`} fill="none" stroke="#ffffff" strokeOpacity={0.36 - k * 0.06} strokeWidth="1.8" strokeLinecap="round" />;
+          })}
+          <circle cx="160" cy="224" r="11" fill={a} />
+        </>
+      )}
+
+      {v.motif === 'bars' && (
+        <>
+          {BAR_HEIGHTS.map((h, k) => (
+            <rect key={k} x={28 + k * 40} y={324 - h} width="22" height={h} rx="9" fill="#ffffff" fillOpacity={0.16 + k * 0.035} />
+          ))}
+          <circle cx={28 + 5 * 40 + 11} cy={324 - 244 - 14} r="7" fill={a} />
+        </>
+      )}
+
+      {v.motif === 'waves' && (
+        <>
+          {[0, 1, 2].map((k) => {
+            const y = 150 + k * 56;
+            return <path key={k} d={`M -10 ${y} C 70 ${y - 46}, 150 ${y + 46}, 230 ${y - 30} S 380 ${y + 18}, 430 ${y}`} fill="none" stroke="#ffffff" strokeOpacity={0.32 - k * 0.07} strokeWidth="2" />;
+          })}
+          <path d="M -10 132 C 70 86, 150 178, 230 116 S 380 152, 430 132" fill="none" stroke={a} strokeOpacity="0.7" strokeWidth="2.4" />
+        </>
+      )}
+
+      {v.motif === 'nodes' && (
+        <>
+          {NODE_EDGES.map(([p, q], k) => (
+            <line key={k} x1={NODE_PTS[p][0]} y1={NODE_PTS[p][1]} x2={NODE_PTS[q][0]} y2={NODE_PTS[q][1]} stroke="#ffffff" strokeOpacity="0.28" strokeWidth="1.2" />
+          ))}
+          {NODE_PTS.map(([x, y], k) => (
+            <circle key={k} cx={x} cy={y} r={k % 3 === 0 ? 8 : 5} fill={k % 3 === 0 ? a : '#ffffff'} fillOpacity={k % 3 === 0 ? 1 : 0.85} />
+          ))}
+        </>
+      )}
+
+      {v.motif === 'blobs' && (
+        <>
+          <ellipse cx="96" cy="138" rx="124" ry="104" fill="#ffffff" fillOpacity="0.12" />
+          <ellipse cx="244" cy="288" rx="116" ry="92" fill={a} fillOpacity="0.28" />
+          <circle cx="214" cy="116" r="48" fill="#ffffff" fillOpacity="0.16" />
+          <circle cx="120" cy="300" r="30" fill="#ffffff" fillOpacity="0.14" />
+        </>
+      )}
+    </svg>
+  );
+}
+
+const wrapIndex = (i: number, n: number) => ((i % n) + n) % n;
+function signedOffset(i: number, active: number, n: number) {
+  let o = ((i - active) % n + n) % n;
+  if (o > n / 2) o -= n;
+  return o;
+}
+
+/** Responsive geometry for the arc stage. */
+function useStageConfig() {
+  const [w, setW] = useState(() => (typeof window !== 'undefined' ? window.innerWidth : 1200));
+  useEffect(() => {
+    const onResize = () => setW(window.innerWidth);
+    window.addEventListener('resize', onResize, { passive: true });
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+  return w < 640
+    ? { cardW: 178, cardH: 236, radiusX: 250, radiusY: 132, angle: 24, rot: 7, stageH: 360 }
+    : { cardW: 280, cardH: 360, radiusX: 560, radiusY: 224, angle: 19, rot: 8, stageH: 520 };
+}
+
+function Showcase() {
+  const { t } = useLang();
+  const reduce = useReducedMotion();
+  const cfg = useStageConfig();
+  const items = t.showcase.items;
+  const n = items.length;
+
+  const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const next = () => setActive((a) => wrapIndex(a + 1, n));
+  const prev = () => setActive((a) => wrapIndex(a - 1, n));
+
+  // Gentle autoplay; pauses on hover and when the user prefers reduced motion.
+  useEffect(() => {
+    if (reduce || paused) return;
+    const id = setInterval(() => setActive((a) => wrapIndex(a + 1, n)), 4500);
+    return () => clearInterval(id);
+  }, [reduce, paused, n]);
+
+  // Pointer swipe — distinguishes a drag from a tap so card clicks still work.
+  const startX = useRef<number | null>(null);
+  const moved = useRef(false);
+  const onPointerDown = (e: React.PointerEvent) => { startX.current = e.clientX; moved.current = false; };
+  const onPointerMove = (e: React.PointerEvent) => {
+    if (startX.current !== null && Math.abs(e.clientX - startX.current) > 8) moved.current = true;
+  };
+  const onPointerUp = (e: React.PointerEvent) => {
+    if (startX.current === null) return;
+    const dx = e.clientX - startX.current;
+    startX.current = null;
+    if (Math.abs(dx) > 50) (dx < 0 ? next : prev)();
+  };
+
+  const spring = reduce ? { duration: 0 } : { type: 'spring' as const, stiffness: 240, damping: 30 };
+
+  return (
+    <section id="showcase" className="relative overflow-hidden bg-[#05070f] py-24 sm:py-32">
+      <div className="ai-animated-bg absolute inset-0 -z-10 opacity-40" />
+      <div className="ai-grid absolute inset-0 -z-10 opacity-[0.1]" />
+      <div className="container-custom relative">
+        <Reveal className="mx-auto max-w-2xl text-center">
+          <SectionTag>{t.showcase.tag}</SectionTag>
+          <h2 className="mt-5 text-3xl font-black tracking-tighter text-white sm:text-5xl">
+            {t.showcase.t1} <GradientText>{t.showcase.tg}</GradientText>
+          </h2>
+          <p className="mt-4 text-lg text-white/55">{t.showcase.sub}</p>
+        </Reveal>
+
+        <div className="relative mt-14 sm:mt-20">
+          {/* soft glow behind the front card */}
+          <div className="pointer-events-none absolute left-1/2 top-1/2 -z-0 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl" style={{ background: GRAD, opacity: 0.22 }} />
+
+          {/* arc stage */}
+          <div
+            className="relative mx-auto cursor-grab touch-pan-y select-none active:cursor-grabbing"
+            style={{ height: cfg.stageH, perspective: 1200 }}
+            role="group"
+            aria-roledescription="carousel"
+            aria-label={t.showcase.tag}
+            tabIndex={0}
+            onPointerDown={onPointerDown}
+            onPointerMove={onPointerMove}
+            onPointerUp={onPointerUp}
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
+            onKeyDown={(e) => { if (e.key === 'ArrowRight') next(); else if (e.key === 'ArrowLeft') prev(); }}
+          >
+            {items.map((item, i) => {
+              const off = signedOffset(i, active, n);
+              const abs = Math.abs(off);
+              const rad = (off * cfg.angle * Math.PI) / 180;
+              const x = Math.sin(rad) * cfg.radiusX;
+              const y = -(1 - Math.cos(rad)) * cfg.radiusY;
+              const isActive = off === 0;
+              const Icon = SHOWCASE_ICONS[i % SHOWCASE_ICONS.length];
+              return (
+                <motion.button
+                  key={i}
+                  type="button"
+                  onClick={() => { if (!moved.current) setActive(i); }}
+                  className="absolute left-1/2 top-1/2 origin-center overflow-hidden rounded-[1.75rem] border border-white/10 text-start shadow-[0_30px_80px_-30px_rgba(37,99,235,0.7)] will-change-transform focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/70"
+                  style={{ width: cfg.cardW, height: cfg.cardH, marginLeft: -cfg.cardW / 2, marginTop: -cfg.cardH / 2, zIndex: 100 - Math.round(abs * 10) }}
+                  animate={{ x, y, rotateZ: off * cfg.rot, scale: Math.max(0.55, 1 - abs * 0.14), opacity: abs > 2.5 ? 0 : 1 - abs * 0.16, filter: `blur(${abs * 1.3}px)` }}
+                  transition={spring}
+                  aria-label={`${item.title} — ${item.tag}`}
+                  aria-hidden={abs > 2.5}
+                  tabIndex={isActive ? 0 : -1}
+                >
+                  <AbstractCover index={i} />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#05070f]/90 via-[#05070f]/10 to-transparent" />
+                  <div className="absolute inset-x-0 top-0 flex items-start justify-between p-4">
+                    <span className="grid h-10 w-10 place-items-center rounded-xl text-white shadow-lg" style={{ background: GRAD }}>
+                      <Icon size={20} />
+                    </span>
+                  </div>
+                  <div className="absolute inset-x-0 bottom-0 p-5">
+                    <span className="inline-block rounded-full border border-white/20 bg-white/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.15em] text-white/85 backdrop-blur">{item.tag}</span>
+                    <h3 className="mt-2 text-lg font-bold leading-tight text-white">{item.title}</h3>
+                    <AnimatePresence>
+                      {isActive && (
+                        <motion.span
+                          initial={{ opacity: 0, y: 6 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 6 }}
+                          className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-sky-300"
+                        >
+                          {t.showcase.cta} <ArrowRight size={14} className="rtl:rotate-180" />
+                        </motion.span>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                </motion.button>
+              );
+            })}
+          </div>
+
+          {/* controls */}
+          <div className="mt-10 flex items-center justify-center gap-5">
+            <button onClick={prev} aria-label="Previous" className="grid h-11 w-11 place-items-center rounded-full border border-white/15 bg-white/5 text-white/80 transition-colors hover:bg-white/10 hover:text-white">
+              <ChevronLeft size={20} className="rtl:rotate-180" />
+            </button>
+            <div className="flex items-center gap-2">
+              {items.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setActive(i)}
+                  aria-label={`Go to slide ${i + 1}`}
+                  aria-current={i === active}
+                  className="h-2.5 rounded-full transition-all duration-300"
+                  style={i === active ? { width: 28, background: GRAD } : { width: 10, background: 'rgba(255,255,255,0.25)' }}
+                />
+              ))}
+            </div>
+            <button onClick={next} aria-label="Next" className="grid h-11 w-11 place-items-center rounded-full border border-white/15 bg-white/5 text-white/80 transition-colors hover:bg-white/10 hover:text-white">
+              <ChevronRight size={20} className="rtl:rotate-180" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------------ */
 /* Testimonials                                                        */
 /* ------------------------------------------------------------------ */
 function Testimonials() {
@@ -1293,7 +1599,7 @@ function Contact() {
 /* ------------------------------------------------------------------ */
 function SiteFooter() {
   const { t } = useLang();
-  const ids = ['services', 'features', 'process', 'cases', 'pricing', 'faq'];
+  const ids = ['services', 'features', 'showcase', 'process', 'cases', 'pricing', 'faq'];
   return (
     <footer className="border-t border-white/10 bg-[#05070f] py-14">
       <div className="container-custom">
@@ -1409,6 +1715,7 @@ export default function App() {
           <Hero />
           <Services />
           <Features />
+          <Showcase />
           <Process />
           <CaseStudies />
           <Testimonials />
