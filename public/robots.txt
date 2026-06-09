@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://offertewestrik.github.io/nexora-growth-website/sitemap.xml
