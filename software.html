@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Software — Next Growth</title>
+  <meta name="description" content="NG/OS: acht modules, één suite. Offertes, dashboards, facturatie, klantportaal en meer — op maat gebouwd, jouw eigendom.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Crect width='18' height='18' rx='4' fill='%23C9A45F'/%3E%3Cpath d='M5 13V5l8 8V5' stroke='%230A0A0B' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./assets/fonts.css">
+  <link rel="stylesheet" href="./assets/core.css">
+  <style>
+    /* ---------- hero ---------- */
+    .hero {
+      position: relative;
+      padding: calc(60px + clamp(3.5rem, 9vh, 6.5rem)) 0 clamp(3.5rem, 8vh, 5.5rem);
+      overflow: clip;
+      text-align: center;
+    }
+    .hero::before {
+      content: "";
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, black 30%, transparent 75%);
+      -webkit-mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, black 30%, transparent 75%);
+      opacity: .5;
+      pointer-events: none;
+    }
+    .hero .glow-field { top: -6rem; left: 50%; transform: translateX(-50%); }
+    .hero__in { position: relative; }
+    .hero .pill { margin-bottom: 1.6rem; }
+    .hero .h1 { max-width: 16ch; margin-inline: auto; }
+    .hero .lede { margin: 1.4rem auto 0; }
+    .hero__actions { display: flex; gap: .8rem; justify-content: center; flex-wrap: wrap; margin-top: 2.2rem; }
+    .hero__note { margin-top: 1.1rem; font-size: .8rem; color: var(--text-3); }
+
+    /* ---------- module-strip ---------- */
+    .module-strip {
+      display: flex; flex-wrap: wrap; gap: .6rem;
+      margin-bottom: clamp(3rem, 7vh, 4.5rem);
+    }
+    .module-strip .pill b { color: var(--text); font-weight: 600; margin-right: .1rem; }
+    .module-strip .pill--actief { border-color: rgba(201,164,95,.4); background: var(--accent-dim); color: var(--text); }
+
+    /* ---------- feature-secties ---------- */
+    .feature {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: clamp(2rem, 5vw, 4.5rem);
+      align-items: center;
+    }
+    .feature + .feature { margin-top: clamp(4.5rem, 10vh, 7rem); padding-top: clamp(4.5rem, 10vh, 7rem); border-top: 1px solid var(--line); }
+    .feature--flip .feature__copy { order: 2; }
+    @media (max-width: 900px) {
+      .feature { grid-template-columns: 1fr; }
+      .feature--flip .feature__copy { order: 0; }
+    }
+    .feature__copy .eyebrow { margin-bottom: .9rem; }
+    .feature__copy h3 {
+      font-size: clamp(1.6rem, 3vw, 2.3rem);
+      font-weight: 700; letter-spacing: -.03em; line-height: 1.12;
+      margin-bottom: .9rem;
+    }
+    .feature__punten { margin-top: 1.4rem; display: grid; gap: .7rem; }
+    .feature__punten li { display: flex; gap: .7rem; align-items: baseline; font-size: .92rem; }
+    .feature__punten svg { flex: none; transform: translateY(2px); }
+    .feature__ui { position: relative; min-width: 0; }
+    .feature__ui .glow-field { width: 100%; top: 20%; left: 0; opacity: .18; }
+    .feature__ui .app { position: relative; }
+    .tbl-scroll { overflow-x: auto; }
+
+    /* app-knoppen (decoratief, binnen mockups) */
+    .app-btn {
+      display: inline-flex; align-items: center; gap: .35rem;
+      padding: .3rem .7rem;
+      border: 1px solid var(--line-strong); border-radius: 7px;
+      font-size: .7rem; font-weight: 600; color: var(--text-2);
+      white-space: nowrap;
+    }
+    .app-btn--prim { background: var(--accent-strong); border-color: transparent; color: #052016; }
+
+    /* vector: offerte-detail */
+    .off-kop { display: flex; align-items: center; gap: .7rem; flex-wrap: wrap; }
+    .off-kop h4 { margin-right: auto; }
+    .off-totaal td { border-bottom: 0 !important; }
+    .off-totaal td:first-child { color: var(--text-2); font-weight: 500; }
+    .off-totaal--eind td { color: var(--text) !important; font-weight: 700; }
+    .vec-tijdlijn {
+      display: flex; flex-wrap: wrap; gap: .5rem 0;
+      align-items: center;
+      padding: .8rem .9rem;
+      background: var(--bg); border: 1px solid var(--line); border-radius: 9px;
+      font-size: .72rem;
+    }
+    .vec-stap { display: inline-flex; align-items: center; gap: .45rem; color: var(--text-2); white-space: nowrap; }
+    .vec-stap .mono { color: var(--text-3); }
+    .vec-lijn { flex: 1; min-width: 14px; height: 1px; background: var(--line-strong); margin-inline: .6rem; }
+
+    /* pulse: staafdiagram-labels */
+    .bars-panel { background: var(--bg); border: 1px solid var(--line); border-radius: 9px; padding: .8rem .9rem; min-width: 0; }
+    .bars-panel h5 { font-size: .74rem; font-weight: 600; color: var(--text-2); margin-bottom: .7rem; display: flex; gap: .5rem; }
+    .bars-panel h5 .mono { margin-left: auto; color: var(--text-3); }
+    .bars-labels { display: flex; gap: 5px; margin-top: .4rem; }
+    .bars-labels span { flex: 1; min-width: 4px; text-align: center; font-family: var(--mono); font-size: .56rem; color: var(--text-3); }
+
+    /* portal: klant-view */
+    .portal-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 1rem; min-width: 0; }
+    @media (max-width: 720px) { .portal-grid { grid-template-columns: 1fr; } }
+    .portal-panel { background: var(--bg); border: 1px solid var(--line); border-radius: 9px; padding: .8rem .9rem; min-width: 0; }
+    .portal-panel h5 { font-size: .74rem; font-weight: 600; color: var(--text-2); margin-bottom: .7rem; }
+    .portal-stappen { display: grid; gap: .55rem; font-size: .74rem; }
+    .portal-stappen li { display: flex; align-items: baseline; gap: .55rem; }
+    .portal-stappen .dot { flex: none; transform: translateY(-1px); }
+    .portal-stappen .t { margin-left: auto; font-family: var(--mono); font-size: .62rem; color: var(--text-3); white-space: nowrap; }
+    .portal-docs { display: grid; gap: .45rem; font-size: .72rem; }
+    .portal-docs li { display: flex; align-items: center; gap: .5rem; padding: .4rem .55rem; border: 1px solid var(--line); border-radius: 7px; color: var(--text-2); }
+    .portal-docs svg { flex: none; color: var(--text-3); }
+    .portal-docs .mono { margin-left: auto; color: var(--text-3); }
+    .portal-bericht { display: flex; gap: .55rem; align-items: flex-start; font-size: .72rem; }
+    .portal-bericht + .portal-bericht { margin-top: .6rem; }
+    .portal-bericht .bubble { background: var(--bg-raise-2); border: 1px solid var(--line); border-radius: 9px; padding: .45rem .65rem; }
+    .portal-bericht .bubble .mono { color: var(--text-3); display: block; margin-top: .2rem; }
+
+    /* ---------- plan & flow: compacte duo-rij ---------- */
+    .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 880px) { .duo { grid-template-columns: 1fr; } }
+    .duo-kaart { padding: 1.4rem; display: grid; gap: 1rem; align-content: start; }
+    .duo-kaart .eyebrow { font-size: .7rem; }
+    .duo-kaart h3 { font-size: 1.15rem; letter-spacing: -.02em; }
+    .duo-kaart > p { font-size: .9rem; margin-top: -.6rem; }
+    .mini-app { background: var(--bg); border: 1px solid var(--line); border-radius: 9px; padding: .8rem .9rem; font-size: .74rem; }
+    .plan-rij { display: flex; align-items: center; gap: .6rem; padding: .45rem 0; border-bottom: 1px solid var(--line); }
+    .plan-rij:last-child { border-bottom: 0; }
+    .plan-rij .mono { color: var(--text-3); width: 5.2em; flex: none; }
+    .plan-rij b { color: var(--text); font-weight: 600; }
+    .plan-rij .badge { margin-left: auto; }
+    .flow-mini { display: grid; gap: .45rem; }
+    .flow-mini li { display: flex; align-items: center; gap: .55rem; color: var(--text-2); }
+    .flow-mini .icon {
+      width: 22px; height: 22px; border-radius: 6px; flex: none;
+      display: grid; place-items: center;
+      background: var(--accent-dim); color: var(--accent);
+    }
+    .flow-mini .t { margin-left: auto; font-family: var(--mono); font-size: .62rem; color: var(--text-3); }
+    .flow-mini .lijntje { width: 1px; height: 10px; background: var(--line-strong); margin-left: 11px; }
+
+    /* ---------- zo bouwen we ---------- */
+    .stappen { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(1.4rem, 3vw, 2.5rem); }
+    @media (max-width: 880px) { .stappen { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 520px) { .stappen { grid-template-columns: 1fr; } }
+    .stap { border-top: 1px solid var(--line-strong); padding-top: 1.1rem; }
+    .stap .mono { color: var(--accent); }
+    .stap h3 { font-size: 1.05rem; letter-spacing: -.02em; margin: .5rem 0 .4rem; }
+    .stap p { font-size: .88rem; }
+
+    /* ---------- eigendom & fundament ---------- */
+    .eigendom { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.4rem, 3vw, 2.5rem); }
+    @media (max-width: 880px) { .eigendom { grid-template-columns: 1fr; } }
+    .eigendom-punt { border-top: 1px solid var(--line-strong); padding-top: 1.1rem; }
+    .eigendom-punt h3 { font-size: 1.05rem; letter-spacing: -.02em; margin-bottom: .4rem; }
+    .eigendom-punt p { font-size: .88rem; }
+    .stack-regel {
+      margin-top: clamp(2.5rem, 6vh, 3.5rem);
+      padding: 1rem 1.4rem;
+      border: 1px solid var(--line); border-radius: 999px;
+      display: flex; justify-content: center; align-items: center; gap: .6rem;
+      flex-wrap: wrap;
+      color: var(--text-3); text-align: center;
+      background: rgba(255,255,255,.02);
+    }
+    .config-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 1.2rem;
+      align-items: start;
+    }
+    @media (max-width: 900px) { .config-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Direct naar inhoud</a>
+  <header class="nav" id="nav">
+    <div class="nav__in wrap">
+      <a class="nav__logo" href="./index.html" aria-label="Next Growth — home">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect width="18" height="18" rx="4" fill="#C9A45F"/><path d="M5 13V5l8 8V5" stroke="#0A0A0B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Next Growth
+      </a>
+      <nav class="nav__links" id="navLinks" aria-label="Hoofdmenu">
+        <a href="./software.html" aria-current="page">Software</a>
+        <a href="./websites.html">Websites</a>
+        <a href="./marketing.html">Marketing</a>
+        <a href="./seo.html">SEO</a>
+        <a href="./ai.html">AI</a>
+        <a href="./crm.html">CRM</a>
+        <a href="./prijzen.html">Prijzen</a>
+        <a href="./cases.html">Cases</a>
+      </nav>
+      <div class="nav__cta">
+        <a class="btn btn--ghost btn--sm" href="./contact.html">Contact</a>
+        <a class="btn btn--sm nav__demo" href="./contact.html">Plan strategiegesprek</a>
+      </div>
+      <button class="nav__burger" id="navBurger" aria-expanded="false" aria-controls="navLinks" aria-label="Menu"><i></i><i></i></button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-label="Introductie">
+      <div class="glow-field" aria-hidden="true"></div>
+      <div class="wrap hero__in">
+        <span class="pill" data-reveal><span class="dot dot--ok"></span>NG/OS 4.0 — acht modules, &eacute;&eacute;n suite</span>
+        <h1 class="h1" data-reveal style="--i:1">De suite die met je <span class="grad-text">meegroeit</span>.</h1>
+        <p class="lede" data-reveal style="--i:2">Geen standaardpakket dat je bedrijf in een mal duwt. NG/OS wordt gebouwd rond jouw proces — en groeit mee als dat proces verandert.</p>
+        <div class="hero__actions" data-reveal style="--i:3">
+          <a class="btn" href="./contact.html">Plan strategiegesprek</a>
+          <a class="btn btn--ghost" href="./cases.html">Bekijk resultaten</a>
+        </div>
+        <p class="hero__note" data-reveal style="--i:4">Live in weken, niet maanden &middot; Broncode is jouw eigendom</p>
+      </div>
+    </section>
+
+    <!-- ============ ACHT MODULES ============ -->
+    <section class="sectie" aria-label="Acht modules">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <p class="eyebrow" data-reveal>NG/OS</p>
+          <h2 class="h2" data-reveal style="--i:1">Acht modules. E&eacute;n geheugen.</h2>
+          <p data-reveal style="--i:2">Elke module deelt dezelfde data. Een getekende offerte wordt vanzelf een project, een factuur en een dashboardcijfer.</p>
+        </div>
+
+        <div class="module-strip" data-reveal aria-hidden="true">
+          <span class="pill"><b>Atlas</b> CRM</span>
+          <span class="pill pill--actief"><b>Vector</b> Offertes</span>
+          <span class="pill"><b>Pulse</b> Dashboards</span>
+          <span class="pill"><b>Flow</b> Automatisering</span>
+          <span class="pill"><b>Sage</b> AI-agents</span>
+          <span class="pill"><b>Ledger</b> Facturatie</span>
+          <span class="pill"><b>Portal</b> Klantportaal</span>
+          <span class="pill"><b>Plan</b> Planning</span>
+        </div>
+
+        <!-- ===== VECTOR ===== -->
+        <div class="feature">
+          <div class="feature__copy">
+            <p class="eyebrow" data-reveal><span class="dot dot--ok"></span>Vector — Offertes</p>
+            <h3 data-reveal style="--i:1">Van aanvraag tot handtekening.</h3>
+            <p data-reveal style="--i:2">Offertes met je eigen regelprijzen, digitaal tekenen en live inzicht in wie wat opent. Geen Word-document meer de deur uit.</p>
+            <ul class="feature__punten">
+              <li data-reveal style="--i:3"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Regelbibliotheek met jouw posten en marges</li>
+              <li data-reveal style="--i:4"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Digitaal tekenen, rechtsgeldig en direct in Atlas</li>
+              <li data-reveal style="--i:5"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Getekend? Dan staat de factuur al klaar in Ledger</li>
+            </ul>
+          </div>
+          <div class="feature__ui" data-reveal style="--i:2">
+            <div class="glow-field" aria-hidden="true"></div>
+            <div class="app" role="img" aria-label="Vector-offertescherm met regeltabel, totalen en status-tijdlijn tot en met ondertekening">
+              <div class="app-chrome"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="route">app.nextgrowth.nl/vector/OFF-2489</span></div>
+              <div class="app-main" aria-hidden="true">
+                <div class="off-kop">
+                  <h4>OFF-2489 — De Wit Bouwgroep</h4>
+                  <span class="badge badge--ok">Getekend</span>
+                  <span class="app-btn"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M5 21h14"/></svg>Download PDF</span>
+                  <span class="app-btn app-btn--prim"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>Naar Ledger</span>
+                </div>
+                <div class="tbl-scroll">
+                  <table class="tbl">
+                    <thead><tr><th>Post</th><th>Aantal</th><th>Prijs</th><th>Totaal</th><th>BTW</th></tr></thead>
+                    <tbody>
+                      <tr><td>Prefab dakelementen Rc 6,0</td><td class="num">12 st</td><td class="num">&euro; 1.450</td><td class="num">&euro; 17.400</td><td class="num">21%</td></tr>
+                      <tr><td>Montage incl. kraan</td><td class="num">2 dgn</td><td class="num">&euro; 2.800</td><td class="num">&euro; 5.600</td><td class="num">21%</td></tr>
+                      <tr><td>Isolatiepakket &amp; afwerking</td><td class="num">1</td><td class="num">&euro; 3.150</td><td class="num">&euro; 3.150</td><td class="num">21%</td></tr>
+                      <tr><td>Transport &amp; levering</td><td class="num">1</td><td class="num">&euro; 650</td><td class="num">&euro; 650</td><td class="num">21%</td></tr>
+                      <tr class="off-totaal"><td colspan="3">Subtotaal</td><td class="num">&euro; 26.800</td><td></td></tr>
+                      <tr class="off-totaal"><td colspan="3">BTW 21%</td><td class="num">&euro; 5.628</td><td></td></tr>
+                      <tr class="off-totaal off-totaal--eind"><td colspan="3">Totaal</td><td class="num">&euro; 32.428</td><td></td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="vec-tijdlijn">
+                  <span class="vec-stap"><span class="dot dot--ok"></span>Concept <span class="mono">12 jun</span></span>
+                  <span class="vec-lijn"></span>
+                  <span class="vec-stap"><span class="dot dot--ok"></span>Verstuurd <span class="mono">13 jun 09:12</span></span>
+                  <span class="vec-lijn"></span>
+                  <span class="vec-stap"><span class="dot dot--ok"></span>3&times; geopend <span class="mono">laatst 16 jun</span></span>
+                  <span class="vec-lijn"></span>
+                  <span class="vec-stap"><span class="dot dot--ok"></span>Getekend <span class="mono">17 jun 14:06</span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== PULSE ===== -->
+        <div class="feature feature--flip">
+          <div class="feature__copy">
+            <p class="eyebrow" data-reveal><span class="dot dot--ok"></span>Pulse — Dashboards</p>
+            <h3 data-reveal style="--i:1">Sturen op cijfers van nu.</h3>
+            <p data-reveal style="--i:2">Omzet, bezetting en scoringspercentage per team en per maand — live uit je eigen data, niet uit een export van vorige week.</p>
+            <ul class="feature__punten">
+              <li data-reveal style="--i:3"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Elk cijfer klikbaar tot op de onderliggende offerte</li>
+              <li data-reveal style="--i:4"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Eigen weergave per rol: directie, planning, buitendienst</li>
+              <li data-reveal style="--i:5"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Weekrapport automatisch in je mailbox, elke maandag 07:00</li>
+            </ul>
+          </div>
+          <div class="feature__ui" data-reveal style="--i:2">
+            <div class="glow-field" aria-hidden="true"></div>
+            <div class="app" role="img" aria-label="Pulse-teamdashboard met omzet per maand en prestaties per medewerker">
+              <div class="app-chrome"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="route">app.nextgrowth.nl/pulse/team</span></div>
+              <div class="app-main" aria-hidden="true">
+                <div class="app-kpis">
+                  <div class="app-kpi"><span>Omzet Q3</span><b>&euro; 1,24M</b><span class="delta">&#9650; 9,8% vs Q2</span></div>
+                  <div class="app-kpi"><span>Offerte &rarr; opdracht</span><b>41%</b><span class="delta">&#9650; 4,2%</span></div>
+                  <div class="app-kpi"><span>Bezettingsgraad</span><b>87%</b><span class="delta">&#9650; 3 teams vol</span></div>
+                  <div class="app-kpi"><span>Gem. projectmarge</span><b>23,4%</b><span class="delta">&#9650; 1,1%</span></div>
+                </div>
+                <div class="bars-panel">
+                  <h5>Omzet per maand <span class="mono">2026</span></h5>
+                  <div class="bars">
+                    <i style="--v:38"></i><i style="--v:44"></i><i style="--v:41"></i><i style="--v:52"></i><i style="--v:58"></i><i style="--v:63"></i><i style="--v:71"></i><i class="dim" style="--v:66"></i><i class="dim" style="--v:74"></i><i class="dim" style="--v:79"></i><i class="dim" style="--v:72"></i><i class="dim" style="--v:84"></i>
+                  </div>
+                  <div class="bars-labels"><span>jan</span><span>feb</span><span>mrt</span><span>apr</span><span>mei</span><span>jun</span><span>jul</span><span>aug</span><span>sep</span><span>okt</span><span>nov</span><span>dec</span></div>
+                </div>
+                <div class="tbl-scroll">
+                  <table class="tbl">
+                    <thead><tr><th>Medewerker</th><th>Offertes</th><th>Omzet YTD</th><th>Score</th><th>Status</th></tr></thead>
+                    <tbody>
+                      <tr><td><span class="avatar">JW</span> Jeroen Willems</td><td class="num">64</td><td class="num">&euro; 412.600</td><td class="num">46%</td><td><span class="badge badge--ok">Op koers</span></td></tr>
+                      <tr><td><span class="avatar avatar--b">SB</span> Sanne Bakker</td><td class="num">51</td><td class="num">&euro; 348.100</td><td class="num">39%</td><td><span class="badge badge--ok">Op koers</span></td></tr>
+                      <tr><td><span class="avatar avatar--c">TH</span> Thomas Hendriks</td><td class="num">43</td><td class="num">&euro; 296.400</td><td class="num">33%</td><td><span class="badge badge--warn">Opvolgen</span></td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== LEDGER ===== -->
+        <div class="feature">
+          <div class="feature__copy">
+            <p class="eyebrow" data-reveal><span class="dot dot--ok"></span>Ledger — Facturatie</p>
+            <h3 data-reveal style="--i:1">Sneller betaald, zonder bellen.</h3>
+            <p data-reveal style="--i:2">Facturen ontstaan uit getekende offertes. Herinneringen gaan vanzelf. De gemiddelde betaaltermijn daalt van 31 naar 12,4 dagen.</p>
+            <ul class="feature__punten">
+              <li data-reveal style="--i:3"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Termijnfacturen en deelopleveringen ingebouwd</li>
+              <li data-reveal style="--i:4"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Automatische herinneringen op dag 14, 21 en 30</li>
+              <li data-reveal style="--i:5"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Koppelt met je boekhouding — geen dubbel invoeren</li>
+            </ul>
+          </div>
+          <div class="feature__ui" data-reveal style="--i:2">
+            <div class="glow-field" aria-hidden="true"></div>
+            <div class="app" role="img" aria-label="Ledger-facturenoverzicht met cashflow-cijfers en betaalstatussen">
+              <div class="app-chrome"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="route">app.nextgrowth.nl/ledger</span></div>
+              <div class="app-main" aria-hidden="true">
+                <div class="app-kpis">
+                  <div class="app-kpi"><span>Gem. betaaltermijn</span><b>12,4 dgn</b><span class="delta">&#9660; was 31 dagen</span></div>
+                  <div class="app-kpi"><span>Openstaand</span><b>&euro; 86.300</b><span class="delta">&#9660; 8 facturen</span></div>
+                  <div class="app-kpi"><span>Gefactureerd juli</span><b>&euro; 214.500</b><span class="delta">&#9650; 11,2%</span></div>
+                  <div class="app-kpi"><span>Automatisch herinnerd</span><b>34</b><span class="delta">&#9650; 0 min handwerk</span></div>
+                </div>
+                <div class="tbl-scroll">
+                  <table class="tbl">
+                    <thead><tr><th>Nr</th><th>Klant</th><th>Bedrag</th><th>Vervalt</th><th>Status</th></tr></thead>
+                    <tbody>
+                      <tr><td class="num">F-0934</td><td>De Wit Bouwgroep</td><td class="num">&euro; 32.428</td><td class="num">24 jul</td><td><span class="badge badge--ok">Betaald</span></td></tr>
+                      <tr><td class="num">F-0933</td><td>Vermeer Interieurs</td><td class="num">&euro; 18.760</td><td class="num">21 jul</td><td><span class="badge badge--ok">Betaald</span></td></tr>
+                      <tr><td class="num">F-0932</td><td>Peeters Techniek</td><td class="num">&euro; 41.750</td><td class="num">18 jul</td><td><span class="badge badge--warn">Open</span></td></tr>
+                      <tr><td class="num">F-0931</td><td>Hofman &amp; Zn</td><td class="num">&euro; 6.150</td><td class="num">12 jul</td><td><span class="badge badge--warn">Open</span></td></tr>
+                      <tr><td class="num">F-0928</td><td>Bakker Installaties</td><td class="num">&euro; 9.840</td><td class="num">28 jun</td><td><span class="badge badge--danger">Verlopen</span></td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== PORTAL ===== -->
+        <div class="feature feature--flip">
+          <div class="feature__copy">
+            <p class="eyebrow" data-reveal><span class="dot dot--ok"></span>Portal — Klantportaal</p>
+            <h3 data-reveal style="--i:1">Je klant kijkt live mee.</h3>
+            <p data-reveal style="--i:2">Projectstatus, documenten en berichten op &eacute;&eacute;n plek — in jouw huisstijl. De vraag &ldquo;hoe staat het ervoor?&rdquo; verdwijnt uit je mailbox.</p>
+            <ul class="feature__punten">
+              <li data-reveal style="--i:3"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Statusupdates gaan automatisch vanuit Plan</li>
+              <li data-reveal style="--i:4"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Offertes tekenen en facturen betalen in het portaal</li>
+              <li data-reveal style="--i:5"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Berichten komen binnen in Atlas, bij de juiste relatie</li>
+            </ul>
+          </div>
+          <div class="feature__ui" data-reveal style="--i:2">
+            <div class="glow-field" aria-hidden="true"></div>
+            <div class="app" role="img" aria-label="Portal-klantportaal met projectstatus, documenten en berichten">
+              <div class="app-chrome"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="route">portal.vandijk-installaties.nl/project-1042</span></div>
+              <div class="app-main" aria-hidden="true">
+                <div class="off-kop">
+                  <h4>Project 1042 — Dakrenovatie Lindenlaan 14</h4>
+                  <span class="badge badge--ok">In productie</span>
+                </div>
+                <div class="portal-grid">
+                  <div class="portal-panel">
+                    <h5>Projectstatus</h5>
+                    <ul class="portal-stappen">
+                      <li><span class="dot dot--ok"></span>Offerte getekend<span class="t">17 jun</span></li>
+                      <li><span class="dot dot--ok"></span>Inmeting op locatie<span class="t">24 jun</span></li>
+                      <li><span class="dot dot--ok"></span>Productie gestart<span class="t">1 jul</span></li>
+                      <li><span class="dot dot--warn"></span>Montage ingepland<span class="t">28 jul</span></li>
+                      <li><span class="dot"></span>Oplevering &amp; nazorg<span class="t">aug</span></li>
+                    </ul>
+                    <h5 style="margin-top:1rem">Berichten</h5>
+                    <div class="portal-bericht">
+                      <span class="avatar">MV</span>
+                      <div class="bubble">De elementen liggen op schema. Montage start maandag 28 juli om 07:30.<span class="mono">gisteren 16:20</span></div>
+                    </div>
+                    <div class="portal-bericht">
+                      <span class="avatar avatar--c">DW</span>
+                      <div class="bubble">Top, wij zorgen dat de oprit vrij is.<span class="mono">gisteren 17:04</span></div>
+                    </div>
+                  </div>
+                  <div class="portal-panel">
+                    <h5>Documenten</h5>
+                    <ul class="portal-docs">
+                      <li><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5"/></svg>Offerte OFF-2489.pdf<span class="mono">17 jun</span></li>
+                      <li><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Werkplanning juli.pdf<span class="mono">2 jul</span></li>
+                      <li><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>Factuur F-0934 — termijn 1<span class="mono">3 jul</span></li>
+                    </ul>
+                    <h5 style="margin-top:1rem">Uw contactpersoon</h5>
+                    <div class="portal-bericht">
+                      <span class="avatar">MV</span>
+                      <div class="bubble"><b style="color:var(--text)">Mark van Dijk</b> — projectleider<span class="mono">reactie binnen 4 uur</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ PLAN & FLOW ============ -->
+    <section class="sectie" aria-label="Plan en Flow">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <p class="eyebrow" data-reveal>En de rest van de suite</p>
+          <h2 class="h2" data-reveal style="--i:1">Plannen en automatiseren, ingebouwd.</h2>
+        </div>
+        <div class="duo">
+          <div class="card duo-kaart" data-reveal>
+            <p class="eyebrow"><span class="dot dot--ok"></span>Plan — Planning</p>
+            <h3>Teams, materieel en montages in &eacute;&eacute;n agenda.</h3>
+            <p>Sleep een getekende offerte de planning in — Portal informeert de klant vanzelf.</p>
+            <div class="mini-app" aria-hidden="true">
+              <div class="plan-rij"><span class="mono">ma 28 jul</span><span><b>Montage De Wit</b> — team A</span><span class="badge badge--ok">Ingepland</span></div>
+              <div class="plan-rij"><span class="mono">di 29 jul</span><span><b>Inmeting Hofman</b> — Jeroen</span><span class="badge badge--ok">Ingepland</span></div>
+              <div class="plan-rij"><span class="mono">wo 30 jul</span><span><b>Service Vermeer</b> — team B</span><span class="badge badge--warn">Wacht op klant</span></div>
+              <div class="plan-rij"><span class="mono">do 31 jul</span><span><b>Kraan gereserveerd</b> — 07:00</span><span class="badge badge--muted">Materieel</span></div>
+            </div>
+          </div>
+          <div class="card duo-kaart" data-reveal style="--i:1">
+            <p class="eyebrow"><span class="dot dot--ok"></span>Flow — Automatisering</p>
+            <h3>Repeterend werk verdwijnt uit de agenda.</h3>
+            <p>126 automatiseringen actief bij een gemiddeld bedrijf — 31 uur handwerk per week terug.</p>
+            <div class="mini-app" aria-hidden="true">
+              <ul class="flow-mini">
+                <li><span class="icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg></span>Aanvraag binnen &rarr; relatie in Atlas<span class="t">00:04</span></li>
+                <li class="lijntje" aria-hidden="true"></li>
+                <li><span class="icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3l1.7 4.6L18 9.3l-4.3 1.7L12 15.6l-1.7-4.6L6 9.3l4.3-1.7z"/></svg></span>Sage maakt offerte-concept<span class="t">02:31</span></li>
+                <li class="lijntje" aria-hidden="true"></li>
+                <li><span class="icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg></span>Na akkoord: versturen + opvolging dag 3<span class="t">04:12</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ZO BOUWEN WE ============ -->
+    <section class="sectie" aria-label="Live product">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <p class="eyebrow" data-reveal><span class="dot dot--ok"></span>Live product</p>
+          <h2 class="h2" data-reveal style="--i:1">Offerte in 2 minuten. Gefilmd, niet beloofd.</h2>
+          <p data-reveal style="--i:2">Zo werkt het op Installatieplatform — een platform dat op NG/OS draait: live voorbeeld tijdens het invullen, automatische btw, direct te versturen.</p>
+        </div>
+        <figure class="bewijs" data-reveal>
+          <div class="app">
+            <div class="app-chrome">
+              <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="route">installatieplatform.nl</span>
+              <span class="badge badge--ok">Live</span>
+            </div>
+            <video data-autoplay muted loop playsinline preload="metadata" poster="./assets/media/installatieplatform-offerte-poster.jpg" aria-label="Offerte maken in twee minuten op Installatieplatform">
+              <source src="./assets/media/installatieplatform-offerte.mp4" type="video/mp4">
+            </video>
+          </div>
+          <figcaption><span class="dot dot--ok" aria-hidden="true"></span>Installatieplatform — offertemodule in productie &middot; 0:23</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="sectie" aria-label="Configurators">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <p class="eyebrow" data-reveal><span class="dot dot--ok"></span>Configurators</p>
+          <h2 class="h2" data-reveal style="--i:1">Configurators die <em>leads kwalificeren.</em></h2>
+          <p data-reveal style="--i:2">Van vier vragen tot een richtprijs en een warme lead in het systeem — vier configurators zoals ze nu live draaien.</p>
+        </div>
+        <div class="config-grid">
+          <figure class="bewijs" data-reveal>
+            <div class="app">
+              <div class="app-chrome">
+                <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="route">installatieplatform.nl/keuzehulp</span>
+                <span class="badge badge--ok">Live</span>
+              </div>
+              <video controls playsinline preload="metadata" poster="./assets/media/configurators-poster.jpg" aria-label="Keuzehulpen voor warmtepompen en zonnepanelen op Installatieplatform">
+                <source src="./assets/media/configurators.mp4" type="video/mp4">
+              </video>
+            </div>
+            <figcaption><span class="dot dot--ok" aria-hidden="true"></span>Installatieplatform — keuzehulpen warmtepomp &amp; zonnepanelen, met advies op maat &middot; 1:51 &middot; <a href="https://installatieplatform.nl" target="_blank" rel="noopener">Bekijk live op installatieplatform.nl <span aria-hidden="true">&#8599;</span></a></figcaption>
+          </figure>
+          <figure class="bewijs" data-reveal style="--i:1">
+            <div class="app">
+              <div class="app-chrome">
+                <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="route">luckyzonwering.nl/configurator</span>
+                <span class="badge badge--ok">Live</span>
+              </div>
+              <video data-autoplay muted loop playsinline preload="metadata" poster="./assets/media/lucky-configurator-poster.jpg" aria-label="Productconfigurator van Lucky Zonwering: stel uw zonwering samen">
+                <source src="./assets/media/lucky-configurator.mp4" type="video/mp4">
+              </video>
+            </div>
+            <figcaption><span class="dot dot--ok" aria-hidden="true"></span>Lucky Zonwering — productconfigurator: maat, kleur, bediening &rarr; directe richtprijs &middot; 0:38</figcaption>
+          </figure>
+        </div>
+        <div class="config-grid" style="margin-top:1.2rem">
+          <figure class="bewijs" data-reveal>
+            <div class="app">
+              <div class="app-chrome">
+                <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="route">prefabselect.nl/configurator/uitbouw</span>
+                <span class="badge badge--ok">Live</span>
+              </div>
+              <video controls playsinline preload="metadata" poster="./assets/media/config-uitbouw-poster.jpg" aria-label="Prefab Select premium configurator voor een uitbouw">
+                <source src="./assets/media/config-uitbouw.mp4" type="video/mp4">
+              </video>
+            </div>
+            <figcaption><span class="dot dot--ok" aria-hidden="true"></span>Prefab Select — uitbouw op maat: afmetingen, afwerking, kozijnen &amp; doorbraak &middot; 0:52</figcaption>
+          </figure>
+          <figure class="bewijs" data-reveal style="--i:1">
+            <div class="app">
+              <div class="app-chrome">
+                <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="route">prefabselect.nl/configurator/poolhouse</span>
+                <span class="badge badge--ok">Live</span>
+              </div>
+              <video data-autoplay muted loop playsinline preload="metadata" poster="./assets/media/config-poolhouse-poster.jpg" aria-label="Prefab Select premium configurator voor een poolhouse">
+                <source src="./assets/media/config-poolhouse.mp4" type="video/mp4">
+              </video>
+            </div>
+            <figcaption><span class="dot dot--ok" aria-hidden="true"></span>Prefab Select — poolhouse: 3D-preview, buiten- &amp; binnenafwerking, veranda &middot; 0:58</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="sectie" aria-label="Zo bouwen we">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <p class="eyebrow" data-reveal>Werkwijze</p>
+          <h2 class="h2" data-reveal style="--i:1">Zo bouwen we.</h2>
+          <p data-reveal style="--i:2">Vier stappen. De eerste module staat live binnen weken, niet maanden.</p>
+        </div>
+        <div class="stappen">
+          <div class="stap" data-reveal>
+            <span class="mono">01</span>
+            <h3>Doorgronden</h3>
+            <p>We lopen mee in je bedrijf en brengen elk proces, elke Excel en elke ergernis in kaart.</p>
+          </div>
+          <div class="stap" data-reveal style="--i:1">
+            <span class="mono">02</span>
+            <h3>Ontwerpen</h3>
+            <p>Klikbare schermen van jouw systeem, met jouw data. Je ziet het voordat we bouwen.</p>
+          </div>
+          <div class="stap" data-reveal style="--i:2">
+            <span class="mono">03</span>
+            <h3>Bouwen</h3>
+            <p>Sprints van twee weken. Elke sprint eindigt met werkende software in jouw handen.</p>
+          </div>
+          <div class="stap" data-reveal style="--i:3">
+            <span class="mono">04</span>
+            <h3>Verweven</h3>
+            <p>Datamigratie, koppelingen en training. Het oude systeem gaat pas uit als het nieuwe draait.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EIGENDOM & FUNDAMENT ============ -->
+    <section class="sectie" aria-label="Eigendom en fundament">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <p class="eyebrow" data-reveal>Eigendom &amp; fundament</p>
+          <h2 class="h2" data-reveal style="--i:1">Jouw systeem. Echt van jou.</h2>
+        </div>
+        <div class="eigendom">
+          <div class="eigendom-punt" data-reveal>
+            <h3>De broncode is van jou</h3>
+            <p>Geen vendor lock-in. Alles wat we bouwen staat op jouw naam, inclusief documentatie.</p>
+          </div>
+          <div class="eigendom-punt" data-reveal style="--i:1">
+            <h3>Draait waar jij wilt</h3>
+            <p>Op jouw infrastructuur of op de onze — verhuizen kan altijd, zonder herbouw.</p>
+          </div>
+          <div class="eigendom-punt" data-reveal style="--i:2">
+            <h3>Geen licentie per stoel</h3>
+            <p>Tien of honderd gebruikers: de prijs verandert niet. Groei wordt niet afgestraft.</p>
+          </div>
+        </div>
+        <p class="stack-regel mono" data-reveal style="--i:3">TypeScript &middot; PostgreSQL &middot; EU-hosting &middot; dagelijkse backups &middot; 99,9% uptime</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot__cta">
+      <h2 data-reveal>Klaar om het systeem te zien?</h2>
+      <p data-reveal style="--i:1">Een demo van 30 minuten. Uw cijfers, onze software.</p>
+      <div class="foot__actions" data-reveal style="--i:2">
+        <a class="btn" href="./contact.html">Plan strategiegesprek</a>
+        <a class="btn btn--ghost" href="./cases.html">Bekijk resultaten</a>
+      </div>
+    </div>
+    <div class="wrap foot__grid">
+      <div>
+        <p class="foot__brand">Next Growth</p>
+        <p class="mono foot__meta">Digitale bedrijfssystemen<br>hallo@nextgrowth.nl</p>
+      </div>
+      <nav aria-label="Product"><h3 class="mono">Product</h3>
+        <a href="./software.html">Software</a><a href="./crm.html">CRM</a><a href="./ai.html">AI</a>
+      </nav>
+      <nav aria-label="Diensten"><h3 class="mono">Diensten</h3>
+        <a href="./websites.html">Websites</a><a href="./marketing.html">Marketing</a><a href="./seo.html">SEO</a><a href="./prijzen.html">Prijzen</a>
+      </nav>
+      <nav aria-label="Bedrijf"><h3 class="mono">Bedrijf</h3>
+        <a href="./cases.html">Cases</a><a href="./contact.html">Contact</a>
+      </nav>
+      <nav aria-label="Live werk"><h3 class="mono">Live werk</h3>
+        <a href="https://installatieplatform.nl" target="_blank" rel="noopener">Installatieplatform.nl <span aria-hidden="true">&#8599;</span></a>
+        <a href="https://www.westrikbouw-installaties.nl" target="_blank" rel="noopener">Westrikbouw-installaties.nl <span aria-hidden="true">&#8599;</span></a>
+      </nav>
+    </div>
+    <div class="wrap foot__base mono">&copy; MMXXVI Next Growth — Alle systemen operationeel <span class="dot dot--ok" aria-hidden="true"></span></div>
+  </footer>
+  <script src="./assets/core.js" defer></script>
+</body>
+</html>

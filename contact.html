@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Next Growth</title>
+  <meta name="description" content="Plan een demo van 30 minuten. Jouw cijfers, onze software — geen verkooppraatje. Antwoord binnen één werkdag.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Crect width='18' height='18' rx='4' fill='%23C9A45F'/%3E%3Cpath d='M5 13V5l8 8V5' stroke='%230A0A0B' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./assets/fonts.css">
+  <link rel="stylesheet" href="./assets/core.css">
+  <style>
+    /* ---------- hero ---------- */
+    .hero {
+      position: relative;
+      padding: calc(60px + clamp(3rem, 8vh, 5.5rem)) 0 clamp(2.5rem, 6vh, 4rem);
+      overflow: clip;
+      text-align: center;
+    }
+    .hero::before {
+      content: "";
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, black 30%, transparent 75%);
+      -webkit-mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, black 30%, transparent 75%);
+      opacity: .5;
+      pointer-events: none;
+    }
+    .hero .glow-field { top: -6rem; left: 50%; transform: translateX(-50%); }
+    .hero__in { position: relative; }
+    .hero .pill { margin-bottom: 1.6rem; }
+    .hero .h1 { max-width: 14ch; margin-inline: auto; }
+    .hero .lede { margin: 1.2rem auto 0; }
+
+    /* ---------- contact-grid ---------- */
+    .contact { border-top: 0; padding-top: clamp(1rem, 3vh, 2rem); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: clamp(1.5rem, 4vw, 3.5rem);
+      align-items: start;
+    }
+    @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } }
+
+    /* ---------- formulier ---------- */
+    .form-kaart { padding: clamp(1.5rem, 4vw, 2.4rem); }
+    .form-kop {
+      display: flex; align-items: center; gap: .6rem;
+      margin-bottom: 1.4rem;
+      padding-bottom: 1.1rem;
+      border-bottom: 1px solid var(--line);
+      font-family: var(--mono); font-size: .64rem;
+      text-transform: uppercase; letter-spacing: .1em;
+      color: var(--text-3);
+    }
+    .form-kop .dot { transform: translateY(0); }
+    .form-kaart form { display: grid; gap: 1.15rem; }
+    .veld { display: grid; gap: .45rem; }
+    .veld > label {
+      font-size: .8rem; font-weight: 600;
+      color: var(--text); letter-spacing: -.01em;
+      transition: color .18s var(--ease);
+    }
+    .veld:focus-within > label { color: var(--accent); }
+    .veld input,
+    .veld textarea {
+      width: 100%;
+      padding: .68rem .85rem;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--text);
+      font: inherit;
+      font-size: .92rem;
+      transition: border-color .18s var(--ease), box-shadow .18s var(--ease);
+    }
+    .veld input::placeholder,
+    .veld textarea::placeholder { color: var(--text-3); }
+    .veld input:hover:not(:focus),
+    .veld textarea:hover:not(:focus) { border-color: var(--line-strong); }
+    .veld input:focus,
+    .veld textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-dim);
+    }
+    /* autofill op donker: voorkom witte vlakken */
+    .veld input:-webkit-autofill,
+    .veld input:-webkit-autofill:hover,
+    .veld input:-webkit-autofill:focus {
+      -webkit-text-fill-color: var(--text);
+      -webkit-box-shadow: 0 0 0 40px var(--bg) inset;
+      caret-color: var(--text);
+      transition: background-color 9999s ease-out;
+    }
+    /* pas rood tonen als het veld verlaten is, niet tijdens het typen */
+    .veld input:not(:focus):not(:placeholder-shown):invalid,
+    .veld textarea:not(:focus):not(:placeholder-shown):invalid {
+      border-color: rgba(248, 113, 113, .5);
+    }
+    .veld textarea { min-height: 120px; resize: vertical; }
+    .veld .hint { font-size: .72rem; color: var(--text-3); }
+    .veld-rij { display: grid; grid-template-columns: 1fr 1fr; gap: 1.15rem; }
+    @media (max-width: 620px) { .veld-rij { grid-template-columns: 1fr; } }
+
+    fieldset.veld { border: 0; }
+    fieldset.veld legend {
+      font-size: .8rem; font-weight: 600;
+      color: var(--text); letter-spacing: -.01em;
+      padding: 0; margin-bottom: .55rem;
+    }
+    .radio-pills { display: flex; gap: .5rem; flex-wrap: wrap; }
+    .radio-pill { position: relative; cursor: pointer; }
+    .radio-pill input {
+      position: absolute; inset: 0;
+      opacity: 0; margin: 0; cursor: pointer;
+    }
+    .radio-pill span {
+      display: inline-flex; align-items: center;
+      padding: .45rem 1rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .03);
+      font-size: .84rem; font-weight: 500; color: var(--text-2);
+      transition: border-color .18s var(--ease), color .18s var(--ease), background .18s var(--ease);
+    }
+    .radio-pill:hover span { border-color: var(--line-strong); }
+    .radio-pill input:checked + span {
+      background: var(--accent-dim);
+      border-color: rgba(201,164,95, .4);
+      color: var(--accent);
+    }
+    .radio-pill input:focus-visible + span {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+    .form-verstuur { width: 100%; margin-top: .25rem; }
+    .form-noot { font-size: .76rem; color: var(--text-3); text-align: center; }
+
+    /* ---------- rechterkolom ---------- */
+    .verwacht {
+      display: grid; gap: 1.7rem;
+      align-content: start;
+      min-width: 0;
+      position: sticky; top: calc(60px + 1.5rem);
+    }
+    @media (max-width: 900px) { .verwacht { position: static; } }
+    .verwacht h2 { font-size: 1.15rem; letter-spacing: -.02em; }
+    .stappen { display: grid; }
+    .stap {
+      display: flex; gap: 1rem; align-items: flex-start;
+      padding-block: 1.05rem;
+    }
+    .stap + .stap { border-top: 1px solid var(--line); }
+    .stap .nr {
+      font-family: var(--mono); font-size: .66rem;
+      color: var(--accent);
+      text-transform: uppercase; letter-spacing: .1em;
+      white-space: nowrap;
+      padding-top: .25rem;
+      min-width: 4.2rem;
+    }
+    .stap b { display: block; color: var(--text); font-weight: 600; font-size: .92rem; }
+    .stap p { font-size: .85rem; margin-top: .15rem; }
+
+    .direct-kaart { padding: 1.4rem 1.5rem; display: grid; gap: .35rem; }
+    .direct-kaart h3 { font-size: .82rem; font-weight: 600; color: var(--text-2); }
+    .direct-kaart .mail {
+      font-size: clamp(1.15rem, 2vw, 1.4rem);
+      font-weight: 700; letter-spacing: -.02em;
+      color: var(--text); text-decoration: none;
+      transition: color .18s var(--ease);
+      word-break: break-word;
+    }
+    .direct-kaart .mail:hover { color: var(--accent); }
+    .direct-kaart .mono { color: var(--text-3); }
+    .direct-kaart .status {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: .55rem;
+      font-family: var(--mono); font-size: .64rem; color: var(--text-3);
+    }
+
+    .zekerheden { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .zekerheden li {
+      display: inline-flex; align-items: center; gap: .45rem;
+      padding: .32rem .75rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-family: var(--mono); font-size: .66rem; color: var(--text-3);
+      white-space: nowrap;
+    }
+    .zekerheden .dot { transform: translateY(0); }
+
+    /* ---------- social proof ---------- */
+    .proof { text-align: center; }
+    .proof .regel { margin-top: 1.5rem; font-size: .84rem; color: var(--text-3); }
+    .proof .regel b { color: var(--text-2); font-weight: 600; }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Direct naar inhoud</a>
+  <header class="nav" id="nav">
+    <div class="nav__in wrap">
+      <a class="nav__logo" href="./index.html" aria-label="Next Growth — home">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect width="18" height="18" rx="4" fill="#C9A45F"/><path d="M5 13V5l8 8V5" stroke="#0A0A0B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Next Growth
+      </a>
+      <nav class="nav__links" id="navLinks" aria-label="Hoofdmenu">
+        <a href="./software.html">Software</a>
+        <a href="./websites.html">Websites</a>
+        <a href="./marketing.html">Marketing</a>
+        <a href="./seo.html">SEO</a>
+        <a href="./ai.html">AI</a>
+        <a href="./crm.html">CRM</a>
+        <a href="./prijzen.html">Prijzen</a>
+        <a href="./cases.html">Cases</a>
+      </nav>
+      <div class="nav__cta">
+        <a class="btn btn--ghost btn--sm" href="./contact.html" aria-current="page">Contact</a>
+        <a class="btn btn--sm nav__demo" href="./contact.html">Plan strategiegesprek</a>
+      </div>
+      <button class="nav__burger" id="navBurger" aria-expanded="false" aria-controls="navLinks" aria-label="Menu"><i></i><i></i></button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-label="Introductie">
+      <div class="glow-field" aria-hidden="true"></div>
+      <div class="wrap hero__in">
+        <p class="pill" data-reveal><span class="dot dot--ok"></span>Antwoord binnen &eacute;&eacute;n werkdag</p>
+        <h1 class="h1" data-reveal style="--i:1">Plan een <span class="grad-text">demo</span>.</h1>
+        <p class="lede" data-reveal style="--i:2">30 minuten. Jouw cijfers, onze software. Geen verkooppraatje.</p>
+      </div>
+    </section>
+
+    <!-- ============ FORMULIER + VERWACHTING ============ -->
+    <section class="sectie contact" aria-label="Plan een demo">
+      <div class="wrap contact-grid">
+
+        <div class="g-border form-kaart" data-reveal>
+          <p class="form-kop"><span class="dot dot--ok" aria-hidden="true"></span>Demo-aanvraag &middot; 5 velden &middot; 1 minuut</p>
+          <form action="mailto:hallo@nextgrowth.nl" method="post" enctype="text/plain" aria-label="Demo-aanvraag">
+            <div class="veld">
+              <label for="bedrijf">Bedrijf</label>
+              <input type="text" id="bedrijf" name="bedrijf" placeholder="Van Dijk Installaties" autocomplete="organization" required>
+            </div>
+            <div class="veld">
+              <label for="naam">Naam</label>
+              <input type="text" id="naam" name="naam" placeholder="Voor- en achternaam" autocomplete="name" required>
+            </div>
+            <div class="veld-rij">
+              <div class="veld">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="jij@bedrijf.nl" autocomplete="email" required>
+              </div>
+              <div class="veld">
+                <label for="telefoon">Telefoon</label>
+                <input type="tel" id="telefoon" name="telefoon" placeholder="06 12 34 56 78" autocomplete="tel" required>
+                <span class="hint">Alleen voor het inplannen van de demo.</span>
+              </div>
+            </div>
+            <div class="veld">
+              <label for="vastloop">Waar loopt het vast?</label>
+              <textarea id="vastloop" name="waar_loopt_het_vast" placeholder="Bijvoorbeeld: aanvragen blijven liggen, twaalf spreadsheets, niemand ziet de cijfers&hellip;" required></textarea>
+              <span class="hint">Twee zinnen is genoeg — de rest halen we op in het gesprek.</span>
+            </div>
+            <fieldset class="veld">
+              <legend>Wanneer?</legend>
+              <div class="radio-pills">
+                <label class="radio-pill">
+                  <input type="radio" name="wanneer" value="Deze week" checked>
+                  <span>Deze week</span>
+                </label>
+                <label class="radio-pill">
+                  <input type="radio" name="wanneer" value="Volgende week">
+                  <span>Volgende week</span>
+                </label>
+                <label class="radio-pill">
+                  <input type="radio" name="wanneer" value="Geen haast">
+                  <span>Geen haast</span>
+                </label>
+              </div>
+            </fieldset>
+            <input type="hidden" name="bron" value="contact-pagina">
+            <button class="btn form-verstuur" type="submit">Verstuur — antwoord binnen 1 werkdag</button>
+            <p class="form-noot">Je gegevens blijven bij ons. Geen nieuwsbrief, geen belrondes.</p>
+          </form>
+        </div>
+
+        <div class="verwacht">
+          <div data-reveal style="--i:1">
+            <h2>Wat je kunt verwachten</h2>
+            <ol class="stappen">
+              <li class="stap">
+                <span class="nr">Dag 1</span>
+                <div>
+                  <b>Gesprek van 30 minuten</b>
+                  <p>We kijken naar jouw proces en cijfers — live, in onze software.</p>
+                </div>
+              </li>
+              <li class="stap">
+                <span class="nr">Week 1</span>
+                <div>
+                  <b>Schriftelijke analyse</b>
+                  <p>Concreet plan met aanpak, doorlooptijd en prijs. Zwart op wit.</p>
+                </div>
+              </li>
+              <li class="stap">
+                <span class="nr">Daarna</span>
+                <div>
+                  <b>Livegang in weken</b>
+                  <p>Niet maanden. Migratie, inrichting en training inbegrepen.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+          <div class="card direct-kaart" data-reveal style="--i:2">
+            <h3>Liever mailen?</h3>
+            <a class="mail" href="mailto:hallo@nextgrowth.nl">hallo@nextgrowth.nl</a>
+            <span class="mono">antwoord binnen &eacute;&eacute;n werkdag &middot; ma&ndash;vr</span>
+            <span class="status"><span class="dot dot--ok" aria-hidden="true"></span>Inbox wordt vandaag nog gelezen</span>
+          </div>
+          <ul class="zekerheden" data-reveal style="--i:3">
+            <li><span class="dot dot--ok" aria-hidden="true"></span>EU-hosting</li>
+            <li><span class="dot dot--ok" aria-hidden="true"></span>Jouw eigendom</li>
+            <li><span class="dot dot--ok" aria-hidden="true"></span>Geen licentie per stoel</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ SOCIAL PROOF ============ -->
+    <section class="sectie proof" aria-label="Klanten">
+      <div class="wrap">
+        <ul class="logo-row" data-reveal>
+          <li>VAN DIJK</li>
+          <li>De Wit Bouwgroep</li>
+          <li>PEETERS&middot;TECHNIEK</li>
+          <li>Hofman &amp; Zn</li>
+          <li>VERMEER</li>
+          <li>Bakker Installaties</li>
+        </ul>
+        <p class="regel" data-reveal style="--i:1">Gemiddeld <b>4 minuten reactietijd</b> en <b>31 uur handwerk per week terug</b> — gemeten in lopende systemen.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot__cta">
+      <h2 data-reveal>Klaar om het systeem te zien?</h2>
+      <p data-reveal style="--i:1">Een demo van 30 minuten. Uw cijfers, onze software.</p>
+      <div class="foot__actions" data-reveal style="--i:2">
+        <a class="btn" href="./contact.html">Plan strategiegesprek</a>
+        <a class="btn btn--ghost" href="./cases.html">Bekijk resultaten</a>
+      </div>
+    </div>
+    <div class="wrap foot__grid">
+      <div>
+        <p class="foot__brand">Next Growth</p>
+        <p class="mono foot__meta">Digitale bedrijfssystemen<br>hallo@nextgrowth.nl</p>
+      </div>
+      <nav aria-label="Product"><h3 class="mono">Product</h3>
+        <a href="./software.html">Software</a><a href="./crm.html">CRM</a><a href="./ai.html">AI</a>
+      </nav>
+      <nav aria-label="Diensten"><h3 class="mono">Diensten</h3>
+        <a href="./websites.html">Websites</a><a href="./marketing.html">Marketing</a><a href="./seo.html">SEO</a><a href="./prijzen.html">Prijzen</a>
+      </nav>
+      <nav aria-label="Bedrijf"><h3 class="mono">Bedrijf</h3>
+        <a href="./cases.html">Cases</a><a href="./contact.html">Contact</a>
+      </nav>
+      <nav aria-label="Live werk"><h3 class="mono">Live werk</h3>
+        <a href="https://installatieplatform.nl" target="_blank" rel="noopener">Installatieplatform.nl <span aria-hidden="true">&#8599;</span></a>
+        <a href="https://www.westrikbouw-installaties.nl" target="_blank" rel="noopener">Westrikbouw-installaties.nl <span aria-hidden="true">&#8599;</span></a>
+      </nav>
+    </div>
+    <div class="wrap foot__base mono">&copy; MMXXVI Next Growth — Alle systemen operationeel <span class="dot dot--ok" aria-hidden="true"></span></div>
+  </footer>
+  <script src="./assets/core.js" defer></script>
+</body>
+</html>

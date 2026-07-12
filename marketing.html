@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marketing — Next Growth</title>
+  <meta name="description" content="Marketing die zich terugverdient, aantoonbaar. Elke klik herleidbaar tot een getekende offerte — Google Ads, Meta, SEO en attributie in één dashboard.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Crect width='18' height='18' rx='4' fill='%23C9A45F'/%3E%3Cpath d='M5 13V5l8 8V5' stroke='%230A0A0B' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./assets/fonts.css">
+  <link rel="stylesheet" href="./assets/core.css">
+  <style>
+    /* ---------- hero ---------- */
+    .hero {
+      position: relative;
+      padding: calc(60px + clamp(3.5rem, 9vh, 6.5rem)) 0 0;
+      overflow: clip;
+      text-align: center;
+    }
+    .hero .glow-field { top: -7rem; left: 50%; transform: translateX(-50%); }
+    .hero__in { position: relative; }
+    .hero .pill { margin-bottom: 1.6rem; }
+    .hero .h1 { max-width: 17ch; margin-inline: auto; }
+    .hero .lede { margin: 1.4rem auto 0; }
+    .hero__actions { display: flex; gap: .8rem; justify-content: center; flex-wrap: wrap; margin-top: 2.2rem; }
+    .hero__note { margin-top: 1.1rem; font-size: .8rem; color: var(--text-3); }
+    .hero__app {
+      position: relative;
+      margin-top: clamp(3rem, 7vh, 5rem);
+      text-align: left;
+    }
+    .hero__app .glow-field { top: -3rem; left: 50%; transform: translateX(-50%); opacity: .35; }
+    .hero__app .app { position: relative; }
+    .hero__fade {
+      position: absolute; inset: auto 0 0 0; height: 26%;
+      background: linear-gradient(transparent, var(--bg));
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* campagne-dashboard */
+    .camp-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 1rem; min-width: 0; }
+    @media (max-width: 900px) { .camp-grid { grid-template-columns: 1fr; } }
+    .camp-panel { background: var(--bg); border: 1px solid var(--line); border-radius: 9px; padding: .8rem .9rem; min-width: 0; }
+    .camp-panel h5 { font-size: .74rem; font-weight: 600; color: var(--text-2); margin-bottom: .6rem; display: flex; align-items: center; gap: .5rem; }
+    .camp-panel h5 .mono { margin-left: auto; color: var(--text-3); }
+    .camp-lijst { display: grid; gap: .55rem; font-size: .74rem; }
+    .camp-lijst li { display: flex; align-items: center; gap: .55rem; }
+    .camp-lijst .naam { color: var(--text-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .camp-lijst .m-bar { flex: 1; height: 4px; min-width: 30px; border-radius: 2px; background: rgba(255,255,255,.07); overflow: hidden; }
+    .camp-lijst .m-bar i { display: block; height: 100%; border-radius: 2px; background: linear-gradient(90deg, rgba(201,164,95,.5), var(--accent)); }
+    .camp-lijst .v { font-family: var(--mono); font-size: .62rem; color: var(--text-3); white-space: nowrap; }
+    .tbl-scroll { overflow-x: auto; }
+
+    /* funnel-strip */
+    .funnel { display: flex; align-items: stretch; gap: .5rem; }
+    .funnel__fase { flex: 1; min-width: 0; display: grid; gap: .1rem; align-content: start; padding: .55rem .65rem; background: var(--bg-raise); border: 1px solid var(--line); border-radius: 8px; }
+    .funnel__fase .f-label { font-family: var(--mono); font-size: .58rem; text-transform: uppercase; letter-spacing: .08em; color: var(--text-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .funnel__fase b { font-size: .98rem; font-weight: 700; color: var(--text); letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+    .funnel__fase .f-pct { font-family: var(--mono); font-size: .58rem; color: var(--accent); }
+    .funnel__pijl { align-self: center; flex: none; color: var(--text-3); }
+    @media (max-width: 640px) { .funnel { flex-wrap: wrap; } .funnel__fase { flex: 1 1 40%; } .funnel__pijl { display: none; } }
+
+    /* weekbalken */
+    .weekbars .bars { height: 64px; margin-top: .4rem; }
+    .weekbars .as { display: flex; justify-content: space-between; margin-top: .4rem; font-family: var(--mono); font-size: .56rem; color: var(--text-3); }
+
+    /* ---------- herleidbaar: 3 stappen ---------- */
+    .spoor { display: grid; grid-template-columns: 6fr 6fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+    @media (max-width: 900px) { .spoor { grid-template-columns: 1fr; } }
+    .spoor__stappen { display: grid; }
+    .spoor__stap {
+      position: relative;
+      padding: 1.2rem 0 1.2rem 2.2rem;
+      border-left: 1px solid var(--line-strong);
+    }
+    .spoor__stap:first-child { padding-top: .2rem; }
+    .spoor__stap:last-child { padding-bottom: .2rem; }
+    .spoor__stap::before {
+      content: "";
+      position: absolute; left: -5px; top: 1.55rem;
+      width: 9px; height: 9px; border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--glow);
+    }
+    .spoor__stap:first-child::before { top: .55rem; }
+    .spoor__stap .mono { color: var(--text-3); }
+    .spoor__stap h3 { font-size: 1.1rem; font-weight: 600; letter-spacing: -.02em; margin: .35rem 0 .3rem; }
+    .spoor__stap p { font-size: .9rem; }
+    .spoor__ui { position: relative; min-width: 0; }
+    .spoor__ui .glow-field { width: 100%; top: 20%; left: 0; opacity: .18; }
+    .spoor__ui .app { position: relative; }
+
+    /* lead-record fragment */
+    .lead-velden { display: grid; gap: .55rem; }
+    .lead-veld {
+      display: flex; align-items: center; gap: .8rem;
+      padding: .55rem .75rem;
+      background: var(--bg); border: 1px solid var(--line); border-radius: 8px;
+      font-size: .76rem;
+    }
+    .lead-veld .k { font-family: var(--mono); font-size: .62rem; text-transform: uppercase; letter-spacing: .08em; color: var(--text-3); width: 6.5em; flex: none; }
+    .lead-veld .w { color: var(--text); font-weight: 500; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .lead-veld .badge { margin-left: auto; }
+
+    /* ---------- wat we doen: 2-koloms lijst ---------- */
+    .diensten { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
+    @media (max-width: 720px) { .diensten { grid-template-columns: 1fr; } }
+    .dienst {
+      display: grid; gap: .3rem;
+      padding: 1.4rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .diensten .dienst:nth-child(odd) { padding-right: clamp(1rem, 4vw, 3rem); }
+    .diensten .dienst:nth-child(even) { padding-left: clamp(1rem, 4vw, 3rem); border-left: 1px solid var(--line); }
+    @media (max-width: 720px) {
+      .diensten .dienst:nth-child(odd) { padding-right: 0; }
+      .diensten .dienst:nth-child(even) { padding-left: 0; border-left: 0; }
+    }
+    .dienst h3 { display: flex; align-items: baseline; gap: .7rem; font-size: 1.02rem; font-weight: 600; letter-spacing: -.01em; }
+    .dienst h3 .mono { color: var(--text-3); }
+    .dienst p { font-size: .88rem; }
+
+    /* ---------- metrics-band ---------- */
+    .kpi b span[data-count] { font-size: inherit; color: inherit; }
+    .metrics .kpis {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+    }
+    .reels-rij {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 260px));
+      gap: 1.4rem;
+      justify-content: start;
+    }
+    @media (max-width: 760px) {
+      .reels-rij { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .reels-rij figure:last-child { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Direct naar inhoud</a>
+  <header class="nav" id="nav">
+    <div class="nav__in wrap">
+      <a class="nav__logo" href="./index.html" aria-label="Next Growth — home">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect width="18" height="18" rx="4" fill="#C9A45F"/><path d="M5 13V5l8 8V5" stroke="#0A0A0B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Next Growth
+      </a>
+      <nav class="nav__links" id="navLinks" aria-label="Hoofdmenu">
+        <a href="./software.html">Software</a>
+        <a href="./websites.html">Websites</a>
+        <a href="./marketing.html" aria-current="page">Marketing</a>
+        <a href="./ai.html">AI</a>
+        <a href="./crm.html">CRM</a>
+        <a href="./prijzen.html">Prijzen</a>
+        <a href="./cases.html">Cases</a>
+      </nav>
+      <div class="nav__cta">
+        <a class="btn btn--ghost btn--sm" href="./contact.html">Contact</a>
+        <a class="btn btn--sm nav__demo" href="./contact.html">Plan strategiegesprek</a>
+      </div>
+      <button class="nav__burger" id="navBurger" aria-expanded="false" aria-controls="navLinks" aria-label="Menu"><i></i><i></i></button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-label="Introductie">
+      <div class="glow-field" aria-hidden="true"></div>
+      <div class="wrap hero__in">
+        <p class="pill" data-reveal><span class="dot dot--ok"></span>Signaal, geen ruis</p>
+        <h1 class="h1" data-reveal style="--i:1">Marketing die zich terugverdient. <span class="grad-text">Aantoonbaar.</span></h1>
+        <p class="lede" data-reveal style="--i:2">Geen bereik-rapportjes maar getekende offertes. Elke euro advertentiebudget is te volgen van klik tot omzet — omdat de campagnes aan hetzelfde systeem hangen als je CRM.</p>
+        <div class="hero__actions" data-reveal style="--i:3">
+          <a class="btn" href="./contact.html">Plan strategiegesprek</a>
+          <a class="btn btn--ghost" href="./cases.html">Bekijk resultaten</a>
+        </div>
+        <p class="hero__note" data-reveal style="--i:4">Google Ads &middot; Meta &middot; SEO &middot; 100% herleidbaar</p>
+
+        <!-- pronkstuk: campagne-dashboard -->
+        <div class="hero__app" data-reveal style="--i:5">
+          <div class="glow-field" aria-hidden="true"></div>
+          <div class="app app--tilt" role="img" aria-label="Campagne-dashboard met ROAS, kosten per lead, dalende kostengrafiek en attributietabel per kanaal">
+            <div class="app-chrome">
+              <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="route">app.nextgrowth.nl/pulse/campagnes</span>
+            </div>
+            <div class="app-body">
+              <aside class="app-side" aria-hidden="true">
+                <span class="side-item" style="font-weight:700;color:var(--text)">
+                  <svg width="15" height="15" viewBox="0 0 18 18" fill="none"><rect width="18" height="18" rx="4" fill="#C9A45F"/><path d="M5 13V5l8 8V5" stroke="#0A0A0B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  Van Dijk Installaties
+                </span>
+                <p class="side-label">Pulse</p>
+                <span class="side-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>Overzicht</span>
+                <span class="side-item is-active"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 11l18-7-7 18-2.5-8.5z"/></svg>Campagnes<span class="count">12</span></span>
+                <span class="side-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14 0 18M12 3c-3 3.5-3 14 0 18"/></svg>Kanalen<span class="count">4</span></span>
+                <span class="side-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 5h16l-6 7v6l-4 2v-8z"/></svg>Funnel</span>
+                <p class="side-label">Suite</p>
+                <span class="side-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M17 9h5M17 13h5"/></svg>Atlas</span>
+                <span class="side-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg>Flow</span>
+                <span class="side-user"><span class="avatar">MV</span> M. van Dijk</span>
+              </aside>
+              <div>
+            <div class="app-top" aria-hidden="true">
+              <span class="app-search"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>Zoek campagne&hellip;<span class="kbd">&#8984;K</span></span>
+              <div class="app-actions">
+                <span class="badge badge--ok">Attributie actief</span>
+                <span class="avatar-stack"><span class="avatar">MV</span><span class="avatar avatar--b">JW</span><span class="avatar avatar--c">+2</span></span>
+              </div>
+            </div>
+            <div class="app-main">
+              <div class="app-kpis" aria-hidden="true">
+                <div class="app-kpi"><span>ROAS</span><b>4,2</b><span class="delta">&#9650; 0,6 vs vorig kwartaal</span></div>
+                <div class="app-kpi"><span>Kosten per lead</span><b>&euro; 38</b><span class="delta">&#9660; was &euro; 64</span></div>
+                <div class="app-kpi"><span>Leads deze maand</span><b>214</b><span class="delta">&#9650; 18,2%</span></div>
+                <div class="app-kpi"><span>Conversie</span><b>6,1%</b><span class="delta">&#9650; 1,4 pt</span></div>
+              </div>
+              <div class="camp-grid">
+                <div class="camp-panel">
+                  <h5>Kosten per lead <span class="mono">6 mnd</span></h5>
+                  <svg class="chart" viewBox="0 0 460 150" aria-hidden="true">
+                    <defs>
+                      <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="rgba(201,164,95,.30)"/>
+                        <stop offset="100%" stop-color="rgba(201,164,95,0)"/>
+                      </linearGradient>
+                    </defs>
+                    <line class="grid-line" x1="0" y1="35" x2="460" y2="35"/>
+                    <line class="grid-line" x1="0" y1="70" x2="460" y2="70"/>
+                    <line class="grid-line" x1="0" y1="105" x2="460" y2="105"/>
+                    <path class="area" d="M0,32 C40,36 70,44 110,54 C150,64 180,66 230,78 C280,90 310,96 360,104 C400,110 430,112 460,114 L460,150 L0,150 Z"/>
+                    <path class="lijn" d="M0,32 C40,36 70,44 110,54 C150,64 180,66 230,78 C280,90 310,96 360,104 C400,110 430,112 460,114"/>
+                    <circle class="punt" cx="460" cy="114" r="3.5"/>
+                    <text x="6" y="29">&euro; 64</text>
+                    <text x="6" y="64">&euro; 51</text>
+                    <text x="6" y="99">&euro; 38</text>
+                    <text x="415" y="138">juli</text>
+                  </svg>
+                </div>
+                <div class="camp-panel">
+                  <h5>Beste campagnes <span class="mono">leads</span></h5>
+                  <ul class="camp-lijst" aria-hidden="true">
+                    <li><span class="naam">Warmtepompen — Utrecht</span><span class="m-bar"><i style="width:92%"></i></span><span class="v">67</span></li>
+                    <li><span class="naam">Airco — regio Midden</span><span class="m-bar"><i style="width:70%"></i></span><span class="v">51</span></li>
+                    <li><span class="naam">Onderhoudscontracten</span><span class="m-bar"><i style="width:56%"></i></span><span class="v">41</span></li>
+                    <li><span class="naam">Merkcampagne — Meta</span><span class="m-bar"><i style="width:44%"></i></span><span class="v">32</span></li>
+                    <li><span class="naam">Retargeting — offerte open</span><span class="m-bar"><i style="width:32%"></i></span><span class="v">23</span></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="camp-grid">
+                <div class="camp-panel">
+                  <h5>Funnel <span class="mono">deze maand</span></h5>
+                  <div class="funnel" aria-hidden="true">
+                    <div class="funnel__fase"><span class="f-label">Bezoekers</span><b>12.400</b><span class="f-pct">100%</span></div>
+                    <svg class="funnel__pijl" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                    <div class="funnel__fase"><span class="f-label">Leads</span><b>214</b><span class="f-pct">1,7%</span></div>
+                    <svg class="funnel__pijl" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                    <div class="funnel__fase"><span class="f-label">Offertes</span><b>61</b><span class="f-pct">28,5%</span></div>
+                    <svg class="funnel__pijl" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                    <div class="funnel__fase"><span class="f-label">Getekend</span><b>13</b><span class="f-pct">21,3%</span></div>
+                  </div>
+                </div>
+                <div class="camp-panel weekbars">
+                  <h5>Leads per week <span class="mono">12 wkn</span></h5>
+                  <div class="bars" aria-hidden="true">
+                    <i class="dim" style="--v:34"></i>
+                    <i class="dim" style="--v:40"></i>
+                    <i class="dim" style="--v:37"></i>
+                    <i class="dim" style="--v:46"></i>
+                    <i style="--v:52"></i>
+                    <i style="--v:49"></i>
+                    <i style="--v:58"></i>
+                    <i style="--v:64"></i>
+                    <i style="--v:61"></i>
+                    <i style="--v:72"></i>
+                    <i style="--v:78"></i>
+                    <i style="--v:86"></i>
+                  </div>
+                  <div class="as" aria-hidden="true"><span>wk 16</span><span>wk 27</span></div>
+                </div>
+              </div>
+              <div class="camp-panel tbl-scroll">
+                <h5>Attributie per kanaal <span class="mono">juni 2026</span></h5>
+                <table class="tbl" aria-hidden="true">
+                  <thead><tr><th>Kanaal</th><th>Uitgaven</th><th>Leads</th><th>Kosten/lead</th><th>Omzet</th><th>ROAS</th></tr></thead>
+                  <tbody>
+                    <tr><td>Google Ads</td><td class="num">&euro; 4.120</td><td class="num">98</td><td class="num">&euro; 42</td><td class="num">&euro; 21.400</td><td><span class="badge badge--ok">5,2</span></td></tr>
+                    <tr><td>Meta</td><td class="num">&euro; 2.340</td><td class="num">61</td><td class="num">&euro; 38</td><td class="num">&euro; 8.900</td><td><span class="badge badge--ok">3,8</span></td></tr>
+                    <tr><td>SEO</td><td class="num">&euro; 1.500</td><td class="num">39</td><td class="num">&euro; 38</td><td class="num">&euro; 9.600</td><td><span class="badge badge--ok">6,4</span></td></tr>
+                    <tr><td>Verwijzingen</td><td class="num">&euro; 0</td><td class="num">16</td><td class="num">&euro; 0</td><td class="num">&euro; 4.200</td><td><span class="badge badge--muted">organisch</span></td></tr>
+                    <tr><td>Totaal</td><td class="num">&euro; 7.960</td><td class="num">214</td><td class="num">&euro; 38</td><td class="num">&euro; 44.100</td><td><span class="badge badge--ok">4,2</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+              </div>
+            </div>
+          </div>
+          <div class="hero__fade" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ELKE EURO HERLEIDBAAR ============ -->
+    <section class="sectie" aria-label="Elke euro herleidbaar">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <p class="eyebrow" data-reveal>Elke euro herleidbaar</p>
+          <h2 class="h2" data-reveal style="--i:1">Van klik naar getekende offerte.</h2>
+          <p data-reveal style="--i:2">De meeste bureaus rapporteren kliks. Wij rapporteren omzet — omdat elk signaal in hetzelfde systeem landt.</p>
+        </div>
+        <div class="spoor">
+          <div class="spoor__stappen">
+            <div class="spoor__stap" data-reveal>
+              <span class="mono">di 07-07-2026 &middot; 14:02:11</span>
+              <h3>Klik op de advertentie</h3>
+              <p>Campagne, advertentiegroep en zoekterm reizen mee met de bezoeker. Niets gaat verloren tussen klik en formulier.</p>
+            </div>
+            <div class="spoor__stap" data-reveal style="--i:1">
+              <span class="mono">di 07-07-2026 &middot; 14:03:48</span>
+              <h3>Lead in Atlas</h3>
+              <p>De aanvraag staat als relatie in Atlas — met bron en campagne vastgelegd op het record. Opvolging start binnen vier minuten.</p>
+            </div>
+            <div class="spoor__stap" data-reveal style="--i:2">
+              <span class="mono">wo 08-07-2026 &middot; 11:20:05</span>
+              <h3>Getekende offerte, gekoppeld aan campagne</h3>
+              <p>&euro; 84.200 omzet wordt bijgeschreven op &ldquo;Warmtepompen — Utrecht&rdquo;. De ROAS in het dashboard klopt dezelfde seconde.</p>
+            </div>
+          </div>
+          <div class="spoor__ui" data-reveal style="--i:2">
+            <div class="glow-field" aria-hidden="true"></div>
+            <div class="app" role="img" aria-label="Atlas-leadrecord met bron, campagne, zoekterm en gekoppelde offerte">
+              <div class="app-chrome"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="route">app.nextgrowth.nl/atlas/leads/L-8841</span></div>
+              <div class="app-main">
+                <div class="lead-velden" aria-hidden="true">
+                  <div class="lead-veld"><span class="k">Relatie</span><span class="w">Van Dijk Installaties</span><span class="badge badge--ok">Getekend</span></div>
+                  <div class="lead-veld"><span class="k">Bron</span><span class="w">Google Ads</span><span class="badge badge--muted">cpc</span></div>
+                  <div class="lead-veld"><span class="k">Campagne</span><span class="w">Warmtepompen — Utrecht</span></div>
+                  <div class="lead-veld"><span class="k">Zoekterm</span><span class="w">&ldquo;warmtepomp kosten 2026&rdquo;</span></div>
+                  <div class="lead-veld"><span class="k">Eerste klik</span><span class="w mono" style="font-size:.72rem">07-07-2026 14:02:11</span></div>
+                  <div class="lead-veld"><span class="k">Opvolging</span><span class="w">Beltaak — Jeroen</span><span class="badge badge--ok">binnen 4 min</span></div>
+                  <div class="lead-veld"><span class="k">Offerte</span><span class="w">OFF-2481 &middot; &euro; 84.200</span><span class="badge badge--ok">ROAS bijgewerkt</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="mono" data-reveal style="margin-top:2.4rem; color:var(--text-3)">Attributie is bij ons geen rapport maar een eigenschap van de data: bron en campagne blijven voor altijd aan het record hangen.</p>
+      </div>
+    </section>
+
+    <!-- ============ WAT WE DOEN ============ -->
+    <section class="sectie" aria-label="De campagne-engine: Creative Score, storyboards en bulk-export · 0:58 · met geluid">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <p class="eyebrow" data-reveal><span class="dot dot--ok"></span>Onze eigen engine</p>
+          <h2 class="h2" data-reveal style="--i:1">De machine achter <em>de campagnes.</em></h2>
+          <p data-reveal style="--i:2">Wij bouwden onze eigen advertentie-engine: campagnes die gebouwd zijn om te winnen, gescoord v&oacute;&oacute;r ze live gaan.</p>
+        </div>
+        <figure class="bewijs" data-reveal>
+          <div class="app">
+            <div class="app-chrome">
+              <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="route">installatieplatform.nl/ad-generator</span>
+              <span class="badge badge--ok">Live</span>
+            </div>
+            <video controls playsinline preload="metadata" poster="./assets/media/campagne-engine-poster.jpg" aria-label="De campagne-engine: Creative Score, storyboards en bulk-export · 0:58 · met geluid">
+              <source src="./assets/media/campagne-engine.mp4" type="video/mp4">
+            </video>
+          </div>
+          <figcaption><span class="dot dot--ok" aria-hidden="true"></span>De campagne-engine: Creative Score, storyboards en bulk-export · 0:58 · met geluid</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="sectie" aria-label="Creatief werk">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <p class="eyebrow" data-reveal><span class="dot dot--ok"></span>Creatief, gemeten</p>
+          <h2 class="h2" data-reveal style="--i:1">Content die het systeem voedt.</h2>
+          <p data-reveal style="--i:2">Reels, advertenties en video &mdash; gemaakt om aanvragen op te leveren, niet views. Elke klik landt in Atlas.</p>
+        </div>
+        <div class="reels-rij">
+          <figure class="bewijs" data-reveal>
+            <div class="phone">
+              <video data-autoplay muted loop playsinline preload="metadata" poster="./assets/media/reel-dubai-1-poster.jpg" aria-label="Reel voor Droomhuis in Dubai">
+                <source src="./assets/media/reel-dubai-1.mp4" type="video/mp4">
+              </video>
+            </div>
+            <figcaption><span class="dot dot--ok" aria-hidden="true"></span>Droomhuis in Dubai &mdash; reels</figcaption>
+          </figure>
+          <figure class="bewijs" data-reveal style="--i:1">
+            <div class="phone">
+              <video data-autoplay muted loop playsinline preload="metadata" poster="./assets/media/reel-dubai-2-poster.jpg" aria-label="Reel over investeren in Abu Dhabi">
+                <source src="./assets/media/reel-dubai-2.mp4" type="video/mp4">
+              </video>
+            </div>
+            <figcaption><span class="dot dot--ok" aria-hidden="true"></span>Internationale campagne &mdash; NL &amp; EN</figcaption>
+          </figure>
+          <figure class="bewijs" data-reveal style="--i:2">
+            <div class="phone">
+              <video data-autoplay muted loop playsinline preload="metadata" poster="./assets/media/reel-installatie-poster.jpg" aria-label="Advertentievideo voor Installatieplatform">
+                <source src="./assets/media/reel-installatie.mp4" type="video/mp4">
+              </video>
+            </div>
+            <figcaption><span class="dot dot--ok" aria-hidden="true"></span>Installatieplatform &mdash; advertentievideo</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="sectie" aria-label="Wat we doen">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <p class="eyebrow" data-reveal>Wat we doen</p>
+          <h2 class="h2" data-reveal style="--i:1">Zes kanalen. E&eacute;n rekensom.</h2>
+          <p data-reveal style="--i:2">Geen kanaal draait op zichzelf. Alles voedt dezelfde pijplijn en wordt afgerekend op dezelfde cijfers.</p>
+        </div>
+        <div class="diensten">
+          <div class="dienst" data-reveal>
+            <h3>Google Ads <span class="mono">01</span></h3>
+            <p>Zoekcampagnes op koopintentie — beheerd op kosten per getekende offerte, niet op kliks.</p>
+          </div>
+          <div class="dienst" data-reveal style="--i:1">
+            <h3>Meta <span class="mono">02</span></h3>
+            <p>Vraag cre&euml;ren en warm houden bij mensen die je nog niet zoeken maar je wel nodig hebben.</p>
+          </div>
+          <div class="dienst" data-reveal style="--i:2">
+            <h3>SEO &amp; content <span class="mono">03</span></h3>
+            <p>Structureel vindbaar op de vragen die je klanten stellen — het goedkoopste kanaal op lange termijn.</p>
+          </div>
+          <div class="dienst" data-reveal style="--i:3">
+            <h3>E-mail &amp; opvolging <span class="mono">04</span></h3>
+            <p>Automatische reeksen vanuit Flow: elke lead krijgt op het juiste moment het juiste bericht.</p>
+          </div>
+          <div class="dienst" data-reveal style="--i:4">
+            <h3>Landingspagina&rsquo;s <span class="mono">05</span></h3>
+            <p>Per campagne een eigen pagina met &eacute;&eacute;n doel — getest, gemeten en doorgebouwd op wat wint.</p>
+          </div>
+          <div class="dienst" data-reveal style="--i:5">
+            <h3>Tracking &amp; attributie <span class="mono">06</span></h3>
+            <p>Server-side meten, telefoonkliks incluis — zodat het dashboard de waarheid vertelt, niet een schatting.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ METRICS ============ -->
+    <section class="sectie metrics" aria-label="Resultaten in cijfers">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <p class="eyebrow" data-reveal>Gemeten, niet beloofd</p>
+          <h2 class="h2" data-reveal style="--i:1">Cijfers uit lopende campagnes.</h2>
+        </div>
+        <div class="kpis">
+          <div class="kpi" data-reveal><b>&minus;<span data-count="41">0</span>%</b><span>kosten per lead na zes maanden optimaliseren</span></div>
+          <div class="kpi" data-reveal style="--i:1"><b>+<span data-count="212">0</span>%</b><span>aanvragen na herbouw van site en campagnes (beste case)</span></div>
+          <div class="kpi" data-reveal style="--i:2"><b><span data-count="100">0</span>%</b><span>van de omzet herleidbaar naar kanaal en campagne</span></div>
+        </div>
+        <p class="mono" data-reveal style="--i:3; margin-top:2.6rem; color:var(--text-3)">Gemiddelden over lopende accounts, live te volgen in Pulse — geen jaarcontract nodig om het te geloven.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot__cta">
+      <h2 data-reveal>Klaar om het systeem te zien?</h2>
+      <p data-reveal style="--i:1">Een demo van 30 minuten. Uw cijfers, onze software.</p>
+      <div class="foot__actions" data-reveal style="--i:2">
+        <a class="btn" href="./contact.html">Plan strategiegesprek</a>
+        <a class="btn btn--ghost" href="./cases.html">Bekijk resultaten</a>
+      </div>
+    </div>
+    <div class="wrap foot__grid">
+      <div>
+        <p class="foot__brand">Next Growth</p>
+        <p class="mono foot__meta">Digitale bedrijfssystemen<br>hallo@nextgrowth.nl</p>
+      </div>
+      <nav aria-label="Product"><h3 class="mono">Product</h3>
+        <a href="./software.html">Software</a><a href="./crm.html">CRM</a><a href="./ai.html">AI</a>
+      </nav>
+      <nav aria-label="Diensten"><h3 class="mono">Diensten</h3>
+        <a href="./websites.html">Websites</a><a href="./marketing.html">Marketing</a><a href="./seo.html">SEO</a><a href="./prijzen.html">Prijzen</a>
+      </nav>
+      <nav aria-label="Bedrijf"><h3 class="mono">Bedrijf</h3>
+        <a href="./cases.html">Cases</a><a href="./contact.html">Contact</a>
+      </nav>
+      <nav aria-label="Live werk"><h3 class="mono">Live werk</h3>
+        <a href="https://installatieplatform.nl" target="_blank" rel="noopener">Installatieplatform.nl <span aria-hidden="true">&#8599;</span></a>
+        <a href="https://www.westrikbouw-installaties.nl" target="_blank" rel="noopener">Westrikbouw-installaties.nl <span aria-hidden="true">&#8599;</span></a>
+      </nav>
+    </div>
+    <div class="wrap foot__base mono">&copy; MMXXVI Next Growth — Alle systemen operationeel <span class="dot dot--ok" aria-hidden="true"></span></div>
+  </footer>
+  <script src="./assets/core.js" defer></script>
+</body>
+</html>

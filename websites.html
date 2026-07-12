@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Websites — Next Growth</title>
+  <meta name="description" content="Websites die verkopen: sneller dan de concurrent, meetbaar tot de euro. Elke bezoeker landt direct in Atlas — de website als onderdeel van het systeem.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Crect width='18' height='18' rx='4' fill='%23C9A45F'/%3E%3Cpath d='M5 13V5l8 8V5' stroke='%230A0A0B' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./assets/fonts.css">
+  <link rel="stylesheet" href="./assets/core.css">
+  <style>
+    /* ---------- hero ---------- */
+    .hero {
+      position: relative;
+      padding: calc(60px + clamp(3.5rem, 9vh, 6.5rem)) 0 0;
+      overflow: clip;
+      text-align: center;
+    }
+    .hero .glow-field { top: -7rem; left: 50%; transform: translateX(-50%); }
+    .hero__in { position: relative; }
+    .hero .pill { margin-bottom: 1.6rem; }
+    .hero .h1 { max-width: 16ch; margin-inline: auto; }
+    .hero .lede { margin: 1.4rem auto 0; }
+    .hero__actions { display: flex; gap: .8rem; justify-content: center; flex-wrap: wrap; margin-top: 2.2rem; }
+    .hero__note { margin-top: 1.1rem; font-size: .8rem; color: var(--text-3); }
+
+    /* ---------- pronkstuk: browser + performance ---------- */
+    .showcase {
+      position: relative;
+      margin-top: clamp(3rem, 7vh, 5rem);
+      padding-bottom: clamp(3.5rem, 8vh, 6rem);
+      text-align: left;
+    }
+    .showcase .glow-field { top: -2rem; left: 50%; transform: translateX(-50%); opacity: .3; }
+    .showcase__frame { position: relative; max-width: 980px; margin-inline: auto; }
+
+    /* de klantsite in het venster */
+    .site { background: var(--bg); }
+    .site__nav {
+      display: flex; align-items: center; gap: 1.2rem;
+      padding: .8rem 1.4rem;
+      border-bottom: 1px solid var(--line);
+      font-size: .74rem;
+    }
+    .site__logo { display: inline-flex; align-items: center; gap: .5rem; font-weight: 700; color: var(--text); font-size: .8rem; letter-spacing: -.01em; }
+    .site__logo i {
+      width: 16px; height: 16px; border-radius: 4px; flex: none;
+      background: var(--accent-strong);
+    }
+    .site__links { display: flex; gap: 1.1rem; margin-inline: auto; color: var(--text-2); }
+    .site__links span:first-child { color: var(--text); }
+    .site__btn {
+      padding: .34rem .8rem;
+      background: var(--accent-strong); color: #052016;
+      font-weight: 600; font-size: .7rem; border-radius: 6px;
+      white-space: nowrap;
+    }
+    .site__hero {
+      position: relative;
+      padding: clamp(2rem, 5vw, 3.4rem) 1.4rem clamp(2.2rem, 5vw, 3.6rem);
+      text-align: center;
+      overflow: hidden;
+    }
+    .site__hero::before {
+      content: "";
+      position: absolute; inset: -40% -20% auto;
+      height: 130%;
+      background: radial-gradient(ellipse at 50% 0%, rgba(201,164,95,.12), transparent 60%);
+      pointer-events: none;
+    }
+    .site__kicker {
+      position: relative;
+      display: inline-flex; align-items: center; gap: .45rem;
+      font-family: var(--mono); font-size: .62rem; letter-spacing: .06em; text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .site__h {
+      position: relative;
+      font-size: clamp(1.5rem, 3.4vw, 2.3rem);
+      font-weight: 800; letter-spacing: -.03em; line-height: 1.1;
+      color: var(--text);
+      max-width: 22ch; margin-inline: auto;
+    }
+    .site__p { position: relative; margin: .8rem auto 0; max-width: 40ch; font-size: .8rem; color: var(--text-2); }
+    .site__cta { position: relative; display: flex; gap: .6rem; justify-content: center; margin-top: 1.4rem; flex-wrap: wrap; }
+    .site__cta .ghost { background: transparent; color: var(--text); border: 1px solid var(--line-strong); }
+    .site__trust {
+      position: relative;
+      display: flex; gap: .5rem 1.6rem; justify-content: center; flex-wrap: wrap;
+      margin-top: 1.5rem;
+      font-family: var(--mono); font-size: .62rem; color: var(--text-3);
+    }
+    .site__trust b { color: var(--text-2); font-weight: 500; }
+    .site__diensten {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: .7rem;
+      padding: 0 1.4rem 1.5rem;
+    }
+    .site__dienst {
+      padding: .8rem .85rem;
+      background: var(--bg-raise); border: 1px solid var(--line); border-radius: 9px;
+      display: grid; gap: .3rem; align-content: start;
+      text-align: left;
+    }
+    .site__dienst .d-icoon {
+      width: 24px; height: 24px; border-radius: 6px;
+      display: grid; place-items: center;
+      background: var(--accent-dim); color: var(--accent);
+      margin-bottom: .2rem;
+    }
+    .site__dienst b { font-size: .72rem; font-weight: 600; color: var(--text); letter-spacing: -.01em; }
+    .site__dienst span { font-size: .62rem; color: var(--text-3); line-height: 1.5; }
+    @media (max-width: 560px) { .site__diensten div:last-child { display: none; } .site__diensten { grid-template-columns: 1fr 1fr; } }
+    .site__strip {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--line);
+    }
+    .site__strip div { padding: .8rem .6rem; text-align: center; border-left: 1px solid var(--line); }
+    .site__strip div:first-child { border-left: 0; }
+    .site__strip b { display: block; font-size: .95rem; font-weight: 700; color: var(--text); font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+    .site__strip span { font-size: .6rem; color: var(--text-3); }
+    .showcase__caption {
+      max-width: 980px; margin: 4.6rem auto 0;
+      text-align: center; color: var(--text-3);
+    }
+    @media (max-width: 720px) { .showcase__caption { margin-top: 1.4rem; } }
+
+    /* performance-paneel */
+    .perf {
+      position: absolute; right: -1.25rem; bottom: -3.6rem; z-index: 3;
+      width: min(280px, 78vw);
+      padding: 1rem 1.1rem;
+      box-shadow: 0 24px 60px -24px rgba(0,0,0,.85);
+    }
+    .perf h3 { display: flex; align-items: center; gap: .5rem; font-size: .72rem; font-weight: 600; color: var(--text-2); }
+    .perf h3 .mono { margin-left: auto; color: var(--text-3); }
+    .perf ul { display: grid; gap: .65rem; margin-top: .85rem; }
+    .perf li { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: .6rem; }
+    .perf .m-naam { font-family: var(--mono); font-size: .64rem; color: var(--text-3); width: 2.4em; }
+    .perf .m-bar { height: 4px; border-radius: 2px; background: rgba(255,255,255,.07); overflow: hidden; }
+    .perf .m-bar i { display: block; height: 100%; border-radius: 2px; background: linear-gradient(90deg, rgba(201,164,95,.5), var(--accent)); }
+    .perf .m-val { font-family: var(--mono); font-size: .68rem; color: var(--accent); font-variant-numeric: tabular-nums; }
+    .perf__voet { margin-top: .85rem; padding-top: .7rem; border-top: 1px solid var(--line); font-family: var(--mono); font-size: .6rem; color: var(--text-3); display: flex; align-items: center; gap: .45rem; }
+    @media (max-width: 720px) {
+      .perf { position: static; width: 100%; margin-top: .9rem; }
+      .showcase { padding-bottom: clamp(2rem, 5vh, 3rem); }
+      .site__links { display: none; }
+      .site__strip { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    /* ---------- cijfers ---------- */
+    .kpi b span[data-count] { font-size: inherit; color: inherit; }
+    .cijfers .kpis {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 2rem;
+    }
+
+    /* ---------- pijplijn: van klik tot klant ---------- */
+    .pipe { display: flex; align-items: stretch; gap: .6rem; }
+    .pipe__stap {
+      flex: 1; min-width: 0;
+      padding: 1.1rem 1.1rem 1.2rem;
+      display: grid; gap: .45rem; align-content: start;
+    }
+    .pipe__stap .mono { color: var(--accent); }
+    .pipe__stap h3 { font-size: .95rem; font-weight: 600; letter-spacing: -.01em; }
+    .pipe__stap p { font-size: .82rem; }
+    .pipe__pijl { align-self: center; flex: none; color: var(--text-3); }
+    @media (max-width: 880px) {
+      .pipe { flex-direction: column; }
+      .pipe__pijl { transform: rotate(90deg); margin-inline: auto; }
+    }
+
+    .pipe__flow { margin-top: clamp(2rem, 5vh, 3rem); display: grid; grid-template-columns: 5fr 7fr; gap: clamp(1.5rem, 4vw, 3.5rem); align-items: center; }
+    @media (max-width: 880px) { .pipe__flow { grid-template-columns: 1fr; } }
+    .pipe__flow-copy h3 { font-size: 1.15rem; font-weight: 600; letter-spacing: -.02em; margin-bottom: .5rem; }
+    .pipe__flow-copy p { font-size: .9rem; }
+    .flow-steps { display: grid; gap: .6rem; }
+    .flow-step {
+      display: flex; align-items: center; gap: .7rem;
+      padding: .65rem .8rem;
+      background: var(--bg); border: 1px solid var(--line); border-radius: 9px;
+      font-size: .76rem; color: var(--text-2);
+    }
+    .flow-step .icon {
+      width: 26px; height: 26px; border-radius: 7px; flex: none;
+      display: grid; place-items: center;
+      background: var(--accent-dim); color: var(--accent);
+    }
+    .flow-step b { color: var(--text); font-weight: 600; }
+    .flow-step .badge { margin-left: auto; }
+    .flow-verbinder { width: 1px; height: 14px; background: var(--line-strong); margin-left: calc(.8rem + 13px); }
+
+    /* ---------- wat we bouwen ---------- */
+    .bouw-rij { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    @media (max-width: 880px) { .bouw-rij { grid-template-columns: 1fr; } }
+    .bouw-kaart { padding: 1.7rem 1.6rem; display: grid; gap: .7rem; align-content: start; }
+    .bouw-kaart h3 { font-size: 1.2rem; font-weight: 600; letter-spacing: -.02em; }
+    .bouw-kaart p { font-size: .88rem; }
+    .bouw-kaart .spec { margin-top: .5rem; padding-top: .9rem; border-top: 1px solid var(--line); color: var(--text-3); }
+    .livewerk-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.1rem;
+      align-items: start;
+    }
+    @media (max-width: 940px) { .livewerk-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Direct naar inhoud</a>
+  <header class="nav" id="nav">
+    <div class="nav__in wrap">
+      <a class="nav__logo" href="./index.html" aria-label="Next Growth — home">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect width="18" height="18" rx="4" fill="#C9A45F"/><path d="M5 13V5l8 8V5" stroke="#0A0A0B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Next Growth
+      </a>
+      <nav class="nav__links" id="navLinks" aria-label="Hoofdmenu">
+        <a href="./software.html">Software</a>
+        <a href="./websites.html" aria-current="page">Websites</a>
+        <a href="./marketing.html">Marketing</a>
+        <a href="./seo.html">SEO</a>
+        <a href="./ai.html">AI</a>
+        <a href="./crm.html">CRM</a>
+        <a href="./prijzen.html">Prijzen</a>
+        <a href="./cases.html">Cases</a>
+      </nav>
+      <div class="nav__cta">
+        <a class="btn btn--ghost btn--sm" href="./contact.html">Contact</a>
+        <a class="btn btn--sm nav__demo" href="./contact.html">Plan strategiegesprek</a>
+      </div>
+      <button class="nav__burger" id="navBurger" aria-expanded="false" aria-controls="navLinks" aria-label="Menu"><i></i><i></i></button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-label="Introductie">
+      <div class="glow-field" aria-hidden="true"></div>
+      <div class="wrap hero__in">
+        <p class="pill" data-reveal><span class="dot dot--ok"></span>Websites die verkopen</p>
+        <h1 class="h1" data-reveal style="--i:1">Sneller dan de concurrent. <span class="grad-text">Meetbaar tot de euro.</span></h1>
+        <p class="lede" data-reveal style="--i:2">Geen losse website, maar de voordeur van je systeem. Elke bezoeker die klikt, belt of invult landt direct als relatie in Atlas — met bron, tijd en waarde.</p>
+        <div class="hero__actions" data-reveal style="--i:3">
+          <a class="btn" href="./contact.html">Plan strategiegesprek</a>
+          <a class="btn btn--ghost" href="./cases.html">Bekijk resultaten</a>
+        </div>
+        <p class="hero__note" data-reveal style="--i:4">Lighthouse 100 &middot; Live in weken &middot; Jouw eigendom</p>
+
+        <!-- pronkstuk -->
+        <div class="showcase" data-reveal style="--i:5">
+          <div class="glow-field" aria-hidden="true"></div>
+          <div class="showcase__frame">
+            <div class="app" role="img" aria-label="Klantwebsite in een browservenster: donkere marketingsite van een installatiebedrijf">
+              <div class="app-chrome">
+                <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="route">www.klantsite.nl</span>
+              </div>
+              <div class="site" aria-hidden="true">
+                <div class="site__nav">
+                  <span class="site__logo"><i></i>Veldman Installatietechniek</span>
+                  <div class="site__links"><span>Warmtepompen</span><span>Airco</span><span>Service</span><span>Projecten</span></div>
+                  <span class="site__btn">Offerte aanvragen</span>
+                </div>
+                <div class="site__hero">
+                  <span class="site__kicker"><span class="dot dot--ok"></span>Erkend installateur — regio Utrecht</span>
+                  <p class="site__h">Volgende week een warmtepomp. Volgende maand besparen.</p>
+                  <p class="site__p">Binnen 24 uur een offerte op maat. Vast montageteam, vaste prijs, vijftien jaar garantie.</p>
+                  <div class="site__cta">
+                    <span class="site__btn">Vraag offerte aan</span>
+                    <span class="site__btn ghost">Bekijk projecten</span>
+                  </div>
+                  <div class="site__trust">
+                    <span><b>9,3</b> — 412 reviews</span>
+                    <span><b>24 uur</b> offertetijd</span>
+                    <span><b>15 jaar</b> garantie</span>
+                  </div>
+                </div>
+                <div class="site__diensten">
+                  <div class="site__dienst">
+                    <span class="d-icoon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3.5"/></svg></span>
+                    <b>Warmtepompen</b>
+                    <span>Hybride en volledig elektrisch, incl. subsidie-aanvraag.</span>
+                  </div>
+                  <div class="site__dienst">
+                    <span class="d-icoon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="9" rx="2"/><path d="M7 18c0 1.5-1 2-1 2M12 18c0 1.5-1 2-1 2M17 18c0 1.5-1 2-1 2"/></svg></span>
+                    <b>Airconditioning</b>
+                    <span>Koelen &eacute;n verwarmen met &eacute;&eacute;n systeem.</span>
+                  </div>
+                  <div class="site__dienst">
+                    <span class="d-icoon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14.7 6.3a4.5 4.5 0 00-6.1 6.1L3 18l3 3 5.6-5.6a4.5 4.5 0 006.1-6.1L14 12l-2-2z"/></svg></span>
+                    <b>Service &amp; onderhoud</b>
+                    <span>Storing vandaag gemeld, vandaag verholpen.</span>
+                  </div>
+                </div>
+                <div class="site__strip">
+                  <div><b>1.850+</b><span>installaties</span></div>
+                  <div><b>&euro; 1.240</b><span>gem. besparing per jaar</span></div>
+                  <div><b>4 min</b><span>reactie op aanvragen</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="card perf" role="img" aria-label="Performance-paneel met Core Web Vitals: LCP 0,8 seconde, CLS 0,00, INP 40 milliseconde — alle metingen groen">
+              <h3><span class="dot dot--ok" aria-hidden="true"></span>Core Web Vitals <span class="mono">veldwerk</span></h3>
+              <ul aria-hidden="true">
+                <li><span class="m-naam">LCP</span><span class="m-bar"><i style="width:24%"></i></span><span class="m-val">0,8 s</span></li>
+                <li><span class="m-naam">CLS</span><span class="m-bar"><i style="width:4%"></i></span><span class="m-val">0,00</span></li>
+                <li><span class="m-naam">INP</span><span class="m-bar"><i style="width:16%"></i></span><span class="m-val">40 ms</span></li>
+              </ul>
+              <p class="perf__voet" aria-hidden="true"><span class="dot dot--ok"></span>Alles groen — echte metingen, 28 dagen</p>
+            </div>
+          </div>
+          <p class="mono showcase__caption" data-reveal>Gebouwd door Next Growth &middot; Lighthouse 100 &middot; elke aanvraag direct in Atlas</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GEBOUWD OP CIJFERS ============ -->
+    <section class="sectie cijfers" aria-label="Gebouwd op cijfers">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <p class="eyebrow" data-reveal>Gebouwd op cijfers</p>
+          <h2 class="h2" data-reveal style="--i:1">Snelheid is geen detail. Het is omzet.</h2>
+          <p data-reveal style="--i:2">Elke tiende seconde laadtijd kost conversie. Daarom bouwen we op het scherpst van wat het web aankan — en meten we door na livegang.</p>
+        </div>
+        <div class="kpis">
+          <div class="kpi" data-reveal><b><span data-count="100">0</span></b><span>Lighthouse-score, alle vier de categorie&euml;n</span></div>
+          <div class="kpi" data-reveal style="--i:1"><b><span data-count="0.8">0</span> s</b><span>laadtijd op een gemiddelde 4G-verbinding</span></div>
+          <div class="kpi" data-reveal style="--i:2"><b>+<span data-count="212">0</span>%</b><span>aanvragen na herbouw (beste case)</span></div>
+          <div class="kpi" data-reveal style="--i:3"><b><span data-count="0">0</span></b><span>templates — alles op maat, alles van jou</span></div>
+        </div>
+        <p class="mono" data-reveal style="--i:4; margin-top:2.6rem; color:var(--text-3)">Gemeten met Lighthouse 12 en 28 dagen velddata (CrUX) — niet in een labje, maar bij echte bezoekers.</p>
+      </div>
+    </section>
+
+    <!-- ============ VAN KLIK TOT KLANT ============ -->
+    <section class="sectie" aria-label="Van klik tot klant">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <p class="eyebrow" data-reveal>Van klik tot klant</p>
+          <h2 class="h2" data-reveal style="--i:1">De website hangt aan het systeem.</h2>
+          <p data-reveal style="--i:2">Een bezoeker is geen statistiek maar het begin van een relatie. Vier stappen, allemaal automatisch, allemaal gelogd.</p>
+        </div>
+        <div class="pipe">
+          <div class="card pipe__stap" data-reveal>
+            <span class="mono">00:00,0</span>
+            <h3>Bezoeker</h3>
+            <p>Landt op de site. Bron, campagne en zoekterm worden vastgelegd — nog v&oacute;&oacute;r de eerste scroll.</p>
+          </div>
+          <svg class="pipe__pijl" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          <div class="card pipe__stap" data-reveal style="--i:1">
+            <span class="mono">00:47,2</span>
+            <h3>Formulier of bel-event</h3>
+            <p>Invullen of bellen — beide tellen. Ook telefoonkliks worden als conversie gemeten.</p>
+          </div>
+          <svg class="pipe__pijl" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          <div class="card pipe__stap" data-reveal style="--i:2">
+            <span class="mono">00:48,0</span>
+            <h3>Atlas-relatie</h3>
+            <p>Binnen een seconde staat de aanvraag als relatie in Atlas — verrijkt met alles wat we weten.</p>
+          </div>
+          <svg class="pipe__pijl" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          <div class="card pipe__stap" data-reveal style="--i:3">
+            <span class="mono">03:52,4</span>
+            <h3>Opvolging binnen 4 min</h3>
+            <p>Flow zet de beltaak klaar en stuurt de bevestiging. Geen aanvraag wacht langer dan vier minuten.</p>
+          </div>
+        </div>
+
+        <div class="pipe__flow">
+          <div class="pipe__flow-copy">
+            <h3 data-reveal>Zo ziet dat eruit in Flow</h3>
+            <p data-reveal style="--i:1">Elke websiteaanvraag start dezelfde automatisering. Wat je hiernaast ziet is geen schema — het is het echte scherm.</p>
+          </div>
+          <div class="app" role="img" aria-label="Flow-automatisering: websiteaanvraag naar Atlas naar beltaak" data-reveal style="--i:2">
+            <div class="app-chrome"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="route">app.nextgrowth.nl/flow/website-aanvraag</span></div>
+            <div class="app-main">
+              <div class="flow-steps" aria-hidden="true">
+                <div class="flow-step">
+                  <span class="icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18"/></svg></span>
+                  <span><b>Trigger</b> — Formulier op www.klantsite.nl</span>
+                  <span class="badge badge--ok">00:00:00</span>
+                </div>
+                <div class="flow-verbinder"></div>
+                <div class="flow-step">
+                  <span class="icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg></span>
+                  <span><b>Atlas</b> — Relatie aangemaakt, bron &amp; campagne vastgelegd</span>
+                  <span class="badge badge--ok">00:00:01</span>
+                </div>
+                <div class="flow-verbinder"></div>
+                <div class="flow-step">
+                  <span class="icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 8v5l3 2"/><circle cx="12" cy="12" r="9"/></svg></span>
+                  <span><b>Opvolging</b> — Beltaak toegewezen aan Jeroen</span>
+                  <span class="badge badge--ok">00:03:52</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WAT WE BOUWEN ============ -->
+    <section class="sectie" aria-label="Droomhuis in Dubai">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <p class="eyebrow" data-reveal><span class="dot dot--ok"></span>Volledige rondleiding</p>
+          <h2 class="h2" data-reveal style="--i:1">Loop zelf door <em>een oplevering.</em></h2>
+          <p data-reveal style="--i:2">Van hero tot rendement-calculator en reels — een rondleiding door een site zoals wij hem opleveren.</p>
+        </div>
+        <div class="config-grid" style="grid-template-columns:minmax(0,1fr) minmax(0,1fr); display:grid; gap:1.2rem; align-items:start">
+          <figure class="bewijs" data-reveal>
+            <div class="app">
+              <div class="app-chrome">
+                <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="route">installatieplatform.nl</span>
+                <span class="badge badge--ok">Live</span>
+              </div>
+              <video controls playsinline preload="metadata" poster="./assets/media/installatieplatform-tour-poster.jpg" aria-label="Installatieplatform — volledige websiterondleiding">
+                <source src="./assets/media/installatieplatform-tour.mp4" type="video/mp4">
+              </video>
+            </div>
+            <figcaption><span class="dot dot--ok" aria-hidden="true"></span>Installatieplatform — volledige rondleiding: diensten, keuzehulpen &amp; kennisbank &middot; 1:25 &middot; <a href="https://installatieplatform.nl" target="_blank" rel="noopener">Bekijk live op installatieplatform.nl <span aria-hidden="true">&#8599;</span></a></figcaption>
+          </figure>
+          <figure class="bewijs" data-reveal style="--i:1">
+            <div class="app">
+              <div class="app-chrome">
+                <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="route">droomhuisindubai.nl</span>
+                <span class="badge badge--ok">Live</span>
+              </div>
+              <video controls playsinline preload="metadata" poster="./assets/media/website-rondleiding-poster.jpg" aria-label="Droomhuis in Dubai — volledige websiterondleiding · 1:31">
+                <source src="./assets/media/website-rondleiding.mp4" type="video/mp4">
+              </video>
+            </div>
+            <figcaption><span class="dot dot--ok" aria-hidden="true"></span>Droomhuis in Dubai — volledige websiterondleiding &middot; 1:31</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="sectie" aria-label="Live werk">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <p class="eyebrow" data-reveal><span class="dot dot--ok"></span>Live werk</p>
+          <h2 class="h2" data-reveal style="--i:1">Drie sites. Nu online.</h2>
+          <p data-reveal style="--i:2">Geen portfolio-plaatjes maar de sites zelf, zoals ze vandaag draaien.</p>
+        </div>
+        <div class="livewerk-grid">
+          <figure class="bewijs" data-reveal>
+            <div class="app">
+              <div class="app-chrome">
+                <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="route">www.prefabselect.nl</span>
+              </div>
+              <video data-autoplay muted loop playsinline preload="metadata" poster="./assets/media/prefabselect-web-poster.jpg" aria-label="Homepage-video van Prefab Select">
+                <source src="./assets/media/prefabselect-web.mp4" type="video/mp4">
+              </video>
+            </div>
+            <figcaption><span class="dot dot--ok" aria-hidden="true"></span>Prefab Select — configurator, offerteflow &amp; Atlas-koppeling</figcaption>
+          </figure>
+          <figure class="bewijs" data-reveal style="--i:1">
+            <div class="app">
+              <div class="app-chrome">
+                <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="route">droomhuisindubai.nl</span>
+              </div>
+              <video data-autoplay muted loop playsinline preload="metadata" poster="./assets/media/droomhuis-web-poster.jpg" aria-label="Homepage-video van Droomhuis in Dubai">
+                <source src="./assets/media/droomhuis-web.mp4" type="video/mp4">
+              </video>
+            </div>
+            <figcaption><span class="dot dot--ok" aria-hidden="true"></span>Droomhuis in Dubai — internationaal vastgoed, meertalig</figcaption>
+          </figure>
+          <figure class="bewijs" data-reveal style="--i:2">
+            <div class="app">
+              <div class="app-chrome">
+                <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="route">aquaflow.nl</span>
+              </div>
+              <video data-autoplay muted loop playsinline preload="metadata" poster="./assets/media/aquaflow-web-poster.jpg" aria-label="Homepage-video van AquaFlow">
+                <source src="./assets/media/aquaflow-web.mp4" type="video/mp4">
+              </video>
+            </div>
+            <figcaption><span class="dot dot--ok" aria-hidden="true"></span>AquaFlow — productmerk, bestelflow &amp; abonnementen</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="sectie" aria-label="Wat we bouwen">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <p class="eyebrow" data-reveal>Wat we bouwen</p>
+          <h2 class="h2" data-reveal style="--i:1">Drie soorten. E&eacute;n standaard.</h2>
+          <p data-reveal style="--i:2">Van marketingsite tot volwaardige webapplicatie — alles op dezelfde stack, met dezelfde snelheid, gekoppeld aan hetzelfde systeem.</p>
+        </div>
+        <div class="bouw-rij">
+          <div class="card card--hover bouw-kaart" data-reveal>
+            <h3>Marketingsites</h3>
+            <p>Gebouwd om te verkopen. Elke pagina heeft &eacute;&eacute;n doel, elke conversie een meetpunt. Content beheer je zelf.</p>
+            <p class="mono spec">Next-niveau stack &middot; SEO &middot; CMS naar keuze</p>
+          </div>
+          <div class="card card--hover bouw-kaart" data-reveal style="--i:1">
+            <h3>Klantportalen</h3>
+            <p>Klanten volgen hun project, tekenen offertes en zien facturen — rechtstreeks uit NG/OS, zonder mailverkeer.</p>
+            <p class="mono spec">Portal-module &middot; login &middot; realtime uit Atlas</p>
+          </div>
+          <div class="card card--hover bouw-kaart" data-reveal style="--i:2">
+            <h3>Webapplicaties</h3>
+            <p>Maatwerk waar standaardsoftware stopt: configurators, calculators, planningstools. Van schets tot productie.</p>
+            <p class="mono spec">API-first &middot; maatwerk &middot; gekoppeld aan NG/OS</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot__cta">
+      <h2 data-reveal>Klaar om het systeem te zien?</h2>
+      <p data-reveal style="--i:1">Een demo van 30 minuten. Uw cijfers, onze software.</p>
+      <div class="foot__actions" data-reveal style="--i:2">
+        <a class="btn" href="./contact.html">Plan strategiegesprek</a>
+        <a class="btn btn--ghost" href="./cases.html">Bekijk resultaten</a>
+      </div>
+    </div>
+    <div class="wrap foot__grid">
+      <div>
+        <p class="foot__brand">Next Growth</p>
+        <p class="mono foot__meta">Digitale bedrijfssystemen<br>hallo@nextgrowth.nl</p>
+      </div>
+      <nav aria-label="Product"><h3 class="mono">Product</h3>
+        <a href="./software.html">Software</a><a href="./crm.html">CRM</a><a href="./ai.html">AI</a>
+      </nav>
+      <nav aria-label="Diensten"><h3 class="mono">Diensten</h3>
+        <a href="./websites.html">Websites</a><a href="./marketing.html">Marketing</a><a href="./seo.html">SEO</a><a href="./prijzen.html">Prijzen</a>
+      </nav>
+      <nav aria-label="Bedrijf"><h3 class="mono">Bedrijf</h3>
+        <a href="./cases.html">Cases</a><a href="./contact.html">Contact</a>
+      </nav>
+      <nav aria-label="Live werk"><h3 class="mono">Live werk</h3>
+        <a href="https://installatieplatform.nl" target="_blank" rel="noopener">Installatieplatform.nl <span aria-hidden="true">&#8599;</span></a>
+        <a href="https://www.westrikbouw-installaties.nl" target="_blank" rel="noopener">Westrikbouw-installaties.nl <span aria-hidden="true">&#8599;</span></a>
+      </nav>
+    </div>
+    <div class="wrap foot__base mono">&copy; MMXXVI Next Growth — Alle systemen operationeel <span class="dot dot--ok" aria-hidden="true"></span></div>
+  </footer>
+  <script src="./assets/core.js" defer></script>
+</body>
+</html>

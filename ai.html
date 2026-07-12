@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI — Next Growth</title>
+  <meta name="description" content="Sage: AI-agents die aanvragen classificeren, offertes voorbereiden en opvolging voorspellen — met menselijke goedkeuring, audit-log en uitleg bij elke conclusie.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Crect width='18' height='18' rx='4' fill='%23C9A45F'/%3E%3Cpath d='M5 13V5l8 8V5' stroke='%230A0A0B' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./assets/fonts.css">
+  <link rel="stylesheet" href="./assets/core.css">
+  <style>
+    /* ---------- hero ---------- */
+    .hero {
+      position: relative;
+      padding: calc(60px + clamp(3.5rem, 9vh, 6.5rem)) 0 0;
+      overflow: clip;
+      text-align: center;
+    }
+    .hero::before {
+      content: "";
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, black 30%, transparent 75%);
+      -webkit-mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, black 30%, transparent 75%);
+      opacity: .5;
+      pointer-events: none;
+    }
+    .hero .glow-field { top: -6rem; left: 50%; transform: translateX(-50%); }
+    .hero__in { position: relative; }
+    .hero .pill { margin-bottom: 1.6rem; }
+    .hero .h1 { max-width: 16ch; margin-inline: auto; }
+    .hero .lede { margin: 1.4rem auto 0; }
+    .hero__actions { display: flex; gap: .8rem; justify-content: center; flex-wrap: wrap; margin-top: 2.2rem; }
+    .hero__note { margin-top: 1.1rem; font-size: .8rem; color: var(--text-3); }
+    .hero__app {
+      position: relative;
+      margin-top: clamp(3rem, 7vh, 5rem);
+      text-align: left;
+    }
+    .hero__app .glow-field { top: -3rem; left: 50%; transform: translateX(-50%); opacity: .35; }
+    .hero__app .app { position: relative; }
+    .hero__fade {
+      position: absolute; inset: auto 0 0 0; height: 30%;
+      background: linear-gradient(transparent, var(--bg));
+      pointer-events: none;
+      z-index: 2;
+    }
+    .tbl-scroll { overflow-x: auto; }
+
+    /* ---------- sage-werkscherm ---------- */
+    .sage-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 1rem; min-width: 0; }
+    @media (max-width: 900px) { .sage-grid { grid-template-columns: 1fr; } }
+    .sage-panel { background: var(--bg); border: 1px solid var(--line); border-radius: 9px; padding: .8rem .9rem; min-width: 0; }
+    .sage-panel h5 { font-size: .74rem; font-weight: 600; color: var(--text-2); margin-bottom: .6rem; display: flex; align-items: center; gap: .5rem; }
+    .sage-panel h5 .mono { margin-left: auto; color: var(--text-3); }
+    .sage-detail { border-color: rgba(201,164,95,.25); }
+    .sage-vraag {
+      display: flex; gap: .55rem; align-items: flex-start;
+      font-size: .74rem; color: var(--text-2);
+      padding-bottom: .7rem; margin-bottom: .7rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .sage-vraag .bubble {
+      background: var(--bg-raise-2); border: 1px solid var(--line); border-radius: 9px;
+      padding: .45rem .65rem;
+    }
+    .sage-redenering { font-size: .76rem; color: var(--text-2); }
+    .sage-redenering b { color: var(--text); }
+    .sage-bronnen { display: grid; gap: .4rem; margin-top: .7rem; padding-top: .7rem; border-top: 1px solid var(--line); }
+    .sage-bronnen li { display: flex; gap: .5rem; align-items: center; font-family: var(--mono); font-size: .64rem; color: var(--text-3); }
+    .sage-bronnen svg { color: var(--accent); flex: none; }
+    .sage-conf { margin-top: .8rem; }
+    .sage-conf .mono { display: flex; justify-content: space-between; color: var(--text-3); margin-bottom: .35rem; }
+    .sage-conf .mono b { color: var(--accent); font-weight: 500; }
+    .sage-conf-balk { height: 4px; border-radius: 999px; background: rgba(255,255,255,.07); overflow: hidden; }
+    .sage-conf-balk i { display: block; height: 100%; width: 92%; border-radius: 999px; background: linear-gradient(90deg, var(--accent-strong), var(--accent)); }
+    .sage-acties { display: flex; gap: .5rem; margin-top: .9rem; }
+    .app-btn {
+      display: inline-flex; align-items: center; gap: .35rem;
+      padding: .3rem .7rem;
+      border: 1px solid var(--line-strong); border-radius: 7px;
+      font-size: .7rem; font-weight: 600; color: var(--text-2);
+      white-space: nowrap;
+    }
+    .app-btn--prim { background: var(--accent-strong); border-color: transparent; color: #052016; }
+
+    /* ---------- drie agents ---------- */
+    .agents { display: grid; grid-template-columns: 1.15fr 1fr .95fr; gap: 1rem; align-items: start; }
+    @media (max-width: 880px) { .agents { grid-template-columns: 1fr; } }
+    .agent-kaart { padding: 1.4rem; display: grid; gap: .7rem; align-content: start; }
+    .agent-kaart .eyebrow { font-size: .7rem; }
+    .agent-kaart h3 { font-size: 1.15rem; letter-spacing: -.02em; }
+    .agent-kaart > p { font-size: .88rem; }
+    .agent-log {
+      margin-top: .4rem;
+      background: var(--bg); border: 1px solid var(--line); border-radius: 9px;
+      padding: .7rem .8rem;
+      display: grid; gap: .45rem;
+    }
+    .agent-log li { display: flex; gap: .6rem; align-items: baseline; font-family: var(--mono); font-size: .64rem; color: var(--text-2); }
+    .agent-log .t { color: var(--text-3); flex: none; }
+    .agent-log .ok { color: var(--accent); }
+    .agent-foot {
+      display: flex; justify-content: space-between; gap: .8rem;
+      padding-top: .7rem; border-top: 1px solid var(--line);
+      color: var(--text-3);
+    }
+    .agent-foot b { color: var(--accent); font-weight: 500; }
+
+    /* ---------- drie vragen ---------- */
+    .vragen { display: grid; gap: 0; }
+    .vraag {
+      display: grid; grid-template-columns: 5rem 1fr;
+      gap: 1rem 2rem;
+      padding-block: 1.6rem;
+      border-top: 1px solid var(--line);
+    }
+    .vraag:last-child { border-bottom: 1px solid var(--line); }
+    @media (max-width: 720px) { .vraag { grid-template-columns: 1fr; gap: .5rem; } }
+    .vraag .mono { color: var(--accent); padding-top: .25rem; }
+    .vraag h3 { font-size: 1.05rem; letter-spacing: -.02em; margin-bottom: .35rem; }
+    .vraag p { font-size: .9rem; max-width: 44em; }
+
+    /* sage: activiteitsfeed onderin het scherm */
+    .sage-feed { display: grid; gap: .55rem; font-size: .74rem; }
+    .sage-feed li { display: flex; align-items: baseline; gap: .55rem; color: var(--text-2); }
+    .sage-feed .dot { flex: none; transform: translateY(-1px); }
+    .sage-feed .t { margin-left: auto; font-family: var(--mono); font-size: .62rem; color: var(--text-3); white-space: nowrap; }
+
+    /* ---------- guardrails ---------- */
+    .guardrails { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.6rem, 3.5vw, 3rem) clamp(1.6rem, 4vw, 4rem); }
+    @media (max-width: 720px) { .guardrails { grid-template-columns: 1fr; } }
+    .guardrail { border-top: 1px solid var(--line-strong); padding-top: 1.1rem; }
+    .guardrail .mono { color: var(--accent); }
+    .guardrail h3 { font-size: 1.05rem; letter-spacing: -.02em; margin: .5rem 0 .4rem; }
+    .guardrail p { font-size: .9rem; max-width: 34em; }
+    .audit { margin-top: clamp(2.5rem, 6vh, 4rem); position: relative; }
+    .audit .glow-field { width: 100%; top: 20%; left: 0; opacity: .12; }
+    .audit .app { position: relative; }
+
+    /* ---------- in gebruik: drie stappen ---------- */
+    .stappen { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.4rem, 3vw, 2.5rem); }
+    @media (max-width: 720px) { .stappen { grid-template-columns: 1fr; } }
+    .stap { border-top: 1px solid var(--line-strong); padding-top: 1.1rem; }
+    .stap .mono { color: var(--accent); }
+    .stap h3 { font-size: 1.05rem; letter-spacing: -.02em; margin: .5rem 0 .4rem; }
+    .stap p { font-size: .88rem; }
+
+    /* ---------- metrics-band ---------- */
+    .metrics .kpis {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Direct naar inhoud</a>
+  <header class="nav" id="nav">
+    <div class="nav__in wrap">
+      <a class="nav__logo" href="./index.html" aria-label="Next Growth — home">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect width="18" height="18" rx="4" fill="#C9A45F"/><path d="M5 13V5l8 8V5" stroke="#0A0A0B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Next Growth
+      </a>
+      <nav class="nav__links" id="navLinks" aria-label="Hoofdmenu">
+        <a href="./software.html">Software</a>
+        <a href="./websites.html">Websites</a>
+        <a href="./marketing.html">Marketing</a>
+        <a href="./ai.html" aria-current="page">AI</a>
+        <a href="./crm.html">CRM</a>
+        <a href="./prijzen.html">Prijzen</a>
+        <a href="./cases.html">Cases</a>
+      </nav>
+      <div class="nav__cta">
+        <a class="btn btn--ghost btn--sm" href="./contact.html">Contact</a>
+        <a class="btn btn--sm nav__demo" href="./contact.html">Plan strategiegesprek</a>
+      </div>
+      <button class="nav__burger" id="navBurger" aria-expanded="false" aria-controls="navLinks" aria-label="Menu"><i></i><i></i></button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO + SAGE-WERKSCHERM ============ -->
+    <section class="hero" aria-label="Introductie">
+      <div class="glow-field" aria-hidden="true"></div>
+      <div class="wrap hero__in">
+        <span class="pill" data-reveal><span class="dot dot--ok"></span>Sage — AI-agents in NG/OS</span>
+        <h1 class="h1" data-reveal style="--i:1">AI die <span class="grad-text">meewerkt</span>, niet meepraat.</h1>
+        <p class="lede" data-reveal style="--i:2">Sage leest aanvragen, bereidt offertes voor en voorspelt het beste opvolgmoment. Elke conclusie met bron, elke actie pas na jouw akkoord.</p>
+        <div class="hero__actions" data-reveal style="--i:3">
+          <a class="btn" href="./contact.html">Plan strategiegesprek</a>
+          <a class="btn btn--ghost" href="./software.html">Bekijk de suite</a>
+        </div>
+        <p class="hero__note" data-reveal style="--i:4">Draait op jouw data, in jouw omgeving &middot; Niets gaat de deur uit zonder akkoord</p>
+
+        <div class="hero__app" data-reveal style="--i:5">
+          <div class="glow-field" aria-hidden="true"></div>
+          <div class="app app--tilt" role="img" aria-label="Sage-werkscherm met agent-takenlijst en een uitgewerkte redenering die op akkoord wacht">
+            <div class="app-chrome">
+              <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="route">app.nextgrowth.nl/sage</span>
+            </div>
+            <div class="app-body">
+              <aside class="app-side" aria-hidden="true">
+                <span class="side-item" style="font-weight:700;color:var(--text)">
+                  <svg width="15" height="15" viewBox="0 0 18 18" fill="none"><rect width="18" height="18" rx="4" fill="#C9A45F"/><path d="M5 13V5l8 8V5" stroke="#0A0A0B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  Van Dijk Installaties
+                </span>
+                <p class="side-label">Werkruimte</p>
+                <span class="side-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>Pulse</span>
+                <span class="side-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M17 9h5M17 13h5"/></svg>Atlas<span class="count">1.204</span></span>
+                <span class="side-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg>Vector<span class="count">38</span></span>
+                <span class="side-item is-active"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3l1.7 4.6L18 9.3l-4.3 1.7L12 15.6l-1.7-4.6L6 9.3l4.3-1.7z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg>Sage<span class="count">12</span></span>
+                <span class="side-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg>Flow<span class="count">126</span></span>
+                <p class="side-label">Beheer</p>
+                <span class="side-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>Ledger</span>
+                <span class="side-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Plan</span>
+                <span class="side-user"><span class="avatar">MV</span> M. van Dijk</span>
+              </aside>
+              <div>
+                <div class="app-top" aria-hidden="true">
+                  <span class="app-search"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>Zoek in alles&hellip;<span class="kbd">&#8984;K</span></span>
+                  <div class="app-actions">
+                    <span class="badge badge--warn">12 taken wachten op akkoord</span>
+                    <span class="avatar-stack"><span class="avatar">MV</span><span class="avatar avatar--b">JW</span><span class="avatar avatar--c">+4</span></span>
+                  </div>
+                </div>
+                <div class="app-main" aria-hidden="true">
+                  <div class="app-kpis">
+                    <div class="app-kpi"><span>Taken vandaag</span><b>47</b><span class="delta">&#9650; 6 vs gisteren</span></div>
+                    <div class="app-kpi"><span>Goedgekeurd</span><b>33</b><span class="delta">2 aangepast, 0 afgewezen</span></div>
+                    <div class="app-kpi"><span>Wacht op akkoord</span><b>12</b><span class="delta">oudste: 42 min</span></div>
+                    <div class="app-kpi"><span>Gem. beoordeeltijd</span><b>40 sec</b><span class="delta">&#9660; was 4,2 min</span></div>
+                  </div>
+                  <div class="sage-grid">
+                    <div class="sage-panel tbl-scroll">
+                      <h5>Agent-taken <span class="mono">vandaag</span></h5>
+                      <table class="tbl">
+                        <thead><tr><th>Taak</th><th>Module</th><th>Status</th><th>Tijd</th></tr></thead>
+                        <tbody>
+                          <tr><td>Weekrapport samengesteld</td><td class="num">Pulse</td><td><span class="badge badge--ok">Uitgevoerd</span></td><td class="num">07:00</td></tr>
+                          <tr><td>Aanvraag geclassificeerd</td><td class="num">Atlas</td><td><span class="badge badge--ok">Uitgevoerd</span></td><td class="num">09:41</td></tr>
+                          <tr><td>Offerte-concept gemaakt</td><td class="num">Vector</td><td><span class="badge badge--warn">Wacht op akkoord</span></td><td class="num">09:46</td></tr>
+                          <tr><td>Opvolgmoment voorspeld</td><td class="num">Vector</td><td><span class="badge badge--warn">Wacht op akkoord</span></td><td class="num">09:52</td></tr>
+                          <tr><td>Betaalherinnering opgesteld</td><td class="num">Ledger</td><td><span class="badge badge--warn">Wacht op akkoord</span></td><td class="num">10:15</td></tr>
+                          <tr><td>Antwoord klantvraag (concept)</td><td class="num">Portal</td><td><span class="badge badge--muted">Concept</span></td><td class="num">10:31</td></tr>
+                          <tr><td>Relatiekaart verrijkt (KvK)</td><td class="num">Atlas</td><td><span class="badge badge--ok">Uitgevoerd</span></td><td class="num">11:02</td></tr>
+                          <tr><td>Planningsvoorstel montage</td><td class="num">Plan</td><td><span class="badge badge--muted">Concept</span></td><td class="num">11:18</td></tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="sage-panel sage-detail">
+                      <h5><span class="avatar">S</span>Offerte-concept OFF-2491 <span class="mono">09:46</span></h5>
+                      <div class="sage-vraag">
+                        <span class="avatar avatar--c">MV</span>
+                        <span class="bubble">Waarom dit bedrag voor Hofman &amp; Zn?</span>
+                      </div>
+                      <p class="sage-redenering">Concept voor <b>Hofman &amp; Zn</b>: badkamerrenovatie, <b>&euro; 14.680</b> excl. BTW. Prijzen gebaseerd op 14 vergelijkbare projecten uit de afgelopen 18 maanden; marge gelijkgehouden op 23%. Aanrader: leveringstermijn van 3 weken benoemen — dat was bij deze klant eerder doorslaggevend.</p>
+                      <ul class="sage-bronnen">
+                        <li><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Aanvraag A-3104 — mail 10 jul 09:38</li>
+                        <li><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>14 vergelijkbare projecten (2025–2026)</li>
+                        <li><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Regelbibliotheek Vector — prijspeil jul 2026</li>
+                        <li><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Klanthistorie Hofman &amp; Zn — 3 eerdere opdrachten</li>
+                      </ul>
+                      <div class="sage-conf">
+                        <span class="mono"><span>Confidence</span><b>92%</b></span>
+                        <span class="sage-conf-balk"><i></i></span>
+                      </div>
+                      <div class="sage-acties">
+                        <span class="app-btn app-btn--prim"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Goedkeuren</span>
+                        <span class="app-btn"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 3l4 4L8 20H4v-4z"/></svg>Aanpassen</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sage-panel">
+                    <h5>Recente activiteit <span class="mono">audit-log</span></h5>
+                    <ul class="sage-feed">
+                      <li><span class="dot dot--ok"></span>Offerte-concept OFF-2490 goedgekeurd door M. van Dijk<span class="t">09:12</span></li>
+                      <li><span class="dot dot--ok"></span>Beltaak Peeters Techniek uitgevoerd &rarr; afspraak di 14:00<span class="t">09:31</span></li>
+                      <li><span class="dot dot--warn"></span>Betaalherinnering F-0931 aangepast door Sanne (toon)<span class="t">10:22</span></li>
+                      <li><span class="dot dot--ok"></span>Aanvraag A-3105 geclassificeerd &rarr; service, team B<span class="t">10:44</span></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="hero__fade" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DRIE AGENTS ============ -->
+    <section class="sectie" aria-label="Drie agents">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <p class="eyebrow" data-reveal>Drie agents</p>
+          <h2 class="h2" data-reveal style="--i:1">Elk met &eacute;&eacute;n taak. Elk aantoonbaar goed.</h2>
+          <p data-reveal style="--i:2">Geen alleskunner die soms raak schiet — drie specialisten die elke dag hetzelfde werk foutloos herhalen.</p>
+        </div>
+        <div class="agents">
+          <div class="card agent-kaart" data-reveal>
+            <p class="eyebrow"><span class="dot dot--ok"></span>Sage/Intake</p>
+            <h3>Leest elke aanvraag, mist er geen &eacute;&eacute;n.</h3>
+            <p>Classificeert binnenkomende mails, telefoonnotities en webformulieren, herkent de relatie en zet de aanvraag bij de juiste persoon in Atlas.</p>
+            <ul class="agent-log" aria-hidden="true">
+              <li><span class="t">09:41</span><span>mail geparseerd &rarr; aanvraag <span class="ok">A-3104</span></span></li>
+              <li><span class="t">09:41</span><span>relatie herkend: Hofman &amp; Zn</span></li>
+              <li><span class="t">09:42</span><span>toegewezen aan Jeroen <span class="ok">regio Zuid</span></span></li>
+            </ul>
+            <p class="mono agent-foot"><span>Werkt in Atlas &amp; Portal</span><span>goedkeuring <b>99,2%</b></span></p>
+          </div>
+          <div class="card agent-kaart" data-reveal style="--i:1">
+            <p class="eyebrow"><span class="dot dot--ok"></span>Sage/Offerte</p>
+            <h3>Bouwt het concept, jij tekent af.</h3>
+            <p>Stelt een offerte-concept samen op basis van vergelijkbare projecten en jouw regelprijzen. Altijd als concept — nooit rechtstreeks naar de klant.</p>
+            <ul class="agent-log" aria-hidden="true">
+              <li><span class="t">09:44</span><span>14 vergelijkbare projecten gevonden</span></li>
+              <li><span class="t">09:45</span><span>regels berekend, marge <span class="ok">23%</span></span></li>
+              <li><span class="t">09:46</span><span>concept klaar &rarr; wacht op akkoord</span></li>
+            </ul>
+            <p class="mono agent-foot"><span>Werkt in Vector</span><span>goedkeuring <b>94,7%</b></span></p>
+          </div>
+          <div class="card agent-kaart" data-reveal style="--i:2">
+            <p class="eyebrow"><span class="dot dot--ok"></span>Sage/Opvolging</p>
+            <h3>Kent het beste belmoment.</h3>
+            <p>Volgt open offertes, voorspelt wanneer contact het meest oplevert en zet de beltaak klaar — met de onderbouwing erbij.</p>
+            <ul class="agent-log" aria-hidden="true">
+              <li><span class="t">08:00</span><span>OFF-2482: 3&times; geopend, 0 reacties</span></li>
+              <li><span class="t">08:00</span><span>beste moment: di 09:15 <span class="ok">82%</span></span></li>
+              <li><span class="t">08:01</span><span>beltaak klaargezet voor Jeroen</span></li>
+            </ul>
+            <p class="mono agent-foot"><span>Werkt in Vector &amp; Atlas</span><span>raak advies <b>82%</b></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GUARDRAILS ============ -->
+    <section class="sectie" aria-label="Guardrails">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <p class="eyebrow" data-reveal>Guardrails</p>
+          <h2 class="h2" data-reveal style="--i:1">Slim, maar nooit eigenwijs.</h2>
+          <p data-reveal style="--i:2">Sage werkt binnen vaste grenzen. Die grenzen bepaal jij — en ze staan aan vanaf dag &eacute;&eacute;n.</p>
+        </div>
+        <div class="guardrails">
+          <div class="guardrail" data-reveal>
+            <span class="mono">G-01</span>
+            <h3>Menselijke goedkeuring</h3>
+            <p>Alles wat de deur uitgaat — offertes, mails, herinneringen — wacht op een akkoord van een collega. Zonder akkoord gebeurt er niets.</p>
+          </div>
+          <div class="guardrail" data-reveal style="--i:1">
+            <span class="mono">G-02</span>
+            <h3>Audit-log van elke beslissing</h3>
+            <p>Iedere suggestie, goedkeuring en afwijzing wordt vastgelegd: wie, wat, wanneer en waarom. Terug te lezen tot op de seconde.</p>
+          </div>
+          <div class="guardrail" data-reveal style="--i:2">
+            <span class="mono">G-03</span>
+            <h3>Jouw data blijft bij jou</h3>
+            <p>Sage draait binnen jouw omgeving, op EU-hosting. Je bedrijfsdata verlaat je systeem niet en traint geen modellen van derden.</p>
+          </div>
+          <div class="guardrail" data-reveal style="--i:3">
+            <span class="mono">G-04</span>
+            <h3>Uitlegbaar, altijd</h3>
+            <p>Elke conclusie komt met bronnen en een confidence-score. Kan Sage iets niet onderbouwen, dan doet hij geen voorstel.</p>
+          </div>
+        </div>
+
+        <div class="audit" data-reveal style="--i:4">
+          <div class="glow-field" aria-hidden="true"></div>
+          <div class="app" role="img" aria-label="Audit-log met per beslissing het tijdstip, de gebeurtenis, de beoordelaar en het resultaat">
+            <div class="app-chrome"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="route">app.nextgrowth.nl/sage/audit</span></div>
+            <div class="app-main tbl-scroll" aria-hidden="true">
+              <table class="tbl">
+                <thead><tr><th>Tijdstip</th><th>Gebeurtenis</th><th>Bron</th><th>Beoordeeld door</th><th>Resultaat</th></tr></thead>
+                <tbody>
+                  <tr><td class="num">10 jul 09:46:12</td><td>Offerte-concept OFF-2491 aangemaakt</td><td class="num">14 projecten</td><td><span class="avatar">S</span> Sage/Offerte</td><td><span class="badge badge--warn">Wacht op akkoord</span></td></tr>
+                  <tr><td class="num">10 jul 09:12:40</td><td>Offerte-concept OFF-2490 verstuurd</td><td class="num">11 projecten</td><td><span class="avatar avatar--c">MV</span> M. van Dijk</td><td><span class="badge badge--ok">Goedgekeurd</span></td></tr>
+                  <tr><td class="num">10 jul 08:01:03</td><td>Beltaak Peeters Techniek klaargezet</td><td class="num">OFF-2482</td><td><span class="avatar avatar--b">JW</span> J. Willems</td><td><span class="badge badge--ok">Goedgekeurd</span></td></tr>
+                  <tr><td class="num">9 jul 16:44:51</td><td>Betaalherinnering F-0928 opgesteld</td><td class="num">Ledger</td><td><span class="avatar avatar--b">SB</span> S. Bakker</td><td><span class="badge badge--warn">Aangepast</span></td></tr>
+                  <tr><td class="num">9 jul 14:20:08</td><td>Concept-antwoord klantvraag Portal</td><td class="num">3 berichten</td><td><span class="avatar avatar--c">MV</span> M. van Dijk</td><td><span class="badge badge--danger">Afgewezen</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ IN GEBRUIK ============ -->
+    <section class="sectie" aria-label="In gebruik in drie stappen">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <p class="eyebrow" data-reveal>In gebruik</p>
+          <h2 class="h2" data-reveal style="--i:1">Klein beginnen, meetbaar uitbreiden.</h2>
+        </div>
+        <div class="stappen">
+          <div class="stap" data-reveal>
+            <span class="mono">01</span>
+            <h3>Start met &eacute;&eacute;n agent</h3>
+            <p>Meestal Sage/Intake. Binnen een week leest hij elke aanvraag mee — jij keurt alles goed.</p>
+          </div>
+          <div class="stap" data-reveal style="--i:1">
+            <span class="mono">02</span>
+            <h3>Meet vier weken</h3>
+            <p>Het goedkeuringspercentage in het audit-log bepaalt of en waar we uitbreiden. Cijfers, geen gevoel.</p>
+          </div>
+          <div class="stap" data-reveal style="--i:2">
+            <span class="mono">03</span>
+            <h3>Breid uit</h3>
+            <p>Offerte en Opvolging gaan aan zodra Intake bewezen raak zit. De guardrails blijven op elke agent staan.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DRIE VRAGEN ============ -->
+    <section class="sectie" aria-label="AI-advertentie-engine: genereren in één klik, leert van echte Meta-data · 0:58 · met geluid">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <p class="eyebrow" data-reveal><span class="dot dot--ok"></span>AI in productie</p>
+          <h2 class="h2" data-reveal style="--i:1">Niet alleen beloftes. <em>Kijk mee.</em></h2>
+          <p data-reveal style="--i:2">Onze AI-engine genereert advertenties in &eacute;&eacute;n klik en leert van echte campagnedata — Creative Score boven de 90 of het gaat niet live.</p>
+        </div>
+        <figure class="bewijs" data-reveal>
+          <div class="app">
+            <div class="app-chrome">
+              <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="route">installatieplatform.nl/ad-generator</span>
+              <span class="badge badge--ok">Live</span>
+            </div>
+            <video controls playsinline preload="metadata" poster="./assets/media/creative-engine-poster.jpg" aria-label="AI-advertentie-engine: genereren in één klik, leert van echte Meta-data · 0:58 · met geluid">
+              <source src="./assets/media/creative-engine.mp4" type="video/mp4">
+            </video>
+          </div>
+          <figcaption><span class="dot dot--ok" aria-hidden="true"></span>AI-advertentie-engine: genereren in één klik, leert van echte Meta-data · 0:58 · met geluid</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="sectie" aria-label="Drie vragen die iedereen stelt">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <p class="eyebrow" data-reveal>Eerlijk antwoord</p>
+          <h2 class="h2" data-reveal style="--i:1">Drie vragen die iedereen stelt.</h2>
+        </div>
+        <div class="vragen">
+          <div class="vraag" data-reveal>
+            <span class="mono">V-01</span>
+            <div>
+              <h3>Wat als Sage het mis heeft?</h3>
+              <p>Dan pas je het concept aan of wijs je het af — en dat is data. Elke correctie maakt de volgende suggestie beter. Er gaat niets de deur uit zonder akkoord, dus een misser blijft een concept.</p>
+            </div>
+          </div>
+          <div class="vraag" data-reveal style="--i:1">
+            <span class="mono">V-02</span>
+            <div>
+              <h3>Waar draait dit en wie ziet mijn data?</h3>
+              <p>In jouw NG/OS-omgeving, op EU-hosting. Je data traint geen modellen van derden en verlaat je systeem niet. Het audit-log laat precies zien wat Sage waarvoor heeft gebruikt.</p>
+            </div>
+          </div>
+          <div class="vraag" data-reveal style="--i:2">
+            <span class="mono">V-03</span>
+            <div>
+              <h3>Vervangt dit mensen?</h3>
+              <p>Nee. Sage doet het werk dat bleef liggen: classificeren, voorbereiden, herinneren. De beslissingen — en de klantrelatie — blijven bij je team. Dat is een ontwerpkeuze, geen beperking.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ METRICS ============ -->
+    <section class="sectie metrics" aria-label="Resultaten in cijfers">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <p class="eyebrow" data-reveal>Gemeten, niet beloofd</p>
+          <h2 class="h2" data-reveal style="--i:1">Wat Sage oplevert.</h2>
+        </div>
+        <div class="kpis">
+          <div class="kpi" data-reveal><b><span data-count="31">0</span> uur</b><span>handwerk per week terug naar het team</span></div>
+          <div class="kpi" data-reveal style="--i:1"><b><span data-count="4">0</span> min</b><span>gemiddelde reactietijd op aanvragen (was 2,1 dagen)</span></div>
+          <div class="kpi" data-reveal style="--i:2"><b><span data-count="82">0</span>%</b><span>van de opvolgadviezen leidt tot contact</span></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot__cta">
+      <h2 data-reveal>Klaar om het systeem te zien?</h2>
+      <p data-reveal style="--i:1">Een demo van 30 minuten. Uw cijfers, onze software.</p>
+      <div class="foot__actions" data-reveal style="--i:2">
+        <a class="btn" href="./contact.html">Plan strategiegesprek</a>
+        <a class="btn btn--ghost" href="./cases.html">Bekijk resultaten</a>
+      </div>
+    </div>
+    <div class="wrap foot__grid">
+      <div>
+        <p class="foot__brand">Next Growth</p>
+        <p class="mono foot__meta">Digitale bedrijfssystemen<br>hallo@nextgrowth.nl</p>
+      </div>
+      <nav aria-label="Product"><h3 class="mono">Product</h3>
+        <a href="./software.html">Software</a><a href="./crm.html">CRM</a><a href="./ai.html">AI</a>
+      </nav>
+      <nav aria-label="Diensten"><h3 class="mono">Diensten</h3>
+        <a href="./websites.html">Websites</a><a href="./marketing.html">Marketing</a><a href="./seo.html">SEO</a><a href="./prijzen.html">Prijzen</a>
+      </nav>
+      <nav aria-label="Bedrijf"><h3 class="mono">Bedrijf</h3>
+        <a href="./cases.html">Cases</a><a href="./contact.html">Contact</a>
+      </nav>
+      <nav aria-label="Live werk"><h3 class="mono">Live werk</h3>
+        <a href="https://installatieplatform.nl" target="_blank" rel="noopener">Installatieplatform.nl <span aria-hidden="true">&#8599;</span></a>
+        <a href="https://www.westrikbouw-installaties.nl" target="_blank" rel="noopener">Westrikbouw-installaties.nl <span aria-hidden="true">&#8599;</span></a>
+      </nav>
+    </div>
+    <div class="wrap foot__base mono">&copy; MMXXVI Next Growth — Alle systemen operationeel <span class="dot dot--ok" aria-hidden="true"></span></div>
+  </footer>
+  <script src="./assets/core.js" defer></script>
+</body>
+</html>

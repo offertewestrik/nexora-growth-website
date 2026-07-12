@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEO — Next Growth</title>
+  <meta name="description" content="Hoe Next Growth met SEO en automatiseringen snel bovenaan Google komt: technische basis, geautomatiseerde contentproductie op schaal en meetbare groei.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Crect width='18' height='18' rx='4' fill='%23C9A45F'/%3E%3Cpath d='M5 13V5l8 8V5' stroke='%230B0A08' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./assets/fonts.css">
+  <link rel="stylesheet" href="./assets/core.css">
+  <style>
+    /* ---------- hero ---------- */
+    .hero {
+      position: relative;
+      padding: calc(60px + clamp(3rem, 8vh, 5rem)) 0 clamp(2rem, 5vh, 3.5rem);
+      overflow: clip;
+    }
+    .hero::before {
+      content: "";
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(ellipse 70% 60% at 30% 0%, black 25%, transparent 72%);
+      -webkit-mask-image: radial-gradient(ellipse 70% 60% at 30% 0%, black 25%, transparent 72%);
+      opacity: .5; pointer-events: none;
+    }
+    .hero .glow-field { top: -4rem; right: -6rem; opacity: .35; }
+    .hero__grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 5.4fr) minmax(0, 6.6fr);
+      gap: clamp(2rem, 4vw, 4rem);
+      align-items: center;
+    }
+    @media (max-width: 960px) { .hero__grid { grid-template-columns: 1fr; } }
+    .hero__copy .h1 { margin-bottom: 1.3rem; }
+    .hero__actions { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: 2rem; }
+    .hero__note { margin-top: 1.1rem; font-size: .8rem; color: var(--text-3); }
+
+    /* rank-dashboard mockup */
+    .rankboard .app-main { gap: .9rem; }
+    .rank-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: .7rem; }
+    @media (max-width: 400px) { .rank-kpis { grid-template-columns: 1fr 1fr; } }
+    .rank-tbl-wrap { overflow-x: auto; }
+    .pos {
+      display: inline-flex; align-items: center; gap: .3rem;
+      font-family: var(--mono); font-size: .72rem; font-variant-numeric: tabular-nums;
+    }
+    .pos b { color: var(--text); font-weight: 600; }
+    .up { color: var(--accent); font-size: .62rem; }
+    .rank-chart { background: var(--bg); border: 1px solid var(--line); border-radius: 9px; padding: .8rem .9rem; }
+    .rank-chart h5 { font-size: .74rem; font-weight: 600; color: var(--text-2); margin-bottom: .5rem; display: flex; align-items: center; gap: .5rem; }
+    .rank-chart h5 .mono { margin-left: auto; color: var(--accent); }
+
+    /* ---------- aanpak: 3 pijlers ---------- */
+    .pijlers .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    @media (max-width: 900px) { .pijlers .grid { grid-template-columns: 1fr; } }
+    .pijler { padding: 1.6rem 1.5rem; display: grid; gap: .7rem; align-content: start; }
+    .pijler .nr { font-family: var(--mono); font-size: .7rem; color: var(--accent); letter-spacing: .1em; }
+    .pijler h3 { font-size: 1.15rem; font-weight: 600; letter-spacing: -.01em; }
+    .pijler p { font-size: .88rem; }
+    .pijler ul { display: grid; gap: .5rem; margin-top: .3rem; }
+    .pijler li { display: flex; gap: .6rem; align-items: baseline; font-size: .82rem; color: var(--text-2); }
+    .pijler svg { flex: none; transform: translateY(2px); color: var(--accent); }
+
+    /* ---------- pijplijn (scroll-story) ---------- */
+    .pijplijn .flow-steps { max-width: 40rem; }
+    .pijp-uitleg { max-width: 40rem; margin-top: 1.6rem; font-size: .9rem; }
+
+    /* ---------- automatiseringsmotor ---------- */
+    .motor__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+      gap: clamp(2rem, 5vw, 4.5rem);
+      align-items: center;
+    }
+    @media (max-width: 960px) { .motor__grid { grid-template-columns: 1fr; } }
+    .motor__punten { margin-top: 1.4rem; display: grid; gap: .7rem; }
+    .motor__punten li { display: flex; gap: .7rem; align-items: baseline; font-size: .92rem; }
+    .motor__punten svg { flex: none; transform: translateY(2px); color: var(--accent); }
+    .motor__ui { position: relative; min-width: 0; }
+    .motor__ui .glow-field { width: 100%; top: 15%; left: 0; opacity: .16; }
+    .motor__ui .app { position: relative; }
+
+    /* content-fabriek visual */
+    .fabriek { display: grid; gap: .7rem; }
+    .fabriek__rij { display: flex; align-items: center; gap: .7rem; padding: .6rem .8rem; background: var(--bg); border: 1px solid var(--line); border-radius: 9px; font-size: .76rem; color: var(--text-2); }
+    .fabriek__rij .stad { color: var(--text); font-weight: 600; }
+    .fabriek__rij .mono { margin-left: auto; color: var(--text-3); font-size: .62rem; }
+    .fabriek__telstrip { display: flex; align-items: baseline; gap: .5rem; padding: .3rem 0; }
+    .fabriek__telstrip b { font-family: var(--serif); font-size: 2rem; color: var(--accent); font-variant-numeric: tabular-nums; line-height: 1; }
+    .fabriek__telstrip span { font-size: .8rem; color: var(--text-3); }
+
+    /* ---------- tijdlijn ---------- */
+    .tijdlijn { display: grid; gap: 0; max-width: 46rem; }
+    .fase {
+      position: relative;
+      padding: 1.3rem 0 1.3rem 2.2rem;
+      border-left: 1px solid var(--line-strong);
+    }
+    .fase:last-child { border-left-color: transparent; }
+    .fase::before {
+      content: ""; position: absolute; left: -5px; top: 1.7rem;
+      width: 9px; height: 9px; border-radius: 50%;
+      background: var(--accent); box-shadow: 0 0 10px var(--glow);
+    }
+    .fase .mono { color: var(--accent); }
+    .fase h3 { font-size: 1.05rem; font-weight: 600; letter-spacing: -.01em; margin: .35rem 0 .3rem; }
+    .fase p { font-size: .88rem; max-width: 52ch; }
+
+    /* ---------- resultaten ---------- */
+    .resultaten .kpis {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 2rem;
+    }
+    .resultaten .kpi b { font-family: var(--serif); font-weight: 400; color: var(--accent); }
+
+    /* ---------- eerlijk ---------- */
+    .eerlijk .card { padding: 1.8rem; max-width: 52rem; }
+    .eerlijk p { font-size: .95rem; }
+    .eerlijk p + p { margin-top: .9rem; }
+    .eerlijk .serif-quote { font-family: var(--serif); font-size: clamp(1.4rem, 2.4vw, 1.9rem); color: var(--text); line-height: 1.3; letter-spacing: -.01em; }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Direct naar inhoud</a>
+  <header class="nav" id="nav">
+    <div class="nav__in wrap">
+      <a class="nav__logo" href="./index.html" aria-label="Next Growth — home">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect width="18" height="18" rx="4" fill="#C9A45F"/><path d="M5 13V5l8 8V5" stroke="#0B0A08" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Next Growth
+      </a>
+      <nav class="nav__links" id="navLinks" aria-label="Hoofdmenu">
+        <a href="./software.html">Software</a>
+        <a href="./websites.html">Websites</a>
+        <a href="./marketing.html">Marketing</a>
+        <a href="./seo.html" aria-current="page">SEO</a>
+        <a href="./ai.html">AI</a>
+        <a href="./crm.html">CRM</a>
+        <a href="./prijzen.html">Prijzen</a>
+        <a href="./cases.html">Cases</a>
+      </nav>
+      <div class="nav__cta">
+        <a class="btn btn--ghost btn--sm" href="./contact.html">Contact</a>
+        <a class="btn btn--sm nav__demo" href="./contact.html">Plan strategiegesprek</a>
+      </div>
+      <button class="nav__burger" id="navBurger" aria-expanded="false" aria-controls="navLinks" aria-label="Menu"><i></i><i></i></button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-label="SEO">
+      <div class="glow-field" aria-hidden="true"></div>
+      <div class="wrap hero__grid">
+        <div class="hero__copy">
+          <span class="pill" data-reveal><span class="dot dot--ok"></span>SEO &amp; automatisering</span>
+          <h1 class="h1" data-reveal style="--i:1;margin-top:1.4rem">Bovenaan Google. <em>Sneller dan je concurrent.</em></h1>
+          <p class="lede" data-reveal style="--i:2">Wij combineren een vlekkeloze technische basis met geautomatiseerde contentproductie op schaal. Zo veroveren we tientallen zoekwoorden tegelijk — in weken, niet jaren.</p>
+          <div class="hero__actions" data-reveal style="--i:3">
+            <a class="btn" href="./contact.html">Vraag een SEO-scan aan <span aria-hidden="true">&rarr;</span></a>
+            <a class="btn btn--ghost" href="./cases.html">Bekijk resultaten</a>
+          </div>
+          <p class="hero__note" data-reveal style="--i:4">Gemiddeld +212% aanvragen &middot; honderden lokale pagina&rsquo;s live &middot; meetbaar tot de klik</p>
+        </div>
+
+        <div class="rankboard" data-reveal style="--i:2">
+          <div class="app" role="img" aria-label="SEO-dashboard met stijgende Google-posities per zoekwoord">
+            <div class="app-chrome">
+              <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="route">app.nextgrowth.nl/seo/rankings</span>
+              <span class="badge badge--ok">Live</span>
+            </div>
+            <div class="app-main">
+              <div class="rank-kpis" aria-hidden="true">
+                <div class="app-kpi"><span>Zoekwoorden top 3</span><b>184</b><span class="delta">&#9650; 46 deze maand</span></div>
+                <div class="app-kpi"><span>Organisch verkeer</span><b>28.400</b><span class="delta">&#9650; 63% / kwartaal</span></div>
+                <div class="app-kpi"><span>Gem. positie</span><b>4,2</b><span class="delta">&#9650; was 18,7</span></div>
+              </div>
+              <div class="rank-chart" aria-hidden="true">
+                <h5>Organisch verkeer <span class="mono">6 mnd &#9650;</span></h5>
+                <svg class="chart" viewBox="0 0 560 130">
+                  <defs>
+                    <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="rgba(201,164,95,.30)"/>
+                      <stop offset="100%" stop-color="rgba(201,164,95,0)"/>
+                    </linearGradient>
+                  </defs>
+                  <line class="grid-line" x1="0" y1="32" x2="560" y2="32"/>
+                  <line class="grid-line" x1="0" y1="64" x2="560" y2="64"/>
+                  <line class="grid-line" x1="0" y1="96" x2="560" y2="96"/>
+                  <path class="area" d="M0,112 C70,110 100,104 160,96 C220,88 250,80 310,66 C370,52 400,42 460,28 C500,19 530,14 560,10 L560,130 L0,130 Z"/>
+                  <path class="lijn" d="M0,112 C70,110 100,104 160,96 C220,88 250,80 310,66 C370,52 400,42 460,28 C500,19 530,14 560,10"/>
+                  <circle class="punt" cx="460" cy="28" r="3.5"/>
+                </svg>
+              </div>
+              <div class="rank-tbl-wrap">
+                <table class="tbl" aria-hidden="true">
+                  <thead><tr><th>Zoekwoord</th><th>Positie</th><th>Volume</th><th>Trend</th></tr></thead>
+                  <tbody>
+                    <tr><td>uitbouw op maat breda</td><td><span class="pos"><b>1</b></span></td><td class="num">1.900</td><td><span class="pos up">&#9650; 12</span></td></tr>
+                    <tr><td>prefab aanbouw kosten</td><td><span class="pos"><b>2</b></span></td><td class="num">3.600</td><td><span class="pos up">&#9650; 8</span></td></tr>
+                    <tr><td>warmtepomp installateur</td><td><span class="pos"><b>3</b></span></td><td class="num">5.400</td><td><span class="pos up">&#9650; 21</span></td></tr>
+                    <tr><td>zonwering op maat</td><td><span class="pos"><b>4</b></span></td><td class="num">2.200</td><td><span class="pos up">&#9650; 5</span></td></tr>
+                    <tr><td>poolhouse laten bouwen</td><td><span class="pos"><b>5</b></span></td><td class="num">880</td><td><span class="pos up">&#9650; 9</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HOE WERKT GOOGLE ============ -->
+    <section class="sectie" aria-label="Hoe Google rangschikt">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <p class="eyebrow" data-reveal>Onze overtuiging</p>
+          <h2 class="h2" data-reveal style="--i:1">Google beloont drie dingen. <em>Wij leveren ze alle drie.</em></h2>
+          <p data-reveal style="--i:2">SEO is geen trucje. Google zet de site bovenaan die technisch vlekkeloos is, de vraag het beste beantwoordt en het meeste vertrouwen uitstraalt. Dat is precies waar wij op bouwen.</p>
+        </div>
+        <div class="pijlers"><div class="grid">
+          <article class="card pijler" data-reveal>
+            <span class="nr">01 — Techniek</span>
+            <h3>Een fundament dat vliegt.</h3>
+            <p>Google rankt geen trage sites. Wij bouwen op een moderne stack, dus alles is snel, gestructureerd en foutloos leesbaar voor de crawler.</p>
+            <ul>
+              <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Core Web Vitals in het groen (LCP &lt; 1s)</li>
+              <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Schema.org, sitemaps &amp; canonicals automatisch</li>
+              <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Server-side gerenderd, direct indexeerbaar</li>
+            </ul>
+          </article>
+          <article class="card pijler" data-reveal style="--i:1">
+            <span class="nr">02 — Content</span>
+            <h3>Het antwoord, op schaal.</h3>
+            <p>E&eacute;n pagina rankt op &eacute;&eacute;n zoekwoord. Wij bouwen er honderden — per dienst, per stad, per vraag — elk uniek en echt behulpzaam.</p>
+            <ul>
+              <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Zoekwoordonderzoek naar intentie, niet volume</li>
+              <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Lokale pagina&rsquo;s met echte, unieke context</li>
+              <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Interne links die autoriteit doorgeven</li>
+            </ul>
+          </article>
+          <article class="card pijler" data-reveal style="--i:2">
+            <span class="nr">03 — Vertrouwen</span>
+            <h3>Autoriteit die klopt.</h3>
+            <p>Google wil bewijs dat je te vertrouwen bent. Wij bouwen signalen op die echt zijn — geen trucs die je later de kop kosten.</p>
+            <ul>
+              <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Reviews, cases en echte bedrijfsgegevens</li>
+              <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Relevante backlinks uit je eigen netwerk</li>
+              <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Google Bedrijfsprofiel &amp; lokale signalen</li>
+            </ul>
+          </article>
+        </div></div>
+      </div>
+    </section>
+
+    <!-- ============ AUTOMATISERINGSMOTOR ============ -->
+    <section class="sectie motor" aria-label="De automatiseringsmotor">
+      <div class="wrap motor__grid">
+        <div>
+          <p class="eyebrow" data-reveal><span class="dot dot--ok"></span>Waarom wij sneller zijn</p>
+          <h2 class="h2" data-reveal style="--i:1">Wat een bureau in maanden doet, doet ons systeem in <em>dagen.</em></h2>
+          <p data-reveal style="--i:2">Een klassiek SEO-bureau schrijft handmatig — pagina voor pagina, maand na maand. Wij bouwden een contentmotor die tientallen unieke, lokale pagina&rsquo;s tegelijk produceert en publiceert. Jij ziet ze allemaal terug in het systeem.</p>
+          <ul class="motor__punten">
+            <li data-reveal style="--i:3"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Honderden stadspagina&rsquo;s uit &eacute;&eacute;n zoekwoordstrategie</li>
+            <li data-reveal style="--i:4"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Elke pagina uniek — echte lokale context, geen kopie</li>
+            <li data-reveal style="--i:5"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Automatisch schema, interne links en sitemap</li>
+            <li data-reveal style="--i:6"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Posities dagelijks gemeten, zwakke plekken herschreven</li>
+          </ul>
+          <a href="./ai.html" data-reveal style="--i:7;display:inline-flex;align-items:center;gap:.4rem;margin-top:1.6rem;font-weight:600;font-size:.9rem;color:var(--accent);text-decoration:none">Zo werkt onze AI <span aria-hidden="true">&rarr;</span></a>
+        </div>
+        <div class="motor__ui" data-reveal style="--i:2">
+          <div class="glow-field" aria-hidden="true"></div>
+          <div class="app" role="img" aria-label="Contentmotor die lokale SEO-pagina's genereert en publiceert">
+            <div class="app-chrome"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="route">app.nextgrowth.nl/seo/contentmotor</span></div>
+            <div class="app-main">
+              <div class="fabriek" aria-hidden="true">
+                <div class="fabriek__rij"><span class="stad">Uitbouw — Breda</span> gepubliceerd <span class="badge badge--ok">Positie 1</span><span class="mono">2.140 wrd</span></div>
+                <div class="fabriek__rij"><span class="stad">Uitbouw — Tilburg</span> gepubliceerd <span class="badge badge--ok">Positie 3</span><span class="mono">1.980 wrd</span></div>
+                <div class="fabriek__rij"><span class="stad">Uitbouw — Eindhoven</span> gepubliceerd <span class="badge badge--warn">Stijgt</span><span class="mono">2.050 wrd</span></div>
+                <div class="fabriek__rij"><span class="stad">Uitbouw — Den Bosch</span> geschreven <span class="badge badge--muted">Review</span><span class="mono">1.910 wrd</span></div>
+                <div class="fabriek__rij"><span class="stad">Uitbouw — Roosendaal</span> in wachtrij <span class="badge badge--muted">Gepland</span><span class="mono">&mdash;</span></div>
+              </div>
+              <div class="fabriek__telstrip">
+                <b>247</b><span>unieke lokale pagina&rsquo;s live &middot; deze campagne</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PIJPLIJN (scroll-story) ============ -->
+    <section class="sectie pijplijn" aria-label="Onze SEO-pijplijn">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <p class="eyebrow" data-reveal>Van zoekwoord naar positie 1</p>
+          <h2 class="h2" data-reveal style="--i:1">E&eacute;n geautomatiseerde pijplijn.</h2>
+          <p data-reveal style="--i:2">Elke pagina doorloopt dezelfde route — automatisch, meetbaar, herhaalbaar.</p>
+        </div>
+        <div class="flow-steps" aria-label="SEO-pijplijn stappen">
+          <div class="flow-step">
+            <span class="icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></span>
+            <span><b>Onderzoek</b> — Zoekwoord + intentie + concurrentie in kaart</span>
+            <span class="badge badge--ok">Auto</span>
+          </div>
+          <div class="flow-verbinder"></div>
+          <div class="flow-step">
+            <span class="icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></span>
+            <span><b>Productie</b> — Unieke, lokale pagina geschreven &amp; opgemaakt</span>
+            <span class="badge badge--ok">Auto</span>
+          </div>
+          <div class="flow-verbinder"></div>
+          <div class="flow-step">
+            <span class="icon icon--warn"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 8v5l3 2"/><circle cx="12" cy="12" r="9"/></svg></span>
+            <span><b>Controle</b> — Mens leest na op kwaliteit en toon</span>
+            <span class="badge badge--warn">Menselijk</span>
+          </div>
+          <div class="flow-verbinder"></div>
+          <div class="flow-step">
+            <span class="icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg></span>
+            <span><b>Publicatie</b> — Live + schema, interne links &amp; sitemap-ping</span>
+            <span class="badge badge--ok">Auto</span>
+          </div>
+          <div class="flow-verbinder"></div>
+          <div class="flow-step">
+            <span class="icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></span>
+            <span><b>Meten &amp; bijsturen</b> — Positie dagelijks gevolgd, zwakke pagina&rsquo;s herschreven</span>
+            <span class="badge badge--ok">Continu</span>
+          </div>
+        </div>
+        <p class="pijp-uitleg" data-reveal>Het resultaat: je bent niet vindbaar op &eacute;&eacute;n zoekwoord, maar op de volle breedte van wat je klanten zoeken — met een systeem dat blijft leren en bijsturen.</p>
+      </div>
+    </section>
+
+    <!-- ============ TIJDLIJN ============ -->
+    <section class="sectie" aria-label="Wat je wanneer ziet">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <p class="eyebrow" data-reveal>Realistische verwachting</p>
+          <h2 class="h2" data-reveal style="--i:1">Snel, maar eerlijk over de tijdlijn.</h2>
+        </div>
+        <div class="tijdlijn">
+          <div class="fase" data-reveal>
+            <span class="mono">WEEK 1 &ndash; 2</span>
+            <h3>Fundament &amp; eerste pagina&rsquo;s live</h3>
+            <p>Technische basis staat, zoekwoordstrategie is bepaald en de eerste lokale pagina&rsquo;s worden geproduceerd en gepubliceerd. Google begint te crawlen.</p>
+          </div>
+          <div class="fase" data-reveal style="--i:1">
+            <span class="mono">WEEK 3 &ndash; 8</span>
+            <h3>Eerste posities &amp; long-tail winst</h3>
+            <p>Op minder concurrerende, specifieke zoektermen verschijn je snel in de top 10. De contentmotor draait door: tientallen pagina&rsquo;s per week.</p>
+          </div>
+          <div class="fase" data-reveal style="--i:2">
+            <span class="mono">MAAND 3 &ndash; 6</span>
+            <h3>Doorbraak op de grote termen</h3>
+            <p>Autoriteit en interne links doen hun werk. De belangrijkste, drukste zoekwoorden schuiven richting de top 3 — en de aanvragen volgen.</p>
+          </div>
+          <div class="fase" data-reveal style="--i:3">
+            <span class="mono">DOORLOPEND</span>
+            <h3>Voorsprong die zich opstapelt</h3>
+            <p>Elke maand meer pagina&rsquo;s, meer posities, meer verkeer. SEO is geen project maar een systeem — en jouw voorsprong wordt elke maand groter.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RESULTATEN ============ -->
+    <section class="sectie resultaten" aria-label="Resultaten in cijfers">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <p class="eyebrow" data-reveal>Gemeten, niet beloofd</p>
+          <h2 class="h2" data-reveal style="--i:1">Wat dit oplevert.</h2>
+        </div>
+        <div class="kpis">
+          <div class="kpi" data-reveal><b>+<span data-count="212">0</span>%</b><span>meer aanvragen via organisch verkeer</span></div>
+          <div class="kpi" data-reveal style="--i:1"><b><span data-count="184">0</span></b><span>zoekwoorden in de top 3</span></div>
+          <div class="kpi" data-reveal style="--i:2"><b><span data-count="247">0</span></b><span>unieke lokale pagina&rsquo;s per campagne</span></div>
+          <div class="kpi" data-reveal style="--i:3"><b>&euro;&thinsp;<span data-count="0">0</span></b><span>advertentiekosten voor dit verkeer</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EERLIJK ============ -->
+    <section class="sectie eerlijk" aria-label="Eerlijk over SEO">
+      <div class="wrap">
+        <div class="g-border card" data-reveal>
+          <p class="serif-quote">Wie &ldquo;gegarandeerd nummer 1 morgen&rdquo; belooft, verkoopt lucht.</p>
+          <p style="margin-top:1.2rem">SEO is een oneerlijk spel als je het snel en vals speelt — Google straft trucs vroeg of laat af, en dan verlies je alles in &eacute;&eacute;n update. Wij spelen het snel &eacute;n eerlijk: een echte technische basis, echt behulpzame content en echte autoriteit.</p>
+          <p>Dat is waarom onze posities blijven staan. We bouwen geen piek, we bouwen een fundament dat elke maand sterker wordt — met een systeem dat de rest van de markt simpelweg niet heeft.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot__cta">
+      <h2 data-reveal>Benieuwd waar jij kunt staan?</h2>
+      <p data-reveal style="--i:1">We doen een gratis SEO-scan van je huidige positie en laten zien wat mogelijk is.</p>
+      <div class="foot__actions" data-reveal style="--i:2">
+        <a class="btn" href="./contact.html">Vraag een SEO-scan aan</a>
+        <a class="btn btn--ghost" href="./cases.html">Bekijk resultaten</a>
+      </div>
+    </div>
+    <div class="wrap foot__grid">
+      <div>
+        <p class="foot__brand">Next Growth</p>
+        <p class="mono foot__meta">Digitale bedrijfssystemen<br>hallo@nextgrowth.nl</p>
+      </div>
+      <nav aria-label="Product"><h3 class="mono">Product</h3>
+        <a href="./software.html">Software</a><a href="./crm.html">CRM</a><a href="./ai.html">AI</a>
+      </nav>
+      <nav aria-label="Diensten"><h3 class="mono">Diensten</h3>
+        <a href="./websites.html">Websites</a><a href="./marketing.html">Marketing</a><a href="./seo.html">SEO</a><a href="./prijzen.html">Prijzen</a>
+      </nav>
+      <nav aria-label="Bedrijf"><h3 class="mono">Bedrijf</h3>
+        <a href="./cases.html">Cases</a><a href="./contact.html">Contact</a>
+      </nav>
+      <nav aria-label="Live werk"><h3 class="mono">Live werk</h3>
+        <a href="https://installatieplatform.nl" target="_blank" rel="noopener">Installatieplatform.nl <span aria-hidden="true">&#8599;</span></a>
+        <a href="https://www.westrikbouw-installaties.nl" target="_blank" rel="noopener">Westrikbouw-installaties.nl <span aria-hidden="true">&#8599;</span></a>
+      </nav>
+    </div>
+    <div class="wrap foot__base mono">&copy; MMXXVI Next Growth — Alle systemen operationeel <span class="dot dot--ok" aria-hidden="true"></span></div>
+  </footer>
+  <script src="./assets/core.js" defer></script>
+</body>
+</html>

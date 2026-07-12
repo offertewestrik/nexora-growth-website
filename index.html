@@ -1,0 +1,967 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Next Growth — Wij bouwen digitale systemen die bedrijven laten groeien</title>
+  <meta name="description" content="Next Growth bouwt digitale bedrijfssystemen: websites, software, AI en automatiseringen die samen één krachtig ecosysteem vormen.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Crect width='18' height='18' rx='4' fill='%23C9A45F'/%3E%3Cpath d='M5 13V5l8 8V5' stroke='%230B0A08' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./assets/fonts.css">
+  <link rel="stylesheet" href="./assets/core.css">
+  <style>
+    /* ---------- hero: links copy, rechts de zwevende systeemwereld ---------- */
+    .hero {
+      position: relative;
+      padding: calc(60px + clamp(3rem, 8vh, 5.5rem)) 0 clamp(3rem, 8vh, 5rem);
+      overflow: clip;
+    }
+    .hero__net {
+      position: absolute;
+      inset: 0 0 auto 0;
+      width: 100%;
+      height: min(92vh, 820px);
+      pointer-events: none;
+      opacity: .5;
+      mask-image: radial-gradient(ellipse 80% 65% at 65% 35%, black 30%, transparent 78%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 65% at 65% 35%, black 30%, transparent 78%);
+    }
+    .hero .glow-field { top: -4rem; right: -8rem; opacity: .4; }
+    .hero__grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 5.2fr) minmax(0, 6.8fr);
+      gap: clamp(2rem, 4vw, 4rem);
+      align-items: center;
+    }
+    @media (max-width: 960px) { .hero__grid { grid-template-columns: 1fr; } }
+
+    .hero__copy .h1 { margin-bottom: 1.3rem; }
+    .hero__copy .lede { font-size: 1.05rem; }
+    .hero__actions { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: 2rem; }
+    .hero__reviews {
+      display: flex; align-items: center; gap: .9rem;
+      margin-top: 2.2rem;
+    }
+    .hero__reviews .avatar-stack .avatar { width: 30px; height: 30px; font-size: .66rem; box-shadow: 0 0 0 2px var(--bg); }
+    .hero__reviews .sterren { display: flex; gap: 2px; color: var(--accent); }
+    .hero__reviews p { font-size: .8rem; color: var(--text-3); }
+    .hero__reviews .sterren svg { width: 13px; height: 13px; }
+
+    /* de zwevende systeemwereld */
+    .wereld {
+      position: relative;
+      min-height: clamp(26rem, 46vw, 34rem);
+    }
+    @media (max-width: 960px) { .wereld { min-height: 24rem; margin-top: 1rem; } }
+    .paneel {
+      position: absolute;
+      width: clamp(11rem, 16vw, 15rem);
+      background: rgba(19, 17, 9, .62);
+      border: 1px solid rgba(201, 164, 95, .16);
+      border-radius: 14px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 1px 0 rgba(255,255,255,.06) inset, 0 30px 70px -30px rgba(0,0,0,.85);
+      padding: .85rem .95rem;
+      font-size: .72rem;
+      color: var(--text-2);
+      animation: paneel-drift 9s ease-in-out infinite alternate;
+    }
+    .paneel h5 {
+      display: flex; align-items: center; gap: .5rem;
+      font-size: .66rem; font-weight: 600; letter-spacing: .04em;
+      color: var(--text-3);
+      margin-bottom: .55rem;
+    }
+    .paneel h5 svg { color: var(--accent); flex: none; }
+    .paneel .groot { font-size: 1.35rem; font-weight: 700; letter-spacing: -.02em; color: var(--text); font-variant-numeric: tabular-nums; line-height: 1.1; }
+    .paneel .delta { font-family: var(--mono); font-size: .6rem; color: var(--accent); }
+    .paneel--1 { top: 2%; left: 12%; animation-delay: 0s; }
+    .paneel--2 { top: 0%; right: 0; width: clamp(10rem, 13vw, 12rem); animation-delay: 1.2s; }
+    .paneel--3 { top: 38%; left: 0; animation-delay: 2.1s; }
+    .paneel--4 { top: 34%; right: 4%; width: clamp(11rem, 15vw, 14rem); animation-delay: .7s; }
+    .paneel--5 { bottom: 0; left: 22%; animation-delay: 1.7s; }
+    .paneel--6 { bottom: 4%; right: 0; width: clamp(10rem, 14vw, 13rem); animation-delay: 2.6s; }
+    @keyframes paneel-drift { from { translate: 0 0; } to { translate: 0 -12px; } }
+    /* mobiel: zwevende panelen worden een net raster (geen absolute gaten) */
+    @media (max-width: 720px) {
+      .wereld {
+        min-height: 0;
+        margin-top: 1.5rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: .7rem;
+        align-items: start;
+      }
+      .paneel {
+        position: static;
+        width: auto;
+        animation: none;
+      }
+      .wereld__kern { display: none; }
+    }
+    @media (max-width: 400px) {
+      .wereld { grid-template-columns: 1fr; }
+      .paneel--6 { display: none; }
+    }
+
+    .wereld__kern {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: clamp(5.5rem, 8vw, 7rem);
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(160deg, #2A2415, #171307 70%);
+      border: 1px solid rgba(201, 164, 95, .35);
+      border-radius: 20px;
+      box-shadow: 0 0 60px -8px var(--glow), 0 1px 0 rgba(255,255,255,.12) inset;
+      z-index: 2;
+    }
+    .wereld__kern::after {
+      content: "";
+      position: absolute; inset: -34%;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--glow), transparent 65%);
+      filter: blur(20px);
+      z-index: -1;
+      animation: kern-puls 4.5s ease-in-out infinite;
+    }
+    @keyframes kern-puls { 0%,100% { opacity: .55; } 50% { opacity: 1; } }
+
+    /* mini donut & spark in panelen */
+    .donut {
+      width: 46px; height: 46px; border-radius: 50%;
+      background: conic-gradient(var(--accent) 0 74%, rgba(255,255,255,.09) 74% 100%);
+      display: grid; place-items: center;
+      flex: none;
+    }
+    .donut::after { content: ""; width: 30px; height: 30px; border-radius: 50%; background: rgba(19,17,9,.95); }
+    .paneel .rij { display: flex; align-items: center; gap: .7rem; }
+    .paneel .staafjes { display: grid; gap: .45rem; margin-top: .2rem; }
+    .paneel .staafjes > div { display: grid; gap: .25rem; }
+    .paneel .staafjes .s-label { display: flex; justify-content: space-between; font-family: var(--mono); font-size: .56rem; color: var(--text-3); }
+    .paneel .staafjes .s-bar { height: 3px; border-radius: 2px; background: rgba(255,255,255,.08); overflow: hidden; }
+    .paneel .staafjes .s-bar i { display: block; height: 100%; width: calc(1% * var(--v)); background: linear-gradient(90deg, rgba(201,164,95,.5), var(--accent)); border-radius: 2px; }
+    .paneel .mini-spark { width: 100%; height: auto; margin-top: .3rem; }
+    .paneel .mini-spark path { fill: none; stroke: var(--accent); stroke-width: 1.6; stroke-linecap: round; }
+    .paneel .avatar { width: 20px; height: 20px; font-size: .52rem; }
+
+    /* ---------- logo-rij ---------- */
+    .logos { padding-block: 2.4rem; border-top: 1px solid var(--line); }
+    .logos p { text-align: center; font-size: .78rem; color: var(--text-3); margin-bottom: 1.5rem; }
+
+    /* ---------- oplossingen (crème) ---------- */
+    .oplossingen .sectie-kop { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 1.5rem 3rem; align-items: end; max-width: none; }
+    @media (max-width: 820px) { .oplossingen .sectie-kop { grid-template-columns: 1fr; } }
+    .oplossingen .sectie-kop p { font-size: .95rem; margin: 0; }
+    .opl-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    @media (max-width: 960px) { .opl-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .opl-grid { grid-template-columns: 1fr; } }
+    .opl-kaart {
+      display: grid; gap: .7rem; align-content: start;
+      padding: 1.5rem 1.4rem 1.3rem;
+      text-decoration: none;
+    }
+    .opl-kaart svg.icoon { color: var(--cream-ink); opacity: .8; }
+    .opl-kaart h3 { font-size: 1.02rem; font-weight: 600; letter-spacing: -.01em; }
+    .opl-kaart p { font-size: .86rem; }
+    .opl-kaart .pijl {
+      width: 30px; height: 30px; border-radius: 50%;
+      display: grid; place-items: center;
+      background: linear-gradient(180deg, #DDBA7C, #B8914A);
+      color: #201709;
+      margin-top: .4rem;
+      transition: transform .25s var(--ease);
+    }
+    .opl-kaart:hover .pijl { transform: translateX(4px); }
+
+    /* ---------- ecosysteem (laptop) ---------- */
+    .eco__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 4.6fr) minmax(0, 7.4fr);
+      gap: clamp(2rem, 5vw, 4.5rem);
+      align-items: center;
+    }
+    @media (max-width: 960px) { .eco__grid { grid-template-columns: minmax(0, 1fr); } }
+    .eco__grid > * { min-width: 0; }
+    .laptop .app-main, .laptop .dash-panel, .laptop .app { min-width: 0; }
+    @media (max-width: 640px) {
+      .laptop__voet { margin-inline: 0; }
+      .laptop .app-top .badge { display: none; }
+      .laptop .dash-feed .t { display: none; }
+    }
+    .eco__punten { margin-top: 1.4rem; display: grid; gap: .7rem; }
+    .eco__punten li { display: flex; gap: .7rem; align-items: baseline; font-size: .92rem; }
+    .eco__punten svg { flex: none; transform: translateY(2px); }
+    .eco__cta { margin-top: 1.8rem; }
+    .laptop { position: relative; }
+    .laptop .glow-field { width: 110%; top: 12%; left: -5%; opacity: .3; }
+    .laptop__scherm {
+      position: relative;
+      border: 1px solid var(--line-strong);
+      border-radius: 16px 16px 0 0;
+      background: #060504;
+      padding: 10px 10px 0;
+      box-shadow: 0 40px 90px -40px rgba(0,0,0,.9);
+    }
+    .laptop__scherm .app { border-radius: 8px 8px 0 0; box-shadow: none; }
+    .laptop__voet {
+      position: relative;
+      height: 14px;
+      background: linear-gradient(180deg, #23201A, #0E0C09);
+      border-radius: 0 0 14px 14px;
+      border: 1px solid var(--line-strong);
+      border-top: 0;
+      margin-inline: -3%;
+    }
+    .laptop__voet::before {
+      content: "";
+      position: absolute; top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 12%; height: 5px;
+      border-radius: 0 0 8px 8px;
+      background: rgba(255,255,255,.08);
+    }
+
+    /* dashboard details */
+    .dash-grid { display: grid; grid-template-columns: 1.7fr 1fr; gap: 1rem; min-width: 0; }
+    @media (max-width: 900px) { .dash-grid { grid-template-columns: 1fr; } }
+    .dash-panel { background: var(--bg); border: 1px solid var(--line); border-radius: 9px; padding: .8rem .9rem; min-width: 0; }
+    .dash-panel h5 { font-size: .74rem; font-weight: 600; color: var(--text-2); margin-bottom: .6rem; display: flex; align-items: center; gap: .5rem; }
+    .dash-panel h5 .mono { margin-left: auto; color: var(--text-3); }
+    .dash-feed { display: grid; gap: .55rem; font-size: .74rem; }
+    .dash-feed li { display: flex; align-items: baseline; gap: .55rem; color: var(--text-2); }
+    .dash-feed .dot { flex: none; transform: translateY(-1px); }
+    .dash-feed .t { margin-left: auto; font-family: var(--mono); font-size: .62rem; color: var(--text-3); white-space: nowrap; }
+    .tbl-scroll { overflow-x: auto; }
+
+    /* ---------- feature-secties ---------- */
+    .feature {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: clamp(2rem, 5vw, 4.5rem);
+      align-items: center;
+    }
+    .feature--flip .feature__copy { order: 2; }
+    @media (max-width: 900px) {
+      .feature { grid-template-columns: 1fr; }
+      .feature--flip .feature__copy { order: 0; }
+    }
+    .feature__copy .eyebrow { margin-bottom: .9rem; }
+    .feature__copy h2 { margin-bottom: .9rem; }
+    .feature__punten { margin-top: 1.4rem; display: grid; gap: .7rem; }
+    .feature__punten li { display: flex; gap: .7rem; align-items: baseline; font-size: .92rem; }
+    .feature__punten svg { flex: none; transform: translateY(2px); }
+    .feature__link { display: inline-flex; align-items: center; gap: .4rem; margin-top: 1.6rem; font-weight: 600; font-size: .9rem; color: var(--accent); text-decoration: none; }
+    .feature__link:hover { text-decoration: underline; text-underline-offset: 4px; }
+    .feature__ui { position: relative; min-width: 0; }
+    .feature__ui .glow-field { width: 100%; top: 20%; left: 0; opacity: .18; }
+    .feature__ui .app { position: relative; }
+
+    /* flow-builder */
+    .flow-steps { display: grid; gap: .6rem; }
+    .flow-step {
+      display: flex; align-items: center; gap: .7rem;
+      padding: .65rem .8rem;
+      background: var(--bg); border: 1px solid var(--line); border-radius: 9px;
+      font-size: .76rem; color: var(--text-2);
+    }
+    .flow-step .icon {
+      width: 26px; height: 26px; border-radius: 7px; flex: none;
+      display: grid; place-items: center;
+      background: var(--accent-dim); color: var(--accent);
+    }
+    .flow-step .icon--warn { background: rgba(251,191,36,.12); color: var(--warn); }
+    .flow-step b { color: var(--text); font-weight: 600; }
+    .flow-step .badge { margin-left: auto; }
+    .flow-verbinder { width: 1px; height: 14px; background: var(--line-strong); margin-left: calc(.8rem + 13px); }
+
+    /* sage-log */
+    .sage-chat { display: grid; gap: .7rem; }
+    .sage-msg { display: flex; gap: .6rem; align-items: flex-start; font-size: .76rem; }
+    .sage-msg .avatar { margin-top: .1rem; }
+    .sage-msg .bubble {
+      background: var(--bg); border: 1px solid var(--line); border-radius: 9px;
+      padding: .55rem .75rem; color: var(--text-2);
+    }
+    .sage-msg--ai .bubble { border-color: rgba(201,164,95,.25); }
+    .sage-denkt { display: grid; gap: .35rem; margin-top: .4rem; }
+    .sage-denkt li { display: flex; gap: .5rem; align-items: center; font-family: var(--mono); font-size: .64rem; color: var(--text-3); }
+    .sage-denkt svg { color: var(--accent); flex: none; }
+
+    /* ---------- echt bewijs ---------- */
+    .bewijs-grid {
+      display: grid;
+      grid-template-columns: 7fr 5fr;
+      gap: 1.2rem;
+      align-items: start;
+    }
+    @media (max-width: 900px) { .bewijs-grid { grid-template-columns: 1fr; } }
+
+    /* ---------- cases: fotokaarten ---------- */
+    .case-rij { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    @media (max-width: 880px) { .case-rij { grid-template-columns: 1fr; } }
+    .case-foto {
+      position: relative;
+      display: grid;
+      align-content: end;
+      gap: .3rem;
+      min-height: 21rem;
+      padding: 1.4rem;
+      border-radius: var(--r);
+      overflow: hidden;
+      text-decoration: none;
+      border: 1px solid var(--line);
+      isolation: isolate;
+      transition: transform .3s var(--ease), border-color .3s var(--ease);
+      background-size: cover;
+      background-position: center;
+    }
+    .case-foto:hover { transform: translateY(-4px); border-color: rgba(201,164,95,.4); transition-duration: .08s; }
+    .case-foto::before {
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(185deg, rgba(11,10,8,.1) 30%, rgba(11,10,8,.92) 82%);
+      z-index: -1;
+    }
+    .case-foto b {
+      font-family: var(--serif);
+      font-size: 2.1rem;
+      font-weight: 400;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .case-foto .wat { font-size: .9rem; font-weight: 600; color: var(--text); }
+    .case-foto .wie { display: flex; justify-content: space-between; align-items: center; font-size: .8rem; color: var(--text-3); margin-top: .5rem; }
+    .case-foto .wie span:last-child { color: var(--accent); }
+
+    /* ---------- statistiekband ---------- */
+    .statband .band-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 2fr);
+      gap: 2rem 3rem;
+      align-items: center;
+    }
+    @media (max-width: 900px) { .statband .band-grid { grid-template-columns: 1fr; } }
+    .statband .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1.5rem 2rem; }
+    .statband .kpi b { font-family: var(--serif); font-weight: 400; color: var(--accent); }
+
+    /* ---------- suite-strip ---------- */
+    .suite-strip { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; }
+    .suite-strip .pill b { color: var(--text); font-weight: 600; margin-right: .1rem; }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Direct naar inhoud</a>
+  <header class="nav" id="nav">
+    <div class="nav__in wrap">
+      <a class="nav__logo" href="./index.html" aria-label="Next Growth — home">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect width="18" height="18" rx="4" fill="#C9A45F"/><path d="M5 13V5l8 8V5" stroke="#0B0A08" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Next Growth
+      </a>
+      <nav class="nav__links" id="navLinks" aria-label="Hoofdmenu">
+        <a href="./software.html">Software</a>
+        <a href="./websites.html">Websites</a>
+        <a href="./marketing.html">Marketing</a>
+        <a href="./seo.html">SEO</a>
+        <a href="./ai.html">AI</a>
+        <a href="./crm.html">CRM</a>
+        <a href="./prijzen.html">Prijzen</a>
+        <a href="./cases.html">Cases</a>
+      </nav>
+      <div class="nav__cta">
+        <a class="btn btn--ghost btn--sm" href="./contact.html">Contact</a>
+        <a class="btn btn--sm nav__demo" href="./contact.html">Plan strategiegesprek</a>
+      </div>
+      <button class="nav__burger" id="navBurger" aria-expanded="false" aria-controls="navLinks" aria-label="Menu"><i></i><i></i></button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-label="Introductie">
+      <canvas class="hero__net" id="heroNet" aria-hidden="true"></canvas>
+      <div class="glow-field" aria-hidden="true"></div>
+      <div class="wrap hero__grid" data-scene>
+        <div class="hero__copy">
+          <h1 class="h1" data-reveal>Wij bouwen <em>digitale systemen</em> die bedrijven laten groeien<span style="color:var(--accent)">.</span></h1>
+          <p class="lede" data-reveal style="--i:1">Websites, software, AI en automatiseringen die samen &eacute;&eacute;n krachtig ecosysteem vormen.</p>
+          <div class="hero__actions" data-reveal style="--i:2">
+            <a class="btn" href="./contact.html">Plan strategiegesprek <span aria-hidden="true">&rarr;</span></a>
+            <a class="btn btn--ghost" href="./cases.html">Bekijk ons werk</a>
+          </div>
+          <div class="hero__reviews" data-reveal style="--i:3">
+            <span class="avatar-stack" aria-hidden="true"><span class="avatar">MV</span><span class="avatar avatar--b">JW</span><span class="avatar avatar--c">SB</span><span class="avatar">LD</span></span>
+            <div>
+              <span class="sterren" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7L12 17.7 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7L12 17.7 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7L12 17.7 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7L12 17.7 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7L12 17.7 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg>
+              </span>
+              <p>4,9/5 op basis van 120+ reviews</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="wereld" aria-hidden="true">
+          <div class="wereld__kern" data-depth="0.1">
+            <svg width="34" height="34" viewBox="0 0 18 18" fill="none"><path d="M4 14V4l10 10V4" stroke="#C9A45F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="paneel paneel--1" data-depth="0.35">
+            <h5><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>Dashboard</h5>
+            <p class="groot">&euro; 386.400</p>
+            <p class="delta">&#9650; 12,4% deze maand</p>
+            <svg class="mini-spark" viewBox="0 0 140 34" aria-hidden="true"><path d="M2,28 C25,26 35,22 55,18 C75,14 90,15 110,9 C122,6 130,5 138,3"/></svg>
+          </div>
+          <div class="paneel paneel--2" data-depth="0.55">
+            <h5><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg>Leads</h5>
+            <div class="rij">
+              <span class="donut"></span>
+              <div><p class="groot">1.248</p><p class="delta">74% opgevolgd &lt; 4 min</p></div>
+            </div>
+          </div>
+          <div class="paneel paneel--3" data-depth="0.5">
+            <h5><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3l1.7 4.6L18 9.3l-4.3 1.7L12 15.6l-1.7-4.6L6 9.3l4.3-1.7z"/></svg>Sage — AI</h5>
+            <p style="font-size:.7rem">Beste belmoment voorspeld: <b style="color:var(--text)">di 09:15</b></p>
+            <p class="delta" style="margin-top:.3rem">82% raak advies</p>
+          </div>
+          <div class="paneel paneel--4" data-depth="0.3">
+            <h5><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Projecten</h5>
+            <div class="staafjes">
+              <div><span class="s-label"><span>Websites</span><span>80%</span></span><span class="s-bar"><i style="--v:80"></i></span></div>
+              <div><span class="s-label"><span>CRM-implementatie</span><span>60%</span></span><span class="s-bar"><i style="--v:60"></i></span></div>
+              <div><span class="s-label"><span>AI-automatisering</span><span>40%</span></span><span class="s-bar"><i style="--v:40"></i></span></div>
+            </div>
+          </div>
+          <div class="paneel paneel--5" data-depth="0.45">
+            <h5><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M17 9h5M17 13h5"/></svg>CRM</h5>
+            <div class="rij">
+              <div><p class="groot">156</p><p class="delta">nieuwe leads &middot; 7 dgn</p></div>
+              <span class="avatar-stack"><span class="avatar">MV</span><span class="avatar avatar--b">JW</span><span class="avatar avatar--c">+4</span></span>
+            </div>
+          </div>
+          <div class="paneel paneel--6" data-depth="0.6">
+            <h5><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg>Automatiseringen</h5>
+            <div class="rij">
+              <p class="groot">126</p>
+              <span class="badge badge--ok">Actief</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LOGO-RIJ ============ -->
+    <section class="logos" aria-label="Klanten">
+      <div class="wrap">
+        <p data-reveal>Vertrouwd door ambitieuze bedrijven</p>
+        <ul class="logo-row" data-reveal style="--i:1">
+          <li>LUCKY ZONWERING<span class="logo-metric">5,0 op Google &middot; 124 reviews</span></li>
+          <li><a href="https://installatieplatform.nl" target="_blank" rel="noopener" style="text-decoration:none">Installatieplatform<span class="logo-metric">offerte in 2 min</span></a></li>
+          <li>PREFAB SELECT<span class="logo-metric">+212% aanvragen</span></li>
+          <li>Droomhuis in Dubai<span class="logo-metric">internationale pijplijn</span></li>
+          <li><a href="https://www.westrikbouw-installaties.nl" target="_blank" rel="noopener" style="text-decoration:none">WESTRIK<span class="logo-metric">bouw &amp; installaties</span></a></li>
+          <li>AquaFlow<span class="logo-metric">bestelflow &amp; abonnementen</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ OPLOSSINGEN (CRÈME) ============ -->
+    <section class="sectie sectie--licht oplossingen" aria-label="Onze oplossingen">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <div>
+            <p class="eyebrow" data-reveal>Onze oplossingen</p>
+            <h2 class="h2" data-reveal style="--i:1">Alles wat je nodig hebt.<br>Onder &eacute;&eacute;n digitaal dak.</h2>
+          </div>
+          <p data-reveal style="--i:2">Van strategie tot uitvoering. Wij bouwen systemen die processen automatiseren, klanten aantrekken en groei schaalbaar maken.</p>
+        </div>
+        <div class="opl-grid">
+          <a class="card card--hover opl-kaart" href="./websites.html" data-reveal>
+            <svg class="icoon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 22h8M12 18v4"/></svg>
+            <h3>Websites &amp; platforms</h3>
+            <p>Hoogwaardige websites die converteren en je merk versterken.</p>
+            <span class="pijl" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="card card--hover opl-kaart" href="./software.html" data-reveal style="--i:1">
+            <svg class="icoon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M13 5l-2 14"/></svg>
+            <h3>Software op maat</h3>
+            <p>Maatwerksoftware en webapplicaties die processen optimaliseren.</p>
+            <span class="pijl" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="card card--hover opl-kaart" href="./ai.html" data-reveal style="--i:2">
+            <svg class="icoon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 3l1.7 4.6L18 9.3l-4.3 1.7L12 15.6l-1.7-4.6L6 9.3l4.3-1.7z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg>
+            <h3>AI-agents</h3>
+            <p>Slimme agents die taken overnemen en je team versterken.</p>
+            <span class="pijl" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="card card--hover opl-kaart" href="./software.html" data-reveal style="--i:3">
+            <svg class="icoon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg>
+            <h3>Automatiseringen</h3>
+            <p>Workflow-automatiseringen die tijd besparen en fouten voorkomen.</p>
+            <span class="pijl" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="card card--hover opl-kaart" href="./marketing.html" data-reveal style="--i:4">
+            <svg class="icoon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 21v-6M9 21V9M15 21v-9M21 21V3"/></svg>
+            <h3>Marketingsystemen</h3>
+            <p>Complete marketingsystemen die leads genereren &eacute;n converteren.</p>
+            <span class="pijl" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="card card--hover opl-kaart" href="./crm.html" data-reveal style="--i:5">
+            <svg class="icoon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09a1.65 1.65 0 00-1-1.51 1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09a1.65 1.65 0 001.51-1 1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33h0a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51h0a1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82v0a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+            <h3>CRM &amp; integraties</h3>
+            <p>E&eacute;n geheugen voor het hele bedrijf, gekoppeld aan je tools.</p>
+            <span class="pijl" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ECOSYSTEEM (LAPTOP) ============ -->
+    <section class="sectie" aria-label="Eén ecosysteem">
+      <div class="wrap eco__grid">
+        <div>
+          <p class="eyebrow" data-reveal><span class="dot dot--ok"></span>E&eacute;n ecosysteem</p>
+          <h2 class="h2" data-reveal style="--i:1">Alle systemen.<br><em>Perfect verbonden.</em></h2>
+          <p data-reveal style="--i:2">Onze software, AI en automatiseringen werken naadloos samen. Alles wat je nodig hebt in &eacute;&eacute;n ge&iuml;ntegreerd systeem.</p>
+          <ul class="eco__punten">
+            <li data-reveal style="--i:3"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Alle data op &eacute;&eacute;n plek</li>
+            <li data-reveal style="--i:4"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Realtime inzichten &amp; rapportages</li>
+            <li data-reveal style="--i:5"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Automatiseren wat herhaald en saai is</li>
+            <li data-reveal style="--i:6"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Focus op groei — wij regelen de rest</li>
+          </ul>
+          <div class="eco__cta" data-reveal style="--i:7">
+            <a class="btn btn--ghost" href="./software.html">Ontdek ons ecosysteem <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+        <div class="laptop" data-reveal style="--i:2">
+          <div class="glow-field" aria-hidden="true"></div>
+          <div class="laptop__scherm">
+            <div class="app" role="img" aria-label="NG/OS Pulse-dashboard met omzet, pijplijn en recente offertes">
+              <div class="app-chrome">
+                <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="route">app.nextgrowth.nl/pulse</span>
+              </div>
+              <div class="app-body">
+                <aside class="app-side" aria-hidden="true">
+                  <span class="side-item" style="font-weight:700;color:var(--text)">
+                    <svg width="15" height="15" viewBox="0 0 18 18" fill="none"><rect width="18" height="18" rx="4" fill="#C9A45F"/><path d="M5 13V5l8 8V5" stroke="#0B0A08" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Van Dijk Installaties
+                  </span>
+                  <p class="side-label">Werkruimte</p>
+                  <span class="side-item is-active"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>Pulse<span class="count">live</span></span>
+                  <span class="side-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M17 9h5M17 13h5"/></svg>Atlas<span class="count">1.204</span></span>
+                  <span class="side-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg>Vector<span class="count">38</span></span>
+                  <span class="side-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg>Flow<span class="count">126</span></span>
+                  <span class="side-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3l1.7 4.6L18 9.3l-4.3 1.7L12 15.6l-1.7-4.6L6 9.3l4.3-1.7z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg>Sage<span class="count">AI</span></span>
+                  <span class="side-user"><span class="avatar">MV</span> M. van Dijk</span>
+                </aside>
+                <div>
+                  <div class="app-top" aria-hidden="true">
+                    <span class="app-search"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>Zoek in alles&hellip;<span class="kbd">&#8984;K</span></span>
+                    <div class="app-actions">
+                      <span class="badge badge--ok">Alles gesynchroniseerd</span>
+                      <span class="avatar-stack"><span class="avatar">MV</span><span class="avatar avatar--b">JW</span><span class="avatar avatar--c">+4</span></span>
+                    </div>
+                  </div>
+                  <div class="app-main">
+                    <div class="app-kpis" aria-hidden="true">
+                      <div class="app-kpi"><span>Omzet deze maand</span><b>&euro; 386.400</b><span class="delta">&#9650; 12,4% vs vorige</span></div>
+                      <div class="app-kpi"><span>Pijplijn</span><b>&euro; 1.42M</b><span class="delta">&#9650; 38 open offertes</span></div>
+                      <div class="app-kpi"><span>Reactietijd leads</span><b>4 min</b><span class="delta">&#9660; was 2,1 dagen</span></div>
+                    </div>
+                    <div class="dash-grid">
+                      <div class="dash-panel">
+                        <h5>Omzet &amp; prognose <span class="mono">12 mnd</span></h5>
+                        <svg class="chart" viewBox="0 0 560 150" aria-hidden="true">
+                          <defs>
+                            <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
+                              <stop offset="0%" stop-color="rgba(201,164,95,.30)"/>
+                              <stop offset="100%" stop-color="rgba(201,164,95,0)"/>
+                            </linearGradient>
+                          </defs>
+                          <line class="grid-line" x1="0" y1="36" x2="560" y2="36"/>
+                          <line class="grid-line" x1="0" y1="72" x2="560" y2="72"/>
+                          <line class="grid-line" x1="0" y1="108" x2="560" y2="108"/>
+                          <path class="area" d="M0,118 C60,113 90,106 140,99 C190,92 220,86 280,75 C340,64 380,58 440,43 C490,31 520,27 560,20 L560,150 L0,150 Z"/>
+                          <path class="lijn" d="M0,118 C60,113 90,106 140,99 C190,92 220,86 280,75 C340,64 380,58 440,43 C490,31 520,27 560,20"/>
+                          <circle class="punt" cx="440" cy="43" r="3.5"/>
+                          <text x="6" y="30">&euro; 400K</text>
+                          <text x="6" y="66">&euro; 300K</text>
+                          <text x="6" y="102">&euro; 200K</text>
+                        </svg>
+                      </div>
+                      <div class="dash-panel">
+                        <h5>Live activiteit <span class="mono">nu</span></h5>
+                        <ul class="dash-feed">
+                          <li><span class="dot dot--ok"></span>Offerte OFF-2481 getekend<span class="t">2 min</span></li>
+                          <li><span class="dot dot--ok"></span>Lead toegewezen aan Jeroen<span class="t">6 min</span></li>
+                          <li><span class="dot dot--warn"></span>Sage: opvolging voorgesteld<span class="t">11 min</span></li>
+                          <li><span class="dot dot--ok"></span>Factuur F-0921 betaald<span class="t">24 min</span></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="laptop__voet" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ECHT BEWIJS ============ -->
+    <section class="sectie bewijs-sectie" aria-label="Echte systemen in productie">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <p class="eyebrow" data-reveal><span class="dot dot--ok"></span>Geen mockups</p>
+          <h2 class="h2" data-reveal style="--i:1">Dit draait vandaag. <em>Bij echte bedrijven.</em></h2>
+          <p data-reveal style="--i:2">Kijk mee in systemen zoals ze nu in productie staan — van login tot getekende offerte.</p>
+        </div>
+        <div class="bewijs-grid">
+          <figure class="bewijs" data-reveal>
+            <div class="app">
+              <div class="app-chrome">
+                <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="route">crm.luckyzonwering.nl</span>
+                <span class="badge badge--ok">In productie</span>
+              </div>
+              <video controls playsinline preload="metadata" poster="./assets/media/lucky-crm-tour-poster.jpg" aria-label="Rondleiding door het CRM-systeem van Lucky Zonwering">
+                <source src="./assets/media/lucky-crm-tour.mp4" type="video/mp4">
+              </video>
+            </div>
+            <figcaption><span class="dot dot--ok" aria-hidden="true"></span>Lucky Zonwering — verkoop, offertes &amp; montage in &eacute;&eacute;n systeem &middot; rondleiding 1:20</figcaption>
+          </figure>
+          <figure class="bewijs" data-reveal style="--i:1">
+            <div class="app">
+              <div class="app-chrome">
+                <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="route">installatieplatform.nl</span>
+                <span class="badge badge--ok">Live</span>
+              </div>
+              <video data-autoplay muted loop playsinline preload="metadata" poster="./assets/media/installatieplatform-offerte-poster.jpg" aria-label="Offerte maken in twee minuten op Installatieplatform">
+                <source src="./assets/media/installatieplatform-offerte.mp4" type="video/mp4">
+              </video>
+            </div>
+            <figcaption><span class="dot dot--ok" aria-hidden="true"></span>Installatieplatform — offerte in 2 minuten, met live voorbeeld en automatische btw &middot; <a href="https://installatieplatform.nl" target="_blank" rel="noopener">Bekijk live op installatieplatform.nl <span aria-hidden="true">&#8599;</span></a></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FEATURE: ATLAS ============ -->
+    <section class="sectie" aria-label="Atlas CRM">
+      <div class="wrap feature">
+        <div class="feature__copy">
+          <p class="eyebrow" data-reveal><span class="dot dot--ok"></span>Atlas — CRM</p>
+          <h2 class="h2" data-reveal style="--i:1">Ieder contact, <em>&eacute;&eacute;n geheugen.</em></h2>
+          <p data-reveal style="--i:2">Elke klant, aanvraag, afspraak en euro op &eacute;&eacute;n plek. Gebouwd rond jouw proces — niet andersom.</p>
+          <ul class="feature__punten">
+            <li data-reveal style="--i:3"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Automatische intake vanuit mail, telefoon en website</li>
+            <li data-reveal style="--i:4"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Volledige klantgeschiedenis in &eacute;&eacute;n tijdlijn</li>
+            <li data-reveal style="--i:5"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Migratie vanuit Excel in &eacute;&eacute;n week</li>
+          </ul>
+          <a class="feature__link" href="./crm.html" data-reveal style="--i:6">Ontdek Atlas <span aria-hidden="true">&rarr;</span></a>
+        </div>
+        <div class="feature__ui" data-reveal style="--i:2">
+          <div class="glow-field" aria-hidden="true"></div>
+          <div class="app" role="img" aria-label="Atlas-klantenlijst met status en waarde">
+            <div class="app-chrome"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="route">app.nextgrowth.nl/atlas</span></div>
+            <div class="app-main tbl-scroll">
+              <table class="tbl" aria-hidden="true">
+                <thead><tr><th>Relatie</th><th>Laatste contact</th><th>Waarde</th><th>Volgende stap</th><th>Status</th></tr></thead>
+                <tbody>
+                  <tr><td>Van Dijk Installaties</td><td class="num">vandaag 09:41</td><td class="num">&euro; 84.200</td><td>Offerte bespreken</td><td><span class="badge badge--ok">Actief</span></td></tr>
+                  <tr><td>De Wit Bouwgroep</td><td class="num">gisteren</td><td class="num">&euro; 156.900</td><td>Werfbezoek di 10:00</td><td><span class="badge badge--ok">Actief</span></td></tr>
+                  <tr><td>Peeters Techniek</td><td class="num">3 dagen</td><td class="num">&euro; 41.750</td><td>Sage: bel dinsdag 09:15</td><td><span class="badge badge--warn">Opvolgen</span></td></tr>
+                  <tr><td>Hofman &amp; Zn</td><td class="num">vandaag 08:12</td><td class="num">&euro; 12.300</td><td>Concept afronden</td><td><span class="badge badge--muted">Nieuw</span></td></tr>
+                  <tr><td>Vermeer Interieurs</td><td class="num">1 week</td><td class="num">&euro; 67.400</td><td>Herinnering verstuurd</td><td><span class="badge badge--danger">Verloopt</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FEATURE: FLOW ============ -->
+    <section class="sectie" aria-label="Flow automatiseringen">
+      <div class="wrap feature feature--flip">
+        <div class="feature__copy">
+          <p class="eyebrow" data-reveal><span class="dot dot--ok"></span>Flow — Automatisering</p>
+          <h2 class="h2" data-reveal style="--i:1">Handwerk verdwijnt. <em>Vanzelf.</em></h2>
+          <p data-reveal style="--i:2">Van binnenkomende aanvraag tot verstuurde offerte in vier minuten — zonder dat iemand iets hoeft te doen.</p>
+          <ul class="feature__punten">
+            <li data-reveal style="--i:3"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>126 automatiseringen actief bij een gemiddeld bedrijf</li>
+            <li data-reveal style="--i:4"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>31 uur handwerk per week terug naar het team</li>
+            <li data-reveal style="--i:5"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Koppelt met je mailbox, boekhouding en agenda</li>
+          </ul>
+          <a class="feature__link" href="./software.html" data-reveal style="--i:6">Bekijk alle modules <span aria-hidden="true">&rarr;</span></a>
+        </div>
+        <div class="feature__ui" data-reveal style="--i:2">
+          <div class="glow-field" aria-hidden="true"></div>
+          <div class="app" role="img" aria-label="Flow-automatisering: van aanvraag tot opvolging">
+            <div class="app-chrome"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="route">app.nextgrowth.nl/flow/nieuwe-aanvraag</span></div>
+            <div class="app-main">
+              <div class="flow-steps" aria-hidden="true">
+                <div class="flow-step">
+                  <span class="icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg></span>
+                  <span><b>Trigger</b> — Aanvraag komt binnen</span>
+                  <span class="badge badge--ok">00:00:00</span>
+                </div>
+                <div class="flow-verbinder"></div>
+                <div class="flow-step">
+                  <span class="icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg></span>
+                  <span><b>Atlas</b> — Relatie aangemaakt &amp; verrijkt</span>
+                  <span class="badge badge--ok">00:00:04</span>
+                </div>
+                <div class="flow-verbinder"></div>
+                <div class="flow-step">
+                  <span class="icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3l1.7 4.6L18 9.3l-4.3 1.7L12 15.6l-1.7-4.6L6 9.3l4.3-1.7z"/></svg></span>
+                  <span><b>Sage</b> — Offerte-concept op basis van 14 vergelijkbare projecten</span>
+                  <span class="badge badge--ok">00:02:31</span>
+                </div>
+                <div class="flow-verbinder"></div>
+                <div class="flow-step">
+                  <span class="icon icon--warn"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 8v5l3 2"/><circle cx="12" cy="12" r="9"/></svg></span>
+                  <span><b>Wacht op akkoord</b> — Erik controleert het concept</span>
+                  <span class="badge badge--warn">Actie vereist</span>
+                </div>
+                <div class="flow-verbinder"></div>
+                <div class="flow-step">
+                  <span class="icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg></span>
+                  <span><b>Vector</b> — Offerte verstuurd + opvolging gepland (dag 3)</span>
+                  <span class="badge badge--muted">Gepland</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FEATURE: SAGE ============ -->
+    <section class="sectie" aria-label="Sage AI">
+      <div class="wrap feature">
+        <div class="feature__copy">
+          <p class="eyebrow" data-reveal><span class="dot dot--ok"></span>Sage — AI-agents</p>
+          <h2 class="h2" data-reveal style="--i:1">AI die meewerkt, <em>niet meepraat.</em></h2>
+          <p data-reveal style="--i:2">Sage leest aanvragen, stelt offertes voor, kiest het beste opvolgmoment — en legt elke conclusie uit. Jij houdt de knop.</p>
+          <ul class="feature__punten">
+            <li data-reveal style="--i:3"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Elke suggestie met onderbouwing en bron</li>
+            <li data-reveal style="--i:4"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Menselijke goedkeuring op alles wat de deur uitgaat</li>
+            <li data-reveal style="--i:5"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Draait op jouw data, blijft jouw data</li>
+          </ul>
+          <a class="feature__link" href="./ai.html" data-reveal style="--i:6">Ontdek Sage <span aria-hidden="true">&rarr;</span></a>
+        </div>
+        <div class="feature__ui" data-reveal style="--i:2">
+          <div class="glow-field" aria-hidden="true"></div>
+          <div class="app" role="img" aria-label="Sage AI-assistent analyseert een aanvraag">
+            <div class="app-chrome"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="route">app.nextgrowth.nl/sage</span></div>
+            <div class="app-main">
+              <div class="sage-chat" aria-hidden="true">
+                <div class="sage-msg">
+                  <span class="avatar avatar--c">MV</span>
+                  <div class="bubble">Wat is de beste vervolgstap voor Peeters Techniek?</div>
+                </div>
+                <div class="sage-msg sage-msg--ai">
+                  <span class="avatar">S</span>
+                  <div class="bubble">
+                    Bel <b style="color:var(--text)">dinsdag om 09:15</b>. Peeters opende de offerte 3&times; maar reageerde niet — bij vergelijkbare klanten werkte bellen binnen 5 dagen in 82% van de gevallen.
+                    <ul class="sage-denkt">
+                      <li><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Offerte OFF-2482 — 3&times; geopend, 0 reacties</li>
+                      <li><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>14 vergelijkbare trajecten geanalyseerd</li>
+                      <li><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Beltaak klaargezet voor Jeroen</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CASES: FOTOKAARTEN ============ -->
+    <section class="sectie" aria-label="Cases">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <p class="eyebrow" data-reveal>Cases</p>
+          <h2 class="h2" data-reveal style="--i:1">Resultaten die <em>voor zich spreken.</em></h2>
+        </div>
+        <div class="case-rij">
+          <a class="case-foto" href="./cases.html" data-reveal style="background-image: url('./assets/media/lucky-resultaat-poster.jpg')">
+            <b>5,0 op Google</b>
+            <span class="wat">124 reviews &middot; e&eacute;n systeem voor alles</span>
+            <span class="wie"><span>Lucky Zonwering</span><span aria-hidden="true">&rarr;</span></span>
+          </a>
+          <a class="case-foto" href="./cases.html" data-reveal style="--i:1; background-image: url('./assets/media/prefabselect-web-poster.jpg')">
+            <b>+212%</b>
+            <span class="wat">aanvragen via website &amp; campagnes</span>
+            <span class="wie"><span>Prefab Select</span><span aria-hidden="true">&rarr;</span></span>
+          </a>
+          <a class="case-foto" href="./cases.html" data-reveal style="--i:2; background-image: url('./assets/media/droomhuis-web-poster.jpg')">
+            <b>Internationaal</b>
+            <span class="wat">meertalige pijplijn, leads uit 6 landen</span>
+            <span class="wie"><span>Droomhuis in Dubai</span><span aria-hidden="true">&rarr;</span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STATISTIEKBAND ============ -->
+    <section class="sectie statband" aria-label="Next Growth in cijfers">
+      <div class="wrap band-grid">
+        <h2 class="h2" data-reveal>Wij bouwen systemen die bedrijven <em>vooruithelpen.</em></h2>
+        <div class="kpis">
+          <div class="kpi" data-reveal style="--i:1"><b><span data-count="120">0</span>+</b><span>tevreden klanten</span></div>
+          <div class="kpi" data-reveal style="--i:2"><b><span data-count="250">0</span>+</b><span>succesvolle projecten</span></div>
+          <div class="kpi" data-reveal style="--i:3"><b><span data-count="8">0</span>+</b><span>AI-agents ontwikkeld</span></div>
+          <div class="kpi" data-reveal style="--i:4"><b><span data-count="96">0</span>%</b><span>klanttevredenheid</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SUITE-STRIP ============ -->
+    <section class="sectie" aria-label="De volledige suite">
+      <div class="wrap">
+        <div class="sectie-kop" style="text-align:center; margin-inline:auto;">
+          <p class="eyebrow" data-reveal style="justify-content:center">NG/OS</p>
+          <h2 class="h2" data-reveal style="--i:1">Acht modules. <em>E&eacute;n suite.</em></h2>
+        </div>
+        <div class="suite-strip" data-reveal style="--i:2">
+          <a class="pill" href="./crm.html"><b>Atlas</b> CRM</a>
+          <a class="pill" href="./software.html"><b>Vector</b> Offertes</a>
+          <a class="pill" href="./software.html"><b>Pulse</b> Dashboards</a>
+          <a class="pill" href="./software.html"><b>Flow</b> Automatisering</a>
+          <a class="pill" href="./ai.html"><b>Sage</b> AI-agents</a>
+          <a class="pill" href="./software.html"><b>Ledger</b> Facturatie</a>
+          <a class="pill" href="./software.html"><b>Portal</b> Klantportaal</a>
+          <a class="pill" href="./software.html"><b>Plan</b> Planning</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot__cta">
+      <h2 data-reveal>Klaar om het systeem te zien?</h2>
+      <p data-reveal style="--i:1">Een strategiegesprek van 30 minuten. Uw cijfers, onze software.</p>
+      <div class="foot__actions" data-reveal style="--i:2">
+        <a class="btn" href="./contact.html">Plan strategiegesprek</a>
+        <a class="btn btn--ghost" href="./cases.html">Bekijk resultaten</a>
+      </div>
+    </div>
+    <div class="wrap foot__grid">
+      <div>
+        <p class="foot__brand">Next Growth</p>
+        <p class="mono foot__meta">Digitale bedrijfssystemen<br>hallo@nextgrowth.nl</p>
+      </div>
+      <nav aria-label="Product"><h3 class="mono">Product</h3>
+        <a href="./software.html">Software</a><a href="./crm.html">CRM</a><a href="./ai.html">AI</a>
+      </nav>
+      <nav aria-label="Diensten"><h3 class="mono">Diensten</h3>
+        <a href="./websites.html">Websites</a><a href="./marketing.html">Marketing</a><a href="./seo.html">SEO</a><a href="./prijzen.html">Prijzen</a>
+      </nav>
+      <nav aria-label="Bedrijf"><h3 class="mono">Bedrijf</h3>
+        <a href="./cases.html">Cases</a><a href="./contact.html">Contact</a>
+      </nav>
+      <nav aria-label="Live werk"><h3 class="mono">Live werk</h3>
+        <a href="https://installatieplatform.nl" target="_blank" rel="noopener">Installatieplatform.nl <span aria-hidden="true">&#8599;</span></a>
+        <a href="https://www.westrikbouw-installaties.nl" target="_blank" rel="noopener">Westrikbouw-installaties.nl <span aria-hidden="true">&#8599;</span></a>
+      </nav>
+    </div>
+    <div class="wrap foot__base mono">&copy; MMXXVI Next Growth — Alle systemen operationeel <span class="dot dot--ok" aria-hidden="true"></span></div>
+  </footer>
+  <script src="./assets/core.js" defer></script>
+  <script>
+  /* Signatuur-visual: gouden netwerk dat zich traag vormt — het "systeem". */
+  (function () {
+    'use strict';
+    var c = document.getElementById('heroNet');
+    if (!c || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var ctx = c.getContext('2d');
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var W, H, pts, running = true;
+    var mobile = window.innerWidth < 700;
+    var N = mobile ? 26 : 60;
+    var LINK = mobile ? 110 : 150;
+
+    function size() {
+      var r = c.getBoundingClientRect();
+      W = r.width; H = r.height;
+      c.width = W * dpr; c.height = H * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    function seed() {
+      pts = [];
+      for (var i = 0; i < N; i++) {
+        pts.push({
+          x: Math.random() * W,
+          y: Math.random() * H,
+          vx: (Math.random() - .5) * .16,
+          vy: (Math.random() - .5) * .16,
+          r: Math.random() * 1.3 + .6
+        });
+      }
+    }
+    function frame() {
+      if (!running) return;
+      ctx.clearRect(0, 0, W, H);
+      for (var i = 0; i < N; i++) {
+        var p = pts[i];
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < -20) p.x = W + 20; if (p.x > W + 20) p.x = -20;
+        if (p.y < -20) p.y = H + 20; if (p.y > H + 20) p.y = -20;
+      }
+      for (var a = 0; a < N; a++) {
+        for (var b = a + 1; b < N; b++) {
+          var dx = pts[a].x - pts[b].x, dy = pts[a].y - pts[b].y;
+          var d2 = dx * dx + dy * dy;
+          if (d2 < LINK * LINK) {
+            var al = (1 - Math.sqrt(d2) / LINK) * .15;
+            ctx.strokeStyle = 'rgba(201,164,95,' + al.toFixed(3) + ')';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(pts[a].x, pts[a].y);
+            ctx.lineTo(pts[b].x, pts[b].y);
+            ctx.stroke();
+          }
+        }
+      }
+      for (var j = 0; j < N; j++) {
+        ctx.fillStyle = 'rgba(201,164,95,.5)';
+        ctx.beginPath();
+        ctx.arc(pts[j].x, pts[j].y, pts[j].r, 0, 6.2832);
+        ctx.fill();
+      }
+      requestAnimationFrame(frame);
+    }
+    size(); seed(); frame();
+    window.addEventListener('resize', function () { size(); seed(); }, { passive: true });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (en) {
+        var vis = en[0].isIntersecting;
+        if (vis && !running) { running = true; frame(); }
+        else if (!vis) running = false;
+      }).observe(c);
+    }
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) running = false;
+      else if (!running) { running = true; frame(); }
+    });
+  })();
+  </script>
+</body>
+</html>

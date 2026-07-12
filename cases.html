@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cases — Next Growth</title>
+  <meta name="description" content="Drie bedrijven, drie meetbare transformaties. Van mailbox naar machine, het einde van Excel en groei zonder extra handen — alles in cijfers.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Crect width='18' height='18' rx='4' fill='%23C9A45F'/%3E%3Cpath d='M5 13V5l8 8V5' stroke='%230A0A0B' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./assets/fonts.css">
+  <link rel="stylesheet" href="./assets/core.css">
+  <style>
+    /* ---------- hero ---------- */
+    .hero {
+      position: relative;
+      padding: calc(60px + clamp(3.5rem, 9vh, 6.5rem)) 0 clamp(3.5rem, 8vh, 5.5rem);
+      overflow: clip;
+      text-align: center;
+    }
+    .hero::before {
+      content: "";
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, black 30%, transparent 75%);
+      -webkit-mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, black 30%, transparent 75%);
+      opacity: .5;
+      pointer-events: none;
+    }
+    .hero .glow-field { top: -6rem; left: 50%; transform: translateX(-50%); }
+    .hero__in { position: relative; }
+    .hero .pill { margin-bottom: 1.6rem; }
+    .hero .h1 { max-width: 16ch; margin-inline: auto; }
+    .hero .lede { margin: 1.4rem auto 0; }
+
+    /* ---------- case-bouwstenen ---------- */
+    .case-meta {
+      display: block;
+      font-family: var(--mono);
+      font-size: .68rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--text-3);
+      margin-bottom: clamp(2rem, 5vh, 3rem);
+    }
+    .case-meta b { color: var(--accent); font-weight: 500; }
+    .case-af {
+      display: flex; align-items: center; gap: .8rem; flex-wrap: wrap;
+      margin-top: clamp(2.2rem, 5vh, 3.2rem);
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--line);
+      font-size: .9rem; color: var(--text-2);
+    }
+    .case-af .badge { flex: none; }
+    .case-af .mono { margin-left: auto; color: var(--text-3); }
+
+    /* ---------- case 1: split ---------- */
+    .case-split {
+      display: grid;
+      grid-template-columns: 5fr 6fr;
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: start;
+    }
+    @media (max-width: 900px) { .case-split { grid-template-columns: 1fr; } }
+    .verhaal h2 { margin-bottom: .4rem; }
+    .verhaal h3 {
+      font-family: var(--mono);
+      font-size: .66rem; font-weight: 500;
+      text-transform: uppercase; letter-spacing: .12em;
+      color: var(--accent);
+      margin: 1.7rem 0 .45rem;
+    }
+    .verhaal p { max-width: 34em; }
+    .module-pills { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: .9rem; }
+    .module-pills .pill b { color: var(--text); font-weight: 600; margin-right: .15rem; }
+
+    .case-cijfers { display: grid; gap: 1rem; min-width: 0; }
+    .vn { padding: .4rem 1.5rem; }
+    .vn-rij { display: grid; gap: .45rem; padding-block: 1.15rem; }
+    .vn-rij + .vn-rij { border-top: 1px solid var(--line); }
+    .vn-lijn { display: flex; align-items: baseline; gap: .8rem; flex-wrap: wrap; }
+    .vn-voor { font-family: var(--mono); font-size: .95rem; color: var(--text-3); }
+    .vn-pijl { color: var(--accent); font-weight: 600; }
+    .vn-na {
+      font-size: clamp(1.7rem, 3vw, 2.5rem);
+      font-weight: 800; letter-spacing: -.03em; line-height: 1;
+      color: var(--text);
+      font-variant-numeric: tabular-nums;
+    }
+    .vn-na em { font-style: normal; color: var(--accent); }
+    .vn-label { font-size: .8rem; color: var(--text-3); }
+
+    .feed { display: grid; gap: .55rem; font-size: .74rem; }
+    .feed li { display: flex; align-items: baseline; gap: .55rem; color: var(--text-2); }
+    .feed .dot { flex: none; transform: translateY(-1px); }
+    .feed .t { margin-left: auto; font-family: var(--mono); font-size: .62rem; color: var(--text-3); white-space: nowrap; }
+    .feed-kop { font-size: .74rem; font-weight: 600; color: var(--text-2); margin-bottom: .6rem; display: flex; align-items: center; gap: .5rem; }
+    .feed-kop .mono { margin-left: auto; color: var(--text-3); }
+
+    /* ---------- case 2: citaat ---------- */
+    .case-centrum { text-align: center; }
+    .case-centrum .case-meta { margin-bottom: 1.4rem; }
+    .case-centrum .h2 { margin-bottom: clamp(2rem, 5vh, 3rem); }
+    .quote-kaart {
+      max-width: 44rem;
+      margin-inline: auto;
+      padding: clamp(1.8rem, 4vw, 2.8rem) clamp(1.5rem, 4vw, 3rem);
+    }
+    .quote-kaart blockquote p {
+      font-size: clamp(1.25rem, 2.4vw, 1.7rem);
+      font-weight: 600; letter-spacing: -.02em; line-height: 1.4;
+      color: var(--text);
+      text-wrap: balance;
+    }
+    .quote-kaart blockquote p em { font-style: normal; color: var(--accent); }
+    .quote-kaart figcaption { margin-top: 1.3rem; font-family: var(--mono); font-size: .7rem; color: var(--text-3); }
+
+    .sheets {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto auto;
+      gap: clamp(1rem, 3vw, 2rem);
+      align-items: center;
+      max-width: 56rem;
+      margin: clamp(2.5rem, 6vh, 3.5rem) auto 0;
+    }
+    @media (max-width: 780px) {
+      .sheets { grid-template-columns: 1fr; justify-items: center; }
+      .sheets-pijl { transform: rotate(90deg); }
+    }
+    .sheets-oud { display: flex; flex-wrap: wrap; gap: .45rem; justify-content: center; }
+    .sheet {
+      font-family: var(--mono); font-size: .62rem;
+      color: var(--text-3);
+      padding: .28rem .6rem;
+      border: 1px dashed var(--line-strong);
+      border-radius: 6px;
+      background: var(--bg-raise);
+      opacity: .75;
+      white-space: nowrap;
+    }
+    .sheets-pijl { color: var(--accent); font-size: 1.4rem; line-height: 1; }
+    .sheet--atlas {
+      display: inline-flex; align-items: center; gap: .55rem;
+      padding: .65rem 1.2rem;
+      font-weight: 600; font-size: .9rem; color: var(--accent);
+      background: var(--accent-dim);
+      border: 1px solid rgba(201,164,95, .35);
+      border-radius: 9px;
+      box-shadow: 0 0 28px -6px var(--glow);
+      white-space: nowrap;
+    }
+    .kpis3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 48rem;
+      margin: clamp(2.5rem, 6vh, 3.5rem) auto 0;
+    }
+    .kpis3 .kpi { justify-items: center; }
+    @media (max-width: 720px) { .kpis3 { grid-template-columns: 1fr; } }
+    .case-centrum .case-af { justify-content: center; }
+    .case-centrum .case-af .mono { margin-left: 0; }
+
+    /* ---------- case 3: cijferrij + staafvergelijking ---------- */
+    .groei-rij {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 2rem;
+      align-items: end;
+      margin-bottom: clamp(2.2rem, 5vh, 3.2rem);
+    }
+    @media (max-width: 820px) { .groei-rij { grid-template-columns: 1fr; align-items: start; } }
+    .kpi--groot b { font-size: clamp(3.2rem, 7vw, 5.2rem); }
+
+    .omzet-kaart { padding: 1.4rem 1.6rem 1.3rem; }
+    .omzet-kop { display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .omzet-kop h3 { font-size: .88rem; font-weight: 600; color: var(--text-2); }
+    .legenda { margin-left: auto; display: flex; gap: 1.1rem; font-family: var(--mono); font-size: .64rem; color: var(--text-3); }
+    .legenda i {
+      width: 10px; height: 10px; border-radius: 3px;
+      display: inline-block; margin-right: .4rem;
+      transform: translateY(1px);
+    }
+    .legenda .l-oud i { background: rgba(255, 255, 255, .10); }
+    .legenda .l-nieuw i { background: linear-gradient(to top, rgba(201,164,95, .25), var(--accent)); }
+    .omzet-veld { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: clamp(.8rem, 2vw, 1.4rem); }
+    .omzet-as {
+      display: flex; flex-direction: column; justify-content: space-between;
+      padding-bottom: 1.55rem;
+      font-family: var(--mono); font-size: .62rem; color: var(--text-3);
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+    .kwartalen { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(.7rem, 3vw, 2.2rem); }
+    .kwart { display: grid; gap: .55rem; min-width: 0; }
+    .kwart .bars {
+      height: 150px;
+      gap: 8px;
+      padding-inline: 14%;
+      border-bottom: 1px solid var(--line-strong);
+    }
+    .kwart > span {
+      font-family: var(--mono); font-size: .64rem;
+      color: var(--text-3); text-align: center;
+    }
+    .omzet-noot { margin-top: 1.1rem; font-family: var(--mono); font-size: .62rem; color: var(--text-3); }
+
+    /* ---------- word de volgende ---------- */
+    .volgende { text-align: center; }
+    .volgende .h2 { margin-bottom: .8rem; }
+    .volgende p { max-width: 36em; margin-inline: auto; }
+    .volgende__acties { display: flex; gap: .8rem; justify-content: center; flex-wrap: wrap; margin-top: 1.9rem; }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Direct naar inhoud</a>
+  <header class="nav" id="nav">
+    <div class="nav__in wrap">
+      <a class="nav__logo" href="./index.html" aria-label="Next Growth — home">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect width="18" height="18" rx="4" fill="#C9A45F"/><path d="M5 13V5l8 8V5" stroke="#0A0A0B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Next Growth
+      </a>
+      <nav class="nav__links" id="navLinks" aria-label="Hoofdmenu">
+        <a href="./software.html">Software</a>
+        <a href="./websites.html">Websites</a>
+        <a href="./marketing.html">Marketing</a>
+        <a href="./seo.html">SEO</a>
+        <a href="./ai.html">AI</a>
+        <a href="./crm.html">CRM</a>
+        <a href="./cases.html" aria-current="page">Cases</a>
+      </nav>
+      <div class="nav__cta">
+        <a class="btn btn--ghost btn--sm" href="./contact.html">Contact</a>
+        <a class="btn btn--sm nav__demo" href="./contact.html">Plan strategiegesprek</a>
+      </div>
+      <button class="nav__burger" id="navBurger" aria-expanded="false" aria-controls="navLinks" aria-label="Menu"><i></i><i></i></button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-label="Introductie">
+      <div class="glow-field" aria-hidden="true"></div>
+      <div class="wrap hero__in">
+        <p class="pill" data-reveal><span class="dot dot--ok"></span>Gemeten resultaten</p>
+        <h1 class="h1" data-reveal style="--i:1">Van chaos naar systeem. <span class="grad-text">In cijfers.</span></h1>
+        <p class="lede" data-reveal style="--i:2">Drie bedrijven. Alles meetbaar, niets opgepoetst.</p>
+      </div>
+    </section>
+
+    <!-- ============ CASE 01: INSTALLATIEBEDRIJF ============ -->
+    <section class="sectie" aria-label="Case: installatiebedrijf — van mailbox naar machine">
+      <div class="wrap">
+        <p class="case-meta" data-reveal><b>Case 01</b> &middot; Installatietechniek &middot; 34 medewerkers &middot; Atlas + Flow + Vector &middot; live in 6 weken</p>
+        <div class="case-split">
+          <div class="verhaal">
+            <h2 class="h2" data-reveal>Van mailbox naar machine.</h2>
+            <h3 data-reveal style="--i:1">Probleem</h3>
+            <p data-reveal style="--i:1">Aanvragen kwamen binnen via mail, telefoon, website en de voicemail van de eigenaar. Gemiddeld duurde het 2,1 dagen voordat iemand reageerde. Op het dieptepunt stonden er 47 ongelezen aanvragen in de gedeelde mailbox.</p>
+            <h3 data-reveal style="--i:2">Aanpak</h3>
+            <p data-reveal style="--i:2">&Eacute;&eacute;n intake voor alle kanalen, rechtstreeks in Atlas. Flow wijst iedere aanvraag binnen een minuut toe aan de juiste planner. Vector zet een concept-offerte klaar op basis van vergelijkbare klussen.</p>
+            <div class="module-pills" data-reveal style="--i:3">
+              <span class="pill"><b>Atlas</b> CRM</span>
+              <span class="pill"><b>Flow</b> Automatisering</span>
+              <span class="pill"><b>Vector</b> Offertes</span>
+            </div>
+            <h3 data-reveal style="--i:4">Resultaat</h3>
+            <p data-reveal style="--i:4">Vier minuten gemiddelde reactietijd, gemeten over zes maanden. Geen aanvraag meer kwijt. 96% van alle offertes wordt op tijd opgevolgd — v&oacute;&oacute;r het systeem wist niemand het percentage.</p>
+          </div>
+          <div class="case-cijfers">
+            <div class="card vn" data-reveal style="--i:2">
+              <div class="vn-rij">
+                <span class="vn-label">Reactietijd op aanvragen</span>
+                <span class="vn-lijn">
+                  <span class="vn-voor">2,1 dagen</span>
+                  <span class="vn-pijl" aria-hidden="true">&rarr;</span>
+                  <b class="vn-na"><em><span data-count="4">0</span> min</em></b>
+                </span>
+              </div>
+              <div class="vn-rij">
+                <span class="vn-label">Ongelezen aanvragen in de mailbox</span>
+                <span class="vn-lijn">
+                  <span class="vn-voor">47</span>
+                  <span class="vn-pijl" aria-hidden="true">&rarr;</span>
+                  <b class="vn-na"><em>0</em></b>
+                </span>
+              </div>
+              <div class="vn-rij">
+                <span class="vn-label">Offertes op tijd opgevolgd</span>
+                <span class="vn-lijn">
+                  <span class="vn-voor">onbekend</span>
+                  <span class="vn-pijl" aria-hidden="true">&rarr;</span>
+                  <b class="vn-na"><em><span data-count="96">0</span>%</em></b>
+                </span>
+              </div>
+            </div>
+            <div class="app" data-reveal style="--i:3" role="img" aria-label="Live activiteitenfeed uit het systeem van het installatiebedrijf">
+              <div class="app-chrome"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="route">app.nextgrowth.nl/pulse/feed</span></div>
+              <div class="app-main">
+                <div>
+                  <p class="feed-kop">Live activiteit <span class="mono">nu</span></p>
+                  <ul class="feed" aria-hidden="true">
+                    <li><span class="dot dot--ok"></span>Aanvraag warmtepomp &rarr; Atlas, toegewezen aan Kees<span class="t">1 min</span></li>
+                    <li><span class="dot dot--ok"></span>Sage: concept-offerte klaargezet (14 vergelijkbare klussen)<span class="t">3 min</span></li>
+                    <li><span class="dot dot--ok"></span>Offerte OFF-3117 verstuurd naar Bakker Vastgoed<span class="t">4 min</span></li>
+                    <li><span class="dot dot--warn"></span>Opvolgtaak ingepland — dag 3, 09:00<span class="t">4 min</span></li>
+                    <li><span class="dot dot--ok"></span>Offerte OFF-3102 getekend — &euro; 28.400<span class="t">19 min</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="case-af" data-reveal>
+          <span class="badge badge--ok">Resultaat</span>
+          Reactietijd van 2,1 dagen naar 4 minuten — geen aanvraag meer verloren.
+          <span class="mono">gemeten over 6 mnd productie</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ CASE 02: GROOTHANDEL ============ -->
+    <section class="sectie case-centrum" aria-label="Case: groothandel — het einde van Excel">
+      <div class="wrap">
+        <p class="case-meta" data-reveal><b>Case 02</b> &middot; Groothandel &middot; 18 medewerkers &middot; Atlas + Ledger &middot; live in 1 week</p>
+        <h2 class="h2" data-reveal style="--i:1">Het einde van Excel.</h2>
+        <figure class="g-border quote-kaart" data-reveal style="--i:2">
+          <blockquote>
+            <p>&ldquo;Twaalf spreadsheets. Iedereen had zijn eigen waarheid.<br>Nu is er <em>&eacute;&eacute;n</em>.&rdquo;</p>
+          </blockquote>
+          <figcaption>M. de Vries &middot; eigenaar</figcaption>
+        </figure>
+        <div class="sheets" data-reveal style="--i:3">
+          <div class="sheets-oud" aria-hidden="true">
+            <span class="sheet">klanten_v7_FINAL.xlsx</span>
+            <span class="sheet">prijslijst_2025.xlsx</span>
+            <span class="sheet">offertes_jan.xlsx</span>
+            <span class="sheet">voorraad_DEF.xlsx</span>
+            <span class="sheet">debiteuren(2).xlsx</span>
+            <span class="sheet">leveranciers_oud.xlsx</span>
+            <span class="sheet">orders_kwartaal.xlsx</span>
+            <span class="sheet">marges_NIETDELEN.xlsx</span>
+            <span class="sheet">contacten_kees.xlsx</span>
+            <span class="sheet">planning_v3.xlsx</span>
+            <span class="sheet">omzet_2024_kopie.xlsx</span>
+            <span class="sheet">nabellen_lijst.xlsx</span>
+          </div>
+          <span class="sheets-pijl" aria-hidden="true">&rarr;</span>
+          <span class="sheet--atlas">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M17 9h5M17 13h5"/></svg>
+            Atlas — &eacute;&eacute;n systeem
+          </span>
+          <span class="sr-only">Twaalf losse spreadsheets vervangen door &eacute;&eacute;n Atlas-systeem.</span>
+        </div>
+        <div class="kpis3">
+          <div class="kpi" data-reveal><b>1.204</b><span>relaties gemigreerd</span></div>
+          <div class="kpi" data-reveal style="--i:1"><b><span data-count="1">0</span> week</b><span>van kick-off tot livegang</span></div>
+          <div class="kpi" data-reveal style="--i:2"><b><em>0</em></b><span>records kwijtgeraakt</span></div>
+        </div>
+        <p class="case-af" data-reveal>
+          <span class="badge badge--ok">Resultaat</span>
+          Twaalf bestanden met twaalf waarheden werden &eacute;&eacute;n systeem in &eacute;&eacute;n week.
+          <span class="mono">migratie geverifieerd: 1.204 / 1.204</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ CASE 03: BOUWBEDRIJF ============ -->
+    <section class="sectie" aria-label="Case: bouwbedrijf — groei zonder extra handen">
+      <div class="wrap">
+        <p class="case-meta" data-reveal><b>Case 03</b> &middot; Bouw &middot; 11 medewerkers &middot; Flow + Sage + Pulse &middot; live in 8 weken</p>
+        <div class="sectie-kop">
+          <h2 class="h2" data-reveal style="--i:1">Groei zonder extra handen.</h2>
+          <p data-reveal style="--i:2">Een bouwbedrijf dat aanvragen moest weigeren, verdubbelde de omzet — met exact hetzelfde team.</p>
+        </div>
+        <div class="groei-rij">
+          <div class="kpi kpi--groot" data-reveal><b>&times;<em><span data-count="2.3">0</span></em></b><span>omzet in twee jaar</span></div>
+          <div class="kpi" data-reveal style="--i:1"><b>11 &rarr; 11</b><span>mensen — zelfde team</span></div>
+          <div class="kpi" data-reveal style="--i:2"><b>&minus;<span data-count="31">0</span> uur</b><span>handwerk per week</span></div>
+        </div>
+        <div class="card omzet-kaart" data-reveal style="--i:3">
+          <div class="omzet-kop">
+            <h3>Omzet per kwartaal</h3>
+            <ul class="legenda" aria-hidden="true">
+              <li class="l-oud"><i></i>2024</li>
+              <li class="l-nieuw"><i></i>2026</li>
+            </ul>
+          </div>
+          <div class="omzet-veld" role="img" aria-label="Staafdiagram: kwartaalomzet 2024 versus 2026, per kwartaal ruim verdubbeld tot 1,2 miljoen euro in Q4">
+            <div class="omzet-as" aria-hidden="true">
+              <span>&euro; 1,2M</span>
+              <span>&euro; 0,6M</span>
+              <span>&euro; 0</span>
+            </div>
+            <div class="kwartalen" aria-hidden="true">
+              <div class="kwart">
+                <div class="bars"><i class="dim" style="--v:36"></i><i style="--v:78"></i></div>
+                <span>Q1</span>
+              </div>
+              <div class="kwart">
+                <div class="bars"><i class="dim" style="--v:39"></i><i style="--v:86"></i></div>
+                <span>Q2</span>
+              </div>
+              <div class="kwart">
+                <div class="bars"><i class="dim" style="--v:42"></i><i style="--v:93"></i></div>
+                <span>Q3</span>
+              </div>
+              <div class="kwart">
+                <div class="bars"><i class="dim" style="--v:44"></i><i style="--v:100"></i></div>
+                <span>Q4</span>
+              </div>
+            </div>
+          </div>
+          <p class="omzet-noot">Bron: Ledger &middot; jaaromzet 2024 &euro; 2,1M &rarr; 2026 &euro; 4,8M &middot; factor 2,3</p>
+        </div>
+        <p class="case-af" data-reveal>
+          <span class="badge badge--ok">Resultaat</span>
+          Omzet &times;2,3 in acht kwartalen — zonder &eacute;&eacute;n extra vacature.
+          <span class="mono">bron: Ledger, 8 kwartalen</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ WORD DE VOLGENDE ============ -->
+    <section class="sectie" aria-label="Lucky Zonwering">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <p class="eyebrow" data-reveal><span class="dot dot--ok"></span>Het resultaat</p>
+          <h2 class="h2" data-reveal style="--i:1">Lucky Zonwering: <em>5,0 op Google.</em></h2>
+          <p data-reveal style="--i:2">Website, offerteflow en CRM als &eacute;&eacute;n geheel — en 124 klanten die het een 5,0 geven.</p>
+        </div>
+        <figure class="bewijs" data-reveal>
+          <div class="app">
+            <div class="app-chrome">
+              <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="route">luckyzonwering.nl</span>
+              <span class="badge badge--ok">Live</span>
+            </div>
+            <video controls playsinline preload="metadata" poster="./assets/media/lucky-resultaat-poster.jpg" aria-label="Lucky Zonwering — website, merk en systeem: 5,0 op Google uit 124 reviews">
+              <source src="./assets/media/lucky-resultaat.mp4" type="video/mp4">
+            </video>
+          </div>
+          <figcaption><span class="dot dot--ok" aria-hidden="true"></span>Lucky Zonwering — website, merk en systeem: 5,0 op Google uit 124 reviews &middot; 0:49</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="sectie volgende" aria-label="Word de volgende">
+      <div class="wrap">
+        <h2 class="h2" data-reveal>Word de volgende.</h2>
+        <p data-reveal style="--i:1">Dezelfde aanpak, jouw cijfers. In 30 minuten weet je of het past.</p>
+        <div class="volgende__acties" data-reveal style="--i:2">
+          <a class="btn" href="./contact.html">Plan strategiegesprek</a>
+          <a class="btn btn--ghost" href="./software.html">Bekijk de suite</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot__cta">
+      <h2 data-reveal>Klaar om het systeem te zien?</h2>
+      <p data-reveal style="--i:1">Een demo van 30 minuten. Uw cijfers, onze software.</p>
+      <div class="foot__actions" data-reveal style="--i:2">
+        <a class="btn" href="./contact.html">Plan strategiegesprek</a>
+        <a class="btn btn--ghost" href="./cases.html">Bekijk resultaten</a>
+      </div>
+    </div>
+    <div class="wrap foot__grid">
+      <div>
+        <p class="foot__brand">Next Growth</p>
+        <p class="mono foot__meta">Digitale bedrijfssystemen<br>hallo@nextgrowth.nl</p>
+      </div>
+      <nav aria-label="Product"><h3 class="mono">Product</h3>
+        <a href="./software.html">Software</a><a href="./crm.html">CRM</a><a href="./ai.html">AI</a>
+      </nav>
+      <nav aria-label="Diensten"><h3 class="mono">Diensten</h3>
+        <a href="./websites.html">Websites</a><a href="./marketing.html">Marketing</a><a href="./seo.html">SEO</a><a href="./prijzen.html">Prijzen</a>
+      </nav>
+      <nav aria-label="Bedrijf"><h3 class="mono">Bedrijf</h3>
+        <a href="./cases.html">Cases</a><a href="./contact.html">Contact</a>
+      </nav>
+      <nav aria-label="Live werk"><h3 class="mono">Live werk</h3>
+        <a href="https://installatieplatform.nl" target="_blank" rel="noopener">Installatieplatform.nl <span aria-hidden="true">&#8599;</span></a>
+        <a href="https://www.westrikbouw-installaties.nl" target="_blank" rel="noopener">Westrikbouw-installaties.nl <span aria-hidden="true">&#8599;</span></a>
+      </nav>
+    </div>
+    <div class="wrap foot__base mono">&copy; MMXXVI Next Growth — Alle systemen operationeel <span class="dot dot--ok" aria-hidden="true"></span></div>
+  </footer>
+  <script src="./assets/core.js" defer></script>
+</body>
+</html>
