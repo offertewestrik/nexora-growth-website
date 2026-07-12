@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sales — Next Growth</title>
+  <meta name="description" content="Next Growth doet sales voor bouwbedrijven en de verduurzamingsbranche — samen met onze salespartner, tegen een commissie. Wij vullen je agenda met getekende opdrachten.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Crect width='18' height='18' rx='4' fill='%23C9A45F'/%3E%3Cpath d='M5 13V5l8 8V5' stroke='%230B0A08' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./assets/fonts.css">
+  <link rel="stylesheet" href="./assets/core.css">
+  <style>
+    /* ---------- hero ---------- */
+    .hero {
+      position: relative;
+      padding: calc(60px + clamp(3rem, 8vh, 5rem)) 0 clamp(2rem, 5vh, 3.5rem);
+      overflow: clip;
+    }
+    .hero::before {
+      content: "";
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(ellipse 70% 60% at 30% 0%, black 25%, transparent 72%);
+      -webkit-mask-image: radial-gradient(ellipse 70% 60% at 30% 0%, black 25%, transparent 72%);
+      opacity: .5; pointer-events: none;
+    }
+    .hero .glow-field { top: -4rem; right: -6rem; opacity: .35; }
+    .hero__grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 5.6fr) minmax(0, 6.4fr);
+      gap: clamp(2rem, 4vw, 4rem);
+      align-items: center;
+    }
+    @media (max-width: 960px) { .hero__grid { grid-template-columns: 1fr; } }
+    .hero__copy .h1 { margin: 1.3rem 0; }
+    .hero__actions { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: 2rem; }
+    .hero__note { margin-top: 1.1rem; font-size: .8rem; color: var(--text-3); }
+
+    /* pijplijn-dashboard mockup */
+    .pipe .app-main { gap: .9rem; }
+    .pipe-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: .7rem; }
+    @media (max-width: 400px) { .pipe-kpis { grid-template-columns: 1fr 1fr; } }
+    .pipe-tbl-wrap { overflow-x: auto; }
+
+    /* ---------- commissie / no cure ---------- */
+    .nocure {
+      border-top: 1px solid var(--line);
+    }
+    .nocure__grid {
+      display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+      gap: clamp(2rem, 5vw, 4rem); align-items: center;
+    }
+    @media (max-width: 820px) { .nocure__grid { grid-template-columns: 1fr; } }
+    .nocure__punten { margin-top: 1.4rem; display: grid; gap: .7rem; }
+    .nocure__punten li { display: flex; gap: .7rem; align-items: baseline; font-size: .95rem; }
+    .nocure__punten svg { flex: none; transform: translateY(2px); color: var(--accent); }
+    .fee-card { padding: 1.8rem; text-align: center; }
+    .fee-card .mono { color: var(--text-3); }
+    .fee-card .fee {
+      font-family: var(--serif); font-weight: 400;
+      font-size: clamp(3rem, 7vw, 4.6rem); color: var(--accent); line-height: 1;
+      margin: .5rem 0;
+    }
+    .fee-card .fee small { font-family: var(--font); font-size: .9rem; color: var(--text-2); display: block; margin-top: .4rem; }
+    .fee-card p { font-size: .9rem; margin-top: 1rem; }
+
+    /* ---------- voor wie (sectoren) ---------- */
+    .sectoren .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    @media (max-width: 720px) { .sectoren .grid { grid-template-columns: 1fr; } }
+    .sector { padding: 1.6rem 1.5rem; display: grid; gap: .7rem; align-content: start; }
+    .sector .ico { width: 34px; height: 34px; border-radius: 9px; display: grid; place-items: center; background: var(--accent-dim); color: var(--accent); }
+    .sector h3 { font-size: 1.2rem; font-weight: 600; letter-spacing: -.01em; }
+    .sector p { font-size: .9rem; }
+    .sector ul { display: grid; gap: .45rem; margin-top: .3rem; }
+    .sector li { display: flex; gap: .55rem; align-items: baseline; font-size: .84rem; color: var(--text-2); }
+    .sector li svg { flex: none; transform: translateY(2px); color: var(--accent); }
+
+    /* ---------- werkwijze (stappen) ---------- */
+    .werkwijze .stappen { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+    @media (max-width: 900px) { .werkwijze .stappen { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .werkwijze .stappen { grid-template-columns: 1fr; } }
+    .stap { padding: 1.4rem 1.3rem; display: grid; gap: .5rem; align-content: start; position: relative; }
+    .stap .nr { font-family: var(--mono); font-size: .7rem; color: var(--accent); letter-spacing: .1em; }
+    .stap h3 { font-size: 1.02rem; font-weight: 600; letter-spacing: -.01em; }
+    .stap p { font-size: .84rem; }
+
+    /* ---------- partner ---------- */
+    .partner__grid {
+      display: grid; grid-template-columns: minmax(0,6fr) minmax(0,6fr);
+      gap: clamp(2rem, 5vw, 4rem); align-items: center;
+    }
+    @media (max-width: 900px) { .partner__grid { grid-template-columns: 1fr; } }
+    .partner__punten { margin-top: 1.4rem; display: grid; gap: .7rem; }
+    .partner__punten li { display: flex; gap: .7rem; align-items: baseline; font-size: .92rem; }
+    .partner__punten svg { flex: none; transform: translateY(2px); color: var(--accent); }
+    .duo {
+      display: flex; align-items: stretch; gap: 0;
+      border: 1px solid var(--line); border-radius: var(--r); overflow: hidden;
+      background: var(--bg-raise);
+    }
+    .duo__zij { flex: 1; padding: 1.6rem 1.4rem; display: grid; gap: .5rem; align-content: center; }
+    .duo__zij h4 { font-size: 1rem; font-weight: 600; color: var(--text); }
+    .duo__zij p { font-size: .82rem; }
+    .duo__zij .mono { color: var(--accent); }
+    .duo__plus {
+      display: grid; place-items: center; width: 46px; flex: none;
+      background: var(--accent-dim); color: var(--accent);
+      font-family: var(--serif); font-size: 1.6rem;
+      border-inline: 1px solid var(--line);
+    }
+    @media (max-width: 480px) {
+      .duo { flex-direction: column; }
+      .duo__plus { width: auto; height: 40px; border-inline: 0; border-block: 1px solid var(--line); }
+    }
+
+    /* ---------- resultaten ---------- */
+    .resultaten .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2rem; }
+    .resultaten .kpi b { font-family: var(--serif); font-weight: 400; color: var(--accent); }
+
+    /* ---------- faq ---------- */
+    .faq-lijst { max-width: 46rem; }
+    .faq { border-top: 1px solid var(--line); padding: 1.3rem 0; }
+    .faq:last-child { border-bottom: 1px solid var(--line); }
+    .faq summary {
+      display: flex; align-items: baseline; justify-content: space-between; gap: 1rem;
+      cursor: pointer; list-style: none; font-size: 1.02rem; font-weight: 600; color: var(--text);
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary .plus { flex: none; color: var(--accent); font-size: 1.3rem; line-height: 1; transition: transform .25s var(--ease); }
+    .faq[open] summary .plus { transform: rotate(45deg); }
+    .faq p { margin-top: .8rem; font-size: .9rem; max-width: 62ch; }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Direct naar inhoud</a>
+  <header class="nav" id="nav">
+    <div class="nav__in wrap">
+      <a class="nav__logo" href="./index.html" aria-label="Next Growth — home">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect width="18" height="18" rx="4" fill="#C9A45F"/><path d="M5 13V5l8 8V5" stroke="#0B0A08" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Next Growth
+      </a>
+      <nav class="nav__links" id="navLinks" aria-label="Hoofdmenu">
+        <a href="./software.html">Software</a>
+        <a href="./websites.html">Websites</a>
+        <a href="./marketing.html">Marketing</a>
+        <a href="./seo.html">SEO</a>
+        <a href="./sales.html" aria-current="page">Sales</a>
+        <a href="./ai.html">AI</a>
+        <a href="./crm.html">CRM</a>
+        <a href="./prijzen.html">Prijzen</a>
+        <a href="./cases.html">Cases</a>
+      </nav>
+      <div class="nav__cta">
+        <a class="btn btn--ghost btn--sm" href="./contact.html">Contact</a>
+        <a class="btn btn--sm nav__demo" href="./contact.html">Plan strategiegesprek</a>
+      </div>
+      <button class="nav__burger" id="navBurger" aria-expanded="false" aria-controls="navLinks" aria-label="Menu"><i></i><i></i></button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-label="Sales">
+      <div class="glow-field" aria-hidden="true"></div>
+      <div class="wrap hero__grid">
+        <div class="hero__copy">
+          <span class="pill"><span class="dot dot--ok"></span>Sales-as-a-service &middot; tegen commissie</span>
+          <h1 class="h1">Wij vullen je agenda met <em>getekende opdrachten.</em></h1>
+          <p class="lede">Next Growth doet de sales voor bouwbedrijven en de verduurzamingsbranche — samen met onze salespartner. Jij levert het vakwerk, wij brengen de klanten. Je betaalt pas als het raak is.</p>
+          <div class="hero__actions">
+            <a class="btn" href="./contact.html">Plan een kennismaking <span aria-hidden="true">&rarr;</span></a>
+            <a class="btn btn--ghost" href="./cases.html">Bekijk resultaten</a>
+          </div>
+          <p class="hero__note">Geen loondienst &middot; geen vaste kosten &middot; alleen commissie op getekende opdrachten</p>
+        </div>
+
+        <div class="pipe">
+          <div class="app" role="img" aria-label="Salesdashboard met opdrachten in de pijplijn en commissie">
+            <div class="app-chrome">
+              <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="route">app.nextgrowth.nl/sales/pijplijn</span>
+              <span class="badge badge--ok">Live</span>
+            </div>
+            <div class="app-main">
+              <div class="pipe-kpis" aria-hidden="true">
+                <div class="app-kpi"><span>Afspraken deze maand</span><b>34</b><span class="delta">&#9650; 11 vs vorige</span></div>
+                <div class="app-kpi"><span>Getekend</span><b>&euro; 412.000</b><span class="delta">&#9650; 9 opdrachten</span></div>
+                <div class="app-kpi"><span>Jouw kosten vooraf</span><b>&euro; 0</b><span class="delta">alleen bij succes</span></div>
+              </div>
+              <div class="pipe-tbl-wrap">
+                <table class="tbl" aria-hidden="true">
+                  <thead><tr><th>Prospect</th><th>Type</th><th>Waarde</th><th>Fase</th><th>Status</th></tr></thead>
+                  <tbody>
+                    <tr><td>Fam. Jansen — Breda</td><td>Verbouwing</td><td class="num">&euro; 84.000</td><td>Offerte</td><td><span class="badge badge--ok">Getekend</span></td></tr>
+                    <tr><td>VvE De Hoven</td><td>Gevelisolatie</td><td class="num">&euro; 156.000</td><td>Onderhandeling</td><td><span class="badge badge--warn">Warm</span></td></tr>
+                    <tr><td>Bakker Vastgoed</td><td>Warmtepomp x8</td><td class="num">&euro; 72.000</td><td>Afspraak</td><td><span class="badge badge--ok">Ingepland</span></td></tr>
+                    <tr><td>Fam. De Wit — Tilburg</td><td>Aanbouw</td><td class="num">&euro; 61.000</td><td>Offerte</td><td><span class="badge badge--warn">Opvolgen</span></td></tr>
+                    <tr><td>Meijer B.V.</td><td>Dakrenovatie</td><td class="num">&euro; 39.000</td><td>Intake</td><td><span class="badge badge--muted">Nieuw</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ NO CURE, NO PAY / COMMISSIE ============ -->
+    <section class="sectie nocure" aria-label="Ons commissiemodel">
+      <div class="wrap nocure__grid">
+        <div>
+          <p class="eyebrow"><span class="dot dot--ok"></span>Ons model</p>
+          <h2 class="h2">Geen resultaat? <em>Geen rekening.</em></h2>
+          <p>Wij geloven in ons eigen werk. Daarom werken we op commissie: je betaalt een percentage van de opdrachten die wij binnenhalen — en verder niets. Geen retainer, geen opstartkosten, geen risico.</p>
+          <ul class="nocure__punten">
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Alleen commissie op <b style="color:var(--text)">getekende</b> opdrachten</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Geen vaste maandkosten of langlopend contract</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Wij dragen de kosten van leadgeneratie en opvolging</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Onze belangen zijn gelijk: wij groeien als jij groeit</li>
+          </ul>
+        </div>
+        <div class="g-border card fee-card">
+          <p class="mono">Onze vergoeding</p>
+          <p class="fee">Commissie<small>een vast percentage per getekende opdracht</small></p>
+          <hr class="hairline" style="margin:1.2rem 0">
+          <p>Het percentage stemmen we vooraf samen af — passend bij je marge, ordergrootte en sector. Transparant, zwart op wit, v&oacute;&oacute;r we beginnen.</p>
+          <a class="btn" href="./contact.html" style="margin-top:1.4rem; width:100%">Vraag een voorstel aan</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ VOOR WIE ============ -->
+    <section class="sectie sectoren" aria-label="Voor wie">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <p class="eyebrow">Voor wie we verkopen</p>
+          <h2 class="h2">Twee branches. <em>Eén aanpak.</em></h2>
+          <p>We kennen de taal van de bouw en de cijfers van verduurzaming. Daardoor verkopen we niet alleen méér, maar ook de juiste opdrachten.</p>
+        </div>
+        <div class="grid">
+          <article class="card sector">
+            <span class="ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg></span>
+            <h3>Bouwbedrijven</h3>
+            <p>Aannemers, verbouwers, prefab- en installatiebedrijven die vakmensen hebben, maar geen tijd voor acquisitie.</p>
+            <ul>
+              <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Verbouwingen, aanbouwen &amp; renovaties</li>
+              <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Prefab, dak- en gevelprojecten</li>
+              <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Zakelijke &amp; particuliere opdrachtgevers</li>
+            </ul>
+          </article>
+          <article class="card sector">
+            <span class="ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3.5"/></svg></span>
+            <h3>Verduurzamingsbranche</h3>
+            <p>Installateurs en leveranciers van warmtepompen, zonnepanelen, isolatie en energieoplossingen — waar de vraag groot maar versnipperd is.</p>
+            <ul>
+              <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Warmtepompen &amp; hybride systemen</li>
+              <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Zonnepanelen, isolatie &amp; laadpalen</li>
+              <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>VvE-trajecten &amp; subsidiegedreven vraag</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WERKWIJZE ============ -->
+    <section class="sectie werkwijze" aria-label="Zo werken we">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <p class="eyebrow">Van lead tot handtekening</p>
+          <h2 class="h2">Wij doen de sales. <em>Jij het vakwerk.</em></h2>
+          <p>Een compleet salesteam zonder dat je iemand aanneemt — met de software en het systeem van Next Growth eronder.</p>
+        </div>
+        <div class="stappen">
+          <article class="card stap">
+            <span class="nr">01</span>
+            <h3>Vraag genereren</h3>
+            <p>Wij brengen de leads binnen via marketing, campagnes en ons netwerk — op jouw sector en werkgebied.</p>
+          </article>
+          <article class="card stap">
+            <span class="nr">02</span>
+            <h3>Kwalificeren &amp; bellen</h3>
+            <p>Onze salespartner belt, kwalificeert en plant afspraken. Alleen serieuze opdrachten komen bij jou.</p>
+          </article>
+          <article class="card stap">
+            <span class="nr">03</span>
+            <h3>Offerte &amp; onderhandeling</h3>
+            <p>We bereiden offertes voor en begeleiden de deal tot de handtekening — jij hoeft alleen te leveren.</p>
+          </article>
+          <article class="card stap">
+            <span class="nr">04</span>
+            <h3>Jij bouwt, wij factureren commissie</h3>
+            <p>Je voert de opdracht uit. Pas bij een getekende opdracht rekenen we onze afgesproken commissie.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PARTNER ============ -->
+    <section class="sectie partner" aria-label="Onze salespartner">
+      <div class="wrap partner__grid">
+        <div>
+          <p class="eyebrow"><span class="dot dot--ok"></span>Sterker samen</p>
+          <h2 class="h2">Ons systeem. <em>Hun saleskracht.</em></h2>
+          <p>Sales draait om twee dingen: de juiste mensen aan de telefoon en een systeem dat niets laat vallen. Next Growth levert de software, data en automatisering; onze salespartner levert ervaren verkopers die dagelijks deals sluiten.</p>
+          <ul class="partner__punten">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Ervaren salesprofessionals met branchekennis</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Alles in &eacute;&eacute;n CRM: geen lead valt tussen wal en schip</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Realtime inzicht in je pijplijn en getekende omzet</li>
+          </ul>
+        </div>
+        <div class="duo" role="img" aria-label="Next Growth plus salespartner">
+          <div class="duo__zij">
+            <p class="mono">Next Growth</p>
+            <h4>Het systeem</h4>
+            <p>Leads, CRM, offertes, automatisering en dashboards — de motor onder de sales.</p>
+          </div>
+          <div class="duo__plus" aria-hidden="true">&plus;</div>
+          <div class="duo__zij">
+            <p class="mono">Salespartner</p>
+            <h4>De verkoopkracht</h4>
+            <p>Ervaren verkopers die bellen, afspreken en deals sluiten in bouw &amp; verduurzaming.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RESULTATEN ============ -->
+    <section class="sectie resultaten" aria-label="Resultaten in cijfers">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <p class="eyebrow">Gemeten, niet beloofd</p>
+          <h2 class="h2">Wat dit oplevert.</h2>
+        </div>
+        <div class="kpis">
+          <div class="kpi"><b>&euro;&thinsp;0</b><span>vaste kosten vooraf — alleen commissie</span></div>
+          <div class="kpi"><b>&times;<span data-count="2.3">0</span></b><span>meer getekende opdrachten (beste case)</span></div>
+          <div class="kpi"><b><span data-count="34">0</span></b><span>gekwalificeerde afspraken per maand</span></div>
+          <div class="kpi"><b><span data-count="100">0</span>%</b><span>van je tijd naar het vak, niet naar acquisitie</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="sectie" aria-label="Veelgestelde vragen">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <p class="eyebrow">Commissie &amp; samenwerking</p>
+          <h2 class="h2">Veelgestelde vragen.</h2>
+        </div>
+        <div class="faq-lijst">
+          <details class="faq">
+            <summary>Hoe hoog is de commissie? <span class="plus" aria-hidden="true">+</span></summary>
+            <p>Een vast percentage per getekende opdracht, dat we vooraf samen afstemmen. De hoogte hangt af van je marge, de gemiddelde ordergrootte en de sector. Alles staat zwart op wit v&oacute;&oacute;r we starten — geen verrassingen achteraf.</p>
+          </details>
+          <details class="faq">
+            <summary>Betaal ik ook als er niets wordt getekend? <span class="plus" aria-hidden="true">+</span></summary>
+            <p>Nee. Je betaalt uitsluitend commissie over opdrachten die daadwerkelijk getekend worden. Geen resultaat betekent geen rekening — het risico van leadgeneratie en opvolging ligt bij ons.</p>
+          </details>
+          <details class="faq">
+            <summary>Wie doet nu precies de verkoop? <span class="plus" aria-hidden="true">+</span></summary>
+            <p>De verkoop draait op een samenwerking: Next Growth levert het systeem (leads, CRM, offertes, automatisering) en onze salespartner levert de ervaren verkopers die bellen, afspreken en deals sluiten. Jij hebt &eacute;&eacute;n aanspreekpunt.</p>
+          </details>
+          <details class="faq">
+            <summary>Voor welke bedrijven werkt dit? <span class="plus" aria-hidden="true">+</span></summary>
+            <p>Voor bouwbedrijven (aannemers, verbouwers, prefab- en installatiebedrijven) en voor de verduurzamingsbranche (warmtepompen, zonnepanelen, isolatie, laadpalen). Kortom: bedrijven met sterk vakwerk die meer opdrachten aankunnen.</p>
+          </details>
+          <details class="faq">
+            <summary>Krijg ik zicht op de pijplijn? <span class="plus" aria-hidden="true">+</span></summary>
+            <p>Ja. Alles loopt door &eacute;&eacute;n CRM waarin je live meekijkt: welke leads binnenkomen, welke afspraken staan en welke opdrachten getekend zijn. Volledige transparantie, elke dag.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot__cta">
+      <h2>Klaar voor meer opdrachten?</h2>
+      <p>Een kennismaking van 30 minuten. We laten zien hoeveel omzet er in jouw markt te winnen is.</p>
+      <div class="foot__actions">
+        <a class="btn" href="./contact.html">Plan een kennismaking</a>
+        <a class="btn btn--ghost" href="./cases.html">Bekijk resultaten</a>
+      </div>
+    </div>
+    <div class="wrap foot__grid">
+      <div>
+        <p class="foot__brand">Next Growth</p>
+        <p class="mono foot__meta">Digitale bedrijfssystemen<br>hallo@nextgrowth.nl</p>
+      </div>
+      <nav aria-label="Product"><h3 class="mono">Product</h3>
+        <a href="./software.html">Software</a><a href="./crm.html">CRM</a><a href="./ai.html">AI</a>
+      </nav>
+      <nav aria-label="Diensten"><h3 class="mono">Diensten</h3>
+        <a href="./websites.html">Websites</a><a href="./marketing.html">Marketing</a><a href="./seo.html">SEO</a><a href="./sales.html">Sales</a><a href="./prijzen.html">Prijzen</a>
+      </nav>
+      <nav aria-label="Bedrijf"><h3 class="mono">Bedrijf</h3>
+        <a href="./cases.html">Cases</a><a href="./contact.html">Contact</a>
+      </nav>
+      <nav aria-label="Live werk"><h3 class="mono">Live werk</h3>
+        <a href="https://installatieplatform.nl" target="_blank" rel="noopener">Installatieplatform.nl <span aria-hidden="true">&#8599;</span></a>
+        <a href="https://www.westrikbouw-installaties.nl" target="_blank" rel="noopener">Westrikbouw-installaties.nl <span aria-hidden="true">&#8599;</span></a>
+      </nav>
+    </div>
+    <div class="wrap foot__base mono">&copy; MMXXVI Next Growth — Alle systemen operationeel <span class="dot dot--ok" aria-hidden="true"></span></div>
+  </footer>
+  <script src="./assets/core.js" defer></script>
+</body>
+</html>

@@ -328,7 +328,7 @@ html.js .flow-steps.is-run .flow-verbinder { opacity: 1; }
 }
 .nav__links { display: flex; gap: .25rem; margin-inline: auto; }
 .nav__links a {
-  padding: .45rem .8rem;
+  padding: .45rem .62rem;
   font-size: .88rem; font-weight: 500;
   color: var(--text-2); text-decoration: none;
   border-radius: 7px;
@@ -339,7 +339,7 @@ html.js .flow-steps.is-run .flow-verbinder { opacity: 1; }
 .nav__cta { display: flex; gap: .6rem; }
 .nav__burger { display: none; }
 
-@media (max-width: 1080px) {
+@media (max-width: 1180px) {
   .nav__links {
     position: fixed; top: 60px; left: 0; right: 0;
     height: calc(100vh - 60px);
