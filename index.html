@@ -488,15 +488,28 @@ footer .legal{grid-column:1/-1;border-top:1px solid var(--line);padding-top:20px
 .banner .giant2{position:absolute;right:-2%;top:-6%;font:900 clamp(60px,11vw,170px)/.85 var(--display);letter-spacing:-.04em;text-transform:uppercase;color:rgba(237,237,234,.9);z-index:1;transform:rotate(-6deg);text-align:right;line-height:.85}
 @media(max-width:860px){.banner .box{grid-template-columns:1fr;min-height:0}.banner .img{position:relative;width:100%;height:260px;order:-1}.banner .img::before{background:linear-gradient(0deg,#141414,transparent 60%)}.banner .giant2{display:none}}
 footer.boost .wrap{display:block}
-footer.boost{background:#7F7F7A;color:#15151A;padding:60px 0 0;overflow:hidden}
-footer.boost .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px;padding-bottom:30px;border-bottom:1px solid rgba(0,0,0,.2)}
-footer.boost .tel{font:400 clamp(30px,3.6vw,48px)/1 var(--body);letter-spacing:-.02em;color:#15151A;text-decoration:none;display:block}
-footer.boost h4{font:600 12px var(--body);margin:0 0 10px;color:#15151A}
-footer.boost ul{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:14px}
-footer.boost a{text-decoration:none;color:#15151A}
-footer.boost .legal{padding:18px 0 0;font-size:12px;display:flex;flex-wrap:wrap;gap:8px 24px}
-footer.boost .giantword{font:900 clamp(48px,10.6vw,160px)/.8 var(--display);letter-spacing:-.06em;text-transform:uppercase;color:#0A0A0A;white-space:nowrap;margin-top:10px;margin-bottom:-.12em;text-align:center}
-@media(max-width:860px){footer.boost .cols{grid-template-columns:1fr 1fr}}
+footer.boost{background:#0A0A0A;color:#A3A39D;padding:0;overflow:hidden;position:relative;border-top:1px solid rgba(255,255,255,.08)}
+footer.boost .cta{display:grid;grid-template-columns:1.3fr 1fr;gap:30px;align-items:end;padding:clamp(60px,8vw,110px) 0 clamp(40px,5vw,60px);border-bottom:1px solid rgba(255,255,255,.12)}
+footer.boost .cta h2{font-size:clamp(40px,6.4vw,100px);line-height:.9;letter-spacing:-.04em;color:#EDEDEA;margin:0}
+footer.boost .cta h2 .sig{color:var(--sig)}
+footer.boost .cta .r{display:grid;gap:14px;justify-items:start}
+footer.boost .cta .r p{margin:0;max-width:26em;font-size:15px;line-height:1.55}
+footer.boost .tel{font:800 clamp(26px,3vw,40px)/1 var(--body);letter-spacing:-.02em;color:#EDEDEA;text-decoration:none;display:inline-block}
+footer.boost .tel:hover{color:var(--sig)}
+footer.boost .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px;padding:40px 0 34px;border-bottom:1px solid rgba(255,255,255,.12)}
+footer.boost h4{font:500 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;margin:0 0 14px;color:#EDEDEA}
+footer.boost ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:14px}
+footer.boost a{text-decoration:none;color:#A3A39D;transition:color .2s}footer.boost a:hover{color:#fff}
+footer.boost .btn{color:var(--sig-ink)}footer.boost .btn:hover{color:var(--sig-ink)}
+footer.boost .brandline{display:flex;align-items:center;gap:12px;color:#EDEDEA;font-weight:700;margin-bottom:12px}
+footer.boost .brandline i{width:34px;height:34px;border-radius:9px;background:var(--sig);color:#0A0A0A;display:grid;place-items:center;font:900 15px var(--display);font-style:normal}
+footer.boost .soc{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+footer.boost .soc a{border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:7px 12px;font-size:12px;color:#EDEDEA}
+footer.boost .soc a:hover{border-color:var(--sig);color:var(--sig)}
+footer.boost .legal{padding:18px 0 0;font:500 12px var(--mono);display:flex;flex-wrap:wrap;gap:8px 24px;color:#7C7C76}
+footer.boost .giantword{font:900 clamp(56px,10.6vw,160px)/.8 var(--display);letter-spacing:-.06em;text-transform:uppercase;color:var(--sig);white-space:nowrap;margin-top:22px;margin-bottom:-.14em;text-align:center}
+@media(max-width:860px){footer.boost .cta{grid-template-columns:1fr;align-items:start}footer.boost .cols{grid-template-columns:1fr 1fr;gap:26px 20px}}
+@media(max-width:520px){footer.boost .cols{grid-template-columns:1fr}footer.boost .giantword{font-size:14.5vw;letter-spacing:-.06em}}
 /* ===== fashion-demo: switch the look ===== */
 .fd{--w:#5B2DE0;--w2:#2A0F6E;--wt:#FFFFFF;--wa:#C6FF3D;position:relative;color:var(--wt);background:var(--w2);min-height:100svh;overflow:hidden;font-family:var(--body);padding-top:68px}
 .fd .shopnav{position:relative;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.15)}
@@ -1410,13 +1423,17 @@ function Banner(){
 }
 function FooterBoost(){
   return h`<footer class="boost"><div class="wrap">
+    <div class="cta">
+      <h2><${Words} text="Klaar om *op *te *vallen?"/></h2>
+      <div class="r"><p>Eén gesprek van twintig minuten. Je spreekt direct met de mensen die het werk maken en krijgt dezelfde dag een eerlijk advies.</p><a class="btn" href="#contact" data-hover="1">Plan een kennismaking<span class="i">→</span></a><a class="tel" href="tel:+31683902192">06 83 90 21 92</a></div>
+    </div>
     <div class="cols">
-      <div><a class="tel" href="tel:+31683902192">06 83 90 21 92</a><p style=${{marginTop:10,fontSize:14}}>info@nextgrowthdigital.nl<br/>Oss · Noord-Brabant & Gelderland</p></div>
-      <div><h4>Diensten</h4><ul><li><a href="#dienst-branding">Branding</a></li><li><a href="#dienst-webdesign">Webdesign</a></li><li><a href="#dienst-marketing">Marketing</a></li><li><a href="#sales">Sales</a></li><li><a href="#prijzen">Prijzen</a></li></ul></div>
+      <div><div class="brandline"><i>N</i>Next Growth Digital</div><p style=${{margin:0,fontSize:14,lineHeight:1.6}}>Creatief groeibureau in Oss.<br/>Branding, webdesign, marketing en eigen software.<br/><a href="mailto:info@nextgrowthdigital.nl">info@nextgrowthdigital.nl</a></p><div class="soc"><a href="#contact">Instagram</a><a href="#contact">LinkedIn</a><a href="#contact">Google</a></div></div>
+      <div><h4>Diensten</h4><ul><li><a href="#dienst-branding">Branding</a></li><li><a href="#dienst-webdesign">Webdesign</a></li><li><a href="#dienst-marketing">Marketing</a></li><li><a href="#sales">Sales</a></li><li><a href="#prijzen">Prijzen</a></li><li><a href="#demo-fashion">Demo: Switch the look</a></li></ul></div>
       <div><h4>Branches</h4><ul>${BRANCH_ORDER.slice(0,6).map(function(s){return h`<li key=${s}><a href=${'#'+s}>${BRANCH_NAME[s]}</a></li>`})}<li><a href="#branches">Alle branches</a></li></ul></div>
       <div><h4>Website laten maken in</h4><ul>${Object.keys(SEO.pages).filter(function(k){return k.indexOf('lokaal-webdesign-')===0}).slice(0,7).map(function(k){return h`<li key=${k}><a href=${'#'+k}>${SEO.pages[k].cities[0]}</a></li>`})}</ul></div>
     </div>
-    <div class="legal"><span>© 2026 Next Growth Digital</span><span>KVK 96002913</span><span>BTW NL004420281B57</span></div>
+    <div class="legal"><span>© 2026 Next Growth Digital</span><span>KVK 96002913</span><span>BTW NL004420281B57</span><span>Oss · Noord-Brabant & Gelderland</span></div>
     <div class="giantword" aria-hidden="true">Next Growth</div>
   </div></footer>`;
 }
