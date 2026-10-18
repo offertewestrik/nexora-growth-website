@@ -8,7 +8,7 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,900;125,900&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,900;125,900&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
 <style>
 /* Layout: pikzwart canvas, één hi-vis signaalkleur, enorme uitgebouwde hoofdletters. Het product (configurator, websites) als beeldmateriaal. Alles single-theme, bewust donker. */
 :root{
@@ -700,6 +700,80 @@ footer.boost .giantword{font:900 clamp(56px,10.6vw,160px)/.8 var(--display);lett
   .mobbar .s{border:1.5px solid rgba(255,255,255,.55);color:#fff;padding:0 18px}
 }
 @media(min-width:861px){.mobbar{display:none}}
+
+/* ---------- branchewerelden: elke branche een eigen hero en palet ---------- */
+.bp{background:var(--bg);color:var(--fg)}
+.bp.light{color-scheme:light}
+.bp.light .btn.ghost{border-color:rgba(0,0,0,.35);color:var(--fg)}
+.bp.light .btn.white{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.bp.light .mod .tag{border-color:var(--line)}
+.wh{position:relative;overflow:hidden;isolation:isolate;padding:132px 0 70px;min-height:86svh;display:flex;align-items:center}
+.wh .wrap{position:relative;z-index:3;width:100%}
+.wh .crumbs{display:flex;gap:10px;font:500 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+.wh .crumbs a{text-decoration:none;color:inherit}
+.wh .eyebrow{color:var(--fg)}.wh .eyebrow::before{background:var(--sig)}
+.wh h1{font-size:clamp(40px,6.2vw,96px);line-height:.92;letter-spacing:-.035em;text-transform:uppercase;margin-top:18px;max-width:11em}
+.wh h1 .sig{color:var(--sig)}
+.wh.serif h1{font-family:'Fraunces',Georgia,serif;font-weight:600;text-transform:none;letter-spacing:-.02em;line-height:.98;font-size:clamp(40px,6vw,92px)}
+.wh.serif h1 .sig{font-style:italic;font-weight:600}
+.wh .def{max-width:34em;margin-top:22px;font-size:clamp(16px,1.3vw,19px);line-height:1.55;color:var(--muted)}
+.wh .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.wh .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.wh .chips span{font:500 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:8px 12px;border-radius:999px;border:1px solid var(--line);color:var(--fg);background:var(--bg-2)}
+.wh .chips span.on{background:var(--sig);color:var(--sig-ink);border-color:var(--sig)}
+.wh.l-split .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.wh .mediacard{position:relative;border-radius:22px;overflow:hidden;background:var(--bg-2);border:1px solid var(--line);box-shadow:0 60px 100px -50px rgba(0,0,0,.8);aspect-ratio:16/10}
+.wh .mediacard video,.wh .mediacard img{width:100%;height:100%;object-fit:cover;display:block}
+.wh .mediacard .tag{position:absolute;left:16px;top:16px;background:var(--sig);color:var(--sig-ink);padding:7px 12px;border-radius:999px;font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.wh .tape{position:absolute;left:-10%;right:-10%;bottom:8%;z-index:2;transform:rotate(-4deg);background:var(--sig);color:var(--sig-ink);font:900 clamp(16px,1.6vw,22px) var(--display);font-stretch:125%;text-transform:uppercase;letter-spacing:.04em;padding:12px 0;white-space:nowrap;overflow:hidden;pointer-events:none}
+.wh .tape span{display:inline-block;padding-right:1.4em}
+.wh .tape span::after{content:"◆";padding-left:1.4em;opacity:.6}
+.wh.l-full{min-height:92svh;align-items:flex-end;padding-bottom:90px}
+.wh.l-full .bg{position:absolute;inset:0;z-index:0}
+.wh.l-full .bg video,.wh.l-full .bg img{width:100%;height:100%;object-fit:cover}
+.wh.l-full .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--bg) 0%,rgba(0,0,0,.45) 45%,rgba(0,0,0,.05) 75%),linear-gradient(180deg,rgba(0,0,0,.3),rgba(0,0,0,0) 40%,var(--bg) 100%)}
+.wh.l-full .def{color:rgba(255,255,255,.85)}
+.wh .bigword{position:absolute;right:-2vw;top:70px;z-index:1;font:900 clamp(90px,20vw,320px)/.8 var(--display);font-stretch:125%;text-transform:uppercase;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.35);pointer-events:none}
+.wh.l-card{align-items:flex-start;padding-top:140px}
+.wh.l-card h1{font-size:clamp(36px,5vw,78px);max-width:13em}
+.wh.l-card .mediacard{margin-top:44px;aspect-ratio:16/8;border-radius:26px}
+.wh.l-card .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px}
+.wh.l-card .steps div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:flex;gap:12px;align-items:center}
+.wh.l-card .steps i{width:32px;height:32px;border-radius:50%;background:var(--sig);color:var(--sig-ink);display:grid;place-items:center;font:800 13px var(--body);font-style:normal;flex:none}
+.wh.l-card .steps b{font:700 14px var(--body)}
+.wh.l-phone .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
+.wh .frame{position:relative;width:min(100%,330px);aspect-ratio:9/19;border-radius:40px;background:#0A0A0A;padding:10px;box-shadow:0 60px 100px -40px rgba(0,0,0,.6),0 0 0 2px rgba(255,255,255,.15) inset;margin-inline:auto}
+.wh .frame video,.wh .frame img{width:100%;height:100%;object-fit:cover;border-radius:32px;display:block}
+.wh .frame .notch{position:absolute;left:50%;top:18px;transform:translateX(-50%);width:36%;height:22px;border-radius:999px;background:#0A0A0A;z-index:2}
+.wh .float{position:absolute;z-index:4;background:#fff;color:#0A0A0A;padding:10px 14px;border-radius:12px;font:800 13px var(--body);box-shadow:0 20px 40px -10px rgba(0,0,0,.5);white-space:nowrap}
+.wh .float small{display:block;font:500 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;opacity:.6}
+.wh .blob{position:absolute;z-index:0;width:60vw;height:60vw;border-radius:50%;filter:blur(90px);opacity:.55;pointer-events:none}
+.wh.l-menu .grid{display:grid;grid-template-columns:1fr .85fr;gap:40px;align-items:center}
+.wh .kaart{background:var(--bg-2);border:1px solid var(--line);border-radius:18px;padding:26px 28px;position:relative}
+.wh .kaart h3{font:600 clamp(22px,2.2vw,30px) 'Fraunces',Georgia,serif;margin:0 0 14px;color:var(--fg)}
+.wh .kaart ul{list-style:none;margin:0;padding:0}
+.wh .kaart li{display:flex;justify-content:space-between;gap:14px;padding:12px 0;border-bottom:1px dashed var(--line);font-size:15px}
+.wh .kaart li b{font-weight:600}.wh .kaart li span{color:var(--sig);font:500 12px var(--mono);white-space:nowrap}
+.wh .kaart .res{margin-top:18px;display:grid;grid-template-columns:1fr 1fr auto;gap:8px}
+.wh .kaart .res div{border:1px solid var(--line);border-radius:10px;padding:10px 12px;font:500 12px var(--mono);color:var(--muted)}
+.wh .kaart .res b{background:var(--sig);color:var(--sig-ink);border-radius:10px;padding:10px 14px;font:800 13px var(--body);display:grid;place-items:center}
+.wh.l-plate h1{background:linear-gradient(180deg,#FFFFFF 0%,#C9C9CF 45%,#7A7A82 50%,#E8E8EC 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.wh.l-plate h1 .sig{background:none;-webkit-text-fill-color:var(--sig);color:var(--sig)}
+.wh .kenteken{display:inline-flex;align-items:stretch;border-radius:8px;overflow:hidden;border:2px solid #0A0A0A;margin-top:26px;box-shadow:0 20px 40px -14px rgba(0,0,0,.8)}
+.wh .kenteken i{background:#1D4ED8;color:#fff;font:700 11px var(--mono);display:grid;place-items:center;padding:0 8px;font-style:normal}
+.wh .kenteken b{background:#F7D117;color:#0A0A0A;font:900 clamp(24px,3vw,40px)/1 var(--display);padding:8px 18px;letter-spacing:.06em}
+.wh .lines{position:absolute;inset:0;z-index:0;background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 1px,transparent 1px 120px);mask-image:linear-gradient(180deg,#000,transparent 80%)}
+@media(max-width:900px){
+  .wh{padding:110px 0 60px;min-height:0}
+  .wh.l-split .grid,.wh.l-phone .grid,.wh.l-menu .grid{grid-template-columns:1fr;gap:28px}
+  .wh.l-card .steps{grid-template-columns:1fr}
+  .wh .frame{width:min(100%,280px)}
+  .wh .float{display:none}
+  .wh .bigword{display:none}
+  .wh .tape{bottom:4%}
+  .wh.l-full{min-height:80svh;padding-bottom:70px}
+  .wh .kaart .res{grid-template-columns:1fr}
+}
 </style>
 
 <div id="root"></div>
@@ -1278,12 +1352,55 @@ function PageHero(props){var d=props.d,img=HERO_IMG[props.slug];return h`<sectio
   <${m.div} className="cta" initial=${{opacity:0,y:16}} animate=${{opacity:1,y:0}} transition=${{delay:.7,duration:.8,ease:EASE}}><${Magnet} href="#contact">Plan een kennismaking</${Magnet}>${props.cta2}</${m.div}></div>
 </section>`}
 
+/* ---------- branchewerelden ---------- */
+var WORLD={
+  'branche-bouwbedrijven':{layout:'split',vars:{'--bg':'#121212','--bg-2':'#1A1A1A','--bg-3':'#222','--line':'#2C2C2C','--fg':'#F3F1EC','--muted':'#A8A59E','--sig':'#F26A1B','--sig-ink':'#0A0A0A'},eyebrow:'Website, branding & marketing voor bouwbedrijven',h1:'Echt vakwerk. *Echt zichtbaar.',media:{v:'lap-bouwbroers',p:'assets/lap-bouwbroers.jpg',tag:'Bouwbroers · website'},tape:['Echt vakwerk','Eerst bouwen, dan napraten','Projectfoto’s','Offerte in 2 minuten'],chips:['Website','Offerteflow','Projectfoto’s','Google-reviews']},
+  'branche-overkapping-veranda':{layout:'card',light:true,vars:{'--bg':'#F3F1EA','--bg-2':'#FFFFFF','--bg-3':'#ECE9E0','--line':'#D9D5C9','--fg':'#10261C','--muted':'#5B6B62','--sig':'#1F6B4A','--sig-ink':'#FFFFFF'},eyebrow:'Website met configurator voor overkappingen en veranda’s',h1:'Jouw overkapping, *live in beeld.',media:{v:'lap-poppelaars',p:'assets/lap-poppelaars.jpg',tag:'Poppelaars · configurator'},steps:['Klant kiest model en maat','Ziet direct prijs en beeld','Vraagt met één klik offerte aan']},
+  'branche-dakdekkers':{layout:'split',vars:{'--bg':'#0F1620','--bg-2':'#161F2B','--bg-3':'#1D2836','--line':'#2A3545','--fg':'#F2F4F7','--muted':'#9AA6B5','--sig':'#E63B2E','--sig-ink':'#FFFFFF'},eyebrow:'Website, branding & marketing voor dakdekkers',h1:'Dakwerk dat *opvalt in de straat.',media:{v:'heesbeen',p:'assets/heesbeen-laptop.webp',tag:'Heesbeen Dakwerken · website'},tape:['Dakinspectie','Offerte','Planning','Lokale SEO'],chips:['Dakinspectie-aanvraag','Lokale pagina’s','Spoedknop','Reviews']},
+  'branche-installatiebedrijven':{layout:'split',light:true,vars:{'--bg':'#F4F7FB','--bg-2':'#FFFFFF','--bg-3':'#E9EFF7','--line':'#D5DEEA','--fg':'#0B1A2E','--muted':'#4F6078','--sig':'#0E6EFF','--sig-ink':'#FFFFFF'},eyebrow:'Website, offerteflow & CRM voor installatiebedrijven',h1:'Van storing naar *offerte in 2 minuten.',media:{v:'case-installatie',p:'assets/westrik-laptop.webp',tag:'Installatieplatform · offerte in 2 min'},chips:['Storingsformulier','Offerte in 2 min','Onderhoudscontract','Planning']},
+  'branche-hoveniers':{layout:'full',serif:true,vars:{'--bg':'#0E2A1C','--bg-2':'#133524','--bg-3':'#183F2B','--line':'#235038','--fg':'#F2F5EE','--muted':'#B9C9B9','--sig':'#CFE36A','--sig-ink':'#0E2A1C'},eyebrow:'Website, branding & marketing voor hoveniers',h1:'Tuinen die *zichzelf verkopen.',media:{v:'engine-poolhouse',p:'assets/engine-poolhouse.jpg'},bigword:'Tuin',chips:['Portfolio met voor/na','Poolhouse-configurator','Offerteaanvraag','Seizoenscampagnes']},
+  'branche-autobedrijven':{layout:'plate',vars:{'--bg':'#0B0B0D','--bg-2':'#141417','--bg-3':'#1C1C20','--line':'#2A2A30','--fg':'#F2F2F4','--muted':'#9B9BA3','--sig':'#F7D117','--sig-ink':'#0A0A0A'},eyebrow:'Website, occasionfeed & marketing voor autobedrijven',h1:'Meer proefritten. *Minder stilstand.',plate:'PROEFRIT',chips:['Occasionfeed','Proefrit-planner','Financiering','Reviews']},
+  'branche-brands':{layout:'phone',light:true,vars:{'--bg':'#DCEBF6','--bg-2':'#FFFFFF','--bg-3':'#CFE3F2','--line':'#B9D2E6','--fg':'#0E1B2A','--muted':'#4A5E72','--sig':'#FF2E7E','--sig-ink':'#FFFFFF'},eyebrow:'Branding, productvideo & social voor brands',h1:'Een merk dat *van het scherm springt.',media:{v:'reel-cans',p:'assets/reel-cans.jpg'},blobs:['#FF2E7E','#2EE6C8'],floats:[['Productvideo','Pulse · 4 smaken','l'],['Packaging','Verpakkingsreeks','r'],['Social','Reels & ads','b']],chips:['Productvideo','Packaging','Social','Webshop']},
+  'branche-restaurants-horeca':{layout:'menu',serif:true,vars:{'--bg':'#17100B','--bg-2':'#1F1610','--bg-3':'#2A1E15','--line':'#3A2B20','--fg':'#F6EFE6','--muted':'#C2B3A3','--sig':'#E0B15A','--sig-ink':'#17100B'},eyebrow:'Website, reserveringen & social voor restaurants en horeca',h1:'Volle tafels *beginnen online.',kaart:{t:'Wat de website moet doen',items:[['Reserveren in tien seconden','zonder app'],['Menukaart die verkoopt','foto’s & allergenen'],['Reviews die binnenkomen','Google & socials'],['Social content elke week','reels & stories']]},chips:['Reserveringen','Menukaart','Google-reviews','Social']},
+  'branche-creators':{layout:'phone',vars:{'--bg':'#140B1E','--bg-2':'#1C1128','--bg-3':'#241735','--line':'#352447','--fg':'#F5F0FA','--muted':'#B9A9C9','--sig':'#C6FF3D','--sig-ink':'#140B1E'},eyebrow:'Portfolio, boekingsflow & merkdeals voor creators',h1:'Van volgers naar *boekingen.',media:{v:'kelly',p:'assets/kelly-telefoon.webp'},blobs:['#7C3AED','#FF2E7E'],floats:[['Portfolio','Video, foto, cases','l'],['Boekingsflow','Aanvraag in 1 minuut','r'],['Media kit','Bereik & tarieven','b']],chips:['Portfolio','Boekingsflow','Media kit','Merkdeals']}
+};
+function WorldHero(props){
+  var w=props.w,slug=props.slug,d=props.d;
+  var lines=w.h1.split(' ').map(function(x,i){var sig=x.charAt(0)==='*';return h`<${React.Fragment} key=${i}><span class=${sig?'sig':''}>${sig?x.slice(1):x}</span>${' '}</${React.Fragment}>`});
+  var head=h`<${React.Fragment}>
+    <${Crumbs} parent=${['branches','Branches']} name=${BRANCH_NAME[slug]}/>
+    <p class="eyebrow mono">${w.eyebrow}</p>
+    <${m.h1} initial=${{opacity:0,y:30}} animate=${{opacity:1,y:0}} transition=${{duration:.9,ease:EASE,delay:.1}}>${lines}</${m.h1}>
+    <${m.p} className="def" initial=${{opacity:0,y:16}} animate=${{opacity:1,y:0}} transition=${{delay:.45,duration:.8,ease:EASE}}>${d.definition}</${m.p}>
+    ${w.chips&&h`<${m.div} className="chips" initial=${{opacity:0}} animate=${{opacity:1}} transition=${{delay:.6}}>${w.chips.map(function(c,i){return h`<span key=${c} class=${i===0?'on':''}>${c}</span>`})}</${m.div}>`}
+    <${m.div} className="cta" initial=${{opacity:0,y:16}} animate=${{opacity:1,y:0}} transition=${{delay:.7,duration:.8,ease:EASE}}><${Magnet} href="#contact">Plan een kennismaking</${Magnet}><${Magnet} href="#studio" kind="ghost" icon="↓">Zie hoe jouw site eruit kan zien</${Magnet}></${m.div}>
+  </${React.Fragment}>`;
+  var media=w.media&&h`<video src=${'assets/'+w.media.v+'.mp4'} poster=${w.media.p} muted loop playsInline preload="metadata" data-auto="1" aria-hidden="true"></video>`;
+  var cls='wh l-'+w.layout+(w.serif?' serif':'');
+  if(w.layout==='split')return h`<section class=${cls} id="top"><div class="wrap"><div class="grid"><div>${head}</div><${m.div} initial=${{opacity:0,x:60,rotate:2}} animate=${{opacity:1,x:0,rotate:0}} transition=${{duration:1,ease:EASE,delay:.3}}><div class="mediacard">${media}${w.media.tag&&h`<span class="tag">${w.media.tag}</span>`}</div></${m.div}></div></div>
+    ${w.tape&&h`<div class="tape" aria-hidden="true">${[0,1,2,3].map(function(r){return w.tape.map(function(t,i){return h`<span key=${r+'-'+i}>${t}</span>`})})}</div>`}</section>`;
+  if(w.layout==='card')return h`<section class=${cls} id="top"><div class="wrap">${head}<${m.div} className="mediacard" initial=${{opacity:0,y:60}} animate=${{opacity:1,y:0}} transition=${{duration:1,ease:EASE,delay:.4}}>${media}${w.media.tag&&h`<span class="tag">${w.media.tag}</span>`}</${m.div}>
+    <div class="steps">${w.steps.map(function(t,i){return h`<${m.div} key=${i} initial=${{opacity:0,y:20}} animate=${{opacity:1,y:0}} transition=${{delay:.8+i*.1}}><i>${i+1}</i><b>${t}</b></${m.div}>`})}</div></div></section>`;
+  if(w.layout==='full')return h`<section class=${cls} id="top"><div class="bg">${media}</div>${w.bigword&&h`<div class="bigword" aria-hidden="true">${w.bigword}</div>`}<div class="wrap">${head}</div></section>`;
+  if(w.layout==='phone')return h`<section class=${cls} id="top">${w.blobs&&h`<${React.Fragment}><div class="blob" style=${{background:w.blobs[0],left:'-20vw',top:'-10vw'}}></div><div class="blob" style=${{background:w.blobs[1],right:'-20vw',bottom:'-20vw'}}></div></${React.Fragment}>`}
+    <div class="wrap"><div class="grid"><div>${head}</div><div style=${{position:'relative'}}><${m.div} className="frame" initial=${{opacity:0,y:80,rotate:-10}} animate=${{opacity:1,y:0,rotate:-4}} transition=${{duration:1.1,ease:EASE,delay:.3}}><div class="notch"></div>${media}</${m.div}>
+      ${w.floats&&w.floats.map(function(f,i){var pos=f[2]==='l'?{left:'-4%',top:'18%'}:f[2]==='r'?{right:'-2%',top:'38%'}:{left:'8%',bottom:'10%'};return h`<${m.div} key=${i} className="float" style=${pos} initial=${{opacity:0,scale:.6}} animate=${{opacity:1,scale:1}} transition=${{type:'spring',stiffness:260,damping:16,delay:.9+i*.15}}><small>${f[0]}</small>${f[1]}</${m.div}>`})}</div></div></div></section>`;
+  if(w.layout==='menu')return h`<section class=${cls} id="top"><div class="wrap"><div class="grid"><div>${head}</div><${m.div} className="kaart" initial=${{opacity:0,y:40}} animate=${{opacity:1,y:0}} transition=${{duration:.9,ease:EASE,delay:.4}}><h3>${w.kaart.t}</h3><ul>${w.kaart.items.map(function(it,i){return h`<li key=${i}><b>${it[0]}</b><span>${it[1]}</span></li>`})}</ul><div class="res"><div>Vanavond · 19:30</div><div>2 personen</div><b>Reserveer</b></div></${m.div}></div></div></section>`;
+  if(w.layout==='plate')return h`<section class=${cls} id="top"><div class="lines" aria-hidden="true"></div><div class="wrap">${head}<${m.div} className="kenteken" initial=${{opacity:0,x:-30}} animate=${{opacity:1,x:0}} transition=${{delay:.8,duration:.7,ease:EASE}} aria-hidden="true"><i>NL</i><b>${w.plate}</b></${m.div}></div></section>`;
+  return null;
+}
+
 /* ---------- branchepagina ---------- */
 function BranchPage(props){
   var slug=props.slug,d=SEO.pages[slug],b=STUDIO.branches[slug];useHead(slug);
   var short=d.h1.split(' voor ').pop().split(' die ')[0];
-  return h`<${React.Fragment}>
-    <${PageHero} slug=${slug} d=${d} parent=${['branches','Branches']} short=${BRANCH_NAME[slug]} eyebrow=${'Website, branding & marketing · '+(b?b.voorbeeldnaam.split(' ').slice(-1)[0]:'')} cta2=${h`<${Magnet} href=${slug==='branche-webshops'?'#demo-fashion':'#studio'} kind="ghost" icon=${slug==='branche-webshops'?'→':'↓'}>${slug==='branche-webshops'?'Bekijk de fashion-demo':'Zie hoe jouw site eruit kan zien'}</${Magnet}>`}/>
+  var w=WORLD[slug];
+  var hero=slug==='branche-webshops'?h`<${React.Fragment}><${FashionDemo} media=${{night:'assets/fd-night.mp4',volt:'assets/fd-volt.mp4',heat:'assets/fd-heat.mp4',ice:'assets/fd-ice.mp4'}}/><section style=${{paddingBlock:'40px 0'}}><div class="wrap"><${Crumbs} parent=${['branches','Branches']} name=${BRANCH_NAME[slug]}/><h1 style=${{fontSize:'clamp(34px,4.6vw,64px)',marginTop:14}}><${Words} text=${d.h1}/></h1><p class="lead" style=${{maxWidth:'38em',marginTop:18,color:'var(--muted)'}}>${d.definition}</p><div class="cta" style=${{display:'flex',gap:12,flexWrap:'wrap',marginTop:24}}><${Magnet} href="#contact">Plan een kennismaking</${Magnet}><${Magnet} href="#studio" kind="ghost" icon="↓">Kies je webshop-stijl</${Magnet}></div></div></section></${React.Fragment}>`
+    :w?h`<${WorldHero} w=${w} slug=${slug} d=${d}/>`
+    :h`<${PageHero} slug=${slug} d=${d} parent=${['branches','Branches']} short=${BRANCH_NAME[slug]} eyebrow=${'Website, branding & marketing'}/>`;
+  return h`<div class=${'bp'+(w&&w.light?' light':'')} style=${w?w.vars:{}}>
+    ${hero}
+
     <${Ticker} items=${[d.keywords[0]||'Website',d.keywords[1]||'Marketing',d.keywords[2]||'Branding','Next Growth']}/>
     <section style=${{paddingBlock:'36px 0'}}><div class="wrap"><${Kort} k=${d.kort}/></div></section>
     ${b&&h`<section id="studio"><div class="wrap">
@@ -1302,7 +1419,7 @@ function BranchPage(props){
       <div class="editorial"><div><p class="eyebrow mono">Veelgestelde vragen</p><h2 style=${{marginTop:22,fontSize:'clamp(32px,4vw,56px)'}}>Wat je vooraf <span class="sig">wilt weten.</span></h2><div style=${{marginTop:30}}><p class="mono" style=${{color:'var(--cream-muted)',marginBottom:12}}>Werkgebied</p><div class="cities">${d.cities.map(function(c){return h`<span key=${c}>${c}</span>`})}</div></div><div style=${{marginTop:30}}><p class="mono" style=${{color:'var(--cream-muted)',marginBottom:12}}>Ook interessant</p><${Related} slugs=${d.internal_links}/></div></div><${Faq} items=${d.faq}/></div>
     </div></section>
     <${Contact}/>
-  </${React.Fragment}>`;
+  </div>`;
 }
 /* ---------- dienst / sales pagina ---------- */
 function ServicePage(props){
