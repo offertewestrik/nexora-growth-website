@@ -379,6 +379,9 @@ footer .legal{grid-column:1/-1;border-top:1px solid var(--line);padding-top:20px
 .proofrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
 .proofrow .pc{border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--bg-2);text-decoration:none;color:var(--fg)}
 .proofrow video,.proofrow img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;display:block}
+.proofrow .vid{position:relative;aspect-ratio:16/10;overflow:hidden;background:#000}
+.proofrow .vid .bg{position:absolute;inset:-10%;background-size:cover;background-position:center;filter:blur(30px) brightness(.45)}
+.proofrow .vid video{position:relative;width:100%;height:100%;aspect-ratio:auto;object-fit:contain;object-position:center}
 .proofrow .pm{padding:14px 16px;display:flex;justify-content:space-between;gap:10px;align-items:center}
 .proofrow .pm b{font:900 16px var(--display);font-stretch:125%;text-transform:uppercase}
 .proofrow .pm span{font:500 11px var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.06em;text-align:right}
@@ -437,6 +440,12 @@ footer .legal{grid-column:1/-1;border-top:1px solid var(--line);padding-top:20px
 .panel{position:relative;border-radius:22px;overflow:hidden;background:#000;aspect-ratio:16/8.5;box-shadow:0 80px 120px -60px rgba(0,0,0,.9);display:grid;place-items:center}
 .panel .blur{position:absolute;inset:-10%;background-size:cover;background-position:center;filter:blur(40px) brightness(.35);transform:scale(1.1)}
 .panel .reel{position:relative;height:100%;aspect-ratio:9/16;object-fit:cover;border-radius:0}
+.panel.tri{aspect-ratio:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;place-items:stretch;background:#0A0A0A}
+.panel.tri .trc{position:relative;aspect-ratio:9/16;overflow:hidden;border-right:1px solid rgba(255,255,255,.08)}
+.panel.tri .trc:last-child{border-right:0}
+.panel.tri .trc video{width:100%;height:100%;object-fit:cover;display:block}
+.panel.tri .trc .trt{position:absolute;left:14px;top:14px;font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#fff;background:rgba(10,10,10,.6);padding:7px 10px;border-radius:999px;backdrop-filter:blur(8px)}
+@media(max-width:700px){.panel.tri{grid-template-columns:1fr 1fr}.panel.tri .trc:nth-child(3){display:none}.panel.tri .lbl{display:none}}
 .panel .lbl{position:absolute;left:22px;bottom:20px;display:flex;gap:10px;align-items:center;font:500 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#fff;background:rgba(10,10,10,.6);backdrop-filter:blur(8px);padding:8px 12px;border-radius:999px}
 .panel .lbl::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--sig)}
 .panel .mute{position:absolute;right:22px;bottom:20px;background:rgba(10,10,10,.6);color:#fff;border:0;border-radius:999px;padding:9px 14px;font:600 12px var(--body);cursor:pointer;backdrop-filter:blur(8px)}
@@ -1224,7 +1233,7 @@ function FashionPage(){useHead('branche-webshops');return h`<${React.Fragment}><
 /* ---------- gedeelde pagina-onderdelen ---------- */
 var PROOF={ 'branche-bouwbedrijven':['bouwbroers','uitbouw','prefab'],'branche-overkapping-veranda':['poppelaars','lucky','eng-overkapping'],'branche-dakdekkers':['heesbeen','dakcentrale'],'branche-installatiebedrijven':['westrik','installatie'],'branche-hoveniers':['poppelaars','eng-poolhouse','lucky'],'branche-autobedrijven':['ongedierte','shop'],'branche-webshops':['shop','packages','cans'],'branche-brands':['cans','packages','protein'],'branche-restaurants-horeca':['cans','bars','kelly'],'branche-creators':['kelly','cans'],'dienst-webdesign':['poppelaars','uitbouw','shop'],'dienst-marketing':['cans','prefab','bars'],'dienst-branding':['packages','bars','protein'],'sales':['bouwbroers','poppelaars','installatie'] };
 var PROOF_ITEMS={ westrik:{v:'westrik',n:'Westrik Bouw & Installaties',t:'Website · offerte · SEO',u:'https://westrikbouw-installaties.nl'},heesbeen:{v:'heesbeen',n:'Heesbeen Dakwerken',t:'Website · dakinspectie · lokale SEO'},dakcentrale:{v:'dakcentrale',n:'Dakcentrale Holland',t:'Website · CRM · offertesjablonen'},lucky:{v:'lucky',n:'Lucky Zonwering',t:'Website · configurator · CRM',u:'https://crm.luckyzonwering.nl'},ongedierte:{v:'ongedierte',n:'Lokaal Ongediertebestrijding',t:'Platform · regiozoeker'},kelly:{v:'kelly',n:'Kelly Bobson',t:'Portfolio · video · boekingsflow'},prefab:{v:'case-prefab',n:'Prefab Select',t:'+212% aanvragen',u:'https://www.prefabselect.nl'},installatie:{v:'case-installatie',n:'Installatieplatform',t:'Offerte in 2 minuten',u:'https://installatieplatform.nl'},cans:{v:'reel-cans',p:'assets/reel-cans.jpg',n:'Pulse drankmerk',t:'Productvideo · brand'},packages:{v:'reel-packages',p:'assets/reel-packages.jpg',n:'Verpakkingsontwerp',t:'Branding · packaging'},bars:{v:'reel-bars',p:'assets/reel-bars.jpg',n:'Atlas Protein Bar',t:'Productvideo · food brand'},protein:{v:'reel-protein',p:'assets/reel-protein.jpg',n:'Atlas Whey Protein',t:'Productvideo · brand'},bouwbroers:{v:'lap-bouwbroers',p:'assets/lap-bouwbroers.jpg',n:'Bouwbroers',t:'Website · bouwbedrijf · merk'},poppelaars:{v:'lap-poppelaars',p:'assets/lap-poppelaars.jpg',n:'Poppelaars',t:'Overkapping-configurator · website'},uitbouw:{v:'lap-uitbouw',p:'assets/lap-uitbouw.jpg',n:'Uitbouw-configurator',t:'Kies jouw uitstraling · website'},shop:{v:'lap-shop',p:'assets/lap-shop.jpg',n:'Webshop-concept',t:'E-commerce · productpagina\u2019s en checkout'},'eng-overkapping':{v:'engine-overkapping',p:'assets/engine-overkapping.jpg',n:'Overkapping-configurator',t:'Engine · live'},'eng-poolhouse':{v:'engine-poolhouse',p:'assets/engine-poolhouse.jpg',n:'Poolhouse-configurator',t:'Engine · live'} };
-function ProofRow(props){var keys=PROOF[props.slug]||['kelly'];return h`<div class="proofrow">${keys.map(function(k){var it=PROOF_ITEMS[k];var Tag=it.u?'a':'div';return h`<${Tag} key=${k} class="pc" href=${it.u} target=${it.u?'_blank':undefined} rel=${it.u?'noopener':undefined}><video src=${'assets/'+it.v+'.mp4'} poster=${it.p||('assets/'+it.v+'-laptop.webp')} muted loop playsInline preload="none" data-auto="1" aria-label=${it.n}></video><div class="pm"><b>${it.n}</b><span>${it.t}</span></div></${Tag}>`})}</div>`}
+function ProofRow(props){var keys=PROOF[props.slug]||['kelly'];return h`<div class="proofrow">${keys.map(function(k){var it=PROOF_ITEMS[k];var Tag=it.u?'a':'div';var port=it.v.indexOf('reel-')===0,poster=it.p||('assets/'+it.v+'-laptop.webp');var vid=h`<video src=${'assets/'+it.v+'.mp4'} poster=${poster} muted loop playsInline preload="none" data-auto="1" aria-label=${it.n}></video>`;return h`<${Tag} key=${k} class="pc" href=${it.u} target=${it.u?'_blank':undefined} rel=${it.u?'noopener':undefined}>${port?h`<div class="vid"><div class="bg" style=${{backgroundImage:'url('+poster+')'}}></div>${vid}</div>`:vid}<div class="pm"><b>${it.n}</b><span>${it.t}</span></div></${Tag}>`})}</div>`}
 function SeoBody(props){var d=props.d;return h`<section class=${props.cream?'cream':''}><div class="wrap">
   <div class="editorial"><${Rise}><p class="eyebrow mono">${props.eyebrow||'Waarom dit werkt'}</p><p class="lead" style=${{marginTop:20}}>${d.definition}</p></${Rise}><${Rise} delay=${.15} className="ed-intro">${d.intro.split(/\n\n+/).map(function(p,i){return h`<p key=${i}>${p}</p>`})}</${Rise}></div>
   <div class="secs">${d.sections.map(function(x,i){return h`<${m.div} key=${i} className="sec" initial=${{opacity:0,y:24}} whileInView=${{opacity:1,y:0}} viewport=${{once:true}} transition=${{duration:.7,ease:EASE,delay:i*.05}}><h2>${x.h2}</h2><p>${x.body}</p></${m.div}>`})}</div>
@@ -1324,7 +1333,7 @@ function HeroBoost(props){
   var paused=useRef(false),dropped=useRef(false),prev=useRef(0),raf=useRef(0);
   useEffect(function(){
     var v=vref.current;if(!v)return;
-    var mobile=matchMedia('(max-width:700px)').matches;
+    var mobile=matchMedia('(max-width:700px)').matches||(innerWidth/innerHeight<0.95); // telefoon of staande tablet: 9:16-compositie
     v.poster=mobile?'assets/hero-next-m.jpg':'assets/hero-next.jpg';
     if(reduce){setPhase('static');return} // minder beweging: posterbeeld, statische tekst
     v.src=mobile?'assets/hero-next-m.mp4':'assets/hero-next.mp4';
@@ -1376,12 +1385,12 @@ function HeroBoost(props){
 }
 function Showreel(){
   var r=useRef(null),mu=useState(true),muted=mu[0],setMuted=mu[1];
+  var R=[{v:'reel-cans',p:'assets/reel-cans.jpg',t:'Pulse · drankmerk'},{v:'reel-protein',p:'assets/reel-protein.jpg',t:'Atlas Whey · productvideo'},{v:'reel-bars',p:'assets/reel-bars.jpg',t:'Atlas Bars · productvideo'}];
   return h`<section class="showreel" id="showreel" style=${{paddingBlock:'30px 0'}}><div class="wrap">
-    <${m.div} className="panel" initial=${{opacity:0,y:60,scale:.96}} whileInView=${{opacity:1,y:0,scale:1}} viewport=${{once:true,margin:'-5% 0px'}} transition=${{duration:1.1,ease:EASE}}>
-      <div class="blur" style=${{backgroundImage:'url(assets/reel-cans.jpg)'}}></div>
-      <video ref=${r} class="reel" src="assets/reel-cans.mp4" poster="assets/reel-cans.jpg" muted=${muted} loop playsInline preload="metadata" data-auto="1" aria-label="Showreel: productvideo Pulse gemaakt door Next Growth"></video>
-      <span class="lbl">Showreel · Pulse productvideo</span>
-      <button class="mute" type="button" onClick=${function(){var v=r.current;if(!v)return;v.muted=!muted;setMuted(!muted);if(v.paused)v.play().catch(function(){})}}>${muted?'Geluid aan':'Geluid uit'}</button>
+    <${m.div} ref=${r} className="panel tri" initial=${{opacity:0,y:60,scale:.96}} whileInView=${{opacity:1,y:0,scale:1}} viewport=${{once:true,margin:'-5% 0px'}} transition=${{duration:1.1,ease:EASE}}>
+      ${R.map(function(x){return h`<div key=${x.v} class="trc"><video src=${'assets/'+x.v+'.mp4'} poster=${x.p} muted=${muted} loop playsInline preload="metadata" data-auto="1" aria-label=${'Showreel: '+x.t}></video><span class="trt">${x.t}</span></div>`})}
+      <span class="lbl">Showreel · productvideo's en branding</span>
+      <button class="mute" type="button" onClick=${function(){var el=r.current;if(!el)return;var nm=!muted;setMuted(nm);el.querySelectorAll('video').forEach(function(v){v.muted=nm;if(v.paused)v.play().catch(function(){})})}}>${muted?'Geluid aan':'Geluid uit'}</button>
     </${m.div}>
   </div></section>`;
 }
