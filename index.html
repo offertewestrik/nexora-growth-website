@@ -673,6 +673,33 @@ footer.boost .giantword{font:900 clamp(56px,10.6vw,160px)/.8 var(--display);lett
 .studio .note{padding:14px 20px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 @media(max-width:700px){.studio .canvas{padding:14px;min-height:0}.mock .mhero{grid-template-columns:1fr!important}.mock .mnav nav{display:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ---------- mobiel: duidelijke navigatie, grote knoppen, vaste actiebalk ---------- */
+@media(max-width:1100px){
+  .nav{background:rgba(10,10,10,.96)}
+  .nav .wrap{height:64px}
+  .nav .brand-l .ring{display:none}
+  .nav .brand-l div{display:block;font:900 16px/1 var(--display);font-stretch:125%;text-transform:uppercase;letter-spacing:-.01em}
+  .nav .brand-l small{display:none}
+  .nav .mark{width:40px;height:40px}
+  #menuBtn{display:inline-flex;align-items:center;gap:8px;background:var(--sig);border:0;color:var(--sig-ink);border-radius:999px;padding:0 16px;height:44px;font:800 14px var(--body)}
+  #menuBtn::before{content:"";width:16px;height:2px;background:currentColor;box-shadow:0 -5px 0 currentColor,0 5px 0 currentColor}
+}
+@media(max-width:860px){
+  .btn{min-height:52px;padding:14px 22px;font-size:15px}
+  .btn.white{padding:14px 22px}
+  .caseg .more{flex-direction:column;align-items:stretch;gap:10px}
+  .caseg .more .btn{justify-content:center;width:100%}
+  .hv .cta{flex-direction:column;align-items:stretch}
+  .hv .cta .btn{justify-content:center;width:100%}
+  body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+  .hv .ctrl{bottom:calc(88px + env(safe-area-inset-bottom,0px))}
+  .mobbar{position:fixed;left:0;right:0;bottom:0;z-index:45;display:grid;grid-template-columns:1fr auto;gap:10px;padding:10px max(14px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(14px,env(safe-area-inset-left,0px));background:rgba(10,10,10,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,.12)}
+  .mobbar a{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;border-radius:999px;text-decoration:none;font:800 15px var(--body)}
+  .mobbar .p{background:var(--sig);color:var(--sig-ink)}
+  .mobbar .s{border:1.5px solid rgba(255,255,255,.55);color:#fff;padding:0 18px}
+}
+@media(min-width:861px){.mobbar{display:none}}
 </style>
 
 <div id="root"></div>
@@ -1486,6 +1513,7 @@ function App(){
   return h`<${React.Fragment}>
     <${AnimatePresence}>${intro&&h`<${Intro} key="intro" onDone=${done}/>`}</${AnimatePresence}>
     <${Nav}/>
+    <div class="mobbar" role="navigation" aria-label="Snelle acties"><a class="p" href="#contact">Plan een kennismaking</a><a class="s" href="tel:+31683902192" aria-label="Bel 06 83 90 21 92">Bel</a></div>
     <${AnimatePresence} mode="wait"><${m.main} key=${page} initial=${{opacity:0}} animate=${{opacity:1}} exit=${{opacity:0}} transition=${{duration:.35}}>${body}</${m.main}></${AnimatePresence}>
     <${FooterBoost}/>
   </${React.Fragment}>`;
