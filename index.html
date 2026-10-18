@@ -826,6 +826,40 @@ footer.boost .giantword{font:900 clamp(56px,10.6vw,160px)/.8 var(--display);lett
 .bp.light.bch{font-family:'Yantramanav',var(--body)}
 .bp.light.bch .ticker{background:#E04522;color:#fff;border-top-color:#E04522}
 @media(max-width:900px){.wh.l-bch{padding-top:100px}.wh.l-bch .grid{grid-template-columns:1fr}.wh.l-bch .cards{grid-template-columns:1fr;margin-top:-80px;gap:34px}.wh.l-bch .cut{padding-top:60px}}
+
+/* ---------- uitvouwmenu desktop + accordeon mobiel ---------- */
+.nav nav{align-items:center}
+.nav .dd{position:relative}
+.nav .dd>button{background:none;border:0;color:#fff;font:500 14px var(--body);opacity:.75;cursor:pointer;display:inline-flex;align-items:center;gap:6px;padding:0}
+.nav .dd>button i{width:7px;height:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .2s}
+.nav .dd.open>button{opacity:1}.nav .dd.open>button i{transform:rotate(225deg) translateY(-2px)}
+.nav .dd:hover>button{opacity:1}
+.nav .panel-dd{position:absolute;left:50%;top:calc(100% + 18px);transform:translateX(-50%);background:#111;border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:14px;box-shadow:0 30px 80px -20px rgba(0,0,0,.8);min-width:320px;z-index:60}
+.nav .panel-dd::before{content:"";position:absolute;left:0;right:0;top:-18px;height:18px}
+.nav .panel-dd a{display:block;padding:10px 12px;border-radius:10px;text-decoration:none;opacity:1;color:#fff}
+.nav .panel-dd a:hover{background:rgba(255,255,255,.07)}
+.nav .panel-dd a b{display:block;font:700 14px var(--body)}
+.nav .panel-dd a span{display:block;font:400 12px var(--body);color:var(--muted);margin-top:2px}
+.nav .panel-dd .cols2{display:grid;grid-template-columns:1fr 1fr;gap:2px;width:520px}
+.nav .panel-dd .cols3{display:grid;grid-template-columns:1fr 1fr;gap:2px;width:440px}
+.nav .panel-dd .all b{color:var(--sig)}
+.menu{display:flex;flex-direction:column;overflow:auto}
+.menu .mtop{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.menu .mtop .mono{font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.menu .mlist{display:flex;flex-direction:column}
+.menu .mlist a,.menu .mlist .grp{font:900 clamp(28px,7.2vw,64px)/1 var(--display);font-stretch:125%;text-transform:uppercase;text-decoration:none;padding:12px 0;border-bottom:2px solid var(--sig-ink);color:var(--sig-ink);background:none;border-left:0;border-right:0;border-top:0;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;width:100%}
+.menu .mlist .grp i{width:14px;height:14px;border-right:3px solid currentColor;border-bottom:3px solid currentColor;transform:rotate(45deg);transition:transform .2s;margin-right:8px}
+.menu .mlist .grp.on i{transform:rotate(225deg)}
+.menu .mlist .sub{display:grid;grid-template-columns:1fr 1fr;gap:0 16px;padding:6px 0 10px;border-bottom:2px solid var(--sig-ink)}
+.menu .mlist .sub a{font:700 16px/1.2 var(--body);text-transform:none;border:0;padding:9px 0;display:block}
+.menu .mfoot{margin-top:auto;padding-top:20px;display:flex;flex-direction:column;gap:12px}
+.menu .mcta{display:inline-flex;align-items:center;justify-content:center;background:var(--sig-ink);color:var(--sig);border-radius:999px;padding:16px 22px;font:800 16px var(--body);text-decoration:none}
+.menu .ft{margin-top:0}
+@media(max-width:520px){.menu .mlist .sub{grid-template-columns:1fr}}
+
+@media(max-width:700px){.page-hero .bigword{display:none}}
+.crumbs{display:flex;flex-wrap:wrap;gap:10px;font:500 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+.crumbs a{text-decoration:none;color:inherit}
 </style>
 
 <div id="root"></div>
@@ -850,7 +884,7 @@ function Words(props){ // woord-voor-woord reveal
   var words=props.text.split(' ');
   return h`<${m.span} initial="hide" whileInView="show" viewport=${{once:true,margin:'-10% 0px'}} transition=${{staggerChildren:.045,delayChildren:props.delay||0}} aria-label=${props.text}>
     ${words.map(function(w,i){
-      var sig=w.startsWith('*'); if(sig)w=w.slice(1);
+      var sig=w.startsWith('*')||w.endsWith('*'); if(sig)w=w.replace(/^\*|\*$/g,'');
       return h`<${React.Fragment} key=${i}><span class="reveal-word" aria-hidden="true"><${m.span} className=${sig?'sig':''} variants=${{hide:{y:'110%',rotate:3},show:{y:0,rotate:0}}} transition=${{duration:.9,ease:EASE}}>${w}</${m.span}></span>${i<words.length-1?' ':''}</${React.Fragment}>`;
     })}
   </${m.span}>`;
@@ -894,19 +928,47 @@ function Intro(props){
 }
 
 /* ---------- nav ---------- */
+var NAV_DIENSTEN=[['#dienst-webdesign','Webdesign','Websites en webshops die verkopen'],['#dienst-marketing','Marketing','Social, campagnes en influencers'],['#dienst-branding','Branding','Merk, huisstijl en packaging'],['#sales','Sales','Offerteflows en CRM voor bouw'],['#prijzen','Prijzen','Vaste prijzen, geen verrassingen'],['#demo-fashion','Demo: Switch the look','Fashion-webshop met vier werelden']];
 function Nav(){
   var o=useState(false),open=o[0],setOpen=o[1];
-  var links=[['#','Home'],['#dienst-webdesign','Webdesign'],['#dienst-marketing','Marketing'],['#branches','Branches'],['#cases-home','Cases'],['#prijzen','Prijzen'],['#dienst-branding','Branding'],['#sales','Sales'],['#contact','Contact']];
+  var d=useState(null),dd=d[0],setDd=d[1];
+  var g=useState(null),grp=g[0],setGrp=g[1];
+  var closeT=useRef(0);
+  function enter(k){clearTimeout(closeT.current);setDd(k)}
+  function leave(){clearTimeout(closeT.current);closeT.current=setTimeout(function(){setDd(null)},160)}
+  useEffect(function(){function esc(e){if(e.key==='Escape'){setDd(null);setOpen(false)}}addEventListener('keydown',esc);return function(){removeEventListener('keydown',esc)}},[]);
+  useEffect(function(){function onHash(){setDd(null);setOpen(false)}addEventListener('hashchange',onHash);return function(){removeEventListener('hashchange',onHash)}},[]);
+  var branches=BRANCH_ORDER.map(function(x){return [ '#'+x, BRANCH_NAME[x] ]});
+  function Drop(props){var k=props.k;return h`<div class=${'dd'+(dd===k?' open':'')} onMouseEnter=${function(){enter(k)}} onMouseLeave=${leave}>
+    <button type="button" aria-expanded=${dd===k} aria-haspopup="true" onClick=${function(){setDd(dd===k?null:k)}}>${props.label}<i></i></button>
+    <${AnimatePresence}>${dd===k&&h`<${m.div} key=${k} className="panel-dd" initial=${{opacity:0,y:10}} animate=${{opacity:1,y:0}} exit=${{opacity:0,y:6}} transition=${{duration:.22,ease:EASE}}>${props.children}</${m.div}>`}</${AnimatePresence}>
+  </div>`}
   return h`<${React.Fragment}>
     <header class="nav"><div class="wrap">
       <a class="brand-l" href="#top" data-hover="1"><span class="ring">NG</span><div>Next Growth<small>Creatief groeibureau · Oss</small></div></a>
       <a class="mark" href="#top" aria-label="Next Growth, naar boven"><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14V4l10 10V4" stroke="#0A0800" stroke-width="2.8" stroke-linecap="square" stroke-linejoin="miter"/></svg></a>
-      <div class="right"><nav aria-label="Hoofdmenu">${links.slice(0,6).map(function(l){return h`<a key=${l[0]} href=${l[0]} data-hover="1">${l[1]}</a>`})}</nav><a class="pill" href="#contact" data-hover="1">Kennismaken</a><button id="menuBtn" type="button" aria-expanded=${open} onClick=${function(){setOpen(true)}}>Menu</button></div>
+      <div class="right"><nav aria-label="Hoofdmenu">
+        <a href="#" data-hover="1">Home</a>
+        <${Drop} k="diensten" label="Diensten"><div class="cols2">${NAV_DIENSTEN.map(function(l){return h`<a key=${l[0]} href=${l[0]}><b>${l[1]}</b><span>${l[2]}</span></a>`})}</div></${Drop}>
+        <${Drop} k="branches" label="Branches"><div class="cols3">${branches.map(function(l){return h`<a key=${l[0]} href=${l[0]}><b>${l[1]}</b></a>`})}<a href="#branches" class="all"><b>Alle branches →</b></a></div></${Drop}>
+        <a href="#cases-home" data-hover="1">Cases</a>
+        <a href="#prijzen" data-hover="1">Prijzen</a>
+        <a href="#contact" data-hover="1">Contact</a>
+      </nav><a class="pill" href="#contact" data-hover="1">Kennismaken</a><button id="menuBtn" type="button" aria-expanded=${open} onClick=${function(){setOpen(true)}}>Menu</button></div>
     </div></header>
     <${AnimatePresence}>${open&&h`<${m.div} className="menu" key="menu" initial=${{y:'-100%'}} animate=${{y:0}} exit=${{y:'-100%'}} transition=${{duration:.6,ease:EASE}}>
-      <button class="close" type="button" onClick=${function(){setOpen(false)}}>Sluiten</button>
-      ${links.map(function(l,i){return h`<${m.a} key=${l[0]} href=${l[0]} initial=${{opacity:0,x:-20}} animate=${{opacity:1,x:0}} transition=${{delay:.2+i*.06}} onClick=${function(){setOpen(false)}}>${l[1]}</${m.a}>`})}
-      <span class="ft">06 83 90 21 92 · info@nextgrowthdigital.nl</span>
+      <div class="mtop"><span class="mono">Next Growth Digital</span><button class="close" type="button" onClick=${function(){setOpen(false)}}>Sluiten</button></div>
+      <div class="mlist">
+        <a href="#" onClick=${function(){setOpen(false)}}>Home</a>
+        <button type="button" class=${'grp'+(grp==='d'?' on':'')} aria-expanded=${grp==='d'} onClick=${function(){setGrp(grp==='d'?null:'d')}}>Diensten<i></i></button>
+        ${grp==='d'&&h`<div class="sub">${NAV_DIENSTEN.map(function(l){return h`<a key=${l[0]} href=${l[0]} onClick=${function(){setOpen(false)}}>${l[1]}</a>`})}</div>`}
+        <button type="button" class=${'grp'+(grp==='b'?' on':'')} aria-expanded=${grp==='b'} onClick=${function(){setGrp(grp==='b'?null:'b')}}>Branches<i></i></button>
+        ${grp==='b'&&h`<div class="sub">${branches.map(function(l){return h`<a key=${l[0]} href=${l[0]} onClick=${function(){setOpen(false)}}>${l[1]}</a>`})}<a href="#branches" onClick=${function(){setOpen(false)}}>Alle branches</a></div>`}
+        <a href="#cases-home" onClick=${function(){setOpen(false)}}>Cases</a>
+        <a href="#prijzen" onClick=${function(){setOpen(false)}}>Prijzen</a>
+        <a href="#contact" onClick=${function(){setOpen(false)}}>Contact</a>
+      </div>
+      <div class="mfoot"><a class="mcta" href="#contact" onClick=${function(){setOpen(false)}}>Plan een kennismaking →</a><span class="ft">06 83 90 21 92 · info@nextgrowthdigital.nl</span></div>
     </${m.div}>`}</${AnimatePresence}>
   </${React.Fragment}>`;
 }
@@ -1385,7 +1447,7 @@ function FashionDemo(props){
 function FashionPage(){useHead('branche-webshops');return h`<${React.Fragment}><${FashionDemo} media=${{night:'assets/fd-night.mp4',volt:'assets/fd-volt.mp4',heat:'assets/fd-heat.mp4',ice:'assets/fd-ice.mp4'}}/><section><div class="wrap"><div class="head"><div><p class="eyebrow mono">Hoe dit werkt</p><h2><${Words} text="Vier werelden. *Eén webshop."/></h2></div><${Rise} delay=${.2}><p>Elke wereld is een kleurthema met eigen kop, model en productgrid. De winkel wisselt automatisch of op klik, met een vegende overgang. Het model per wereld is een AI-video van dezelfde figuur in vier kleuren, gemaakt in jouw huisstijl; wij bouwen de shop eromheen, inclusief checkout, voorraad en koppelingen.</p></${Rise}></div><div class="related"><a href="#branche-webshops">Webshops voor kleding →</a><a href="#dienst-webdesign">Webdesign →</a><a href="#contact">Dit wil ik ook →</a></div></div></section><${Contact}/></${React.Fragment}>`}
 /* ---------- gedeelde pagina-onderdelen ---------- */
 var PROOF={ 'branche-bouwbedrijven':['bouwcentrale','bouwbroers','prefab'],'branche-overkapping-veranda':['poppelaars','lucky','eng-overkapping'],'branche-dakdekkers':['heesbeen','dakcentrale'],'branche-installatiebedrijven':['westrik','installatie'],'branche-hoveniers':['poppelaars','eng-poolhouse','lucky'],'branche-autobedrijven':['ongedierte','shop'],'branche-webshops':['shop','packages','cans'],'branche-brands':['cans','packages','protein'],'branche-restaurants-horeca':['cans','bars','kelly'],'branche-creators':['kelly','cans'],'dienst-webdesign':['poppelaars','uitbouw','shop'],'dienst-marketing':['cans','prefab','bars'],'dienst-branding':['packages','bars','protein'],'sales':['bouwbroers','poppelaars','installatie'] };
-var PROOF_ITEMS={ westrik:{v:'westrik',n:'Westrik Bouw & Installaties',t:'Website · offerte · SEO',u:'https://westrikbouw-installaties.nl'},heesbeen:{v:'heesbeen',n:'Heesbeen Dakwerken',t:'Website · dakinspectie · lokale SEO'},dakcentrale:{v:'dakcentrale',n:'Dakcentrale Holland',t:'Website · CRM · offertesjablonen'},lucky:{v:'lucky',n:'Lucky Zonwering',t:'Website · configurator · CRM',u:'https://crm.luckyzonwering.nl'},ongedierte:{v:'ongedierte',n:'Lokaal Ongediertebestrijding',t:'Platform · regiozoeker'},kelly:{v:'lap-kelly',p:'assets/lap-kelly.jpg',n:'Kelly Bobson',t:'Portfolio · video · boekingsflow'},prefab:{v:'case-prefab',n:'Prefab Select',t:'+212% aanvragen',u:'https://www.prefabselect.nl'},installatie:{v:'case-installatie',n:'Installatieplatform',t:'Offerte in 2 minuten',u:'https://installatieplatform.nl'},cans:{v:'reel-cans',p:'assets/reel-cans.jpg',n:'Pulse drankmerk',t:'Productvideo · brand'},packages:{v:'reel-packages',p:'assets/reel-packages.jpg',n:'Verpakkingsontwerp',t:'Branding · packaging'},bars:{v:'reel-bars',p:'assets/reel-bars.jpg',n:'Atlas Protein Bar',t:'Productvideo · food brand'},protein:{v:'reel-protein',p:'assets/reel-protein.jpg',n:'Atlas Whey Protein',t:'Productvideo · brand'},bouwcentrale:{v:'lap-bouwcentrale',p:'assets/lap-bouwcentrale.jpg',n:'Bouwcentrale Holland',t:'Website · aannemer · leadflow',u:'https://bouwcentraleholland.nl'},bouwbroers:{v:'lap-bouwbroers',p:'assets/lap-bouwbroers.jpg',n:'Bouwbroers',t:'Website · bouwbedrijf · merk'},poppelaars:{v:'lap-poppelaars',p:'assets/lap-poppelaars.jpg',n:'Poppelaars',t:'Overkapping-configurator · website'},uitbouw:{v:'lap-uitbouw',p:'assets/lap-uitbouw.jpg',n:'Uitbouw-configurator',t:'Kies jouw uitstraling · website'},shop:{v:'lap-shop',p:'assets/lap-shop.jpg',n:'Webshop-concept',t:'E-commerce · productpagina\u2019s en checkout'},'eng-overkapping':{v:'engine-overkapping',p:'assets/engine-overkapping.jpg',n:'Overkapping-configurator',t:'Engine · live'},'eng-poolhouse':{v:'engine-poolhouse',p:'assets/engine-poolhouse.jpg',n:'Poolhouse-configurator',t:'Engine · live'} };
+var PROOF_ITEMS={ westrik:{v:'westrik',n:'Westrik Bouw & Installaties',t:'Website · offerte · SEO',u:'https://westrikbouw-installaties.nl'},heesbeen:{v:'heesbeen',n:'Heesbeen Dakwerken',t:'Website · dakinspectie · lokale SEO'},dakcentrale:{v:'dakcentrale',n:'Dakcentrale Holland',t:'Website · CRM · offertesjablonen'},lucky:{v:'lucky',n:'Lucky Zonwering',t:'Website · configurator · CRM',u:'https://crm.luckyzonwering.nl'},ongedierte:{v:'ongedierte',n:'Lokaal Ongediertebestrijding',t:'Platform · regiozoeker'},kelly:{v:'kelly',p:'assets/kelly-laptop.webp',n:'Kelly Bobson',t:'Portfolio · video · boekingsflow'},prefab:{v:'case-prefab',n:'Prefab Select',t:'+212% aanvragen',u:'https://www.prefabselect.nl'},installatie:{v:'case-installatie',n:'Installatieplatform',t:'Offerte in 2 minuten',u:'https://installatieplatform.nl'},cans:{v:'reel-cans',p:'assets/reel-cans.jpg',n:'Pulse drankmerk',t:'Productvideo · brand'},packages:{v:'reel-packages',p:'assets/reel-packages.jpg',n:'Verpakkingsontwerp',t:'Branding · packaging'},bars:{v:'reel-bars',p:'assets/reel-bars.jpg',n:'Atlas Protein Bar',t:'Productvideo · food brand'},protein:{v:'reel-protein',p:'assets/reel-protein.jpg',n:'Atlas Whey Protein',t:'Productvideo · brand'},bouwcentrale:{v:'lap-bouwcentrale',p:'assets/lap-bouwcentrale.jpg',n:'Bouwcentrale Holland',t:'Website · aannemer · leadflow',u:'https://bouwcentraleholland.nl'},bouwbroers:{v:'lap-bouwbroers',p:'assets/lap-bouwbroers.jpg',n:'Bouwbroers',t:'Website · bouwbedrijf · merk'},poppelaars:{v:'lap-poppelaars',p:'assets/lap-poppelaars.jpg',n:'Poppelaars',t:'Overkapping-configurator · website'},uitbouw:{v:'lap-uitbouw',p:'assets/lap-uitbouw.jpg',n:'Uitbouw-configurator',t:'Kies jouw uitstraling · website'},shop:{v:'lap-shop',p:'assets/lap-shop.jpg',n:'Webshop-concept',t:'E-commerce · productpagina\u2019s en checkout'},'eng-overkapping':{v:'engine-overkapping',p:'assets/engine-overkapping.jpg',n:'Overkapping-configurator',t:'Engine · live'},'eng-poolhouse':{v:'engine-poolhouse',p:'assets/engine-poolhouse.jpg',n:'Poolhouse-configurator',t:'Engine · live'} };
 function ProofRow(props){var keys=PROOF[props.slug]||['kelly'];return h`<div class="proofrow">${keys.map(function(k){var it=PROOF_ITEMS[k];var Tag=it.u?'a':'div';var port=it.v.indexOf('reel-')===0,poster=it.p||('assets/'+it.v+'-laptop.webp');var vid=h`<video src=${'assets/'+it.v+'.mp4'} poster=${poster} muted loop playsInline preload="none" data-auto="1" aria-label=${it.n}></video>`;return h`<${Tag} key=${k} class="pc" href=${it.u} target=${it.u?'_blank':undefined} rel=${it.u?'noopener':undefined}>${port?h`<div class="vid"><div class="bg" style=${{backgroundImage:'url('+poster+')'}}></div>${vid}</div>`:vid}<div class="pm"><b>${it.n}</b><span>${it.t}</span></div></${Tag}>`})}</div>`}
 function SeoBody(props){var d=props.d;return h`<section class=${props.cream?'cream':''}><div class="wrap">
   <div class="editorial"><${Rise}><p class="eyebrow mono">${props.eyebrow||'Waarom dit werkt'}</p><p class="lead" style=${{marginTop:20}}>${d.definition}</p></${Rise}><${Rise} delay=${.15} className="ed-intro">${d.intro.split(/\n\n+/).map(function(p,i){return h`<p key=${i}>${p}</p>`})}</${Rise}></div>
@@ -1414,7 +1476,7 @@ var WORLD={
   'branche-autobedrijven':{layout:'plate',vars:{'--bg':'#0B0B0D','--bg-2':'#141417','--bg-3':'#1C1C20','--line':'#2A2A30','--fg':'#F2F2F4','--muted':'#9B9BA3','--sig':'#F7D117','--sig-ink':'#0A0A0A'},eyebrow:'Website, occasionfeed & marketing voor autobedrijven',h1:'Meer proefritten. *Minder stilstand.',plate:'PROEFRIT',chips:['Occasionfeed','Proefrit-planner','Financiering','Reviews']},
   'branche-brands':{layout:'phone',light:true,vars:{'--bg':'#DCEBF6','--bg-2':'#FFFFFF','--bg-3':'#CFE3F2','--line':'#B9D2E6','--fg':'#0E1B2A','--muted':'#4A5E72','--sig':'#FF2E7E','--sig-ink':'#FFFFFF'},eyebrow:'Branding, productvideo & social voor brands',h1:'Een merk dat *van het scherm springt.',media:{v:'reel-cans',p:'assets/reel-cans.jpg'},blobs:['#FF2E7E','#2EE6C8'],floats:[['Productvideo','Pulse · 4 smaken','l'],['Packaging','Verpakkingsreeks','r'],['Social','Reels & ads','b']],chips:['Productvideo','Packaging','Social','Webshop']},
   'branche-restaurants-horeca':{layout:'menu',serif:true,vars:{'--bg':'#17100B','--bg-2':'#1F1610','--bg-3':'#2A1E15','--line':'#3A2B20','--fg':'#F6EFE6','--muted':'#C2B3A3','--sig':'#E0B15A','--sig-ink':'#17100B'},eyebrow:'Website, reserveringen & social voor restaurants en horeca',h1:'Volle tafels *beginnen online.',kaart:{t:'Wat de website moet doen',items:[['Reserveren in tien seconden','zonder app'],['Menukaart die verkoopt','foto’s & allergenen'],['Reviews die binnenkomen','Google & socials'],['Social content elke week','reels & stories']]},chips:['Reserveringen','Menukaart','Google-reviews','Social']},
-  'branche-creators':{layout:'edit',light:true,serif:true,vars:{'--bg':'#F7E6E3','--bg-2':'#FFFFFF','--bg-3':'#F1D9D5','--line':'#E4C9C4','--fg':'#2A1A1C','--muted':'#6B5558','--sig':'#7B1E3A','--sig-ink':'#FFFFFF'},eyebrow:'Portfolio, boekingsflow & merkdeals voor creators',h1:'Van volgers naar *boekingen.',media:{v:'lap-kelly',p:'assets/lap-kelly.jpg',tag:'Kelly Bobson · portfolio & boekingsflow'},badge:'SHOOTS · REELS · TIKTOK · CAMPAGNES · ',chips:['Portfolio','Boekingsflow','Media kit','Merkdeals']}
+  'branche-creators':{layout:'edit',light:true,serif:true,vars:{'--bg':'#F7E6E3','--bg-2':'#FFFFFF','--bg-3':'#F1D9D5','--line':'#E4C9C4','--fg':'#2A1A1C','--muted':'#6B5558','--sig':'#7B1E3A','--sig-ink':'#FFFFFF'},eyebrow:'Portfolio, boekingsflow & merkdeals voor creators',h1:'Van volgers naar *boekingen.',media:{v:'kelly',p:'assets/kelly-laptop.webp',tag:'Kelly Bobson · portfolio & boekingsflow'},badge:'SHOOTS · REELS · TIKTOK · CAMPAGNES · ',chips:['Portfolio','Boekingsflow','Media kit','Merkdeals']}
 };
 function WorldHero(props){
   var w=props.w,slug=props.slug,d=props.d;
@@ -1601,7 +1663,7 @@ function LogoBar(){
   return h`<section class="logobar"><div class="wrap"><${Rise} className="row">${names.map(function(n){return h`<span key=${n}>${n}</span>`})}</${Rise}></div></section>`;
 }
 function FanCards(){
-  var items=[['lap-bouwbroers','v','assets/lap-bouwbroers.jpg'],['lap-kelly','v','assets/lap-kelly.jpg'],['reel-protein','v','assets/reel-protein.jpg'],['reel-bars','v','assets/reel-bars.jpg'],['reel-packages','v','assets/reel-packages.jpg'],['reel-cans','v','assets/reel-cans.jpg'],['uitbouw-hout','i','assets/uitbouw-hout.webp'],['lucky','v','assets/lucky-laptop.webp'],['hero','i','assets/hero.webp'],['westrik','v','assets/westrik-laptop.webp'],['engine-poolhouse','v','assets/engine-poolhouse.jpg']];
+  var items=[['lap-bouwbroers','v','assets/lap-bouwbroers.jpg'],['kelly','v','assets/kelly-laptop.webp'],['reel-protein','v','assets/reel-protein.jpg'],['reel-bars','v','assets/reel-bars.jpg'],['reel-packages','v','assets/reel-packages.jpg'],['reel-cans','v','assets/reel-cans.jpg'],['uitbouw-hout','i','assets/uitbouw-hout.webp'],['lucky','v','assets/lucky-laptop.webp'],['hero','i','assets/hero.webp'],['westrik','v','assets/westrik-laptop.webp'],['engine-poolhouse','v','assets/engine-poolhouse.jpg']];
   var n=items.length;
   return h`<section class="fanrow" style=${{paddingBlock:'40px 20px'}}><div class="wrap"><div class="fan2">${items.map(function(it,i){var c=i-(n-1)/2;return h`<${m.div} key=${it[0]} className="fc" initial=${{opacity:0,y:80,rotate:0}} whileInView=${{opacity:1,y:Math.abs(c)*14,rotate:c*9}} viewport=${{once:true,margin:'-10% 0px'}} transition=${{delay:.08*i,duration:.9,ease:EASE}} whileHover=${{y:-16,zIndex:5}} style=${{zIndex:n-Math.abs(c)}}>${it[1]==='v'?h`<video src=${'assets/'+it[0]+'.mp4'} poster=${it[2]} muted loop playsInline preload="none" data-auto="1" aria-hidden="true"></video>`:h`<img src=${it[2]} alt="" loading="lazy"/>`}</${m.div}>`})}</div>
     <${Rise}><p class="center-p">Branding, websites, content en campagnes voor restaurants, brands, webshops, bouw- en autobedrijven en creators. Plus eigen software: configurators, offerteflows en CRM, zodat marketing niet stopt bij een klik maar doorloopt tot de opdracht.</p></${Rise}>
