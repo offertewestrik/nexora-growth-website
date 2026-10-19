@@ -2069,7 +2069,7 @@ function HeroBoost(props){
       <video ref=${vref} src=${mob?"assets/hero-light-m.mp4":"assets/hero-light.mp4"} poster="assets/hero-light.jpg" muted playsInline loop preload="auto" aria-label="Showreel Next Growth: websites, branding, productvideo’s en configurators"></video>
       <div class="hlstage" aria-hidden=${mob?'true':'false'}>${!mob&&textLayer}</div>
       <div class="veil" style=${{opacity:veil}}></div>
-      ${!mob&&h`<${m.div} className="hcta" initial=${{opacity:0,y:18}} animate=${{opacity:1,y:0}} transition=${{delay:1.1,duration:.8,ease:EASE}}><a class="hb hb1" href="#contact" data-hover="1">Plan een kennismaking <span>→</span></a><a class="hb hb2" href="#cases-home" data-hover="1">Bekijk ons werk</a></${m.div}>`}
+      ${!mob&&h`<div class="hcta"><${m.a} className="hb hb1" href="#contact" data-hover="1" initial=${reduce?{opacity:1}:{opacity:0,x:-520,y:260,rotate:-14,scale:.55}} animate=${{opacity:1,x:0,y:0,rotate:0,scale:1}} transition=${reduce?{duration:0}:{delay:1.35,type:"spring",stiffness:230,damping:17,mass:1.1}}>Plan een kennismaking <span>→</span></${m.a}><${m.a} className="hb hb2" href="#cases-home" data-hover="1" initial=${reduce?{opacity:1}:{opacity:0,x:-420,y:380,rotate:10,scale:.5}} animate=${{opacity:1,x:0,y:0,rotate:0,scale:1}} transition=${reduce?{duration:0}:{delay:1.55,type:"spring",stiffness:230,damping:17,mass:1.1}}>Bekijk ons werk</${m.a}></div>`}
       <div class="dots" aria-hidden="true">${HL_SCENES.map(function(x,k){return h`<span key=${k} class=${k===active?'on':''}></span>`})}</div>
       ${!reduce&&h`<button type="button" class="pz" onClick=${toggle} aria-pressed=${!cur.playing}>${cur.playing?'Pauzeer video':'Speel video af'}</button>`}
     </div>
