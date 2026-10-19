@@ -372,10 +372,14 @@ footer .legal{grid-column:1/-1;border-top:1px solid var(--line);padding-top:20px
 .incl{margin:0;padding:0}
 @media(max-width:700px){.incl{columns:1}}
 .bgrid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
-.bgrid a{text-decoration:none;color:var(--fg);border:1px solid var(--line);border-radius:14px;padding:22px 18px;min-height:160px;display:flex;flex-direction:column;justify-content:space-between;background:var(--bg-2);position:relative;overflow:hidden}
-.bgrid a b{font:900 clamp(16px,1.25vw,19px)/1.05 var(--display);font-stretch:125%;text-transform:uppercase;overflow-wrap:anywhere}
-.bgrid a span{font:500 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.bgrid a .go{position:absolute;right:16px;top:16px;width:34px;height:34px;border-radius:50%;background:var(--sig);color:var(--sig-ink);display:grid;place-items:center;font-weight:900}
+.bgrid a{position:relative;text-decoration:none;color:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;aspect-ratio:4/5;display:flex;flex-direction:column;justify-content:flex-end;background:var(--bg-2);isolation:isolate}
+.bgrid a img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1;transition:transform .6s ease}
+.bgrid a::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,0) 30%,rgba(0,0,0,.82) 100%)}
+.bgrid a:hover img{transform:scale(1.05)}
+.bgrid a .bt{padding:16px 16px 18px;display:flex;flex-direction:column;gap:6px}
+.bgrid a b{font:900 clamp(16px,1.25vw,19px)/1.05 var(--display);font-stretch:125%;text-transform:uppercase;overflow-wrap:anywhere;color:#fff}
+.bgrid a span{font:400 12.5px/1.4 var(--body);color:rgba(255,255,255,.78);text-transform:none;letter-spacing:0}
+.bgrid a .go{position:absolute;right:14px;top:14px;width:34px;height:34px;border-radius:50%;background:var(--sig);color:var(--sig-ink);display:grid;place-items:center;font-weight:900}
 @media(max-width:1000px){.bgrid{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:600px){.bgrid{grid-template-columns:1fr 1fr}}
 .proofrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
 .proofrow .pc{border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--bg-2);text-decoration:none;color:var(--fg)}
@@ -1670,7 +1674,7 @@ function WorldHero(props){
   var media=w.media&&h`<video src=${'assets/'+w.media.v+'.mp4'} poster=${w.media.p} muted loop playsInline preload="metadata" data-auto="1" aria-hidden="true"></video>`;
   var cls='wh l-'+w.layout+(w.serif?' serif':'');
   if(w.layout==='split')return h`<section class=${cls} id="top"><div class="wrap"><div class="grid"><div>${head}</div><${m.div} initial=${{opacity:0,x:60,rotate:2}} animate=${{opacity:1,x:0,rotate:0}} transition=${{duration:1,ease:EASE,delay:.3}}><div class="mediacard">${media}${w.media.tag&&h`<span class="tag">${w.media.tag}</span>`}</div></${m.div}></div></div>
-    ${w.tape&&h`<div class="tape" aria-hidden="true">${[0,1,2,3].map(function(r){return w.tape.map(function(t,i){return h`<span key=${r+'-'+i}>${t}</span>`})})}</div>`}</section>`;
+    </section>`;
   if(w.layout==='card')return h`<section class=${cls} id="top"><div class="wrap">${head}<${m.div} className="mediacard" initial=${{opacity:0,y:60}} animate=${{opacity:1,y:0}} transition=${{duration:1,ease:EASE,delay:.4}}>${media}${w.media.tag&&h`<span class="tag">${w.media.tag}</span>`}</${m.div}>
     <div class="steps">${w.steps.map(function(t,i){return h`<${m.div} key=${i} initial=${{opacity:0,y:20}} animate=${{opacity:1,y:0}} transition=${{delay:.8+i*.1}}><i>${i+1}</i><b>${t}</b></${m.div}>`})}</div></div></section>`;
   if(w.layout==='full')return h`<section class=${cls} id="top"><div class="bg">${media}</div>${w.bigword&&h`<div class="bigword" aria-hidden="true">${w.bigword}</div>`}<div class="wrap">${head}</div></section>`;
@@ -1733,7 +1737,7 @@ function ProductHero(props){ // configuratorpagina: montage in de laptop, HTML-t
         <${m.p} className="def" initial=${{opacity:0,y:16}} animate=${{opacity:1,y:0}} transition=${{delay:.5,duration:.8,ease:EASE}}>${d.definition}</${m.p}>
         <${m.div} className="cta" initial=${{opacity:0,y:16}} animate=${{opacity:1,y:0}} transition=${{delay:.7,duration:.8,ease:EASE}}><${Magnet} href="#contact">Plan een kennismaking</${Magnet}><${Magnet} href="#producten" kind="ghost" icon="↓">Bekijk de zes producten</${Magnet}></${m.div}></div>
       <${m.div} className="lap" initial=${{opacity:0,y:40}} animate=${{opacity:1,y:0}} transition=${{duration:1,ease:EASE,delay:.3}}>
-        ${reduce?h`<img src="assets/prod-montage.jpg" alt="Productconfigurators op een laptop"/>`:h`<video ref=${vref} src="assets/prod-montage.mp4" poster="assets/prod-montage.jpg" muted playsInline loop preload="auto" aria-label="Montage van zes productconfiguratorpresentaties"></video>`}
+        ${reduce?h`<img src="assets/prod-montage.jpg" alt="Productconfigurators op een laptop"/>`:h`<video ref=${vref} src=${(window.matchMedia&&window.matchMedia("(max-width:860px)").matches)?"assets/prod-montage-m.mp4":"assets/prod-montage.mp4"} poster="assets/prod-montage.jpg" muted playsInline loop preload="metadata" aria-label="Montage van zes productconfiguratorpresentaties"></video>`}
         ${!reduce&&h`<button type="button" class="pz" onClick=${toggle} aria-pressed=${!playing}>${playing?'Pauzeer':'Speel af'}</button>`}
         <span class="note">Demonstratiebeelden uit onze engine</span>
       </${m.div}>
@@ -1933,7 +1937,6 @@ function BranchPage(props){
   return h`<div class=${'bp'+(w&&w.light?' light':'')+(w&&w.layout==='bch'?' bch':'')} style=${w?w.vars:{}}>
     ${hero}
 
-    <${Ticker} items=${[d.keywords[0]||'Website',d.keywords[1]||'Marketing',d.keywords[2]||'Branding','Next Growth']}/>
     <section style=${{paddingBlock:'36px 0'}}><div class="wrap"><${Kort} k=${d.kort}/></div></section>
     ${b&&h`<section id="studio"><div class="wrap">
       <div><div class="head" style=${{marginBottom:28}}><div><p class="eyebrow mono">Wat kan er allemaal op</p><h2><${Words} text="Alles wat *jouw site nodig heeft."/></h2></div><${Rise} delay=${.2}><p>${b.seoHint}</p></${Rise}></div>
@@ -1958,7 +1961,6 @@ function ServicePage(props){
   var slug=props.slug,d=SEO.pages[slug],sv=STUDIO.services[slug];useHead(slug);
   return h`<${React.Fragment}>
     ${slug==='dienst-configurators'?h`<${ProductHero} slug=${slug} d=${d}/>`:h`<${PageHero} slug=${slug} d=${d} parent=${null} short=${BRANCH_NAME[slug]} eyebrow=${slug==='sales'?'Sales op commissie · bouw & verduurzaming':(['dienst-configurators','dienst-crm','dienst-automatisering','dienst-software'].indexOf(slug)>-1?'Systemen · Next Growth':'Dienst · Next Growth')} cta2=${h`<${Magnet} href="#werk-proof" kind="ghost" icon="↓">Bekijk werk</${Magnet}>`}/>`}
-    <${Ticker} items=${d.keywords.slice(0,5).concat(['Next Growth'])}/>
     <section style=${{paddingBlock:'36px 0'}}><div class="wrap"><${Kort} k=${d.kort}/></div></section>
     ${sv&&h`<section><div class="wrap">
       <div class="head"><div><p class="eyebrow mono">Werkwijze</p><h2><${Words} text=${sv.kop}/></h2></div><${Rise} delay=${.2}><p>${sv.sub}</p></${Rise}></div>
@@ -1984,7 +1986,7 @@ function ServicePage(props){
 }
 /* ---------- branches overzicht ---------- */
 var BRANCH_ORDER=['branche-bouwbedrijven','branche-overkapping-veranda','branche-dakdekkers','branche-installatiebedrijven','branche-hoveniers','branche-restaurants-horeca','branche-autobedrijven','branche-webshops','branche-brands','branche-creators'];
-function BranchGrid(){return h`<div class="bgrid">${BRANCH_ORDER.map(function(s,i){var d=SEO.pages[s];if(!d)return null;return h`<${m.a} key=${s} href=${'#'+s} initial=${{opacity:0,y:20}} whileInView=${{opacity:1,y:0}} viewport=${{once:true}} transition=${{delay:i*.04,duration:.5,ease:EASE}} whileHover=${{y:-6}} data-hover="1"><span class="go">→</span><span>Website · branding · marketing</span><b>${BRANCH_NAME[s]}</b></${m.a}>`})}</div>`}
+function BranchGrid(){return h`<div class="bgrid">${BRANCH_ORDER.map(function(s,i){var d=SEO.pages[s];if(!d)return null;var im=(BRANCH_IMGS[s]||[])[0];var sub=(d.h1||'').replace(/\*/g,'');return h`<${m.a} key=${s} href=${'#'+s} initial=${{opacity:0,y:20}} whileInView=${{opacity:1,y:0}} viewport=${{once:true}} transition=${{delay:i*.04,duration:.5,ease:EASE}} whileHover=${{y:-6}} data-hover="1">${im&&h`<img src=${'assets/img/'+im[0]+'.webp'} alt=${im[1]} loading="lazy" decoding="async"/>`}<span class="go">→</span><div class="bt"><b>${BRANCH_NAME[s]}</b><span>${sub}</span></div></${m.a}>`})}</div>`}
 function BranchesPage(){useHead('home');return h`<${React.Fragment}><section class="page-hero" style=${{minHeight:'50svh'}}><div class="bigword" aria-hidden="true">Branches</div><div class="wrap"><${Crumbs} name="Branches"/><p class="eyebrow mono">Voor wie we bouwen</p><h1 style=${{marginTop:22}}><${Words} text="Kies je *branche."/></h1><p class="def">Per branche laten we zien hoe jouw website, merk en marketing eruit kunnen zien, wat er allemaal op kan, en wat het oplevert.</p></div></section><section><div class="wrap"><${BranchGrid}/></div></section><${Contact}/></${React.Fragment}>`}
 /* ---------- home: Mr Boost-opbouw ---------- */
 var HV_SCENES=[{t:0,c:'#BFEF3A',n:'Lime'},{t:3.92,c:'#FF7A1A',n:'Oranje'},{t:7.92,c:'#A9D4F5',n:'IJsblauw'},{t:11.39,c:'#8A4DFF',n:'Paars'}];
@@ -2052,7 +2054,7 @@ function HeroBoost(props){
   var textLayer=staticTxt?h`<div class="hlt" style=${mob?{}:{left:'6%',top:'34%',fontSize:'9cqw'}}><div class="ln">VAL OP.</div></div>`:h`<${AnimatePresence}>${sc&&h`<${HLText} key=${sc.s} sc=${sc} mob=${mob}/>`}</${AnimatePresence}>`;
   return h`<section class="hl" id="top">
     <div class="vwrap">
-      <video ref=${vref} src="assets/hero-light.mp4" poster="assets/hero-light.jpg" muted playsInline loop preload="auto" aria-label="Showreel Next Growth: websites, branding, productvideo’s en configurators"></video>
+      <video ref=${vref} src=${mob?"assets/hero-light-m.mp4":"assets/hero-light.mp4"} poster="assets/hero-light.jpg" muted playsInline loop preload="auto" aria-label="Showreel Next Growth: websites, branding, productvideo’s en configurators"></video>
       <div class="hlstage" aria-hidden=${mob?'true':'false'}>${!mob&&textLayer}</div>
       <div class="veil" style=${{opacity:veil}}></div>
       <div class="dots" aria-hidden="true">${HL_SCENES.map(function(x,k){return h`<span key=${k} class=${k===active?'on':''}></span>`})}</div>
@@ -2076,7 +2078,7 @@ function Showreel(){
   var R=[{v:'reel-cans',p:'assets/reel-cans.jpg',t:'Pulse · drankmerk'},{v:'reel-protein',p:'assets/reel-protein.jpg',t:'Atlas Whey · productvideo'},{v:'reel-bars',p:'assets/reel-bars.jpg',t:'Atlas Bars · productvideo'}];
   return h`<section class="showreel" id="showreel" style=${{paddingBlock:'30px 0'}}><div class="wrap">
     <${m.div} ref=${r} className="panel tri" initial=${{opacity:0,y:60,scale:.96}} whileInView=${{opacity:1,y:0,scale:1}} viewport=${{once:true,margin:'-5% 0px'}} transition=${{duration:1.1,ease:EASE}}>
-      ${R.map(function(x){return h`<div key=${x.v} class="trc"><div class="bgp" style=${{backgroundImage:'url("'+x.p+'")'}} aria-hidden="true"></div><video src=${'assets/'+x.v+'.mp4'} poster=${x.p} muted=${muted} loop playsInline preload="metadata" data-auto="1" aria-label=${'Showreel: '+x.t}></video><span class="trt">${x.t}</span></div>`})}
+      ${R.map(function(x){return h`<div key=${x.v} class="trc"><div class="bgp" style=${{backgroundImage:'url("'+x.p+'")'}} aria-hidden="true"></div><video src=${'assets/'+x.v+'.mp4'} poster=${x.p} muted=${muted} loop playsInline preload="none" data-auto="1" aria-label=${'Showreel: '+x.t}></video><span class="trt">${x.t}</span></div>`})}
       <span class="lbl">Showreel · productvideo's en branding</span>
       <button class="mute" type="button" onClick=${function(){var el=r.current;if(!el)return;var nm=!muted;setMuted(nm);el.querySelectorAll('video').forEach(function(v){v.muted=nm;if(v.paused)v.play().catch(function(){})})}}>${muted?'Geluid aan':'Geluid uit'}</button>
     </${m.div}>
@@ -2099,7 +2101,7 @@ function FanCards(){
   </div></section>`;
 }
 function CaseTiles(){
-  var C=[{v:'case-prefab',p:'assets/uitbouw-metselwerk.webp',n:'Prefab Select',r:'+212% aanvragen',u:'https://www.prefabselect.nl'},{v:'case-lucky',p:'assets/lucky-laptop.webp',n:'Lucky Zonwering',r:'5,0 op Google',u:'https://crm.luckyzonwering.nl'},{v:'case-installatie',p:'assets/westrik-laptop.webp',n:'Installatieplatform',r:'Offerte in 2 min',u:'https://installatieplatform.nl'},{v:'lap-poppelaars',p:'assets/lap-poppelaars.jpg',n:'Poppelaars',r:'Overkapping-configurator'}];
+  var C=[{v:'case-prefab',p:'assets/uitbouw-metselwerk.webp',n:'Prefab Select',r:'+212% aanvragen',u:'https://www.prefabselect.nl'},{v:'lucky',p:'assets/lucky-laptop.webp',n:'Lucky Zonwering',r:'5,0 op Google · 124 reviews',u:'https://crm.luckyzonwering.nl'},{v:'lap-bouwcentrale',p:'assets/lap-bouwcentrale.jpg',n:'Bouwcentrale Holland',r:'Website · leadflow',u:'https://bouwcentraleholland.nl'},{v:'westrik',p:'assets/westrik-laptop.webp',n:'Westrik Bouw & Installaties',r:'Website · offerte · SEO',u:'https://westrikbouw-installaties.nl'}];
   return h`<section class="cream caseg" id="cases-home"><div class="wrap">
     <div class="grid2">${C.map(function(c,i){var T=c.u?m.a:m.div;return h`<${T} key=${c.v} className="ct2" href=${c.u} target=${c.u?'_blank':undefined} rel=${c.u?'noopener':undefined} initial=${{opacity:0,y:40}} whileInView=${{opacity:1,y:0}} viewport=${{once:true,margin:'-5% 0px'}} transition=${{delay:i*.08,duration:.8,ease:EASE}} whileHover=${{scale:.985}} data-hover="1"><video src=${'assets/'+c.v+'.mp4'} poster=${c.p} muted loop playsInline preload="none" data-auto="1" aria-label=${c.n}></video><span class="pr">${c.r}</span><span class="pl">${c.n}</span></${T}>`})}</div>
     <div class="more" style=${{gap:12}}><a class="btn white" href="#cases" data-hover="1">Bekijk alle cases</a><a class="btn ghost" href="#demo-fashion" data-hover="1" style=${{color:'var(--cream-ink)',borderColor:'var(--cream-ink)'}}>Demo: Switch the look</a></div>
