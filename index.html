@@ -1006,6 +1006,55 @@ footer.boost .giantword{font:900 clamp(56px,10.6vw,160px)/.8 var(--display);lett
 @media(max-width:900px){.yacht .parts .head2{grid-template-columns:1fr}}
 @media(max-width:620px){.yacht .plist{grid-template-columns:1fr}.yacht .ov .pz2{right:16px;bottom:16px}.yacht .ov .lbl{left:16px;bottom:16px}}
 
+/* mini-demo's van de configurators: één component, de stijl komt uit de paginavariabelen */
+.md{--md-rr:var(--md-r,12px);border:1px solid var(--line);border-radius:var(--md-rr);background:var(--bg-2);overflow:hidden;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(290px,.7fr)}
+.md .mstage{position:relative;background:var(--bg-3);overflow:hidden;aspect-ratio:var(--ar,3/2);min-height:220px}
+.md .mstage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.md .mstage video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;background:#000}
+.md .mstage .mtag{position:absolute;left:14px;bottom:14px;max-width:calc(100% - 28px);background:var(--sig);color:var(--sig-ink);padding:8px 12px;border-radius:calc(var(--md-rr) * .5);font:700 12.5px var(--body);letter-spacing:.01em}
+.md .mstage .mnote{position:absolute;right:14px;top:14px;font:500 10.5px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,.45);padding:5px 8px;border-radius:4px;backdrop-filter:blur(4px)}
+.md .mside{padding:22px 22px 20px;display:flex;flex-direction:column;gap:14px;border-left:1px solid var(--line);min-width:0}
+.md .mside h3{margin:0;font:700 clamp(20px,1.6vw,24px)/1.1 var(--md-h,var(--display));letter-spacing:-.01em;text-transform:none;color:var(--fg)}
+.md .mside .msub{margin:4px 0 0;color:var(--muted);font-size:13.5px;line-height:1.5}
+.md .mg{display:flex;flex-direction:column;gap:7px}
+.md .mg .ml{font:500 11px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.md .chips{display:flex;flex-wrap:wrap;gap:7px}
+.md .chip{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:6px 12px 6px 6px;border:1px solid var(--line);border-radius:calc(var(--md-rr) * .7);background:transparent;color:var(--fg);font:600 13px var(--body);cursor:pointer;transition:border-color .2s,background .2s,color .2s;max-width:100%}
+.md .chip.nt{padding-left:12px}
+.md .chip img{width:40px;height:28px;object-fit:cover;border-radius:calc(var(--md-rr) * .35);flex:none;display:block;background:var(--bg-3)}
+.md .chip .sw{width:18px;height:18px;border-radius:50%;flex:none;border:1px solid rgba(0,0,0,.2);box-shadow:inset 0 0 0 1px rgba(255,255,255,.25)}
+.md .chip:hover{border-color:var(--fg)}
+.md .chip[aria-pressed=true]{background:var(--sig);color:var(--sig-ink);border-color:var(--sig)}
+.md .chip:focus-visible{outline:2px solid var(--sig);outline-offset:2px}
+.md .mfine{margin:auto 0 0;padding-top:8px;font-size:12px;line-height:1.5;color:var(--muted)}
+.md .mgo{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:12px 18px;border-radius:calc(var(--md-rr) * .8);background:var(--sig);color:var(--sig-ink);font:700 14px var(--body);text-decoration:none;transition:transform .2s,filter .2s}
+.md .mgo:hover{transform:translateY(-2px);filter:brightness(1.05)}
+.md .mgo span{font-size:16px}
+.md.video .mside{justify-content:center}
+.md.video .mstage{aspect-ratio:16/9}
+@media(max-width:900px){.md{grid-template-columns:1fr}.md .mside{border-left:0;border-top:1px solid var(--line);padding:18px 16px 18px}.md .mstage{aspect-ratio:var(--ar-m,var(--ar,3/2))}.md .chips{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.md .chip{min-height:46px;width:100%;min-width:0;justify-content:flex-start;white-space:normal;text-align:left;line-height:1.2}.md .mgo{width:100%}}
+@media(max-width:360px){.md .chips{grid-template-columns:1fr}}
+/* carrousel / tabs */
+.mdc .mtabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:2px 2px 12px;margin:0 -2px;-webkit-overflow-scrolling:touch}
+.mdc .mtabs::-webkit-scrollbar{display:none}
+.mdc .mtab{flex:none;min-height:40px;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--muted);font:600 13px var(--body);cursor:pointer;white-space:nowrap;transition:all .2s}
+.mdc .mtab[aria-selected=true]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.mdc .mtab:hover{color:var(--fg);border-color:var(--fg)}
+.mdc .mnav{display:flex;gap:8px;align-items:center;justify-content:flex-end;margin-top:12px}
+.mdc .mnav button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--fg);font-size:18px;cursor:pointer;display:grid;place-items:center}
+.mdc .mnav button:hover{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.mdc .mnav .mcount{font:500 11px var(--mono);letter-spacing:.14em;color:var(--muted);margin-right:auto}
+.mdo .mdgroup{margin-top:clamp(40px,5vw,64px)}
+.mdo .mdgroup h3{margin:0 0 14px;font:700 clamp(22px,2.2vw,30px)/1.1 var(--md-h,var(--display));letter-spacing:-.01em;text-transform:none}
+.mdo .mdgroup .gsub{color:var(--muted);margin:-6px 0 18px;font-size:15px;max-width:48em}
+.yacht .md{--sig:var(--ivory);--sig-ink:var(--navy);--bg-2:rgba(255,255,255,.035);--bg-3:#0A1B33;--line:rgba(244,241,234,.24);--fg:var(--ivory);--muted:rgba(244,241,234,.68);--bg:var(--navy);--md-r:6px;--md-h:'Fraunces',Georgia,serif}
+.yacht .md .chip .sw{border-color:rgba(244,241,234,.35)}
+.yacht .md .mside h3{font-weight:500;font-size:clamp(24px,2vw,30px)}
+.yacht .mdwrap{margin-top:clamp(50px,6vw,80px)}
+.yacht .mdwrap .mhead{display:flex;align-items:center;gap:18px;margin-bottom:22px}
+.yacht .mdwrap .mhead .mono{font:500 11px var(--mono);letter-spacing:.22em;text-transform:uppercase;color:rgba(244,241,234,.75)}
+.yacht .mdwrap .mhead .rule{flex:1;height:1px;background:rgba(244,241,234,.22)}
+
 </style></head><body>
 
 <div id="root"></div>
@@ -1212,32 +1261,12 @@ var FACADES=[
   {k:'composiet',n:'Composiet',d:'Strakke planken die hun kleur houden, zonder schilderwerk.'}
 ];
 function Demo(){
-  var s=useState('metselwerk'),cur=s[0],setCur=s[1];
-  var f=FACADES.find(function(x){return x.k===cur});
   return h`<section id="demo"><div class="wrap">
     <div class="head">
       <div><p class="eyebrow mono">De extra stap · digitale verkoopsystemen</p><h2><${Words} text="Verkoop je maatwerk? *Dan bouwen we dit."/></h2></div>
-      <${Rise} delay=${.2}><p>Onze eigen uitbouw-configurator, bedienbaar op deze pagina. De klant kiest, ziet zijn eigen huis en stuurt een complete aanvraag. Daarachter: offerte, CRM en opvolging.</p></${Rise}>
+      <${Rise} delay=${.2}><p>Onze eigen uitbouw-configurator, bedienbaar op deze pagina. De klant kiest, ziet het beeld veranderen en stuurt een complete aanvraag. Daarachter: offerte, CRM en opvolging.</p></${Rise}>
     </div>
-    <${Rise} className="demo">
-      <div class="bar"><span class="url">nextgrowthdigital.nl/uitbouw-configurator</span><span class="live mono">Live</span></div>
-      <div class="grid">
-        <div class="stage">
-          <${AnimatePresence} initial=${false}>
-            <${m.img} key=${cur} src=${'assets/uitbouw-'+cur+'.webp'} alt=${'Uitbouw met '+f.n.toLowerCase()+' gevel, render uit de configurator'} initial=${{opacity:0,scale:1.04}} animate=${{opacity:1,scale:1}} exit=${{opacity:0}} transition=${{duration:.7,ease:EASE}}/>
-          </${AnimatePresence}>
-          <${m.span} key=${'t'+cur} className="tag" initial=${{y:10,opacity:0}} animate=${{y:0,opacity:1}}>Gevel · ${f.n}</${m.span}>
-        </div>
-        <div class="opts" role="group" aria-label="Gevelafwerking kiezen">
-          <span class="mono" style=${{color:'var(--muted)'}}>Stap 3 van 8 · gevelafwerking</span>
-          <h3>Kies je gevel</h3>
-          <${LayoutGroup}>${FACADES.map(function(o){return h`<button key=${o.k} class="opt" aria-pressed=${o.k===cur} onClick=${function(){setCur(o.k)}} data-hover="1">${o.k===cur&&h`<${m.span} className="hl" layoutId="hl" transition=${{type:'spring',stiffness:400,damping:34}}/>`}<img src=${'assets/uitbouw-'+o.k+'.webp'} alt=""/>${o.n}</button>`})}</${LayoutGroup}>
-          <p class="desc">${f.d}</p>
-          <${Magnet} href="https://nextgrowthdigital.nl/" target="_blank" icon="↗">Open de volledige configurator</${Magnet}>
-        </div>
-      </div>
-    </${Rise}>
-    <${Rise} delay=${.1}><p style=${{marginTop:24,color:'var(--muted)',fontSize:15,maxWidth:'60em'}}>Er draaien er nu tien: jachten, dakopbouwen, aanbouwen, badkamers, zwembaden, overkappingen, poolhouses, kunstgras, pvc-vloeren en tegelvloeren. Verkoop je iets samenstelbaars, dan bouwen we er een voor jouw product.</p></${Rise}>
+    <${Rise}><${MiniDemo} id="uitbouw"/></${Rise}>
   </div></section>`;
 }
 
@@ -1619,15 +1648,15 @@ function PageHero(props){var d=props.d,img=HERO_IMG[props.slug];return h`<sectio
 
 /* ---------- branchewerelden ---------- */
 var WORLD={
-  'branche-bouwbedrijven':{layout:'bch',light:true,vars:{'--bg':'#FFFFFF','--bg-2':'#F6F6F6','--bg-3':'#FBE3DC','--line':'#E3E6EA','--fg':'#0E1A2B','--muted':'#4B5563','--sig':'#E04522','--sig-ink':'#FFFFFF'},eyebrow:'Website, branding & marketing voor aannemers en bouwbedrijven',h1:'Meer aanvragen, *zonder gedoe.',media:{v:'lap-bouwcentrale',p:'assets/lap-bouwcentrale.jpg',tag:'Bouwcentrale Holland · website'},form:['Voornaam','Achternaam','E-mailadres','Telefoonnummer','Postcode','Selecteer dienst'],cards:[['Website die leads binnenhaalt','Opname-aanvraag bovenaan, per dienst een pagina, reviews met naam en plaats.'],['Offerte in één flow','Aanvraag, opname en offerte in één systeem, zodat niets blijft liggen.'],['Lokaal vindbaar','Pagina’s per plaats en dienst, zodat je in jouw werkgebied bovenaan staat.']],chips:['Website','Offerteflow','Projectfoto’s','Google-reviews']},
-  'branche-overkapping-veranda':{layout:'card',light:true,vars:{'--bg':'#F3F1EA','--bg-2':'#FFFFFF','--bg-3':'#ECE9E0','--line':'#D9D5C9','--fg':'#10261C','--muted':'#5B6B62','--sig':'#1F6B4A','--sig-ink':'#FFFFFF'},eyebrow:'Website met configurator voor overkappingen en veranda’s',h1:'Jouw overkapping, *live in beeld.',media:{v:'lap-poppelaars',p:'assets/lap-poppelaars.jpg',tag:'Poppelaars · configurator'},steps:['Klant kiest model en maat','Ziet direct prijs en beeld','Vraagt met één klik offerte aan']},
-  'branche-dakdekkers':{layout:'split',vars:{'--bg':'#0F1620','--bg-2':'#161F2B','--bg-3':'#1D2836','--line':'#2A3545','--fg':'#F2F4F7','--muted':'#9AA6B5','--sig':'#E63B2E','--sig-ink':'#FFFFFF'},eyebrow:'Website, branding & marketing voor dakdekkers',h1:'Dakwerk dat *opvalt in de straat.',media:{v:'heesbeen',p:'assets/heesbeen-laptop.webp',tag:'Heesbeen Dakwerken · website'},tape:['Dakinspectie','Offerte','Planning','Lokale SEO'],chips:['Dakinspectie-aanvraag','Lokale pagina’s','Spoedknop','Reviews']},
-  'branche-installatiebedrijven':{layout:'split',light:true,vars:{'--bg':'#F4F7FB','--bg-2':'#FFFFFF','--bg-3':'#E9EFF7','--line':'#D5DEEA','--fg':'#0B1A2E','--muted':'#4F6078','--sig':'#0E6EFF','--sig-ink':'#FFFFFF'},eyebrow:'Website, offerteflow & CRM voor installatiebedrijven',h1:'Van storing naar *offerte in 2 minuten.',media:{v:'case-installatie',p:'assets/westrik-laptop.webp',tag:'Installatieplatform · offerte in 2 min'},chips:['Storingsformulier','Offerte in 2 min','Onderhoudscontract','Planning']},
-  'branche-hoveniers':{layout:'full',serif:true,vars:{'--bg':'#0E2A1C','--bg-2':'#133524','--bg-3':'#183F2B','--line':'#235038','--fg':'#F2F5EE','--muted':'#B9C9B9','--sig':'#CFE36A','--sig-ink':'#0E2A1C'},eyebrow:'Website, branding & marketing voor hoveniers',h1:'Tuinen die *zichzelf verkopen.',media:{v:'engine-poolhouse',p:'assets/engine-poolhouse.jpg'},bigword:'Tuin',chips:['Portfolio met voor/na','Poolhouse-configurator','Offerteaanvraag','Seizoenscampagnes']},
+  'branche-bouwbedrijven':{layout:'bch',light:true,vars:{'--md-r':'4px','--bg':'#FFFFFF','--bg-2':'#F6F6F6','--bg-3':'#FBE3DC','--line':'#E3E6EA','--fg':'#0E1A2B','--muted':'#4B5563','--sig':'#E04522','--sig-ink':'#FFFFFF'},eyebrow:'Website, branding & marketing voor aannemers en bouwbedrijven',h1:'Meer aanvragen, *zonder gedoe.',media:{v:'lap-bouwcentrale',p:'assets/lap-bouwcentrale.jpg',tag:'Bouwcentrale Holland · website'},form:['Voornaam','Achternaam','E-mailadres','Telefoonnummer','Postcode','Selecteer dienst'],cards:[['Website die leads binnenhaalt','Opname-aanvraag bovenaan, per dienst een pagina, reviews met naam en plaats.'],['Offerte in één flow','Aanvraag, opname en offerte in één systeem, zodat niets blijft liggen.'],['Lokaal vindbaar','Pagina’s per plaats en dienst, zodat je in jouw werkgebied bovenaan staat.']],chips:['Website','Offerteflow','Projectfoto’s','Google-reviews']},
+  'branche-overkapping-veranda':{layout:'card',light:true,vars:{'--md-r':'16px','--bg':'#F3F1EA','--bg-2':'#FFFFFF','--bg-3':'#ECE9E0','--line':'#D9D5C9','--fg':'#10261C','--muted':'#5B6B62','--sig':'#1F6B4A','--sig-ink':'#FFFFFF'},eyebrow:'Website met configurator voor overkappingen en veranda’s',h1:'Jouw overkapping, *live in beeld.',media:{v:'lap-poppelaars',p:'assets/lap-poppelaars.jpg',tag:'Poppelaars · configurator'},steps:['Klant kiest model en maat','Ziet direct prijs en beeld','Vraagt met één klik offerte aan']},
+  'branche-dakdekkers':{layout:'split',vars:{'--md-r':'6px','--bg':'#0F1620','--bg-2':'#161F2B','--bg-3':'#1D2836','--line':'#2A3545','--fg':'#F2F4F7','--muted':'#9AA6B5','--sig':'#E63B2E','--sig-ink':'#FFFFFF'},eyebrow:'Website, branding & marketing voor dakdekkers',h1:'Dakwerk dat *opvalt in de straat.',media:{v:'heesbeen',p:'assets/heesbeen-laptop.webp',tag:'Heesbeen Dakwerken · website'},tape:['Dakinspectie','Offerte','Planning','Lokale SEO'],chips:['Dakinspectie-aanvraag','Lokale pagina’s','Spoedknop','Reviews']},
+  'branche-installatiebedrijven':{layout:'split',light:true,vars:{'--md-r':'10px','--bg':'#F4F7FB','--bg-2':'#FFFFFF','--bg-3':'#E9EFF7','--line':'#D5DEEA','--fg':'#0B1A2E','--muted':'#4F6078','--sig':'#0E6EFF','--sig-ink':'#FFFFFF'},eyebrow:'Website, offerteflow & CRM voor installatiebedrijven',h1:'Van storing naar *offerte in 2 minuten.',media:{v:'case-installatie',p:'assets/westrik-laptop.webp',tag:'Installatieplatform · offerte in 2 min'},chips:['Storingsformulier','Offerte in 2 min','Onderhoudscontract','Planning']},
+  'branche-hoveniers':{layout:'full',serif:true,vars:{'--md-r':'10px','--md-h':"'Fraunces',Georgia,serif",'--bg':'#0E2A1C','--bg-2':'#133524','--bg-3':'#183F2B','--line':'#235038','--fg':'#F2F5EE','--muted':'#B9C9B9','--sig':'#CFE36A','--sig-ink':'#0E2A1C'},eyebrow:'Website, branding & marketing voor hoveniers',h1:'Tuinen die *zichzelf verkopen.',media:{v:'engine-poolhouse',p:'assets/engine-poolhouse.jpg'},bigword:'Tuin',chips:['Portfolio met voor/na','Poolhouse-configurator','Offerteaanvraag','Seizoenscampagnes']},
   'branche-autobedrijven':{layout:'plate',bg:'assets/img/11-auto-hero.webp',vars:{'--bg':'#0B0B0D','--bg-2':'#141417','--bg-3':'#1C1C20','--line':'#2A2A30','--fg':'#F2F2F4','--muted':'#9B9BA3','--sig':'#F7D117','--sig-ink':'#0A0A0A'},eyebrow:'Website, occasionfeed & marketing voor autobedrijven',h1:'Meer proefritten. *Minder stilstand.',plate:'PROEFRIT',chips:['Occasionfeed','Proefrit-planner','Financiering','Reviews']},
   'branche-brands':{layout:'phone',light:true,vars:{'--bg':'#DCEBF6','--bg-2':'#FFFFFF','--bg-3':'#CFE3F2','--line':'#B9D2E6','--fg':'#0E1B2A','--muted':'#4A5E72','--sig':'#FF2E7E','--sig-ink':'#FFFFFF'},eyebrow:'Branding, productvideo & social voor brands',h1:'Een merk dat *van het scherm springt.',media:{v:'reel-cans',p:'assets/reel-cans.jpg'},blobs:['#FF2E7E','#2EE6C8'],floats:[['Productvideo','Pulse · 4 smaken','l'],['Packaging','Verpakkingsreeks','r'],['Social','Reels & ads','b']],chips:['Productvideo','Packaging','Social','Webshop']},
-  'branche-restaurants-horeca':{layout:'menu',serif:true,bg:'assets/img/41-restaurant-hero.webp',vars:{'--bg':'#17100B','--bg-2':'#1F1610','--bg-3':'#2A1E15','--line':'#3A2B20','--fg':'#F6EFE6','--muted':'#C2B3A3','--sig':'#E0B15A','--sig-ink':'#17100B'},eyebrow:'Website, reserveringen & social voor restaurants en horeca',h1:'Volle tafels *beginnen online.',kaart:{t:'Wat de website moet doen',items:[['Reserveren in tien seconden','zonder app'],['Menukaart die verkoopt','foto’s & allergenen'],['Reviews die binnenkomen','Google & socials'],['Social content elke week','reels & stories']]},chips:['Reserveringen','Menukaart','Google-reviews','Social']},
-  'branche-creators':{layout:'edit',light:true,serif:true,vars:{'--bg':'#F7E6E3','--bg-2':'#FFFFFF','--bg-3':'#F1D9D5','--line':'#E4C9C4','--fg':'#2A1A1C','--muted':'#6B5558','--sig':'#7B1E3A','--sig-ink':'#FFFFFF'},eyebrow:'Portfolio, boekingsflow & merkdeals voor creators',h1:'Van volgers naar *boekingen.',media:{v:'kelly',p:'assets/kelly-laptop.webp',tag:'Kelly Bobson · portfolio & boekingsflow'},badge:'SHOOTS · REELS · TIKTOK · CAMPAGNES · ',chips:['Portfolio','Boekingsflow','Media kit','Merkdeals']}
+  'branche-restaurants-horeca':{layout:'menu',serif:true,bg:'assets/img/41-restaurant-hero.webp',vars:{'--md-h':"'Fraunces',Georgia,serif",'--bg':'#17100B','--bg-2':'#1F1610','--bg-3':'#2A1E15','--line':'#3A2B20','--fg':'#F6EFE6','--muted':'#C2B3A3','--sig':'#E0B15A','--sig-ink':'#17100B'},eyebrow:'Website, reserveringen & social voor restaurants en horeca',h1:'Volle tafels *beginnen online.',kaart:{t:'Wat de website moet doen',items:[['Reserveren in tien seconden','zonder app'],['Menukaart die verkoopt','foto’s & allergenen'],['Reviews die binnenkomen','Google & socials'],['Social content elke week','reels & stories']]},chips:['Reserveringen','Menukaart','Google-reviews','Social']},
+  'branche-creators':{layout:'edit',light:true,serif:true,vars:{'--md-r':'22px','--md-h':"'Fraunces',Georgia,serif",'--bg':'#F7E6E3','--bg-2':'#FFFFFF','--bg-3':'#F1D9D5','--line':'#E4C9C4','--fg':'#2A1A1C','--muted':'#6B5558','--sig':'#7B1E3A','--sig-ink':'#FFFFFF'},eyebrow:'Portfolio, boekingsflow & merkdeals voor creators',h1:'Van volgers naar *boekingen.',media:{v:'kelly',p:'assets/kelly-laptop.webp',tag:'Kelly Bobson · portfolio & boekingsflow'},badge:'SHOOTS · REELS · TIKTOK · CAMPAGNES · ',chips:['Portfolio','Boekingsflow','Media kit','Merkdeals']}
 };
 function WorldHero(props){
   var w=props.w,slug=props.slug,d=props.d;
@@ -1740,6 +1769,7 @@ function YachtStudio(){ // jachtstudio: navy en wit, exclusief en rustig
           <${AnimatePresence} mode="wait"><${m.p} key=${mode} className="cap" initial=${{opacity:0}} animate=${{opacity:1}} exit=${{opacity:0}} transition=${{duration:.3}}>${mode==='dag'?'Flybridge met T-top, daglicht':'Verlicht jacht, avond'}</${m.p}></${AnimatePresence}>
         </div>
       </div>
+      <div class="mdwrap"><div class="mhead"><span class="mono">Probeer de jachtconfigurator</span><span class="rule"></span><span class="mono">Echte renders</span></div><${MiniDemo} id="jacht"/></div>
       <${YachtParts}/>
     </div>
   </section>`;
@@ -1781,6 +1811,121 @@ function YachtParts(){ // overzichtsmontage met pauzeknop en zes onderdelen met 
   </div>`;
 }
 
+
+/* ---------- mini-demo's van de configurators ----------
+   Eén component. Alle beelden zijn bestaande renders uit de live configurators op nextgrowthdigital.nl
+   (gekopieerd naar assets/cfg/). Alleen combinaties waarvoor een render bestaat staan in de keuzelijsten.
+   Kleuren, lettertype en hoekradius komen uit de CSS-variabelen van de pagina (.bp / .yacht / homepage). */
+var CFG_HOST='https://nextgrowthdigital.nl/';
+var SW={wit:'#F4F4F2',creme:'#EDE6D4',antraciet:'#3A3F45',zwart:'#15171A',nachtblauw:'#16243c',champagne:'#c3ab84',grafiet:'#3f464d',parelwit:'#eceae4',zeegroen:'#1d3b38',lichtgrijs:'#C9CCCF',thermowood:'#8A5A3C','zink-platen':'#8E959B',natuurlijk:'#4C7D3A',lentegroen:'#6BA23F',olijf:'#5E6E2F'};
+function lbl(o,v){for(var i=0;i<o.length;i++)if(o[i][0]===v)return o[i][1];return v}
+var CFG={
+  uitbouw:{n:'Uitbouw',sub:'Kies gevel en pui. Elke keuze toont de render uit de uitbouw-configurator.',url:'aanbouw-configurator.html',ar:'3/2',init:{mat:'metselwerk',pui:'raam'},
+    groups:function(){return[{k:'mat',l:'Gevelafwerking',o:[['metselwerk','Metselwerk'],['stuc','Stucwerk'],['hout','Hout'],['keralit','Keralit'],['composiet','Composiet']]},{k:'pui',l:'Pui',o:[['raam','Raam en deur'],['schuifpui','Schuifpui'],['harmonica','Harmonicadeur']]}]},
+    img:function(s){return'ub-'+s.mat+'-'+s.pui},cap:function(s,g){return lbl(g[0].o,s.mat)+' · '+lbl(g[1].o,s.pui)}},
+  dakopbouw:{n:'Dakopbouw',sub:'Gevelmateriaal en kozijnkleur, met een schuifpui op de voorgevel.',url:'dakopbouw-configurator.html',ar:'4/3',init:{mat:'keralit',koz:'zwart'},
+    groups:function(){return[{k:'mat',l:'Gevel',o:[['keralit','Keralit antraciet'],['metselwerk','Metselwerk rood'],['stucwerk','Stucwerk crème'],['houtcomposiet','Licht eiken']]},{k:'koz',l:'Kozijnkleur',sw:1,o:[['wit','Wit'],['creme','Crème'],['antraciet','Antraciet'],['zwart','Zwart']]}]},
+    img:function(s){return'do-'+s.mat+'-'+s.koz},cap:function(s,g){return lbl(g[0].o,s.mat)+' · kozijn '+lbl(g[1].o,s.koz).toLowerCase()}},
+  nokverhoging:{n:'Nokverhoging',sub:'Gevelafwerking en kozijnkleur van de nieuwe kap, in de 2-vaks indeling.',url:'nokverhoging-configurator.html',ar:'1/1',arm:'1/1',init:{gev:'creme',koz:'antraciet'},
+    groups:function(){return[{k:'gev',l:'Gevel',o:[['creme','Crème'],['lichtgrijs','Lichtgrijs'],['antraciet','Antraciet'],['zwart','Zwart'],['thermowood','Thermowood'],['zink-platen','Zink']]},{k:'koz',l:'Kozijnkleur',sw:1,o:[['wit','Wit'],['creme','Crème'],['antraciet','Antraciet'],['zwart','Zwart']]}]},
+    img:function(s){return'nk-'+s.gev+'-'+s.koz},cap:function(s,g){return'Gevel '+lbl(g[0].o,s.gev).toLowerCase()+' · kozijn '+lbl(g[1].o,s.koz).toLowerCase()}},
+  dakrenovatie:{n:'Dakrenovatie',sub:'Pannendak of plat dak, en de afwerking die je kiest.',url:'dakrenovatie-configurator.html',ar:'4/3',init:{dak:'pan',af:'sneldek-antraciet'},
+    groups:function(s){var pan=[['sneldek-antraciet','Sneldekpan antraciet'],['sneldek-rood','Sneldekpan rood'],['keramisch-antraciet','Keramisch vlak'],['keramisch-rood','Keramisch golvend'],['leipan','Leipan']],plat=[['bitumen','Bitumen'],['epdm','EPDM'],['pvc','PVC lichtgrijs'],['sedum','Sedum groendak']];
+      return[{k:'dak',l:'Daktype',o:[['pan','Pannendak'],['plat','Plat dak']],reset:{af:s.dak==='pan'?'sneldek-antraciet':'epdm'}},{k:'af',l:'Afwerking',o:s.dak==='pan'?pan:plat}]},
+    fix:function(s){var ok=s.dak==='pan'?['sneldek-antraciet','sneldek-rood','keramisch-antraciet','keramisch-rood','leipan']:['bitumen','epdm','pvc','sedum'];if(ok.indexOf(s.af)<0)s.af=ok[0];return s},
+    img:function(s){return'dr-'+s.dak+'-'+s.af},cap:function(s,g){return lbl(g[0].o,s.dak)+' · '+lbl(g[1].o,s.af)}},
+  gevelrenovatie:{n:'Gevelrenovatie',sub:'Zie dezelfde rijtjeswoning voor, tijdens en na de renovatie.',url:'gevelrenovatie-configurator.html',ar:'1/1',arm:'1/1',init:{gev:'rood',st:'vervuild'},
+    groups:function(s){var st=s.gev==='stuc'?[['vervuild','Bestaand'],['gereinigd','Gereinigd'],['gevoegd','Geschilderd'],['compleet','Opnieuw gestuct']]:[['vervuild','Bestaand'],['gereinigd','Gereinigd'],['gevoegd','Opnieuw gevoegd'],['compleet','Compleet']];
+      return[{k:'gev',l:'Gevel',o:[['rood','Rode steen'],['geel','Gele steen'],['stuc','Gestuct']]},{k:'st',l:'Behandeling',o:st}]},
+    img:function(s){return'gv-'+s.gev+'-'+s.st},cap:function(s,g){return lbl(g[0].o,s.gev)+' · '+lbl(g[1].o,s.st)}},
+  overkapping:{n:'Overkapping',sub:'Twee uitvoeringen uit de overkapping-configurator: hout en aluminium.',url:'overkapping-configurator.html',ar:'16/9',init:{u:'hout'},partial:'Materiaal- en dakopties staan in de volledige configurator; daarvan zijn nog geen losse renders.',
+    groups:function(){return[{k:'u',l:'Uitvoering',o:[['hout','Hout, douglas'],['alu','Aluminium, antraciet']]}]},
+    img:function(s){return'ok-'+s.u},cap:function(s,g){return lbl(g[0].o,s.u)}},
+  kunstgras:{n:'Kunstgras',sub:'Tuintype, graskleur en poolhoogte uit de kunstgras-studio.',url:'kunstgras-configurator.html',ar:'16/9',init:{t:'tuin',k:'natuurlijk',p:'medium'},
+    groups:function(){return[{k:'t',l:'Tuin',o:[['tuin','Stadstuin'],['luxe','Villatuin']]},{k:'k',l:'Kleur',sw:1,o:[['natuurlijk','Natuurlijk'],['lentegroen','Lentegroen'],['olijf','Olijf']]},{k:'p',l:'Poolhoogte',o:[['kort','Kort'],['medium','Medium'],['lang','Lang']]}]},
+    img:function(s){return'kg-'+s.t+'-'+s.p+'-'+s.k},cap:function(s,g){return lbl(g[0].o,s.t)+' · '+lbl(g[1].o,s.k).toLowerCase()+' · '+lbl(g[2].o,s.p).toLowerCase()+' gras'}},
+  jacht:{n:'Jacht',sub:'Model, rompkleur en dek buiten; houtsoort van de salon binnen. Renders uit de jachtconfigurator.',url:'jacht-configurator.html',ar:'1200/520',arm:'16/9',init:{v:'buiten',mo:'fb19',dek:'fly',romp:'nachtblauw',hout:'walnoot'},
+    groups:function(s){var g=[{k:'v',l:'Aanzicht',o:[['buiten','Buiten'],['interieur','Interieur']]},{k:'mo',l:'Model',o:[['fb19','Flybridge 19'],['grand55','Grand 55'],['elite90','Elite 90'],['giga120','Giga 120']]}];
+      if(s.v==='buiten'){if(s.mo==='fb19')g.push({k:'dek',l:'Dek',o:[['fly','Flybridge'],['hard','Hardtop']]});g.push({k:'romp',l:'Rompkleur',sw:1,o:[['nachtblauw','Nachtblauw'],['antraciet','Antraciet'],['grafiet','Grafiet'],['zeegroen','Zeegroen'],['champagne','Champagne'],['parelwit','Parelwit']]})}
+      else g.push({k:'hout',l:'Interieurhout',o:[['eiken','Eiken'],['essen','Essen'],['teakhout','Teak'],['walnoot','Walnoot'],['wenge','Wengé']]});return g},
+    fix:function(s){if(s.mo!=='fb19')s.dek='fly';return s},
+    img:function(s){return s.v==='buiten'?'jb-'+s.mo+'-'+s.dek+'-'+s.romp:'ji-'+s.mo+'-'+s.hout},
+    cap:function(s,g){var mo=lbl(g[1].o,s.mo);return s.v==='buiten'?mo+' · '+s.romp+(s.mo==='fb19'?' · '+(s.dek==='fly'?'flybridge':'hardtop'):''):mo+' · salon in '+lbl(g[2].o,s.hout).toLowerCase()}},
+  /* zonder losse optie-renders: videopreview met werkende link */
+  poolhouse:{n:'Poolhouse',sub:'Houtsoort, glas en lichtstraat kies je in de volledige configurator.',url:'poolhouse-configurator.html',video:'assets/prod-poolhouse.mp4',poster:'assets/prod-poolhouse.webp'},
+  zwembad:{n:'Zwembad',sub:'Afmeting, afwerking en techniek kies je in de volledige configurator.',url:'zwembad-configurator.html',video:'assets/prod-zwembad.mp4',poster:'assets/prod-zwembad.webp'},
+  dakkapel:{n:'Dakkapel',sub:'Breedte, indeling en afwerking kies je in de volledige configurator.',url:'dakkapel-configurator.html',video:'assets/engine-dakkapel.mp4',poster:'assets/engine-dakkapel.jpg'},
+  badkamer:{n:'Badkamer',sub:'Maten, tegels en sanitair kies je in de volledige configurator.',url:'badkamer-configurator.html',video:'assets/engine-badkamer.mp4',poster:'assets/engine-badkamer.jpg'},
+  pvc:{n:'PVC-vloer',sub:'Dessin, legpatroon en plinten kies je in de volledige vloerenstudio.',url:'pvc-configurator.html',video:'assets/cfg-pvc.mp4',poster:'assets/cfg-pvc.jpg'},
+  tegelvloer:{n:'Tegelvloer',sub:'Tegelsoort, formaat en legpatroon kies je in de volledige vloerenstudio.',url:'tegelvloer-configurator.html',video:'assets/cfg-tegelvloer.mp4',poster:'assets/cfg-tegelvloer.jpg'}
+};
+window.CFG=CFG;
+function MiniDemo(props){
+  var c=CFG[props.id],ref=useRef(null),inView=useInView(ref,{once:true,margin:'300px 0px'});
+  var st=useState(c.init||{}),s=st[0],setS=st[1];
+  var groups=c.groups?c.groups(s):[];
+  function pick(k,v){var n=Object.assign({},s);n[k]=v;if(c.fix)n=c.fix(n);setS(n)}
+  var style={'--ar':c.ar||'3/2','--ar-m':c.arm||c.ar||'3/2'};
+  var go=h`<a class="mgo" href=${CFG_HOST+c.url} target="_blank" rel="noopener" data-hover="1">Open de volledige configurator <span>↗</span></a>`;
+  if(c.video){return h`<div class="md video" ref=${ref} style=${style}>
+    <div class="mstage">${inView&&(reduce?h`<img src=${c.poster} alt=${c.n+', preview van de configurator'}/>`:h`<video src=${c.video} poster=${c.poster} muted loop playsInline preload="none" data-auto="1" aria-label=${c.n+', preview van de configurator'}></video>`)}<span class="mnote">Preview</span></div>
+    <div class="mside"><div><h3>${c.n}</h3><p class="msub">${c.sub}</p></div><p class="mfine">Deze configurator heeft nog geen losse optie-renders; de keuzes maak je in de volledige versie.</p>${go}</div>
+  </div>`}
+  var id=c.img(s),cap=c.cap(s,groups);
+  return h`<div class="md" ref=${ref} style=${style}>
+    <div class="mstage">
+      ${inView&&h`<${AnimatePresence} initial=${false}><${m.img} key=${id} src=${'assets/cfg/'+id+'.webp'} alt=${c.n+': '+cap} decoding="async" initial=${reduce?{opacity:1}:{opacity:0}} animate=${{opacity:1}} exit=${reduce?{opacity:1}:{opacity:0}} transition=${{duration:reduce?0:.45,ease:EASE}}/></${AnimatePresence}>`}
+      <span class="mnote">Render uit de configurator</span>
+      <${AnimatePresence} mode="wait"><${m.span} key=${cap} className="mtag" initial=${{opacity:0,y:6}} animate=${{opacity:1,y:0}} exit=${{opacity:0}} transition=${{duration:.25}}>${cap}</${m.span}></${AnimatePresence}>
+    </div>
+    <div class="mside">
+      <div><h3>${c.n}</h3><p class="msub">${c.sub}</p></div>
+      ${groups.map(function(g){return h`<div class="mg" key=${g.k} role="group" aria-label=${g.l}><span class="ml">${g.l}</span><div class="chips">${g.o.map(function(o){var on=s[g.k]===o[0];var n2=Object.assign({},s);n2[g.k]=o[0];if(c.fix)n2=c.fix(n2);var th=c.img(n2);
+        return h`<button key=${o[0]} type="button" class=${'chip'+(g.sw||g.k==='v'||g.k==='dak'?' nt':'')} aria-pressed=${on} onClick=${function(){pick(g.k,o[0])}} data-hover="1">${g.sw?h`<span class="sw" style=${{background:SW[o[0]]||'#888'}}></span>`:(g.k==='v'||g.k==='dak')?null:(inView&&h`<img src=${'assets/cfg/'+th+'-t.webp'} alt="" loading="lazy" decoding="async"/>`)}${o[1]}</button>`})}</div></div>`})}
+      <p class="mfine">${c.partial||'Echte renders uit onze configurator-engine. Richtprijs, maten en aanvraag zitten in de volledige configurator.'}</p>
+      ${go}
+    </div>
+  </div>`;
+}
+function DemoCarousel(props){
+  var ids=props.ids,st=useState(0),i=st[0],setI=st[1],id=ids[i];
+  return h`<div class="mdc">
+    <div class="mtabs" role="tablist" aria-label="Kies een configurator">${ids.map(function(x,j){return h`<button key=${x} type="button" role="tab" class="mtab" aria-selected=${j===i} onClick=${function(){setI(j)}} data-hover="1">${CFG[x].n}</button>`})}</div>
+    <${AnimatePresence} mode="wait" initial=${false}><${m.div} key=${id} initial=${reduce?{opacity:1}:{opacity:0,y:14}} animate=${{opacity:1,y:0}} exit=${reduce?{opacity:1}:{opacity:0,y:-10}} transition=${{duration:.35,ease:EASE}}><${MiniDemo} id=${id}/></${m.div}></${AnimatePresence}>
+    ${ids.length>1&&h`<div class="mnav"><span class="mcount">${(i+1)+' / '+ids.length}</span><button type="button" aria-label="Vorige configurator" onClick=${function(){setI((i-1+ids.length)%ids.length)}}>←</button><button type="button" aria-label="Volgende configurator" onClick=${function(){setI((i+1)%ids.length)}}>→</button></div>`}
+  </div>`;
+}
+var HOME_DEMOS=['uitbouw','jacht','dakopbouw','gevelrenovatie','nokverhoging','dakrenovatie','kunstgras'];
+function HomeDemos(){
+  return h`<section id="demo"><div class="wrap">
+    <div class="head">
+      <div><p class="eyebrow mono">Probeer het zelf · configurators</p><h2><${Words} text="Klik. Kies. *Zie het meteen."/></h2></div>
+      <${Rise} delay=${.2}><p>Zo werkt een configurator van Next Growth: de klant kiest, het beeld verandert direct, en de aanvraag komt compleet binnen. Dit zijn de echte renders uit onze live configurators.</p></${Rise}>
+    </div>
+    <${Rise}><${DemoCarousel} ids=${HOME_DEMOS}/></${Rise}>
+    <${Rise} delay=${.1}><p style=${{marginTop:24,color:'var(--muted)',fontSize:15,maxWidth:'60em'}}>Er draaien er nu tien: jachten, dakopbouwen, aanbouwen, badkamers, zwembaden, overkappingen, poolhouses, kunstgras, pvc-vloeren en tegelvloeren. Verkoop je iets samenstelbaars, dan bouwen we er een voor jouw product.</p></${Rise}>
+  </div></section>`;
+}
+var DEMO_GROUPS=[
+  {t:'Bouw en verbouw',s:'Uitbouw, dakopbouw, nokverhoging, dakrenovatie, gevelrenovatie en dakkapel.',ids:['uitbouw','dakopbouw','nokverhoging','dakrenovatie','gevelrenovatie','dakkapel']},
+  {t:'Tuin en buitenleven',s:'Overkapping, poolhouse, zwembad en kunstgras.',ids:['overkapping','poolhouse','zwembad','kunstgras']},
+  {t:'Interieur en vloeren',s:'Badkamer, pvc-vloer en tegelvloer.',ids:['badkamer','pvc','tegelvloer']}
+];
+function DemoOverview(){
+  return h`<section id="minidemos" class="mdo"><div class="wrap">
+    <div class="head"><div><p class="eyebrow mono">Alle configurators · probeer ze hier</p><h2><${Words} text="Elke configurator, *in het klein."/></h2></div><${Rise} delay=${.2}><p>Per configurator een compacte, werkende versie met echte renders. Kies een optie en zie het beeld veranderen. De volledige configurator opent in een nieuw tabblad. De jachtstudio staat hieronder apart.</p></${Rise}></div>
+    ${DEMO_GROUPS.map(function(g){return h`<div class="mdgroup" key=${g.t}><h3>${g.t}</h3><p class="gsub">${g.s}</p><${DemoCarousel} ids=${g.ids}/></div>`})}
+  </div></section>`;
+}
+var BRANCH_DEMOS={'branche-bouwbedrijven':['uitbouw','dakopbouw','nokverhoging'],'branche-overkapping-veranda':['overkapping','poolhouse'],'branche-dakdekkers':['dakrenovatie','nokverhoging','dakkapel'],'branche-hoveniers':['kunstgras','zwembad','poolhouse'],'branche-installatiebedrijven':['badkamer'],'dienst-automatisering':['uitbouw','dakrenovatie'],'dienst-crm':['uitbouw'],'dienst-software':['jacht','kunstgras']};
+function BranchDemos(props){
+  var ids=BRANCH_DEMOS[props.slug];if(!ids)return null;
+  return h`<section id="demo"><div class="wrap">
+    <div class="head"><div><p class="eyebrow mono">Probeer het zelf</p><h2><${Words} text=${props.title||'Jouw klant kiest, *het beeld verandert.'}/></h2></div><${Rise} delay=${.2}><p>${props.lead||'Een compacte versie van de configurator zoals die op jouw website kan draaien, met echte renders uit onze engine. De volledige configurator opent in een nieuw tabblad.'}</p></${Rise}></div>
+    <${Rise}><${DemoCarousel} ids=${ids}/></${Rise}>
+  </div></section>`;
+}
+
 /* ---------- branchepagina ---------- */
 function BranchPage(props){
   var slug=props.slug,d=SEO.pages[slug],b=STUDIO.branches[slug];useHead(slug);
@@ -1801,6 +1946,7 @@ function BranchPage(props){
       <div class="mods">${b.modules.map(function(x,i){return h`<${m.div} key=${i} className="mod" initial=${{opacity:0,y:24}} whileInView=${{opacity:1,y:0}} viewport=${{once:true}} transition=${{delay:i*.05,duration:.6,ease:EASE}} whileHover=${{y:-6}}><span class=${'tag '+x.tag}>${x.tag}</span><b>${x.t}</b><p>${x.d}</p></${m.div}>`})}</div></div>
     </div></section>`}
     <${Beeldstrip} slug=${slug}/>
+    <${BranchDemos} slug=${slug}/>
     <${SeoBody} d=${d} cream=${true}/>
     <section><div class="wrap">
       <div class="head"><div><p class="eyebrow mono">Wat we voor je bouwen</p><h2><${Words} text="Concreet. *Meetbaar."/></h2></div><${Rise} delay=${.2}><p>${d.proof}</p></${Rise}></div>
@@ -1826,7 +1972,8 @@ function ServicePage(props){
       <div class="head" style=${{marginTop:70,marginBottom:28}}><div><p class="eyebrow mono">Inclusief</p><h2><${Words} text="Wat je *krijgt."/></h2></div></div>
       <${Rise}><ul class="incl">${sv.inclusief.map(function(x){return h`<li key=${x}>${x}</li>`})}</ul></${Rise}>
     </div></section>`}
-    ${slug==='dienst-configurators'&&h`<${React.Fragment}><${ProductGallery}/><${YachtStudio}/></${React.Fragment}>`}
+    ${slug==='dienst-configurators'&&h`<${React.Fragment}><${ProductGallery}/><${DemoOverview}/><${YachtStudio}/></${React.Fragment}>`}
+    ${(slug==='dienst-automatisering'||slug==='dienst-crm'||slug==='dienst-software')&&h`<${BranchDemos} slug=${slug} title="Van klik *naar aanvraag." lead="De configurator is het begin van de flow: de klant kiest, het beeld verandert, en de aanvraag landt compleet in CRM en offerte. Probeer het hier."/>`}
     ${slug==='sales'&&h`<${Story}/>`}
     ${slug==='dienst-webdesign'&&h`<${React.Fragment}><${Work}/><${Demo}/><${Strip}/><${Cases}/></${React.Fragment}>`}
     ${slug!=='sales'&&h`<section class="cream" id="voorbeelden"><div class="wrap">
@@ -2007,6 +2154,7 @@ function HomeBody(props){return h`<${React.Fragment}>
       <${CaseTiles}/>
       <${ReelRow}/>
       <${Parts}/>
+      <${HomeDemos}/>
       <${HomeBranches}/>
       <${Beats} cream=${true}/>
       <${Collabs}/>
