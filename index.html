@@ -890,6 +890,9 @@ footer.boost .giantword{font:900 clamp(56px,10.6vw,160px)/.8 var(--display);lett
 .hl .hlt .ln{display:block;white-space:nowrap}
 .hl .hlt .ch{display:inline-block;will-change:transform}
 .hl .hlt .ln.ol{color:transparent;-webkit-text-stroke:.045em #0E1A2B;letter-spacing:-.02em}
+.hl .hlt .wipe{position:relative;letter-spacing:-.02em}.hl .hlt .wipe .ol{color:transparent;-webkit-text-stroke:.045em #0E1A2B}.hl .hlt .wipe .fl{position:absolute;left:0;top:0;color:#0E1A2B;will-change:clip-path}
+.hl .hlt .wd{display:inline-block;margin-right:.22em;will-change:transform}.hl .hlt .wd:last-child{margin-right:0}
+.hl .hlt .msk{display:inline-block;overflow:hidden;vertical-align:bottom;margin-right:.22em;padding-bottom:.06em}.hl .hlt .msk:last-child{margin-right:0}.hl .hlt .msk span{display:inline-block;will-change:transform}
 .hl .hlt .sub{font:600 .3em/1.3 var(--body);text-transform:none;letter-spacing:0;margin:.5em 0 0;color:#0E1A2B;opacity:.85}
 .hl .veil{position:absolute;inset:0;background:#DCEBF6;pointer-events:none;transition:opacity .15s linear}
 .hl .hcta{position:absolute;left:5%;bottom:34px;z-index:4;display:flex;gap:12px;align-items:center}
@@ -2014,21 +2017,46 @@ function FallLine(props){ // letters vallen van boven het beeld en landen met ko
 }
 var HL_SCENES=[
   {s:0,e:4,in_:1.1,out:3.6,kind:'letters',lines:['VAL OP.'],pos:{left:'6%',top:'34%'},size:9},
-  {s:4,e:8,in_:4.4,out:7.5,lines:['JOUW MERK.','ONMISKENBAAR.'],outline:1,pos:{left:'4%',top:'8%'},size:4.2},
-  {s:8,e:12,in_:8.4,out:10.9,lines:['WEBSITES DIE','VERKOPEN.'],pos:{left:'4%',top:'6%'},size:4.8},
-  {s:12,e:16,in_:12.4,out:15.3,lines:['CONTENT DIE OPVALT.'],pos:{right:'5%',top:'7%'},size:4.8,align:'right'},
-  {s:16,e:20,in_:16.4,out:19.0,lines:['VAN VAKWERK TOT WEBSHOP.'],pos:{right:'4%',top:'6%'},size:3.8,align:'right'},
-  {s:20,e:24,in_:20.4,out:23.5,lines:['LAAT KLANTEN ZELF KIEZEN.'],sub:'Websites. Branding. Productvideo’s. Configurators.',pos:{left:'4%',top:'6%'},size:4.6}
+  {s:4,e:8,in_:4.4,out:7.5,kind:'fill',lines:['JOUW MERK.','ONMISKENBAAR.'],pos:{left:'4%',top:'8%'},size:4.2},
+  {s:8,e:12,in_:8.4,out:10.9,kind:'words',lines:['WEBSITES DIE','VERKOPEN.'],pos:{left:'4%',top:'6%'},size:4.8},
+  {s:12,e:16,in_:12.4,out:15.3,kind:'pop',lines:['CONTENT DIE OPVALT.'],pos:{right:'5%',top:'7%'},size:4.8,align:'right'},
+  {s:16,e:20,in_:16.4,out:19.0,kind:'mask',lines:['VAN VAKWERK TOT WEBSHOP.'],pos:{right:'4%',top:'6%'},size:3.8,align:'right'},
+  {s:20,e:24,in_:20.4,out:23.5,kind:'letters',lines:['LAAT KLANTEN ZELF KIEZEN.'],sub:'Websites. Branding. Productvideo’s. Configurators.',pos:{left:'4%',top:'6%'},size:4.6}
 ];
-function HLText(props){ // tekstlaag per scène, gestuurd door de afspeeltijd
+function HLText(props){ // tekstlaag per scène, gestuurd door de afspeeltijd; elke scène een eigen entree
   var sc=props.sc,mob=props.mob;
   var style=mob?{}:Object.assign({fontSize:sc.size+'cqw'},sc.pos,sc.align==='right'?{textAlign:'right'}:{});
-  if(sc.kind==='letters'){
-    return h`<${m.div} className="hlt" style=${style} initial=${false} exit=${{opacity:0,y:-10,transition:{duration:.3}}}>
-      <div class="ln">${sc.lines[0].split('').map(function(ch,i){return h`<${m.span} key=${i} className="ch" initial=${{y:'-140%',opacity:0}} animate=${{y:['-140%','0%','-6%','0%'],opacity:[0,1,1,1]}} transition=${{duration:.62,times:[0,.7,.86,1],ease:['easeIn','easeOut','easeIn'],delay:i*.05}}>${ch===' '?' ':ch}</${m.span}>`})}</div>
+  var ex={opacity:0,y:-10,transition:{duration:.3}};
+  function letters(line,base){return line.split('').map(function(ch,i){return h`<${m.span} key=${i} className="ch" initial=${{y:'-140%',opacity:0}} animate=${{y:['-140%','0%','-6%','0%'],opacity:[0,1,1,1]}} transition=${{duration:.62,times:[0,.7,.86,1],ease:['easeIn','easeOut','easeIn'],delay:(base||0)+i*.05}}>${ch===' '?' ':ch}</${m.span}>`})}
+  if(sc.kind==='letters'){ // letters vallen en landen met een kleine terugvering
+    return h`<${m.div} className="hlt" style=${style} initial=${false} exit=${ex}>
+      <div class="ln">${letters(sc.lines[0])}</div>
+      ${sc.sub&&h`<${m.p} className="sub" initial=${{opacity:0,y:10}} animate=${{opacity:1,y:0}} transition=${{delay:.9,duration:.5}}>${sc.sub}</${m.p}>`}
     </${m.div}>`;
   }
-  return h`<${m.div} className="hlt" style=${style} initial=${{opacity:0,y:18}} animate=${{opacity:1,y:0}} exit=${{opacity:0,y:-10,transition:{duration:.3}}} transition=${{duration:.5,ease:EASE}}>
+  if(sc.kind==='fill'){ // regel 1 schuift in, regel 2 is een contour die van links naar rechts volloopt
+    return h`<${m.div} className="hlt" style=${style} initial=${false} exit=${ex}>
+      <${m.div} className="ln" initial=${{opacity:0,x:-40}} animate=${{opacity:1,x:0}} transition=${{duration:.55,ease:EASE}}>${sc.lines[0]}</${m.div}>
+      <div class="ln wipe"><span class="ol">${sc.lines[1]}</span><${m.span} className="fl" initial=${{clipPath:'inset(0 100% 0 0)'}} animate=${{clipPath:'inset(0 0% 0 0)'}} transition=${{delay:.45,duration:.9,ease:[.7,0,.2,1]}}>${sc.lines[1]}</${m.span}></div>
+    </${m.div}>`;
+  }
+  if(sc.kind==='words'){ // woorden schieten om en om van links en rechts naar binnen
+    var k=0;
+    return h`<${m.div} className="hlt" style=${style} initial=${false} exit=${ex}>
+      ${sc.lines.map(function(l,li){return h`<div class="ln" key=${li}>${l.split(' ').map(function(w,wi){var n=k++;return h`<${m.span} key=${wi} className="wd" initial=${{x:(n%2?1:-1)*220,opacity:0,rotate:(n%2?1:-1)*6}} animate=${{x:0,opacity:1,rotate:0}} transition=${{type:'spring',stiffness:260,damping:20,delay:n*.12}}>${w}</${m.span}>`})}</div>`})}
+    </${m.div}>`;
+  }
+  if(sc.kind==='pop'){ // letters ploppen op, met een kleine overshoot
+    return h`<${m.div} className="hlt" style=${style} initial=${false} exit=${ex}>
+      <div class="ln">${sc.lines[0].split('').map(function(ch,i){return h`<${m.span} key=${i} className="ch" initial=${{scale:0,opacity:0,rotate:-12}} animate=${{scale:[0,1.18,1],opacity:1,rotate:0}} transition=${{duration:.42,times:[0,.7,1],ease:'easeOut',delay:i*.035}}>${ch===' '?' ':ch}</${m.span}>`})}</div>
+    </${m.div}>`;
+  }
+  if(sc.kind==='mask'){ // woorden rijzen op uit een onzichtbare lijn
+    return h`<${m.div} className="hlt" style=${style} initial=${false} exit=${ex}>
+      <div class="ln">${sc.lines[0].split(' ').map(function(w,i){return h`<span key=${i} class="msk"><${m.span} initial=${{y:'110%'}} animate=${{y:'0%'}} transition=${{duration:.55,ease:[.2,.8,.2,1],delay:i*.1}}>${w}</${m.span}></span>`})}</div>
+    </${m.div}>`;
+  }
+  return h`<${m.div} className="hlt" style=${style} initial=${{opacity:0,y:18}} animate=${{opacity:1,y:0}} exit=${ex} transition=${{duration:.5,ease:EASE}}>
     ${sc.lines.map(function(l,i){return h`<${m.div} key=${i} className=${'ln'+(sc.outline&&i===1?' ol':'')} initial=${{opacity:0,y:18}} animate=${{opacity:1,y:0}} transition=${{duration:.5,ease:EASE,delay:i*.14}}>${l}</${m.div}>`})}
     ${sc.sub&&h`<${m.p} className="sub" initial=${{opacity:0}} animate=${{opacity:1}} transition=${{delay:.6,duration:.5}}>${sc.sub}</${m.p}>`}
   </${m.div}>`;
