@@ -1456,8 +1456,9 @@ function Footer(){
 
 /* ---------- router & head ---------- */
 function useRoute(){
-  var st=useState(location.hash.replace('#','')),r=st[0],setR=st[1];
-  useEffect(function(){function f(){setR(location.hash.replace('#',''))}addEventListener('hashchange',f);return function(){removeEventListener('hashchange',f)}},[]);
+  function cur(){var h=location.hash.replace('#','');if(h)return h;var pth=location.pathname.replace(/^\/+|\/+$/g,'').replace(/\.html$/,'');return pth==='index'?'':pth}
+  var st=useState(cur()),r=st[0],setR=st[1];
+  useEffect(function(){function f(){setR(cur())}addEventListener('hashchange',f);return function(){removeEventListener('hashchange',f)}},[]);
   var page=ROUTES.indexOf(r)>=0?r:'home';
   return {page:page,hash:r};
 }
