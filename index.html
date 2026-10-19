@@ -442,9 +442,10 @@ footer .legal{grid-column:1/-1;border-top:1px solid var(--line);padding-top:20px
 .panel .blur{position:absolute;inset:-10%;background-size:cover;background-position:center;filter:blur(40px) brightness(.35);transform:scale(1.1)}
 .panel .reel{position:relative;height:100%;aspect-ratio:9/16;object-fit:cover;border-radius:0}
 .panel.tri{aspect-ratio:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;place-items:stretch;background:#0A0A0A}
-.panel.tri .trc{position:relative;aspect-ratio:9/16;overflow:hidden;border-right:1px solid rgba(255,255,255,.08)}
+.panel.tri .trc{position:relative;aspect-ratio:4/5;overflow:hidden;border-right:1px solid rgba(255,255,255,.08);background:#0A0A0A}
 .panel.tri .trc:last-child{border-right:0}
-.panel.tri .trc video{width:100%;height:100%;object-fit:cover;display:block}
+.panel.tri .trc .bgp{position:absolute;inset:-12%;background-position:center;background-size:cover;filter:blur(34px) brightness(.55) saturate(1.1)}
+.panel.tri .trc video{position:relative;width:100%;height:100%;object-fit:contain;display:block}
 .panel.tri .trc .trt{position:absolute;left:14px;top:14px;font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#fff;background:rgba(10,10,10,.6);padding:7px 10px;border-radius:999px;backdrop-filter:blur(8px)}
 @media(max-width:700px){.panel.tri{grid-template-columns:1fr 1fr}.panel.tri .trc:nth-child(3){display:none}.panel.tri .lbl{display:none}}
 .panel .lbl{position:absolute;left:22px;bottom:20px;display:flex;gap:10px;align-items:center;font:500 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#fff;background:rgba(10,10,10,.6);backdrop-filter:blur(8px);padding:8px 12px;border-radius:999px}
@@ -835,13 +836,13 @@ footer.boost .giantword{font:900 clamp(56px,10.6vw,160px)/.8 var(--display);lett
 .nav .dd>button i{width:7px;height:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .2s}
 .nav .dd.open>button{opacity:1}.nav .dd.open>button i{transform:rotate(225deg) translateY(-2px)}
 .nav .dd:hover>button{opacity:1}
-.nav .panel-dd{position:absolute;left:50%;top:calc(100% + 18px);transform:translateX(-50%);background:#111;border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:14px;box-shadow:0 30px 80px -20px rgba(0,0,0,.8);min-width:320px;z-index:60}
+.nav .panel-dd{position:absolute;right:0;top:calc(100% + 18px);max-width:calc(100vw - 32px);box-sizing:border-box;background:#111;border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:14px;box-shadow:0 30px 80px -20px rgba(0,0,0,.8);min-width:320px;z-index:60}
 .nav .panel-dd::before{content:"";position:absolute;left:0;right:0;top:-18px;height:18px}
 .nav .panel-dd a{display:block;padding:10px 12px;border-radius:10px;text-decoration:none;opacity:1;color:#fff}
 .nav .panel-dd a:hover{background:rgba(255,255,255,.07)}
 .nav .panel-dd a b{display:block;font:700 14px var(--body)}
 .nav .panel-dd a span{display:block;font:400 12px var(--body);color:var(--muted);margin-top:2px}
-.nav .panel-dd .cols2{display:grid;grid-template-columns:1fr 1fr;gap:2px;width:520px}
+.nav .panel-dd .cols2{display:grid;grid-template-columns:1fr 1fr;gap:2px;width:min(520px,calc(100vw - 64px))}
 .nav .panel-dd .cols3{display:grid;grid-template-columns:1fr 1fr;gap:2px;width:440px}
 .nav .panel-dd .all b{color:var(--sig)}
 .menu{display:flex;flex-direction:column;overflow:auto}
@@ -921,7 +922,7 @@ footer.boost .giantword{font:900 clamp(56px,10.6vw,160px)/.8 var(--display);lett
 }
 @media(prefers-reduced-motion:reduce){.hl .hint span{animation:none}}
 
-.nav .panel-dd .groups{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;width:760px}
+.nav .panel-dd .groups{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;width:min(760px,calc(100vw - 64px))}
 .nav .panel-dd .grp .gt{font:500 10.5px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:6px 12px 4px}
 .menu .mlist .sub.subg{display:grid;grid-template-columns:1fr;gap:4px}
 .menu .mlist .sub.subg .gt{font:500 10.5px var(--mono);letter-spacing:.14em;text-transform:uppercase;opacity:.7;margin:8px 0 2px}
@@ -1538,14 +1539,10 @@ function LocalPage(props){
   var parent=isWeb?['dienst-webdesign','Webdesign']:['dienst-marketing','Marketing'];
   var others=Object.keys(SEO.pages).filter(function(k){return k.indexOf(isWeb?'lokaal-webdesign-':'lokaal-marketing-')===0&&k!==slug});
   return h`<${React.Fragment}>
-    <${PageHero} slug=${slug} d=${d} parent=${parent} short=${plaats} eyebrow=${(isWeb?'Website laten maken · ':'Online marketing · ')+plaats} cta2=${h`<${Magnet} href="#voorbeelden" kind="ghost" icon="↓">Bekijk voorbeelden</${Magnet}>`}/>
+    <${PageHero} slug=${slug} d=${d} parent=${parent} short=${plaats} eyebrow=${(isWeb?'Website laten maken · ':'Online marketing · ')+plaats} cta2=${h`<${Magnet} href="#wat" kind="ghost" icon="↓">Wat je krijgt</${Magnet}>`}/>
     <section style=${{paddingBlock:'36px 0'}}><div class="wrap"><${Kort} k=${d.kort}/></div></section>
     <${SeoBody} d=${d} eyebrow=${'In '+plaats}/>
-    <section class="cream" id="voorbeelden"><div class="wrap">
-      <div class="head"><div><p class="eyebrow mono">Voorbeelden</p><h2><${Words} text=${'Zo kan jouw site in *'+plaats+' eruitzien.'}/></h2></div><${Rise} delay=${.2}><p>Kies je branche, een stijl en een kleur. Dit is de opbouw die we voor klanten bouwen; met jouw naam, foto's en reviews erin.</p></${Rise}></div>
-      <${Rise}><${StudioPicker} options=${studioOptionsFor(['branche-bouwbedrijven','branche-restaurants-horeca','branche-webshops','branche-autobedrijven','branche-installatiebedrijven','branche-brands'])}/></${Rise}>
-    </div></section>
-    <section><div class="wrap">
+    <section id="wat"><div class="wrap">
       <div class="head"><div><p class="eyebrow mono">Wat je krijgt</p><h2><${Words} text="Concreet. *Meetbaar."/></h2></div><${Rise} delay=${.2}><p>${d.proof}</p></${Rise}></div>
       <div class="feat">${d.features.map(function(f,i){return h`<${m.div} key=${i} initial=${{opacity:0,y:24}} whileInView=${{opacity:1,y:0}} viewport=${{once:true}} transition=${{delay:i*.06,duration:.6,ease:EASE}}><b>${f.t}</b><p>${f.d}</p></${m.div}>`})}</div>
       <div style=${{marginTop:48}}><${ProofRow} slug=${isWeb?'dienst-webdesign':'dienst-marketing'}/></div>
@@ -1668,7 +1665,7 @@ function WorldHero(props){
     <${m.h1} initial=${{opacity:0,y:30}} animate=${{opacity:1,y:0}} transition=${{duration:.9,ease:EASE,delay:.1}}>${lines}</${m.h1}>
     <${m.p} className="def" initial=${{opacity:0,y:16}} animate=${{opacity:1,y:0}} transition=${{delay:.45,duration:.8,ease:EASE}}>${d.definition}</${m.p}>
     ${w.chips&&h`<${m.div} className="chips" initial=${{opacity:0}} animate=${{opacity:1}} transition=${{delay:.6}}>${w.chips.map(function(c,i){return h`<span key=${c} class=${i===0?'on':''}>${c}</span>`})}</${m.div}>`}
-    <${m.div} className="cta" initial=${{opacity:0,y:16}} animate=${{opacity:1,y:0}} transition=${{delay:.7,duration:.8,ease:EASE}}><${Magnet} href="#contact">Plan een kennismaking</${Magnet}><${Magnet} href="#studio" kind="ghost" icon="↓">Zie hoe jouw site eruit kan zien</${Magnet}></${m.div}>
+    <${m.div} className="cta" initial=${{opacity:0,y:16}} animate=${{opacity:1,y:0}} transition=${{delay:.7,duration:.8,ease:EASE}}><${Magnet} href="#contact">Plan een kennismaking</${Magnet}><${Magnet} href=${BRANCH_DEMOS[slug]?"#demo":"#studio"} kind="ghost" icon="↓">${BRANCH_DEMOS[slug]?"Probeer de configurator":"Wat er allemaal op kan"}</${Magnet}></${m.div}>
   </${React.Fragment}>`;
   var media=w.media&&h`<video src=${'assets/'+w.media.v+'.mp4'} poster=${w.media.p} muted loop playsInline preload="metadata" data-auto="1" aria-hidden="true"></video>`;
   var cls='wh l-'+w.layout+(w.serif?' serif':'');
@@ -1930,7 +1927,7 @@ function BranchPage(props){
   var slug=props.slug,d=SEO.pages[slug],b=STUDIO.branches[slug];useHead(slug);
   var short=d.h1.split(' voor ').pop().split(' die ')[0];
   var w=WORLD[slug];
-  var hero=slug==='branche-webshops'?h`<${React.Fragment}><${FashionDemo} media=${{night:'assets/fd-night.mp4',volt:'assets/fd-volt.mp4',heat:'assets/fd-heat.mp4',ice:'assets/fd-ice.mp4'}}/><section style=${{paddingBlock:'40px 0'}}><div class="wrap"><${Crumbs} parent=${['branches','Branches']} name=${BRANCH_NAME[slug]}/><h1 style=${{fontSize:'clamp(34px,4.6vw,64px)',marginTop:14}}><${Words} text=${d.h1}/></h1><p class="lead" style=${{maxWidth:'38em',marginTop:18,color:'var(--muted)'}}>${d.definition}</p><div class="cta" style=${{display:'flex',gap:12,flexWrap:'wrap',marginTop:24}}><${Magnet} href="#contact">Plan een kennismaking</${Magnet}><${Magnet} href="#studio" kind="ghost" icon="↓">Kies je webshop-stijl</${Magnet}></div></div></section></${React.Fragment}>`
+  var hero=slug==='branche-webshops'?h`<${React.Fragment}><${FashionDemo} media=${{night:'assets/fd-night.mp4',volt:'assets/fd-volt.mp4',heat:'assets/fd-heat.mp4',ice:'assets/fd-ice.mp4'}}/><section style=${{paddingBlock:'40px 0'}}><div class="wrap"><${Crumbs} parent=${['branches','Branches']} name=${BRANCH_NAME[slug]}/><h1 style=${{fontSize:'clamp(34px,4.6vw,64px)',marginTop:14}}><${Words} text=${d.h1}/></h1><p class="lead" style=${{maxWidth:'38em',marginTop:18,color:'var(--muted)'}}>${d.definition}</p><div class="cta" style=${{display:'flex',gap:12,flexWrap:'wrap',marginTop:24}}><${Magnet} href="#contact">Plan een kennismaking</${Magnet}><${Magnet} href="#fashion" kind="ghost" icon="↑">Switch the look</${Magnet}></div></div></section></${React.Fragment}>`
     :w?h`<${WorldHero} w=${w} slug=${slug} d=${d}/>`
     :h`<${PageHero} slug=${slug} d=${d} parent=${['branches','Branches']} short=${BRANCH_NAME[slug]} eyebrow=${'Website, branding & marketing'}/>`;
   return h`<div class=${'bp'+(w&&w.light?' light':'')+(w&&w.layout==='bch'?' bch':'')} style=${w?w.vars:{}}>
@@ -1939,9 +1936,7 @@ function BranchPage(props){
     <${Ticker} items=${[d.keywords[0]||'Website',d.keywords[1]||'Marketing',d.keywords[2]||'Branding','Next Growth']}/>
     <section style=${{paddingBlock:'36px 0'}}><div class="wrap"><${Kort} k=${d.kort}/></div></section>
     ${b&&h`<section id="studio"><div class="wrap">
-      <div class="head"><div><p class="eyebrow mono">Website-studio</p><h2><${Words} text="Zo kan *jouw site eruitzien."/></h2></div><${Rise} delay=${.2}><p>Kies een stijl en een kleur. Dit is dezelfde opbouw die we voor onze klanten bouwen: kop, bewijs, diensten, één duidelijke knop. Met jouw naam, foto's en reviews erin.</p></${Rise}></div>
-      <${Rise}>${b.subtypes&&b.subtypes.length?h`<${StudioPicker} options=${studioOptionsFor([slug])}/>`:h`<${Studio} b=${b} img=${HERO_IMG[slug]}/>`}</${Rise}>
-      <div style=${{marginTop:60}}><div class="head" style=${{marginBottom:28}}><div><p class="eyebrow mono">Wat kan er allemaal op</p><h2><${Words} text="Alles wat *jouw site nodig heeft."/></h2></div><${Rise} delay=${.2}><p>${b.seoHint}</p></${Rise}></div>
+      <div><div class="head" style=${{marginBottom:28}}><div><p class="eyebrow mono">Wat kan er allemaal op</p><h2><${Words} text="Alles wat *jouw site nodig heeft."/></h2></div><${Rise} delay=${.2}><p>${b.seoHint}</p></${Rise}></div>
       <div class="mods">${b.modules.map(function(x,i){return h`<${m.div} key=${i} className="mod" initial=${{opacity:0,y:24}} whileInView=${{opacity:1,y:0}} viewport=${{once:true}} transition=${{delay:i*.05,duration:.6,ease:EASE}} whileHover=${{y:-6}}><span class=${'tag '+x.tag}>${x.tag}</span><b>${x.t}</b><p>${x.d}</p></${m.div}>`})}</div></div>
     </div></section>`}
     <${Beeldstrip} slug=${slug}/>
@@ -1975,10 +1970,6 @@ function ServicePage(props){
     ${(slug==='dienst-automatisering'||slug==='dienst-crm'||slug==='dienst-software')&&h`<${BranchDemos} slug=${slug} title="Van klik *naar aanvraag." lead="De configurator is het begin van de flow: de klant kiest, het beeld verandert, en de aanvraag landt compleet in CRM en offerte. Probeer het hier."/>`}
     ${slug==='sales'&&h`<${Story}/>`}
     ${slug==='dienst-webdesign'&&h`<${React.Fragment}><${Work}/><${Demo}/><${Strip}/><${Cases}/></${React.Fragment}>`}
-    ${slug!=='sales'&&h`<section class="cream" id="voorbeelden"><div class="wrap">
-      <div class="head"><div><p class="eyebrow mono">Voorbeelden per branche</p><h2><${Words} text="Zo ziet het eruit *voor jouw vak."/></h2></div><${Rise} delay=${.2}><p>Kies een branche en speel met stijl en kleur. Elke voorbeeldsite heeft dezelfde ruggengraat: kop, bewijs, diensten, projecten, waarom, werkwijze en één duidelijke knop.</p></${Rise}></div>
-      <${Rise}><${StudioPicker} options=${studioOptionsFor(['branche-restaurants-horeca','branche-webshops','branche-bouwbedrijven','branche-autobedrijven','branche-brands','branche-overkapping-veranda'])}/></${Rise}>
-    </div></section>`}
     <${Beeldstrip} slug=${slug}/>
     <${SeoBody} d=${d} cream=${slug==='sales'}/>
     <${Beats} cream=${slug!=='sales'}/>
@@ -2085,7 +2076,7 @@ function Showreel(){
   var R=[{v:'reel-cans',p:'assets/reel-cans.jpg',t:'Pulse · drankmerk'},{v:'reel-protein',p:'assets/reel-protein.jpg',t:'Atlas Whey · productvideo'},{v:'reel-bars',p:'assets/reel-bars.jpg',t:'Atlas Bars · productvideo'}];
   return h`<section class="showreel" id="showreel" style=${{paddingBlock:'30px 0'}}><div class="wrap">
     <${m.div} ref=${r} className="panel tri" initial=${{opacity:0,y:60,scale:.96}} whileInView=${{opacity:1,y:0,scale:1}} viewport=${{once:true,margin:'-5% 0px'}} transition=${{duration:1.1,ease:EASE}}>
-      ${R.map(function(x){return h`<div key=${x.v} class="trc"><video src=${'assets/'+x.v+'.mp4'} poster=${x.p} muted=${muted} loop playsInline preload="metadata" data-auto="1" aria-label=${'Showreel: '+x.t}></video><span class="trt">${x.t}</span></div>`})}
+      ${R.map(function(x){return h`<div key=${x.v} class="trc"><div class="bgp" style=${{backgroundImage:'url("'+x.p+'")'}} aria-hidden="true"></div><video src=${'assets/'+x.v+'.mp4'} poster=${x.p} muted=${muted} loop playsInline preload="metadata" data-auto="1" aria-label=${'Showreel: '+x.t}></video><span class="trt">${x.t}</span></div>`})}
       <span class="lbl">Showreel · productvideo's en branding</span>
       <button class="mute" type="button" onClick=${function(){var el=r.current;if(!el)return;var nm=!muted;setMuted(nm);el.querySelectorAll('video').forEach(function(v){v.muted=nm;if(v.paused)v.play().catch(function(){})})}}>${muted?'Geluid aan':'Geluid uit'}</button>
     </${m.div}>
@@ -2144,11 +2135,10 @@ function FooterBoost(){
   </div></footer>`;
 }
 /* ---------- app ---------- */
-function HomeBranches(){return h`<section id="branches-home"><div class="wrap"><div class="head"><div><p class="eyebrow mono">Per branche</p><h2><${Words} text="Zie hoe *jouw site eruit kan zien."/></h2></div><${Rise} delay=${.2}><p>Elke branche heeft een eigen pagina met een website-studio: kies een stijl en kleur en zie direct een voorbeeld in de opbouw die we voor onze klanten bouwen.</p></${Rise}></div><${BranchGrid}/></div></section>`}
+function HomeBranches(){return h`<section id="branches-home"><div class="wrap"><div class="head"><div><p class="eyebrow mono">Per branche</p><h2><${Words} text="Kies *jouw branche."/></h2></div><${Rise} delay=${.2}><p>Elke branche heeft een eigen pagina in eigen stijl: wat de website moet doen, een werkende mini-demo van de configurator en wat het oplevert.</p></${Rise}></div><${BranchGrid}/></div></section>`}
 function HomeBody(props){return h`<${React.Fragment}>
       <${HeroBoost} go=${props.go}/>
       <${Showreel}/>
-      <${LogoBar}/>
       <${FanCards}/>
       <${CaseTiles}/>
       <${ReelRow}/>
