@@ -984,6 +984,27 @@ footer.boost .giantword{font:900 clamp(56px,10.6vw,160px)/.8 var(--display);lett
 .yacht .thumbs span{position:absolute;left:10px;bottom:8px;font:500 10.5px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:#fff;background:rgba(7,23,43,.6);padding:5px 8px;border-radius:3px}
 .yacht .cap{margin:12px 0 0;font:500 11px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:rgba(244,241,234,.6);text-align:right}
 @media(max-width:900px){.yacht .grid{grid-template-columns:1fr;gap:28px}.yacht .row{flex-direction:column;align-items:stretch}.yacht .wbtn{justify-content:center}.yacht .toggle{justify-content:center}}
+/* van romp tot interieur */
+.yacht .parts{margin-top:clamp(70px,9vw,130px);border-top:1px solid rgba(244,241,234,.22);padding-top:clamp(40px,5vw,70px)}
+.yacht .parts .head2{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,4vw,60px);align-items:end;margin-bottom:clamp(28px,4vw,48px)}
+.yacht .parts .head2 p{color:rgba(244,241,234,.78);font-size:16px;line-height:1.6;max-width:30em;margin:0}
+.yacht .ov{position:relative;border:1px solid rgba(244,241,234,.28);padding:10px;border-radius:6px;background:rgba(255,255,255,.03)}
+.yacht .ov video,.yacht .ov img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;border-radius:2px;background:var(--navy)}
+.yacht .ov .pz2{position:absolute;right:22px;bottom:22px;width:40px;height:40px;border-radius:50%;border:1px solid rgba(244,241,234,.5);background:rgba(7,23,43,.55);color:#fff;font:600 11px var(--mono);cursor:pointer;backdrop-filter:blur(6px);display:grid;place-items:center}
+.yacht .ov .pz2:hover{background:var(--ivory);color:var(--navy)}
+.yacht .ov .lbl{position:absolute;left:22px;bottom:22px;font:500 10.5px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:#fff;background:rgba(7,23,43,.6);padding:6px 9px;border-radius:3px}
+.yacht .plist{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.2vw,28px);margin-top:clamp(28px,4vw,48px)}
+.yacht .pc{border:1px solid rgba(244,241,234,.2);border-radius:6px;padding:10px;background:rgba(255,255,255,.025);display:flex;flex-direction:column;gap:10px}
+.yacht .pc .pv{position:relative}
+.yacht .pc video,.yacht .pc .pv img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;border-radius:2px;background:var(--navy)}
+.yacht .pc .num{position:absolute;left:10px;top:10px;font:500 10.5px var(--mono);letter-spacing:.18em;color:#fff;background:rgba(7,23,43,.6);padding:5px 8px;border-radius:3px}
+.yacht .pc .st{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.yacht .pc .st img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;border-radius:2px;border:1px solid rgba(244,241,234,.16)}
+.yacht .pc h3{margin:6px 0 0;font:500 21px/1.15 'Fraunces',Georgia,serif;letter-spacing:-.01em;text-transform:none;color:#fff}
+.yacht .pc p{margin:0 0 4px;font-size:13.5px;line-height:1.55;color:rgba(244,241,234,.72)}
+@media(max-width:1000px){.yacht .plist{grid-template-columns:1fr 1fr}}
+@media(max-width:900px){.yacht .parts .head2{grid-template-columns:1fr}}
+@media(max-width:620px){.yacht .plist{grid-template-columns:1fr}.yacht .ov .pz2{right:16px;bottom:16px}.yacht .ov .lbl{left:16px;bottom:16px}}
 
 </style></head><body>
 
@@ -1719,8 +1740,45 @@ function YachtStudio(){ // jachtstudio: navy en wit, exclusief en rustig
           <${AnimatePresence} mode="wait"><${m.p} key=${mode} className="cap" initial=${{opacity:0}} animate=${{opacity:1}} exit=${{opacity:0}} transition=${{duration:.3}}>${mode==='dag'?'Flybridge met T-top, daglicht':'Verlicht jacht, avond'}</${m.p}></${AnimatePresence}>
         </div>
       </div>
+      <${YachtParts}/>
     </div>
   </section>`;
+}
+var YACHT_PARTS=[
+  {k:'01',t:'Flybridge en T-top',d:'Open flybridge of de variant met T-top: beide momenten in één presentatie.'},
+  {k:'02',t:'Rompkleuren',d:'Twee kleurmomenten uit de demo. Geen technische lak- of kleurgarantie.'},
+  {k:'03',t:'Interieurhout',d:'Twee salonafwerkingen naast elkaar, zodat het gesprek over sfeer concreet wordt.'},
+  {k:'04',t:'Dekafwerking',d:'Vergelijkingsscherm met teak, composiet en antislip.'},
+  {k:'05',t:'Extra uitrusting',d:'Zwemplateau, onderwaterverlichting en tenderkraan als losse opties.'},
+  {k:'06',t:'Avondverlichting',d:'Het jacht met verlicht interieur in avondsfeer.'}
+];
+function YachtParts(){ // overzichtsmontage met pauzeknop en zes onderdelen met eigen clip en stills
+  var ref=useRef(null),ps=useState(false),paused=ps[0],setPaused=ps[1];
+  function toggle(){var v=ref.current;if(!v)return;if(v.paused){v.play();setPaused(false)}else{v.pause();setPaused(true)}}
+  return h`<div class="parts">
+    <div class="head2">
+      <div><h2>Van romp <em>tot interieur.</em></h2></div>
+      <${Rise} delay=${.15}><p>Maak materiaalkeuzes en opties visueel bespreekbaar met een digitale jachtpresentatie. Zes onderdelen, elk met een eigen scherm uit de demo.</p></${Rise}>
+    </div>
+    <${m.div} className="ov" initial=${{opacity:0,y:30}} whileInView=${{opacity:1,y:0}} viewport=${{once:true}} transition=${{duration:.9,ease:EASE}}>
+      ${reduce?h`<img src="assets/jacht-ov.jpg" alt="Overzicht van de jachtpresentatie op een laptop"/>`
+        :h`<video ref=${ref} src="assets/jacht-ov.mp4" poster="assets/jacht-ov.jpg" muted loop playsInline preload="none" data-auto="1" aria-label="Overzichtsmontage van de jachtpresentatie: flybridge, rompkleuren, interieurhout, dekafwerking, uitrusting en avondverlichting"></video>`}
+      <span class="lbl">Overzicht · 24 s</span>
+      ${!reduce&&h`<button type="button" class="pz2" onClick=${toggle} aria-label=${paused?'Video afspelen':'Video pauzeren'}>${paused?'▶':'❚❚'}</button>`}
+    </${m.div}>
+    <div class="plist">
+      ${YACHT_PARTS.map(function(p,i){return h`<${m.article} key=${p.k} className="pc" initial=${{opacity:0,y:24}} whileInView=${{opacity:1,y:0}} viewport=${{once:true,margin:'-60px'}} transition=${{duration:.7,delay:(i%3)*.08,ease:EASE}}>
+        <div class="pv">
+          ${reduce?h`<img src=${'assets/jacht-'+p.k+'a.webp'} alt=${p.t+' in de jachtpresentatie'}/>`
+            :h`<video src=${'assets/jacht-'+p.k+'.mp4'} poster=${'assets/jacht-'+p.k+'a.webp'} muted loop playsInline preload="none" data-auto="1" aria-label=${p.t+' in de jachtpresentatie'}></video>`}
+          <span class="num">${p.k}</span>
+        </div>
+        <div class="st"><img src=${'assets/jacht-'+p.k+'a.webp'} alt=${p.t+', beeld 1'} loading="lazy"/><img src=${'assets/jacht-'+p.k+'b.webp'} alt=${p.t+', beeld 2'} loading="lazy"/></div>
+        <h3>${p.t}</h3><p>${p.d}</p>
+      </${m.article}>`})}
+    </div>
+    <p class="fine">Presentaties van bestaande Next Growth-demobeelden, geen opnamen van een jacht in aanbouw. Sommige opties staan naast elkaar in een vergelijkingsscherm. Geen klantcase van een genoemde werf.</p>
+  </div>`;
 }
 
 /* ---------- branchepagina ---------- */
