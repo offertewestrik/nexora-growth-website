@@ -7,6 +7,6 @@
     { "source": "/llms.txt", "destination": "/seo/llms.txt" },
     { "source": "/", "has": [{ "type": "header", "key": "user-agent", "value": ".*(Googlebot|bingbot|Bingbot|DuckDuckBot|YandexBot|Applebot|GPTBot|ChatGPT-User|OAI-SearchBot|ClaudeBot|Claude-User|Claude-SearchBot|anthropic-ai|PerplexityBot|Perplexity-User|Google-Extended|CCBot|Bytespider|Amazonbot|facebookexternalhit|Twitterbot|LinkedInBot|Slackbot|WhatsApp|TelegramBot|Discordbot|cohere-ai|meta-externalagent|YouBot|Diffbot).*" }], "destination": "/seo/index" },
     { "source": "/:slug([a-z0-9-]+)", "has": [{ "type": "header", "key": "user-agent", "value": ".*(Googlebot|bingbot|Bingbot|DuckDuckBot|YandexBot|Applebot|GPTBot|ChatGPT-User|OAI-SearchBot|ClaudeBot|Claude-User|Claude-SearchBot|anthropic-ai|PerplexityBot|Perplexity-User|Google-Extended|CCBot|Bytespider|Amazonbot|facebookexternalhit|Twitterbot|LinkedInBot|Slackbot|WhatsApp|TelegramBot|Discordbot|cohere-ai|meta-externalagent|YouBot|Diffbot).*" }], "destination": "/seo/:slug" },
-    { "source": "/:slug([a-z0-9-]+)", "destination": "/index.html" }
+    { "source": "/:slug([a-z0-9-]+)", "destination": "/" }
   ]
 }
