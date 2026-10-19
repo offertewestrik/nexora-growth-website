@@ -874,6 +874,51 @@ footer.boost .giantword{font:900 clamp(56px,10.6vw,160px)/.8 var(--display);lett
 .wh .bgimg{position:absolute;inset:0;z-index:0}
 .wh .bgimg img{width:100%;height:100%;object-fit:cover}
 .wh .bgimg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--bg) 0%,color-mix(in srgb,var(--bg) 85%,transparent) 45%,color-mix(in srgb,var(--bg) 35%,transparent) 100%)}
+
+/* ---------- lichte homepage-hero: 24 s, zes werelden, HTML-tekst op de video ---------- */
+.hl{position:relative;background:#EEF4FA;color:#0E1A2B;padding-top:68px}
+.hl .vwrap{position:relative;height:calc(100svh - 68px);min-height:560px;overflow:hidden;background:#DCEBF6}
+.hl video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.hl .hlstage{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:100%;min-width:100%;aspect-ratio:16/9;container-type:inline-size;pointer-events:none}
+.hl .hlt{position:absolute;font:900 1em/.92 var(--display);text-transform:uppercase;letter-spacing:-.035em;color:#0E1A2B;white-space:nowrap}
+.hl .hlt .ln{display:block;white-space:nowrap}
+.hl .hlt .ch{display:inline-block;will-change:transform}
+.hl .hlt .ln.ol{color:transparent;-webkit-text-stroke:.045em #0E1A2B;letter-spacing:-.02em}
+.hl .hlt .sub{font:600 .3em/1.3 var(--body);text-transform:none;letter-spacing:0;margin:.5em 0 0;color:#0E1A2B;opacity:.85}
+.hl .veil{position:absolute;inset:0;background:#DCEBF6;pointer-events:none;transition:opacity .15s linear}
+.hl .dots{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);display:flex;gap:6px}
+.hl .dots span{width:26px;height:4px;border-radius:2px;background:rgba(14,26,43,.18);transition:background .3s}
+.hl .dots span.on{background:#0E1A2B}
+.hl .pz{position:absolute;right:20px;bottom:14px;background:rgba(255,255,255,.75);color:#0E1A2B;border:1px solid rgba(14,26,43,.15);border-radius:999px;padding:9px 14px;font:600 12px var(--body);cursor:pointer;backdrop-filter:blur(8px)}
+.hl .pz:focus-visible{outline:3px solid #0E1A2B;outline-offset:2px}
+.hl .hlbar{border-top:1px solid rgba(14,26,43,.08)}
+.hl .hlrow{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 0;position:relative}
+.hl .lead{margin:0;max-width:38em;font-size:15px;line-height:1.5;color:#3C4A5C}
+.hl .cta{display:flex;gap:12px;flex-wrap:wrap}
+.hl .btn{cursor:pointer;transition:transform .2s,box-shadow .2s}
+.hl .btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px -12px rgba(14,26,43,.5)}
+.hl .btn:focus-visible{outline:3px solid #0E1A2B;outline-offset:3px}
+.hl .btn.ink{background:transparent;color:#0E1A2B;border-color:rgba(14,26,43,.35)}
+.hl .btn.navy{background:#0E1A2B;color:#fff;border-color:#0E1A2B}
+.hl .btn.navy .i{background:#fff;color:#0E1A2B}
+.hl .hint{position:absolute;left:50%;top:-30px;transform:translateX(-50%);width:36px;height:36px;border-radius:50%;background:#0E1A2B;display:grid;place-items:center}
+.hl .hint span{width:8px;height:8px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg) translate(-1px,-1px);animation:hint 1.6s ease-in-out infinite}
+@keyframes hint{0%,100%{transform:rotate(45deg) translate(-2px,-2px)}50%{transform:rotate(45deg) translate(1px,1px)}}
+@media(max-width:860px){
+  .hl{padding-top:64px}
+  .hl .vwrap{height:auto;min-height:0;aspect-ratio:16/9}
+  .hl video{object-fit:contain;background:#DCEBF6}
+  .hl .hlstage{display:none}
+  .hl .dots{bottom:10px}.hl .dots span{width:18px}
+  .hl .pz{right:10px;bottom:8px;padding:7px 11px;font-size:11px}
+  .hl .hlrow{flex-direction:column;align-items:stretch;padding:22px 0 26px;gap:16px}
+  .hl .mtxt{min-height:2.2em;font:900 clamp(30px,9vw,44px)/.95 var(--display);text-transform:uppercase;letter-spacing:-.035em}
+  .hl .mtxt .ln.ol{color:transparent;-webkit-text-stroke:1.5px #0E1A2B}
+  .hl .mtxt .sub{font:600 14px/1.4 var(--body);text-transform:none;letter-spacing:0;margin:8px 0 0;color:#3C4A5C}
+  .hl .cta .btn{justify-content:center;width:100%}
+  .hl .hint{display:none}
+}
+@media(prefers-reduced-motion:reduce){.hl .hint span{animation:none}}
 </style>
 
 <div id="root"></div>
@@ -1624,63 +1669,76 @@ function FallLine(props){ // letters vallen van boven het beeld en landen met ko
     return h`<${m.span} key=${i} className=${'ch'+(ch==='.'?' dot':'')} variants=${v} initial="wait" animate=${phase}>${ch}</${m.span}>`;
   })}</span>`;
 }
+var HL_SCENES=[
+  {s:0,e:4,in_:1.1,out:3.6,kind:'letters',lines:['VAL OP.'],pos:{left:'6%',top:'34%'},size:9},
+  {s:4,e:8,in_:4.4,out:7.5,lines:['JOUW MERK.','ONMISKENBAAR.'],outline:1,pos:{left:'4%',top:'8%'},size:4.2},
+  {s:8,e:12,in_:8.4,out:10.9,lines:['WEBSITES DIE','VERKOPEN.'],pos:{left:'4%',top:'6%'},size:4.8},
+  {s:12,e:16,in_:12.4,out:15.3,lines:['CONTENT DIE OPVALT.'],pos:{right:'5%',top:'7%'},size:4.8,align:'right'},
+  {s:16,e:20,in_:16.4,out:19.0,lines:['VAN VAKWERK TOT WEBSHOP.'],pos:{right:'4%',top:'6%'},size:3.8,align:'right'},
+  {s:20,e:24,in_:20.4,out:23.5,lines:['LAAT KLANTEN ZELF KIEZEN.'],sub:'Websites. Branding. Productvideo’s. Configurators.',pos:{left:'4%',top:'6%'},size:4.6}
+];
+function HLText(props){ // tekstlaag per scène, gestuurd door de afspeeltijd
+  var sc=props.sc,mob=props.mob;
+  var style=mob?{}:Object.assign({fontSize:sc.size+'cqw'},sc.pos,sc.align==='right'?{textAlign:'right'}:{});
+  if(sc.kind==='letters'){
+    return h`<${m.div} className="hlt" style=${style} initial=${false} exit=${{opacity:0,y:-10,transition:{duration:.3}}}>
+      <div class="ln">${sc.lines[0].split('').map(function(ch,i){return h`<${m.span} key=${i} className="ch" initial=${{y:'-140%',opacity:0}} animate=${{y:['-140%','0%','-6%','0%'],opacity:[0,1,1,1]}} transition=${{duration:.62,times:[0,.7,.86,1],ease:['easeIn','easeOut','easeIn'],delay:i*.05}}>${ch===' '?' ':ch}</${m.span}>`})}</div>
+    </${m.div}>`;
+  }
+  return h`<${m.div} className="hlt" style=${style} initial=${{opacity:0,y:18}} animate=${{opacity:1,y:0}} exit=${{opacity:0,y:-10,transition:{duration:.3}}} transition=${{duration:.5,ease:EASE}}>
+    ${sc.lines.map(function(l,i){return h`<${m.div} key=${i} className=${'ln'+(sc.outline&&i===1?' ol':'')} initial=${{opacity:0,y:18}} animate=${{opacity:1,y:0}} transition=${{duration:.5,ease:EASE,delay:i*.14}}>${l}</${m.div}>`})}
+    ${sc.sub&&h`<${m.p} className="sub" initial=${{opacity:0}} animate=${{opacity:1}} transition=${{delay:.6,duration:.5}}>${sc.sub}</${m.p}>`}
+  </${m.div}>`;
+}
 function HeroBoost(props){
   var go=props.go;
-  var vref=useRef(null),decoRef=useRef(null);
+  var vref=useRef(null);
+  var st=useState({t:0,playing:false}),cur=st[0],setCur=st[1];
   var ph=useState(reduce?'static':'wait'),phase=ph[0],setPhase=ph[1];
-  var sc=useState(0),scene=sc[0],setScene=sc[1];
-  var pl=useState(false),playing=pl[0],setPlaying=pl[1];
-  var pu=useState(0),pulse=pu[0],setPulse=pu[1];
-  var paused=useRef(false),dropped=useRef(false),prev=useRef(0),raf=useRef(0);
+  var paused=useRef(false),raf=useRef(0),started=useRef(false);
+  var mob=useState(typeof matchMedia!=='undefined'&&matchMedia('(max-width:860px)').matches)[0];
   useEffect(function(){
     var v=vref.current;if(!v)return;
-    var mobile=matchMedia('(max-width:700px)').matches||(innerWidth/innerHeight<0.95); // telefoon of staande tablet: 9:16-compositie
-    v.poster=mobile?'assets/hero-next-m.jpg':'assets/hero-next.jpg';
-    if(reduce){setPhase('static');return} // minder beweging: posterbeeld, statische tekst
-    v.src=mobile?'assets/hero-next-m.mp4':'assets/hero-next.mp4';
-    v.muted=true;v.setAttribute('muted','');v.setAttribute('playsinline','');v.load();
-    function tick(){
-      var t=v.currentTime,p=prev.current;
-      if(!dropped.current&&t>=0&&t<2.5){dropped.current=true;setPhase('drop')}
-      var idx=0;for(var i=0;i<HV_SCENES.length;i++)if(t>=HV_SCENES[i].t)idx=i;
-      setScene(function(x){return x===idx?x:idx});
-      for(var j=0;j<HV_IMPACTS.length;j++){var T=HV_IMPACTS[j];if(p<T&&t>=T&&t-T<.5)setPulse(function(n){return n+1})}
-      prev.current=t<p?0:t;
-      raf.current=requestAnimationFrame(tick);
-    }
-    function start(){cancelAnimationFrame(raf.current);setPlaying(true);prev.current=v.currentTime;raf.current=requestAnimationFrame(tick)}
-    function stop(){cancelAnimationFrame(raf.current);setPlaying(false)}
-    v.addEventListener('playing',start);v.addEventListener('pause',stop);v.addEventListener('waiting',stop);v.addEventListener('ended',stop);
-    var fb=setTimeout(function(){if(!dropped.current){dropped.current=true;setPhase('static')}},3000); // autoplay geblokkeerd: tekst direct leesbaar
-    return function(){clearTimeout(fb);cancelAnimationFrame(raf.current);v.removeEventListener('playing',start);v.removeEventListener('pause',stop);v.removeEventListener('waiting',stop);v.removeEventListener('ended',stop)};
-  },[]);
-  useEffect(function(){var v=vref.current;if(!v||reduce||!go||paused.current)return;var first=!dropped.current;var t=setTimeout(function(){var pr=v.play();if(pr&&pr.catch)pr.catch(function(){})},first?950:0);return function(){clearTimeout(t)}},[go]);
-  useEffect(function(){ // tab weg en terug: hervatten
-    function vis(){var v=vref.current;if(!v||reduce)return;if(document.hidden)v.pause();else if(go&&!paused.current)v.play().catch(function(){})}
-    document.addEventListener('visibilitychange',vis);return function(){document.removeEventListener('visibilitychange',vis)}
+    if(reduce){setPhase('static');return}
+    v.muted=true;v.setAttribute('muted','');v.setAttribute('playsinline','');
+    function tick(){var t=v.currentTime;setCur(function(c){return (Math.abs(c.t-t)>0.03||!c.playing)?{t:t,playing:true}:c});raf.current=requestAnimationFrame(tick)}
+    function start(){cancelAnimationFrame(raf.current);started.current=true;setPhase('play');raf.current=requestAnimationFrame(tick)}
+    function stop(){cancelAnimationFrame(raf.current);setCur(function(c){return {t:c.t,playing:false}})}
+    v.addEventListener('playing',start);v.addEventListener('pause',stop);v.addEventListener('waiting',stop);
+    var fb=setTimeout(function(){if(!started.current)setPhase('static')},3500);
+    var io=('IntersectionObserver' in window)?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){if(go&&!paused.current)v.play().catch(function(){})}else v.pause()})},{threshold:.15}):null;
+    if(io)io.observe(v);
+    function vis(){if(document.hidden)v.pause();else if(go&&!paused.current)v.play().catch(function(){})}
+    document.addEventListener('visibilitychange',vis);
+    return function(){clearTimeout(fb);cancelAnimationFrame(raf.current);if(io)io.disconnect();document.removeEventListener('visibilitychange',vis);v.removeEventListener('playing',start);v.removeEventListener('pause',stop);v.removeEventListener('waiting',stop)};
   },[go]);
+  useEffect(function(){var v=vref.current;if(!v||reduce||!go||paused.current)return;var tm=setTimeout(function(){v.play().catch(function(){})},started.current?0:900);return function(){clearTimeout(tm)}},[go]);
   function toggle(){var v=vref.current;if(!v)return;if(v.paused){paused.current=false;v.play().catch(function(){})}else{paused.current=true;v.pause()}}
-  var acc=HV_SCENES[scene].c,ready=phase!=='wait';
-  return h`<section class="hv" id="top" style=${{'--acc':acc}}>
-    <div class="media" aria-hidden="true">
-      <video ref=${vref} muted playsInline loop preload="auto" poster="assets/hero-next.jpg"></video>
-      <div class="shade"></div><div class="shade2" style=${{opacity:scene===2?1:.7}}></div>
+  var t=cur.t;
+  var sc=null;for(var i=0;i<HL_SCENES.length;i++){var x=HL_SCENES[i];if(t>=x.in_&&t<x.out)sc=x}
+  var active=0;for(var j=0;j<HL_SCENES.length;j++)if(t>=HL_SCENES[j].s)active=j;
+  var veil=t>23.5?Math.min(1,(t-23.5)/.5):(t<.45?Math.max(0,1-t/.45):0); // zachte terugkeer naar de lege openingsstudio
+  var staticTxt=phase==='static';
+  var ready=phase!=='wait';
+  var textLayer=staticTxt?h`<div class="hlt" style=${mob?{}:{left:'6%',top:'34%',fontSize:'9cqw'}}><div class="ln">VAL OP.</div></div>`:h`<${AnimatePresence}>${sc&&h`<${HLText} key=${sc.s} sc=${sc} mob=${mob}/>`}</${AnimatePresence}>`;
+  return h`<section class="hl" id="top">
+    <div class="vwrap">
+      <video ref=${vref} src="assets/hero-light.mp4" poster="assets/hero-light.jpg" muted playsInline loop preload="auto" aria-label="Showreel Next Growth: websites, branding, productvideo’s en configurators"></video>
+      <div class="hlstage" aria-hidden=${mob?'true':'false'}>${!mob&&textLayer}</div>
+      <div class="veil" style=${{opacity:veil}}></div>
+      <div class="dots" aria-hidden="true">${HL_SCENES.map(function(x,k){return h`<span key=${k} class=${k===active?'on':''}></span>`})}</div>
+      ${!reduce&&h`<button type="button" class="pz" onClick=${toggle} aria-pressed=${!cur.playing}>${cur.playing?'Pauzeer video':'Speel video af'}</button>`}
     </div>
-    <${m.div} key=${'deco'+pulse} ref=${decoRef} className="deco" aria-hidden="true" initial=${false} animate=${pulse?{scale:[1,1.022,1],y:[0,7,0]}:{}} transition=${{duration:.38,ease:'easeOut'}}>NE<b>X</b>T</${m.div}>
-    <p class="mono tag">Creatief groeibureau · Oss</p>
-    <div class="content"><div class="wrap">
-      <div class="col">
-        <h1 aria-label="Jouw merk. Niet te missen."><${FallLine} text="JOUW MERK." phase=${phase}/><${FallLine} text="NIET TE MISSEN." phase=${phase} base=${11}/></h1>
+    <div class="hlbar">
+      <div class="wrap hlrow">
+        ${mob&&h`<div class="mtxt" aria-live="polite">${staticTxt?h`<div class="ln">VAL OP.</div>`:h`<${AnimatePresence} mode="wait">${h`<${m.div} key=${active} initial=${{opacity:0,y:10}} animate=${{opacity:1,y:0}} exit=${{opacity:0,y:-8}} transition=${{duration:.35}}>${HL_SCENES[active].lines.map(function(l,i){return h`<div key=${i} class=${'ln'+(HL_SCENES[active].outline&&i===1?' ol':'')}>${l}</div>`})}${HL_SCENES[active].sub&&h`<p class="sub">${HL_SCENES[active].sub}</p>`}</${m.div}>`}</${AnimatePresence}>`}</div>`}
+        <p class="lead">Creatief groeibureau in Oss. Websites, branding, productvideo’s en configurators voor fashion, autobedrijven, bouwbedrijven, creators en horeca.</p>
+        <${m.div} className="cta" initial=${{opacity:0,y:18}} animate=${ready?{opacity:1,y:0}:{}} transition=${{type:'spring',stiffness:220,damping:22,delay:phase==='play'?.9:0}}>
+          <a href="#cases-home" class="btn ink" data-hover="1">Bekijk ons werk</a>
+          <a href="#contact" class="btn navy" data-hover="1">Plan een kennismaking<span class="i">→</span></a>
+        </${m.div}>
+        <a class="hint" href="#showreel" aria-label="Naar het volgende onderdeel"><span></span></a>
       </div>
-      <${m.p} className="lead" initial=${{opacity:0,y:14}} animate=${ready?{opacity:1,y:0}:{}} transition=${{delay:phase==='drop'?1.0:0,duration:.7,ease:EASE}}>Websites, configurators en content die jouw bedrijf laten opvallen.</${m.p}>
-      <${m.div} className="cta" initial=${{opacity:0,y:14}} animate=${ready?{opacity:1,y:0}:{}} transition=${{delay:phase==='drop'?1.15:0,duration:.7,ease:EASE}}>
-        <a href="#contact" class="btn white" data-hover="1">Plan een kennismaking</a>
-        <a href="#cases-home" class="btn glass" data-hover="1">Bekijk ons werk</a>
-      </${m.div}>
-    </div></div>
-    <div class="ctrl">
-      <div class="scenes" aria-hidden="true">${HV_SCENES.map(function(x,k){return h`<span key=${k} class=${k===scene?'on':''}></span>`})}</div>
-      ${!reduce&&h`<button type="button" class="pz" onClick=${toggle} aria-pressed=${!playing}><i></i>${playing?'Pauzeer video':'Speel video af'}</button>`}
     </div>
   </section>`;
 }
