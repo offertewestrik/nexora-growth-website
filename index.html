@@ -954,6 +954,18 @@ footer.boost .giantword{font:900 clamp(56px,10.6vw,160px)/.8 var(--display);lett
 .prods figcaption span{font:500 11px var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.06em;text-align:right}
 @media(max-width:900px){.ph{padding:100px 0 40px}.ph .grid{grid-template-columns:1fr;gap:24px}.prods{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.prods{grid-template-columns:1fr}.prods figcaption{flex-direction:column;align-items:flex-start;gap:4px}.prods figcaption span{text-align:left}}
+
+.yacht{padding:clamp(60px,7vw,100px) 0 20px}
+.yacht .grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:40px;align-items:center}
+.yacht .txt p{color:var(--muted);max-width:36em;margin-top:18px}
+.yacht .toggle{display:inline-flex;gap:6px;margin-top:22px;background:var(--bg-2);border:1px solid var(--line);border-radius:999px;padding:4px}
+.yacht .toggle button{background:none;border:0;color:var(--fg);padding:9px 16px;border-radius:999px;font:700 13px var(--body);cursor:pointer}
+.yacht .toggle button.on{background:var(--sig);color:var(--sig-ink)}
+.yacht .media{display:grid;gap:12px}
+.yacht .lap{border-radius:18px;overflow:hidden;background:#DCEBF6;aspect-ratio:16/9}
+.yacht .lap video,.yacht .lap img{width:100%;height:100%;object-fit:contain;display:block;background:#DCEBF6}
+.yacht .still{width:100%;aspect-ratio:16/9;object-fit:contain;border-radius:18px;background:#DCEBF6;display:block}
+@media(max-width:900px){.yacht .grid{grid-template-columns:1fr;gap:24px}}
 </style></head><body>
 
 <div id="root"></div>
@@ -1661,8 +1673,27 @@ function ProductHero(props){ // configuratorpagina: montage in de laptop, HTML-t
     </div>
   </div></section>`;
 }
-function ProductGallery(){return h`<section id="producten"><div class="wrap"><div class="head"><div><p class="eyebrow mono">Productselectie</p><h2><${Words} text="Zes producten, *één configurator-engine."/></h2></div><${Rise} delay=${.2}><p>Zo ziet een configurator eruit op de site van je klant: beeld dat meebeweegt met elke keuze, een richtprijs en een aanvraag. Dit zijn demonstratiebeelden; er draaien nu tien configurators live, van overkapping tot jacht.</p></${Rise}></div>
+function ProductGallery(){return h`<section id="producten"><div class="wrap"><div class="head"><div><p class="eyebrow mono">Productselectie</p><h2><${Words} text="Zes producten, *één configurator-engine."/></h2></div><${Rise} delay=${.2}><p>Zo ziet een configurator eruit op de site van je klant: beeld dat meebeweegt met elke keuze, een richtprijs en een aanvraag. Dit zijn demonstratiebeelden; er draaien nu tien configurators live, van overkapping tot jacht. De jachtstudio staat hieronder apart.</p></${Rise}></div>
   <div class="prods">${PRODSEL.map(function(e,i){return h`<${m.figure} key=${e[0]} initial=${{opacity:0,y:24}} whileInView=${{opacity:1,y:0}} viewport=${{once:true,margin:'-5% 0px'}} transition=${{delay:i*.06,duration:.7,ease:EASE}}><video src=${'assets/prod-'+e[0]+'.mp4'} poster=${'assets/prod-'+e[0]+'.webp'} muted loop playsInline preload="none" data-auto="1" aria-label=${e[1]+' configurator'}></video><figcaption><b>${e[1]}</b><span>${e[2]}</span></figcaption></${m.figure}>`})}</div></div></section>`}
+
+function YachtStudio(){ // jachtdemo: laptopvideo met HTML-titel buiten het scherm, dag/avond-beeld
+  var t=useState('dag'),mode=t[0],setMode=t[1];
+  return h`<section class="yacht" id="jachten"><div class="wrap">
+    <div class="grid">
+      <div class="txt"><p class="eyebrow mono">Jachtstudio · demo</p><h2><${Words} text="Digitale ervaringen *voor de jachtbouw."/></h2>
+        <${Rise} delay=${.15}><p>De jachtconfigurator toont per kleurkeuze een render van het schip, tot en met een sleepbare 360-gradenweergave. Twee productmomenten uit de demo: de flybridge met T-top bij daglicht en het verlichte jacht in de avond. Dit is een demonstratie uit onze engine, geen klantcase van een genoemde werf.</p></${Rise}>
+        <div class="toggle" role="group" aria-label="Kies dag of avond"><button type="button" class=${mode==='dag'?'on':''} onClick=${function(){setMode('dag')}}>Daglicht</button><button type="button" class=${mode==='avond'?'on':''} onClick=${function(){setMode('avond')}}>Avond</button></div>
+        <div class="cta" style=${{marginTop:22}}><${Magnet} href="#contact">Bespreek jouw configurator</${Magnet}></div>
+      </div>
+      <div class="media">
+        <${m.div} className="lap" initial=${{opacity:0,y:30}} whileInView=${{opacity:1,y:0}} viewport=${{once:true}} transition=${{duration:.9,ease:EASE}}>
+          ${reduce?h`<img src="assets/jacht-dag.webp" alt="Jachtconfigurator op een laptop, daglicht"/>`:h`<video src="assets/jacht-laptop.mp4" poster="assets/jacht-laptop.jpg" muted loop playsInline preload="none" data-auto="1" aria-label="Jachtconfigurator op een laptop: flybridge met T-top en verlicht jacht in de avond"></video>`}
+        </${m.div}>
+        <${AnimatePresence} mode="wait"><${m.img} key=${mode} className="still" src=${mode==='dag'?'assets/jacht-dag.webp':'assets/jacht-avond.webp'} alt=${mode==='dag'?'Flybridge met T-top bij daglicht':'Verlicht jacht in de avond'} initial=${{opacity:0}} animate=${{opacity:1}} exit=${{opacity:0}} transition=${{duration:.35}}/></${AnimatePresence}>
+      </div>
+    </div>
+  </div></section>`;
+}
 
 /* ---------- branchepagina ---------- */
 function BranchPage(props){
@@ -1709,7 +1740,7 @@ function ServicePage(props){
       <div class="head" style=${{marginTop:70,marginBottom:28}}><div><p class="eyebrow mono">Inclusief</p><h2><${Words} text="Wat je *krijgt."/></h2></div></div>
       <${Rise}><ul class="incl">${sv.inclusief.map(function(x){return h`<li key=${x}>${x}</li>`})}</ul></${Rise}>
     </div></section>`}
-    ${slug==='dienst-configurators'&&h`<${ProductGallery}/>`}
+    ${slug==='dienst-configurators'&&h`<${React.Fragment}><${ProductGallery}/><${YachtStudio}/></${React.Fragment}>`}
     ${slug==='sales'&&h`<${Story}/>`}
     ${slug==='dienst-webdesign'&&h`<${React.Fragment}><${Work}/><${Demo}/><${Strip}/><${Cases}/></${React.Fragment}>`}
     ${slug!=='sales'&&h`<section class="cream" id="voorbeelden"><div class="wrap">
