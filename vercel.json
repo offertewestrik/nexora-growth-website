@@ -2,17 +2,85 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "headers": [
-    { "source": "/assets/vendor/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }] },
-    { "source": "/assets/cfg/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=2592000, stale-while-revalidate=86400" }] },
-    { "source": "/assets/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800, stale-while-revalidate=86400" }] },
-    { "source": "/(.*)", "headers": [{ "key": "X-Content-Type-Options", "value": "nosniff" }] }
+    {
+      "source": "/assets/vendor/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/assets/cfg/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        }
+      ]
+    }
   ],
   "rewrites": [
-    { "source": "/sitemap.xml", "destination": "/seo/sitemap.xml" },
-    { "source": "/robots.txt", "destination": "/seo/robots.txt" },
-    { "source": "/llms.txt", "destination": "/seo/llms.txt" },
-    { "source": "/", "has": [{ "type": "header", "key": "user-agent", "value": ".*(Googlebot|bingbot|Bingbot|DuckDuckBot|YandexBot|Applebot|GPTBot|ChatGPT-User|OAI-SearchBot|ClaudeBot|Claude-User|Claude-SearchBot|anthropic-ai|PerplexityBot|Perplexity-User|Google-Extended|CCBot|Bytespider|Amazonbot|facebookexternalhit|Twitterbot|LinkedInBot|Slackbot|WhatsApp|TelegramBot|Discordbot|cohere-ai|meta-externalagent|YouBot|Diffbot).*" }], "destination": "/seo/index" },
-    { "source": "/:slug([a-z0-9-]+)", "has": [{ "type": "header", "key": "user-agent", "value": ".*(Googlebot|bingbot|Bingbot|DuckDuckBot|YandexBot|Applebot|GPTBot|ChatGPT-User|OAI-SearchBot|ClaudeBot|Claude-User|Claude-SearchBot|anthropic-ai|PerplexityBot|Perplexity-User|Google-Extended|CCBot|Bytespider|Amazonbot|facebookexternalhit|Twitterbot|LinkedInBot|Slackbot|WhatsApp|TelegramBot|Discordbot|cohere-ai|meta-externalagent|YouBot|Diffbot).*" }], "destination": "/seo/:slug" },
-    { "source": "/:slug([a-z0-9-]+)", "destination": "/" }
+    {
+      "source": "/sitemap.xml",
+      "destination": "/seo/sitemap.xml"
+    },
+    {
+      "source": "/robots.txt",
+      "destination": "/seo/robots.txt"
+    },
+    {
+      "source": "/llms.txt",
+      "destination": "/seo/llms.txt"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": ".*(Googlebot|bingbot|Bingbot|DuckDuckBot|YandexBot|Applebot|GPTBot|ChatGPT-User|OAI-SearchBot|ClaudeBot|Claude-User|Claude-SearchBot|anthropic-ai|PerplexityBot|Perplexity-User|Google-Extended|CCBot|Bytespider|Amazonbot|facebookexternalhit|Twitterbot|LinkedInBot|Slackbot|WhatsApp|TelegramBot|Discordbot|cohere-ai|meta-externalagent|YouBot|Diffbot).*"
+        }
+      ],
+      "destination": "/seo/index"
+    },
+    {
+      "source": "/",
+      "destination": "/app"
+    },
+    {
+      "source": "/:slug([a-z0-9-]+)",
+      "has": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": ".*(Googlebot|bingbot|Bingbot|DuckDuckBot|YandexBot|Applebot|GPTBot|ChatGPT-User|OAI-SearchBot|ClaudeBot|Claude-User|Claude-SearchBot|anthropic-ai|PerplexityBot|Perplexity-User|Google-Extended|CCBot|Bytespider|Amazonbot|facebookexternalhit|Twitterbot|LinkedInBot|Slackbot|WhatsApp|TelegramBot|Discordbot|cohere-ai|meta-externalagent|YouBot|Diffbot).*"
+        }
+      ],
+      "destination": "/seo/:slug"
+    },
+    {
+      "source": "/:slug([a-z0-9-]+)",
+      "destination": "/app"
+    }
   ]
 }
