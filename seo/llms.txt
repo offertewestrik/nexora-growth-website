@@ -200,7 +200,6 @@ Heel Nederland, op locatie en op afstand. Regiopagina's voor Nijmegen, Arnhem, D
 - [Dakrenovatie in Wijchen](https://nextgrowthdigital.nl/dakrenovatie-wijchen)
 - [Gevelrenovatie configurator laten maken: reinigen, voegen en herstel](https://nextgrowthdigital.nl/gevelrenovatie-configurator-laten-maken)
 - [Jachtconfigurator laten maken voor uw werf](https://nextgrowthdigital.nl/jachtconfigurator-laten-maken)
-- [Kennisbank: configurators, websites, CRM en AI](https://nextgrowthdigital.nl/kennisbank)
 - [Keuken configurator laten maken](https://nextgrowthdigital.nl/keuken-configurator-laten-maken)
 - [Kozijnen configurator laten maken](https://nextgrowthdigital.nl/kozijnen-configurator-laten-maken)
 - [Kunstgras configurator laten maken: m²-prijs inclusief grondwerk](https://nextgrowthdigital.nl/kunstgras-configurator-laten-maken)
@@ -273,3 +272,4 @@ Heel Nederland, op locatie en op afstand. Regiopagina's voor Nijmegen, Arnhem, D
 - [Zwembad configurator laten maken: bouwwijze, grondwerk en techniek doorgerekend](https://nextgrowthdigital.nl/zwembad-configurator-laten-maken)
 - [Zwembad laten aanleggen in Eindhoven](https://nextgrowthdigital.nl/zwembad-eindhoven)
 - [Zwembad laten aanleggen in Nijmegen](https://nextgrowthdigital.nl/zwembad-nijmegen)
+- [Kennisbank: configurators, websites, CRM en AI](https://nextgrowthdigital.nl/kennisbank)

@@ -888,7 +888,7 @@ footer.boost .giantword{font:900 clamp(56px,10.6vw,160px)/.8 var(--display);lett
 .hl{position:relative;background:#EEF4FA;color:#0E1A2B;padding-top:68px}
 .hl .vwrap{position:relative;height:calc(100svh - 68px);min-height:560px;overflow:hidden;background:#DCEBF6}
 .hl video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-.hl .hlstage{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:100%;min-width:100%;aspect-ratio:16/9;container-type:inline-size;pointer-events:none}
+.hl .hlstage{position:absolute;inset:0;width:100%;height:100%;container-type:inline-size;pointer-events:none}
 .hl .hlt{position:absolute;font:900 1em/.92 var(--display);text-transform:uppercase;letter-spacing:-.035em;color:#0E1A2B;white-space:nowrap;text-shadow:0 0 .08em rgba(226,240,250,.95),0 0 .22em rgba(226,240,250,.9),0 0 .5em rgba(226,240,250,.85)}
 .hl .hlt .ln{display:block;white-space:nowrap}
 .hl .hlt .ch{display:inline-block;will-change:transform}
@@ -907,6 +907,9 @@ footer.boost .giantword{font:900 clamp(56px,10.6vw,160px)/.8 var(--display);lett
 .hl .hb2:hover{background:#fff;transform:translateY(-2px)}
 .hl .hb:focus-visible{outline:3px solid #0E1A2B;outline-offset:3px}
 @media(max-width:860px){.hl .hcta{display:none}}
+.hl .hfix{position:absolute;left:5%;bottom:104px;z-index:4;margin:0;display:inline-flex;align-items:center;gap:10px;max-width:min(560px,90%);padding:12px 18px;border-radius:999px;background:rgba(244,249,252,.88);color:#0E1A2B;font:700 clamp(14px,1.15vw,17px)/1.3 var(--body);box-shadow:0 10px 30px -12px rgba(14,26,43,.35)}
+.hl .hfix .hfdot{flex:0 0 9px;height:9px;border-radius:50%;background:#FFC400;box-shadow:0 0 0 3px rgba(255,196,0,.25)}
+@media(max-width:860px){.hl .hfix{display:none}}
 .hl .dots{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);display:flex;gap:6px}
 .hl .dots span{width:26px;height:4px;border-radius:2px;background:rgba(14,26,43,.18);transition:background .3s}
 .hl .dots span.on{background:#0E1A2B}
@@ -1398,10 +1401,10 @@ function Collabs(){
       <${Rise} delay=${.2}><p>Bereik koop je niet alleen met advertentiebudget. We koppelen merken aan creators en partners die echt bij ze passen, en maken daar content van die werkt op Instagram, TikTok en YouTube.</p></${Rise}>
     </div>
     <div class="collab">
-      <${m.a} className="ct ct-vid" href="https://nextgrowthdigital.nl/" target="_blank" rel="noopener" initial=${{opacity:0,y:40}} whileInView=${{opacity:1,y:0}} viewport=${{once:true}} transition=${{duration:.9,ease:EASE}} data-hover="1">
+      <${m.div} className="ct ct-vid" initial=${{opacity:0,y:40}} whileInView=${{opacity:1,y:0}} viewport=${{once:true}} transition=${{duration:.9,ease:EASE}} data-hover="1">
         <video src="assets/kelly.mp4" poster="assets/kelly-laptop.webp" muted loop playsInline preload="none" data-auto="1" aria-label="Kelly Bobson, creative content for brands"></video>
         <div class="ct-meta"><span class="mono">Creator · portfolio · boekingsflow</span><b>Kelly Bobson</b><p>Creative content for brands of every size. Portfolio, videocontent en een boekingsflow waarmee merken direct een samenwerking aanvragen.</p></div>
-      </${m.a}>
+      </${m.div}>
       <${m.div} className="ct ct-sig" initial=${{opacity:0,y:40}} whileInView=${{opacity:1,y:0}} viewport=${{once:true}} transition=${{duration:.9,ease:EASE,delay:.1}}>
         <span class="mono">Influencer-campagnes</span><b>Van briefing tot bereik</b>
         <ul><li>Creators selecteren die bij het merk passen</li><li>Briefing, afspraken en vergoeding regelen</li><li>Content produceren of laten produceren</li><li>Resultaat meten per kanaal</li></ul>
@@ -2103,6 +2106,7 @@ function HeroBoost(props){
       <video ref=${vref} src=${mob?"assets/hero-light-m.mp4":"assets/hero-light.mp4"} poster="assets/hero-light.jpg" muted playsInline loop preload="auto" aria-label="Showreel Next Growth: websites, branding, productvideo’s en configurators"></video>
       <div class="hlstage" aria-hidden=${mob?'true':'false'}>${!mob&&textLayer}</div>
       <div class="veil" style=${{opacity:veil}}></div>
+      ${!mob&&h`<${m.p} className="hfix" initial=${reduce?{opacity:1}:{opacity:0,y:14}} animate=${{opacity:1,y:0}} transition=${{delay:reduce?0:1.1,duration:.6,ease:EASE}}><span class="hfdot"></span>Websites, branding en content die klanten in beweging brengen.</${m.p}>`}
       ${!mob&&h`<div class="hcta"><${m.a} className="hb hb1" href="#contact" data-hover="1" initial=${reduce?{opacity:1}:{opacity:0,x:-520,y:260,rotate:-14,scale:.55}} animate=${{opacity:1,x:0,y:0,rotate:0,scale:1}} transition=${reduce?{duration:0}:{delay:1.35,type:"spring",stiffness:230,damping:17,mass:1.1}}>Plan een kennismaking <span>→</span></${m.a}><${m.a} className="hb hb2" href="#cases-home" data-hover="1" initial=${reduce?{opacity:1}:{opacity:0,x:-420,y:380,rotate:10,scale:.5}} animate=${{opacity:1,x:0,y:0,rotate:0,scale:1}} transition=${reduce?{duration:0}:{delay:1.55,type:"spring",stiffness:230,damping:17,mass:1.1}}>Bekijk ons werk</${m.a}></div>`}
       <div class="dots" aria-hidden="true">${HL_SCENES.map(function(x,k){return h`<span key=${k} class=${k===active?'on':''}></span>`})}</div>
       ${!reduce&&h`<button type="button" class="pz" onClick=${toggle} aria-pressed=${!cur.playing}>${cur.playing?'Pauzeer video':'Speel video af'}</button>`}
@@ -2176,7 +2180,7 @@ function FooterBoost(){
       <div class="r"><p>Eén gesprek van twintig minuten. Je spreekt direct met de mensen die het werk maken en krijgt dezelfde dag een eerlijk advies.</p><a class="btn" href="#contact" data-hover="1">Plan een kennismaking<span class="i">→</span></a><a class="tel" href="tel:+31683902192">06 83 90 21 92</a></div>
     </div>
     <div class="cols">
-      <div><div class="brandline"><i>N</i>Next Growth Digital</div><p style=${{margin:0,fontSize:14,lineHeight:1.6}}>Creatief groeibureau, landelijk actief.<br/>Branding, webdesign, marketing en eigen software.<br/><a href="mailto:info@nextgrowthdigital.nl">info@nextgrowthdigital.nl</a></p><div class="soc"><a href="#contact">Instagram</a><a href="#contact">LinkedIn</a><a href="#contact">Google</a></div></div>
+      <div><div class="brandline"><i>N</i>Next Growth Digital</div><p style=${{margin:0,fontSize:14,lineHeight:1.6}}>Creatief groeibureau, landelijk actief.<br/>Branding, webdesign, marketing en eigen software.<br/><a href="mailto:info@nextgrowthdigital.nl">info@nextgrowthdigital.nl</a></p></div>
       <div><h4>Diensten</h4><ul>${NAV_DIENSTEN.map(function(l){return h`<li key=${l[0]}><a href=${l[0]}>${l[1]}</a></li>`})}</ul></div>
       <div><h4>Branches</h4><ul>${BRANCH_ORDER.slice(0,6).map(function(s){return h`<li key=${s}><a href=${'#'+s}>${BRANCH_NAME[s]}</a></li>`})}<li><a href="#branches">Alle branches</a></li></ul></div>
       <div><h4>Website laten maken in</h4><ul>${Object.keys(SEO.pages).filter(function(k){return k.indexOf('lokaal-webdesign-')===0}).slice(0,7).map(function(k){return h`<li key=${k}><a href=${'#'+k}>${SEO.pages[k].cities[0]}</a></li>`})}</ul></div>
@@ -2189,12 +2193,12 @@ function FooterBoost(){
 function HomeBranches(){return h`<section id="branches-home"><div class="wrap"><div class="head"><div><p class="eyebrow mono">Per branche</p><h2><${Words} text="Kies *jouw branche."/></h2></div><${Rise} delay=${.2}><p>Elke branche heeft een eigen pagina in eigen stijl: wat de website moet doen, een werkende mini-demo van de configurator en wat het oplevert.</p></${Rise}></div><${BranchGrid}/></div></section>`}
 function HomeBody(props){return h`<${React.Fragment}>
       <${HeroBoost} go=${props.go}/>
-      <${Showreel}/>
-      <${FanCards}/>
+      <${Parts}/>
       <${CaseTiles}/>
+      <${FanCards}/>
+      <${Showreel}/>
       <${ReelRow}/>
       <${Showreel} reels=${FASHION_REELS} label="Fashion-edits · demonstratiebeeld" id="fashion-home" pad="0 0 60px" vert=${true}/>
-      <${Parts}/>
       <${HomeDemos}/>
       <${HomeBranches}/>
       <${Beats} cream=${true}/>

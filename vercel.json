@@ -53,14 +53,6 @@
       "destination": "/seo/llms.txt"
     },
     {
-      "source": "/:tool(aanbouw-configurator|badkamer-configurator|dakkapel-configurator|dakopbouw-configurator|dakrenovatie-configurator|demos-en|draagbalk-berekenen|gevelrenovatie-configurator|jacht-configurator|kunstgras-configurator|nokverhoging-configurator|overkapping-configurator|pool-configurator-en|poolhouse-configurator|poolhouse-configurator-en|poolstudio|poolstudio-studio-en|pvc-configurator|tegel-configurator|tegelvloer-configurator|verbouwkosten-calculator|yacht-configurator|yacht-konfigurator|zwembad-configurator)",
-      "destination": "https://next-growth-prefabselect.vercel.app/:tool.html"
-    },
-    {
-      "source": "/:tool(aanbouw-configurator|badkamer-configurator|dakkapel-configurator|dakopbouw-configurator|dakrenovatie-configurator|demos-en|draagbalk-berekenen|gevelrenovatie-configurator|jacht-configurator|kunstgras-configurator|nokverhoging-configurator|overkapping-configurator|pool-configurator-en|poolhouse-configurator|poolhouse-configurator-en|poolstudio|poolstudio-studio-en|pvc-configurator|tegel-configurator|tegelvloer-configurator|verbouwkosten-calculator|yacht-configurator|yacht-konfigurator|zwembad-configurator).html",
-      "destination": "https://next-growth-prefabselect.vercel.app/:tool.html"
-    },
-    {
       "source": "/",
       "has": [
         {
@@ -89,14 +81,6 @@
     {
       "source": "/:slug([a-z0-9-]+)",
       "destination": "/app"
-    },
-    {
-      "source": "/assets/:path*",
-      "destination": "https://next-growth-prefabselect.vercel.app/assets/:path*"
-    },
-    {
-      "source": "/api/:path*",
-      "destination": "https://next-growth-prefabselect.vercel.app/api/:path*"
     }
   ],
   "redirects": [
