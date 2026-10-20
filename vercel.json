@@ -78,7 +78,7 @@
         {
           "type": "header",
           "key": "user-agent",
-          "value": ".*(Googlebot|bingbot|Bingbot|DuckDuckBot|YandexBot|Applebot|GPTBot|ChatGPT-User|OAI-SearchBot|ClaudeBot|Claude-User|Claude-SearchBot|anthropic-ai|PerplexityBot|Perplexity-User|Google-Extended|CCBot|Bytespider|Amazonbot|facebookexternalhit|Twitterbot|LinkedInBot|Slackbot|WhatsApp|TelegramBot|Discordbot|cohere-ai|meta-externalagent|YouBot|Diffbot).*"
+          "value": ".*(Google-InspectionTool|AdsBot-Google|Mediapartners-Google|Storebot-Google|GoogleOther|AhrefsBot|SemrushBot|Screaming Frog|Googlebot|bingbot|Bingbot|DuckDuckBot|YandexBot|Applebot|GPTBot|ChatGPT-User|OAI-SearchBot|ClaudeBot|Claude-User|Claude-SearchBot|anthropic-ai|PerplexityBot|Perplexity-User|Google-Extended|CCBot|Bytespider|Amazonbot|facebookexternalhit|Twitterbot|LinkedInBot|Slackbot|WhatsApp|TelegramBot|Discordbot|cohere-ai|meta-externalagent|YouBot|Diffbot).*"
         }
       ],
       "destination": "/seo/index"
@@ -93,7 +93,7 @@
         {
           "type": "header",
           "key": "user-agent",
-          "value": ".*(Googlebot|bingbot|Bingbot|DuckDuckBot|YandexBot|Applebot|GPTBot|ChatGPT-User|OAI-SearchBot|ClaudeBot|Claude-User|Claude-SearchBot|anthropic-ai|PerplexityBot|Perplexity-User|Google-Extended|CCBot|Bytespider|Amazonbot|facebookexternalhit|Twitterbot|LinkedInBot|Slackbot|WhatsApp|TelegramBot|Discordbot|cohere-ai|meta-externalagent|YouBot|Diffbot).*"
+          "value": ".*(Google-InspectionTool|AdsBot-Google|Mediapartners-Google|Storebot-Google|GoogleOther|AhrefsBot|SemrushBot|Screaming Frog|Googlebot|bingbot|Bingbot|DuckDuckBot|YandexBot|Applebot|GPTBot|ChatGPT-User|OAI-SearchBot|ClaudeBot|Claude-User|Claude-SearchBot|anthropic-ai|PerplexityBot|Perplexity-User|Google-Extended|CCBot|Bytespider|Amazonbot|facebookexternalhit|Twitterbot|LinkedInBot|Slackbot|WhatsApp|TelegramBot|Discordbot|cohere-ai|meta-externalagent|YouBot|Diffbot).*"
         }
       ],
       "destination": "/seo/:slug"
@@ -175,6 +175,31 @@
       ],
       "destination": "https://next-growth-prefabselect.vercel.app/tegelvloer-configurator.html?bedrijf=:b",
       "permanent": false
+    },
+    {
+      "source": "/home",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/webshop",
+      "destination": "/branche-webshops",
+      "permanent": true
+    },
+    {
+      "source": "/webshops",
+      "destination": "/branche-webshops",
+      "permanent": true
+    },
+    {
+      "source": "/branding",
+      "destination": "/dienst-branding",
+      "permanent": true
+    },
+    {
+      "source": "/webdesign",
+      "destination": "/dienst-webdesign",
+      "permanent": true
     },
     {
       "source": "/index.html",

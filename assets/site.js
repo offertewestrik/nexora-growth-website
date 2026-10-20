@@ -2,9 +2,12 @@
 (function(){
   var b=document.querySelector('.menu'),n=document.getElementById('mnav');
   if(b&&n){b.addEventListener('click',function(){var o=n.hasAttribute('hidden');if(o){n.removeAttribute('hidden')}else{n.setAttribute('hidden','')}b.setAttribute('aria-expanded',o?'true':'false');b.textContent=o?'Sluiten':'Menu'});
-    n.addEventListener('click',function(e){if(e.target.tagName==='A'){n.setAttribute('hidden','');b.setAttribute('aria-expanded','false');b.textContent='Menu'}})}
+    n.addEventListener('click',function(e){if(e.target.tagName==='A'){n.setAttribute('hidden','');b.setAttribute('aria-expanded','false');b.textContent='Menu'}});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!n.hasAttribute('hidden')){n.setAttribute('hidden','');b.setAttribute('aria-expanded','false');b.textContent='Menu';b.focus()}})}
   var vids=[].slice.call(document.querySelectorAll('video'));
-  if(vids.length&&'IntersectionObserver' in window){vids.forEach(function(v){v.removeAttribute('autoplay');v.muted=true;v.playsInline=true});
+  var rustig=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(rustig)vids.forEach(function(v){v.removeAttribute('autoplay');v.pause()});
+  if(vids.length&&!rustig&&'IntersectionObserver' in window){vids.forEach(function(v){v.removeAttribute('autoplay');v.muted=true;v.playsInline=true});
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.play().catch(function(){})}else{e.target.pause()}})},{threshold:.35});
     vids.forEach(function(v){io.observe(v)})}
   /* Terugbelverzoek: rechtstreeks naar de mail van Next Growth (Web3Forms). Lukt dat niet, dan opent een e-mail met de gegevens. */
@@ -14,7 +17,7 @@
       if(f.website&&f.website.value)return;
       f.naam.setAttribute('aria-invalid',naam?'false':'true');if(!naam)bad=true;
       var tOk=/^[+\d][\d\s\-()]{7,}$/.test(tel);f.tel.setAttribute('aria-invalid',tOk?'false':'true');if(!tOk)bad=true;
-      if(bad){ok.hidden=false;ok.textContent='Vul je naam en een geldig telefoonnummer in.';return}
+      if(bad){ok.hidden=false;ok.textContent='Vul je naam en een geldig telefoonnummer in.';(naam?f.tel:f.naam).focus();return}
       var label=knop?knop.innerHTML:'';if(knop){knop.disabled=true;knop.textContent='Versturen…'}
       function mailto(){var body='Naam: '+naam+'\nTelefoon: '+tel+'\nOnderwerp: '+wat+'\nPagina: '+location.href;
         location.href='mailto:info@nextgrowthdigital.nl?subject='+encodeURIComponent('Terugbelverzoek: '+wat)+'&body='+encodeURIComponent(body);

@@ -8,4 +8,12 @@ User-agent: PerplexityBot
 Allow: /
 User-agent: Google-Extended
 Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: *
+Disallow: /api/
+# Samenvatting voor AI-assistenten: https://nextgrowthdigital.nl/llms.txt
 Sitemap: https://nextgrowthdigital.nl/sitemap.xml

@@ -275,7 +275,7 @@ body{background:var(--paper);-webkit-font-smoothing:antialiased}h1,h2,h3{color:v
 </div>
 <div class="ngx-legal"><span>© 2026 Next Growth Digital</span><span>KVK 96002913</span><span>Landelijk actief · Nederland</span></div>
 <p class="ngx-giant" aria-hidden="true">NEXT GROWTH</p></div></footer>
-<script>(function(){var b=document.querySelector('.ngx-menu'),n=document.getElementById('ngx-mnav');if(!b||!n)return;b.addEventListener('click',function(){var o=n.hasAttribute('hidden');if(o)n.removeAttribute('hidden');else n.setAttribute('hidden','');b.setAttribute('aria-expanded',o?'true':'false');b.textContent=o?'Sluiten':'Menu'})})();</script></body></html>
+<script>(function(){var b=document.querySelector('.ngx-menu'),n=document.getElementById('ngx-mnav');if(!b||!n)return;b.addEventListener('click',function(){var o=n.hasAttribute('hidden');if(o)n.removeAttribute('hidden');else n.setAttribute('hidden','');b.setAttribute('aria-expanded',o?'true':'false');b.textContent=o?'Sluiten':'Menu'});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!n.hasAttribute('hidden')){n.setAttribute('hidden','');b.setAttribute('aria-expanded','false');b.textContent='Menu';b.focus()}})})();</script></body></html>
 
 
 

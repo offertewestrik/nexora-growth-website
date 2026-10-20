@@ -25,12 +25,12 @@ Heel Nederland, op locatie en op afstand. Regiopagina's voor Nijmegen, Arnhem, D
 - Prefab Select: +212% aanvragen
 - Installatieplatform: offerte in 2 minuten in plaats van een avond rekenwerk
 - Lucky Zonwering: 5,0 op Google, 124 reviews, één CRM- en offertesysteem
-- Tien configurators live (o.a. overkapping, dakopbouw, aanbouw, nokverhoging, dakrenovatie, gevelrenovatie, badkamer, zwembad, poolhouse, kunstgras, pvc, tegels, jacht)
+- Live demo-configurators (24 pagina's, o.a. overkapping, dakopbouw, aanbouw, nokverhoging, dakrenovatie, gevelrenovatie, badkamer, zwembad, poolhouse, kunstgras, pvc, tegels, jacht)
 - Werkende mini-demo's met echte renders op https://nextgrowthdigital.nl/dienst-configurators
 - Cases: Westrik Bouw & Installaties, Heesbeen Dakwerken, Dakcentrale Holland, Lokaal Ongediertebestrijding, Kelly Bobson
 
 ## Belangrijkste pagina's
-- https://nextgrowthdigital.nl/home
+- https://nextgrowthdigital.nl/
 - https://nextgrowthdigital.nl/dienst-webdesign
 - https://nextgrowthdigital.nl/dienst-marketing
 - https://nextgrowthdigital.nl/dienst-branding
