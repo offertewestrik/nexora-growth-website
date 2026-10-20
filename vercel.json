@@ -160,18 +160,8 @@
       "permanent": true
     },
     {
-      "source": "/prijzen",
-      "destination": "/prijzen",
-      "permanent": true
-    },
-    {
       "source": "/prijzen.html",
       "destination": "/prijzen",
-      "permanent": true
-    },
-    {
-      "source": "/sales",
-      "destination": "/sales",
       "permanent": true
     },
     {
