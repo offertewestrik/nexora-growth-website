@@ -448,6 +448,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid var(--line);padding-top:20px
 .panel.tri{aspect-ratio:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;place-items:stretch;background:#0A0A0A}
 .panel.tri .trc{position:relative;aspect-ratio:4/5;overflow:hidden;border-right:1px solid rgba(255,255,255,.08);background:#0A0A0A}
 .panel.tri .trc:last-child{border-right:0}
+.panel.tri.duo{grid-template-columns:1fr 1fr;max-width:760px;margin-inline:auto}.panel.tri.duo .trc{aspect-ratio:9/16}.panel.tri.duo .trc video{object-fit:cover}
 .panel.tri .trc .bgp{position:absolute;inset:0;background-position:center;background-size:cover}
 .panel.tri .trc video{position:relative;width:100%;height:100%;object-fit:contain;display:block}
 .panel.tri .trc .trt{position:absolute;left:14px;top:14px;font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#fff;background:rgba(10,10,10,.6);padding:7px 10px;border-radius:999px;backdrop-filter:blur(8px)}
@@ -1958,6 +1959,7 @@ function BranchPage(props){
       <div class="mods">${b.modules.map(function(x,i){return h`<${m.div} key=${i} className="mod" initial=${{opacity:0,y:24}} whileInView=${{opacity:1,y:0}} viewport=${{once:true}} transition=${{delay:i*.05,duration:.6,ease:EASE}} whileHover=${{y:-6}}><span class=${'tag '+x.tag}>${x.tag}</span><b>${x.t}</b><p>${x.d}</p></${m.div}>`})}</div></div>
     </div></section>`}
     <${Beeldstrip} slug=${slug}/>
+    ${(slug==='branche-brands'||slug==='branche-webshops')&&h`<${Showreel} reels=${FASHION_REELS} label="Fashion-edits · demonstratiebeeld" id="fashion-reel" pad="10px 0 0"/>`}
     <${BranchDemos} slug=${slug}/>
     <${SeoBody} d=${d} cream=${true}/>
     <section><div class="wrap">
@@ -2114,13 +2116,15 @@ function HeroBoost(props){
     </div>
   </section>`;
 }
-function Showreel(){
+var FASHION_REELS=[{v:'reel-fashion',p:'assets/reel-fashion.jpg',t:'Fashion-edit · NEXT'},{v:'reel-beige',p:'assets/reel-beige.jpg',t:'Beige edit · NEXT'}];
+function Showreel(props){
+  props=props||{};
   var r=useRef(null),mu=useState(true),muted=mu[0],setMuted=mu[1];
-  var R=[{v:'reel-cans',p:'assets/reel-cans.jpg',t:'Pulse · drankmerk'},{v:'reel-protein',p:'assets/reel-protein.jpg',t:'Atlas Whey · productvideo'},{v:'reel-bars',p:'assets/reel-bars.jpg',t:'Atlas Bars · productvideo'}];
-  return h`<section class="showreel" id="showreel" style=${{paddingBlock:'30px 0'}}><div class="wrap">
-    <${m.div} ref=${r} className="panel tri" initial=${{opacity:0,y:60,scale:.96}} whileInView=${{opacity:1,y:0,scale:1}} viewport=${{once:true,margin:'-5% 0px'}} transition=${{duration:1.1,ease:EASE}}>
+  var R=props.reels||[{v:'reel-cans',p:'assets/reel-cans.jpg',t:'Pulse · drankmerk'},{v:'reel-protein',p:'assets/reel-protein.jpg',t:'Atlas Whey · productvideo'},{v:'reel-bars',p:'assets/reel-bars.jpg',t:'Atlas Bars · productvideo'}];
+  return h`<section class="showreel" id=${props.id||'showreel'} style=${{paddingBlock:props.pad||'30px 0'}}><div class="wrap">
+    <${m.div} ref=${r} className=${'panel tri'+(R.length===2?' duo':'')} initial=${{opacity:0,y:60,scale:.96}} whileInView=${{opacity:1,y:0,scale:1}} viewport=${{once:true,margin:'-5% 0px'}} transition=${{duration:1.1,ease:EASE}}>
       ${R.map(function(x){return h`<div key=${x.v} class="trc"><div class="bgp" style=${{backgroundImage:'url("'+x.p.replace('.jpg','-blur.jpg')+'")'}} aria-hidden="true"></div><video src=${'assets/'+x.v+'.mp4'} poster=${x.p} muted=${muted} loop playsInline preload="none" data-auto="1" aria-label=${'Showreel: '+x.t}></video><span class="trt">${x.t}</span></div>`})}
-      <span class="lbl">Showreel · productvideo's en branding</span>
+      <span class="lbl">${props.label||"Showreel · productvideo's en branding"}</span>
       <button class="mute" type="button" onClick=${function(){var el=r.current;if(!el)return;var nm=!muted;setMuted(nm);el.querySelectorAll('video').forEach(function(v){v.muted=nm;if(v.paused)v.play().catch(function(){})})}}>${muted?'Geluid aan':'Geluid uit'}</button>
     </${m.div}>
   </div></section>`;
