@@ -1,4 +1,5 @@
 /* Next Growth: statische pagina's in dezelfde opbouw als de branchepagina's */
+img{max-width:100%;height:auto}
 :root{
   --bg:#0A0A0A;--bg-2:#111;--bg-3:#181818;--line:#262626;
   --fg:#EDEDEA;--muted:#9A9A96;--sig:#FFC400;--sig-ink:#0A0800;
