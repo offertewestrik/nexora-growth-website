@@ -2115,7 +2115,7 @@ function HeroBoost(props){
   var textLayer=staticTxt?h`<div class="hlt" style=${mob?{}:{left:'6%',top:'34%',fontSize:'9cqw'}}><div class="ln">VAL OP.</div></div>`:h`<${AnimatePresence}>${sc&&h`<${HLText} key=${sc.s} sc=${sc} mob=${mob}/>`}</${AnimatePresence}>`;
   return h`<section class="hl" id="top"><h1 class="vh">Next Growth: websites, branding en content die klanten in beweging brengen</h1>
     <div class="vwrap">
-      <video ref=${vref} src=${mob?"assets/hero-light-m.mp4":"assets/hero-light.mp4"} poster="assets/hero-light.jpg" muted playsInline loop preload="auto" aria-label="Showreel Next Growth: websites, branding, productvideo’s en configurators"></video>
+      <video ref=${vref} src=${mob?"assets/hero-light-m.mp4":"assets/hero-light.mp4"} poster="assets/hero-light.jpg" muted playsInline loop preload="metadata" aria-label="Showreel Next Growth: websites, branding, productvideo’s en configurators"></video>
       <div class="hlstage" aria-hidden=${mob?'true':'false'}>${!mob&&textLayer}</div>
       <div class="veil" style=${{opacity:veil}}></div>
       ${!mob&&h`<${m.p} className="hfix" initial=${reduce?{opacity:1}:{opacity:0,y:14}} animate=${{opacity:1,y:0}} transition=${{delay:reduce?0:1.1,duration:.6,ease:EASE}}><span class="hfdot"></span>Websites, branding en content die klanten in beweging brengen.</${m.p}>`}
@@ -2243,7 +2243,7 @@ function App(){
     <${AnimatePresence}>${intro&&h`<${Intro} key="intro" onDone=${done}/>`}</${AnimatePresence}>
     <${Nav}/>
     <div class="mobbar" role="navigation" aria-label="Snelle acties"><a class="p" href="#contact">Plan een kennismaking</a><a class="s" href="tel:+31683902192" aria-label="Bel 06 83 90 21 92">Bel</a></div>
-    <${AnimatePresence} mode="wait"><${m.main} id="inhoud" tabIndex="-1" key=${page} initial=${{opacity:0}} animate=${{opacity:1}} exit=${{opacity:0}} transition=${{duration:.35}}>${body}</${m.main}></${AnimatePresence}>
+    <${AnimatePresence} mode="wait" initial=${false}><${m.main} id="inhoud" tabIndex="-1" key=${page} initial=${{opacity:0}} animate=${{opacity:1}} exit=${{opacity:0}} transition=${{duration:.35}}>${body}</${m.main}></${AnimatePresence}>
     <${FooterBoost}/>
   </${React.Fragment}>`;
 }
