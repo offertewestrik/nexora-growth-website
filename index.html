@@ -870,10 +870,10 @@ footer.boost .giantword{font:900 clamp(56px,10.6vw,160px)/.8 var(--display);lett
 .beeldstrip{padding:clamp(60px,7vw,100px) 0 20px}
 .beeldstrip .strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:30px}
 .beeldstrip figure{margin:0;border-radius:18px;overflow:hidden;background:var(--bg-2);border:1px solid var(--line);position:relative}
-.beeldstrip figure img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
+.beeldstrip figure{display:grid}.beeldstrip figure img,.beeldstrip figure video{width:100%;height:100%;min-height:0;aspect-ratio:16/10;object-fit:cover;display:block}
 .beeldstrip figcaption{position:absolute;left:12px;bottom:12px;background:rgba(10,10,10,.6);color:#fff;padding:7px 11px;border-radius:999px;font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;backdrop-filter:blur(8px)}
 .beeldstrip .strip figure:first-child{grid-column:span 2}
-.beeldstrip .strip figure:first-child img{aspect-ratio:16/8.2}
+.beeldstrip .strip figure:first-child img,.beeldstrip .strip figure:first-child video{aspect-ratio:16/8.2}
 @media(max-width:860px){.beeldstrip .strip{grid-template-columns:1fr 1fr}.beeldstrip .strip figure:first-child{grid-column:1/-1}}
 @media(max-width:520px){.beeldstrip .strip{grid-template-columns:1fr}.beeldstrip figure img{aspect-ratio:16/10}}
 /* achtergrondbeeld in branchewerelden */
@@ -1716,7 +1716,7 @@ var BRANCH_IMGS={
  'branche-installatiebedrijven':[['assets/westrik-laptop.webp','Westrik Bouw & Installaties, website'],['assets/westrik-telefoon.webp','Offerte op de telefoon'],['34-website-responsive','Site op elk scherm']],
  'branche-hoveniers':[['26-timber-garden-room','Tuinkamer aan het water'],['40-timber-pergola','Overkapping in de tuin'],['25-extension-exterior','Tuin en woning in één beeld']],
  'branche-autobedrijven':[['assets/auto-aura.webp','Conceptwebsite in de showroom'],['14-auto-wheel','Detail dat verkoopt'],['17-auto-detailing','Werkplaats en service']],
- 'branche-webshops':[['01-fashion-hero','Campagnebeeld'],['03-sneaker-campaign','Productfotografie'],['10-fashion-storefront','Webshop op laptop en telefoon']],
+ 'branche-webshops':[['assets/baby-toy.mp4','Productvideo · babycollectie','v','assets/baby-toy.jpg'],['assets/baby-portrait.webp','Campagnebeeld · babymerk'],['assets/baby-blanket.mp4','Social content · nieuwe collectie','v','assets/baby-blanket.jpg'],['03-sneaker-campaign','Productfotografie'],['10-fashion-storefront','Webshop op laptop en telefoon']],
  'branche-brands':[['45-branding-suite','Huisstijl en drukwerk'],['46-packaging','Verpakking'],['47-embroidery','Merk op textiel']],
  'branche-restaurants-horeca':[['41-restaurant-hero','Sfeer van de zaak'],['42-chef-plating','De keuken in beeld'],['44-horeca-website','Menukaart online']],
  'branche-creators':[['31-creator-portrait','Portret voor je merk'],['33-podcast-creators','Podcast en video'],['36-creator-website','Portfolio op laptop en telefoon']],
@@ -1730,7 +1730,7 @@ var BRANCH_IMGS={
  'sales':[['28-builder-project','Op locatie'],['25-extension-exterior','Het resultaat'],['30-bouw-showcase','De site die het werk binnenhaalt']]
 };
 function Beeldstrip(props){var items=BRANCH_IMGS[props.slug];if(!items)return null;return h`<section class="beeldstrip"><div class="wrap"><div class="head"><div><p class="eyebrow mono">Zo laten we jouw vak zien</p><h2><${Words} text=${props.kop||'Beeld dat *verkoopt.'}/></h2></div><${Rise} delay=${.2}><p>Campagnebeeld, productfotografie en video uit eigen studio. Conceptbeelden, ter inspiratie voor jouw merk.</p></${Rise}></div>
-  <div class="strip">${items.map(function(it,i){return h`<${m.figure} key=${it[0]} initial=${{opacity:0,y:30}} whileInView=${{opacity:1,y:0}} viewport=${{once:true,margin:'-5% 0px'}} transition=${{delay:i*.1,duration:.8,ease:EASE}} whileHover=${{y:-6}}><img src=${bimg(it[0])} alt=${it[1]} loading="lazy"/><figcaption>${it[1]}</figcaption></${m.figure}>`})}</div></div></section>`}
+  <div class="strip">${items.map(function(it,i){return h`<${m.figure} key=${it[0]} initial=${{opacity:0,y:30}} whileInView=${{opacity:1,y:0}} viewport=${{once:true,margin:'-5% 0px'}} transition=${{delay:i*.1,duration:.8,ease:EASE}} whileHover=${{y:-6}}>${it[2]==='v'?h`<video src=${it[0]} poster=${it[3]} muted loop playsInline preload="none" data-auto="1" aria-label=${it[1]}></video>`:h`<img src=${bimg(it[0])} alt=${it[1]} loading="lazy"/>`}<figcaption>${it[1]}</figcaption></${m.figure}>`})}</div></div></section>`}
 
 var ENGINES=[['engine-overkapping','Houten overkapping'],['engine-uitbouw','Uitbouw'],['engine-dakkapel','Dakkapel'],['engine-dakopbouw','Dakopbouw'],['engine-badkamer','Badkamer'],['engine-zwembad','Zwembad'],['engine-poolhouse','Poolhouse'],['engine-zonwering','Zonwering']];
 function EngineGallery(){return h`<section id="engines"><div class="wrap"><div class="head"><div><p class="eyebrow mono">Uit onze eigen engine</p><h2><${Words} text="Acht configurators, *één aanpak."/></h2></div><${Rise} delay=${.2}><p>Elke kaart is een opname uit onze configurator-engine: het beeld verandert mee met elke keuze van de klant. Er draaien nu tien configurators live, van overkapping tot jacht.</p></${Rise}></div>
