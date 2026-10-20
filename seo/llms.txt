@@ -45,3 +45,231 @@ Heel Nederland, op locatie en op afstand. Regiopagina's voor Nijmegen, Arnhem, D
 - https://nextgrowthdigital.nl/branche-webshops
 - https://nextgrowthdigital.nl/branche-brands
 - https://nextgrowthdigital.nl/branche-creators
+
+## Kennisbank
+- [Aanvragen meten: van websitebezoek tot gewonnen opdracht](https://nextgrowthdigital.nl/kennisbank-aanvragen-meten-attributie): Meet aanvragen via website, configurator en CRM. Begrijp bronregistratie, attributie, dubbele leads en het verschil tussen klikken en klanten.
+- [AI voor aanvragen en offertevoorbereiding: zo richt je het in](https://nextgrowthdigital.nl/kennisbank-ai-aanvragen-offertes): Laat AI aanvragen samenvatten en offerteteksten voorbereiden. Lees hoe je feiten, prijsregels en menselijke goedkeuring gescheiden houdt.
+- [AI-agent, workflow of chatbot: wat heeft jouw bedrijf nodig?](https://nextgrowthdigital.nl/kennisbank-ai-agent-workflow-chatbot): Begrijp het verschil tussen een chatbot, vaste workflow en AI-agent. Kies een passende oplossing voor aanvragen, kennisvragen en bedrijfsprocessen.
+- [AI voor bouwbedrijven: praktische toepassingen en duidelijke grenzen](https://nextgrowthdigital.nl/kennisbank-ai-bouwbedrijf): Ontdek waar AI een bouwbedrijf kan ondersteunen: aanvragen, projectinformatie en offertes voorbereiden, met controle door je eigen team.
+- [AI implementeren in je bedrijf: een praktisch stappenplan](https://nextgrowthdigital.nl/kennisbank-ai-implementatie-stappenplan): Een concreet stappenplan voor AI-implementatie: proces kiezen, gegevens organiseren, een pilot testen en gecontroleerd uitbreiden.
+- [AI in klantenservice met een goede overdracht naar medewerkers](https://nextgrowthdigital.nl/kennisbank-ai-klantenservice-overdracht): Ontwerp AI-klantenservice die algemene vragen helpt beantwoorden en op tijd overdraagt. Lees over bronnen, verwachtingen en menselijke controle.
+- [AI koppelen aan je CRM en kennisbank: hoe werkt dat?](https://nextgrowthdigital.nl/kennisbank-ai-koppelen-crm-kennisbank): Lees hoe AI CRM-gegevens en bedrijfskennis kan gebruiken, met duidelijke bronkeuze, toegangsrechten en controle op wijzigingen.
+- [AI-kwaliteit testen en beheren: van demo naar dagelijks gebruik](https://nextgrowthdigital.nl/kennisbank-ai-kwaliteit-testen): Leer AI-resultaten toetsen op juistheid, volledigheid en bruikbaarheid. Maak tests, menselijke beoordeling en beheer onderdeel van je implementatie.
+- [Wat kost een AI-pilot en hoe bereken je het rendement?](https://nextgrowthdigital.nl/kennisbank-ai-pilot-kosten-roi): Beoordeel de kosten en opbrengst van een AI-pilot met een helder rekenvoorbeeld. Neem controle, beheer en koppelingen mee in je businesscase.
+- [AI-toepassingen voor het mkb: wat past bij jouw bedrijf?](https://nextgrowthdigital.nl/kennisbank-ai-toepassingen-mkb): Vergelijk praktische AI-toepassingen voor mkb-bedrijven: aanvragen, kennis zoeken, CRM en klantenservice. Kies op waarde en controleerbaarheid.
+- [Hoe deelt u een kleine badkamer in? Maten en valkuilen](https://nextgrowthdigital.nl/kennisbank-badkamer-indeling): Een kleine badkamer indelen: de maten die u nodig heeft voor douche, wastafel en toilet, hoeveel loopruimte er echt bij moet, wat de deur en de leidingen bepalen, en zeven fouten die u niet meer terugdraait.
+- [Wat kost een badkamer? De prijsopbouw per post](https://nextgrowthdigital.nl/kennisbank-badkamer-kosten): Wat kost een nieuwe badkamer? Het basistarief per m², wat sanitair, tegels en verwarming kosten, het verborgen werk dat offertes uit elkaar drijft, en een badkamer van 6 m² helemaal doorgerekend.
+- [2D, 3D of renders: welke configurator past bij jouw product?](https://nextgrowthdigital.nl/kennisbank-configurator-2d-3d-renders): Vergelijk 2D, fotorealistische renders en interactief 3D voor een zakelijke configurator. Kies op klantvragen, maatvoering en beheerkosten.
+- [Een configurator toevoegen aan je bestaande website](https://nextgrowthdigital.nl/kennisbank-configurator-bestaande-website): Lees hoe je een configurator integreert in een bestaande website, met aandacht voor techniek, vormgeving, aanvragen en beheer.
+- [Een configurator laten bouwen: welke informatie moet je aanleveren?](https://nextgrowthdigital.nl/kennisbank-configurator-briefing): Bereid je configuratorproject voor met een bruikbare briefing: producten, prijslijsten, beelden, uitzonderingen en gewenste aanvraagroute.
+- [Een configurator koppelen aan CRM en offertes](https://nextgrowthdigital.nl/kennisbank-configurator-crm-koppeling): Zo verbind je productkeuzes aan een CRM-aanvraag en offerte: gegevensmapping, foutafhandeling, opvolging en controle van de hele route.
+- [Hoe verloopt het bouwen van een configurator?](https://nextgrowthdigital.nl/kennisbank-configurator-doorlooptijd): Van productregels tot oplevering: lees welke stappen en afhankelijkheden de doorlooptijd van een configurator bepalen.
+- [Wat kost een configurator laten maken?](https://nextgrowthdigital.nl/kennisbank-configurator-kosten): Welke keuzes bepalen de kosten van een configurator? Lees hoe productregels, beelden, koppelingen en beheer samen je investering bepalen.
+- [Een configurator op mobiel: bediening en prestaties](https://nextgrowthdigital.nl/kennisbank-configurator-mobiel): Ontwerp een mobiele configurator waarin keuzes, maten en aanvragen begrijpelijk blijven. Lees hoe je laadtijd en gebruik in de praktijk controleert.
+- [Prijsregels voor maatwerk: zo voorkom je verkeerde configuratorprijzen](https://nextgrowthdigital.nl/kennisbank-configurator-prijsregels): Maak prijsberekeningen controleerbaar met heldere maten, tabellen, opties en versies. Lees welke regels een maatwerkconfigurator nodig heeft.
+- [Productvarianten en prijzen beheren in een configurator](https://nextgrowthdigital.nl/kennisbank-configurator-productbeheer): Houd assortiment, beelden en prijzen consistent met productcodes, versies en controleerbare publicatie. Zo richt je configuratorbeheer in.
+- [Hoe meet je het rendement van een configurator?](https://nextgrowthdigital.nl/kennisbank-configurator-rendement): Meet configuratorrendement met aanvragen, verkoopmarge, tijdwinst en totale kosten. Inclusief meetplan en uitleg over een betrouwbare vergelijking.
+- [Een configurator voor jouw zonwering- of overkappingbedrijf](https://nextgrowthdigital.nl/kennisbank-configurator-zonwering-overkapping-bedrijven): Welke keuzes en regels heeft een zakelijke zonwering- of overkappingconfigurator nodig? Van productselectie en maten tot inmeting en offerte.
+- [Wat doet een configurator, en wanneer verdient hij zich terug?](https://nextgrowthdigital.nl/kennisbank-configurator): Wat doet een productconfigurator voor je bedrijf? Lees over keuzes, prijsberekening, offerteaanvragen, kosten en het meten van rendement, ook zonder openbare prijzen.
+- [Conversieoptimalisatie bij weinig websiteverkeer](https://nextgrowthdigital.nl/kennisbank-conversieoptimalisatie-weinig-verkeer): Weinig bezoekers? Verbeter je aanvraagroute met gebruikerstests, technische controles en duidelijke hypotheses voordat je kleine A/B-tests overschat.
+- [Wat is CPQ en wanneer heb je een offerteconfigurator nodig?](https://nextgrowthdigital.nl/kennisbank-cpq-offerteconfigurator): Begrijp Configure, Price, Quote: productkeuzes, calculatie en offerte. Lees wanneer CPQ past en welke controles je moet inrichten.
+- [CRM voor een bouwbedrijf: welke functies heb je echt nodig?](https://nextgrowthdigital.nl/kennisbank-crm-bouwbedrijf): Ontdek wanneer een CRM jouw bouwbedrijf helpt, welke functies belangrijk zijn en hoe je aanvragen, offertes en opvolging overzichtelijk organiseert.
+- [CRM koppelen aan website, configurator en boekhouding](https://nextgrowthdigital.nl/kennisbank-crm-koppelingen): Ontdek wat bij een CRM-koppeling komt kijken: gegevensmapping, leidende systemen, foutafhandeling, testen en beheer van de overdracht.
+- [Wat kost een CRM? Alle kostenposten voor een bruikbare vergelijking](https://nextgrowthdigital.nl/kennisbank-crm-kosten): Bekijk welke kosten bij een CRM horen: licenties, inrichting, migratie, koppelingen, training en beheer. Zo vergelijk je voorstellen eerlijk.
+- [CRM op maat of standaardsoftware: hoe kies je?](https://nextgrowthdigital.nl/kennisbank-crm-maatwerk-of-standaard): Vergelijk standaard CRM, aangepaste inrichting en maatwerk op proces, kosten, koppelingen, beheer en overdraagbaarheid.
+- [Van Excel naar CRM: klanten en lopende aanvragen veilig overzetten](https://nextgrowthdigital.nl/kennisbank-crm-migratie): Bereid een CRM-migratie voor met een gegevensinventaris, opschoning, proefimport en controle. Houd lopende aanvragen en klantrelaties herkenbaar.
+- [Wat kost een dakkapel? Zo is het bedrag opgebouwd](https://nextgrowthdigital.nl/kennisbank-dakkapel-kosten): Wat kost een dakkapel? Uit welke posten het bedrag bestaat, welke drie keuzes het echt bewegen en wat er in een eerlijke prijs hoort te zitten, zonder vanaf-prijs die nergens op slaat.
+- [Hoe verloopt het plaatsen van een dakkapel? Dag voor dag](https://nextgrowthdigital.nl/kennisbank-dakkapel-plaatsing): Een prefab dakkapel in één dag: wat er vooraf gebeurt, hoe de plaatsingsdag verloopt, wat de kraan aan straat nodig heeft, wat er daarna binnen nog moet en hoe lang het hele traject duurt.
+- [Heb ik een vergunning nodig voor een dakkapel?](https://nextgrowthdigital.nl/kennisbank-dakkapel-vergunning): Op het achterdakvlak is een dakkapel vaak vergunningvrij, op het voordakvlak vrijwel nooit. Waar de voorwaarden over gaan, wat het omgevingsplan daar bovenop doet en hoe de aanvraag verloopt.
+- [Welke afwerking past bij mijn dakopbouw?](https://nextgrowthdigital.nl/kennisbank-dakopbouw-afwerking): Metselwerk, keralit, houtlook of stucwerk: wat elke gevelafwerking betekent voor gewicht, onderhoud, prijs en de welstandstoets, met beelden van elke uitvoering.
+- [Een badkamer in de dakopbouw: wat komt erbij kijken?](https://nextgrowthdigital.nl/kennisbank-dakopbouw-badkamer): Een badkamer op de nieuwe verdieping: waarom het de duurste enkele keuze in een dakopbouw is, wat er aan leidingen, water, ventilatie en constructie bij komt, en wanneer het zich terugverdient.
+- [Draagt mijn woning een dakopbouw?](https://nextgrowthdigital.nl/kennisbank-dakopbouw-constructie): Kan uw woning een dakopbouw dragen? Wat de vloeropbouw, de bouwmuren en de fundering bepalen, hoe u aan het bouwjaar al veel ziet, en wat een constructeur precies berekent.
+- [Wat kost een dakopbouw? De volledige prijsopbouw](https://nextgrowthdigital.nl/kennisbank-dakopbouw-kosten): Wat kost een dakopbouw? De posten op een rij: constructie, casco, kozijnen, afwerking, installaties, kraan en vergunning, plus waar de grote verschillen vandaan komen.
+- [Dakopbouw of dakkapel: wat past bij uw woning?](https://nextgrowthdigital.nl/kennisbank-dakopbouw-of-dakkapel): Dakopbouw of dakkapel: het verschil in ruimte, constructie, vergunning, kosten en overlast, met vijf vragen waarmee u de keuze in tien minuten maakt.
+- [Vergunning voor een dakopbouw: wanneer en hoe](https://nextgrowthdigital.nl/kennisbank-dakopbouw-vergunning): Heeft u een vergunning nodig voor een dakopbouw? Wat het omgevingsplan, de welstandstoets en beschermd stadsgezicht betekenen, en hoe het aanvraagtraject verloopt.
+- [Dakisolatie bij een renovatie: kosten, Rc-waarde en subsidie](https://nextgrowthdigital.nl/kennisbank-dakrenovatie-isolatie): Isoleren tijdens de dakrenovatie: wat het kost per m², wat de Rc-waarde betekent, van binnen of van buiten isoleren, hoe de ISDE-subsidie werkt en wanneer het zich terugverdient.
+- [Wat kost een dakrenovatie? Richtprijzen per m²](https://nextgrowthdigital.nl/kennisbank-dakrenovatie-kosten): Wat kost een dakrenovatie? Richtprijzen per m² voor reinigen, coaten, nieuwe pannen, onderdak en isolatie, plus een tussenwoning volledig doorgerekend en wat een offerte moet noemen.
+- [Wanneer is mijn dak toe aan renovatie? Negen signalen](https://nextgrowthdigital.nl/kennisbank-dakrenovatie-signalen): Negen signalen dat een dak toe is aan renovatie, wat elk signaal wel en niet betekent, hoe oud dakmaterialen worden en wanneer reinigen, coaten of vervangen de juiste keuze is.
+- [Dubbele aanvragen en storingen voorkomen in CRM-automatisering](https://nextgrowthdigital.nl/kennisbank-dubbele-aanvragen-foutafhandeling): Ontwerp aanvraagverwerking met unieke referenties, duidelijke foutmeldingen, gecontroleerde herhaalpogingen en menselijk herstel.
+- [Wat kost een gevelrenovatie? Tarieven per m² met marktband](https://nextgrowthdigital.nl/kennisbank-gevelrenovatie-kosten): Wat kost een gevelrenovatie? Tarieven per m² voor reinigen, voegwerk, herstel, stucwerk, impregneren en steiger, elk met de marktbandbreedte erbij, en een rijtjeswoning doorgerekend.
+- [Vocht in de gevel: doorslaand, optrekkend of condens?](https://nextgrowthdigital.nl/kennisbank-gevelrenovatie-vocht): Vochtplekken op een buitenmuur: hoe u doorslaand vocht, optrekkend vocht en condens uit elkaar houdt, wat elke oorzaak vraagt en welke ingreep in welke volgorde helpt.
+- [Google Ads voor bouwbedrijven: van zoekopdracht naar passende aanvraag](https://nextgrowthdigital.nl/kennisbank-google-ads-bouwbedrijf): Wanneer zijn Google Ads zinvol voor een bouwbedrijf? Lees over campagnekeuzes, landingspagina’s, configurators en het meten van echte leadkwaliteit.
+- [Google Ads-budget bepalen op basis van leadkwaliteit](https://nextgrowthdigital.nl/kennisbank-google-ads-budget-leadkwaliteit): Bepaal een Google Ads-budget vanuit marge, passende aanvragen en verkoopresultaat. Lees hoe je een afgebakende proef opzet zonder opbrengsten te beloven.
+- [Google Ads-landingspagina of SEO-pagina: wat is het verschil?](https://nextgrowthdigital.nl/kennisbank-google-ads-landingspagina-seo): Begrijp het verschil tussen een campagnepagina en een SEO-dienstpagina. Kies structuur, inhoud en meting op basis van de vraag van je bezoeker.
+- [Een interne AI-assistent met eigen bedrijfsbronnen](https://nextgrowthdigital.nl/kennisbank-interne-ai-assistent): Ontdek hoe een interne AI-assistent medewerkers helpt informatie terug te vinden, met bronverwijzingen, toegangscontrole en actueel beheer.
+- [Leads verdelen en opvolgen: eigenaarschap zonder dubbel werk](https://nextgrowthdigital.nl/kennisbank-leads-verdelen-opvolgen): Richt leadverdeling in op regio, expertise en beschikbaarheid. Leg eigenaar, eerste actie, overdracht en uitzonderingen vast in het CRM.
+- [Marketing, website, configurator en CRM combineren](https://nextgrowthdigital.nl/kennisbank-marketing-website-configurator-crm): Verbind marketing met je website, configurator en CRM. Een praktisch plan voor minder overdrachtsfouten en beter inzicht van aanvraag tot opdracht.
+- [Offertes automatiseren: van productkeuzes naar een controleerbaar voorstel](https://nextgrowthdigital.nl/kennisbank-offertes-automatiseren): Lees hoe offerteautomatisering werkt met productregels, prijzen, versies en menselijke controle. Maak scope en uitzonderingen vooraf duidelijk.
+- [Offertes opvolgen: een praktisch proces zonder klanten te overspoelen](https://nextgrowthdigital.nl/kennisbank-offertes-opvolgen): Organiseer offerteopvolging met duidelijke afspraken, persoonlijke contactmomenten en CRM-taken. Inclusief stopregels en meetpunten.
+- [CRM-dashboard: meet aanvragen, offertes en opdrachten zonder schijnzekerheid](https://nextgrowthdigital.nl/kennisbank-omzetproces-dashboard): Bouw een verkoopdashboard met heldere definities voor leads, offertes, opdrachten en doorlooptijd. Maak ontbrekende gegevens zichtbaar.
+- [Wie is Next Growth? Alles over ons bedrijf](https://nextgrowthdigital.nl/kennisbank-over-next-growth): Wat Next Growth doet, voor wie, waar we werken en hoe we het aanpakken. De vragen die klanten stellen voordat ze bellen, met eerlijke antwoorden.
+- [Is een overkapping vergunningvrij? Waar het van afhangt](https://nextgrowthdigital.nl/kennisbank-overkapping-vergunning): Een overkapping of veranda bouwen: waar de vergunningvraag werkelijk over gaat, waarom voor- en achtertuin verschillen, wat het omgevingsplan van uw gemeente daaraan toevoegt en hoe u het zelf nakijkt.
+- [Welke bedrijfsprocessen kun je het beste eerst automatiseren?](https://nextgrowthdigital.nl/kennisbank-processen-automatiseren): Kies een eerste automatisering op herhaling, duidelijke regels, foutimpact en meetbaarheid. Begin met een afgebakend probleem.
+- [SEO voor bouwbedrijven: gevonden worden voor de juiste opdrachten](https://nextgrowthdigital.nl/kennisbank-seo-bouwbedrijf): Hoe krijgt een bouwbedrijf relevante aanvragen via SEO? Lees over diensten, lokale vindbaarheid, projectcases, techniek en meten tot aan de opdracht.
+- [SEO voor zakelijke dienstverleners: van expertise naar aanvragen](https://nextgrowthdigital.nl/kennisbank-seo-zakelijke-dienstverleners): Een praktische SEO-aanpak voor zakelijke dienstverleners: dienstpagina’s, koopvragen, kennisbank, cases en het meten van gekwalificeerde aanvragen.
+- [Hoe lang duurt een uitbouw, en kunt u erin blijven wonen?](https://nextgrowthdigital.nl/kennisbank-uitbouw-doorlooptijd): De doorlooptijd van een uitbouw per fase, welke week welke overlast geeft, wanneer de achtergevel eruit gaat, wat er kan uitlopen en hoe u het thuis werkbaar houdt.
+- [Fundering van een uitbouw: zand, klei en grondwater](https://nextgrowthdigital.nl/kennisbank-uitbouw-fundering): Op zand of op klei bouwen scheelt fors bij een uitbouw. Wat de ondergrond betekent voor de fundering, wanneer een proefgat loont en waarom oud en nieuw zich hetzelfde moeten gedragen.
+- [Wat kost een uitbouw? De volledige prijsopbouw](https://nextgrowthdigital.nl/kennisbank-uitbouw-kosten): Wat kost een uitbouw of aanbouw? De posten op een rij: fundering, casco, pui, dak, installaties en aanvoer, en waarom de fundering de post is die begrotingen laat ontsporen.
+- [Is een uitbouw vergunningvrij? Wat de voorwaarden zijn](https://nextgrowthdigital.nl/kennisbank-uitbouw-vergunning): Een uitbouw aan de achterzijde is binnen bepaalde maten vaak vergunningvrij, maar er zijn voorwaarden en uitzonderingen. Wat er speelt bij monumenten, beschermd stadsgezicht en de dijk.
+- [Vindbaar worden in AI-zoekmachines: wat je bedrijf kan verbeteren](https://nextgrowthdigital.nl/kennisbank-vindbaarheid-ai-zoekmachines): Hoe vergroot je de kans op vindbaarheid in AI-zoekmachines? Lees over toegankelijke pagina’s, betrouwbare antwoorden, crawlers en realistisch meten.
+- [Wat moet je aanleveren voor een nieuwe zakelijke website?](https://nextgrowthdigital.nl/kennisbank-website-briefing-content): Bereid je websiteproject voor met een heldere briefing, echte projectfoto’s, dienstinformatie en inhoudelijke afspraken. Inclusief praktische controlepunten.
+- [Hoe koppel je websiteformulieren aan je CRM?](https://nextgrowthdigital.nl/kennisbank-website-formulier-crm): Laat websiteaanvragen betrouwbaar in CRM binnenkomen. Lees over veldmapping, validatie, dubbele inzendingen, foutafhandeling en testen van de opvolging.
+- [Wat kost een zakelijke website laten maken?](https://nextgrowthdigital.nl/kennisbank-website-kosten): Ontdek welke keuzes de kosten van een zakelijke website bepalen en hoe je offertes vergelijkt op inhoud, beheer, koppelingen en meetbaarheid.
+- [Hoe meet je hoeveel aanvragen je website oplevert?](https://nextgrowthdigital.nl/kennisbank-website-meetbaar): Meet websitebezoek, echte aanvragen en gewonnen opdrachten. Lees hoe Search Console, analytics en CRM elkaar aanvullen zonder dubbel te tellen.
+- [Een snelle mobiele website: wat moet je laten controleren?](https://nextgrowthdigital.nl/kennisbank-website-mobiel-snelheid): Controleer mobiele bruikbaarheid, beeld, scripts en Core Web Vitals. Lees waarom snelheid meer is dan één score en hoe je de aanvraagroute test.
+- [Hoe maak je een offerteformulier dat passende aanvragen oplevert?](https://nextgrowthdigital.nl/kennisbank-website-offerteformulier): Ontwerp een duidelijk offerteformulier met relevante velden, goede foutmeldingen en betrouwbare ontvangst. Meet kwaliteit én het aantal aanvragen.
+- [Websitebeheer, onderhoud en overdracht: wat spreek je af?](https://nextgrowthdigital.nl/kennisbank-website-onderhoud-eigendom): Voorkom onduidelijkheid over domeinen, hosting, content en websitebeheer. Bekijk welke praktische afspraken je vóór de bouw moet vastleggen.
+- [Website op maat of een template: wat past bij jouw bedrijf?](https://nextgrowthdigital.nl/kennisbank-website-op-maat-of-template): Vergelijk maatwerk en templates op ontwerp, beheer, functionaliteit en kosten. Kies een websiteoplossing die aansluit op jouw bedrijfsproces.
+- [Hoe verloopt het laten bouwen van een zakelijke website?](https://nextgrowthdigital.nl/kennisbank-website-traject): Van briefing tot livegang: ontdek welke stappen, beslissingen en controles nodig zijn voor een zakelijke website die past bij je verkoopproces.
+- [Website vernieuwen zonder onnodig SEO-verlies: zo bereid je de verhuizing voor](https://nextgrowthdigital.nl/kennisbank-website-vernieuwen-seo): Behoud belangrijke URL’s en inhoud bij een websitevernieuwing. Lees hoe redirects, canonicals, sitemaps en controles een zorgvuldige migratie ondersteunen.
+- [Wat moet er op een website voor een bouwbedrijf staan?](https://nextgrowthdigital.nl/kennisbank-website-voor-bouwbedrijven): Een bouwbedrijfwebsite moet diensten, projecten, werkgebied en werkwijze duidelijk maken. Lees hoe je passende aanvragen ondersteunt met echt bewijs.
+- [Hoe een traject bij Next Growth verloopt](https://nextgrowthdigital.nl/kennisbank-werkwijze): Van eerste gesprek tot oplevering: wie wat doet, wat je zelf aanlevert, wat het kost aan tijd en waar het in de praktijk vastloopt. Voor verbouwingen en voor software.
+- [Workflow automatiseren van intake tot opdracht: zo bouw je een werkbaar proces](https://nextgrowthdigital.nl/kennisbank-workflow-intake-opdracht): Verbind aanvraag, beoordeling, opname, offerte en overdracht in één duidelijke workflow. Inclusief verantwoordelijkheden en stopmomenten.
+- [Een zwembad in de tuin: wat komt erbij kijken?](https://nextgrowthdigital.nl/kennisbank-zwembad-aanleg): Een zwembad laten aanleggen: de vergunningvraag, het grondwerk, welk type bad bij welke tuin past, de techniek en de warmtepomp, het onderhoud per week en wat er in de winter gebeurt.
+
+## Configurators (live demo)
+- https://nextgrowthdigital.nl/aanbouw-configurator.html
+- https://nextgrowthdigital.nl/badkamer-configurator.html
+- https://nextgrowthdigital.nl/dakkapel-configurator.html
+- https://nextgrowthdigital.nl/dakopbouw-configurator.html
+- https://nextgrowthdigital.nl/dakrenovatie-configurator.html
+- https://nextgrowthdigital.nl/demos-en.html
+- https://nextgrowthdigital.nl/draagbalk-berekenen.html
+- https://nextgrowthdigital.nl/gevelrenovatie-configurator.html
+- https://nextgrowthdigital.nl/jacht-configurator.html
+- https://nextgrowthdigital.nl/kunstgras-configurator.html
+- https://nextgrowthdigital.nl/nokverhoging-configurator.html
+- https://nextgrowthdigital.nl/overkapping-configurator.html
+- https://nextgrowthdigital.nl/pool-configurator-en.html
+- https://nextgrowthdigital.nl/poolhouse-configurator.html
+- https://nextgrowthdigital.nl/poolhouse-configurator-en.html
+- https://nextgrowthdigital.nl/poolstudio.html
+- https://nextgrowthdigital.nl/poolstudio-studio-en.html
+- https://nextgrowthdigital.nl/pvc-configurator.html
+- https://nextgrowthdigital.nl/tegel-configurator.html
+- https://nextgrowthdigital.nl/tegelvloer-configurator.html
+- https://nextgrowthdigital.nl/verbouwkosten-calculator.html
+- https://nextgrowthdigital.nl/yacht-configurator.html
+- https://nextgrowthdigital.nl/yacht-konfigurator.html
+- https://nextgrowthdigital.nl/zwembad-configurator.html
+
+## Overige pagina's
+- [Auteursrecht en gebruik: Next Growth](https://nextgrowthdigital.nl/auteursrecht)
+- [Badkamer laten verbouwen in Arnhem](https://nextgrowthdigital.nl/badkamer-arnhem)
+- [Badkamer configurator laten maken: inclusief sloop, leidingwerk en tegelwerk](https://nextgrowthdigital.nl/badkamer-configurator-laten-maken)
+- [Badkamer laten verbouwen in Eindhoven](https://nextgrowthdigital.nl/badkamer-eindhoven)
+- [Badkamer laten verbouwen: zo gaat het](https://nextgrowthdigital.nl/badkamer-laten-verbouwen)
+- [Badkamer laten verbouwen in Nijmegen](https://nextgrowthdigital.nl/badkamer-nijmegen)
+- [Productconfigurator laten maken met CRM-koppeling](https://nextgrowthdigital.nl/configurator-laten-maken)
+- [Dakkapel plaatsen in Arnhem](https://nextgrowthdigital.nl/dakkapel-arnhem)
+- [Dakkapel configurator laten maken](https://nextgrowthdigital.nl/dakkapel-configurator-laten-maken)
+- [Dakkapel plaatsen in Cuijk](https://nextgrowthdigital.nl/dakkapel-cuijk)
+- [Dakkapel plaatsen in Den Bosch](https://nextgrowthdigital.nl/dakkapel-den-bosch)
+- [Dakkapel plaatsen in Eindhoven](https://nextgrowthdigital.nl/dakkapel-eindhoven)
+- [Dakkapel plaatsen in Grave](https://nextgrowthdigital.nl/dakkapel-grave)
+- [Dakkapel laten plaatsen](https://nextgrowthdigital.nl/dakkapel-laten-plaatsen)
+- [Dakkapel plaatsen in Nijmegen](https://nextgrowthdigital.nl/dakkapel-nijmegen)
+- [Dakkapel plaatsen in Uden](https://nextgrowthdigital.nl/dakkapel-uden)
+- [Dakkapel plaatsen in Veghel](https://nextgrowthdigital.nl/dakkapel-veghel)
+- [Dakkapel plaatsen in Vught](https://nextgrowthdigital.nl/dakkapel-vught)
+- [Dakkapel plaatsen in Wijchen](https://nextgrowthdigital.nl/dakkapel-wijchen)
+- [Dakopbouw laten plaatsen in Arnhem](https://nextgrowthdigital.nl/dakopbouw-arnhem)
+- [Dakopbouw configurator laten maken: draagkracht, vergunning en kraan meegerekend](https://nextgrowthdigital.nl/dakopbouw-configurator-laten-maken)
+- [Dakopbouw laten plaatsen in Cuijk](https://nextgrowthdigital.nl/dakopbouw-cuijk)
+- [Dakopbouw laten plaatsen in Den Bosch](https://nextgrowthdigital.nl/dakopbouw-den-bosch)
+- [Dakopbouw laten plaatsen in Eindhoven](https://nextgrowthdigital.nl/dakopbouw-eindhoven)
+- [Dakopbouw laten plaatsen in Gelderland](https://nextgrowthdigital.nl/dakopbouw-gelderland)
+- [Dakopbouw laten plaatsen in Grave](https://nextgrowthdigital.nl/dakopbouw-grave)
+- [Dakopbouw laten plaatsen](https://nextgrowthdigital.nl/dakopbouw-laten-plaatsen)
+- [Dakopbouw laten plaatsen in Nijmegen](https://nextgrowthdigital.nl/dakopbouw-nijmegen)
+- [Dakopbouw laten plaatsen in Noord-Brabant](https://nextgrowthdigital.nl/dakopbouw-noord-brabant)
+- [Dakopbouw laten plaatsen in Uden](https://nextgrowthdigital.nl/dakopbouw-uden)
+- [Dakopbouw laten plaatsen in Veghel](https://nextgrowthdigital.nl/dakopbouw-veghel)
+- [Dakopbouw laten plaatsen in Vught](https://nextgrowthdigital.nl/dakopbouw-vught)
+- [Dakopbouw laten plaatsen in Wijchen](https://nextgrowthdigital.nl/dakopbouw-wijchen)
+- [Dakrenovatie in Arnhem](https://nextgrowthdigital.nl/dakrenovatie-arnhem)
+- [Dakrenovatie configurator laten maken: prijs per m² dakvlak](https://nextgrowthdigital.nl/dakrenovatie-configurator-laten-maken)
+- [Dakrenovatie in Cuijk](https://nextgrowthdigital.nl/dakrenovatie-cuijk)
+- [Dakrenovatie in Den Bosch](https://nextgrowthdigital.nl/dakrenovatie-den-bosch)
+- [Dakrenovatie in Eindhoven](https://nextgrowthdigital.nl/dakrenovatie-eindhoven)
+- [Dakrenovatie in Grave](https://nextgrowthdigital.nl/dakrenovatie-grave)
+- [Dakrenovatie in Nijmegen](https://nextgrowthdigital.nl/dakrenovatie-nijmegen)
+- [Dakrenovatie in Uden](https://nextgrowthdigital.nl/dakrenovatie-uden)
+- [Dakrenovatie in Veghel](https://nextgrowthdigital.nl/dakrenovatie-veghel)
+- [Dakrenovatie in Vught](https://nextgrowthdigital.nl/dakrenovatie-vught)
+- [Dakrenovatie in Wijchen](https://nextgrowthdigital.nl/dakrenovatie-wijchen)
+- [Gevelrenovatie configurator laten maken: reinigen, voegen en herstel](https://nextgrowthdigital.nl/gevelrenovatie-configurator-laten-maken)
+- [Jachtconfigurator laten maken voor uw werf](https://nextgrowthdigital.nl/jachtconfigurator-laten-maken)
+- [Kennisbank: configurators, websites, CRM en AI](https://nextgrowthdigital.nl/kennisbank)
+- [Keuken configurator laten maken](https://nextgrowthdigital.nl/keuken-configurator-laten-maken)
+- [Kozijnen configurator laten maken](https://nextgrowthdigital.nl/kozijnen-configurator-laten-maken)
+- [Kunstgras configurator laten maken: m²-prijs inclusief grondwerk](https://nextgrowthdigital.nl/kunstgras-configurator-laten-maken)
+- [Maatwerk configurator laten maken: voor producten die in geen hokje passen](https://nextgrowthdigital.nl/maatwerk-configurator-laten-maken)
+- [Montagepartners voor dakopbouw, aanbouw & meer](https://nextgrowthdigital.nl/montagepartners)
+- [Offerte-configurator voor je website](https://nextgrowthdigital.nl/offerte-configurator)
+- [Online marketing bureau dat op aanvragen stuurt: Next Growth](https://nextgrowthdigital.nl/online-marketing-bureau)
+- [Overkapping laten plaatsen in Arnhem](https://nextgrowthdigital.nl/overkapping-arnhem)
+- [Overkapping laten plaatsen in Eindhoven](https://nextgrowthdigital.nl/overkapping-eindhoven)
+- [Overkapping laten plaatsen in Nijmegen](https://nextgrowthdigital.nl/overkapping-nijmegen)
+- [Overkappingen op maat, aluminium en hout](https://nextgrowthdigital.nl/overkappingen)
+- [Lead generation for pool builders](https://nextgrowthdigital.nl/pool-builder-lead-generation)
+- [Pool Configurator Software for Pool Builders](https://nextgrowthdigital.nl/pool-configurator-software)
+- [Pool cost calculator for your website](https://nextgrowthdigital.nl/pool-cost-calculator-website)
+- [Pool Design Software Your Customers Use Themselves](https://nextgrowthdigital.nl/pool-design-software-for-customers)
+- [Poolhouse configurator laten maken: van techniekberging tot buitenverblijf](https://nextgrowthdigital.nl/poolhouse-configurator-laten-maken)
+- [Privacyverklaring: Next Growth](https://nextgrowthdigital.nl/privacyverklaring)
+- [PVC-vloer configurator laten maken: prijs per ruimte, inclusief leggen](https://nextgrowthdigital.nl/pvc-vloer-configurator-laten-maken)
+- [Schutting configurator laten maken](https://nextgrowthdigital.nl/schutting-configurator-laten-maken)
+- [Serre configurator laten maken: glas, zonwering en verwarming doorgerekend](https://nextgrowthdigital.nl/serre-configurator-laten-maken)
+- [Software laten ontwikkelen op maat](https://nextgrowthdigital.nl/software-laten-ontwikkelen)
+- [Tegelvloer configurator laten maken: legtarief per formaat en verband](https://nextgrowthdigital.nl/tegelvloer-configurator-laten-maken)
+- [Traprenovatie configurator laten maken](https://nextgrowthdigital.nl/traprenovatie-configurator-laten-maken)
+- [Uitbouw laten bouwen in Arnhem](https://nextgrowthdigital.nl/uitbouw-arnhem)
+- [Uitbouw configurator laten maken: doorbraak, fundering en pui doorgerekend](https://nextgrowthdigital.nl/uitbouw-configurator-laten-maken)
+- [Uitbouw laten bouwen in Cuijk](https://nextgrowthdigital.nl/uitbouw-cuijk)
+- [Uitbouw laten bouwen in Den Bosch](https://nextgrowthdigital.nl/uitbouw-den-bosch)
+- [Uitbouw of aanbouw laten bouwen in Eindhoven](https://nextgrowthdigital.nl/uitbouw-eindhoven)
+- [Uitbouw laten plaatsen in Gelderland](https://nextgrowthdigital.nl/uitbouw-gelderland)
+- [Uitbouw laten bouwen in Grave](https://nextgrowthdigital.nl/uitbouw-grave)
+- [Uitbouw of aanbouw laten bouwen: zo gaat het](https://nextgrowthdigital.nl/uitbouw-laten-bouwen)
+- [Uitbouw laten bouwen in Nijmegen](https://nextgrowthdigital.nl/uitbouw-nijmegen)
+- [Uitbouw laten plaatsen in Noord-Brabant](https://nextgrowthdigital.nl/uitbouw-noord-brabant)
+- [Uitbouw laten bouwen in Uden](https://nextgrowthdigital.nl/uitbouw-uden)
+- [Uitbouw laten bouwen in Veghel](https://nextgrowthdigital.nl/uitbouw-veghel)
+- [Uitbouw laten bouwen in Vught](https://nextgrowthdigital.nl/uitbouw-vught)
+- [Uitbouw laten bouwen in Wijchen](https://nextgrowthdigital.nl/uitbouw-wijchen)
+- [Veranda configurator laten maken](https://nextgrowthdigital.nl/veranda-configurator-laten-maken)
+- [Website laten maken voor je bedrijf](https://nextgrowthdigital.nl/website-laten-maken)
+- [Website voor aannemers met uitbouwconfigurator](https://nextgrowthdigital.nl/website-voor-aannemers)
+- [Website voor dakdekkers: voor spoed én het grote werk](https://nextgrowthdigital.nl/website-voor-dakdekkers)
+- [Website laten maken voor hoveniers](https://nextgrowthdigital.nl/website-voor-hoveniers)
+- [Website voor installatiebedrijven: bereikbaar als het telt](https://nextgrowthdigital.nl/website-voor-installatiebedrijven)
+- [Website voor isolatiebedrijven: subsidie en terugverdientijd uitgelegd](https://nextgrowthdigital.nl/website-voor-isolatiebedrijven)
+- [Website laten maken voor klusbedrijven](https://nextgrowthdigital.nl/website-voor-klusbedrijven)
+- [Website voor kozijnenbedrijven: aanvragen die al gerekend zijn](https://nextgrowthdigital.nl/website-voor-kozijnenbedrijven)
+- [Website laten maken voor schilders](https://nextgrowthdigital.nl/website-voor-schilders)
+- [Website voor stratenmakers: opritten en terrassen die zichzelf verkopen](https://nextgrowthdigital.nl/website-voor-stratenmakers)
+- [Website voor stukadoors: eigen klanten naast het aannemerswerk](https://nextgrowthdigital.nl/website-voor-stukadoors)
+- [Website voor tegelzetters: rechtstreeks gevonden, niet via de showroom](https://nextgrowthdigital.nl/website-voor-tegelzetters)
+- [Website voor timmerbedrijven: van alleskunner naar duidelijke keuze](https://nextgrowthdigital.nl/website-voor-timmerbedrijven)
+- [Website voor verandabouwers: mét veranda-configurator](https://nextgrowthdigital.nl/website-voor-verandabouwers)
+- [Website voor vloerenzaken: mét vloer-configurator en m²-prijs](https://nextgrowthdigital.nl/website-voor-vloerenzaken)
+- [Website voor zonweringbedrijven: mét overkapping-configurator](https://nextgrowthdigital.nl/website-voor-zonweringbedrijven)
+- [Website voor zwembadbouwers: mét zwembad-configurator](https://nextgrowthdigital.nl/website-voor-zwembadbouwers)
+- [Verbouwen in Arnhem: dakopbouw, uitbouw of badkamer](https://nextgrowthdigital.nl/werkgebied-arnhem)
+- [Verbouwen in Cuijk: dakopbouw, uitbouw of badkamer](https://nextgrowthdigital.nl/werkgebied-cuijk)
+- [Verbouwen in Den Bosch: dakopbouw, uitbouw of badkamer](https://nextgrowthdigital.nl/werkgebied-den-bosch)
+- [Verbouwen in Eindhoven: dakopbouw, uitbouw of badkamer](https://nextgrowthdigital.nl/werkgebied-eindhoven)
+- [Verbouwen in Grave: dakopbouw, uitbouw of badkamer](https://nextgrowthdigital.nl/werkgebied-grave)
+- [Verbouwen in Nijmegen: dakopbouw, uitbouw of badkamer](https://nextgrowthdigital.nl/werkgebied-nijmegen)
+- [Verbouwen in Uden: dakopbouw, uitbouw of badkamer](https://nextgrowthdigital.nl/werkgebied-uden)
+- [Verbouwen in Veghel: dakopbouw, uitbouw of badkamer](https://nextgrowthdigital.nl/werkgebied-veghel)
+- [Verbouwen in Vught: dakopbouw, uitbouw of badkamer](https://nextgrowthdigital.nl/werkgebied-vught)
+- [Verbouwen in Wijchen: dakopbouw, uitbouw of badkamer](https://nextgrowthdigital.nl/werkgebied-wijchen)
+- [Werkgebied: verbouwen in Noord-Brabant en Gelderland](https://nextgrowthdigital.nl/werkgebied)
+- [Yacht Configurator Software for Shipyards & Brokers](https://nextgrowthdigital.nl/yacht-configurator-software)
+- [Zonwering configurator laten maken](https://nextgrowthdigital.nl/zonwering-configurator-laten-maken)
+- [Zwembad laten aanleggen in Arnhem](https://nextgrowthdigital.nl/zwembad-arnhem)
+- [Zwembad configurator laten maken: bouwwijze, grondwerk en techniek doorgerekend](https://nextgrowthdigital.nl/zwembad-configurator-laten-maken)
+- [Zwembad laten aanleggen in Eindhoven](https://nextgrowthdigital.nl/zwembad-eindhoven)
+- [Zwembad laten aanleggen in Nijmegen](https://nextgrowthdigital.nl/zwembad-nijmegen)

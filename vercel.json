@@ -53,6 +53,14 @@
       "destination": "/seo/llms.txt"
     },
     {
+      "source": "/:tool(aanbouw-configurator|badkamer-configurator|dakkapel-configurator|dakopbouw-configurator|dakrenovatie-configurator|demos-en|draagbalk-berekenen|gevelrenovatie-configurator|jacht-configurator|kunstgras-configurator|nokverhoging-configurator|overkapping-configurator|pool-configurator-en|poolhouse-configurator|poolhouse-configurator-en|poolstudio|poolstudio-studio-en|pvc-configurator|tegel-configurator|tegelvloer-configurator|verbouwkosten-calculator|yacht-configurator|yacht-konfigurator|zwembad-configurator)",
+      "destination": "https://next-growth-prefabselect.vercel.app/:tool.html"
+    },
+    {
+      "source": "/:tool(aanbouw-configurator|badkamer-configurator|dakkapel-configurator|dakopbouw-configurator|dakrenovatie-configurator|demos-en|draagbalk-berekenen|gevelrenovatie-configurator|jacht-configurator|kunstgras-configurator|nokverhoging-configurator|overkapping-configurator|pool-configurator-en|poolhouse-configurator|poolhouse-configurator-en|poolstudio|poolstudio-studio-en|pvc-configurator|tegel-configurator|tegelvloer-configurator|verbouwkosten-calculator|yacht-configurator|yacht-konfigurator|zwembad-configurator).html",
+      "destination": "https://next-growth-prefabselect.vercel.app/:tool.html"
+    },
+    {
       "source": "/",
       "has": [
         {
@@ -81,6 +89,321 @@
     {
       "source": "/:slug([a-z0-9-]+)",
       "destination": "/app"
+    },
+    {
+      "source": "/assets/:path*",
+      "destination": "https://next-growth-prefabselect.vercel.app/assets/:path*"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "https://next-growth-prefabselect.vercel.app/api/:path*"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/websites",
+      "destination": "/dienst-webdesign",
+      "permanent": true
+    },
+    {
+      "source": "/websites.html",
+      "destination": "/dienst-webdesign",
+      "permanent": true
+    },
+    {
+      "source": "/marketing",
+      "destination": "/dienst-marketing",
+      "permanent": true
+    },
+    {
+      "source": "/marketing.html",
+      "destination": "/dienst-marketing",
+      "permanent": true
+    },
+    {
+      "source": "/seo",
+      "destination": "/dienst-marketing",
+      "permanent": true
+    },
+    {
+      "source": "/seo.html",
+      "destination": "/dienst-marketing",
+      "permanent": true
+    },
+    {
+      "source": "/crm",
+      "destination": "/dienst-crm",
+      "permanent": true
+    },
+    {
+      "source": "/crm.html",
+      "destination": "/dienst-crm",
+      "permanent": true
+    },
+    {
+      "source": "/software",
+      "destination": "/dienst-software",
+      "permanent": true
+    },
+    {
+      "source": "/software.html",
+      "destination": "/dienst-software",
+      "permanent": true
+    },
+    {
+      "source": "/ai",
+      "destination": "/dienst-automatisering",
+      "permanent": true
+    },
+    {
+      "source": "/ai.html",
+      "destination": "/dienst-automatisering",
+      "permanent": true
+    },
+    {
+      "source": "/configurators",
+      "destination": "/dienst-configurators",
+      "permanent": true
+    },
+    {
+      "source": "/configurators.html",
+      "destination": "/dienst-configurators",
+      "permanent": true
+    },
+    {
+      "source": "/prijzen",
+      "destination": "/prijzen",
+      "permanent": true
+    },
+    {
+      "source": "/prijzen.html",
+      "destination": "/prijzen",
+      "permanent": true
+    },
+    {
+      "source": "/sales",
+      "destination": "/sales",
+      "permanent": true
+    },
+    {
+      "source": "/sales.html",
+      "destination": "/sales",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/#contact",
+      "permanent": true
+    },
+    {
+      "source": "/contact.html",
+      "destination": "/#contact",
+      "permanent": true
+    },
+    {
+      "source": "/cases",
+      "destination": "/#cases",
+      "permanent": true
+    },
+    {
+      "source": "/cases.html",
+      "destination": "/#cases",
+      "permanent": true
+    },
+    {
+      "source": "/webdesign-oss",
+      "destination": "/dienst-webdesign",
+      "permanent": true
+    },
+    {
+      "source": "/webdesign-oss.html",
+      "destination": "/dienst-webdesign",
+      "permanent": true
+    },
+    {
+      "source": "/badkamer-oss",
+      "destination": "/badkamer-laten-verbouwen",
+      "permanent": true
+    },
+    {
+      "source": "/badkamer-oss.html",
+      "destination": "/badkamer-laten-verbouwen",
+      "permanent": true
+    },
+    {
+      "source": "/dakkapel-oss",
+      "destination": "/dakkapel-laten-plaatsen",
+      "permanent": true
+    },
+    {
+      "source": "/dakkapel-oss.html",
+      "destination": "/dakkapel-laten-plaatsen",
+      "permanent": true
+    },
+    {
+      "source": "/dakopbouw-oss",
+      "destination": "/dakopbouw-laten-plaatsen",
+      "permanent": true
+    },
+    {
+      "source": "/dakopbouw-oss.html",
+      "destination": "/dakopbouw-laten-plaatsen",
+      "permanent": true
+    },
+    {
+      "source": "/dakrenovatie-oss",
+      "destination": "/dakrenovatie-configurator",
+      "permanent": true
+    },
+    {
+      "source": "/dakrenovatie-oss.html",
+      "destination": "/dakrenovatie-configurator",
+      "permanent": true
+    },
+    {
+      "source": "/overkapping-oss",
+      "destination": "/overkappingen",
+      "permanent": true
+    },
+    {
+      "source": "/overkapping-oss.html",
+      "destination": "/overkappingen",
+      "permanent": true
+    },
+    {
+      "source": "/uitbouw-oss",
+      "destination": "/uitbouw-laten-bouwen",
+      "permanent": true
+    },
+    {
+      "source": "/uitbouw-oss.html",
+      "destination": "/uitbouw-laten-bouwen",
+      "permanent": true
+    },
+    {
+      "source": "/werkgebied-oss",
+      "destination": "/werkgebied",
+      "permanent": true
+    },
+    {
+      "source": "/werkgebied-oss.html",
+      "destination": "/werkgebied",
+      "permanent": true
+    },
+    {
+      "source": "/zwembad-oss",
+      "destination": "/zwembad-configurator",
+      "permanent": true
+    },
+    {
+      "source": "/zwembad-oss.html",
+      "destination": "/zwembad-configurator",
+      "permanent": true
+    },
+    {
+      "source": "/webdesign-arnhem",
+      "destination": "/lokaal-webdesign-arnhem",
+      "permanent": true
+    },
+    {
+      "source": "/webdesign-arnhem.html",
+      "destination": "/lokaal-webdesign-arnhem",
+      "permanent": true
+    },
+    {
+      "source": "/webdesign-cuijk",
+      "destination": "/lokaal-webdesign-cuijk",
+      "permanent": true
+    },
+    {
+      "source": "/webdesign-cuijk.html",
+      "destination": "/lokaal-webdesign-cuijk",
+      "permanent": true
+    },
+    {
+      "source": "/webdesign-den-bosch",
+      "destination": "/lokaal-webdesign-den-bosch",
+      "permanent": true
+    },
+    {
+      "source": "/webdesign-den-bosch.html",
+      "destination": "/lokaal-webdesign-den-bosch",
+      "permanent": true
+    },
+    {
+      "source": "/webdesign-eindhoven",
+      "destination": "/lokaal-webdesign-eindhoven",
+      "permanent": true
+    },
+    {
+      "source": "/webdesign-eindhoven.html",
+      "destination": "/lokaal-webdesign-eindhoven",
+      "permanent": true
+    },
+    {
+      "source": "/webdesign-grave",
+      "destination": "/lokaal-webdesign-grave",
+      "permanent": true
+    },
+    {
+      "source": "/webdesign-grave.html",
+      "destination": "/lokaal-webdesign-grave",
+      "permanent": true
+    },
+    {
+      "source": "/webdesign-nijmegen",
+      "destination": "/lokaal-webdesign-nijmegen",
+      "permanent": true
+    },
+    {
+      "source": "/webdesign-nijmegen.html",
+      "destination": "/lokaal-webdesign-nijmegen",
+      "permanent": true
+    },
+    {
+      "source": "/webdesign-uden",
+      "destination": "/lokaal-webdesign-uden",
+      "permanent": true
+    },
+    {
+      "source": "/webdesign-uden.html",
+      "destination": "/lokaal-webdesign-uden",
+      "permanent": true
+    },
+    {
+      "source": "/webdesign-veghel",
+      "destination": "/lokaal-webdesign-veghel",
+      "permanent": true
+    },
+    {
+      "source": "/webdesign-veghel.html",
+      "destination": "/lokaal-webdesign-veghel",
+      "permanent": true
+    },
+    {
+      "source": "/webdesign-vught",
+      "destination": "/lokaal-webdesign-vught",
+      "permanent": true
+    },
+    {
+      "source": "/webdesign-vught.html",
+      "destination": "/lokaal-webdesign-vught",
+      "permanent": true
+    },
+    {
+      "source": "/webdesign-wijchen",
+      "destination": "/lokaal-webdesign-wijchen",
+      "permanent": true
+    },
+    {
+      "source": "/webdesign-wijchen.html",
+      "destination": "/lokaal-webdesign-wijchen",
+      "permanent": true
     }
   ]
 }

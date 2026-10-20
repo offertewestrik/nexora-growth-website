@@ -1174,6 +1174,7 @@ function Nav(){
         <${Drop} k="diensten" label="Diensten"><div class="groups">${NAV_GROUPS.map(function(g){return h`<div key=${g.t} class="grp"><p class="gt">${g.t}</p>${g.items.map(function(l){return h`<a key=${l[0]} href=${l[0]}><b>${l[1]}</b><span>${l[2]}</span></a>`})}</div>`})}</div></${Drop}>
         <${Drop} k="branches" label="Branches"><div class="cols3">${branches.map(function(l){return h`<a key=${l[0]} href=${l[0]}><b>${l[1]}</b></a>`})}<a href="#branches" class="all"><b>Alle branches →</b></a></div></${Drop}>
         <a href="#cases-home" data-hover="1">Cases</a>
+        <a href="/kennisbank" data-hover="1">Kennisbank</a>
         <a href="#prijzen" data-hover="1">Prijzen</a>
         <a href="#contact" data-hover="1">Contact</a>
       </nav><a class="pill" href="#contact" data-hover="1">Kennismaken</a><button id="menuBtn" type="button" aria-expanded=${open} onClick=${function(){setOpen(true)}}>Menu</button></div>
@@ -1187,6 +1188,7 @@ function Nav(){
         <button type="button" class=${'grp'+(grp==='b'?' on':'')} aria-expanded=${grp==='b'} onClick=${function(){setGrp(grp==='b'?null:'b')}}>Branches<i></i></button>
         ${grp==='b'&&h`<div class="sub">${branches.map(function(l){return h`<a key=${l[0]} href=${l[0]} onClick=${function(){setOpen(false)}}>${l[1]}</a>`})}<a href="#branches" onClick=${function(){setOpen(false)}}>Alle branches</a></div>`}
         <a href="#cases-home" onClick=${function(){setOpen(false)}}>Cases</a>
+        <a href="/kennisbank">Kennisbank</a>
         <a href="#prijzen" onClick=${function(){setOpen(false)}}>Prijzen</a>
         <a href="#contact" onClick=${function(){setOpen(false)}}>Contact</a>
       </div>
@@ -1471,7 +1473,7 @@ function Footer(){
     <div><h4>Diensten</h4><ul><li><a href="#dienst-branding">Branding</a></li><li><a href="#dienst-webdesign">Webdesign &amp; webshops</a></li><li><a href="#dienst-marketing">Marketing, SEO, social &amp; content</a></li><li><a href="#sales">Sales voor bouwbedrijven</a></li><li><a href="#demo">Configurators &amp; CRM</a></li></ul></div>
     <div><h4>Branches</h4><ul><li><a href="#branche-restaurants-horeca">Restaurants &amp; horeca</a></li><li><a href="#branche-webshops">Webshops</a></li><li><a href="#branche-brands">Brands</a></li><li><a href="#branche-bouwbedrijven">Bouwbedrijven</a></li><li><a href="#branche-overkapping-veranda">Overkapping &amp; veranda</a></li><li><a href="#branche-dakdekkers">Dakdekkers</a></li><li><a href="#branche-installatiebedrijven">Installatiebedrijven</a></li><li><a href="#branche-hoveniers">Hoveniers</a></li><li><a href="#branche-autobedrijven">Autobedrijven</a></li><li><a href="#branche-creators">Creators</a></li></ul></div>
     <div><h4>Website laten maken in</h4><ul>${Object.keys(SEO.pages).filter(function(k){return k.indexOf('lokaal-webdesign-')===0}).map(function(k){return h`<li key=${k}><a href=${'#'+k}>${SEO.pages[k].cities[0]}</a></li>`})}</ul></div>
-    <div><h4>Bedrijf</h4><ul><li><a href="#prijzen">Prijzen</a></li><li><a href="#cases">Cases</a></li><li><a href="#contact">Contact</a></li><li><a href="https://installatieplatform.nl" target="_blank" rel="noopener">Installatieplatform.nl ↗</a></li><li><a href="https://westrikbouw-installaties.nl" target="_blank" rel="noopener">Westrikbouw-installaties.nl ↗</a></li></ul></div>
+    <div><h4>Bedrijf</h4><ul><li><a href="#prijzen">Prijzen</a></li><li><a href="#cases">Cases</a></li><li><a href="/kennisbank">Kennisbank</a></li><li><a href="/werkgebied">Werkgebied</a></li><li><a href="/configurator-laten-maken">Configurator laten maken</a></li><li><a href="/website-laten-maken">Website laten maken</a></li><li><a href="#contact">Contact</a></li><li><a href="https://installatieplatform.nl" target="_blank" rel="noopener">Installatieplatform.nl ↗</a></li><li><a href="https://westrikbouw-installaties.nl" target="_blank" rel="noopener">Westrikbouw-installaties.nl ↗</a></li></ul></div>
     <div class="legal"><span>Next Growth Digital</span><span>KVK 96002913</span><span>BTW NL004420281B57</span><span>Noord-Brabant &amp; Gelderland</span></div>
   </div></footer>`;
 }
