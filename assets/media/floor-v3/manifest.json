@@ -1,0 +1,788 @@
+{
+  "version": 3,
+  "roomImages": 66,
+  "swatches": 11,
+  "constructionImages": 4,
+  "files": [
+    {
+      "file": "pvc-kamer-beton-hongaarse.webp",
+      "kind": "room",
+      "bytes": 61880,
+      "sha256": "ec62ebbb6f8282019fa2f7673c0b043778ca04aff8524827a7ab7f9ad2c16400",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "kamer",
+      "decor": "beton",
+      "pattern": "hongaarse"
+    },
+    {
+      "file": "pvc-kamer-beton-visgraat.webp",
+      "kind": "room",
+      "bytes": 71154,
+      "sha256": "21ca055e5cad5ea0b661361dfd5150a31aa75447dc1fa133bad7cd7ca6c139ac",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "kamer",
+      "decor": "beton",
+      "pattern": "visgraat"
+    },
+    {
+      "file": "pvc-kamer-beton.webp",
+      "kind": "room",
+      "bytes": 77854,
+      "sha256": "94e099ae7a3824d68f6482955c2c83e1b58f04f84f2f16a5a74b659ed8c360e2",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "kamer",
+      "decor": "beton",
+      "pattern": "recht"
+    },
+    {
+      "file": "pvc-kamer-boterkoek-hongaarse.webp",
+      "kind": "room",
+      "bytes": 85308,
+      "sha256": "46f37f827733c17d15691bb3ea75f5dccb48ce3b96184d56ee191cf7b0264218",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "kamer",
+      "decor": "boterkoek",
+      "pattern": "hongaarse"
+    },
+    {
+      "file": "pvc-kamer-boterkoek-visgraat.webp",
+      "kind": "room",
+      "bytes": 97796,
+      "sha256": "0d6e6e686857282bc7060fec33c1cf370e6cc370a1023fac835a988d6cbc8e2a",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "kamer",
+      "decor": "boterkoek",
+      "pattern": "visgraat"
+    },
+    {
+      "file": "pvc-kamer-boterkoek.webp",
+      "kind": "room",
+      "bytes": 104260,
+      "sha256": "b1707a83ee936f95e5d49e29df2fbe1f7b9932a47ff663531ab807b88cca578a",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "kamer",
+      "decor": "boterkoek",
+      "pattern": "recht"
+    },
+    {
+      "file": "pvc-kamer-creme-hongaarse.webp",
+      "kind": "room",
+      "bytes": 61464,
+      "sha256": "d5e1dcee7d7cba1a9e16786ca5ec14520d33081908e835b34ac370eaafac93a5",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "kamer",
+      "decor": "creme",
+      "pattern": "hongaarse"
+    },
+    {
+      "file": "pvc-kamer-creme-visgraat.webp",
+      "kind": "room",
+      "bytes": 58930,
+      "sha256": "6b710e45e27fa6ccb858e06e0aecfa150c6d0a88454aed80226e9660f60f33e0",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "kamer",
+      "decor": "creme",
+      "pattern": "visgraat"
+    },
+    {
+      "file": "pvc-kamer-creme.webp",
+      "kind": "room",
+      "bytes": 56002,
+      "sha256": "c7fd10caa77890e0417b62bcc8bdb18fc2046e51e3a1600ffacd595a2adf413e",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "kamer",
+      "decor": "creme",
+      "pattern": "recht"
+    },
+    {
+      "file": "pvc-kamer-gerookt-hongaarse.webp",
+      "kind": "room",
+      "bytes": 76006,
+      "sha256": "20cb4e4fc2d6519caa655a964274fa71b9789dff5a7773d330bf4ce54c95c511",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "kamer",
+      "decor": "gerookt",
+      "pattern": "hongaarse"
+    },
+    {
+      "file": "pvc-kamer-gerookt-visgraat.webp",
+      "kind": "room",
+      "bytes": 89994,
+      "sha256": "87f8abed978867f46c2c77d7e6119236f2efac008890c5e1f17cd5380cab9ff6",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "kamer",
+      "decor": "gerookt",
+      "pattern": "visgraat"
+    },
+    {
+      "file": "pvc-kamer-gerookt.webp",
+      "kind": "room",
+      "bytes": 94754,
+      "sha256": "6283627584ad17999d4a218950f9ff6672fd997156f9b23e0865aabbaf8d05bc",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "kamer",
+      "decor": "gerookt",
+      "pattern": "recht"
+    },
+    {
+      "file": "pvc-kamer-greige-hongaarse.webp",
+      "kind": "room",
+      "bytes": 72984,
+      "sha256": "e4534885711c4bbfd8c901d4ff57754ada2f7ff2eaa0741572903054d8156a21",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "kamer",
+      "decor": "greige",
+      "pattern": "hongaarse"
+    },
+    {
+      "file": "pvc-kamer-greige-visgraat.webp",
+      "kind": "room",
+      "bytes": 74050,
+      "sha256": "9718179df5ef07d9ba968bf53fcdd9f72866185c9c55251ac1eab9a9f36ffc5c",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "kamer",
+      "decor": "greige",
+      "pattern": "visgraat"
+    },
+    {
+      "file": "pvc-kamer-greige.webp",
+      "kind": "room",
+      "bytes": 70584,
+      "sha256": "e7895e5a650fe3d0e8d4c722f445ab8328779f5dfa7946705509f5f0fb1643e9",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "kamer",
+      "decor": "greige",
+      "pattern": "recht"
+    },
+    {
+      "file": "pvc-kamer-licht-hongaarse.webp",
+      "kind": "room",
+      "bytes": 56722,
+      "sha256": "ea09ecc23295f56dff5c850b4cb453cdb5bcdc0699b855fa9d6c67e205cc38a1",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "kamer",
+      "decor": "licht",
+      "pattern": "hongaarse"
+    },
+    {
+      "file": "pvc-kamer-licht-visgraat.webp",
+      "kind": "room",
+      "bytes": 60966,
+      "sha256": "464eb30e402815bed88fc1ec059c2d42779e366e68ff30233ff9dabd8d86b4a3",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "kamer",
+      "decor": "licht",
+      "pattern": "visgraat"
+    },
+    {
+      "file": "pvc-kamer-licht.webp",
+      "kind": "room",
+      "bytes": 58650,
+      "sha256": "ca11aeadc6979184d41d10828bd176b4bca7853d0a29bbc670a6f504d84bd103",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "kamer",
+      "decor": "licht",
+      "pattern": "recht"
+    },
+    {
+      "file": "pvc-kamer-naturel-hongaarse.webp",
+      "kind": "room",
+      "bytes": 70810,
+      "sha256": "886fc18024e40a17d12cdebf8c4e7f26d0f65ba2e470791032029331a40a9f33",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "kamer",
+      "decor": "naturel",
+      "pattern": "hongaarse"
+    },
+    {
+      "file": "pvc-kamer-naturel-visgraat.webp",
+      "kind": "room",
+      "bytes": 75702,
+      "sha256": "f123e49f01e65b3b673a2ac4006a3a9b281d2805e2b8958ede6fdb777aa4d925",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "kamer",
+      "decor": "naturel",
+      "pattern": "visgraat"
+    },
+    {
+      "file": "pvc-kamer-naturel.webp",
+      "kind": "room",
+      "bytes": 80656,
+      "sha256": "1a8c401cd45846a9293ea7464ef44e86d8cb7acef129b1c1fa5233460c4bb85a",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "kamer",
+      "decor": "naturel",
+      "pattern": "recht"
+    },
+    {
+      "file": "pvc-kamer-noten-hongaarse.webp",
+      "kind": "room",
+      "bytes": 92890,
+      "sha256": "3acef7c33d4789319e12c07dda3a4855e7b352ad99ab27f6c9b03552db4bd529",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "kamer",
+      "decor": "noten",
+      "pattern": "hongaarse"
+    },
+    {
+      "file": "pvc-kamer-noten-visgraat.webp",
+      "kind": "room",
+      "bytes": 91160,
+      "sha256": "14b1e4621551f014d88e9e84d56e184dcb1fbbc1eda65f7dfd0b17aa2ca699b6",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "kamer",
+      "decor": "noten",
+      "pattern": "visgraat"
+    },
+    {
+      "file": "pvc-kamer-noten.webp",
+      "kind": "room",
+      "bytes": 81316,
+      "sha256": "fd39454ee426245da386e084e6744539683ce8b45630c5cc0a3377869f590db5",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "kamer",
+      "decor": "noten",
+      "pattern": "recht"
+    },
+    {
+      "file": "pvc-kamer-rustiek-hongaarse.webp",
+      "kind": "room",
+      "bytes": 114138,
+      "sha256": "6ee5e37c1bf12ae9025b7edcdfab81ca0cfd3fef40e76a0f8544dd0fdb73d3cf",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "kamer",
+      "decor": "rustiek",
+      "pattern": "hongaarse"
+    },
+    {
+      "file": "pvc-kamer-rustiek-visgraat.webp",
+      "kind": "room",
+      "bytes": 101150,
+      "sha256": "fcad91a7b3e91c175f4209f998e8b64a6216cdbf91e378ccf93b5ba895bbfe97",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "kamer",
+      "decor": "rustiek",
+      "pattern": "visgraat"
+    },
+    {
+      "file": "pvc-kamer-rustiek.webp",
+      "kind": "room",
+      "bytes": 120432,
+      "sha256": "fae2aff7e160083b20e2844e0f37bd840a3fa9a614ee0c0067b0cc4b562240fe",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "kamer",
+      "decor": "rustiek",
+      "pattern": "recht"
+    },
+    {
+      "file": "pvc-kamer-zand-hongaarse.webp",
+      "kind": "room",
+      "bytes": 59656,
+      "sha256": "5afa17c98c884dd26b4807d92ebae59e6699732d7edc75c049d559cf1f847657",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "kamer",
+      "decor": "zand",
+      "pattern": "hongaarse"
+    },
+    {
+      "file": "pvc-kamer-zand-visgraat.webp",
+      "kind": "room",
+      "bytes": 59136,
+      "sha256": "e5c43140e332abd29b046e18c522e53cf5e185e7ef2d940cc44fceedc9b00fe1",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "kamer",
+      "decor": "zand",
+      "pattern": "visgraat"
+    },
+    {
+      "file": "pvc-kamer-zand.webp",
+      "kind": "room",
+      "bytes": 63346,
+      "sha256": "0ed445a2d0423d87eb63b357211b121b9f7fa28bd246b14babe2341adeba15c6",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "kamer",
+      "decor": "zand",
+      "pattern": "recht"
+    },
+    {
+      "file": "pvc-kamer-zwart-hongaarse.webp",
+      "kind": "room",
+      "bytes": 70646,
+      "sha256": "7e790dbfeb3b37a2f935241db75ada86abe20a706d194c04955c3f19f9447947",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "kamer",
+      "decor": "zwart",
+      "pattern": "hongaarse"
+    },
+    {
+      "file": "pvc-kamer-zwart-visgraat.webp",
+      "kind": "room",
+      "bytes": 83216,
+      "sha256": "b7936c11c4c5d0fb22c4c22deac06c1ce2c7993fc50863ee208e259cd89b8d61",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "kamer",
+      "decor": "zwart",
+      "pattern": "visgraat"
+    },
+    {
+      "file": "pvc-kamer-zwart.webp",
+      "kind": "room",
+      "bytes": 86212,
+      "sha256": "9804df0b0d20164fd77e3907d08a3c3fe1a3fe12675753c872d2d76ff8b10bb4",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "kamer",
+      "decor": "zwart",
+      "pattern": "recht"
+    },
+    {
+      "file": "pvc-luxe-beton-hongaarse.webp",
+      "kind": "room",
+      "bytes": 94924,
+      "sha256": "a73eb6b06f5be2de9a2d423a660aed58004e505b6360b5c39ed42c0361a5966f",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "luxe",
+      "decor": "beton",
+      "pattern": "hongaarse"
+    },
+    {
+      "file": "pvc-luxe-beton-visgraat.webp",
+      "kind": "room",
+      "bytes": 99956,
+      "sha256": "835aa6b178da6d6f4faa5d211149c3c3d29eb7857887cbd0e347f43d85161c8d",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "luxe",
+      "decor": "beton",
+      "pattern": "visgraat"
+    },
+    {
+      "file": "pvc-luxe-beton.webp",
+      "kind": "room",
+      "bytes": 110220,
+      "sha256": "e0cc7a5ba9f4acda5338dbb273b9743c7619ef0b159f68bdbdef9a5882583be3",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "luxe",
+      "decor": "beton",
+      "pattern": "recht"
+    },
+    {
+      "file": "pvc-luxe-boterkoek-hongaarse.webp",
+      "kind": "room",
+      "bytes": 124868,
+      "sha256": "b8b1d7d7df1a5fd376c8bce16659b09a7bb1c0c5b7e937bb9fb625a081a7cd11",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "luxe",
+      "decor": "boterkoek",
+      "pattern": "hongaarse"
+    },
+    {
+      "file": "pvc-luxe-boterkoek-visgraat.webp",
+      "kind": "room",
+      "bytes": 125596,
+      "sha256": "4a13d44992635cf852315f087481489ec37933c3883fd71159243acea086e651",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "luxe",
+      "decor": "boterkoek",
+      "pattern": "visgraat"
+    },
+    {
+      "file": "pvc-luxe-boterkoek.webp",
+      "kind": "room",
+      "bytes": 132640,
+      "sha256": "3adfe3a4e5d9696930d7c684ac1dad18feaac432ba15e37d7c2e08dad5eb9a6a",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "luxe",
+      "decor": "boterkoek",
+      "pattern": "recht"
+    },
+    {
+      "file": "pvc-luxe-creme-hongaarse.webp",
+      "kind": "room",
+      "bytes": 84876,
+      "sha256": "81d2e061345216e19b7244308e234137773f9130bf0b396c87ca8d564d004123",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "luxe",
+      "decor": "creme",
+      "pattern": "hongaarse"
+    },
+    {
+      "file": "pvc-luxe-creme-visgraat.webp",
+      "kind": "room",
+      "bytes": 104150,
+      "sha256": "ee8f14c764d6f4eb3028f794dbcf52c98f19e2dc1445b524aa8f67f71d713f69",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "luxe",
+      "decor": "creme",
+      "pattern": "visgraat"
+    },
+    {
+      "file": "pvc-luxe-creme.webp",
+      "kind": "room",
+      "bytes": 98266,
+      "sha256": "1e3ceab39671d2ed505db2b86a492cf79d8acfdc9c7138b448095be8032b92c5",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "luxe",
+      "decor": "creme",
+      "pattern": "recht"
+    },
+    {
+      "file": "pvc-luxe-gerookt-hongaarse.webp",
+      "kind": "room",
+      "bytes": 110340,
+      "sha256": "0b7895ee31afa4729320e29aeadf6f788a3782f37844d1904396d74536077521",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "luxe",
+      "decor": "gerookt",
+      "pattern": "hongaarse"
+    },
+    {
+      "file": "pvc-luxe-gerookt-visgraat.webp",
+      "kind": "room",
+      "bytes": 122464,
+      "sha256": "8f7160fc2cb04c555fd7a5b6a73bd62a99ceeac1a48e6a07e4818d9d654b12d0",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "luxe",
+      "decor": "gerookt",
+      "pattern": "visgraat"
+    },
+    {
+      "file": "pvc-luxe-gerookt.webp",
+      "kind": "room",
+      "bytes": 121558,
+      "sha256": "4892cea92609b7d07c33f0b034d65790727e0dd436927c9062af3de42e16592e",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "luxe",
+      "decor": "gerookt",
+      "pattern": "recht"
+    },
+    {
+      "file": "pvc-luxe-greige-hongaarse.webp",
+      "kind": "room",
+      "bytes": 103612,
+      "sha256": "470c7b0fc750b526a7134de79126132f071ff26ea24377ca92ef51ee553bf405",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "luxe",
+      "decor": "greige",
+      "pattern": "hongaarse"
+    },
+    {
+      "file": "pvc-luxe-greige-visgraat.webp",
+      "kind": "room",
+      "bytes": 107988,
+      "sha256": "2fa93b4eff4ed3b7285e358a802730e6e67bbcaef90366cec6f49193665e6cda",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "luxe",
+      "decor": "greige",
+      "pattern": "visgraat"
+    },
+    {
+      "file": "pvc-luxe-greige.webp",
+      "kind": "room",
+      "bytes": 100624,
+      "sha256": "93b965177ed13526ee54ef536c09d568c9eb18aa3f8865f1b4a3edcb10f4ee7d",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "luxe",
+      "decor": "greige",
+      "pattern": "recht"
+    },
+    {
+      "file": "pvc-luxe-licht-hongaarse.webp",
+      "kind": "room",
+      "bytes": 92882,
+      "sha256": "7eb2bc650c4dca9471d8d7c560bc75b7685f5d0f6ac815ae1670fe5473fb9f4f",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "luxe",
+      "decor": "licht",
+      "pattern": "hongaarse"
+    },
+    {
+      "file": "pvc-luxe-licht-visgraat.webp",
+      "kind": "room",
+      "bytes": 98654,
+      "sha256": "c5dc098d8b6d7590eb5b0a3db816942928706bf4aa2d41f1c8c5f841bd9b39ba",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "luxe",
+      "decor": "licht",
+      "pattern": "visgraat"
+    },
+    {
+      "file": "pvc-luxe-licht.webp",
+      "kind": "room",
+      "bytes": 91056,
+      "sha256": "a078cb47bda5d06974060e36986271be537567c0f30e6c26d6e20ee879b8f377",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "luxe",
+      "decor": "licht",
+      "pattern": "recht"
+    },
+    {
+      "file": "pvc-luxe-naturel-hongaarse.webp",
+      "kind": "room",
+      "bytes": 107830,
+      "sha256": "811742146a3eaae40c5a3ffa1a3eee8cbe49b63fa6ded3599746858ac1826b14",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "luxe",
+      "decor": "naturel",
+      "pattern": "hongaarse"
+    },
+    {
+      "file": "pvc-luxe-naturel-visgraat.webp",
+      "kind": "room",
+      "bytes": 116896,
+      "sha256": "c65397948e73116e86e3fe76419f084b5afdaebeede298e85ea681b0c9cc923e",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "luxe",
+      "decor": "naturel",
+      "pattern": "visgraat"
+    },
+    {
+      "file": "pvc-luxe-naturel.webp",
+      "kind": "room",
+      "bytes": 125178,
+      "sha256": "f403a7bd374c83428a8943b4e8ebe1153b3a3beba2558c659c023d0df44af563",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "luxe",
+      "decor": "naturel",
+      "pattern": "recht"
+    },
+    {
+      "file": "pvc-luxe-noten-hongaarse.webp",
+      "kind": "room",
+      "bytes": 117782,
+      "sha256": "763e49c6daf53a78b9fddf1fba724518f1f53a54fed6b9d37387bc57099d2ad6",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "luxe",
+      "decor": "noten",
+      "pattern": "hongaarse"
+    },
+    {
+      "file": "pvc-luxe-noten-visgraat.webp",
+      "kind": "room",
+      "bytes": 118924,
+      "sha256": "4209e3ad0643def03adea957e9ee52389cf371f5e5de46a48b681fdb64d3f13d",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "luxe",
+      "decor": "noten",
+      "pattern": "visgraat"
+    },
+    {
+      "file": "pvc-luxe-noten.webp",
+      "kind": "room",
+      "bytes": 117502,
+      "sha256": "727b6d6f43cacf8f6f8254cd7f94409e0abd60296149558cd3c980928697c643",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "luxe",
+      "decor": "noten",
+      "pattern": "recht"
+    },
+    {
+      "file": "pvc-luxe-rustiek-hongaarse.webp",
+      "kind": "room",
+      "bytes": 146684,
+      "sha256": "201362f11925b8965550fc6858d4b1f9967a3be62942e7fedf897bb69f6bfa50",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "luxe",
+      "decor": "rustiek",
+      "pattern": "hongaarse"
+    },
+    {
+      "file": "pvc-luxe-rustiek-visgraat.webp",
+      "kind": "room",
+      "bytes": 140420,
+      "sha256": "fc961259700b783c6c13cda782c396a4effe15310d1bb36554d17be9dd983557",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "luxe",
+      "decor": "rustiek",
+      "pattern": "visgraat"
+    },
+    {
+      "file": "pvc-luxe-rustiek.webp",
+      "kind": "room",
+      "bytes": 148950,
+      "sha256": "43eb93eb87a70c83457351dd7f5c50988e3bf66dce6dd9ea9cb400400a30fe7d",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "luxe",
+      "decor": "rustiek",
+      "pattern": "recht"
+    },
+    {
+      "file": "pvc-luxe-zand-hongaarse.webp",
+      "kind": "room",
+      "bytes": 99508,
+      "sha256": "a4f36032cda0a17dd73b6f7a80a73105139d7fbc22f7958e4664c00e76dcb155",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "luxe",
+      "decor": "zand",
+      "pattern": "hongaarse"
+    },
+    {
+      "file": "pvc-luxe-zand-visgraat.webp",
+      "kind": "room",
+      "bytes": 93980,
+      "sha256": "a2712ac01411198acac5dba54d3a67d8704ce350982333cce51bb9d46cc75f8e",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "luxe",
+      "decor": "zand",
+      "pattern": "visgraat"
+    },
+    {
+      "file": "pvc-luxe-zand.webp",
+      "kind": "room",
+      "bytes": 105812,
+      "sha256": "6a8d73efaecf7bc73eeba8a029e94a7b16248a8d51040710572cd622be27ce67",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "luxe",
+      "decor": "zand",
+      "pattern": "recht"
+    },
+    {
+      "file": "pvc-luxe-zwart-hongaarse.webp",
+      "kind": "room",
+      "bytes": 107436,
+      "sha256": "64d198e6759980a0a22a6c376c9c38bb83f5f9faadc799a1d37f10b20dd7565b",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "luxe",
+      "decor": "zwart",
+      "pattern": "hongaarse"
+    },
+    {
+      "file": "pvc-luxe-zwart-visgraat.webp",
+      "kind": "room",
+      "bytes": 135452,
+      "sha256": "3bbb644d967444d04dee716e6c4140e2837a1889a2c831a4dbbe22fe28f3f697",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "luxe",
+      "decor": "zwart",
+      "pattern": "visgraat"
+    },
+    {
+      "file": "pvc-luxe-zwart.webp",
+      "kind": "room",
+      "bytes": 109476,
+      "sha256": "d0e1eaadb799bcf0b2b0bd8a849f1517055e5aa0df1dd50d2a680327fb00a2a2",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "room": "luxe",
+      "decor": "zwart",
+      "pattern": "recht"
+    },
+    {
+      "file": "pvc-swatch-beton.webp",
+      "kind": "swatch",
+      "bytes": 164218,
+      "sha256": "f8d00d998f4b490ffa491dc4a85a3434f59e9b0615fd32ca5b44c547e4e4b273",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "decor": "beton"
+    },
+    {
+      "file": "pvc-swatch-boterkoek.webp",
+      "kind": "swatch",
+      "bytes": 129916,
+      "sha256": "c103c71de5789b557398486aee1281e44af297b02424f938fa22525b0652ed8e",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "decor": "boterkoek"
+    },
+    {
+      "file": "pvc-swatch-creme.webp",
+      "kind": "swatch",
+      "bytes": 61726,
+      "sha256": "01ea7161ecd5fa3bf2fe88929ef7727a4a291d0c1ccaa1470b4c9551c9132278",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "decor": "creme"
+    },
+    {
+      "file": "pvc-swatch-gerookt.webp",
+      "kind": "swatch",
+      "bytes": 125768,
+      "sha256": "5850f020645807c450d6d4b54917807e66916cf1b5f64dff4278a79a6fff0212",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "decor": "gerookt"
+    },
+    {
+      "file": "pvc-swatch-greige.webp",
+      "kind": "swatch",
+      "bytes": 101404,
+      "sha256": "3e128b7be7cc68315f49509da47e29e37cbdfe356db231d702acb6871a74d1c0",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "decor": "greige"
+    },
+    {
+      "file": "pvc-swatch-licht.webp",
+      "kind": "swatch",
+      "bytes": 72038,
+      "sha256": "f85cb0551b9d5899f88b03ce28dd40d1d910c0415850c856ca964e4830cf1404",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "decor": "licht"
+    },
+    {
+      "file": "pvc-swatch-naturel.webp",
+      "kind": "swatch",
+      "bytes": 122454,
+      "sha256": "66a10a80db6559a20c4f2e7cf498f2d1c49fcbdead0030f9a9752975f51bbeff",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "decor": "naturel"
+    },
+    {
+      "file": "pvc-swatch-noten.webp",
+      "kind": "swatch",
+      "bytes": 95838,
+      "sha256": "366bd2110b886529b263204f381fca5fcb1c73055348602eb5a13a100d0db498",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "decor": "noten"
+    },
+    {
+      "file": "pvc-swatch-rustiek.webp",
+      "kind": "swatch",
+      "bytes": 187228,
+      "sha256": "9afc49ec3a4623c49365a01929ff139a06d19d2abe4d1d341f3740aba2b8702a",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "decor": "rustiek"
+    },
+    {
+      "file": "pvc-swatch-zand.webp",
+      "kind": "swatch",
+      "bytes": 86050,
+      "sha256": "8f0cdb403bf3e6113bafaedb93ad25ab0a90e0cb780843e86c0790e4eeb69891",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "decor": "zand"
+    },
+    {
+      "file": "pvc-swatch-zwart.webp",
+      "kind": "swatch",
+      "bytes": 117244,
+      "sha256": "fc57708d31409f1ae71eb457bbd297a90a78372fb580ff8c98c807d5d75854aa",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "decor": "zwart"
+    },
+    {
+      "file": "vloer-dekvloer.webp",
+      "kind": "construction",
+      "bytes": 130046,
+      "sha256": "2ec5487e84a4755f6764c94c22a58ece0d330c1fe5bfa8c6fdb9fd7a6a161a2d",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "installation": "dekvloer"
+    },
+    {
+      "file": "vloer-ingefreesd.webp",
+      "kind": "construction",
+      "bytes": 166782,
+      "sha256": "c5c3294e345422ba9836b0b86f3950c3eac65c2b5d9044ebd5504157904cb594",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "installation": "ingefreesd"
+    },
+    {
+      "file": "vloer-netten.webp",
+      "kind": "construction",
+      "bytes": 211092,
+      "sha256": "d572bae764662639d7ee6233cf35a7e84070592c508af58dccd6015083557568",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "installation": "netten"
+    },
+    {
+      "file": "vloer-zandcement.webp",
+      "kind": "construction",
+      "bytes": 105728,
+      "sha256": "a1f57a5ff327a2305cf101d5ab230f6dace818a6aba981c38a83e088c2c3c0d3",
+      "visualStatus": "AI-generated illustration, not an exact manufacturer product",
+      "installation": "zandcement"
+    }
+  ]
+}

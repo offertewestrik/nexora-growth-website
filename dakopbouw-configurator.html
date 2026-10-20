@@ -1,0 +1,1029 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dakopbouw-configurator: live demo voor bouwbedrijven | Next Growth</title>
+  <meta name="description" content="Live demo van een dakopbouw-configurator die Next Growth bouwt voor bouwbedrijven. Je klant kiest een prefab dakopbouw op de aanbouw, op de woning of een volledige optopping, met afmetingen, gevel en kozijnen, en ziet direct beeld en richtprijs.">
+  <link rel="canonical" href="https://nextgrowthdigital.nl/dakopbouw-configurator">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="nl_NL">
+  <meta property="og:site_name" content="Next Growth">
+  <meta property="og:title" content="Dakopbouw-configurator: live demo voor bouwbedrijven | Next Growth">
+  <meta property="og:description" content="Live demo van een dakopbouw-configurator die Next Growth bouwt voor bouwbedrijven. Je klant kiest een prefab dakopbouw op de aanbouw, op de woning of een volledige optopping, met afmetingen, gevel en kozijnen, en ziet direct beeld en richtprijs.">
+  <meta property="og:url" content="https://nextgrowthdigital.nl/dakopbouw-configurator">
+  <meta property="og:image" content="https://nextgrowthdigital.nl/assets/media/dakopbouw/keralit-antraciet-keralit-met-zwarte-kozijnen.jpg">
+  <meta property="og:image:width" content="1400">
+  <meta property="og:image:height" content="1050">
+  <meta property="og:image:alt" content="Dakopbouw met antraciet keralit en zwarte kozijnen">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Crect width='18' height='18' rx='4' fill='%23C9A45F'/%3E%3Cpath d='M5 13V5l8 8V5' stroke='%230A0A0B' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./assets/fonts.css">
+  <link rel="stylesheet" href="./assets/core.css">
+  <link rel="stylesheet" href="./assets/merk-thema.css">
+  <script src="./assets/merk-vooraf.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Dakopbouw-configurator voor bouwbedrijven",
+    "name": "Dakopbouw configurator",
+    "url": "https://nextgrowthdigital.nl/dakopbouw-configurator",
+    "provider": { "@type": "ProfessionalService", "name": "Next Growth", "email": "info@nextgrowthdigital.nl", "telephone": "+31683902192", "url": "https://nextgrowthdigital.nl/" },
+    "areaServed": ["Nederland"],
+    "description": "Een dakopbouw-configurator voor bouwbedrijven. Hun klant stelt online een prefab dakopbouw samen: op de aanbouw, op de woning of een volledige optopping. Met live richtprijs en een kant-en-klare materiaalstaat."
+  }
+  </script>
+  <style>
+    :root { --acc: var(--accent); --acc-soft: rgba(var(--accent-rgb),.14); }
+    .cfg-hero { padding: calc(60px + clamp(1.6rem, 5vh, 3rem)) 0 0; text-align: center; }
+    .cfg-hero .pill { margin-bottom: 1rem; }
+    .cfg-hero .h1 { max-width: 20ch; margin-inline: auto; }
+    .cfg-hero .lede { margin: 1rem auto 0; max-width: 58ch; }
+
+    /* material switch */
+    .matswitch { display: inline-flex; flex-wrap: wrap; justify-content: center; max-width: 100%; gap: .3rem; padding: .32rem; border: 1px solid var(--line-strong); border-radius: 13px; background: var(--bg-raise); margin: 1.6rem auto 0; }
+    .matswitch button, .matswitch a { display: inline-flex; align-items: center; gap: .5rem; border: none; background: transparent; color: var(--text-2); font: inherit; font-weight: 600; font-size: .9rem; padding: .65rem 1.3rem; border-radius: 10px; cursor: pointer; transition: background .14s ease, color .14s ease; text-decoration: none; }
+    .matswitch button svg { width: 17px; height: 17px; }
+    .matswitch button.is-on, .matswitch a.is-on { background: var(--acc); color: #17130a; }
+    .matswitch a:hover { color: var(--text-1); }
+    /* Vier tot zeven keuzes passen niet naast elkaar op een telefoon. Zonder
+       wrap liep de rij het scherm uit: de laatste optie was onbereikbaar en
+       de hele pagina schoof horizontaal mee. */
+    @media (max-width: 640px) {
+      .matswitch { gap: .25rem; }
+      .matswitch button, .matswitch a { padding: .55rem .8rem; font-size: .8rem; }
+    }
+
+    /* presets */
+    .presets { margin: 1.5rem auto 0; max-width: 900px; }
+    .presets__lbl { display: block; font-family: var(--mono); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: var(--text-3); margin-bottom: .7rem; }
+    .presets__row { display: flex; gap: .7rem; flex-wrap: wrap; justify-content: center; }
+    .preset { display: flex; align-items: center; gap: .6rem; border: 1px solid var(--line-strong); border-radius: 12px; background: var(--bg-raise); padding: .45rem .7rem .45rem .45rem; cursor: pointer; transition: border-color .12s ease, background .12s ease; text-align: left; }
+    .preset:hover { border-color: var(--acc); background: var(--bg-raise-2); }
+    .preset__th { width: 46px; height: 34px; border-radius: 7px; background-size: cover; background-position: center; flex: none; border: 1px solid rgba(255,255,255,.1); }
+    .preset__t b { display: block; font-size: .82rem; font-weight: 600; color: var(--text); line-height: 1.1; }
+    .preset__t span { font-size: .68rem; color: var(--text-3); }
+
+    /* configurator shell */
+    .conf { margin-top: clamp(1.8rem, 5vh, 3rem); }
+    .conf__layout { display: grid; grid-template-columns: 1fr; gap: 1.1rem; margin-top: 1.1rem; }
+    .conf__visual, .conf__options { min-width: 0; }
+    @media (min-width: 900px){
+      .conf__layout { grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); align-items: start; }
+      .conf__visual { position: sticky; top: 80px; }
+    @media (min-width:900px){ .conf__layout{ grid-template-columns:minmax(0,1.55fr) minmax(0,1fr); } }
+    @media (min-width:1200px){ .conf__layout{ grid-template-columns:minmax(0,1.7fr) minmax(0,1fr); } }
+
+    }
+    @media (max-width: 899px){
+      .conf__visual { background: var(--bg); padding: 8px 0 10px; margin-top: -8px; }
+    }
+    /* De vaste kolom moet in zijn geheel op het scherm passen, anders valt
+       juist de prijsbalk onderaan weg zodra iemand door de keuzes scrolt.
+       Op een laag scherm wordt daarom het voorbeeld lager, niet de prijs. */
+    @media (min-width: 900px){
+      .conf__hero { width: min(100%, calc((100vh - 345px) * 4 / 3)); min-width: min(100%, 400px); margin-inline: auto; }
+    }
+    /* Op een telefoon van rand tot rand: elke centimeter is beeld. */
+    @media (max-width: 640px){
+      .conf__hero { margin-inline: calc(-1 * clamp(1.25rem, 4vw, 2.5rem)); border-radius: 0; border-inline: 0; }
+    }
+
+    /* ---------- prijsdok ----------
+       Zodra de prijsbalk uit beeld is: onderin het voorbeeld, de stap, de
+       prijs en de knop naar het formulier. Zie assets/prijsdok.js. */
+    .conf__dok { position: fixed; inset: auto 0 0 0; z-index: 250; display: flex; align-items: center; gap: .7rem; padding: .55rem .9rem calc(.55rem + env(safe-area-inset-bottom, 0px)); background: color-mix(in srgb, var(--bg-raise) 94%, transparent); backdrop-filter: blur(14px) saturate(1.2); -webkit-backdrop-filter: blur(14px) saturate(1.2); border-top: 1px solid var(--line-strong); box-shadow: 0 -12px 32px rgba(0,0,0,.18); transform: translateY(110%); visibility: hidden; transition: transform .22s ease, visibility 0s linear .22s; }
+    .conf__dok.is-aan { transform: none; visibility: visible; transition: transform .22s ease; }
+    .conf__dok-beeld { flex: none; width: 64px; height: 44px; border-radius: 8px; overflow: hidden; border: 1px solid var(--line-strong); background: var(--bg); padding: 0; cursor: pointer; }
+    .conf__dok-beeld img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .conf__dok-tekst { flex: 1 1 auto; min-width: 0; line-height: 1.15; }
+    .conf__dok-tekst .k { display: block; font-family: var(--mono); font-size: .6rem; letter-spacing: .06em; text-transform: uppercase; color: var(--text-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .conf__dok-tekst .v { display: block; font-size: 1.25rem; font-weight: 800; letter-spacing: -.02em; color: var(--text); }
+    .conf__dok .btn { flex: none; padding: .75rem 1rem; font-size: .8rem; }
+    @media (min-width: 900px){
+      .conf__dok { left: auto; right: clamp(.9rem, 2.5vw, 1.6rem); bottom: clamp(.9rem, 2.5vw, 1.6rem); width: min(440px, calc(100vw - 2rem)); padding: .6rem .8rem; border-radius: 14px; border: 1px solid var(--line-strong); box-shadow: 0 18px 50px rgba(0,0,0,.25); }
+    }
+    @media print { .conf__dok { display: none; } }
+    .conf__head { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1.1rem; }
+    .conf__title { font-size: clamp(1.5rem, 4vw, 2.1rem); font-weight: 800; letter-spacing: -.02em; line-height: 1.05; }
+    .conf__title span { color: var(--acc); }
+    .conf__sub { font-size: .84rem; color: var(--text-2); margin-top: .3rem; }
+    .conf__badge { flex: none; display: inline-flex; align-items: center; gap: .5rem; border: 1px solid var(--line-strong); border-radius: 11px; padding: .55rem .8rem; font-size: .74rem; color: var(--text-2); background: var(--bg-raise); line-height: 1.2; max-width: 150px; }
+    .conf__badge svg { width: 20px; height: 20px; color: var(--acc); flex: none; }
+
+    /* De renders zijn 4:3. In een 16:9-kader stond de dakopbouw daardoor als een
+       smalle strook tussen twee wazige randen; het kader volgt nu het beeld. */
+    .conf__hero { position: relative; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); margin-bottom: 1.2rem; aspect-ratio: 4/3; background: var(--bg-raise); }
+    .conf__hero .hbg { position: absolute; inset: 0; background-size: cover; background-position: center; filter: blur(30px) brightness(.42) saturate(.9); transform: scale(1.18); z-index: 0; transition: background-image .22s ease; }
+    .conf__hero .hbg::after { content:''; position:absolute; inset:0; background: radial-gradient(120% 90% at 50% 45%, transparent 55%, rgba(0,0,0,.5) 100%); }
+    .conf__hero img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: contain; display: block; transform-origin: center center; transition: opacity .22s ease, transform .38s cubic-bezier(.4,0,.2,1); will-change: transform; }
+    .conf__hero.is-scaled img { border-radius: 10px; box-shadow: 0 18px 50px rgba(0,0,0,.5); }
+    .conf__hero .live { position: absolute; top: .8rem; left: .8rem; z-index: 2; display: inline-flex; align-items: center; gap: .45rem; font-family: var(--mono); font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; color: #fff; background: rgba(0,0,0,.45); backdrop-filter: blur(6px); padding: .35rem .6rem; border-radius: 7px; }
+    .conf__hero .live .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--acc); box-shadow: 0 0 8px var(--acc); }
+    .conf__hero .dim { position: absolute; bottom: .8rem; right: .8rem; z-index: 2; font-family: var(--mono); font-size: .62rem; letter-spacing: .06em; color: #fff; background: rgba(0,0,0,.5); backdrop-filter: blur(6px); padding: .35rem .6rem; border-radius: 7px; display: inline-flex; align-items: center; gap: .4rem; }
+    .conf__hero .dim b { color: var(--acc); font-weight: 400; }
+    /* Render volgt: de exacte combinatie is nog niet gefotografeerd. Het
+       vorige beeld dimt weg zodat het scherm niet leeg oogt, maar de melding
+       staat er nadrukkelijk bovenop — niemand mag denken dat dit hét beeld is. */
+    .conf__hero .missing { position: absolute; inset: 0; z-index: 3; display: none; flex-direction: column; align-items: center; justify-content: center; gap: .5rem; text-align: center; padding: 1.5rem; background: rgba(10,9,7,.62); backdrop-filter: blur(1px); }
+    .conf__hero.is-missing .missing { display: flex; }
+    .conf__hero.is-missing img, .conf__hero.is-missing .hbg { opacity: .3; }
+    .missing b { color: #fff; font-size: .95rem; font-weight: 600; }
+    .missing span { color: rgba(255,255,255,.72); font-size: .78rem; max-width: 26em; line-height: 1.5; }
+
+    /* aanzicht-tabs: exterieur/interieur bovenop de hero, zelfde plek als
+       badkamer's plattegrond/wand-tabs. Alleen de "interieur"-knop kan grijs
+       staan als de gekozen indeling nog geen interieurbeeld heeft — nooit een
+       ander beeld tonen alsof het de gekozen indeling was. */
+    .conf__hero .aanzicht { position: absolute; bottom: .8rem; left: .8rem; z-index: 2; display: inline-flex; gap: .2rem; padding: .22rem; border-radius: 9px; background: rgba(0,0,0,.5); backdrop-filter: blur(6px); }
+    .conf__hero .aanzicht button { border: none; background: transparent; color: rgba(255,255,255,.75); font: inherit; font-size: .68rem; font-weight: 600; letter-spacing: .02em; padding: .35rem .65rem; border-radius: 6px; cursor: pointer; transition: background .14s ease, color .14s ease; }
+    .conf__hero .aanzicht button.is-on { background: var(--acc); color: #17130a; }
+    .conf__hero .aanzicht button:disabled { opacity: .4; cursor: not-allowed; }
+    .conf__thumbs { display: none; gap: .5rem; margin: -.7rem 0 1.2rem; }
+    .conf__thumbs.is-on { display: flex; }
+    .conf__thumbs button { flex: 1; padding: 0; border: 2px solid transparent; border-radius: 9px; overflow: hidden; aspect-ratio: 16/10; background-size: cover; background-position: center; cursor: pointer; }
+    .conf__thumbs button.is-on { border-color: var(--acc); }
+    .tile__img { width: 100%; height: 54px; border-radius: 8px; background-size: cover; background-position: center; border: 1px solid rgba(255,255,255,.1); }
+    .tile__img--svg { display: grid; place-items: center; background: var(--bg-raise-2); color: var(--muted, #8a8a86); }
+    .tile__img--svg svg { width: 58%; height: 58%; }
+
+    .conf__thumbs { flex-wrap: wrap; max-height: 230px; overflow-y: auto; }
+    .conf__thumbs button { width: 116px; height: auto; aspect-ratio: auto; min-height: 92px; flex: 0 0 116px; background: var(--bg-raise); overflow: hidden; }
+    .conf__thumbs button img { display: block; width: 100%; height: 58px; object-fit: cover; }
+    .conf__thumbs button span { display: block; padding: .35rem; font-size: .66rem; line-height: 1.25; color: var(--text); }
+    .conf__caption { font-size: .82rem; line-height: 1.55; color: var(--text-2); margin: -.4rem 0 1rem; }
+    .conf__option-detail { margin: 0 0 1rem; display: flex; align-items: center; gap: .9rem; border: 1px solid var(--line); border-radius: 12px; padding: .65rem; background: var(--bg-raise); }
+    .conf__option-detail[hidden] { display: none; }
+    .conf__option-detail img { width: 38%; height: auto; aspect-ratio: 8/5; object-fit: contain; border-radius: 8px; }
+    .conf__option-detail figcaption { flex: 1; font-size: .8rem; line-height: 1.5; }
+    .conf__option-detail strong, .conf__option-detail span { display: block; }
+    .conf__option-detail span { margin-top: .3rem; color: var(--text-2); }
+    .grp { border: 1px solid var(--line); border-radius: 14px; background: var(--bg-raise); padding: 1.15rem 1.2rem 1.25rem; margin-bottom: .9rem; }
+    .grp__h { font-size: .78rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--text); margin-bottom: .85rem; }
+    .grp__h b { color: var(--acc); font-weight: 700; margin-right: .4rem; }
+    .grp__row { display: grid; gap: .8rem; }
+    @media (min-width: 720px){ .grp__row.cols3 { grid-template-columns: 1fr 1fr 1fr; } }
+
+    .tiles { display: grid; gap: .6rem; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+    .tiles.sm { grid-template-columns: repeat(auto-fit, minmax(84px, 1fr)); }
+    .tile { position: relative; cursor: pointer; }
+    .tile input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+    .tile__c { border: 1.5px solid var(--line); border-radius: 11px; background: var(--bg-raise-2); padding: .7rem .6rem; display: flex; flex-direction: column; align-items: center; gap: .5rem; text-align: center; height: 100%; transition: border-color .12s ease, background .12s ease; }
+    .tile__c .ico { width: 30px; height: 30px; color: var(--text-2); }
+    .tile__c .ico svg { width: 100%; height: 100%; }
+    .tile__c .lab { font-size: .76rem; font-weight: 600; color: var(--text); line-height: 1.25; }
+    .tile__c .sub { font-size: .68rem; color: var(--text-3); }
+    @media (max-width: 600px) { .tile__c .sub { font-size: .78rem; } }
+    .tile__sw { width: 100%; height: 40px; border-radius: 7px; border: 1px solid rgba(255,255,255,.12); }
+    .tile input:checked + .tile__c { border-color: var(--acc); background: color-mix(in srgb, var(--acc) 12%, var(--bg-raise-2)); }
+    .tile input:checked + .tile__c .ico { color: var(--acc); }
+    .tile input:focus-visible + .tile__c { outline: 2px solid var(--acc); outline-offset: 2px; }
+
+    /* price bar */
+    .pricebar { margin-top: 1rem; border: 1px solid var(--line-strong); border-radius: 14px; background: linear-gradient(var(--bg-raise-2), var(--bg-raise)); padding: 1.1rem 1.2rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .pricebar__p { flex: 1 1 auto; min-width: 140px; }
+    .pricebar__p .k { display: flex; align-items: center; gap: .5rem; font-family: var(--mono); font-size: .66rem; text-transform: uppercase; letter-spacing: .06em; color: var(--text-3); }
+    .pricebar__p .v { font-size: 1.8rem; font-weight: 800; color: var(--text); letter-spacing: -.02em; margin-top: .1rem; }
+    .btw { display: inline-flex; border: 1px solid var(--line-strong); border-radius: 7px; overflow: hidden; }
+    .btw button { border: none; background: transparent; color: var(--text-3); font: inherit; font-size: .62rem; font-family: var(--mono); padding: .28rem .5rem; cursor: pointer; }
+    .btw button.is-on { background: var(--acc-soft); color: var(--acc); }
+    .pricebar__cta { display: flex; gap: .5rem; align-items: stretch; flex-wrap: wrap; }
+    .btn--acc { background: var(--acc); color: #17130a; border: none; font-weight: 700; }
+    .btn--acc:hover { filter: brightness(1.06); box-shadow: 0 8px 24px color-mix(in srgb, var(--acc) 30%, transparent); }
+    .btn--icon { width: 46px; padding: 0; display: grid; place-items: center; }
+    .btn--icon svg { width: 18px; height: 18px; }
+    /* Prijs boven, de knoppen klein op één rij eronder: zo blijft de hele
+       kolom, mét een groot beeld, binnen het scherm. De selectors zijn met
+       opzet zwaar: het lichte thema zet zijn eigen knopmaten. */
+    @media (min-width: 900px){
+      .pricebar { flex-direction: column; align-items: stretch; gap: .55rem; padding: .8rem 1rem; }
+      .pricebar .pricebar__p .v { font-size: 1.55rem; }
+      .pricebar .pricebar__cta { gap: .4rem; }
+      .pricebar .pricebar__cta .btn { padding: .5rem .65rem; font-size: .7rem; white-space: nowrap; }
+      .pricebar .pricebar__cta .btn--acc { padding-inline: .9rem; }
+      .pricebar .pricebar__cta .btn--icon { width: 36px; padding: 0; }
+    }
+    @media (max-width: 640px){
+      .pricebar__cta { width: 100%; }
+      .pricebar__cta .btn--acc { flex: 1 1 100%; justify-content: center; }
+      .pricebar__cta .btn--ghost:not(.btn--icon) { flex: 1 1 calc(50% - .25rem); justify-content: center; padding: .6rem .5rem; font-size: .72rem; }
+      .pricebar__cta .btn--icon { flex: 0 0 46px; }
+    }
+
+    /* lead form */
+    .lead { display: grid; gap: .8rem; }
+    .lead__grid { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+    @media (max-width: 520px){ .lead__grid { grid-template-columns: 1fr; } }
+    .fld { display: grid; gap: .35rem; }
+    .fld label { font-size: .76rem; color: var(--text-2); font-weight: 500; }
+    .fld input, .fld textarea { width: 100%; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--bg-raise); color: var(--text); font: inherit; font-size: .88rem; padding: .7rem .85rem; }
+    .fld input:focus, .fld textarea:focus { outline: none; border-color: var(--acc); }
+    .fld select { width: 100%; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--bg-raise); color: var(--text); font: inherit; font-size: .88rem; padding: .7rem .85rem; }
+    .kz { border: 1px solid var(--line-strong); border-radius: 16px; padding: .9rem 1rem; margin: 0 0 1.1rem; background: var(--bg-raise); }
+    .kz__kop { display: block; font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; margin-bottom: .5rem; }
+    .kz dl { display: grid; grid-template-columns: minmax(110px, 38%) 1fr; gap: .3rem .8rem; margin: 0; font-size: .82rem; }
+    .kz dt { color: var(--text-2); } .kz dd { margin: 0; font-weight: 600; }
+    .vanaf { display: block; width: fit-content; flex-basis: 100%; max-width: max-content; order: 0; margin: .9rem auto 1rem; padding: .45rem 1rem; border-radius: 999px; background: color-mix(in srgb, var(--acc) 12%, transparent); color: var(--acc); font-weight: 800; font-size: 1rem; }
+    .hero-staal { position: absolute; right: 14px; top: 64px; z-index: 3; width: min(24%, 180px); border-radius: 14px; overflow: hidden; background: #fff; box-shadow: 0 12px 30px rgba(0,0,0,.28); pointer-events: none; }
+    .hero-staal[hidden] { display: none !important; }
+    .hero-staal img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+    .hero-staal > span { display: block; padding: .45rem .65rem .55rem; line-height: 1.2; }
+    .hero-staal small { display: block; font-size: .56rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: #777; }
+    .hero-staal b { font-size: .82rem; color: #111; }
+    .staal { margin: 0 0 1rem; }
+    .staal__beeld { position: relative; display: block; width: 100%; padding: 0; border: 0; border-radius: 18px; overflow: hidden; cursor: zoom-in; aspect-ratio: 16 / 9; background: #ddd; box-shadow: 0 18px 40px rgba(0,0,0,.18); }
+    .staal__beeld img { width: 100%; height: 100%; object-fit: cover; display: block; transform: perspective(900px) rotateX(8deg) scale(1.12); transform-origin: 50% 60%; transition: transform .5s ease; }
+    .staal__beeld:hover img { transform: perspective(900px) rotateX(0deg) scale(1.22); }
+    .staal__beeld.is-foto { background: #fff; }
+    .staal__beeld.is-foto img, .staal__beeld.is-foto:hover img { object-fit: contain; transform: none; padding: .8rem 0 3.4rem; box-sizing: border-box; }
+    .staal__beeld.is-foto .staal__label { background: none; color: #111; padding: .5rem 1rem .7rem; }
+    .hero-staal.is-foto img { object-fit: contain; background: #fff; padding: 4px; box-sizing: border-box; }
+    .staal__label { position: absolute; left: 0; right: 0; bottom: 0; padding: 2.2rem 1rem .8rem; text-align: left; color: #fff; background: linear-gradient(transparent, rgba(0,0,0,.65)); }
+    .staal__label small { display: block; font-size: .62rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; opacity: .85; }
+    .staal__label b { font-size: 1.15rem; }
+    .staal__noot { margin: .45rem 0 .2rem; font-size: .74rem; color: var(--text-3); }
+    .staal ul { list-style: none; margin: 0; padding: 0; font-size: .82rem; }
+    .staal li::before { content: "✓ "; color: var(--acc); font-weight: 800; }
+    .start { border: 0; padding: 0; margin: 0 0 .9rem; }
+    .start legend { font-size: .78rem; font-weight: 700; margin-bottom: .45rem; padding: 0; }
+    .start__keus { display: grid; grid-template-columns: repeat(2, 1fr); gap: .5rem; }
+    .start__keus label { position: relative; cursor: pointer; }
+    .start__keus input { position: absolute; opacity: 0; inset: 0; }
+    .start__keus span { display: block; text-align: center; padding: .7rem .5rem; border: 1px solid var(--line-strong); border-radius: 12px; font-size: .85rem; font-weight: 700; background: var(--bg-raise); }
+    .start__keus input:checked + span { border-color: var(--acc); background: color-mix(in srgb, var(--acc) 10%, transparent); color: var(--acc); }
+    .start__keus input:focus-visible + span { outline: 2px solid var(--acc); outline-offset: 2px; }
+    .lead__note { font-size: .74rem; color: var(--text-3); line-height: 1.5; }
+
+    /* ---------- klantmodus ----------
+       Draait de configurator onder de naam van een bedrijf (?bedrijf=slug),
+       dan hoort onze eigen navigatie er niet omheen te staan: de bezoeker is
+       op zoek naar een dakopbouw, niet naar ons. Wat blijft is één regel
+       bovenaan die eerlijk zegt van wie de techniek is. Zonder bedrijf
+       verandert er niets aan de pagina. */
+    .klantkop { border-bottom: 1px solid var(--line); background: var(--bg-raise); }
+    .klantkop__in { display: flex; flex-wrap: wrap; align-items: center; gap: .9rem 1.4rem; padding-block: .85rem; }
+    .klantkop__merk { font-weight: 800; font-size: 1.05rem; letter-spacing: -.02em; color: var(--text); }
+    .klantkop__logo { display: block; max-height: 34px; width: auto; }
+    .klantkop__tel { margin-left: auto; font-weight: 600; font-size: .88rem; color: var(--acc); text-decoration: none; }
+    .klantlint { background: var(--bg-raise-2); border-bottom: 1px solid var(--line); }
+    .klantlint p { padding-block: .5rem; font-size: .72rem; color: var(--text-3); letter-spacing: .01em; }
+    .klantlint a { color: var(--text-2); }
+    .klantvoet { border-top: 1px solid var(--line); }
+    .klantvoet p { padding-block: 1.4rem; font-size: .72rem; color: var(--text-3); line-height: 1.6; }
+    html[data-bedrijf] #nav,
+    html[data-bedrijf] .foot__cta,
+    html[data-bedrijf] .foot__grid,
+    html[data-bedrijf] .foot__alles,
+    html[data-bedrijf] .foot__base { display: none !important; }
+    /* Ons telefoonnummer, onze WhatsApp en onze verkoopsectie horen niet op de
+       pagina van een ander bedrijf: zijn bezoeker zoekt een dakopbouw en zou
+       bij ons uitkomen. */
+    html[data-bedrijf] .ng-vraag,
+    html[data-bedrijf] .ng-eigen,
+    html[data-bedrijf] .ng-blok,
+    html[data-bedrijf] .ng-mobielbalk,
+    html[data-bedrijf] .nx-wa { display: none !important; }
+    /* Op de site van een bedrijf is dit een formulier, geen landingspagina.
+       De uitleg en de vragen eronder zijn geschreven om op onze site gevonden
+       te worden; daar leiden ze alleen af van het samenstellen. Hetzelfde
+       geldt voor de pil boven de kop en de sprongen naar onze andere
+       configurators: die brengen zijn bezoeker bij ons. */
+    html[data-bedrijf] .ng-tekst,
+    html[data-bedrijf] .cfg-hero .pill,
+    html[data-bedrijf] .matswitch a { display: none !important; }
+    /* In een iframe op zijn site heeft de pagina eromheen al zijn kop en
+       voet. Dan alleen het samenstellen, strak tegen de rand. */
+    html[data-ingesloten] .klantkop,
+    html[data-ingesloten] .klantvoet { display: none !important; }
+    html[data-ingesloten] .cfg-hero { padding-top: clamp(1rem, 3vh, 1.8rem); }
+    /* ---------- kort formulier (advertenties) ----------
+       Alleen de groepen uit `stappen` staan open; de rest zit achter de knop
+       "meer opties". Tekenprogramma, materiaalstaat, draagcheck en de foto
+       bij eigen huis zijn voor wie verder is dan een eerste prijs: op een
+       advertentiepagina leiden ze af van het formulier. */
+    #groups:not(.is-alles) .grp--uit { display: none; }
+    .grp--uit .grp__h b { color: var(--text-3); }
+    .meer-opties { width: 100%; justify-content: center; margin-top: 1rem; }
+    html[data-kort] .pricebar__cta .btn--ghost,
+    html[data-kort] #tekenprogramma,
+    html[data-kort] .sectie-foto,
+    html[data-kort] .fld:has(#f_ber) { display: none !important; }
+    html[data-kort] .pricebar .pricebar__cta .btn--acc { width: 100%; justify-content: center; padding: .85rem 1.4rem; font-size: .9rem; }
+    html[data-kort] .lead__grid { grid-template-columns: 1fr; }
+    /* ---------- geen prijzen ----------
+       Prijsbalk zonder bedrag (alleen de offerteknop), geen badge over wat
+       er in de prijs zit, geen meerprijs in de indelingseditor. */
+    html[data-geen-prijs] .pricebar__p,
+    html[data-geen-prijs] #confBadge,
+    html[data-geen-prijs] .ngbw__geld,
+    html[data-geen-prijs] .met-prijs { display: none !important; }
+    html[data-geen-prijs] .pricebar .pricebar__cta .btn--acc { width: 100%; justify-content: center; padding: .85rem 1.4rem; font-size: .9rem; }
+    html[data-geen-prijs] .conf__dok-tekst .v { font-size: 1rem; }
+    @media (min-width: 720px){ html[data-kort] .lead__grid { grid-template-columns: 1fr 1fr 1fr; } }
+    /* Het verloop in de kop is op onze goudtint gebouwd. Onder de kleur van een
+       ander bedrijf wordt dat een mengsel van twee huisstijlen; dan liever één. */
+    html[data-bedrijf] .grad-text { background: none; color: var(--acc); }
+    html[data-bedrijf] .cfg-hero { padding-top: clamp(1.6rem, 5vh, 3rem); }
+    .lead__msg { font-size: .84rem; padding: .8rem 1rem; border-radius: 10px; line-height: 1.5; }
+    .lead__msg.ok { background: var(--acc-soft); color: var(--acc); border: 1px solid color-mix(in srgb, var(--acc) 40%, transparent); }
+    .lead__msg.err { background: rgba(220,80,80,.1); color: #e88; border: 1px solid rgba(220,80,80,.35); }
+    .cfg__panel { padding: 1.6rem 1.6rem; display: grid; gap: 1.4rem; }
+    /* ---------- stappenkaart (stapsgewijs) ----------
+       Eén vraag per keer in een kaart naast het beeld, voortgangsbalk
+       bovenin, Vorige en Volgende onderin, het formulier als laatste stap.
+       Alles wat daarnaast om aandacht vraagt gaat weg. Zie
+       assets/stappenkaart.js. */
+    html[data-stapsgewijs] .presets,
+    html[data-stapsgewijs] .conf__head,
+    html[data-stapsgewijs] .pricebar,
+    html[data-stapsgewijs] .meer-opties,
+    html[data-stapsgewijs] .conf__caption,
+    html[data-stapsgewijs] .conf__dok,
+    html[data-stapsgewijs] #groups .grp--uit,
+    html[data-stapsgewijs] #groups .grp:not(.is-stap),
+    html[data-stapsgewijs] .stap__formulier:not(.is-stap) { display: none !important; }
+    html[data-stapsgewijs] .cfg-hero .h1 { font-size: clamp(1.55rem, 3.4vw, 2.6rem); max-width: 26ch; }
+    html[data-stapsgewijs] .cfg-hero .lede { font-size: .95rem; margin-top: .6rem; }
+    html[data-stapsgewijs] .conf { margin-top: clamp(1rem, 3vh, 1.8rem); }
+    html[data-stapsgewijs] .conf__layout { margin-top: 0; }
+    html[data-stapsgewijs] .conf__options { border: 1px solid var(--line); border-radius: 20px; background: var(--bg-raise); padding: 1.3rem 1.3rem 0; box-shadow: 0 10px 30px rgba(16,60,60,.06); }
+    html[data-stapsgewijs] .stap__kop { display: grid; gap: .55rem; margin-bottom: 1.1rem; }
+    html[data-stapsgewijs] .stap__balk { height: 8px; border-radius: 99px; background: var(--line); overflow: hidden; }
+    html[data-stapsgewijs] .stap__balk i { display: block; height: 100%; width: 0; border-radius: inherit; background: var(--acc); transition: width .3s ease; }
+    html[data-stapsgewijs] .stap__nr { font-size: .78rem; color: var(--text-2); }
+    html[data-stapsgewijs] .stap__fases { list-style: none; margin: 0 0 .35rem; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: .35rem; }
+    html[data-stapsgewijs] .stap__fases button { width: 100%; display: flex; align-items: center; justify-content: center; gap: .35rem; font: inherit; font-size: .74rem; font-weight: 700; color: var(--text-2); background: none; border: 0; border-bottom: 3px solid var(--line); padding: .3rem 0 .45rem; cursor: pointer; }
+    html[data-stapsgewijs] .stap__fases span { display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; background: var(--line); color: var(--text-2); font-size: .66rem; }
+    html[data-stapsgewijs] .stap__fases .is-nu { color: var(--text); border-bottom-color: var(--acc); }
+    html[data-stapsgewijs] .stap__fases .is-nu span { background: var(--acc); color: #fff; }
+    html[data-stapsgewijs] .stap__fases .is-klaar { color: var(--text); border-bottom-color: color-mix(in srgb, var(--acc) 45%, transparent); }
+    html[data-stapsgewijs] .stap__fases .is-klaar span { background: color-mix(in srgb, var(--acc) 45%, #fff); color: #fff; }
+    html[data-stapsgewijs] .stap__nr { font-weight: 600; color: var(--text); }
+    html[data-stapsgewijs] #groups .grp { border: 0; background: none; padding: 0; margin: 0; }
+    html[data-stapsgewijs] #groups .grp__h { font-size: 1.15rem; letter-spacing: 0; text-transform: none; margin-bottom: 1rem; outline: none; }
+    html[data-stapsgewijs] #groups .grp__h b { display: none; }
+    html[data-stapsgewijs] .stap__formulier { animation: none !important; margin: 0 !important; padding: 0; border: 0; background: none; box-shadow: none; gap: 1rem; padding-bottom: 1.3rem; }
+    html[data-stapsgewijs] .stap__formulier .eyebrow { display: none; }
+    html[data-stapsgewijs] .stap__formulier .lead__grid { grid-template-columns: 1fr; }
+    html[data-stapsgewijs] .stap__formulier #leadBtn { width: 100%; justify-content: center; padding: .95rem 1.4rem; font-size: 1rem; }
+    html[data-stapsgewijs] .stap__nav { position: sticky; bottom: 0; z-index: 5; display: flex; gap: .6rem; margin: 1.2rem -1.3rem 0; padding: .9rem 1.3rem calc(.9rem + env(safe-area-inset-bottom, 0px)); background: var(--bg-raise); border-top: 1px solid var(--line); border-radius: 0 0 20px 20px; }
+    html[data-stapsgewijs] .stap__nav .btn { justify-content: center; padding: .9rem 1.2rem; font-size: .95rem; }
+    html[data-stapsgewijs] .stap__volgende { flex: 1; }
+    html[data-stapsgewijs] .stap__nav [hidden] { display: none !important; }
+    html[data-stapsgewijs] .stap__overslaan { display: block; margin: 1rem auto 0; font: inherit; font-size: .84rem; font-weight: 600; color: var(--text-2); background: none; border: 0; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; padding: .4rem; }
+    html[data-stapsgewijs] .stap__overslaan[hidden], html[data-stapsgewijs] .stap__bewaar[hidden] { display: none !important; }
+    html[data-stapsgewijs] .stap__bewaar { margin-top: 1rem; padding: .9rem 1rem; border-radius: 14px; background: color-mix(in srgb, var(--acc) 8%, var(--bg-raise)); border: 1px solid color-mix(in srgb, var(--acc) 30%, transparent); display: grid; gap: .45rem; font-size: .86rem; }
+    html[data-stapsgewijs] .stap__bewaar span { color: var(--text-2); line-height: 1.45; }
+    html[data-stapsgewijs] .stap__bewaar-rij { display: flex; gap: .45rem; }
+    html[data-stapsgewijs] .stap__bewaar-rij input { flex: 1; min-width: 0; font: inherit; padding: .6rem .75rem; border-radius: 10px; border: 1px solid var(--line-strong); background: var(--bg); color: var(--text); }
+    html[data-stapsgewijs] .stap__bewaar-rij .btn { padding: .6rem 1rem; }
+    html[data-stapsgewijs] .stap__bewaar-nee { justify-self: start; font: inherit; font-size: .78rem; color: var(--text-2); background: none; border: 0; text-decoration: underline; cursor: pointer; padding: 0; }
+    html[data-stapsgewijs] .stap__bewaar-msg { margin: 0; font-weight: 600; color: var(--text); }
+    html[data-stapsgewijs] .stap__belofte { margin: .2rem 0 .1rem; font-size: .88rem; line-height: 1.45; color: var(--text); background: var(--bg); border-radius: 10px; padding: .6rem .75rem; }
+    /* Plattegrond in de stappen indeling en elektra. */
+    html[data-stapsgewijs]:not([data-plan]) .stap__tekening,
+    html[data-stapsgewijs]:not([data-plan]) .stap__bediening { display: none; }
+    html[data-plan] .stap__bediening { margin-top: 1rem; }
+    html[data-plan="elektra"] #groups .grp[data-g="elektra"] .tile:has(input[value="spotjes"]),
+    html[data-plan="elektra"] #groups .grp[data-g="elektra"] .tile:has(input[value="stopcontacten-binnen"]),
+    html[data-plan="elektra"] #groups .grp[data-g="elektra"] .tile:has(input[value="lamp-punten-binnen"]) { display: none; }
+    html[data-plan="elektra"] #groups .grp[data-g="elektra"] .tiles:first-of-type::before { content: "Overige installatie"; grid-column: 1 / -1; font-size: .78rem; font-weight: 700; color: var(--text-2); }
+    @media (min-width: 900px){
+      html[data-plan] .conf__visual > :not(.stap__tekening) { display: none !important; }
+      html[data-plan] .conf__visual { position: sticky; top: 16px; }
+      html[data-plan] .stap__tekening .pl__svg { max-height: calc(100vh - 60px); }
+    }
+    @media (max-width: 899px){
+      html[data-plan] .conf__visual { display: none !important; }
+      /* De tekening blijft bovenin staan terwijl je eronder kiest en sleept. */
+      html[data-plan] .stap__tekening { position: sticky; top: 0; z-index: 6; margin: 0 -.4rem; padding: 6px 0; background: var(--bg-raise); }
+      html[data-plan] .stap__tekening .pl__svg { max-height: 46vh; width: auto; max-width: 100%; margin-inline: auto; }
+    }
+    html[data-stapsgewijs] .stap__nav:has(.stap__volgende[hidden]) { justify-content: flex-start; border-top: 0; padding-top: 0; margin-top: 0; position: static; }
+    @media (min-width: 900px){
+      html[data-stapsgewijs] .conf__visual { top: 16px; }
+      html[data-stapsgewijs] .conf__hero { width: min(100%, calc((100vh - 190px) * 4 / 3)); }
+    }
+    @media (max-width: 899px){
+      html[data-stapsgewijs] .cfg-hero .lede { display: none; }
+      html[data-stapsgewijs] .cfg-hero .h1 { font-size: 1.4rem; }
+      html[data-stapsgewijs] .conf__hero { aspect-ratio: 16 / 10; margin-bottom: 0; }
+      html[data-stapsgewijs] .conf__hero img { object-fit: cover; }
+      html[data-stapsgewijs] .conf__layout { gap: .8rem; }
+      /* Het beeld blijft bovenin staan terwijl de vraag eronder schuift. */
+      html[data-stapsgewijs] .conf__visual { position: sticky; top: 0; z-index: 6; }
+      html[data-stapsgewijs] .conf__thumbs { display: none !important; }
+      html[data-stapsgewijs] .conf__option-detail { display: none !important; }
+      html[data-stapsgewijs] .conf__options { padding: 1.1rem 1rem 0; border-radius: 18px; }
+      html[data-stapsgewijs] .stap__nav { margin-inline: -1rem; padding-inline: 1rem; border-radius: 0 0 18px 18px; }
+    }
+  </style>
+  <style id="ng-protect-css">
+    /* Beeld- en kopieerbeveiliging */
+    /* aanbouw-engine extra's */
+    .dimgrp { display:flex; flex-direction:column; gap:.9rem; }
+    .dim__row { display:grid; grid-template-columns: 78px 1fr 84px; align-items:center; gap:.9rem; }
+    .dim__row label { font-size:.8rem; color:var(--text-2); font-weight:600; }
+    .dim__row output { font-variant-numeric:tabular-nums; font-size:.86rem; font-weight:700; color:var(--acc); text-align:right; }
+    .dim__num { display:flex; align-items:center; gap:.25rem; }
+    .dim__num input { width:100%; min-width:0; font:inherit; font-size:.9rem; font-weight:700; text-align:right; color:var(--text); background:var(--bg); border:1px solid var(--line-strong); border-radius:10px; padding:.4rem .45rem; -moz-appearance:textfield; }
+    .dim__num input::-webkit-outer-spin-button, .dim__num input::-webkit-inner-spin-button { -webkit-appearance:none; margin:0; }
+    .dim__num i { font-style:normal; font-size:.8rem; color:var(--text-2); }
+    .dim__row input[type=range], .btwm2 input[type=range]{ -webkit-appearance:none; appearance:none; width:100%; height:6px; border-radius:4px; background:var(--line-strong); outline:none; }
+    .dim__row input[type=range]::-webkit-slider-thumb, .btwm2 input[type=range]::-webkit-slider-thumb{ -webkit-appearance:none; appearance:none; width:20px;height:20px;border-radius:50%; background:var(--acc); border:3px solid var(--bg-raise); box-shadow:0 1px 6px rgba(0,0,0,.35); cursor:pointer; }
+    .dim__row input[type=range]::-moz-range-thumb, .btwm2 input[type=range]::-moz-range-thumb{ width:16px;height:16px;border-radius:50%; background:var(--acc); border:3px solid var(--bg-raise); cursor:pointer; }
+    .btwm2 { background:var(--bg-raise-2); border:1px solid var(--line); border-radius:10px; padding:.75rem .85rem; }
+    .btwm2__top { display:flex; align-items:baseline; justify-content:space-between; gap:.6rem; margin-bottom:.55rem; flex-wrap:wrap; }
+    .btwm2__top #bestaandM2Lab { font-size:.9rem; font-weight:700; color:var(--acc); font-variant-numeric:tabular-nums; }
+    .btwm2__sub { font-size:.7rem; color:var(--text-3); }
+    .dim__m2 { font-size:.8rem; color:var(--text-2); } .dim__m2 b{ color:var(--text-1); }
+    .grp__noot { margin:.8rem 0 0; font-size:.8rem; color:var(--text-2); line-height:1.5; }
+    .qty { display:flex; align-items:center; gap:.55rem; margin-top:.5rem; }
+    .qty button { width:26px;height:26px; border-radius:8px; border:1px solid var(--line-strong); background:var(--bg-raise); color:var(--text-1); font-weight:700; cursor:pointer; line-height:1; }
+    .qty b { min-width:2.4ch; text-align:center; font-variant-numeric:tabular-nums; }
+    .qty .u { font-size:.72rem; color:var(--text-2); }
+    .dims { display:flex; gap:.5rem; margin-top:.5rem; align-items:center; }
+    .dims input { width:64px; padding:.35rem .45rem; border-radius:8px; border:1px solid var(--line-strong); background:var(--bg-raise); color:var(--text-1); font:inherit; font-size:.82rem; }
+    .dims span { font-size:.75rem; color:var(--text-2); }
+    .tile__img { height: 76px; }
+    img,picture,svg,.conf__hero,.conf__hero img,.tile__img,.preset__th,.hbg,.matswitch{
+      -webkit-user-drag:none;-khtml-user-drag:none;-moz-user-drag:none;-o-user-drag:none;user-select:none;
+      -webkit-touch-callout:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;
+    }
+    body{ -webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none; }
+    input,textarea,select,[contenteditable]{ -webkit-user-select:text!important;-moz-user-select:text!important;-ms-user-select:text!important;user-select:text!important; -webkit-touch-callout:default; }
+    .conf__hero,.conf__hero img,.tile__img,.preset__th,.hbg{ pointer-events:none; }
+    .tile,.preset,.matswitch a,.matswitch button,.conf__hero .aanzicht,.conf__hero .aanzicht button{ pointer-events:auto; }
+  </style>
+  <script id="ng-protect-js">
+  (function(){
+    function inField(t){ return t && t.closest && t.closest('input,textarea,select,[contenteditable]'); }
+    document.addEventListener('contextmenu',function(e){ if(inField(e.target)) return; e.preventDefault(); },{capture:true});
+    document.addEventListener('dragstart',function(e){ e.preventDefault(); },{capture:true});
+    document.addEventListener('drop',function(e){ e.preventDefault(); },{capture:true});
+    document.addEventListener('copy',function(e){ if(!inField(e.target)) e.preventDefault(); },{capture:true});
+    document.addEventListener('cut',function(e){ if(!inField(e.target)) e.preventDefault(); },{capture:true});
+    // long-press op mobiel: blokkeer standaard-callout op beelden
+    document.addEventListener('touchstart',function(e){ var t=e.target; if(t&&t.closest&&t.closest('img,.conf__hero,.tile__img,.preset__th,.hbg')&&e.touches.length>1){ e.preventDefault(); } },{passive:false});
+  })();
+  </script>
+  <script type="application/ld+json" data-productfaq>{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Wat kost een dakopbouw?","acceptedAnswer":{"@type":"Answer","text":"Voor een prefab dakopbouw over de volle breedte van een rijtjeswoning ligt het zwaartepunt tussen de veertig- en zeventigduizend euro, casco tot afgewerkt. Traditioneel gebouwd is meestal duurder maar vrijer. De grootste variabelen zijn de breedte, de draagkracht van wat eronder zit en de afwerking. In de configurator hierboven zie je wat elke keuze doet."}},{"@type":"Question","name":"Is een dakopbouw vergunningsvrij?","acceptedAnswer":{"@type":"Answer","text":"Vrijwel nooit. Een dakopbouw verandert de bouwhoogte en het aanzicht, en dat betekent een omgevingsvergunning met een welstandstoets. In veel gemeenten geldt bovendien een beeldkwaliteitsplan per wijk. Goed nieuws: staat er in je straat al een goedgekeurde opbouw, dan is een vergelijkbaar ontwerp doorgaans snel rond."}},{"@type":"Question","name":"Hoe lang zit mijn huis open?","acceptedAnswer":{"@type":"Answer","text":"Bij een prefab opbouw één dag: het dak gaat eraf en de nieuwe opbouw staat dezelfde dag waterdicht. Bij traditionele bouw twee tot vier weken onder zeil. Dat verschil is voor veel mensen doorslaggevend, zeker met kinderen in huis of in het najaar."}},{"@type":"Question","name":"Kan mijn woning een dakopbouw dragen?","acceptedAnswer":{"@type":"Answer","text":"Bij naoorlogse woningen met betonnen vloeren en gemetselde bouwmuren meestal wel. Bij oudere woningen met een houten balklaag moet een constructeur rekenen. Dat onderzoek is een paar honderd euro en het is het eerste wat er moet gebeuren, niet het laatste."}},{"@type":"Question","name":"Levert een dakopbouw meer op dan hij kost?","acceptedAnswer":{"@type":"Answer","text":"Vaak wel, omdat je een volwaardige verdieping toevoegt zonder grond te kopen. Of de woningwaarde met het volle bedrag meestijgt hangt af van de wijk en van hoe gangbaar opbouwen daar is. In straten waar meerdere woningen er al een hebben, is het effect het grootst."}},{"@type":"Question","name":"Kan ik zien hoe de dakopbouw op mijn eigen huis staat?","acceptedAnswer":{"@type":"Answer","text":"Ja. Upload een foto van je woning in de configurator, dan komt de gekozen opbouw er fotorealistisch op terug: op je eigen dak, in de gekozen uitvoering."}}]}</script>
+    <!-- ============ ENTITEIT (scripts/entiteit.py) ============ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://nextgrowthdigital.nl/#organization",
+          "name": "Next Growth",
+          "url": "https://nextgrowthdigital.nl/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://nextgrowthdigital.nl/assets/media/next-growth-logo.svg"
+          },
+          "description": "Next Growth is een creatief groeibureau: branding, websites, marketing en configurators voor bedrijven. Landelijk actief.",
+          "email": "info@nextgrowthdigital.nl",
+          "telephone": "+31683902192",
+          "vatID": "NL004420281B57",
+          "taxID": "96002913",
+          "identifier": [
+            {
+              "@type": "PropertyValue",
+              "name": "KvK-nummer",
+              "value": "96002913"
+            },
+            {
+              "@type": "PropertyValue",
+              "name": "btw-identificatienummer",
+              "value": "NL004420281B57"
+            }
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "Noord-Brabant",
+            "addressCountry": "NL"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "sales",
+            "telephone": "+31683902192",
+            "email": "info@nextgrowthdigital.nl",
+            "areaServed": "NL",
+            "availableLanguage": [
+              "nl",
+              "en",
+              "de"
+            ]
+          },
+          "areaServed": [
+            {
+              "@type": "Country",
+              "name": "Nederland"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Noord-Brabant"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Gelderland"
+            },
+            {
+              "@type": "City",
+              "name": "Nijmegen"
+            },
+            {
+              "@type": "City",
+              "name": "Den Bosch"
+            },
+            {
+              "@type": "City",
+              "name": "Eindhoven"
+            },
+            {
+              "@type": "City",
+              "name": "Arnhem"
+            },
+            {
+              "@type": "City",
+              "name": "Uden"
+            },
+            {
+              "@type": "City",
+              "name": "Veghel"
+            },
+            {
+              "@type": "City",
+              "name": "Wijchen"
+            },
+            {
+              "@type": "City",
+              "name": "Vught"
+            },
+            {
+              "@type": "City",
+              "name": "Cuijk"
+            },
+            {
+              "@type": "City",
+              "name": "Grave"
+            }
+          ],
+          "knowsAbout": [
+            "Productconfigurator laten maken",
+            "Offertesoftware voor bouwbedrijven",
+            "Website laten maken voor bouw- en installatiebedrijven",
+            "Zoekmachineoptimalisatie",
+            "CRM voor bouwbedrijven",
+            "Dakopbouw",
+            "Uitbouw en aanbouw",
+            "Badkamer verbouwen",
+            "Overkapping op maat",
+            "Zwembad aanleggen",
+            "Dakkapel",
+            "Omgevingsvergunning bij verbouwen"
+          ],
+          "alternateName": [
+            "Next Growth Digital"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://nextgrowthdigital.nl/#website",
+          "url": "https://nextgrowthdigital.nl/",
+          "name": "Next Growth",
+          "inLanguage": "nl-NL",
+          "publisher": {
+            "@id": "https://nextgrowthdigital.nl/#organization"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://nextgrowthdigital.nl/dakopbouw-configurator",
+          "url": "https://nextgrowthdigital.nl/dakopbouw-configurator",
+          "name": "Dakopbouw-configurator: live demo voor bouwbedrijven | Next Growth",
+          "inLanguage": "nl",
+          "isPartOf": {
+            "@id": "https://nextgrowthdigital.nl/#website"
+          },
+          "about": {
+            "@id": "https://nextgrowthdigital.nl/#organization"
+          },
+          "description": "Live demo van een dakopbouw-configurator die Next Growth bouwt voor bouwbedrijven. Je klant kiest een prefab dakopbouw op de aanbouw, op de woning of een volledige optopping, met afmetingen, gevel en kozijnen, en ziet direct beeld en richtprijs.",
+          "dateModified": "2026-08-27"
+        }
+      ]
+    }
+    </script>
+    <!-- ============ EINDE ENTITEIT ============ -->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,900;125,900&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/ngx-shell.css"><script>document.documentElement.classList.add("ngx-display")</script><style id="ngx-world">:root{--ink-900:#0B111A;--ink-800:#0F1620;--ink-700:#131C28;--ink-600:#161F2B;--ink-500:#1D2836;--ink-400:#2A3545;--tint:#131C28;--bg:#0F1620;--bg-raise:#161F2B;--bg-raise-2:#1D2836;--accent:#E63B2E;--accent-strong:#C92F23;--accent-light:#FF8A80;--accent-deep:#8E1F17;--accent-dim:rgba(230,59,46,.13);--glow:rgba(230,59,46,.30);--accent-rgb:230,59,46;--acc:#E63B2E;--acc-soft:rgba(230,59,46,.14);--acc-diep:#8E1F17;--goud-metaal:linear-gradient(150deg,#8E1F17 0%,#E63B2E 26%,#FF8A80 46%,#E63B2E 66%,#8E1F17 100%);--goud-lijn:linear-gradient(90deg,transparent,rgba(230,59,46,.55) 30%,rgba(230,59,46,.55) 70%,transparent);--serif:'Archivo','Arial Black',sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;}html,body{background:#0F1620}.ngx-nav{--x-sig:#E63B2E;--x-ink:#FFFFFF;background:#0F1620F5}.ngx-nav .ngx-mark{background:#FFC400}</style></head>
+<body>
+  <a class="skip" href="#main">Direct naar inhoud</a>
+  <!-- Alleen zichtbaar als de configurator onder de naam van een bedrijf
+       draait (?bedrijf=slug). Zonder bedrijf blijven deze twee blokken
+       verborgen en is de pagina precies zoals hij was. -->
+  <div class="klantlint" id="klantlint" hidden>
+    <div class="wrap"><p>Demonstratie &middot; configurator gebouwd door <a href="/">Next Growth</a> &middot; geen offici&euml;le uiting van <span data-merk-naam>het bedrijf</span></p></div>
+  </div>
+  <div class="klantkop" id="klantkop" hidden>
+    <div class="wrap klantkop__in">
+      <img class="klantkop__logo" data-merk-logo alt="" hidden>
+      <span class="klantkop__merk" data-merk-naam>Next Growth</span>
+      <a class="klantkop__tel" data-merk-tel href="#" hidden></a>
+    </div>
+  </div>
+  <header class="ngx-nav"><div class="ngx-wrap">
+<a class="ngx-brand" href="/"><span class="ngx-ring">NG</span><span>Next Growth<small>Creatief groeibureau · Landelijk</small></span></a>
+<a class="ngx-mark" href="/" aria-label="Next Growth, naar de homepage"><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14V4l10 10V4" stroke="#0A0800" stroke-width="2.8" stroke-linecap="square"/></svg></a>
+<nav class="ngx-links" aria-label="Hoofdmenu"><a href="/">Home</a><a href="/dienst-webdesign">Websites</a><a href="/dienst-branding">Branding</a><a href="/dienst-marketing">Marketing</a><a href="/dienst-configurators">Configurators</a><a href="/kennisbank">Kennisbank</a><a href="/prijzen">Prijzen</a></nav>
+<a class="ngx-cta" href="/#contact">Kennismaken</a>
+<button class="ngx-menu" type="button" aria-expanded="false" aria-controls="ngx-mnav">Menu</button>
+</div><nav id="ngx-mnav" class="ngx-mnav" aria-label="Mobiel menu" hidden><a href="/">Home</a><a href="/dienst-webdesign">Websites</a><a href="/dienst-branding">Branding</a><a href="/dienst-marketing">Marketing</a><a href="/dienst-configurators">Configurators</a><a href="/kennisbank">Kennisbank</a><a href="/prijzen">Prijzen</a><a href="/#contact" class="ngx-cta">Plan een kennismaking</a></nav></header>
+
+  <main id="main">
+    <section class="cfg-hero" aria-label="Dakopbouw configurator">
+      <div class="wrap">
+        <p class="pill" data-reveal><span class="dot dot--ok"></span>Live demo &middot; dakopbouw-configurator voor bouwbedrijven</p>
+        <h1 class="h1" data-reveal style="--i:1">Je klant stelt zijn dakopbouw samen <span class="grad-text">en ziet direct de prijs.</span></h1>
+        <p class="lede" data-reveal style="--i:2">Dit is een live demo van een configurator die Next Growth bouwt voor bouwbedrijven. Kies waar de prefab opbouw op komt, de afmetingen, de gevelafwerking, de trap en de afwerking. De richtprijs, inclusief transport, kraan en plaatsing, rekent live mee.</p>
+        <div class="matswitch" role="radiogroup" aria-label="Projecttype" data-reveal style="--i:3">
+          <button type="button" data-t="op-aanbouw" class="is-on" aria-pressed="true">Op de aanbouw</button>
+          <button type="button" data-t="op-woning" aria-pressed="false">Op de woning</button>
+          <button type="button" data-t="optopping" aria-pressed="false">Optopping</button>
+          <a href="/aanbouw-configurator" title="Naar de aanbouw configurator">Aan- &amp; uitbouw</a>
+          <a href="/overkapping-configurator" title="Naar de overkapping configurator">Overkapping</a>
+        </div>
+        <div class="presets" data-reveal style="--i:4">
+          <span class="presets__lbl">Populaire samenstellingen</span>
+          <div class="presets__row" id="presetRow"><button type="button" class="preset" data-i="0"><span class="preset__th" style="background-image:url(./assets/media/dakopbouw/keralit-witte-keralit-dakopbouw-met-zwarte-kozijnen.jpg)"></span><span class="preset__t"><b>Extra slaapkamer</b><span>4×3 · casco · keralit</span></span></button><button type="button" class="preset" data-i="1"><span class="preset__th" style="background-image:url(./assets/media/dakopbouw/keralit-antraciet-keralit-met-zwarte-kozijnen.jpg)"></span><span class="preset__t"><b>Slaapkamer + dakterras</b><span>5×3 · schuifpui · terras</span></span></button><button type="button" class="preset" data-i="2"><span class="preset__th" style="background-image:url(./assets/media/dakopbouw/stucwerk-dakopbouw-met-antraciet-stucwerk-en-cremekozijnen.jpg)"></span><span class="preset__t"><b>Compleet ontzorgd</b><span>5×4 · stuc · luxe</span></span></button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sectie" style="padding-top: clamp(1.5rem,4vh,2.5rem);" aria-label="Configurator">
+      <div class="wrap" style="max-width: 1600px; width: min(100%, 1600px);">
+        <div class="conf" data-reveal>
+          <div class="conf__head">
+            <div>
+              <div class="conf__title" id="confTitle"></div>
+              <div class="conf__sub" id="confSub"></div>
+            </div>
+            <div class="conf__badge" id="confBadge"></div>
+          </div>
+          <div class="conf__layout">
+            <div class="conf__visual">
+              <div class="conf__hero" id="confHeroWrap"><div class="hbg" id="confHeroBg"></div><img id="confHero" src="./assets/media/dakopbouw/visuals/keralit/antraciet/model01/antraciet-RAL7016/DOP-067-keralit-antraciet-model01-antraciet-RAL7016.webp" alt="Voorbeeld van je dakopbouw" width="1200" height="560"><span class="live"><span class="dot"></span>Gevelvoorbeeld</span><span class="hero-staal" id="heroStaal" hidden><img alt=""><span><small></small><b></b></span></span><span class="dim" id="confDim"><b>3,00 × 3,00 m</b></span>
+                <div class="aanzicht" id="confAanzicht" role="tablist" aria-label="Exterieur of interieur">
+                  <button type="button" role="tab" data-aanzicht="ext" class="is-on" aria-selected="true">Exterieur</button>
+                  <button type="button" role="tab" data-aanzicht="int" aria-selected="false">Interieur</button>
+                </div>
+                <div class="missing" id="confMissing"><b>Render volgt</b><span>Voor deze combinatie is het beeld niet beschikbaar. Je keuzes blijven behouden.</span></div>
+              </div>
+              <div class="conf__thumbs" id="confThumbs"></div>
+              <p class="conf__caption" id="confVisualCaption"></p>
+              <figure class="conf__option-detail" id="confOptionDetail" hidden>
+                <img id="confOptionImage" alt="" width="320" height="200">
+                <figcaption><strong id="confOptionLabel"></strong><span>Detailvoorbeeld van deze optie. De gevel en kozijnen in dit voorbeeld kunnen afwijken van jouw samenstelling.</span></figcaption>
+              </figure>
+              <div class="pricebar">
+                <div class="pricebar__p">
+                  <span class="k">Totaalprijs
+                    <span class="btw" role="group" aria-label="btw">
+                      <button type="button" id="btwIncl" class="is-on" aria-pressed="true">incl. btw</button>
+                      <button type="button" id="btwExcl" aria-pressed="false">excl. btw</button>
+                    </span>
+                  </span>
+                  <span class="v" id="prijs">€ 0</span>
+                </div>
+                <div class="pricebar__cta">
+                  <button class="btn btn--acc" type="button" id="naarOfferte">Offerte aanvragen</button>
+                  <button class="btn btn--ghost" type="button" id="indelingBtn" title="Pas kamers, wanden en deuren aan">Indeling aanpassen</button>
+                  <button class="btn btn--ghost" type="button" id="tekeningenBtn" title="Open het technische voorontwerp">Technische tekeningen</button>
+                  <button class="btn btn--ghost" type="button" id="materiaalstaatBtn" title="Open de volledige materiaalstaat">Materiaalstaat</button>
+                  <button class="btn btn--ghost btn--icon" type="button" id="downloadBtn" aria-label="Download configuratie" title="Download je configuratie">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="conf__options">
+              <div id="groups"></div>
+              <button type="button" class="btn btn--ghost meer-opties" id="meerOpties" aria-expanded="false" aria-controls="groups" hidden>Meer opties tonen</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- LEAD FORM -->
+        <div id="tekenprogramma" style="margin-top:1.4rem;"></div>
+
+        <div class="card cfg__panel" id="offerte" data-reveal style="margin-top:1.4rem;">
+          <div>
+            <p class="eyebrow">Bijna klaar</p>
+            <h2 class="h2" style="font-size:1.4rem; margin-top:.4rem;">Ontvang je offerte op maat.</h2>
+            <p style="font-size:.86rem; margin-top:.5rem;">Je volledige configuratie wordt automatisch meegestuurd. We nemen binnen één werkdag contact op om in te plannen voor inmeten.</p>
+          </div>
+          <div class="kz" id="keuzeOverzicht" aria-live="polite"></div>
+          <form class="lead" id="leadForm">
+            <div class="lead__grid">
+              <div class="fld"><label for="f_naam">Naam</label><input id="f_naam" name="naam" required autocomplete="name"></div>
+              <div class="fld"><label for="f_plaats">Plaats</label><input id="f_plaats" name="plaats" required autocomplete="address-level2"></div>
+              <div class="fld"><label for="f_email">E-mailadres</label><input id="f_email" name="email" type="email" required autocomplete="email"></div>
+              <div class="fld"><label for="f_tel">Telefoon</label><input id="f_tel" name="telefoon" type="tel" autocomplete="tel"></div>
+              <div class="fld"><label for="f_adres">Straat en huisnummer</label><input id="f_adres" name="adres" required autocomplete="street-address"></div>
+              <div class="fld"><label for="f_postcode">Postcode</label><input id="f_postcode" name="postcode" required autocomplete="postal-code"></div>
+            </div>
+            <fieldset class="fld start"><legend>Wanneer wil je starten?</legend><div class="start__keus">
+              <label><input type="radio" name="start" value="Binnen 1 maand" required><span>Binnen 1 maand</span></label>
+              <label><input type="radio" name="start" value="Binnen 3 maanden"><span>Binnen 3 maanden</span></label>
+              <label><input type="radio" name="start" value="Binnen 6 maanden"><span>Binnen 6 maanden</span></label>
+              <label><input type="radio" name="start" value="Binnen 12 maanden"><span>Binnen 12 maanden</span></label>
+            </div></fieldset>
+            <div class="lead__grid">
+              <div class="fld"><label for="f_beldatum">Wanneer mogen we je bellen?</label><input id="f_beldatum" name="beldatum" type="date"></div>
+              <div class="fld"><label for="f_beltijd">Voorkeur tijd</label><select id="f_beltijd" name="beltijd"><option value="Maakt niet uit">Maakt niet uit</option><option value="Ochtend (9–12 uur)">Ochtend (9–12 uur)</option><option value="Middag (12–17 uur)">Middag (12–17 uur)</option><option value="Avond (17–20 uur)">Avond (17–20 uur)</option></select></div>
+            </div>
+            <div class="fld"><label for="f_ber">Bericht (optioneel)</label><textarea id="f_ber" name="bericht" rows="3" placeholder="Bijzonderheden, gewenste periode, locatie…"></textarea></div>
+            <input type="hidden" id="f_config" name="configuratie">
+            <button class="btn btn--acc" type="submit" id="leadBtn" style="justify-self:start;">Verstuur aanvraag</button>
+            <p class="lead__msg" id="leadMsg" role="status" hidden></p>
+            <p class="lead__note">In deze demo komt je aanvraag met de volledige configuratie en de materiaalstaat binnen bij <span data-merk-naam>Next Growth</span>. <span data-merk-tel data-merk-vast>Liever bellen? <a href="tel:+31683902192" style="color:var(--acc)">06 83 90 21 92</a>.</span></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  
+<section class="sectie ng-eigen" aria-label="Een echte opname, geen animatie.">
+  <div class="wrap">
+    <div class="sectie-kop">
+      <p class="eyebrow">Zo werkt het</p>
+      <h2>Een echte opname, geen animatie.</h2>
+      <p style="color:var(--muted,#9c9a94);max-width:44rem;margin-top:.6rem">Bekijk hoe materiaalkeuzes en opties werken. Deze schermopname toont onze uitbouwconfigurator.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%, 30rem),1fr));gap:clamp(1rem,2.5vw,1.6rem)">
+      <figure style="margin:0">
+        <div style="border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#0C0D10">
+          <video controls preload="none" playsinline poster="./assets/media/poster-demo-aanbouw.webp"
+                 style="width:100%;aspect-ratio:16/9;display:block;background:#0C0D10">
+            <source src="./assets/video/demo-aanbouw.mp4" type="video/mp4">
+            Je browser kan deze video niet afspelen. <a href="./assets/video/demo-aanbouw.mp4">Download hem hier.</a>
+          </video>
+        </div>
+        <figcaption style="margin-top:.7rem">
+          <strong style="display:block">Uitbouw-configurator, 31 seconden</strong>
+          <span style="color:var(--muted,#9c9a94);font-size:.92rem">Afmetingen, gevel, dakbedekking en kozijnen.</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="sectie sectie-foto" aria-label="Zie de dakopbouw bij je eigen huis">
+  <div class="wrap">
+    <div id="aifoto"></div>
+  </div>
+</section>
+
+<section class="sectie ng-vraag" aria-label="Zelf zo'n configurator">
+  <div class="wrap">
+    <div class="ng-vraag__kaart">
+      <div class="ng-vraag__tekst">
+        <p class="eyebrow">Dit is een demo van Next Growth</p>
+        <h2>Zo'n dakopbouwconfigurator op je eigen website?</h2>
+        <p class="lede">Je klanten stellen zelf samen, zien direct hun richtprijs en sturen
+          een complete aanvraag door. Jij krijgt hem binnen met alles erin. Geen telefoontjes
+          meer om uit te zoeken wat iemand eigenlijk wil.</p>
+        <ul class="ng-vraag__punten">
+          <li><span></span>Jouw huisstijl, jouw assortiment, jouw prijzen</li>
+          <li><span></span>Twee weken van start tot live</li>
+          <li><span></span>Elke aanvraag compleet in je dashboard</li>
+        </ul>
+        <div class="ng-vraag__knoppen">
+          <a class="btn" href="./contact.html?over=dakopbouw">Laat zien hoe dit er voor mijn product uitziet</a>
+          <a class="btn btn--ghost" href="/prijzen">Wat kost het?</a>
+        </div>
+        <p class="ng-vraag__noot">Vrijblijvend. Je krijgt binnen 24 uur een voorbeeld van je
+          eigen product in deze configurator te zien.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sectie ng-tekst" aria-labelledby="dko-uitleg">
+  <div class="wrap">
+    <div class="sectie-kop">
+      <p class="eyebrow">Wat de configurator uitlegt</p>
+      <h2 class="h2" id="dko-uitleg">Een dakopbouw samenstellen: wat bepaalt de prijs</h2>
+      <p class="lede">Een goede configurator legt je klant uit waar de prijs van afhangt. Dit is de uitleg die in deze demo bij de dakopbouw hoort. Een dakopbouw is de goedkoopste manier om een hele verdieping toe te voegen zonder tuin in te leveren. De prijs hangt aan vier dingen: de breedte, wat er onder zit, hoe hij gebouwd wordt en of de gemeente akkoord gaat.</p>
+    </div>
+
+    <div class="ovk-uitleg">
+      <article>
+        <h3>Breedte en of hij over de hele woning gaat</h3>
+        <p>Een dakopbouw wordt gerekend per <strong>strekkende meter breedte</strong>. Over de hele woning is per meter goedkoper dan een halve opbouw, omdat de dakrand, de steiger en het aan- en afvoeren maar één keer nodig zijn.</p>
+        <p>Bij een <strong>rijtjeswoning</strong> is de breedte gegeven en is de vraag alleen hoe diep de opbouw wordt. Bij een <strong>twee-onder-een-kap</strong> speelt de aansluiting op de buren: bouw je tegelijk op, dan deel je de kosten van de bouwmuur en de steiger, en dat scheelt aan beide kanten flink.</p>
+      </article>
+      <article>
+        <h3>Prefab of traditioneel</h3>
+        <p>Een <strong>prefab dakopbouw</strong> wordt in de fabriek gemaakt en met een kraan op zijn plek gezet. Het dak gaat er 's ochtends af en de opbouw staat 's middags waterdicht. Dat is korter overlast en een vaste prijs, maar de maat en indeling liggen binnen het systeem vast, en er moet een kraan bij kunnen staan.</p>
+        <p>Een <strong>traditioneel gebouwde opbouw</strong> wordt ter plekke opgetrokken. Dat duurt twee tot vier weken langer en je woning staat in die tijd onder zeil, maar je kunt elke maat en elke indeling maken. Bij een bijzondere kap, een schuine hoek of een monument is dit vaak de enige route.</p>
+      </article>
+      <article>
+        <h3>Wat er onder zit</h3>
+        <p>De bestaande <strong>woningscheidende muren en de vloer</strong> moeten het gewicht kunnen dragen. Bij naoorlogse woningen met een betonvloer is dat zelden een probleem. Bij oudere woningen met een <strong>houten balklaag</strong> moet de constructeur rekenen, en soms komt er een stalen portaal bij.</p>
+        <p>Kijk ook naar de <strong>trap</strong>. Een vaste trap naar de nieuwe verdieping kost ruimte op de verdieping eronder, en die ruimte moet ergens vandaan komen. Dat is bij een dakopbouw vaker het echte ontwerpvraagstuk dan de opbouw zelf.</p>
+      </article>
+      <article>
+        <h3>Kozijnen, dakramen en indeling</h3>
+        <p>Het aantal <strong>ramen aan de voor- en achterzijde</strong> bepaalt hoeveel de opbouw als volwaardige verdieping voelt. Draaikiepramen zijn duurder dan vaste delen maar onmisbaar voor ventilatie, zeker als er een slaapkamer komt.</p>
+        <p>Een <strong>dakraam</strong> in het nieuwe platte dak is een goedkope manier om licht in het midden te krijgen. Wil je de opbouw later als slaapkamer verhuren of gebruiken, let dan op de eisen aan daglicht en ventilatie uit het Bouwbesluit. Daar wordt bij oplevering naar gekeken.</p>
+      </article>
+      <article>
+        <h3>Isolatie en afwerking</h3>
+        <p>Nieuwbouw-isolatiewaarden zijn verplicht, en dat is maar goed ook: een slecht geïsoleerde opbouw is in de zomer onbewoonbaar. Vraag naar de <strong>Rc-waarde</strong> van dak en wanden en naar hoe de aansluiting op de bestaande gevel wordt gemaakt: daar zit de koudebrug.</p>
+        <p>Binnenafwerking is een aparte post: stucwerk, vloer, elektra, verwarming. Een casco opgeleverde opbouw is een stuk goedkoper, maar dan heb je daarna nog een klus liggen. Zeg vooraf welke van de twee je bedoelt, anders vergelijk je offertes die niet vergelijkbaar zijn.</p>
+      </article>
+      <article>
+        <h3>De vergunning</h3>
+        <p>Anders dan een aanbouw is een dakopbouw <strong>meestal niet vergunningsvrij</strong>. Zodra je de bouwhoogte verandert of aan de voorzijde bouwt, is er een omgevingsvergunning nodig en kijkt welstand mee. In veel wijken bestaat een <strong>beeldkwaliteitsplan</strong> dat voorschrijft hoe een opbouw eruit moet zien, juist zodat de straat één geheel blijft.</p>
+        <p>Dat klinkt vervelend maar werkt vaak in je voordeel: is er in je straat al een opbouw goedgekeurd, dan is dezelfde vorm doorgaans een formaliteit. Reken op zes tot twaalf weken behandeltijd.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sectie ng-tekst" aria-labelledby="dko-faq">
+  <div class="wrap">
+    <div class="sectie-kop">
+      <p class="eyebrow">Veelgestelde vragen</p>
+      <h2 class="h2" id="dko-faq">Vragen over een dakopbouw samenstellen</h2>
+    </div>
+    <div class="ovk-faq">
+      <details>
+        <summary><span>Wat kost een dakopbouw?</span></summary>
+        <p>Voor een prefab dakopbouw over de volle breedte van een rijtjeswoning ligt het zwaartepunt tussen de veertig- en zeventigduizend euro, casco tot afgewerkt. Traditioneel gebouwd is meestal duurder maar vrijer. De grootste variabelen zijn de breedte, de draagkracht van wat eronder zit en de afwerking. In de configurator hierboven zie je wat elke keuze doet.</p>
+      </details>
+      <details>
+        <summary><span>Is een dakopbouw vergunningsvrij?</span></summary>
+        <p>Vrijwel nooit. Een dakopbouw verandert de bouwhoogte en het aanzicht, en dat betekent een omgevingsvergunning met een welstandstoets. In veel gemeenten geldt bovendien een beeldkwaliteitsplan per wijk. Goed nieuws: staat er in je straat al een goedgekeurde opbouw, dan is een vergelijkbaar ontwerp doorgaans snel rond.</p>
+      </details>
+      <details>
+        <summary><span>Hoe lang zit mijn huis open?</span></summary>
+        <p>Bij een prefab opbouw één dag: het dak gaat eraf en de nieuwe opbouw staat dezelfde dag waterdicht. Bij traditionele bouw twee tot vier weken onder zeil. Dat verschil is voor veel mensen doorslaggevend, zeker met kinderen in huis of in het najaar.</p>
+      </details>
+      <details>
+        <summary><span>Kan mijn woning een dakopbouw dragen?</span></summary>
+        <p>Bij naoorlogse woningen met betonnen vloeren en gemetselde bouwmuren meestal wel. Bij oudere woningen met een houten balklaag moet een constructeur rekenen. Dat onderzoek is een paar honderd euro en het is het eerste wat er moet gebeuren, niet het laatste.</p>
+      </details>
+      <details>
+        <summary><span>Levert een dakopbouw meer op dan hij kost?</span></summary>
+        <p>Vaak wel, omdat je een volwaardige verdieping toevoegt zonder grond te kopen. Of de woningwaarde met het volle bedrag meestijgt hangt af van de wijk en van hoe gangbaar opbouwen daar is. In straten waar meerdere woningen er al een hebben, is het effect het grootst.</p>
+      </details>
+      <details>
+        <summary><span>Kan ik zien hoe de dakopbouw op mijn eigen huis staat?</span></summary>
+        <p>Ja. Upload een foto van je woning in de configurator, dan komt de gekozen opbouw er fotorealistisch op terug: op je eigen dak, in de gekozen uitvoering.</p>
+      </details>
+    </div>
+  </div>
+</section>
+    <!-- ============ PER PLAATS (scripts/configuratorsteden.py) ============ -->
+    <div class="ng-blok" role="region" aria-labelledby="perplaats-kop">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <p class="eyebrow">Per plaats</p>
+          <h2 class="h2" id="perplaats-kop">Zo'n configurator voor je eigen bedrijf, per plaats</h2>
+          <p>Deze dakopbouwconfigurator bouwen we voor dakdekkers en bouwbedrijven, in hun eigen huisstijl en met hun eigen prijzen. Per plaats staat wat de markt daar vraagt.</p>
+        </div>
+        <div class="ng-branches">
+          <a class="ng-branche" href="/dienst-webdesign"><b>Configurator laten maken, landelijk</b><span>Heel Nederland</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-nijmegen"><b>Configurator laten maken in Nijmegen</b><span>Gelderland</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-arnhem"><b>Configurator laten maken in Arnhem</b><span>Gelderland</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-den-bosch"><b>Configurator laten maken in Den Bosch</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-uden"><b>Configurator laten maken in Uden</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-veghel"><b>Configurator laten maken in Veghel</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-wijchen"><b>Configurator laten maken in Wijchen</b><span>Gelderland</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-vught"><b>Configurator laten maken in Vught</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-cuijk"><b>Configurator laten maken in Cuijk</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-grave"><b>Configurator laten maken in Grave</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-eindhoven"><b>Configurator laten maken in Eindhoven</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <!-- ============ EINDE PER PLAATS ============ -->
+</main>
+
+  <footer class="ngx-foot"><div class="ngx-wrap">
+<div class="ngx-end"><h2>Zo'n configurator <span>op jouw site?</span></h2><div><p>Eén gesprek van twintig minuten. Je spreekt direct met de mensen die het bouwen en krijgt dezelfde dag een eerlijk advies.</p><a class="ngx-cta big" href="/#contact">Plan een kennismaking</a><a class="ngx-tel" href="tel:+31683902192">06 83 90 21 92</a></div></div>
+<div class="ngx-cols">
+<div><a class="ngx-brand" href="/"><span class="ngx-mk"><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14V4l10 10V4" stroke="#0A0800" stroke-width="2.8" stroke-linecap="square"/></svg></span><span>Next Growth Digital</span></a><p>Creatief groeibureau, landelijk actief. Branding, webdesign, marketing en eigen software.</p><p>info@nextgrowthdigital.nl</p></div>
+<div><h4>Diensten</h4><ul><li><a href="/dienst-branding">Branding</a></li><li><a href="/dienst-webdesign">Webdesign</a></li><li><a href="/dienst-marketing">Marketing</a></li><li><a href="/dienst-configurators">Configurators</a></li><li><a href="/dienst-crm">CRM &amp; offertes</a></li><li><a href="/prijzen">Prijzen</a></li></ul></div>
+<div><h4>Configurators</h4><ul><li><a href="/overkapping-configurator">Overkapping</a></li><li><a href="/aanbouw-configurator">Uitbouw</a></li><li><a href="/dakkapel-configurator">Dakkapel</a></li><li><a href="/dakopbouw-configurator">Dakopbouw</a></li><li><a href="/badkamer-configurator">Badkamer</a></li><li><a href="/zwembad-configurator">Zwembad</a></li><li><a href="/jacht-configurator">Jacht</a></li></ul></div>
+<div><h4>Kennisbank</h4><ul><li><a href="/kennisbank">Alle artikelen</a></li><li><a href="/kennisbank-configurator-kosten">Wat kost een configurator?</a></li><li><a href="/configurator-laten-maken">Configurator laten maken</a></li><li><a href="/kennisbank-website-kosten">Wat kost een website?</a></li></ul></div>
+<div><h4>Bedrijf</h4><ul><li><a href="/#cases">Cases</a></li><li><a href="/werkgebied">Werkgebied</a></li><li><a href="/privacyverklaring">Privacyverklaring</a></li><li><a href="/auteursrecht">Auteursrecht</a></li><li><a href="/#contact">Contact</a></li></ul></div>
+</div>
+<div class="ngx-legal"><span>© 2026 Next Growth Digital</span><span>KVK 96002913</span><span>Landelijk actief · Nederland</span></div>
+<p class="ngx-giant" aria-hidden="true">NEXT GROWTH</p></div></footer>
+<script>(function(){var b=document.querySelector('.ngx-menu'),n=document.getElementById('ngx-mnav');if(!b||!n)return;b.addEventListener('click',function(){var o=n.hasAttribute('hidden');if(o)n.removeAttribute('hidden');else n.setAttribute('hidden','');b.setAttribute('aria-expanded',o?'true':'false');b.textContent=o?'Sluiten':'Menu'})})();</script>
+
+    <script>
+  (function(){
+    if(window.__lbInit) return; window.__lbInit=1;
+    function init(){
+      var hero=document.querySelector('.conf__hero'); var img=document.getElementById('confHero');
+      if(!hero||!img){ setTimeout(init,300); return; }
+      hero.style.cursor='zoom-in';
+      var btn=document.createElement('button');
+      btn.type='button'; btn.setAttribute('aria-label','Bekijk afbeelding op volledig scherm');
+      btn.innerHTML='&#x26F6;';
+      btn.style.cssText='position:absolute;top:.8rem;right:.8rem;z-index:3;width:42px;height:42px;border-radius:10px;border:1px solid rgba(255,255,255,.28);background:rgba(0,0,0,.45);backdrop-filter:blur(6px);color:#fff;font-size:1.15rem;cursor:zoom-in;display:flex;align-items:center;justify-content:center;';
+      hero.appendChild(btn);
+      function openLB(){
+        var ov=document.createElement('div');
+        ov.style.cssText='position:fixed;inset:0;z-index:100000;background:rgba(6,6,5,.95);display:flex;align-items:center;justify-content:center;cursor:zoom-out;padding:2vh 2vw;';
+        var big=document.createElement('img');
+        big.src=img.getAttribute('src'); big.alt=img.getAttribute('alt')||'';
+        big.style.cssText='max-width:96vw;max-height:92vh;width:auto;height:auto;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.6);';
+        var x=document.createElement('button'); x.innerHTML='&times;'; x.setAttribute('aria-label','Sluiten');
+        x.style.cssText='position:fixed;top:12px;right:20px;background:none;border:none;color:#fff;font-size:2.4rem;cursor:pointer;line-height:1;z-index:100001;';
+        ov.appendChild(big); ov.appendChild(x); document.body.appendChild(ov);
+        document.body.style.overflow='hidden';
+        function close(){ ov.remove(); document.body.style.overflow=''; document.removeEventListener('keydown',esc); }
+        function esc(e){ if(e.key==='Escape') close(); }
+        ov.addEventListener('click',close); document.addEventListener('keydown',esc);
+      }
+      img.addEventListener('click',openLB);
+      btn.addEventListener('click',function(e){ e.stopPropagation(); openLB(); });
+    }
+    if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+  })();
+  </script>
+  <script src="./assets/meting.js" defer></script>
+  <script src="./assets/core.js" defer></script>
+  <!-- Zuivere rekenmodules, zonder defer: het script hieronder rekent het
+       oppervlak al bij het eerste beeld, en een defer-script draait daar pas na. -->
+  <script src="./assets/merk.js"></script>
+  <script src="./assets/configuratie-bewaren.js"></script>
+<script src="./assets/bouwnormen.js"></script>
+  <script src="./assets/bouwvormen.js"></script>
+  <script src="./assets/bouwmeubels.js"></script>
+  <script src="./assets/gevelstaal.js"></script>
+  <script src="./assets/dakopbouw-configurator.js"></script>
+  <script src="./assets/prijsdok.js" defer></script>
+  <script src="./assets/plattegrond.js" defer></script>
+  <script src="./assets/stappenkaart.js" defer></script>
+
+<script src="./assets/materiaalstaat.js" defer></script>
+<script src="./assets/dakopbouw-beelden.js" defer></script>
+<script src="./assets/dakopbouw-optiebeelden.js" defer></script>
+<script src="./assets/bouwkundig-dakopbouw.js" defer></script>
+<script src="./assets/indeling-editor-dakopbouw.js" defer></script>
+<script src="./assets/afdrukvenster.js" defer></script>
+<script src="./assets/technische-tekeningen-dakopbouw.js" defer></script>
+<script src="./assets/staalligger.js" defer></script>
+<script src="./assets/bouwconstructie.js" defer></script>
+<script src="./assets/bouwaanzichten.js" defer></script>
+<script src="./assets/tekenbewerker.js" defer></script>
+<script src="./assets/tekenprogramma.js" defer></script>
+<script src="./assets/draagcheck-dakopbouw.js" defer></script>
+<script>window.addEventListener('DOMContentLoaded',function(){
+  if(window.NGDraagcheck)NGDraagcheck.init();
+  /* De bouwkundige kern komt met defer binnen, dus na het eerste beeld.
+     Eenmaal opnieuw tekenen vult de opbouwteksten in. */
+  if(window.NGHertekenen)window.NGHertekenen();
+});</script>
+<script src="./assets/aifoto.js" defer></script>
+<script>
+/* De AI-foto: keuzes van deze configurator vertalen naar de beschrijving die
+   het beeldmodel krijgt. Onbekende waarden worden aan de andere kant netjes
+   opgevangen met een standaardwaarde, dus een nieuwe optie breekt niets - hij
+   valt alleen terug tot hij hier ook genoemd wordt. */
+window.addEventListener('DOMContentLoaded', function () {
+  if (!window.NGFoto) return;
+  NGFoto.init({
+    product: 'dakopbouw',
+    scene: 'buiten',
+    kop: 'Zie de dakopbouw op je eigen huis',
+    lead: 'Upload een foto van de voorzijde van je woning. Je krijgt je eigen samenstelling er fotorealistisch op terug: jouw huis, jouw straat, alleen de dakopbouw komt erbij.',
+    payload: function () {
+      var st = window.NGKeuze && window.NGKeuze();
+      if (!st) return {};
+      return {
+        w: st.w, dp: st.dp, h: st.h,
+        material: st.material, facadeColor: st.facadeColor,
+        roofing: st.roofing, accent: st.accent,
+        frameColor: st.frameColor, skylight: st.skylight
+      };
+    }
+  });
+});
+</script>
+  
+  <a class="nx-wa" href="https://wa.me/31683902192" target="_blank" rel="noopener" aria-label="Stel je vraag via WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a9.9 9.9 0 0 0-8.5 15L2 22l5.2-1.4A9.9 9.9 0 1 0 12 2zm0 1.7a8.2 8.2 0 1 1-4.2 15.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.7zm-3.1 4.2c-.2 0-.5 0-.7.3-.2.3-.9.9-.9 2.1s.9 2.5 1 2.6c.1.2 1.8 2.8 4.3 3.8 2.1.8 2.6.7 3 .6.5 0 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.4-.2-1.5-.7c-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.5 7.5 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5v-.5L9.5 8.2c-.2-.4-.4-.3-.6-.3z"/></svg></a>
+  <!-- Vercel Analytics (scripts/analytics.py) -->
+  
+  
+</body>
+</html>
+
+

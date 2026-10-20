@@ -1,0 +1,729 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dakrenovatie-configurator: live demo voor dakdekkers | Next Growth</title>
+  <meta name="description" content="Live demo van een dakrenovatie-configurator die Next Growth bouwt voor dakdekkers. Je klant kiest reinigen, coaten, nieuwe dakpannen, isolatie, zonnepanelen en dakramen op dezelfde woning en ziet een live richtprijs inclusief btw.">
+  <link rel="canonical" href="https://nextgrowthdigital.nl/dakrenovatie-configurator">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="nl_NL">
+  <meta property="og:site_name" content="Next Growth">
+  <meta property="og:title" content="Dakrenovatie-configurator: live demo voor dakdekkers | Next Growth">
+  <meta property="og:description" content="Live demo van een dakrenovatie-configurator die Next Growth bouwt voor dakdekkers. Je klant kiest reinigen, coaten, nieuwe dakpannen, isolatie, zonnepanelen en dakramen op dezelfde woning en ziet een live richtprijs inclusief btw.">
+  <meta property="og:url" content="https://nextgrowthdigital.nl/dakrenovatie-configurator">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Crect width='18' height='18' rx='4' fill='%23C9A45F'/%3E%3Cpath d='M5 13V5l8 8V5' stroke='%230A0A0B' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./assets/fonts.css">
+  <link rel="stylesheet" href="./assets/core.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Dakrenovatie-configurator voor dakdekkers",
+    "name": "Dakrenovatie configurator",
+    "url": "https://nextgrowthdigital.nl/dakrenovatie-configurator",
+    "provider": { "@type": "ProfessionalService", "name": "Next Growth", "email": "info@nextgrowthdigital.nl", "telephone": "+31683902192", "url": "https://nextgrowthdigital.nl/" },
+    "areaServed": ["Nederland"],
+    "description": "Een dakrenovatie-configurator voor dakdekkers. Hun klant stelt online de dakrenovatie samen: reinigen, coaten, nieuwe dakpannen, isolatie, zonnepanelen en dakramen, met live richtprijs."
+  }
+  </script>
+  <script type="application/ld+json" data-productfaq>{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Wat kost een dakrenovatie?","acceptedAnswer":{"@type":"Answer","text":"Reinigen begint rond de 12 euro per m2, reinigen en coaten rond de 28 euro per m2, en een volledige renovatie met nieuwe pannen tussen de 80 en 120 euro per m2 afhankelijk van de pansoort. Voor een tussenwoning met zo'n 55 m2 dakvlak komt een complete renovatie daarmee op 5.500 tot 8.000 euro; een vrijstaande woning met schilddak zit al gauw op het dubbele. Isolatie aan de buitenzijde kost 68 euro per m2 extra, voor een tussenwoning zo'n 4.500 euro incl. btw."}},{"@type":"Question","name":"Wanneer is renoveren beter dan reinigen of coaten?","acceptedAnswer":{"@type":"Answer","text":"Reinigen en coaten zijn cosmetisch: ze halen mos en aanslag weg en geven het dak een nieuwe kleur, maar de pan blijft de oude. Zijn de pannen poreus, gebroken of verschoven, of is de onderliggende folie op, dan is coaten geld uitstellen. Een dak van veertig jaar of ouder verdient een inspectie voordat er gecoat wordt."}},{"@type":"Question","name":"Heb ik een vergunning nodig?","acceptedAnswer":{"@type":"Answer","text":"Voor het vervangen van dakbedekking in dezelfde vorm meestal niet: dat is regulier onderhoud. Verandert de kleur of het materiaal sterk, of staat de woning in een beschermd stads- of dorpsgezicht, dan kan de welstand meekijken."}},{"@type":"Question","name":"Kan isolatie mee in de renovatie?","acceptedAnswer":{"@type":"Answer","text":"Ja, en dat is het moment. Als de pannen eraf zijn, kan er isolatie aan de buitenzijde op het dakbeschot: geen ruimteverlies op zolder en de arbeid zit grotendeels al in de renovatie."}},{"@type":"Question","name":"Hoe lang duurt een dakrenovatie?","acceptedAnswer":{"@type":"Answer","text":"Een tussenwoning is doorgaans in twee tot vier werkdagen klaar, een vrijstaande woning met schilddak in een tot twee weken. Het dak is elke avond waterdicht afgedekt."}},{"@type":"Question","name":"Kunnen zonnepanelen direct mee?","acceptedAnswer":{"@type":"Answer","text":"Ja, en gecombineerd is het goedkoper: de steiger staat er al en de haken gaan onder de nieuwe pannen zonder breekwerk."}}]}</script>
+  <style>
+    :root { --acc: var(--accent); --acc-soft: rgba(var(--accent-rgb),.14); }
+    .cfg-hero { padding: calc(60px + clamp(1.6rem, 5vh, 3rem)) 0 0; text-align: center; }
+    .cfg-hero .pill { margin-bottom: 1rem; }
+    .cfg-hero .h1 { max-width: 20ch; margin-inline: auto; }
+    .cfg-hero .lede { margin: 1rem auto 0; max-width: 58ch; }
+
+    /* material switch */
+    .matswitch { display: inline-flex; flex-wrap: wrap; justify-content: center; max-width: 100%; gap: .3rem; padding: .32rem; border: 1px solid var(--line-strong); border-radius: 13px; background: var(--bg-raise); margin: 1.6rem auto 0; }
+    .matswitch button, .matswitch a { display: inline-flex; align-items: center; gap: .5rem; border: none; background: transparent; color: var(--text-2); font: inherit; font-weight: 600; font-size: .9rem; padding: .65rem 1.3rem; border-radius: 10px; cursor: pointer; transition: background .14s ease, color .14s ease; text-decoration: none; }
+    .matswitch button svg { width: 17px; height: 17px; }
+    .matswitch button.is-on, .matswitch a.is-on { background: var(--acc); color: #17130a; }
+    .matswitch a:hover { color: var(--text-1); }
+    /* Vier tot zeven keuzes passen niet naast elkaar op een telefoon. Zonder
+       wrap liep de rij het scherm uit: de laatste optie was onbereikbaar en
+       de hele pagina schoof horizontaal mee. */
+    @media (max-width: 640px) {
+      .matswitch { gap: .25rem; }
+      .matswitch button, .matswitch a { padding: .55rem .8rem; font-size: .8rem; }
+    }
+
+    /* presets */
+    .presets { margin: 1.5rem auto 0; max-width: 900px; }
+    .presets__lbl { display: block; font-family: var(--mono); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: var(--text-3); margin-bottom: .7rem; }
+    .presets__row { display: flex; gap: .7rem; flex-wrap: wrap; justify-content: center; }
+    .preset { display: flex; align-items: center; gap: .6rem; border: 1px solid var(--line-strong); border-radius: 12px; background: var(--bg-raise); padding: .45rem .7rem .45rem .45rem; cursor: pointer; transition: border-color .12s ease, background .12s ease; text-align: left; }
+    .preset:hover { border-color: var(--acc); background: var(--bg-raise-2); }
+    .preset__th { width: 46px; height: 34px; border-radius: 7px; background-size: cover; background-position: center; flex: none; border: 1px solid rgba(255,255,255,.1); }
+    .preset__t b { display: block; font-size: .82rem; font-weight: 600; color: var(--text); line-height: 1.1; }
+    .preset__t span { font-size: .68rem; color: var(--text-3); }
+
+    /* configurator shell */
+    .conf { margin-top: clamp(1.8rem, 5vh, 3rem); }
+    .conf__layout { display: grid; grid-template-columns: 1fr; gap: 1.1rem; margin-top: 1.1rem; }
+    .conf__visual, .conf__options { min-width: 0; }
+    @media (min-width: 900px){
+      .conf__layout { grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); align-items: start; }
+      .conf__visual { position: sticky; top: 80px; }
+    @media (min-width:900px){ .conf__layout{ grid-template-columns:minmax(0,1.55fr) minmax(0,1fr); } }
+    @media (min-width:1200px){ .conf__layout{ grid-template-columns:minmax(0,1.7fr) minmax(0,1fr); } }
+
+    }
+    @media (max-width: 899px){
+      .conf__visual { background: var(--bg); padding: 8px 0 10px; margin-top: -8px; }
+    }
+    /* Meeplakken heeft alleen zin als er naast het voorbeeld nog opties in
+       beeld passen. Het blok — foto, prijs en knoppenrij samen — is ruim
+       650px hoog; op een telefoon van 667px bleef daardoor niets over om in
+       te kiezen en zag je alleen nog het voorbeeld. Vanaf 900px schermhoogte
+       past het wel naast elkaar. */
+    @media (max-width: 899px) and (min-height: 900px){
+      .conf__visual { position: sticky; top: 52px; z-index: 6; }
+    }
+    .conf__head { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1.1rem; }
+    .conf__title { font-size: clamp(1.5rem, 4vw, 2.1rem); font-weight: 800; letter-spacing: -.02em; line-height: 1.05; }
+    .conf__title span { color: var(--acc); }
+    .conf__sub { font-size: .84rem; color: var(--text-2); margin-top: .3rem; }
+    .conf__badge { flex: none; display: inline-flex; align-items: center; gap: .5rem; border: 1px solid var(--line-strong); border-radius: 11px; padding: .55rem .8rem; font-size: .74rem; color: var(--text-2); background: var(--bg-raise); line-height: 1.2; max-width: 150px; }
+    .conf__badge svg { width: 20px; height: 20px; color: var(--acc); flex: none; }
+
+    .conf__hero { position: relative; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); margin-bottom: 1.2rem; aspect-ratio: 16/9; background: var(--bg-raise); }
+    .conf__hero .hbg { position: absolute; inset: 0; background-size: cover; background-position: center; filter: blur(30px) brightness(.42) saturate(.9); transform: scale(1.18); z-index: 0; transition: background-image .22s ease; }
+    .conf__hero .hbg::after { content:''; position:absolute; inset:0; background: radial-gradient(120% 90% at 50% 45%, transparent 55%, rgba(0,0,0,.5) 100%); }
+    .conf__hero img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: cover; display: block; transform-origin: center center; transition: opacity .22s ease, transform .38s cubic-bezier(.4,0,.2,1); will-change: transform; }
+    .conf__hero.is-scaled img { border-radius: 10px; box-shadow: 0 18px 50px rgba(0,0,0,.5); }
+    .conf__hero .live { position: absolute; top: .8rem; left: .8rem; z-index: 2; display: inline-flex; align-items: center; gap: .45rem; font-family: var(--mono); font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; color: #fff; background: rgba(0,0,0,.45); backdrop-filter: blur(6px); padding: .35rem .6rem; border-radius: 7px; }
+    .conf__hero .live .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--acc); box-shadow: 0 0 8px var(--acc); }
+    .conf__hero .dim { position: absolute; bottom: .8rem; right: .8rem; z-index: 2; font-family: var(--mono); font-size: .62rem; letter-spacing: .06em; color: #fff; background: rgba(0,0,0,.5); backdrop-filter: blur(6px); padding: .35rem .6rem; border-radius: 7px; display: inline-flex; align-items: center; gap: .4rem; }
+    .conf__hero .dim b { color: var(--acc); font-weight: 400; }
+    /* Render volgt: de exacte combinatie is nog niet gefotografeerd. Het
+       vorige beeld dimt weg zodat het scherm niet leeg oogt, maar de melding
+       staat er nadrukkelijk bovenop — niemand mag denken dat dit hét beeld is. */
+    .conf__hero .missing { position: absolute; inset: 0; z-index: 3; display: none; flex-direction: column; align-items: center; justify-content: center; gap: .5rem; text-align: center; padding: 1.5rem; background: rgba(10,9,7,.62); backdrop-filter: blur(1px); }
+    .conf__hero.is-missing .missing { display: flex; }
+    .conf__hero.is-missing img, .conf__hero.is-missing .hbg { opacity: .3; }
+    .missing b { color: #fff; font-size: .95rem; font-weight: 600; }
+    .missing span { color: rgba(255,255,255,.72); font-size: .78rem; max-width: 26em; line-height: 1.5; }
+
+    /* aanzicht-tabs: exterieur/interieur bovenop de hero, zelfde plek als
+       badkamer's plattegrond/wand-tabs. Alleen de "interieur"-knop kan grijs
+       staan als de gekozen indeling nog geen interieurbeeld heeft — nooit een
+       ander beeld tonen alsof het de gekozen indeling was. */
+    .conf__hero .aanzicht { position: absolute; bottom: .8rem; left: .8rem; z-index: 2; display: inline-flex; gap: .2rem; padding: .22rem; border-radius: 9px; background: rgba(0,0,0,.5); backdrop-filter: blur(6px); }
+    .conf__hero .aanzicht button { border: none; background: transparent; color: rgba(255,255,255,.75); font: inherit; font-size: .68rem; font-weight: 600; letter-spacing: .02em; padding: .35rem .65rem; border-radius: 6px; cursor: pointer; transition: background .14s ease, color .14s ease; }
+    .conf__hero .aanzicht button.is-on { background: var(--acc); color: #17130a; }
+    .conf__hero .aanzicht button:disabled { opacity: .4; cursor: not-allowed; }
+    .conf__thumbs { display: none; gap: .5rem; margin: -.7rem 0 1.2rem; }
+    .conf__thumbs.is-on { display: flex; }
+    .conf__thumbs button { flex: 1; padding: 0; border: 2px solid transparent; border-radius: 9px; overflow: hidden; aspect-ratio: 16/10; background-size: cover; background-position: center; cursor: pointer; }
+    .conf__thumbs button.is-on { border-color: var(--acc); }
+    .tile__img { width: 100%; height: 54px; border-radius: 8px; background-size: cover; background-position: center; border: 1px solid rgba(255,255,255,.1); }
+    .tile__img--svg { display: grid; place-items: center; background: var(--bg-raise-2); color: var(--muted, #8a8a86); }
+    .tile__img--svg svg { width: 58%; height: 58%; }
+
+    .grp { border: 1px solid var(--line); border-radius: 14px; background: var(--bg-raise); padding: 1.15rem 1.2rem 1.25rem; margin-bottom: .9rem; }
+    .grp__h { font-size: .78rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--text); margin-bottom: .85rem; }
+    .grp__h b { color: var(--acc); font-weight: 700; margin-right: .4rem; }
+    .grp__row { display: grid; gap: .8rem; }
+    @media (min-width: 720px){ .grp__row.cols3 { grid-template-columns: 1fr 1fr 1fr; } }
+
+    .tiles { display: grid; gap: .6rem; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+    .tiles.sm { grid-template-columns: repeat(auto-fit, minmax(84px, 1fr)); }
+    .tile { position: relative; cursor: pointer; }
+    .tile input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+    .tile__c { border: 1.5px solid var(--line); border-radius: 11px; background: var(--bg-raise-2); padding: .7rem .6rem; display: flex; flex-direction: column; align-items: center; gap: .5rem; text-align: center; height: 100%; transition: border-color .12s ease, background .12s ease; }
+    .tile__c .ico { width: 30px; height: 30px; color: var(--text-2); }
+    .tile__c .ico svg { width: 100%; height: 100%; }
+    .tile__c .lab { font-size: .76rem; font-weight: 600; color: var(--text); line-height: 1.25; }
+    .tile__c .sub { font-size: .68rem; color: var(--text-3); }
+    @media (max-width: 600px) { .tile__c .sub { font-size: .78rem; } }
+    /* Op een telefoon minstens 40 px hoog: Keuze/Voor/Na en incl./excl. btw
+       waren 29 en 26 px, te klein om zonder missen te raken. */
+    @media (max-width: 600px) {
+      .conf__hero .aanzicht button { padding: .6rem .85rem; font-size: .8rem; }
+    }
+    .tile__sw { width: 100%; height: 40px; border-radius: 7px; border: 1px solid rgba(255,255,255,.12); }
+    .tile input:checked + .tile__c { border-color: var(--acc); background: color-mix(in srgb, var(--acc) 12%, var(--bg-raise-2)); }
+    .tile input:checked + .tile__c .ico { color: var(--acc); }
+    .tile input:focus-visible + .tile__c { outline: 2px solid var(--acc); outline-offset: 2px; }
+
+    /* price bar */
+    .pricebar { margin-top: 1rem; border: 1px solid var(--line-strong); border-radius: 14px; background: linear-gradient(var(--bg-raise-2), var(--bg-raise)); padding: 1.1rem 1.2rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .pricebar__p { flex: 1 1 auto; min-width: 140px; }
+    .pricebar__p .k { display: flex; align-items: center; gap: .5rem; font-family: var(--mono); font-size: .66rem; text-transform: uppercase; letter-spacing: .06em; color: var(--text-3); }
+    .pricebar__p .v { font-size: 1.8rem; font-weight: 800; color: var(--text); letter-spacing: -.02em; margin-top: .1rem; }
+    .btw { display: inline-flex; border: 1px solid var(--line-strong); border-radius: 7px; overflow: hidden; }
+    .btw button { border: none; background: transparent; color: var(--text-3); font: inherit; font-size: .62rem; font-family: var(--mono); padding: .28rem .5rem; cursor: pointer; }
+    .btw button.is-on { background: var(--acc-soft); color: var(--acc); }
+    @media (max-width: 600px) { .btw button { padding: .68rem .75rem; font-size: .74rem; } }
+    .pricebar__cta { display: flex; gap: .5rem; align-items: stretch; flex-wrap: wrap; }
+    .btn--acc { background: var(--acc); color: #17130a; border: none; font-weight: 700; }
+    .btn--acc:hover { filter: brightness(1.06); box-shadow: 0 8px 24px color-mix(in srgb, var(--acc) 30%, transparent); }
+    .btn--icon { width: 46px; padding: 0; display: grid; place-items: center; }
+    .btn--icon svg { width: 18px; height: 18px; }
+
+    /* lead form */
+    .lead { display: grid; gap: .8rem; }
+    .lead__grid { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+    @media (max-width: 520px){ .lead__grid { grid-template-columns: 1fr; } }
+    .fld { display: grid; gap: .35rem; }
+    .fld label { font-size: .76rem; color: var(--text-2); font-weight: 500; }
+    .fld input, .fld textarea { width: 100%; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--bg-raise); color: var(--text); font: inherit; font-size: .88rem; padding: .7rem .85rem; }
+    .fld input:focus, .fld textarea:focus { outline: none; border-color: var(--acc); }
+    .lead__note { font-size: .74rem; color: var(--text-3); line-height: 1.5; }
+    .lead__msg { font-size: .84rem; padding: .8rem 1rem; border-radius: 10px; line-height: 1.5; }
+    .lead__msg.ok { background: var(--acc-soft); color: var(--acc); border: 1px solid color-mix(in srgb, var(--acc) 40%, transparent); }
+    .lead__msg.err { background: rgba(220,80,80,.1); color: #e88; border: 1px solid rgba(220,80,80,.35); }
+    .cfg__panel { padding: 1.6rem 1.6rem; display: grid; gap: 1.4rem; }
+  </style>
+  <style>
+    .conf__hero { aspect-ratio: 16/10; }
+    .conf__hero img { object-fit: contain; }
+    .conf__thumbs button { aspect-ratio: 4/3; background-color: var(--bg-raise-2); }
+  </style>
+  <style id="ng-protect-css">
+    /* Beeld- en kopieerbeveiliging */
+    /* aanbouw-engine extra's */
+    .dimgrp { display:flex; flex-direction:column; gap:.9rem; }
+    .dim__row { display:grid; grid-template-columns: 108px 1fr 74px; align-items:center; gap:.9rem; }
+    .dim__row label { font-size:.8rem; color:var(--text-2); font-weight:600; }
+    .dim__row output { font-variant-numeric:tabular-nums; font-size:.86rem; font-weight:700; color:var(--acc); text-align:right; }
+    .dim__row input[type=range], .btwm2 input[type=range]{ -webkit-appearance:none; appearance:none; width:100%; height:6px; border-radius:4px; background:var(--line-strong); outline:none; }
+    .dim__row input[type=range]::-webkit-slider-thumb, .btwm2 input[type=range]::-webkit-slider-thumb{ -webkit-appearance:none; appearance:none; width:20px;height:20px;border-radius:50%; background:var(--acc); border:3px solid var(--bg-raise); box-shadow:0 1px 6px rgba(0,0,0,.35); cursor:pointer; }
+    .dim__row input[type=range]::-moz-range-thumb, .btwm2 input[type=range]::-moz-range-thumb{ width:16px;height:16px;border-radius:50%; background:var(--acc); border:3px solid var(--bg-raise); cursor:pointer; }
+    .btwm2 { background:var(--bg-raise-2); border:1px solid var(--line); border-radius:10px; padding:.75rem .85rem; }
+    .btwm2__top { display:flex; align-items:baseline; justify-content:space-between; gap:.6rem; margin-bottom:.55rem; flex-wrap:wrap; }
+    .btwm2__top #bestaandM2Lab { font-size:.9rem; font-weight:700; color:var(--acc); font-variant-numeric:tabular-nums; }
+    .btwm2__sub { font-size:.7rem; color:var(--text-3); }
+    .dim__m2 { font-size:.8rem; color:var(--text-2); } .dim__m2 b{ color:var(--text-1); }
+    /* De rekenhulp bij het dakvlak. */
+    .rekenhulp { border: 1px solid var(--line); border-radius: 10px; padding: .1rem .7rem; }
+    .rekenhulp summary { cursor: pointer; font-size: .78rem; font-weight: 600; color: var(--acc); padding: .5rem 0; }
+    .rekenhulp__rij { display: flex; flex-wrap: wrap; align-items: end; gap: .55rem; padding: .2rem 0 .7rem; }
+    .rekenhulp__rij label { display: grid; gap: .2rem; font-size: .68rem; color: var(--text-3); }
+    .rekenhulp__rij input, .rekenhulp__rij select { width: 6rem; font: inherit; font-size: .9rem; padding: .4rem .5rem; border: 1px solid var(--line-strong); border-radius: 7px; background: var(--bg-raise-2); color: var(--text); }
+    .rekenhulp__rij .op { font-size: 1rem; color: var(--text-3); padding-bottom: .5rem; }
+    .rekenhulp__rij output { font-family: var(--mono); font-size: .85rem; color: var(--text); padding-bottom: .55rem; }
+    .rekenhulp .hint { display: block; font-size: .72rem; color: var(--text-3); padding-bottom: .6rem; }
+    /* Op een telefoon: minder inleiding boven het beeld; de startpunten als
+       schuifrij in plaats van een blok van vier. */
+    @media (max-width: 600px) {
+      .cfg-hero .lede { display: none; }
+      .presets { margin-top: 1rem; }
+      .presets__row { flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; padding-bottom: .3rem; scroll-snap-type: x mandatory; }
+      .preset { flex: 0 0 auto; scroll-snap-align: start; }
+    }
+    /* FAQ */
+    .faq { display: grid; gap: .5rem; max-width: 56rem; }
+    .faq details { border: 1px solid var(--line); border-radius: 12px; background: var(--bg-raise); padding: 0 1.1rem; }
+    .faq summary { cursor: pointer; padding: .95rem 0; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 1rem; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: '+'; color: var(--acc); font-weight: 400; }
+    .faq details[open] summary::after { content: '\2212'; }
+    .faq details p { margin: 0 0 1rem; color: var(--text-2); font-size: .92rem; line-height: 1.7; }
+    .grp__noot { margin:.8rem 0 0; font-size:.8rem; color:var(--text-2); line-height:1.5; }
+    .qty { display:flex; align-items:center; gap:.55rem; margin-top:.5rem; }
+    .qty button { width:26px;height:26px; border-radius:8px; border:1px solid var(--line-strong); background:var(--bg-raise); color:var(--text-1); font-weight:700; cursor:pointer; line-height:1; }
+    .qty b { min-width:2.4ch; text-align:center; font-variant-numeric:tabular-nums; }
+    .qty .u { font-size:.72rem; color:var(--text-2); }
+    .dims { display:flex; gap:.5rem; margin-top:.5rem; align-items:center; }
+    .dims input { width:64px; padding:.35rem .45rem; border-radius:8px; border:1px solid var(--line-strong); background:var(--bg-raise); color:var(--text-1); font:inherit; font-size:.82rem; }
+    .dims span { font-size:.75rem; color:var(--text-2); }
+    .tile__img { height: 76px; }
+    img,picture,svg,.conf__hero,.conf__hero img,.tile__img,.preset__th,.hbg,.matswitch{
+      -webkit-user-drag:none;-khtml-user-drag:none;-moz-user-drag:none;-o-user-drag:none;user-select:none;
+      -webkit-touch-callout:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;
+    }
+    body{ -webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none; }
+    input,textarea,select,[contenteditable]{ -webkit-user-select:text!important;-moz-user-select:text!important;-ms-user-select:text!important;user-select:text!important; -webkit-touch-callout:default; }
+    .conf__hero,.conf__hero img,.tile__img,.preset__th,.hbg{ pointer-events:none; }
+    .tile,.preset,.matswitch a,.matswitch button,.conf__hero .aanzicht,.conf__hero .aanzicht button{ pointer-events:auto; }
+  </style>
+
+<link rel="stylesheet" href="./assets/dakrenovatie-studio.css?v=20260929b">
+    <!-- ============ ENTITEIT (scripts/entiteit.py) ============ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://nextgrowthdigital.nl/#organization",
+          "name": "Next Growth",
+          "url": "https://nextgrowthdigital.nl/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://nextgrowthdigital.nl/assets/media/next-growth-logo.svg"
+          },
+          "description": "Next Growth is een creatief groeibureau: branding, websites, marketing en configurators voor bedrijven. Landelijk actief.",
+          "email": "info@nextgrowthdigital.nl",
+          "telephone": "+31683902192",
+          "vatID": "NL004420281B57",
+          "taxID": "96002913",
+          "identifier": [
+            {
+              "@type": "PropertyValue",
+              "name": "KvK-nummer",
+              "value": "96002913"
+            },
+            {
+              "@type": "PropertyValue",
+              "name": "btw-identificatienummer",
+              "value": "NL004420281B57"
+            }
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "Noord-Brabant",
+            "addressCountry": "NL"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "sales",
+            "telephone": "+31683902192",
+            "email": "info@nextgrowthdigital.nl",
+            "areaServed": "NL",
+            "availableLanguage": [
+              "nl",
+              "en",
+              "de"
+            ]
+          },
+          "areaServed": [
+            {
+              "@type": "Country",
+              "name": "Nederland"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Noord-Brabant"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Gelderland"
+            },
+            {
+              "@type": "City",
+              "name": "Nijmegen"
+            },
+            {
+              "@type": "City",
+              "name": "Den Bosch"
+            },
+            {
+              "@type": "City",
+              "name": "Eindhoven"
+            },
+            {
+              "@type": "City",
+              "name": "Arnhem"
+            },
+            {
+              "@type": "City",
+              "name": "Uden"
+            },
+            {
+              "@type": "City",
+              "name": "Veghel"
+            },
+            {
+              "@type": "City",
+              "name": "Wijchen"
+            },
+            {
+              "@type": "City",
+              "name": "Vught"
+            },
+            {
+              "@type": "City",
+              "name": "Cuijk"
+            },
+            {
+              "@type": "City",
+              "name": "Grave"
+            }
+          ],
+          "knowsAbout": [
+            "Productconfigurator laten maken",
+            "Offertesoftware voor bouwbedrijven",
+            "Website laten maken voor bouw- en installatiebedrijven",
+            "Zoekmachineoptimalisatie",
+            "CRM voor bouwbedrijven",
+            "Dakopbouw",
+            "Uitbouw en aanbouw",
+            "Badkamer verbouwen",
+            "Overkapping op maat",
+            "Zwembad aanleggen",
+            "Dakkapel",
+            "Omgevingsvergunning bij verbouwen"
+          ],
+          "alternateName": [
+            "Next Growth Digital"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://nextgrowthdigital.nl/#website",
+          "url": "https://nextgrowthdigital.nl/",
+          "name": "Next Growth",
+          "inLanguage": "nl-NL",
+          "publisher": {
+            "@id": "https://nextgrowthdigital.nl/#organization"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://nextgrowthdigital.nl/dakrenovatie-configurator",
+          "url": "https://nextgrowthdigital.nl/dakrenovatie-configurator",
+          "name": "Dakrenovatie-configurator: live demo voor dakdekkers | Next Growth",
+          "inLanguage": "nl",
+          "isPartOf": {
+            "@id": "https://nextgrowthdigital.nl/#website"
+          },
+          "about": {
+            "@id": "https://nextgrowthdigital.nl/#organization"
+          },
+          "description": "Live demo van een dakrenovatie-configurator die Next Growth bouwt voor dakdekkers. Je klant kiest reinigen, coaten, nieuwe dakpannen, isolatie, zonnepanelen en dakramen op dezelfde woning en ziet een live richtprijs inclusief btw.",
+          "dateModified": "2026-08-28"
+        }
+      ]
+    }
+    </script>
+    <!-- ============ EINDE ENTITEIT ============ -->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,900;125,900&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/ngx-shell.css"><script>document.documentElement.classList.add("ngx-display")</script><style id="ngx-world">:root{--ink-900:#0B111A;--ink-800:#0F1620;--ink-700:#131C28;--ink-600:#161F2B;--ink-500:#1D2836;--ink-400:#2A3545;--tint:#131C28;--bg:#0F1620;--bg-raise:#161F2B;--bg-raise-2:#1D2836;--accent:#E63B2E;--accent-strong:#C92F23;--accent-light:#FF8A80;--accent-deep:#8E1F17;--accent-dim:rgba(230,59,46,.13);--glow:rgba(230,59,46,.30);--accent-rgb:230,59,46;--acc:#E63B2E;--acc-soft:rgba(230,59,46,.14);--acc-diep:#8E1F17;--goud-metaal:linear-gradient(150deg,#8E1F17 0%,#E63B2E 26%,#FF8A80 46%,#E63B2E 66%,#8E1F17 100%);--goud-lijn:linear-gradient(90deg,transparent,rgba(230,59,46,.55) 30%,rgba(230,59,46,.55) 70%,transparent);--serif:'Archivo','Arial Black',sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;}html,body{background:#0F1620}.ngx-nav{--x-sig:#E63B2E;--x-ink:#FFFFFF;background:#0F1620F5}.ngx-nav .ngx-mark{background:#FFC400}</style></head>
+<body>
+  <header class="ngx-nav"><div class="ngx-wrap">
+<a class="ngx-brand" href="/"><span class="ngx-ring">NG</span><span>Next Growth<small>Creatief groeibureau · Landelijk</small></span></a>
+<a class="ngx-mark" href="/" aria-label="Next Growth, naar de homepage"><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14V4l10 10V4" stroke="#0A0800" stroke-width="2.8" stroke-linecap="square"/></svg></a>
+<nav class="ngx-links" aria-label="Hoofdmenu"><a href="/">Home</a><a href="/dienst-webdesign">Websites</a><a href="/dienst-branding">Branding</a><a href="/dienst-marketing">Marketing</a><a href="/dienst-configurators">Configurators</a><a href="/kennisbank">Kennisbank</a><a href="/prijzen">Prijzen</a></nav>
+<a class="ngx-cta" href="/#contact">Kennismaken</a>
+<button class="ngx-menu" type="button" aria-expanded="false" aria-controls="ngx-mnav">Menu</button>
+</div><nav id="ngx-mnav" class="ngx-mnav" aria-label="Mobiel menu" hidden><a href="/">Home</a><a href="/dienst-webdesign">Websites</a><a href="/dienst-branding">Branding</a><a href="/dienst-marketing">Marketing</a><a href="/dienst-configurators">Configurators</a><a href="/kennisbank">Kennisbank</a><a href="/prijzen">Prijzen</a><a href="/#contact" class="ngx-cta">Plan een kennismaking</a></nav></header>
+
+  <main id="main">
+    <section class="cfg-hero" aria-label="Dakrenovatie configurator">
+      <div class="wrap">
+        <h1 class="h1">Jouw dak. Jouw keuzes.</h1>
+        <p class="lede">Live demo van een configurator die Next Growth bouwt voor dakdekkers. Stel een pannendak of plat dak samen zoals je klant dat zou doen: bekijk materialen, kies de werkzaamheden en zie direct een gespecificeerde richtprijs.</p>
+      </div>
+    </section>
+    <section class="sectie" style="padding-top: clamp(1.5rem,4vh,2.5rem);" aria-label="Configurator">
+      <div class="wrap" style="max-width: 1600px; width: min(100%, 1600px);">
+        <div class="conf" data-studio-reveal>
+          <div class="conf__head">
+            <div>
+              <div class="conf__title" id="confTitle"></div>
+              <div class="conf__sub" id="confSub"></div>
+            </div>
+            <div class="conf__badge" id="confBadge"></div>
+          </div>
+          <nav class="roof-steps" id="stappen" aria-label="Stappen van je dakrenovatie">
+            <button type="button" data-stap="1" aria-current="step"><b>1</b>Daktype</button>
+            <button type="button" data-stap="2"><b>2</b>Werk &amp; maten</button>
+            <button type="button" data-stap="3"><b>3</b>Materialen</button>
+            <button type="button" data-stap="4"><b>4</b>Extra’s</button>
+            <button type="button" data-stap="5"><b>5</b>Jouw aanvraag</button>
+          </nav>
+          <div class="conf__layout">
+            <div class="conf__visual">
+              <div class="conf__hero" id="confHeroWrap"><div class="hbg" id="confHeroBg"></div><img id="confHero" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 10'%3E%3Crect width='16' height='10' fill='%2315130f'/%3E%3C/svg%3E" alt="Voorbeeld van je dakrenovatie" width="1200" height="750"><span class="live">Voorbeeldwoning</span><span class="dim" id="confDim"><b>55 m&sup2;</b> dakvlak</span>
+                <div class="aanzicht" id="confAanzicht" role="group" aria-label="Beeldweergave">
+                  <button type="button" data-aanzicht="keuze" class="is-on" aria-pressed="true">Keuze</button>
+                  <button type="button" data-aanzicht="voor" aria-pressed="false">Voor</button>
+                  <button type="button" data-aanzicht="na" aria-pressed="false">Dakbedekking</button>
+                </div>
+                <div class="missing" id="confMissing"><b>Beeld niet beschikbaar</b><span>Je keuzes blijven bewaard in de samenvatting.</span></div>
+              </div>
+              <p class="roof-caption" id="beeldUitleg"></p>
+              <div class="conf__thumbs" id="confThumbs"></div>
+              <details class="roof-gallery"><summary>Gekozen materialen en extra’s bekijken</summary><p>De beelden tonen de onderdelen afzonderlijk, niet de volledige combinatie op één dak.</p><div id="keuzeBeelden"></div></details>
+              <div class="pricebar">
+                <div class="pricebar__p">
+                  <span class="k">Richtprijs
+                    <span class="btw" role="group" aria-label="btw">
+                      <button type="button" id="btwIncl" class="is-on" aria-pressed="true">incl. btw</button>
+                      <button type="button" id="btwExcl" aria-pressed="false">excl. btw</button>
+                    </span>
+                  </span>
+                  <span class="v" id="prijs">&euro; 0</span>
+                </div>
+                <div class="pricebar__cta">
+                  <button class="btn btn--acc" type="button" id="naarOfferte">Offerte aanvragen</button>
+                  <button class="btn btn--ghost" type="button" id="fasenBtn" title="Bekijk de bouwfasen van een volledige renovatie">Bouwfasen</button>
+                  <button class="btn btn--ghost" type="button" id="offerteBladBtn" title="Open de complete offerte als afdrukbaar blad">Offerte</button>
+                  <button class="btn btn--ghost" type="button" id="staatBtn" title="Open de materiaalstaat voor de werkvoorbereiding">Materiaalstaat</button>
+                  <button class="btn btn--ghost" type="button" id="deelBtn" title="Kopieer een link naar precies deze samenstelling">Deel</button>
+                </div>
+              </div>
+              <p class="roof-caption" id="prijsOpmerking"></p>
+              <p class="roof-selection" id="miniKeuze"></p>
+              <details class="roof-costs"><summary>Bekijk de prijsopbouw</summary><p id="prijsTax"></p><div id="prijsRegels"></div></details>
+              <details class="roof-checks"><summary>Wat beoordelen we bij de opname?</summary><ul id="controleLijst"></ul></details>
+            </div>
+            <div class="conf__options">
+              <div id="dakStart">
+                <h2>Kies jouw daktype</h2>
+                <div class="roof-routes">
+                  <button type="button" data-route="pannen" aria-pressed="true"><img src="./assets/media/dakrenovatie/klein/w01/W01_12_complete_dakrenovatie.webp" alt="Pannendak van een tussenwoning" width="512" height="384"><span><b>Pannendak</b><small>Dakpannen, isolatie, dakramen en goten</small></span></button>
+                  <button type="button" data-route="plat" aria-pressed="false"><img src="./assets/media/dakrenovatie/klein/w03/W03_12_complete_dakrenovatie.webp" alt="Plat dak met bitumen" width="512" height="384"><span><b>Plat dak / bitumen</b><small>Dakbedekking, isolatie, daglicht en dakranden</small></span></button>
+                </div>
+                <div id="pannenModellen"><h3>Welke voorbeeldwoning past?</h3><div class="matswitch" role="group" aria-label="Daktype" data-studio-reveal style="--i:3">
+          <button type="button" data-w="w01" class="is-on" aria-pressed="true">Tussenwoning &middot; zadeldak</button>
+          <button type="button" data-w="w02" aria-pressed="false">Vrijstaand &middot; schilddak</button>
+
+
+        </div></div>
+                <div class="matswitch" hidden><button type="button" data-w="w03" aria-pressed="false">Plat dak</button></div>
+                <p class="roof-caption">De beelden gebruiken een vaste voorbeeldwoning. Jouw dakmaten bepalen de richtprijs.</p>
+              </div>
+              <details id="presetDetails"><summary>Begin met een populaire samenstelling</summary><div class="presets__row" id="presetRow"></div></details>
+              <div id="overlagenUitleg" class="roof-notice" hidden>Overlagen kan alleen op een geschikte bestaande opbouw. We beoordelen vocht, hechting, afschot en aansluitingen voordat we een prijs geven.</div>
+              <div id="materiaalLeeg" class="roof-notice" hidden></div>
+              <div id="groups"></div>
+              <div id="dakDossier" hidden></div>
+              <div id="samenvatting" class="roof-summary" hidden></div>
+              <div class="roof-next"><button class="btn btn--ghost" type="button" id="vorigeStap">Vorige</button><span id="stapTeller">Stap 1 van 5</span><button class="btn btn--acc" type="button" id="volgendeStap">Volgende stap</button></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card cfg__panel" id="offerte" hidden data-studio-reveal style="margin-top:1.4rem;">
+          <div>
+            <p class="eyebrow">Bijna klaar</p>
+            <h2 class="h2" style="font-size:1.4rem; margin-top:.4rem;">Ontvang je offerte op maat.</h2>
+            <p style="font-size:.86rem; margin-top:.5rem;">Je volledige samenstelling wordt automatisch meegestuurd. We nemen binnen &eacute;&eacute;n werkdag contact op om de dakinspectie in te plannen.</p>
+          </div>
+          <form class="lead" id="leadForm" enctype="multipart/form-data">
+            <div class="lead__grid">
+              <div class="fld"><label for="f_naam">Naam</label><input id="f_naam" name="naam" required autocomplete="name"></div>
+              <div class="fld"><label for="f_plaats">Plaats</label><input id="f_plaats" name="plaats" autocomplete="address-level2"></div>
+              <div class="fld"><label for="f_email">E-mailadres</label><input id="f_email" name="email" type="email" required autocomplete="email"></div>
+              <div class="fld"><label for="f_tel">Telefoon</label><input id="f_tel" name="telefoon" type="tel" autocomplete="tel"></div>
+            </div>
+            <div class="fld"><label for="f_ber">Bericht (optioneel)</label><textarea id="f_ber" name="bericht" rows="3" placeholder="Bijzonderheden, gewenste periode, locatie&hellip;"></textarea></div>
+            <div class="fld"><label for="f_periode">Gewenste uitvoering</label><select id="f_periode" name="periode"><option value="In overleg">In overleg</option><option>Zo snel mogelijk</option><option>Binnen 3 maanden</option><option>Binnen 6 maanden</option><option>Later / oriënterend</option></select></div>
+            <div class="fld"><label for="f_foto">Foto van je dak (optioneel)</label><input id="f_foto" name="attachment" type="file" accept="image/jpeg,image/png,image/webp"><small>JPG, PNG of WebP, maximaal 8 MB. De foto wordt met je aanvraag naar Next Growth gestuurd.</small><img id="fotoPreview" alt="Jouw toegevoegde dakfoto" hidden><button type="button" id="fotoWissen" class="btn btn--ghost" hidden>Foto verwijderen</button></div>
+            <label class="roof-honey" aria-hidden="true">Dit veld leeg laten<input name="website" tabindex="-1" autocomplete="off"></label>
+            <input type="hidden" id="f_config" name="configuratie">
+            <button class="btn btn--acc" type="submit" id="leadBtn" style="justify-self:start;">Verstuur aanvraag</button>
+            <p class="lead__msg" id="leadMsg" role="status" hidden></p>
+            <p class="lead__note">In deze demo komt je aanvraag met de volledige samenstelling binnen bij Next Growth. Liever bellen? <a href="tel:+31683902192" style="color:var(--acc)">06 83 90 21 92</a>.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+<!-- Drie schermopnames uit deze configurator. Drie en niet een: een pannendak,
+     een plat dak en een gootklus zijn drie gesprekken, en een film die alle
+     drie probeert te doen overtuigt bij alle drie niemand. Elke film loopt de
+     stappen door en eindigt op het blad dat eruit rolt - de echte offerte en
+     de echte materiaalstaat, niet een nagemaakte weergave ervan. -->
+<section class="sectie" aria-label="Zo werkt de dakrenovatieconfigurator">
+  <div class="wrap">
+    <div class="sectie-kop">
+      <p class="eyebrow">Zo werkt het</p>
+      <h2>Bekijk hoe de dakstudio werkt.</h2>
+      <p style="color:var(--muted,#9c9a94);max-width:46rem;margin-top:.6rem">Drie korte films uit deze configurator: een pannendak, een plat dak, en goten met boeidelen. Bekijk voorbeeldbeelden en hoe keuzes de richtprijs veranderen. Aan het eind rolt de offerte met de materiaalstaat eruit.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%, 22rem),1fr));gap:clamp(1rem,2.5vw,1.6rem)">
+
+      <figure style="margin:0">
+        <div style="border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#0C0D10">
+          <video controls preload="none" playsinline poster="./assets/media/poster-dakrenovatie-pannendak.jpg"
+                 style="width:100%;aspect-ratio:16/9;display:block;background:#0C0D10">
+            <source src="./assets/video/dakrenovatie-pannendak.mp4" type="video/mp4">
+            Je browser kan deze video niet afspelen. <a href="./assets/video/dakrenovatie-pannendak.mp4">Download hem hier.</a>
+          </video>
+        </div>
+        <figcaption style="margin-top:.7rem">
+          <strong style="display:block">Pannendak</strong>
+          <span style="color:var(--muted,#9c9a94);font-size:.92rem">Acht pannen, de opbouw eronder, en het dak dat opengaat, met offerte en materiaalstaat.</span>
+        </figcaption>
+      </figure>
+
+      <figure style="margin:0">
+        <div style="border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#0C0D10">
+          <video controls preload="none" playsinline poster="./assets/media/poster-dakrenovatie-platdak.jpg"
+                 style="width:100%;aspect-ratio:16/9;display:block;background:#0C0D10">
+            <source src="./assets/video/dakrenovatie-platdak.mp4" type="video/mp4">
+            Je browser kan deze video niet afspelen. <a href="./assets/video/dakrenovatie-platdak.mp4">Download hem hier.</a>
+          </video>
+        </div>
+        <figcaption style="margin-top:.7rem">
+          <strong style="display:block">Plat dak</strong>
+          <span style="color:var(--muted,#9c9a94);font-size:.92rem">Bitumen eraf tot op het houtbeschot, zes bedekkingen erop, met daglicht en dakterras.</span>
+        </figcaption>
+      </figure>
+
+      <figure style="margin:0">
+        <div style="border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#0C0D10">
+          <video controls preload="none" playsinline poster="./assets/media/poster-dakrenovatie-goten.jpg"
+                 style="width:100%;aspect-ratio:16/9;display:block;background:#0C0D10">
+            <source src="./assets/video/dakrenovatie-goten.mp4" type="video/mp4">
+            Je browser kan deze video niet afspelen. <a href="./assets/video/dakrenovatie-goten.mp4">Download hem hier.</a>
+          </video>
+        </div>
+        <figcaption style="margin-top:.7rem">
+          <strong style="display:block">Goten en boeidelen</strong>
+          <span style="color:var(--muted,#9c9a94);font-size:.92rem">Op het bestaande dak, op het nieuwe dak, en op het platte dak, waar geen goot zit maar een daktrim.</span>
+        </figcaption>
+      </figure>
+
+    </div>
+  </div>
+</section>
+
+<section class="sectie" aria-label="Wat bepaalt de prijs van een dakrenovatie">
+  <div class="wrap" style="max-width:56rem">
+    <div class="sectie-kop">
+      <p class="eyebrow">Uitleg uit deze demo</p>
+      <h2 class="h2" id="dkr-uitleg">Een dakrenovatie samenstellen: wat bepaalt de prijs</h2>
+    </div>
+    <div style="display:grid;gap:1.1rem;color:var(--text-2);font-size:.92rem;line-height:1.7">
+      <p><strong style="color:var(--text)">Het dakvlak is de grootste knop.</strong> Reinigen kost een tientje per vierkante meter, reinigen en coaten het dubbele tot driedubbele, en een volledige renovatie (oude pannen eraf, nieuwe folie, panlatten en pannen erop) begint rond de tachtig euro per vierkante meter en loopt op met de pansoort. Een tussenwoning heeft al gauw vijftig tot zeventig vierkante meter hellend dak, een vrijstaande woning met schilddak het dubbele.</p>
+      <p><strong style="color:var(--text)">De pansoort bepaalt de rest.</strong> Een betonnen sneldekpan is de voordeligste keuze en gaat dertig tot veertig jaar mee. Keramische pannen zijn duurder maar kleurvaster en gaan vijftig jaar of langer mee; verglaasd zwart is daarvan de meest gevraagde. Vlakke keramische modellen, zoals Actua en Datura, geven een ander lijnenspel dan geprofileerde dakpannen.</p>
+      <p><strong style="color:var(--text)">Isolatie meenemen is het moment.</strong> Als de pannen er toch af zijn, is isoleren aan de buitenzijde de goedkoopste route naar een warme zolder: geen ruimteverlies binnen, geen tweede klus later. De arbeid zit er dan grotendeels al in.</p>
+      <p><strong style="color:var(--text)">Goot, boeidelen, nok en loodwerk kunnen los.</strong> Die vier hoeven niet op een volledige renovatie te wachten: een nieuwe zinken of aluminium goot, nieuwe boeidelen of nieuw loodwerk rond de schoorsteen zijn eigen klussen met een eigen prijs, en ze staan hierboven dan ook los aan te vinken.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sectie" aria-label="Veelgestelde vragen">
+  <div class="wrap" style="max-width:56rem">
+    <div class="sectie-kop">
+      <p class="eyebrow">FAQ</p>
+      <h2 class="h2" id="dkr-faq">Vragen over dakrenovatie</h2>
+    </div>
+    <div class="faq">
+      <details>
+        <summary><span>Wat kost een dakrenovatie?</span></summary>
+        <p>Reinigen begint rond de &euro; 12 per m&sup2;, reinigen en coaten rond de &euro; 28 per m&sup2;, en een volledige renovatie met nieuwe pannen tussen de &euro; 80 en &euro; 120 per m&sup2; afhankelijk van de pansoort. Voor een tussenwoning met zo'n 55 m&sup2; dakvlak komt een complete renovatie daarmee op &euro; 5.500 tot &euro; 8.000; een vrijstaande woning met schilddak zit al gauw op het dubbele. Isolatie aan de buitenzijde kost &euro; 68 per m&sup2; extra, voor een tussenwoning zo'n &euro; 4.500 incl. btw. In de configurator hierboven zie je wat elke keuze doet.</p>
+      </details>
+      <details>
+        <summary><span>Wanneer is renoveren beter dan reinigen of coaten?</span></summary>
+        <p>Reinigen en coaten zijn cosmetisch: ze halen mos en aanslag weg en geven het dak een nieuwe kleur, maar de pan blijft de oude. Zijn de pannen poreus, gebroken of verschoven, of is de onderliggende folie op, dan is coaten geld uitstellen. Vuistregel: een dak van veertig jaar of ouder verdient een inspectie voordat er gecoat wordt.</p>
+      </details>
+      <details>
+        <summary><span>Heb ik een vergunning nodig?</span></summary>
+        <p>Voor het vervangen van dakbedekking in dezelfde vorm meestal niet: dat is regulier onderhoud. Verandert de kleur of het materiaal sterk, of staat de woning in een beschermd stads- of dorpsgezicht, dan kan de welstand meekijken. Dakramen zijn aan de achterzijde vrijwel altijd vergunningsvrij; aan de voorzijde gelden per gemeente regels.</p>
+      </details>
+      <details>
+        <summary><span>Kan isolatie mee in de renovatie?</span></summary>
+        <p>Ja, en dat is h&eacute;t moment. Als de pannen eraf zijn, kan er isolatie aan de buitenzijde op het dakbeschot: geen ruimteverlies op zolder en de arbeid zit grotendeels al in de renovatie. Los achteraf isoleren kost meer en levert minder op.</p>
+      </details>
+      <details>
+        <summary><span>Hoe lang duurt een dakrenovatie?</span></summary>
+        <p>Een tussenwoning is doorgaans in twee tot vier werkdagen klaar, een vrijstaande woning met schilddak in &eacute;&eacute;n tot twee weken. Het dak is elke avond waterdicht afgedekt; je hoeft er niet voor uit huis.</p>
+      </details>
+      <details>
+        <summary><span>Kunnen zonnepanelen direct mee?</span></summary>
+        <p>Ja, en gecombineerd is het goedkoper: de steiger staat er al en de haken gaan onder de nieuwe pannen zonder breekwerk. In de configurator kies je vier tot tien panelen en zie je ze direct op het dak staan.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+    <!-- ============ PER PLAATS (scripts/configuratorsteden.py) ============ -->
+    <div class="ng-blok" role="region" aria-labelledby="perplaats-kop">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <p class="eyebrow">Per plaats</p>
+          <h2 class="h2" id="perplaats-kop">Zo'n configurator voor je eigen bedrijf, per plaats</h2>
+          <p>Deze dakrenovatieconfigurator bouwen we voor dakdekkers en bouwbedrijven, in hun eigen huisstijl en met hun eigen prijzen. Per plaats staat wat de markt daar vraagt.</p>
+        </div>
+        <div class="ng-branches">
+          <a class="ng-branche" href="/dienst-webdesign"><b>Configurator laten maken, landelijk</b><span>Heel Nederland</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-nijmegen"><b>Configurator laten maken in Nijmegen</b><span>Gelderland</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-arnhem"><b>Configurator laten maken in Arnhem</b><span>Gelderland</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-den-bosch"><b>Configurator laten maken in Den Bosch</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-uden"><b>Configurator laten maken in Uden</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-veghel"><b>Configurator laten maken in Veghel</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-wijchen"><b>Configurator laten maken in Wijchen</b><span>Gelderland</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-vught"><b>Configurator laten maken in Vught</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-cuijk"><b>Configurator laten maken in Cuijk</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-grave"><b>Configurator laten maken in Grave</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-eindhoven"><b>Configurator laten maken in Eindhoven</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <!-- ============ EINDE PER PLAATS ============ -->
+  <!-- ============ TERUGBELVERZOEK ============ -->
+  <div class="ng-terugbel" role="region" aria-labelledby="terugbel-kop">
+    <div class="wrap ng-terugbel__in">
+      <div class="ng-terugbel__tekst" data-studio-reveal>
+        <p class="eyebrow">Terugbelverzoek</p>
+        <h2 class="h2" id="terugbel-kop">Liever even bellen dan typen?</h2>
+        <p class="lede">Laat je nummer achter, dan bellen we je dezelfde werkdag terug. Je krijgt iemand aan de lijn die deze systemen zelf bouwt, geen callcenter.</p>
+        <ul class="ng-terugbel__punten">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Binnen &eacute;&eacute;n werkdag gebeld</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Tien minuten is genoeg voor prijs en doorlooptijd</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Vrijblijvend, je zit nergens aan vast</span></li>
+        </ul>
+        <p class="ng-terugbel__zelf">Liever zelf bellen? <a href="tel:+31683902192">06 83 90 21 92</a></p>
+      </div>
+
+      <div class="card ng-terugbel__kaart" data-studio-reveal style="--i:1">
+        <p class="ng-terugbel__kop"><span class="dot dot--ok" aria-hidden="true"></span>3 velden &middot; 20 seconden</p>
+        <form data-terugbel data-bron="dakrenovatie-configurator.html" action="mailto:info@nextgrowthdigital.nl" method="post" enctype="text/plain" aria-label="Terugbelverzoek">
+            <div class="ng-veld">
+              <label for="tb-naam">Naam</label>
+              <input type="text" id="tb-naam" name="naam" placeholder="Voor- en achternaam" autocomplete="name" required>
+            </div>
+            <div class="ng-veld">
+              <label for="tb-bedrijf">Bedrijf</label>
+              <input type="text" id="tb-bedrijf" name="bedrijf" placeholder="Van Dijk Installaties" autocomplete="organization" required>
+            </div>
+            <div class="ng-veld">
+              <label for="tb-tel">Telefoonnummer</label>
+              <input type="tel" id="tb-tel" name="telefoon" placeholder="06 12 34 56 78" autocomplete="tel" inputmode="tel" required>
+            </div>
+            <div class="ng-terugbel__honeypot" aria-hidden="true">
+              <label for="tb-website">Website (niet invullen)</label>
+              <input type="text" id="tb-website" name="website" tabindex="-1" autocomplete="off">
+            </div>
+            <button class="btn ng-terugbel__verstuur" type="submit">Bel mij terug</button>
+            <p class="ng-terugbel__noot">Alleen om je terug te bellen. Geen nieuwsbrief, geen belrondes.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+  <footer class="ngx-foot"><div class="ngx-wrap">
+<div class="ngx-end"><h2>Zo'n configurator <span>op jouw site?</span></h2><div><p>Eén gesprek van twintig minuten. Je spreekt direct met de mensen die het bouwen en krijgt dezelfde dag een eerlijk advies.</p><a class="ngx-cta big" href="/#contact">Plan een kennismaking</a><a class="ngx-tel" href="tel:+31683902192">06 83 90 21 92</a></div></div>
+<div class="ngx-cols">
+<div><a class="ngx-brand" href="/"><span class="ngx-mk"><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14V4l10 10V4" stroke="#0A0800" stroke-width="2.8" stroke-linecap="square"/></svg></span><span>Next Growth Digital</span></a><p>Creatief groeibureau, landelijk actief. Branding, webdesign, marketing en eigen software.</p><p>info@nextgrowthdigital.nl</p></div>
+<div><h4>Diensten</h4><ul><li><a href="/dienst-branding">Branding</a></li><li><a href="/dienst-webdesign">Webdesign</a></li><li><a href="/dienst-marketing">Marketing</a></li><li><a href="/dienst-configurators">Configurators</a></li><li><a href="/dienst-crm">CRM &amp; offertes</a></li><li><a href="/prijzen">Prijzen</a></li></ul></div>
+<div><h4>Configurators</h4><ul><li><a href="/overkapping-configurator">Overkapping</a></li><li><a href="/aanbouw-configurator">Uitbouw</a></li><li><a href="/dakkapel-configurator">Dakkapel</a></li><li><a href="/dakopbouw-configurator">Dakopbouw</a></li><li><a href="/badkamer-configurator">Badkamer</a></li><li><a href="/zwembad-configurator">Zwembad</a></li><li><a href="/jacht-configurator">Jacht</a></li></ul></div>
+<div><h4>Kennisbank</h4><ul><li><a href="/kennisbank">Alle artikelen</a></li><li><a href="/kennisbank-configurator-kosten">Wat kost een configurator?</a></li><li><a href="/configurator-laten-maken">Configurator laten maken</a></li><li><a href="/kennisbank-website-kosten">Wat kost een website?</a></li></ul></div>
+<div><h4>Bedrijf</h4><ul><li><a href="/#cases">Cases</a></li><li><a href="/werkgebied">Werkgebied</a></li><li><a href="/privacyverklaring">Privacyverklaring</a></li><li><a href="/auteursrecht">Auteursrecht</a></li><li><a href="/#contact">Contact</a></li></ul></div>
+</div>
+<div class="ngx-legal"><span>© 2026 Next Growth Digital</span><span>KVK 96002913</span><span>Landelijk actief · Nederland</span></div>
+<p class="ngx-giant" aria-hidden="true">NEXT GROWTH</p></div></footer>
+<script>(function(){var b=document.querySelector('.ngx-menu'),n=document.getElementById('ngx-mnav');if(!b||!n)return;b.addEventListener('click',function(){var o=n.hasAttribute('hidden');if(o)n.removeAttribute('hidden');else n.setAttribute('hidden','');b.setAttribute('aria-expanded',o?'true':'false');b.textContent=o?'Sluiten':'Menu'})})();</script>
+
+  <script src="./assets/meting.js" defer></script>
+  <script src="./assets/terugbel.js" defer></script>
+  <script src="./assets/core.js" defer></script>
+  <script src="./assets/configuratie-bewaren.js"></script>
+  <script src="./assets/dakrenovatie-producten.js?v=20260929b"></script>
+  <script src="./assets/dakrenovatie-beelden.js"></script>
+  <script src="./assets/afdrukvenster.js"></script>
+  <script src="./assets/dakrenovatie-staat.js?v=20260929b"></script>
+    <div class="roof-mobile"><div><small>Jouw richtprijs</small><strong id="mobielPrijs"></strong></div><button type="button" class="btn btn--acc" id="mobielVerder">Verder</button></div>
+<script src="./assets/dakrenovatie-configurator.js?v=20260929b"></script>
+<script src="./assets/dakrenovatie-dossier.js?v=20260929b"></script>
+
+  
+  <a class="nx-wa" href="https://wa.me/31683902192" target="_blank" rel="noopener" aria-label="Stel je vraag via WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a9.9 9.9 0 0 0-8.5 15L2 22l5.2-1.4A9.9 9.9 0 1 0 12 2zm0 1.7a8.2 8.2 0 1 1-4.2 15.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.7zm-3.1 4.2c-.2 0-.5 0-.7.3-.2.3-.9.9-.9 2.1s.9 2.5 1 2.6c.1.2 1.8 2.8 4.3 3.8 2.1.8 2.6.7 3 .6.5 0 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.4-.2-1.5-.7c-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.5 7.5 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5v-.5L9.5 8.2c-.2-.4-.4-.3-.6-.3z"/></svg></a>
+
+
+  <!-- Vercel Analytics (scripts/analytics.py) -->
+  
+  
+</body>
+</html>
+

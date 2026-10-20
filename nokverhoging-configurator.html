@@ -1,0 +1,1391 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nokverhoging-configurator: live demo voor bouwbedrijven | Next Growth</title>
+  <meta name="description" content="Live demo van een nokverhoging-configurator die Next Growth bouwt voor dakdekkers en bouwbedrijven. Je klant kiest woningtype, indeling, gevelafwerking, kozijnkleur en opties en ziet direct de richtprijs, inclusief plaatsing en vergunningstekeningen.">
+  <link rel="canonical" href="https://nextgrowthdigital.nl/nokverhoging-configurator">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="nl_NL">
+  <meta property="og:site_name" content="Next Growth">
+  <meta property="og:title" content="Nokverhoging-configurator: live demo voor bouwbedrijven | Next Growth">
+  <meta property="og:description" content="Live demo van een nokverhoging-configurator die Next Growth bouwt voor dakdekkers en bouwbedrijven. Je klant kiest woningtype, indeling, gevelafwerking, kozijnkleur en opties en ziet direct de richtprijs, inclusief plaatsing en vergunningstekeningen.">
+  <meta property="og:url" content="https://nextgrowthdigital.nl/nokverhoging-configurator">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Crect width='18' height='18' rx='4' fill='%23C9A45F'/%3E%3Cpath d='M5 13V5l8 8V5' stroke='%230A0A0B' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./assets/fonts.css">
+  <link rel="stylesheet" href="./assets/core.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Nokverhoging-configurator voor bouwbedrijven",
+    "name": "Nokverhoging configurator",
+    "url": "https://nextgrowthdigital.nl/nokverhoging-configurator",
+    "provider": { "@type": "ProfessionalService", "name": "Next Growth", "email": "info@nextgrowthdigital.nl", "telephone": "+31683902192", "url": "https://nextgrowthdigital.nl/" },
+    "areaServed": ["Nederland"],
+    "description": "Een nokverhoging-configurator voor dakdekkers en bouwbedrijven. Hun klant stelt online de nokverhoging samen: woningtype, indeling, gevelafwerking, kozijnkleur en opties. De richtprijs rekent direct door."
+  }
+  </script>
+  <style>
+    :root { --acc: var(--accent); --acc-soft: rgba(var(--accent-rgb),.14); }
+    .cfg-hero { padding: calc(60px + clamp(1.6rem, 5vh, 3rem)) 0 0; text-align: center; }
+    .cfg-hero .pill { margin-bottom: 1rem; }
+    .cfg-hero .h1 { max-width: 20ch; margin-inline: auto; }
+    .cfg-hero .lede { margin: 1rem auto 0; max-width: 58ch; }
+
+    /* material switch */
+    .matswitch { display: inline-flex; flex-wrap: wrap; justify-content: center; max-width: 100%; gap: .3rem; padding: .32rem; border: 1px solid var(--line-strong); border-radius: 13px; background: var(--bg-raise); margin: 1.6rem auto 0; }
+    .matswitch button, .matswitch a { display: inline-flex; align-items: center; gap: .5rem; border: none; background: transparent; color: var(--text-2); font: inherit; font-weight: 600; font-size: .9rem; padding: .65rem 1.3rem; border-radius: 10px; cursor: pointer; transition: background .14s ease, color .14s ease; text-decoration: none; }
+    .matswitch button.is-on, .matswitch a.is-on { background: var(--acc); color: #17130a; }
+    .matswitch a:hover { color: var(--text-1); }
+    /* Vier keuzes passen niet naast elkaar op een telefoon; zonder wrap liep
+       de rij het scherm uit en schoof de hele pagina horizontaal mee. */
+    @media (max-width: 640px) {
+      .matswitch { gap: .25rem; }
+      .matswitch button, .matswitch a { padding: .55rem .8rem; font-size: .8rem; }
+    }
+
+    /* presets */
+    .presets { margin: 1.5rem auto 0; max-width: 900px; }
+    .presets__lbl { display: block; font-family: var(--mono); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: var(--text-3); margin-bottom: .7rem; }
+    .presets__row { display: flex; gap: .7rem; flex-wrap: wrap; justify-content: center; }
+    .preset { display: flex; align-items: center; gap: .6rem; border: 1px solid var(--line-strong); border-radius: 12px; background: var(--bg-raise); padding: .45rem .7rem .45rem .45rem; cursor: pointer; transition: border-color .12s ease, background .12s ease; text-align: left; }
+    .preset:hover { border-color: var(--acc); background: var(--bg-raise-2); }
+    .preset__th { width: 46px; height: 34px; border-radius: 7px; overflow: hidden; flex: none; border: 1px solid rgba(255,255,255,.1); }
+    .preset__th svg { display: block; width: 100%; height: 100%; }
+    .preset__t b { display: block; font-size: .82rem; font-weight: 600; color: var(--text); line-height: 1.1; }
+    .preset__t span { font-size: .68rem; color: var(--text-3); }
+
+    /* configurator shell */
+    .conf { margin-top: clamp(1.8rem, 5vh, 3rem); }
+    .conf__layout { display: grid; grid-template-columns: 1fr; gap: 1.1rem; margin-top: 1.1rem; }
+    .conf__visual, .conf__options { min-width: 0; }
+    @media (min-width: 900px){
+      .conf__layout { grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); align-items: start; }
+      .conf__visual { position: sticky; top: 80px; }
+    }
+    @media (min-width:1200px){ .conf__layout{ grid-template-columns:minmax(0,1.7fr) minmax(0,1fr); } }
+    @media (max-width: 899px){
+      .conf__visual { background: var(--bg); padding: 8px 0 10px; margin-top: -8px; }
+    }
+    /* Meeplakken heeft alleen zin als er naast het voorbeeld nog opties in
+       beeld passen; op een laag telefoonscherm bleef anders niets over om in
+       te kiezen. Vanaf 900px schermhoogte past het wel naast elkaar. */
+    @media (max-width: 899px) and (min-height: 900px){
+      .conf__visual { position: sticky; top: 52px; z-index: 6; }
+    }
+    .conf__head { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1.1rem; }
+    .conf__title { font-size: clamp(1.5rem, 4vw, 2.1rem); font-weight: 800; letter-spacing: -.02em; line-height: 1.05; }
+    .conf__title span { color: var(--acc); }
+    .conf__sub { font-size: .84rem; color: var(--text-2); margin-top: .3rem; }
+    .conf__badge { flex: none; display: inline-flex; align-items: center; gap: .5rem; border: 1px solid var(--line-strong); border-radius: 11px; padding: .55rem .8rem; font-size: .74rem; color: var(--text-2); background: var(--bg-raise); line-height: 1.2; max-width: 170px; }
+    .conf__badge svg { width: 20px; height: 20px; color: var(--acc); flex: none; }
+
+    .conf__hero { position: relative; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); margin-bottom: 1.2rem; aspect-ratio: 16/9; background: var(--bg-raise); }
+    .conf__hero .hbg { position: absolute; inset: 0; background-size: cover; background-position: center; filter: blur(30px) brightness(.42) saturate(.9); transform: scale(1.18); z-index: 0; transition: background-image .22s ease; }
+    .conf__hero img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: cover; display: block; }
+    .conf__hero .tek { position: absolute; inset: 0; z-index: 1; }
+    .conf__hero .tek svg.tekening { width: 100%; height: 100%; display: block; }
+    /* De maatschets is geen render en mag daar ook niet voor doorgaan: een
+       eigen rand en een melding erbij, zodat niemand denkt dat dit een foto is. */
+    .conf__hero.is-schets { border-color: color-mix(in srgb, var(--acc) 45%, var(--line)); }
+    /* De melding stond eerst óver het beeld, en dekte precies de lucht boven de
+       dakkapel af — daardoor las de schets als een muur in plaats van een dak.
+       Nu staat hij eronder, waar hij niets wegneemt. */
+    .schets { display: flex; flex-direction: column; gap: .2rem; margin: -.7rem 0 1rem; padding: .65rem .85rem; border-radius: 10px; border: 1px solid color-mix(in srgb, var(--acc) 38%, var(--line)); background: color-mix(in srgb, var(--acc) 8%, var(--bg-raise)); }
+    .schets[hidden] { display: none; }
+    .schets b { color: var(--acc); font-size: .8rem; font-weight: 700; }
+    .schets span { color: var(--text-2); font-size: .74rem; line-height: 1.5; }
+
+    /* referentiestrip */
+    .ref { margin: -.5rem 0 1rem; }
+    .ref__lbl { display: block; font-family: var(--mono); font-size: .64rem; letter-spacing: .07em; text-transform: uppercase; color: var(--text-3); margin-bottom: .5rem; }
+    .ref__row { display: flex; gap: .6rem; flex-wrap: wrap; }
+    .ref__it { margin: 0; width: 132px; }
+    .ref__it img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 9px; border: 1px solid var(--line); display: block; }
+    .ref__it figcaption { margin-top: .3rem; line-height: 1.25; }
+    .ref__it figcaption b { display: block; font-size: .72rem; color: var(--text); }
+    .ref__it figcaption span { font-size: .64rem; color: var(--text-3); }
+
+    /* samenvatting boven het formulier */
+    .samenv { border: 1px solid var(--line); border-radius: 12px; background: var(--bg-raise); padding: .95rem 1.1rem; }
+    .samenv__k { display: block; font-size: .76rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--text); margin-bottom: .6rem; }
+    .samenv__r { display: flex; justify-content: space-between; gap: 1rem; padding: .32rem 0; border-bottom: 1px dashed var(--line); font-size: .8rem; }
+    .samenv__r:last-child { border-bottom: none; }
+    .samenv__r span { color: var(--text-3); flex: none; }
+    .samenv__r b { color: var(--text); font-weight: 600; text-align: right; }
+
+    /* interne assetlijst */
+    table.assets { width: 100%; border-collapse: collapse; font-size: .76rem; }
+    table.assets th { text-align: left; font-family: var(--mono); font-size: .62rem; letter-spacing: .06em; text-transform: uppercase; color: var(--text-3); padding: 0 .6rem .35rem 0; border-bottom: 1px solid var(--line); }
+    table.assets td { padding: .28rem .6rem .28rem 0; border-bottom: 1px solid var(--line); color: var(--text-2); }
+    table.assets code { font-family: var(--mono); font-size: .72rem; color: var(--acc); }
+    .conf__hero .live { position: absolute; top: .8rem; left: .8rem; z-index: 2; display: inline-flex; align-items: center; gap: .45rem; font-family: var(--mono); font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; color: #fff; background: rgba(0,0,0,.45); backdrop-filter: blur(6px); padding: .35rem .6rem; border-radius: 7px; }
+    .conf__hero .live .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--acc); box-shadow: 0 0 8px var(--acc); }
+    .conf__hero .dim { position: absolute; bottom: .8rem; right: .8rem; z-index: 2; font-family: var(--mono); font-size: .62rem; letter-spacing: .06em; color: #fff; background: rgba(0,0,0,.5); backdrop-filter: blur(6px); padding: .35rem .6rem; border-radius: 7px; display: inline-flex; align-items: center; gap: .4rem; }
+    .conf__hero .dim b { color: var(--acc); font-weight: 400; }
+    /* Vergunningsindicatie op het beeld zelf: dat is de vraag die iedereen
+       bij een dakkapel als eerste stelt. Indicatie, geen toezegging — de
+       gemeente heeft het laatste woord, en dat staat er ook bij. */
+    .conf__hero .verg { position: absolute; bottom: .8rem; left: .8rem; z-index: 2; max-width: min(62%, 30em); display: inline-flex; align-items: flex-start; gap: .45rem; font-size: .68rem; line-height: 1.35; color: #fff; background: rgba(0,0,0,.55); backdrop-filter: blur(6px); padding: .45rem .65rem; border-radius: 8px; }
+    .conf__hero .verg .vdot { flex: none; width: 8px; height: 8px; border-radius: 50%; margin-top: .25em; background: #7fc97f; box-shadow: 0 0 8px #7fc97f; }
+    .conf__hero .verg.is-verg .vdot { background: #e0b25a; box-shadow: 0 0 8px #e0b25a; }
+
+    .grp { border: 1px solid var(--line); border-radius: 14px; background: var(--bg-raise); padding: 1.15rem 1.2rem 1.25rem; margin-bottom: .9rem; }
+    .grp__h { font-size: .78rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--text); margin-bottom: .85rem; }
+    .grp__h b { color: var(--acc); font-weight: 700; margin-right: .4rem; }
+    .grp__noot { margin: .8rem 0 0; font-size: .8rem; color: var(--text-2); line-height: 1.5; }
+    .grp__sublbl { display:block; font-family: var(--mono); font-size: .64rem; letter-spacing: .08em; text-transform: uppercase; color: var(--text-3); margin: .95rem 0 .55rem; }
+
+    .tiles { display: grid; gap: .6rem; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+    .tiles.sm { grid-template-columns: repeat(auto-fit, minmax(84px, 1fr)); }
+    .tile { position: relative; cursor: pointer; }
+    .tile input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+    .tile__c { border: 1.5px solid var(--line); border-radius: 11px; background: var(--bg-raise-2); padding: .7rem .6rem; display: flex; flex-direction: column; align-items: center; gap: .5rem; text-align: center; height: 100%; transition: border-color .12s ease, background .12s ease; }
+    .tile__c .ico { width: 30px; height: 30px; color: var(--text-2); }
+    .tile__c .ico svg { width: 100%; height: 100%; }
+    .tile__c .lab { font-size: .76rem; font-weight: 600; color: var(--text); line-height: 1.25; }
+    .tile__c .sub { font-size: .68rem; color: var(--text-3); }
+    @media (max-width: 600px) { .tile__c .sub { font-size: .78rem; } }
+    .tile__sw { width: 100%; height: 40px; border-radius: 7px; border: 1px solid rgba(255,255,255,.12); }
+    .tile input:checked + .tile__c { border-color: var(--acc); background: color-mix(in srgb, var(--acc) 12%, var(--bg-raise-2)); }
+    .tile input:checked + .tile__c .ico { color: var(--acc); }
+    .tile input:focus-visible + .tile__c { outline: 2px solid var(--acc); outline-offset: 2px; }
+    .tile.is-uit { opacity: .42; }
+    .tile.is-uit .tile__c { cursor: not-allowed; }
+    .tile input:disabled { cursor: not-allowed; }
+
+    /* maatschuif */
+    .dim__row { display:grid; grid-template-columns: 108px 1fr 84px; align-items:center; gap:.9rem; }
+    .dim__row label { font-size:.8rem; color:var(--text-2); font-weight:600; }
+    .dim__row output { font-variant-numeric:tabular-nums; font-size:.86rem; font-weight:700; color:var(--acc); text-align:right; }
+    .dim__row input[type=range]{ -webkit-appearance:none; appearance:none; width:100%; height:6px; border-radius:4px; background:var(--line-strong); outline:none; }
+    .dim__row input[type=range]::-webkit-slider-thumb{ -webkit-appearance:none; appearance:none; width:20px;height:20px;border-radius:50%; background:var(--acc); border:3px solid var(--bg-raise); box-shadow:0 1px 6px rgba(0,0,0,.35); cursor:pointer; }
+    .dim__row input[type=range]::-moz-range-thumb{ width:16px;height:16px;border-radius:50%; background:var(--acc); border:3px solid var(--bg-raise); cursor:pointer; }
+    .qty { display:flex; align-items:center; gap:.55rem; margin-top:.5rem; }
+    .qty button { width:26px;height:26px; border-radius:8px; border:1px solid var(--line-strong); background:var(--bg-raise); color:var(--text-1); font-weight:700; cursor:pointer; line-height:1; }
+    .qty b { min-width:2.4ch; text-align:center; font-variant-numeric:tabular-nums; }
+    .qty .u { font-size:.72rem; color:var(--text-2); }
+
+    /* prijsopbouw */
+    .opbouw { border: 1px solid var(--line); border-radius: 14px; background: var(--bg-raise); padding: 1.05rem 1.2rem 1.1rem; margin-bottom: .9rem; }
+    .opbouw table { width: 100%; border-collapse: collapse; font-size: .78rem; }
+    .opbouw td { padding: .3rem 0; border-bottom: 1px dashed var(--line); color: var(--text-2); vertical-align: top; }
+    .opbouw tr:last-child td { border-bottom: none; }
+    .opbouw td.p { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--text); }
+    .opbouw td.p.min { color: #9fce9f; }
+
+    /* price bar */
+    .pricebar { margin-top: 1rem; border: 1px solid var(--line-strong); border-radius: 14px; background: linear-gradient(var(--bg-raise-2), var(--bg-raise)); padding: 1.1rem 1.2rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .pricebar__p { flex: 1 1 auto; min-width: 140px; }
+    .pricebar__p .k { display: flex; align-items: center; gap: .5rem; font-family: var(--mono); font-size: .66rem; text-transform: uppercase; letter-spacing: .06em; color: var(--text-3); }
+    .pricebar__p .v { font-size: 1.8rem; font-weight: 800; color: var(--text); letter-spacing: -.02em; margin-top: .1rem; }
+    .btw { display: inline-flex; border: 1px solid var(--line-strong); border-radius: 7px; overflow: hidden; }
+    .btw button { border: none; background: transparent; color: var(--text-3); font: inherit; font-size: .62rem; font-family: var(--mono); padding: .28rem .5rem; cursor: pointer; }
+    .btw button.is-on { background: var(--acc-soft); color: var(--acc); }
+    .pricebar__cta { display: flex; gap: .5rem; align-items: stretch; flex-wrap: wrap; }
+    .btn--acc { background: var(--acc); color: #17130a; border: none; font-weight: 700; }
+    .btn--acc:hover { filter: brightness(1.06); box-shadow: 0 8px 24px color-mix(in srgb, var(--acc) 30%, transparent); }
+    .btn--icon { width: 46px; padding: 0; display: grid; place-items: center; }
+    .btn--icon svg { width: 18px; height: 18px; }
+
+    /* lead form */
+    .lead { display: grid; gap: .8rem; }
+    .lead__grid { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+    @media (max-width: 520px){ .lead__grid { grid-template-columns: 1fr; } }
+    .fld { display: grid; gap: .35rem; }
+    .fld label { font-size: .76rem; color: var(--text-2); font-weight: 500; }
+    .fld input, .fld textarea { width: 100%; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--bg-raise); color: var(--text); font: inherit; font-size: .88rem; padding: .7rem .85rem; }
+    .fld input:focus, .fld textarea:focus { outline: none; border-color: var(--acc); }
+    .lead__note { font-size: .74rem; color: var(--text-3); line-height: 1.5; }
+    .lead__msg { font-size: .84rem; padding: .8rem 1rem; border-radius: 10px; line-height: 1.5; }
+    .lead__msg.ok { background: var(--acc-soft); color: var(--acc); border: 1px solid color-mix(in srgb, var(--acc) 40%, transparent); }
+    .lead__msg.err { background: rgba(220,80,80,.1); color: #e88; border: 1px solid rgba(220,80,80,.35); }
+    .cfg__panel { padding: 1.6rem 1.6rem; display: grid; gap: 1.4rem; }
+  </style>
+  <style id="ng-protect-css">
+    /* Beeld- en kopieerbeveiliging */
+    img,picture,.conf__hero,.conf__hero img,.conf__hero svg,.preset__th,.ref__it img,.hbg{
+      -webkit-user-drag:none;-khtml-user-drag:none;-moz-user-drag:none;-o-user-drag:none;user-select:none;
+      -webkit-touch-callout:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;
+    }
+    body{ -webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none; }
+    input,textarea,select,[contenteditable]{ -webkit-user-select:text!important;-moz-user-select:text!important;-ms-user-select:text!important;user-select:text!important; -webkit-touch-callout:default; }
+    .conf__hero,.conf__hero img,.conf__hero .tek,.preset__th svg,.hbg{ pointer-events:none; }
+    .conf__hero .aanzicht,.tile,.preset{ pointer-events:auto; }
+  </style>
+  <script id="ng-protect-js">
+  (function(){
+    function inField(t){ return t && t.closest && t.closest('input,textarea,select,[contenteditable]'); }
+    document.addEventListener('contextmenu',function(e){ if(inField(e.target)) return; e.preventDefault(); },{capture:true});
+    document.addEventListener('dragstart',function(e){ e.preventDefault(); },{capture:true});
+    document.addEventListener('drop',function(e){ e.preventDefault(); },{capture:true});
+    document.addEventListener('copy',function(e){ if(!inField(e.target)) e.preventDefault(); },{capture:true});
+    document.addEventListener('cut',function(e){ if(!inField(e.target)) e.preventDefault(); },{capture:true});
+  })();
+  </script>
+  <script type="application/ld+json" data-productfaq>{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Wat kost een nokverhoging?","acceptedAnswer":{"@type":"Answer","text":"Voor een tussenwoning ligt het zwaartepunt tussen de vijfentwintig- en vijfendertigduizend euro inclusief plaatsing en btw. Een vrijstaande woning of een brede kap komt hoger uit, omdat er meer dakvlak opnieuw gedekt wordt en er twee kopgevels mee omhoog moeten. In de configurator hierboven zie je wat elke keuze doet."}},{"@type":"Question","name":"Is een nokverhoging vergunningsvrij?","acceptedAnswer":{"@type":"Answer","text":"Nee. Een nokverhoging verandert de bouwhoogte en het aanzicht van de woning, en dat betekent altijd een omgevingsvergunning met een welstandstoets. In veel wijken geldt bovendien een beeldkwaliteitsplan. De tekeningen en de constructieberekening zitten in de richtprijs; de leges van de gemeente niet."}},{"@type":"Question","name":"Wat is het verschil met een dakkapel?","acceptedAnswer":{"@type":"Answer","text":"Een dakkapel zit ín het schuine dakvlak: de kap blijft staan en je wint stahoogte op één plek. Bij een nokverhoging gaat de nok zelf omhoog en win je stahoogte over de volle breedte van de woning. Een dakkapel is een fractie van de prijs; een nokverhoging levert een volwaardige verdieping op. Voor de dakkapel staat er een aparte demo-configurator."}},{"@type":"Question","name":"Hoe lang staat mijn huis open?","acceptedAnswer":{"@type":"Answer","text":"Bij een prefab nokverhoging één dag: de oude kap gaat eraf en de nieuwe kap staat dezelfde dag waterdicht. Traditioneel opgebouwd duurt het één tot drie weken, met een tijdelijke overkapping erboven. Dat verschil is voor veel mensen doorslaggevend, zeker in het najaar."}},{"@type":"Question","name":"Kan mijn woning een nokverhoging dragen?","acceptedAnswer":{"@type":"Answer","text":"De extra belasting komt op de bestaande bouwmuren en de fundering. Bij naoorlogse woningen kan dat meestal; bij oudere woningen moet de constructeur rekenen. Dat onderzoek gaat vooraf aan de vergunningsaanvraag en is het eerste wat er moet gebeuren."}},{"@type":"Question","name":"Moet ik dit met de buren afstemmen?","acceptedAnswer":{"@type":"Answer","text":"Bij een tussenwoning of twee-onder-een-kap raakt de nieuwe kap de woningscheidende muur, en die aansluiting moet brandwerend en waterdicht blijven. Bouw je tegelijk met de buren op, dan deel je de steiger en de kraan en scheelt dat aan beide kanten flink."}}]}</script>
+    <!-- ============ ENTITEIT (scripts/entiteit.py) ============ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://nextgrowthdigital.nl/#organization",
+          "name": "Next Growth",
+          "url": "https://nextgrowthdigital.nl/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://nextgrowthdigital.nl/assets/media/next-growth-logo.svg"
+          },
+          "description": "Next Growth is een creatief groeibureau: branding, websites, marketing en configurators voor bedrijven. Landelijk actief.",
+          "email": "info@nextgrowthdigital.nl",
+          "telephone": "+31683902192",
+          "vatID": "NL004420281B57",
+          "taxID": "96002913",
+          "identifier": [
+            {
+              "@type": "PropertyValue",
+              "name": "KvK-nummer",
+              "value": "96002913"
+            },
+            {
+              "@type": "PropertyValue",
+              "name": "btw-identificatienummer",
+              "value": "NL004420281B57"
+            }
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "Noord-Brabant",
+            "addressCountry": "NL"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "sales",
+            "telephone": "+31683902192",
+            "email": "info@nextgrowthdigital.nl",
+            "areaServed": "NL",
+            "availableLanguage": [
+              "nl",
+              "en",
+              "de"
+            ]
+          },
+          "areaServed": [
+            {
+              "@type": "Country",
+              "name": "Nederland"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Noord-Brabant"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Gelderland"
+            },
+            {
+              "@type": "City",
+              "name": "Nijmegen"
+            },
+            {
+              "@type": "City",
+              "name": "Den Bosch"
+            },
+            {
+              "@type": "City",
+              "name": "Eindhoven"
+            },
+            {
+              "@type": "City",
+              "name": "Arnhem"
+            },
+            {
+              "@type": "City",
+              "name": "Uden"
+            },
+            {
+              "@type": "City",
+              "name": "Veghel"
+            },
+            {
+              "@type": "City",
+              "name": "Wijchen"
+            },
+            {
+              "@type": "City",
+              "name": "Vught"
+            },
+            {
+              "@type": "City",
+              "name": "Cuijk"
+            },
+            {
+              "@type": "City",
+              "name": "Grave"
+            }
+          ],
+          "knowsAbout": [
+            "Productconfigurator laten maken",
+            "Offertesoftware voor bouwbedrijven",
+            "Website laten maken voor bouw- en installatiebedrijven",
+            "Zoekmachineoptimalisatie",
+            "CRM voor bouwbedrijven",
+            "Dakopbouw",
+            "Uitbouw en aanbouw",
+            "Badkamer verbouwen",
+            "Overkapping op maat",
+            "Zwembad aanleggen",
+            "Dakkapel",
+            "Omgevingsvergunning bij verbouwen"
+          ],
+          "alternateName": [
+            "Next Growth Digital"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://nextgrowthdigital.nl/#website",
+          "url": "https://nextgrowthdigital.nl/",
+          "name": "Next Growth",
+          "inLanguage": "nl-NL",
+          "publisher": {
+            "@id": "https://nextgrowthdigital.nl/#organization"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://nextgrowthdigital.nl/nokverhoging-configurator",
+          "url": "https://nextgrowthdigital.nl/nokverhoging-configurator",
+          "name": "Nokverhoging-configurator: live demo voor bouwbedrijven | Next Growth",
+          "inLanguage": "nl",
+          "isPartOf": {
+            "@id": "https://nextgrowthdigital.nl/#website"
+          },
+          "about": {
+            "@id": "https://nextgrowthdigital.nl/#organization"
+          },
+          "description": "Live demo van een nokverhoging-configurator die Next Growth bouwt voor dakdekkers en bouwbedrijven. Je klant kiest woningtype, indeling, gevelafwerking, kozijnkleur en opties en ziet direct de richtprijs, inclusief plaatsing en vergunningstekeningen.",
+          "dateModified": "2026-08-28"
+        }
+      ]
+    }
+    </script>
+    <!-- ============ EINDE ENTITEIT ============ -->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,900;125,900&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/ngx-shell.css"><script>document.documentElement.classList.add("ngx-display")</script><style id="ngx-world">:root{--ink-900:#0B111A;--ink-800:#0F1620;--ink-700:#131C28;--ink-600:#161F2B;--ink-500:#1D2836;--ink-400:#2A3545;--tint:#131C28;--bg:#0F1620;--bg-raise:#161F2B;--bg-raise-2:#1D2836;--accent:#E63B2E;--accent-strong:#C92F23;--accent-light:#FF8A80;--accent-deep:#8E1F17;--accent-dim:rgba(230,59,46,.13);--glow:rgba(230,59,46,.30);--accent-rgb:230,59,46;--acc:#E63B2E;--acc-soft:rgba(230,59,46,.14);--acc-diep:#8E1F17;--goud-metaal:linear-gradient(150deg,#8E1F17 0%,#E63B2E 26%,#FF8A80 46%,#E63B2E 66%,#8E1F17 100%);--goud-lijn:linear-gradient(90deg,transparent,rgba(230,59,46,.55) 30%,rgba(230,59,46,.55) 70%,transparent);--serif:'Archivo','Arial Black',sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;}html,body{background:#0F1620}.ngx-nav{--x-sig:#E63B2E;--x-ink:#FFFFFF;background:#0F1620F5}.ngx-nav .ngx-mark{background:#FFC400}</style></head>
+<body>
+  <a class="skip" href="#main">Direct naar inhoud</a>
+  <header class="ngx-nav"><div class="ngx-wrap">
+<a class="ngx-brand" href="/"><span class="ngx-ring">NG</span><span>Next Growth<small>Creatief groeibureau · Landelijk</small></span></a>
+<a class="ngx-mark" href="/" aria-label="Next Growth, naar de homepage"><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14V4l10 10V4" stroke="#0A0800" stroke-width="2.8" stroke-linecap="square"/></svg></a>
+<nav class="ngx-links" aria-label="Hoofdmenu"><a href="/">Home</a><a href="/dienst-webdesign">Websites</a><a href="/dienst-branding">Branding</a><a href="/dienst-marketing">Marketing</a><a href="/dienst-configurators">Configurators</a><a href="/kennisbank">Kennisbank</a><a href="/prijzen">Prijzen</a></nav>
+<a class="ngx-cta" href="/#contact">Kennismaken</a>
+<button class="ngx-menu" type="button" aria-expanded="false" aria-controls="ngx-mnav">Menu</button>
+</div><nav id="ngx-mnav" class="ngx-mnav" aria-label="Mobiel menu" hidden><a href="/">Home</a><a href="/dienst-webdesign">Websites</a><a href="/dienst-branding">Branding</a><a href="/dienst-marketing">Marketing</a><a href="/dienst-configurators">Configurators</a><a href="/kennisbank">Kennisbank</a><a href="/prijzen">Prijzen</a><a href="/#contact" class="ngx-cta">Plan een kennismaking</a></nav></header>
+
+  <main id="main">
+    <section class="cfg-hero" aria-label="Nokverhoging configurator">
+      <div class="wrap">
+        <p class="pill" data-reveal><span class="dot dot--ok"></span>Live demo &middot; nokverhoging-configurator voor bouwbedrijven</p>
+        <h1 class="h1" data-reveal style="--i:1">Je klant stelt zijn nokverhoging samen <span class="grad-text">en ziet direct de prijs.</span></h1>
+        <p class="lede" data-reveal style="--i:2">Dit is een live demo van een configurator die Next Growth bouwt voor dakdekkers en bouwbedrijven. Kies het woningtype, de indeling, de gevelafwerking en de kozijnkleur en zie precies die nokverhoging op de woning staan. De richtprijs, inclusief plaatsing en vergunningstekeningen, rekent live mee. Anders dan een dakkapel gaat hier de nok zelf omhoog.</p>
+        <div class="matswitch" role="radiogroup" aria-label="Uitvoering" data-reveal style="--i:3">
+          <button type="button" data-t="prefab" class="is-on" aria-pressed="true">Prefab</button>
+          <button type="button" data-t="traditioneel" aria-pressed="false">Traditioneel</button>
+          <a href="/dakkapel-configurator" title="Naar de dakkapel configurator">Dakkapel</a>
+          <a href="/dakopbouw-configurator" title="Naar de dakopbouw configurator">Dakopbouw</a>
+        </div>
+        <div class="presets" data-reveal style="--i:4">
+          <span class="presets__lbl">Populaire samenstellingen</span>
+          <div class="presets__row" id="presetRow"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sectie" style="padding-top: clamp(1.5rem,4vh,2.5rem);" aria-label="Configurator">
+      <div class="wrap" style="max-width: 1600px; width: min(100%, 1600px);">
+        <div class="conf" data-reveal>
+          <div class="conf__head">
+            <div>
+              <div class="conf__title" id="confTitle"></div>
+              <div class="conf__sub" id="confSub"></div>
+            </div>
+            <div class="conf__badge" id="confBadge"></div>
+          </div>
+          <div class="conf__layout">
+            <div class="conf__visual">
+              <div class="conf__hero" id="confHeroWrap">
+                <div class="hbg" id="confHeroBg"></div>
+                <img id="confHero" alt="" width="1200" height="675" hidden>
+                <div id="confTek" class="tek"></div>
+                <span class="live"><span class="dot"></span><span id="confLive">Live voorbeeld</span></span>
+                <span class="dim" id="confDim"></span>
+                <span class="verg" id="confVerg"><span class="vdot"></span><span id="confVergTxt"></span></span>
+              </div>
+              <div class="schets" id="confSchets" hidden>
+                <b>Maatschets, render volgt</b>
+                <span>Van deze combinatie is nog geen foto gemaakt. De schets hierboven volgt je keuzes exact; hieronder staan echte referentiebeelden van de gekozen kleur en opties.</span>
+              </div>
+              <div class="ref" id="confRef" hidden>
+                <span class="ref__lbl" id="confRefLbl"></span>
+                <div class="ref__row" id="confRefRow"></div>
+              </div>
+              <div class="pricebar">
+                <div class="pricebar__p">
+                  <span class="k">Richtprijs
+                    <span class="btw" role="group" aria-label="btw">
+                      <button type="button" id="btwIncl" class="is-on" aria-pressed="true">incl. btw</button>
+                      <button type="button" id="btwExcl" aria-pressed="false">excl. btw</button>
+                    </span>
+                  </span>
+                  <span class="v" id="prijs">&euro; 0</span>
+                </div>
+                <div class="pricebar__cta">
+                  <button class="btn btn--acc" type="button" id="naarOfferte">Offerte aanvragen</button>
+                  <button class="btn btn--ghost" type="button" id="materiaalstaatBtn" title="Open de materiaalstaat als afdrukbaar blad">Materiaalstaat</button>
+                  <button class="btn btn--ghost btn--icon" type="button" id="downloadBtn" aria-label="Download configuratie" title="Download je configuratie">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="conf__options">
+              <div id="groups"></div>
+              <div class="opbouw" aria-label="Prijsopbouw">
+                <div class="grp__h"><b>&#8721;</b>Prijsopbouw</div>
+                <table id="opbouwTabel"></table>
+                <p class="grp__noot">Richtprijs inclusief plaatsing, het afbreken en opnieuw opbouwen van de kap, lood- en zetwerk, afvoer, vergunningstekeningen en constructieberekening. Leges van de gemeente zitten er niet in. De definitieve prijs volgt na inmeten en na het constructieonderzoek.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LEAD FORM -->
+        <div class="card cfg__panel" id="offerte" data-reveal style="margin-top:1.4rem;">
+          <div>
+            <p class="eyebrow">Bijna klaar</p>
+            <h2 class="h2" style="font-size:1.4rem; margin-top:.4rem;">Ontvang je offerte op maat.</h2>
+            <p style="font-size:.86rem; margin-top:.5rem;">Je volledige samenstelling wordt automatisch meegestuurd. We nemen binnen één werkdag contact op om het inmeten en het constructieonderzoek in te plannen. Daarna staat de definitieve prijs vast.</p>
+          </div>
+          <div class="samenv" id="samenv" aria-label="Jouw samenstelling"></div>
+          <form class="lead" id="leadForm">
+            <div class="lead__grid">
+              <div class="fld"><label for="f_naam">Naam</label><input id="f_naam" name="naam" required autocomplete="name"></div>
+              <div class="fld"><label for="f_plaats">Plaats</label><input id="f_plaats" name="plaats" autocomplete="address-level2"></div>
+              <div class="fld"><label for="f_email">E-mailadres</label><input id="f_email" name="email" type="email" required autocomplete="email"></div>
+              <div class="fld"><label for="f_tel">Telefoon</label><input id="f_tel" name="telefoon" type="tel" autocomplete="tel"></div>
+            </div>
+            <div class="fld"><label for="f_ber">Bericht (optioneel)</label><textarea id="f_ber" name="bericht" rows="3" placeholder="Bijzonderheden, bouwjaar van de woning, gewenste periode…"></textarea></div>
+            <input type="hidden" id="f_config" name="configuratie">
+            <button class="btn btn--acc" type="submit" id="leadBtn" style="justify-self:start;">Verstuur aanvraag</button>
+            <p class="lead__msg" id="leadMsg" role="status" hidden></p>
+            <p class="lead__note">In deze demo komt je aanvraag met de volledige samenstelling binnen bij Next Growth. Liever bellen? <a href="tel:+31683902192" style="color:var(--acc)">06 83 90 21 92</a>.</p>
+          </form>
+        </div>
+
+        <!-- Interne assetlijst: alleen met ?assets=1 in de link. Hoort niet bij
+             wat een klant ziet, maar wel bij wat de werkvoorbereiding nodig
+             heeft om de volgende renderbatch uit te zetten. -->
+        <div class="card cfg__panel" id="assetPaneel" data-reveal style="margin-top:1.4rem;" hidden>
+          <div>
+            <p class="eyebrow">Intern</p>
+            <h2 class="h2" style="font-size:1.4rem; margin-top:.4rem;">Assetregistry &amp; ontbrekende renders</h2>
+            <p style="font-size:.86rem; margin-top:.5rem;">Uitgerekend uit de registry, niet bijgehouden in een losse lijst. Deze telling loopt vanzelf terug zodra een render wordt toegevoegd aan <code>nokverhoging-renders.js</code>.</p>
+          </div>
+          <div id="assetUit"></div>
+        </div>
+      </div>
+    </section>
+
+<section class="sectie ng-vraag" aria-label="Zelf zo'n configurator">
+  <div class="wrap">
+    <div class="ng-vraag__kaart">
+      <div class="ng-vraag__tekst">
+        <p class="eyebrow">Dit is een demo van Next Growth</p>
+        <h2>Zo'n nokverhoging-configurator op je eigen website?</h2>
+        <p class="lede">Je klanten kiezen woningtype, indeling en afwerking, zien direct hun
+          eigen combinatie en sturen een complete aanvraag door. Jij krijgt hem binnen met
+          alles erin. Geen telefoontjes meer om uit te zoeken wat iemand eigenlijk wil.</p>
+        <ul class="ng-vraag__punten">
+          <li><span></span>Jouw huisstijl, jouw assortiment, jouw prijzen</li>
+          <li><span></span>Twee weken van start tot live</li>
+          <li><span></span>Elke aanvraag compleet in je dashboard</li>
+        </ul>
+        <div class="ng-vraag__knoppen">
+          <a class="btn" href="./contact.html?over=nokverhoging">Laat zien hoe dit er voor mijn product uitziet</a>
+          <a class="btn btn--ghost" href="/prijzen">Wat kost het?</a>
+        </div>
+        <p class="ng-vraag__noot">Vrijblijvend. Je krijgt binnen 24 uur een voorbeeld van je
+          eigen product in deze configurator te zien.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sectie" aria-labelledby="nok-uitleg">
+  <div class="wrap">
+    <div class="sectie-kop">
+      <p class="eyebrow">Wat de configurator uitlegt</p>
+      <h2 class="h2" id="nok-uitleg">Een nokverhoging samenstellen: wat bepaalt de prijs</h2>
+      <p class="lede">Een goede configurator legt je klant uit waar de prijs van afhangt. Dit is
+        de uitleg die in deze demo bij de nokverhoging hoort. Bij een nokverhoging gaat de
+        noklijn omhoog en win je stahoogte over de volle breedte van de woning. De prijs hangt aan vier dingen: het woningtype, de
+        indeling van het kozijn, prefab of traditioneel, en de afwerking.</p>
+    </div>
+
+    <div class="ovk-uitleg">
+      <article>
+        <h3>Het woningtype is de grootste knop</h3>
+        <p>Elke <strong>vrije kopgevel</strong> moet mee omhoog, en dat is metselwerk op
+          hoogte dat in kleur en verband moet aansluiten op wat er staat. Een vrijstaande
+          woning heeft er twee, een hoekwoning of twee-onder-een-kap één, een tussenwoning
+          geen enkele.</p>
+        <p>Bij een <strong>tussenwoning</strong> komt daar iets anders voor terug: de nieuwe
+          kap sluit aan op twee woningscheidende bouwmuren, en die aansluiting moet
+          brandwerend én waterdicht blijven. Goedkoper dan een kopgevel, maar geen post om
+          over te slaan.</p>
+      </article>
+      <article>
+        <h3>De indeling van het kozijn</h3>
+        <p>In de nieuwe gevel komt <strong>één doorlopende kozijnconstructie</strong>; slanke
+          stijlen verdelen het glas in twee tot zes vakken. Elk vak erbij telt door in kozijn,
+          glas en afwerking.</p>
+        <p>Je kiest de indeling, niet de centimeters. Welke breedte technisch bij welke indeling
+          hoort, hangt af van je kap en je gevel, en dat meet het bouwbedrijf ter plekke in. Een
+          configurator die daar nu een maat bij zet, verzint hem.</p>
+      </article>
+      <article>
+        <h3>Vergunning: altijd, en dat is maar goed ook</h3>
+        <p>Een nokverhoging verandert de <strong>bouwhoogte</strong> en het aanzicht van de
+          woning. Er is dus altijd een omgevingsvergunning nodig en welstand kijkt mee. In veel
+          wijken geldt bovendien een beeldkwaliteitsplan dat voorschrijft hoe een verhoogde nok
+          eruit moet zien, juist zodat de straat één geheel blijft.</p>
+        <p>Dat werkt vaak in je voordeel: is er in je straat al een nokverhoging goedgekeurd,
+          dan is dezelfde vorm doorgaans een formaliteit. In deze demo zitten de tekeningen, de
+          constructieberekening en de begeleiding in de richtprijs; de leges van de
+          gemeente niet. Reken op zes tot twaalf weken behandeltijd.</p>
+      </article>
+      <article>
+        <h3>Prefab of traditioneel</h3>
+        <p>Een <strong>prefab nokverhoging</strong> wordt in de werkplaats gebouwd en met een
+          kraan geplaatst: de oude kap gaat er 's ochtends af en de nieuwe staat 's middags
+          waterdicht. Korte overlast, vaste prijs. Wel moet er een kraan bij kunnen staan.</p>
+        <p><strong>Traditioneel</strong> wordt de kap op de woning zelf opgebouwd. Dat duurt
+          één tot drie weken en je woning staat in die tijd onder een tijdelijke overkapping,
+          maar elke kapvorm en hoek kan. Bij een gedraaid dakvlak, een knik in de kap of een
+          monument is dit vaak de enige route.</p>
+      </article>
+      <article>
+        <h3>Wat eronder zit</h3>
+        <p>De extra belasting komt op de bestaande <strong>bouwmuren en de fundering</strong>.
+          Bij naoorlogse woningen is dat zelden een probleem; bij oudere woningen moet de
+          constructeur rekenen, en soms komt er een stalen portaal bij. Dat onderzoek gaat
+          vooraf aan de vergunningsaanvraag. Het is het eerste wat er moet gebeuren, niet
+          het laatste.</p>
+        <p>Kijk ook naar de <strong>trap</strong>. Een nokverhoging maakt de zolder een
+          volwaardige verdieping, en dan gelden er eisen aan de trap en aan de
+          vluchtroute die op een bergzolder niet golden.</p>
+      </article>
+      <article>
+        <h3>Gevelafwerking en kozijnkleur</h3>
+        <p>De nieuwe gevel boven de oude noklijn krijgt één afwerking. Crème en lichtgrijs
+          vallen weg tegen een lichte gevel, <strong>antraciet en zwart</strong> maken er een
+          strak vlak van. Dat is veruit het meest gekozen. <strong>Thermowood</strong> is de warme
+          uitzondering en <strong>zinkplaten</strong> de strakste.</p>
+        <p>De kozijnkleur staat daar los van: zes gevelafwerkingen maal vier kozijnkleuren, per
+          indeling. Wit kozijn in een antracieten gevel geeft de klassieke contrastlijn; kozijn
+          in dezelfde kleur laat de verhoging het meest opgaan in het dak.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- De film staat vóór de FAQ en niet erna: wie hier is beland heeft de
+     configurator al gezien en heeft geen uitleg meer nodig, maar wie via een
+     zoekresultaat op de FAQ landt wel. Vandaar hier, onderaan de pagina, waar
+     hij de vragen niet in de weg zit. -->
+<section class="sectie" aria-label="Zo werkt de nokverhogingconfigurator">
+  <div class="wrap">
+    <div class="sectie-kop">
+      <p class="eyebrow">Zo werkt het</p>
+      <h2 class="h2">Echte opname, geen animatie.</h2>
+      <p style="color:var(--muted,#9c9a94);max-width:46rem;margin-top:.6rem">Vijfenzestig seconden uit deze configurator, met gesproken uitleg: de glasvakken, de gevelafwerking, de kozijnkleur en de binnenafwerking. Met de richtprijs die meerekent en het tekenpakket en de materiaalstaat die er aan het eind uit rollen.</p>
+    </div>
+    <figure style="margin:0;max-width:64rem">
+      <div style="border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#0C0D10">
+        <video controls preload="none" playsinline poster="./assets/media/poster-nokverhoging.jpg"
+               style="width:100%;aspect-ratio:16/9;display:block;background:#0C0D10">
+          <source src="./assets/video/nokverhoging.mp4" type="video/mp4">
+          Je browser kan deze video niet afspelen. <a href="./assets/video/nokverhoging.mp4">Download hem hier.</a>
+        </video>
+      </div>
+      <figcaption style="margin-top:.7rem">
+        <strong style="display:block">Een nokverhoging samenstellen</strong>
+        <span style="color:var(--muted,#9c9a94);font-size:.92rem">Van twee tot zes glasvakken, zes gevelafwerkingen en vier kozijnkleuren: 96 van de 120 combinaties zijn een echte render van d&iacute;&eacute; samenstelling; de rest valt terug op de maatschets.</span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+<section class="sectie" aria-labelledby="nok-faq">
+  <div class="wrap">
+    <div class="sectie-kop">
+      <p class="eyebrow">Veelgestelde vragen</p>
+      <h2 class="h2" id="nok-faq">Vragen over een nokverhoging</h2>
+    </div>
+    <div class="ovk-faq">
+      <details>
+        <summary><span>Wat kost een nokverhoging?</span></summary>
+        <p>Voor een tussenwoning ligt het zwaartepunt tussen de vijfentwintig- en
+          vijfendertigduizend euro inclusief plaatsing en btw. Een vrijstaande woning of een
+          brede kap komt hoger uit, omdat er meer dakvlak opnieuw gedekt wordt en er twee
+          kopgevels mee omhoog moeten. In de configurator hierboven zie je wat elke keuze doet.</p>
+      </details>
+      <details>
+        <summary><span>Is een nokverhoging vergunningsvrij?</span></summary>
+        <p>Nee. Een nokverhoging verandert de bouwhoogte en het aanzicht van de woning, en dat
+          betekent altijd een omgevingsvergunning met een welstandstoets. In veel wijken geldt
+          bovendien een beeldkwaliteitsplan. De tekeningen en de constructieberekening zitten in
+          de richtprijs; de leges van de gemeente niet.</p>
+      </details>
+      <details>
+        <summary><span>Wat is het verschil met een dakkapel?</span></summary>
+        <p>Een dakkapel zit ín het schuine dakvlak: de kap blijft staan en je wint stahoogte op
+          één plek. Bij een nokverhoging gaat de nok zelf omhoog en win je stahoogte over de
+          volle breedte van de woning. Een dakkapel is een fractie van de prijs; een
+          nokverhoging levert een volwaardige verdieping op. Voor de dakkapel staat er een
+          <a href="/dakkapel-configurator">aparte demo-configurator</a>.</p>
+      </details>
+      <details>
+        <summary><span>Hoe lang staat mijn huis open?</span></summary>
+        <p>Bij een prefab nokverhoging één dag: de oude kap gaat eraf en de nieuwe kap staat
+          dezelfde dag waterdicht. Traditioneel opgebouwd duurt het één tot drie weken, met een
+          tijdelijke overkapping erboven. Dat verschil is voor veel mensen doorslaggevend,
+          zeker in het najaar.</p>
+      </details>
+      <details>
+        <summary><span>Kan mijn woning een nokverhoging dragen?</span></summary>
+        <p>De extra belasting komt op de bestaande bouwmuren en de fundering. Bij naoorlogse
+          woningen kan dat meestal; bij oudere woningen moet de constructeur rekenen. Dat
+          onderzoek gaat vooraf aan de vergunningsaanvraag en is het eerste wat er moet
+          gebeuren.</p>
+      </details>
+      <details>
+        <summary><span>Moet ik dit met de buren afstemmen?</span></summary>
+        <p>Bij een tussenwoning of twee-onder-een-kap raakt de nieuwe kap de woningscheidende
+          muur, en die aansluiting moet brandwerend en waterdicht blijven. Bouw je tegelijk met
+          de buren op, dan deel je de steiger en de kraan en scheelt dat aan beide kanten flink.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+    <!-- ============ PER PLAATS (scripts/configuratorsteden.py) ============ -->
+    <div class="ng-blok" role="region" aria-labelledby="perplaats-kop">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <p class="eyebrow">Per plaats</p>
+          <h2 class="h2" id="perplaats-kop">Zo'n configurator voor je eigen bedrijf, per plaats</h2>
+          <p>Deze nokverhogingconfigurator bouwen we voor dakdekkers en bouwbedrijven, in hun eigen huisstijl en met hun eigen prijzen. Per plaats staat wat de markt daar vraagt.</p>
+        </div>
+        <div class="ng-branches">
+          <a class="ng-branche" href="/dienst-webdesign"><b>Configurator laten maken, landelijk</b><span>Heel Nederland</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-nijmegen"><b>Configurator laten maken in Nijmegen</b><span>Gelderland</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-arnhem"><b>Configurator laten maken in Arnhem</b><span>Gelderland</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-den-bosch"><b>Configurator laten maken in Den Bosch</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-uden"><b>Configurator laten maken in Uden</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-veghel"><b>Configurator laten maken in Veghel</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-wijchen"><b>Configurator laten maken in Wijchen</b><span>Gelderland</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-vught"><b>Configurator laten maken in Vught</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-cuijk"><b>Configurator laten maken in Cuijk</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-grave"><b>Configurator laten maken in Grave</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-eindhoven"><b>Configurator laten maken in Eindhoven</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <!-- ============ EINDE PER PLAATS ============ -->
+  <!-- ============ TERUGBELVERZOEK ============ -->
+  <div class="ng-terugbel" role="region" aria-labelledby="terugbel-kop">
+    <div class="wrap ng-terugbel__in">
+      <div class="ng-terugbel__tekst" data-reveal>
+        <p class="eyebrow">Terugbelverzoek</p>
+        <h2 class="h2" id="terugbel-kop">Liever even bellen dan typen?</h2>
+        <p class="lede">Laat je nummer achter, dan bellen we je dezelfde werkdag terug. Je krijgt iemand aan de lijn die deze systemen zelf bouwt, geen callcenter.</p>
+        <ul class="ng-terugbel__punten">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Binnen &eacute;&eacute;n werkdag gebeld</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Tien minuten is genoeg voor prijs en doorlooptijd</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Vrijblijvend, je zit nergens aan vast</span></li>
+        </ul>
+        <p class="ng-terugbel__zelf">Liever zelf bellen? <a href="tel:+31683902192">06 83 90 21 92</a></p>
+      </div>
+
+      <div class="card ng-terugbel__kaart" data-reveal style="--i:1">
+        <p class="ng-terugbel__kop"><span class="dot dot--ok" aria-hidden="true"></span>3 velden &middot; 20 seconden</p>
+        <form data-terugbel data-bron="nokverhoging-configurator.html" action="mailto:info@nextgrowthdigital.nl" method="post" enctype="text/plain" aria-label="Terugbelverzoek">
+            <div class="ng-veld">
+              <label for="tb-naam">Naam</label>
+              <input type="text" id="tb-naam" name="naam" placeholder="Voor- en achternaam" autocomplete="name" required>
+            </div>
+            <div class="ng-veld">
+              <label for="tb-bedrijf">Bedrijf</label>
+              <input type="text" id="tb-bedrijf" name="bedrijf" placeholder="Van Dijk Installaties" autocomplete="organization" required>
+            </div>
+            <div class="ng-veld">
+              <label for="tb-tel">Telefoonnummer</label>
+              <input type="tel" id="tb-tel" name="telefoon" placeholder="06 12 34 56 78" autocomplete="tel" inputmode="tel" required>
+            </div>
+            <div class="ng-terugbel__honeypot" aria-hidden="true">
+              <label for="tb-website">Website (niet invullen)</label>
+              <input type="text" id="tb-website" name="website" tabindex="-1" autocomplete="off">
+            </div>
+            <button class="btn ng-terugbel__verstuur" type="submit">Bel mij terug</button>
+            <p class="ng-terugbel__noot">Alleen om je terug te bellen. Geen nieuwsbrief, geen belrondes.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+  <footer class="ngx-foot"><div class="ngx-wrap">
+<div class="ngx-end"><h2>Zo'n configurator <span>op jouw site?</span></h2><div><p>Eén gesprek van twintig minuten. Je spreekt direct met de mensen die het bouwen en krijgt dezelfde dag een eerlijk advies.</p><a class="ngx-cta big" href="/#contact">Plan een kennismaking</a><a class="ngx-tel" href="tel:+31683902192">06 83 90 21 92</a></div></div>
+<div class="ngx-cols">
+<div><a class="ngx-brand" href="/"><span class="ngx-mk"><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14V4l10 10V4" stroke="#0A0800" stroke-width="2.8" stroke-linecap="square"/></svg></span><span>Next Growth Digital</span></a><p>Creatief groeibureau, landelijk actief. Branding, webdesign, marketing en eigen software.</p><p>info@nextgrowthdigital.nl</p></div>
+<div><h4>Diensten</h4><ul><li><a href="/dienst-branding">Branding</a></li><li><a href="/dienst-webdesign">Webdesign</a></li><li><a href="/dienst-marketing">Marketing</a></li><li><a href="/dienst-configurators">Configurators</a></li><li><a href="/dienst-crm">CRM &amp; offertes</a></li><li><a href="/prijzen">Prijzen</a></li></ul></div>
+<div><h4>Configurators</h4><ul><li><a href="/overkapping-configurator">Overkapping</a></li><li><a href="/aanbouw-configurator">Uitbouw</a></li><li><a href="/dakkapel-configurator">Dakkapel</a></li><li><a href="/dakopbouw-configurator">Dakopbouw</a></li><li><a href="/badkamer-configurator">Badkamer</a></li><li><a href="/zwembad-configurator">Zwembad</a></li><li><a href="/jacht-configurator">Jacht</a></li></ul></div>
+<div><h4>Kennisbank</h4><ul><li><a href="/kennisbank">Alle artikelen</a></li><li><a href="/kennisbank-configurator-kosten">Wat kost een configurator?</a></li><li><a href="/configurator-laten-maken">Configurator laten maken</a></li><li><a href="/kennisbank-website-kosten">Wat kost een website?</a></li></ul></div>
+<div><h4>Bedrijf</h4><ul><li><a href="/#cases">Cases</a></li><li><a href="/werkgebied">Werkgebied</a></li><li><a href="/privacyverklaring">Privacyverklaring</a></li><li><a href="/auteursrecht">Auteursrecht</a></li><li><a href="/#contact">Contact</a></li></ul></div>
+</div>
+<div class="ngx-legal"><span>© 2026 Next Growth Digital</span><span>KVK 96002913</span><span>Landelijk actief · Nederland</span></div>
+<p class="ngx-giant" aria-hidden="true">NEXT GROWTH</p></div></footer>
+<script>(function(){var b=document.querySelector('.ngx-menu'),n=document.getElementById('ngx-mnav');if(!b||!n)return;b.addEventListener('click',function(){var o=n.hasAttribute('hidden');if(o)n.removeAttribute('hidden');else n.setAttribute('hidden','');b.setAttribute('aria-expanded',o?'true':'false');b.textContent=o?'Sluiten':'Menu'})})();</script>
+
+  <script src="./assets/meting.js" defer></script>
+  <script src="./assets/terugbel.js" defer></script>
+  <script src="./assets/core.js" defer></script>
+  <!-- Zonder defer: de configurator hieronder leest deze drie bij het eerste
+       beeld al uit, en een defer-script draait daar pas na. -->
+  <script src="./assets/configuratie-bewaren.js"></script>
+  <script src="./assets/nokverhoging-renders.js"></script>
+  <script src="./assets/nokverhoging-regels.js"></script>
+  <script src="./assets/nokverhoging-prijzen.js"></script>
+  <script src="./assets/nokverhoging-materiaal.js"></script>
+  <script src="./assets/technische-tekeningen-kap.js"></script>
+  <script src="./assets/afdrukvenster.js"></script>
+  <script>
+(function(){
+  'use strict';
+  var $=function(q){ return document.querySelector(q); };
+  var R=window.NGNokverhogingRegels, P=window.NGNokverhogingPrijzen, B=window.NGNokverhogingRenders;
+  if(!R||!P||!B) return;
+  function euro(n){ return '€ '+Math.round(n).toLocaleString('nl-NL'); }
+  function esc(s){ return String(s).replace(/[&<>"]/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+
+  /* ---------- staat ---------- */
+  function defaults(uitvoering){
+    return { type:'nokverhoging', uitvoering:uitvoering||'prefab', woningtype:'tussen',
+      glasvakken:3, afwerking:'antraciet', kozijnkleur:'zwart', draaiend:2,
+      binnen:'casco',
+      opties:{ rolluiken:false, screens:false, rooster:true, spots:false },
+      extras:{ triple:false, horren:false, dakraam:false } };
+  }
+  var st=defaults('prefab');
+  var btwIncl=true;
+
+  /* Een indeling met minder vakken kan minder draaiende delen aan, en horren
+     zonder draaiend deel bestaan niet. Eén plek die dat rechttrekt, zodat een
+     ongeldige combinatie nooit in de prijs of de tekening terechtkomt. */
+  function klem(){
+    var max=R.maxDraaiend(st.glasvakken);
+    if(st.draaiend>max) st.draaiend=max;
+    if(st.draaiend<0) st.draaiend=0;
+    if(!st.draaiend) st.extras.horren=false;
+    if(st.opties.rolluiken&&st.opties.screens) st.opties.screens=false;
+  }
+
+  /* ---------- maatschets ----------
+     De terugval als een combinatie nog geen render heeft. Hij tekent de
+     kopgevel zoals de renders hem tonen: de woning met haar kap, en daarin de
+     verhoogde noklijn met de doorlopende kozijnconstructie erin. Zo hoeft er
+     nooit een foto van een ándere woning voor door te gaan. */
+  function tint(hex,f){
+    var n=parseInt(hex.slice(1),16), r=(n>>16)&255, g=(n>>8)&255, b=n&255;
+    function c(x){ return Math.round(Math.min(255,Math.max(0,x*f))); }
+    return '#'+(1<<24|c(r)<<16|c(g)<<8|c(b)).toString(16).slice(1);
+  }
+  function schetsSvg(){
+    var W=1200,H=675;
+    var afw=R.vind(R.afwerkingen,st.afwerking), koz=R.vind(R.kozijnkleuren,st.kozijnkleur);
+    var gevelKl=afw.sw, kozKl=koz.sw;
+    var licht=(st.afwerking==='creme'||st.afwerking==='lichtgrijs'||st.afwerking==='zink-platen');
+    var vk=st.glasvakken;
+
+    /* De kopgevel is een driehoek; de verhoging is de band daarin waar de oude
+       noklijn lag. Breder wordt de band niet — hij loopt van dakvlak tot
+       dakvlak — dus groeit hij met het aantal vakken in de hoogte van het glas
+       en in de breedte van de driehoek waar hij zit. */
+    var apexX=W/2, apexY=96, gootY=520, halfB=430+vk*22;
+    var bandBoven=250, bandOnder=386;
+    function randX(y,kant){
+      var t=(y-apexY)/(gootY-apexY);
+      return apexX+kant*halfB*t;
+    }
+    var s='<svg class="tekening" viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="xMidYMid slice" role="img" '
+      +'aria-label="Maatschets van de gekozen nokverhoging: '+vk+' glasvakken, '+afw.l.toLowerCase()+' met '+koz.l.toLowerCase()+' kozijn">';
+    s+='<defs><linearGradient id="nvLucht" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b6c4cf"/><stop offset="1" stop-color="#dbe2e7"/></linearGradient>'
+      +'<linearGradient id="nvGlas" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c9d5db"/><stop offset=".55" stop-color="#93a7b2"/><stop offset="1" stop-color="#6e828d"/></linearGradient>'
+      +'<clipPath id="nvKap"><polygon points="'+apexX+','+apexY+' '+randX(gootY,1)+','+gootY+' '+randX(gootY,-1)+','+gootY+'"/></clipPath></defs>';
+    s+='<rect width="'+W+'" height="'+H+'" fill="url(#nvLucht)"/>';
+
+    /* metselwerk van de bestaande woning, onder de goot */
+    var st1='#8d5c48', st2='#7b4e3c', voeg='#b9a89b';
+    s+='<rect y="'+gootY+'" width="'+W+'" height="'+(H-gootY)+'" fill="'+st1+'"/>';
+    for(var by=gootY, bi=0; by<H; by+=26, bi++){
+      for(var bx=(bi%2)*54; bx<W; bx+=108){
+        s+='<rect x="'+bx+'" y="'+by+'" width="52" height="22" fill="'+(bi%3?st1:st2)+'"/>';
+        s+='<rect x="'+(bx+54)+'" y="'+by+'" width="52" height="22" fill="'+(bi%2?st2:st1)+'"/>';
+      }
+      s+='<rect y="'+(by+22)+'" width="'+W+'" height="4" fill="'+voeg+'" opacity=".55"/>';
+    }
+    /* een raam in de bestaande gevel, zodat de maat van de verhoging leesbaar wordt */
+    s+='<rect x="'+(apexX-120)+'" y="'+(gootY+52)+'" width="240" height="96" fill="'+tint(kozKl,licht?1:1.1)+'"/>';
+    s+='<rect x="'+(apexX-108)+'" y="'+(gootY+62)+'" width="216" height="76" fill="url(#nvGlas)"/>';
+
+    /* de kap: pannen binnen de driehoek */
+    s+='<g clip-path="url(#nvKap)">';
+    var pan='#9c5541', pand='#7c4132', panLicht='#b06a4f', panDonker='#68372a';
+    s+='<rect y="'+apexY+'" width="'+W+'" height="'+(gootY-apexY)+'" fill="'+pan+'"/>';
+    for(var ry=apexY; ry<gootY; ry+=30){
+      for(var vx=0; vx<W; vx+=42){
+        s+='<rect x="'+vx+'" y="'+ry+'" width="8" height="30" fill="'+panDonker+'"/>';
+        s+='<rect x="'+(vx+8)+'" y="'+ry+'" width="6" height="30" fill="'+panLicht+'"/>';
+      }
+      s+='<rect y="'+(ry+26)+'" width="'+W+'" height="4" fill="'+pand+'" opacity=".85"/>';
+    }
+    /* de verhoogde band: gevelbekleding van dakvlak tot dakvlak */
+    var lb=randX(bandBoven,-1), rb=randX(bandBoven,1);
+    var lo=randX(bandOnder,-1), ro=randX(bandOnder,1);
+    s+='<polygon points="'+lb+','+bandBoven+' '+rb+','+bandBoven+' '+ro+','+bandOnder+' '+lo+','+bandOnder+'" fill="'+gevelKl+'"/>';
+    for(var hy=bandBoven+14; hy<bandOnder; hy+=17){
+      s+='<line x1="'+randX(hy,-1)+'" y1="'+hy+'" x2="'+randX(hy,1)+'" y2="'+hy+'" stroke="#000" stroke-opacity=".13" stroke-width="2"/>';
+    }
+    s+='</g>';
+
+    /* windveer langs de nieuwe daklijn */
+    s+='<line x1="'+apexX+'" y1="'+(apexY-6)+'" x2="'+randX(gootY,-1)+'" y2="'+gootY+'" stroke="'+tint(gevelKl,.55)+'" stroke-width="16" stroke-linecap="round"/>';
+    s+='<line x1="'+apexX+'" y1="'+(apexY-6)+'" x2="'+randX(gootY,1)+'" y2="'+gootY+'" stroke="'+tint(gevelKl,.55)+'" stroke-width="16" stroke-linecap="round"/>';
+    /* goot */
+    s+='<rect x="'+(randX(gootY,-1)-28)+'" y="'+(gootY-4)+'" width="'+(randX(gootY,1)-randX(gootY,-1)+56)+'" height="18" rx="8" fill="#7d8288"/>';
+
+    /* het doorlopende kozijn in de band */
+    var kx0=lo+46, kx1=ro-46, ky0=bandBoven+22, ky1=bandOnder-20, fr=11;
+    var kb=kx1-kx0;
+    var kastH=st.opties.rolluiken?15:0;
+    if(kastH) s+='<rect x="'+kx0+'" y="'+(ky0-kastH)+'" width="'+kb+'" height="'+kastH+'" fill="'+tint(gevelKl,.86)+'"/>';
+    s+='<rect x="'+kx0+'" y="'+ky0+'" width="'+kb+'" height="'+(ky1-ky0)+'" fill="'+kozKl+'"/>';
+    var stijl=8, vakB=(kb-fr*2-(vk-1)*stijl)/vk;
+    var draai={}; R.draaiVolgorde(vk).slice(0,st.draaiend).forEach(function(i){ draai[i]=1; });
+    var roosterH=st.opties.rooster?9:0;
+    for(var i=0;i<vk;i++){
+      var gx=kx0+fr+i*(vakB+stijl), gy=ky0+fr, gy1=ky1-fr;
+      if(roosterH){
+        s+='<rect x="'+gx+'" y="'+gy+'" width="'+vakB+'" height="'+roosterH+'" fill="'+tint(kozKl,licht?.86:1.45)+'"/>';
+        for(var rx=gx+4; rx<gx+vakB-3; rx+=7) s+='<rect x="'+rx+'" y="'+(gy+2)+'" width="2" height="'+(roosterH-4)+'" fill="#000" opacity=".32"/>';
+      }
+      var gt=gy+roosterH+(roosterH?3:0);
+      s+='<rect x="'+gx+'" y="'+gt+'" width="'+vakB+'" height="'+(gy1-gt)+'" fill="url(#nvGlas)"/>';
+      s+='<polygon points="'+(gx+vakB*.12)+','+gt+' '+(gx+vakB*.44)+','+gt+' '+(gx+vakB*.06)+','+gy1+' '+gx+','+gy1+' '+gx+','+(gy1-14)+'" fill="#fff" opacity=".15"/>';
+      if(draai[i]){
+        s+='<rect x="'+(gx+3)+'" y="'+(gt+3)+'" width="'+(vakB-6)+'" height="'+(gy1-gt-6)+'" fill="none" stroke="'+kozKl+'" stroke-width="5"/>';
+        s+='<rect x="'+(gx+vakB-14)+'" y="'+((gt+gy1)/2-9)+'" width="4" height="18" rx="2" fill="'+tint(kozKl,licht?.55:2.1)+'"/>';
+      }
+      if(st.opties.rolluiken){
+        var lamH=(gy1-gt)*.4;
+        s+='<rect x="'+gx+'" y="'+gt+'" width="'+vakB+'" height="'+lamH+'" fill="'+tint(gevelKl,.9)+'"/>';
+        for(var ly=gt+5; ly<gt+lamH; ly+=7) s+='<line x1="'+gx+'" y1="'+ly+'" x2="'+(gx+vakB)+'" y2="'+ly+'" stroke="#000" stroke-opacity=".22" stroke-width="1.4"/>';
+      }else if(st.opties.screens){
+        var scH=(gy1-gt)*.48;
+        s+='<rect x="'+gx+'" y="'+gt+'" width="'+vakB+'" height="'+scH+'" fill="#2b2d30" opacity=".8"/>';
+        s+='<rect x="'+gx+'" y="'+(gt+scH-4)+'" width="'+vakB+'" height="4" fill="#191a1c"/>';
+      }
+    }
+    if(st.opties.spots){
+      for(var si=0; si<vk+1; si++){ var sx=kx0+(kb/(vk+2))*(si+1);
+        s+='<circle cx="'+sx+'" cy="'+(ky1+10)+'" r="8" fill="#ffdf9e" opacity=".26"/><circle cx="'+sx+'" cy="'+(ky1+10)+'" r="3" fill="#ffe6ae"/>'; }
+    }
+    s+='</svg>';
+    return s;
+  }
+
+  /* ---------- beeld ---------- */
+  function updateBeeld(){
+    var render=B.render(st.glasvakken, st.afwerking, st.kozijnkleur);
+    var wrap=$('#confHeroWrap'), img=$('#confHero'), bg=$('#confHeroBg'), tek=$('#confTek');
+    if(render){
+      img.src=render.src; img.alt='Rechte dakkapel met plat dak, '+st.glasvakken+' glasvakken, '+R.vind(R.afwerkingen,st.afwerking).l.toLowerCase()+' gevelafwerking met '+R.vind(R.kozijnkleuren,st.kozijnkleur).l.toLowerCase()+' kozijn';
+      img.hidden=false; bg.style.backgroundImage='url("'+render.src+'")';
+      tek.innerHTML=''; wrap.classList.remove('is-schets');
+      $('#confSchets').hidden=true;
+      $('#confLive').textContent='Live voorbeeld';
+    }else{
+      img.hidden=true; img.removeAttribute('src'); bg.style.backgroundImage='';
+      tek.innerHTML=schetsSvg(); wrap.classList.add('is-schets');
+      $('#confSchets').hidden=false;
+      $('#confLive').textContent='Maatschets';
+    }
+    var afw=R.vind(R.afwerkingen,st.afwerking);
+    $('#confDim').innerHTML='<b>'+st.glasvakken+' glasvakken · '+esc(afw.l)+' · '+st.draaiend+'× draaikiep</b>';
+    /* Anders dan bij de dakkapel is dit geen uitkomst van een keuze: een
+       nokverhoging verandert de bouwhoogte en is daarmee nooit vergunningsvrij.
+       De melding staat er dus altijd, en altijd in dezelfde toon. */
+    $('#confVerg').classList.add('is-verg');
+    $('#confVergTxt').textContent='Omgevingsvergunning altijd nodig. Tekeningen, constructieberekening en begeleiding zitten in de prijs.';
+    updateReferenties();
+  }
+
+  /* De optiebeelden komen uit dezelfde reeks als de matrix — zelfde woning,
+     zelfde camera — maar ze tonen één vaste indeling en kleur. Ze laten zien
+     hoe een rolluik, screen, rooster of spot erop staat, niet hoe déze
+     samenstelling eruitziet, en dat staat er met zoveel woorden bij.
+
+     Anders dan bij de dakkapel is er geen kleurreferentie uit een oudere
+     collectie en geen binnenaanzicht: die beelden bestaan voor de nokverhoging
+     nog niet. Er wordt hier dus niets geleend van een ander product — een
+     render van een dakkapel toont een andere woning en een ander bouwdeel. */
+  function updateReferenties(){
+    var rijen=[];
+    R.opties.forEach(function(o){
+      if(!st.opties[o.v]) return;
+      var ob=B.optieBeeld(o.v);
+      if(ob) rijen.push({ src:ob.src, t:o.l, s:'optiebeeld, vaste indeling' });
+    });
+    var box=$('#confRef');
+    if(!rijen.length){ box.hidden=true; $('#confRefRow').innerHTML=''; return; }
+    box.hidden=false;
+    $('#confRefLbl').textContent='Voorbeeldbeelden: andere indeling of kleur, niet jouw samenstelling';
+    $('#confRefRow').innerHTML=rijen.map(function(r){
+      return '<figure class="ref__it"><img src="'+r.src+'" alt="Voorbeeld: '+esc(r.t)+'" loading="lazy" width="300" height="300">'
+        +'<figcaption><b>'+esc(r.t)+'</b><span>'+esc(r.s)+'</span></figcaption></figure>';
+    }).join('');
+  }
+
+  /* ---------- prijs ---------- */
+  function prijsRegels(){ return P.regels(st,R); }
+  function totaalEx(){ return P.totaal(st,R); }
+  function updatePrijs(){
+    var ex=totaalEx(), toon=btwIncl?ex*(1+P.btw):ex;
+    $('#prijs').textContent=euro(toon);
+    var html='';
+    prijsRegels().forEach(function(r){
+      html+='<tr><td>'+esc(r.t)+'</td><td class="p'+(r.p<0?' min':'')+'">'+euro(btwIncl?r.p*(1+P.btw):r.p)+'</td></tr>';
+    });
+    html+='<tr><td style="color:var(--text);font-weight:700">Totaal '+(btwIncl?'incl.':'excl.')+' btw</td>'
+      +'<td class="p" style="font-weight:700">'+euro(toon)+'</td></tr>';
+    $('#opbouwTabel').innerHTML=html;
+    updateSamenvatting();
+    if(window.NGBewaren) NGBewaren.bewaar(st);
+  }
+
+  /* ---------- keuzegroepen ---------- */
+  function tegel(name,k,aan,multi,uit){
+    var inp='<input type="'+(multi?'checkbox':'radio')+'" name="'+name+'" value="'+k.v+'"'+(aan?' checked':'')+(uit?' disabled':'')+'>';
+    var vlak=k.sw?'<span class="tile__sw" style="background:'+k.sw+'"></span>':'';
+    var sub=k.d?'<span class="sub">'+esc(k.d)+'</span>':'';
+    return '<label class="tile'+(uit?' is-uit':'')+'">'+inp+'<span class="tile__c">'+vlak+'<span class="lab">'+esc(k.l)+'</span>'+sub+'</span></label>';
+  }
+  function groep(nr,titel,binnen){
+    return '<div class="grp"><div class="grp__h"><b>'+nr+'.</b>'+titel+'</div>'+binnen+'</div>';
+  }
+
+  function render(){
+    var u=R.vind(R.uitvoeringen,st.uitvoering);
+    $('#confTitle').innerHTML=u.titel;
+    $('#confSub').textContent=u.sub;
+    $('#confBadge').innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 15L12 6l10 9"/><rect x="7" y="10.5" width="10" height="6"/></svg><span>'+esc(u.badge)+'</span>';
+
+    var h='';
+    h+=groep(1,'WONINGTYPE',
+      '<div class="tiles">'+R.woningtypen.map(function(k){ return tegel('g_woning',k,st.woningtype===k.v); }).join('')+'</div>'
+      +'<p class="grp__noot">Elke vrije kopgevel moet mee omhoog: dat is metselwerk op hoogte. Waar geen kopgevel zit, komt een aansluiting op de woningscheidende bouwmuur voor terug, die brandwerend én waterdicht moet blijven.</p>');
+    h+=groep(2,'INDELING',
+      '<div class="tiles">'+R.indelingen.map(function(k){ return tegel('g_indeling',{v:k.v,l:k.l,d:k.d},st.glasvakken===k.v); }).join('')+'</div>'
+      +'<p class="grp__noot">Eén doorlopende kozijnconstructie over de voorkant; slanke stijlen verdelen de vakken. Welke breedte bij welke indeling past, blijkt bij het inmeten. Daarom staat er hier bewust geen metermaat bij.</p>');
+    h+=groep(3,'GEVELAFWERKING',
+      '<div class="tiles sm">'+R.afwerkingen.map(function(k){ return tegel('g_afwerking',k,st.afwerking===k.v); }).join('')+'</div>');
+    h+=groep(4,'KOZIJNKLEUR',
+      '<div class="tiles sm">'+R.kozijnkleuren.map(function(k){ return tegel('g_kozijn',k,st.kozijnkleur===k.v); }).join('')+'</div>'
+      +'<span class="grp__sublbl">Draaikiepramen, de rest wordt vast glas</span>'
+      +'<div class="qty"><button type="button" id="draaiMin" aria-label="Minder draaikiepramen">&minus;</button>'
+      +'<b id="draaiN">'+st.draaiend+'</b>'
+      +'<button type="button" id="draaiPlus" aria-label="Meer draaikiepramen">+</button>'
+      +'<span class="u">max. '+R.maxDraaiend(st.glasvakken)+' bij '+st.glasvakken+' vakken</span></div>');
+    h+=groep(5,'OPTIES',
+      /* Rolluiken en screens sluiten elkaar uit, maar de niet-gekozen van de
+         twee blijft met opzet aanklikbaar: hem uitzetten maakte overstappen
+         onmogelijk — je moest eerst de ene uitvinken voor je de andere kon
+         proberen. Nu wint de nieuwste keuze en gaat de andere vanzelf uit. */
+      '<div class="tiles">'+R.opties.map(function(o){
+        return tegel('x_optie',o,!!st.opties[o.v],true,false);
+      }).join('')+'</div>'
+      +((st.opties.rolluiken||st.opties.screens)?'<p class="grp__noot">Rolluiken en screens zitten op dezelfde plek in het kozijn: kies je de een, dan gaat de ander uit.</p>':''));
+    h+=groep(6,'BINNENAFWERKING',
+      '<div class="tiles">'+R.binnenafwerking.map(function(bn){
+        return tegel('g_binnen',bn,st.binnen===bn.v);
+      }).join('')+'</div>'
+      +'<p class="grp__noot">Wat je bij oplevering ziet. "Casco" betekent voor niemand hetzelfde, daarom staat er van alle drie een foto van dezelfde zolder.</p>');
+    h+=groep(7,'COMFORT',
+      '<div class="tiles">'+R.extras.map(function(e){
+        var uit=(e.v==='horren'&&!st.draaiend);
+        return tegel('x_extra',e,!!st.extras[e.v],true,uit);
+      }).join('')+'</div>'
+      +(!st.draaiend?'<p class="grp__noot">Horren horen bij draaiende delen: kies eerst minimaal één draaikiepraam.</p>':''));
+    $('#groups').innerHTML=h;
+
+    function opAlle(naam,fn){
+      document.querySelectorAll('#groups input[name="'+naam+'"]').forEach(function(i){
+        i.addEventListener('change',function(){ fn.call(this); });
+      });
+    }
+    opAlle('g_woning',function(){ st.woningtype=this.value; alles(); });
+    opAlle('g_indeling',function(){ st.glasvakken=parseInt(this.value,10); alles(); });
+    opAlle('g_afwerking',function(){ st.afwerking=this.value; alles(); });
+    opAlle('g_kozijn',function(){ st.kozijnkleur=this.value; alles(); });
+    opAlle('x_optie',function(){
+      /* Rolluik en screen delen dezelfde plek: de nieuwste keuze wint, de
+         andere gaat uit. Zonder dit staat er een prijs voor twee dingen die
+         niet naast elkaar passen. */
+      if(this.checked){
+        var o=R.vind(R.opties,this.value);
+        if(o.groep==='zonwering') R.opties.forEach(function(x){ if(x.groep==='zonwering') st.opties[x.v]=false; });
+      }
+      st.opties[this.value]=this.checked; alles();
+    });
+    opAlle('g_binnen',function(){ st.binnen=this.value; alles(); });
+    opAlle('x_extra',function(){ st.extras[this.value]=this.checked; alles(); });
+    $('#draaiMin').addEventListener('click',function(){ if(st.draaiend>0){ st.draaiend--; alles(); } });
+    $('#draaiPlus').addEventListener('click',function(){ if(st.draaiend<R.maxDraaiend(st.glasvakken)){ st.draaiend++; alles(); } });
+  }
+  function alles(){ klem(); render(); updateBeeld(); updatePrijs(); }
+
+  /* ---------- uitvoering ---------- */
+  document.querySelectorAll('.matswitch button[data-t]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var t=b.getAttribute('data-t');
+      if(st.uitvoering===t) return;
+      st.uitvoering=t;
+      document.querySelectorAll('.matswitch button[data-t]').forEach(function(x){
+        var aan=x===b; x.classList.toggle('is-on',aan); x.setAttribute('aria-pressed',aan?'true':'false');
+      });
+      alles();
+    });
+  });
+
+  /* ---------- voorinstellingen ---------- */
+  var PRESETS=[
+    { l:'3 vakken antraciet',  s:'Meest gekozen',  st:{ glasvakken:3, afwerking:'antraciet', kozijnkleur:'zwart', draaiend:2, opties:{rolluiken:false,screens:false,rooster:true} } },
+    { l:'5 vakken breed',      s:'Maximaal licht', st:{ glasvakken:5, afwerking:'antraciet', kozijnkleur:'antraciet', draaiend:3, opties:{rolluiken:false,screens:true,rooster:true} } },
+    { l:'2 vakken crème',      s:'Kleine zolder',  st:{ glasvakken:2, afwerking:'creme', kozijnkleur:'wit', draaiend:1, opties:{rolluiken:false,screens:false,rooster:true} } },
+    { l:'4 vakken thermowood', s:'Met rolluiken',  st:{ glasvakken:4, afwerking:'thermowood', kozijnkleur:'zwart', draaiend:2, binnen:'afgewerkt', opties:{rolluiken:true,screens:false,rooster:true,spots:true}, extras:{triple:true,horren:true} } }
+  ];
+  function pasPreset(p){
+    var basis=defaults(st.uitvoering);
+    basis.woningtype=st.woningtype;
+    Object.keys(p.st).forEach(function(k){
+      if(k==='opties'||k==='extras') Object.keys(p.st[k]).forEach(function(x){ basis[k][x]=p.st[k][x]; });
+      else basis[k]=p.st[k];
+    });
+    st=basis; alles();
+  }
+  function presetSvg(p){
+    var afw=R.vind(R.afwerkingen,p.afwerking), koz=R.vind(R.kozijnkleuren,p.kozijnkleur);
+    var vk=p.glasvakken, bw=14+vk*5, x=(46-bw)/2, out='';
+    for(var i=0;i<vk;i++){ out+='<rect x="'+(x+1.5+i*((bw-3)/vk))+'" y="15" width="'+((bw-3)/vk-1)+'" height="8" fill="#93a7b2"/>'; }
+    return '<svg viewBox="0 0 46 34"><rect width="46" height="34" fill="#96503f"/>'
+      +'<rect y="9" width="46" height="2" fill="#7d4234"/><rect y="24" width="46" height="2" fill="#7d4234"/>'
+      +'<rect x="'+x+'" y="9" width="'+bw+'" height="4" fill="'+afw.sw+'"/>'
+      +'<rect x="'+x+'" y="13" width="'+bw+'" height="12" fill="'+koz.sw+'"/>'+out+'</svg>';
+  }
+  function renderPresets(){
+    $('#presetRow').innerHTML=PRESETS.map(function(p,i){
+      return '<button type="button" class="preset" data-p="'+i+'"><span class="preset__th">'+presetSvg(p.st)+'</span>'
+        +'<span class="preset__t"><b>'+esc(p.l)+'</b><span>'+esc(p.s)+'</span></span></button>';
+    }).join('');
+    document.querySelectorAll('#presetRow .preset').forEach(function(b){
+      b.addEventListener('click',function(){ pasPreset(PRESETS[parseInt(b.getAttribute('data-p'),10)]); });
+    });
+  }
+
+  /* ---------- samenvatting ---------- */
+  function keuzeRegels(){
+    var aan=function(o,l){ return l.filter(function(x){ return o[x.v]; }).map(function(x){ return x.l; }); };
+    var opties=aan(st.opties,R.opties), extras=aan(st.extras,R.extras);
+    var wn=R.vind(R.woningtypen,st.woningtype);
+    return [
+      ['Uitvoering', R.vind(R.uitvoeringen,st.uitvoering).l+', nokverhoging, noklijn omhoog'],
+      ['Woningtype', wn.l+' ('+(wn.kopgevels?wn.kopgevels+'× vrije kopgevel':'twee bouwmuren')+')'],
+      ['Vergunning', 'Omgevingsvergunning met welstandstoets, altijd nodig'],
+      ['Indeling', st.glasvakken+' glasvakken, één doorlopende kozijnconstructie'],
+      ['Gevelafwerking', R.vind(R.afwerkingen,st.afwerking).l],
+      ['Kozijnkleur', R.vind(R.kozijnkleuren,st.kozijnkleur).l+' ('+R.vind(R.kozijnkleuren,st.kozijnkleur).d+')'],
+      ['Draaiende delen', st.draaiend+'× draaikiep, '+(st.glasvakken-st.draaiend)+'× vast glas'],
+      ['Binnenafwerking', R.vind(R.binnenafwerking,st.binnen).l],
+      ['Opties', opties.length?opties.join(', '):'geen'],
+      ['Comfort', extras.length?extras.join(', '):'geen']
+    ];
+  }
+  function updateSamenvatting(){
+    $('#samenv').innerHTML='<b class="samenv__k">Jouw samenstelling</b>'+keuzeRegels().map(function(r){
+      return '<div class="samenv__r"><span>'+esc(r[0])+'</span><b>'+esc(r[1])+'</b></div>';
+    }).join('');
+  }
+  function samenvattingTekst(){
+    var ex=totaalEx(), uit=['Nokverhoging: samenstelling via nextgrowthdigital.nl',''];
+    keuzeRegels().forEach(function(r){ uit.push(r[0]+': '+r[1]); });
+    var beeld=B.render(st.glasvakken,st.afwerking,st.kozijnkleur);
+    uit.push('Beeld: '+(beeld?('render '+beeld.bestand):'maatschets, render van deze combinatie volgt'));
+    uit.push('','Prijsopbouw (excl. btw):');
+    prijsRegels().forEach(function(r){ uit.push('  - '+r.t+': '+euro(r.p)); });
+    uit.push('','Totaal excl. btw: '+euro(ex),'Totaal incl. btw: '+euro(ex*(1+P.btw)));
+    uit.push('','Richtprijs, geen offerte. De definitieve prijs volgt na inmeten en na het constructieonderzoek.');
+    var mat=materiaalTekst();
+    if(mat) uit.push('','','== MATERIAALSTAAT ==','',mat);
+    return uit.join('\n');
+  }
+
+  /* ---------- materiaalstaat ----------
+     Dezelfde vorm als bij de uitbouw en de dakopbouw: een afdrukbaar blad dat
+     de bezoeker als pdf kan bewaren, en dezelfde staat als platte tekst mee in
+     de offerteaanvraag. Zo krijgt de werkvoorbereiding de hoeveelheden binnen
+     zonder ze uit de samenstelling terug te hoeven rekenen. */
+  function materiaalStaat(){
+    return window.NGNokverhogingMateriaal ? NGNokverhogingMateriaal.staat(st) : null;
+  }
+  function materiaalTekst(){
+    var m=materiaalStaat();
+    return m ? NGNokverhogingMateriaal.tekst(m) : '';
+  }
+  function materiaalstaatHtml(){
+    var m=materiaalStaat();
+    var datum=new Date().toLocaleDateString('nl-NL',{day:'numeric',month:'long',year:'numeric'});
+    var project='Nokverhoging '+st.glasvakken+' glasvakken';
+    function nlGetal(x){ return (Math.round(x*100)/100).toLocaleString('nl-NL',{minimumFractionDigits:0,maximumFractionDigits:2}); }
+    var binnen;
+    if(m && m.posten.length){
+      var i=m.invoer;
+      binnen='<div class="meta"><div><b>'+esc(project)+'</b>'
+        +'<span>'+esc(R.vind(R.uitvoeringen,st.uitvoering).l)+' &middot; '
+        +esc(R.vind(R.afwerkingen,st.afwerking).l)+' met '
+        +esc(R.vind(R.kozijnkleuren,st.kozijnkleur).l.toLowerCase())+' kozijn &middot; '
+        +i.draaiend+'&times; draaikiep</span>'
+        +'<span>Rekenmaat '+nlGetal(i.breedte)+' &times; '+nlGetal(i.diepte)+' m &middot; voorwand '
+        +nlGetal(i.hoogte)+' m &middot; dakopening '+nlGetal(i.opening)+' m&sup2;</span></div>'
+        +'<div class="meta-r"><span>'+esc(datum)+'</span><span>Indicatief &middot; werkvoorbereiding</span></div></div>';
+      var volgorde=[], perGroep={};
+      m.posten.forEach(function(po){
+        if(!perGroep[po.groep]){ perGroep[po.groep]=[]; volgorde.push(po.groep); }
+        perGroep[po.groep].push(po);
+      });
+      volgorde.forEach(function(g){
+        binnen+='<section class="groep"><h2>'+esc(g)+'</h2><table>'
+          +'<thead><tr><th class="n">Aantal</th><th class="eh">Eenheid</th><th>Omschrijving</th></tr></thead><tbody>';
+        perGroep[g].forEach(function(po){
+          binnen+='<tr><td class="n">'+nlGetal(po.hoeveelheid)+'</td><td class="eh">'+esc(po.eenheid)+'</td>'
+            +'<td>'+esc(po.omschrijving)+(po.opmerking?'<small>'+esc(po.opmerking)+'</small>':'')+'</td></tr>';
+        });
+        binnen+='</tbody></table></section>';
+      });
+      if(m.aannames.length){
+        binnen+='<section class="noot"><h2>Aannames</h2><ul>'
+          +m.aannames.map(function(a){ return '<li>'+esc(a)+'</li>'; }).join('')+'</ul></section>';
+      }
+      if(m.controle.length){
+        binnen+='<section class="noot let"><h2>Te bevestigen door de constructeur</h2><ul>'
+          +m.controle.map(function(c){ return '<li>'+esc(c)+'</li>'; }).join('')+'</ul></section>';
+      }
+    }else{
+      binnen='<p class="leeg">Materiaalstaat kon niet worden opgebouwd voor deze samenstelling.</p>';
+    }
+    return '<!doctype html><html lang="nl"><head><meta charset="utf-8">'
+      +'<title>Materiaalstaat '+esc(project)+'</title><style>'
+      +'*{box-sizing:border-box}body{margin:0;background:#26221c;font-family:Arial,Helvetica,sans-serif;color:#171717}'
+      +'header{position:sticky;top:0;z-index:2;background:#111;color:#fff;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;gap:16px}'
+      +'header b{font-size:14px}header span{font-size:11px;color:#bbb}'
+      +'button{background:#d7b55b;border:0;border-radius:8px;padding:10px 14px;font-weight:800;cursor:pointer}'
+      +'.sheet{width:min(860px,94vw);margin:22px auto 40px;background:#fff;border-radius:10px;box-shadow:0 8px 28px #0008;padding:34px 40px}'
+      +'.meta{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #171717;padding-bottom:12px;margin-bottom:6px}'
+      +'.meta b{font-size:19px;letter-spacing:.02em;display:block}'
+      +'.meta span{display:block;font-size:12px;color:#555;margin-top:3px}'
+      +'.meta-r{text-align:right}'
+      +'.groep h2,.noot h2{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);margin:22px 0 6px}'
+      +'table{width:100%;border-collapse:collapse;font-size:12.5px;line-height:1.5}'
+      +'th{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#777;text-align:left;font-weight:600;padding:0 8px 4px 0;border-bottom:1px solid #ddd}'
+      +'td{padding:5px 8px 5px 0;border-bottom:1px solid #eee;vertical-align:top}'
+      +'td.n,th.n{width:56px;text-align:right;padding-right:14px;font-variant-numeric:tabular-nums}'
+      +'td.eh,th.eh{width:64px;color:#555}'
+      +'td small{display:block;color:#777;font-size:11px;margin-top:1px}'
+      +'.noot ul{margin:4px 0 0;padding-left:18px;font-size:12px;line-height:1.6;color:#333}'
+      +'.noot.let ul{color:#7a4a12}'
+      +'.leeg{padding:30px 0;color:#555}'
+      +'@media print{header{display:none}body{background:#fff}.sheet{width:100%;margin:0;box-shadow:none;border-radius:0;padding:0}'
+      +'.groep{break-inside:avoid}}'
+      +'@page{size:A4 portrait;margin:16mm}'
+      +'</style></head><body>'
+      +'<header><b>Materiaalstaat &middot; '+esc(project)+'</b><span>Indicatief, werkvoorbereiding, geen productiestuklijst</span>'
+      +'<button data-ng-print>Afdrukken / opslaan als PDF</button></header>'
+      +'<div class="sheet">'+binnen+'</div></body></html>';
+  }
+  window.NGNokverhogingMateriaalHtml=materiaalstaatHtml;
+  /* De tekeningen staan naast de materiaalstaat: het zijn de twee helften
+     van dezelfde werkvoorbereiding, en wie de een opent zoekt de ander. */
+  if (window.NGTekeningenKap) NGTekeningenKap.init({ product: 'nokverhoging' });
+  $('#materiaalstaatBtn').addEventListener('click',function(){
+    /* Via NGAfdruk: lukt de pop-up niet — op iPhone is blokkeren de standaard —
+       dan komt hetzelfde blad in de pagina zelf, met een eigen afdrukknop. */
+    if(window.NGAfdruk) NGAfdruk.toon(materiaalstaatHtml(),'ng-nokverhoging-materiaalstaat','Materiaalstaat nokverhoging');
+    else { var w=window.open('','ng-nokverhoging-materiaalstaat');
+      if(!w){ alert('Sta pop-ups toe om de materiaalstaat te openen.'); return; }
+      w.document.open(); w.document.write(materiaalstaatHtml()); w.document.close(); (function(k){ if(k) k.addEventListener('click', function(){ w.print(); }); })(w.document.querySelector('[data-ng-print]')); }
+  });
+
+  /* ---------- btw, download, offerte ---------- */
+  function btwKnop(aan){
+    btwIncl=aan;
+    $('#btwIncl').classList.toggle('is-on',aan); $('#btwIncl').setAttribute('aria-pressed',aan?'true':'false');
+    $('#btwExcl').classList.toggle('is-on',!aan); $('#btwExcl').setAttribute('aria-pressed',!aan?'true':'false');
+    updatePrijs();
+  }
+  $('#btwIncl').addEventListener('click',function(){ btwKnop(true); });
+  $('#btwExcl').addEventListener('click',function(){ btwKnop(false); });
+  $('#downloadBtn').addEventListener('click',function(){
+    var blob=new Blob([samenvattingTekst()],{type:'text/plain;charset=utf-8'});
+    var a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+    a.download='nokverhoging-configuratie.txt'; document.body.appendChild(a); a.click();
+    setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); },0);
+  });
+  $('#naarOfferte').addEventListener('click',function(){ $('#offerte').scrollIntoView({behavior:'smooth'}); });
+
+  /* ---------- offerteformulier ---------- */
+  function melding(t,soort){ var m=$('#leadMsg'); m.hidden=false; m.textContent=t; m.className='lead__msg '+(soort||''); }
+  function mailtoTerugval(f){
+    var body='Aanvraag nokverhoging via configurator\n=====================================\n\n'+f.configuratie.value
+      +'\n\nNaam: '+f.naam.value+'\nPlaats: '+f.plaats.value+'\nE-mail: '+f.email.value
+      +'\nTelefoon: '+f.telefoon.value+'\nBericht: '+f.bericht.value;
+    location.href='mailto:info@nextgrowthdigital.nl?subject='+encodeURIComponent('Offerteaanvraag nokverhoging: '+(f.naam.value||''))+'&body='+encodeURIComponent(body);
+  }
+  /* Twee routes naast elkaar: FormSubmit levert vandaag af, Web3Forms vangt op
+     als die dienst hapert. */
+  var WEB3FORMS_KEY='695172ae-1f2d-40b7-bb31-b8a4a882ad62';
+  function dubbeleVerzending(payload){
+    var a=fetch('https://formsubmit.co/ajax/info@nextgrowthdigital.nl',{method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
+      .then(function(r){ return r.ok?r.json():null; })
+      .then(function(d){ return !!(d&&(d.success===true||d.success==='true')); }).catch(function(){ return false; });
+    var b=WEB3FORMS_KEY?fetch('https://api.web3forms.com/submit',{method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify(Object.assign({access_key:WEB3FORMS_KEY,from_name:'nextgrowthdigital.nl',subject:payload._subject},payload))})
+      .then(function(r){ return r.ok; }).catch(function(){ return false; }):Promise.resolve(false);
+    /* Niet Promise.all: dan wacht de bezoeker op het traagste kanaal, ook als
+       het eerste al ja heeft gezegd. Web3Forms staat op sommige blokkeerlijsten
+       en hangt dan tot de browser er zelf mee ophoudt. De lead is op dat moment
+       allang binnen via FormSubmit, maar het scherm blijft op Versturen staan en
+       de bezoeker denkt dat het mislukt is.
+
+       Dus: zodra een van de twee slaagt is het klaar. Zeggen ze allebei nee, dan
+       pas het mailtovangnet. Blijft er een hangen, dan valt na tien seconden de
+       beslissing alsnog op nee - want dan weten we het niet, en dan is de e-mail
+       openen eerlijker dan een bedankje dat nergens op slaat. Beide verzoeken
+       lopen intussen gewoon door; er wordt niets afgebroken. */
+    var beslist = new Promise(function (klaar) {
+      var open = 2;
+      [a, b].forEach(function (p) {
+        p.then(function (ok) { if (ok) klaar(true); else if (!--open) klaar(false); });
+      });
+      setTimeout(function () { klaar(false); }, 10000);
+    });
+    return beslist;
+  }
+  $('#leadForm').addEventListener('submit',function(e){
+    e.preventDefault(); var f=e.target;
+    if(f.reportValidity&&!f.reportValidity()) return;
+    f.configuratie.value=samenvattingTekst();
+    var knop=$('#leadBtn'), oud=knop.textContent; knop.disabled=true; knop.textContent='Versturen…';
+    dubbeleVerzending({ _subject:'Offerteaanvraag nokverhoging: '+(f.naam.value||''), _template:'table', _captcha:'false',
+      _replyto:f.email.value, Product:'Nokverhoging configurator', Naam:f.naam.value, Plaats:f.plaats.value,
+      Email:f.email.value, Telefoon:f.telefoon.value, Bericht:f.bericht.value,
+      Configuratie:f.configuratie.value, Materiaalstaat:materiaalTekst() })
+      .then(function(ok){ if(!ok) throw 0;
+        melding('Dank! Je aanvraag is verstuurd. We nemen binnen één werkdag contact op.','ok'); f.reset(); })
+      .catch(function(){ melding('Versturen via de site lukte niet. We openen je e-mailprogramma als alternatief.',''); mailtoTerugval(f); })
+      .finally(function(){ knop.disabled=false; knop.textContent=oud; });
+  });
+
+  /* ---------- interne assetlijst (?assets=1) ---------- */
+  function toonAssets(){
+    var o=R.ontbrekend(B);
+    $('#assetPaneel').hidden=false;
+    function tabel(kop,rijen,kolommen,velden){
+      if(!rijen.length) return '<div class="grp"><div class="grp__h">'+kop+'</div><p class="grp__noot">Compleet.</p></div>';
+      return '<div class="grp"><div class="grp__h">'+kop+': '+rijen.length+' te maken</div>'
+        +'<table class="assets"><thead><tr><th>Combinatie</th>'
+        +kolommen.map(function(x){ return '<th>'+x+'</th>'; }).join('')
+        +'</tr></thead><tbody>'
+        +rijen.map(function(r){
+          return '<tr><td><code>'+r.id+'</code></td>'
+            +velden.map(function(v){ return '<td>'+(r[v]||'-')+'</td>'; }).join('')+'</tr>';
+        }).join('')+'</tbody></table></div>';
+    }
+    var cats={standaard:0,kleur:0,optie:0,maatwerk:0,uit:0};
+    Object.keys(B.eerdere).forEach(function(id){ cats[B.eerdere[id][1]]++; });
+    var verwacht=o.gereed.length+o.totaal;
+    $('#assetUit').innerHTML=
+      '<p class="grp__noot">Actieve matrix: '+o.gereed.length+' van '+verwacht+' gekoppeld. '
+      +R.indelingen.length+' indelingen × '+R.afwerkingen.length+' gevelafwerkingen × '
+      +R.kozijnkleuren.length+' kozijnkleuren, plus '+R.opties.length+' optiebeelden.<br>'
+      +'Eerdere collectie: '+Object.keys(B.eerdere).length+' beelden: '+cats.standaard+' standaard, '
+      +cats.kleur+' kleur/materiaal, '+cats.optie+' optie, '+cats.maatwerk+' maatwerk/reserve, '
+      +cats.uit+' buiten de rechte reeks. Die tellen niet mee in de matrix.</p>'
+      +tabel('Ontbrekende combinatierenders',o.basis,['Glasvakken','Gevelafwerking','Kozijnkleur'],['glasvakken','afwerking','kozijnkleur'])
+      +tabel('Ontbrekende optiebeelden',o.opties,['Optie'],['optie']);
+  }
+
+  /* ---------- init ---------- */
+  var qs=new URLSearchParams(location.search);
+  var u0=qs.get('uitvoering');
+  if(u0&&u0!=='prefab'&&R.vind(R.uitvoeringen,u0).v===u0){
+    st.uitvoering=u0;
+    document.querySelectorAll('.matswitch button[data-t]').forEach(function(x){
+      var aan=x.getAttribute('data-t')===u0; x.classList.toggle('is-on',aan); x.setAttribute('aria-pressed',aan?'true':'false');
+    });
+  }
+  /* ?start=<nummer> opent de configurator met een voorinstelling al toegepast,
+     zodat iemand die op een landingspagina een samenstelling aanklikt niet op
+     een leeg scherm binnenkomt. */
+  var s0=parseInt(qs.get('start'),10);
+  var startGeldig=!isNaN(s0)&&!!PRESETS[s0];
+
+  /* De samenstelling van de vorige keer terugzetten. Zonder dit is een druk op
+     F5 genoeg om alles weg te gooien, en dat is precies het moment waarop
+     iemand afhaakt. Komt hij binnen met een startpunt in de link, dan wint dat. */
+  if(window.NGBewaren){
+    var herstelde=NGBewaren.laad(st,{ negeer:startGeldig });
+    if(herstelde) NGBewaren.melden(st,function(){ st=defaults(st.uitvoering); alles(); });
+  }
+  renderPresets();
+  if(startGeldig) pasPreset(PRESETS[s0]); else alles();
+  if(qs.get('assets')==='1') toonAssets();
+
+  /* Voor de AI-foto onderaan de pagina: zonder dit ziet die module geen enkele
+     keuze en stuurt hij een lege beschrijving mee. */
+  window.NGKeuze=function(){ return st; };
+})();
+  </script>
+  
+  <a class="nx-wa" href="https://wa.me/31683902192" target="_blank" rel="noopener" aria-label="Stel je vraag via WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a9.9 9.9 0 0 0-8.5 15L2 22l5.2-1.4A9.9 9.9 0 1 0 12 2zm0 1.7a8.2 8.2 0 1 1-4.2 15.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.7zm-3.1 4.2c-.2 0-.5 0-.7.3-.2.3-.9.9-.9 2.1s.9 2.5 1 2.6c.1.2 1.8 2.8 4.3 3.8 2.1.8 2.6.7 3 .6.5 0 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.4-.2-1.5-.7c-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.5 7.5 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5v-.5L9.5 8.2c-.2-.4-.4-.3-.6-.3z"/></svg></a>
+  <!-- Vercel Analytics (scripts/analytics.py) -->
+  
+  
+</body>
+</html>

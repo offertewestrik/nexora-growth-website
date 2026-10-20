@@ -1,0 +1,60 @@
+/* Kostenblok — de verwijzing naar de verbouwkosten-calculator zoals die op
+   de verbouw- en regiopagina's staat.
+ *
+ * Eén component in plaats van acht keer losse opmaak, zodat de blokken
+ * onderling identiek blijven. Het gebruikt uitsluitend de tokens van de
+ * sectie waar het in staat (--line, --accent, --bg-raise, --text-*), dus
+ * hetzelfde blok werkt zowel in een donkere als in een crèmekleurige
+ * sectie zonder aanpassing.
+ *
+ * De strook rechts toont een uitgewerkt voorbeeld met echte uitkomsten van
+ * de calculator — geen versierde fantasiebedragen. Verandert de prijstabel,
+ * dan hoort dit voorbeeld mee te veranderen. */
+
+.kostenblok__in {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: clamp(1.6rem, 4vw, 3.4rem);
+  align-items: center;
+}
+@media (max-width: 900px) { .kostenblok__in { grid-template-columns: 1fr; } }
+
+.kostenblok__copy h2 {
+  font-family: var(--serif); font-weight: 400;
+  font-size: clamp(1.5rem, 3.2vw, 2.15rem);
+  letter-spacing: -.02em; line-height: 1.15;
+  margin: .7rem 0 .7rem;
+}
+.kostenblok__copy h2 em { font-style: italic; color: var(--accent); }
+.kostenblok__copy p { font-size: .95rem; max-width: 40em; }
+.kostenblok__copy .btn { margin-top: 1.3rem; }
+.kostenblok__klein {
+  margin-top: .9rem;
+  font-family: var(--mono); font-size: .72rem; letter-spacing: .05em;
+  color: var(--text-3);
+}
+
+/* de voorbeeldstrook: een rekenblad in het klein */
+.kostenblok__strook {
+  margin: 0; padding: 1.1rem 1.25rem 1.2rem; list-style: none;
+  border: 1px solid var(--line); border-radius: var(--r-groot);
+  background: var(--bg-raise); box-shadow: var(--schaduw-2);
+}
+.kostenblok__strook li {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
+  padding: .5rem 0; border-bottom: 1px solid var(--line);
+  font-size: .86rem;
+}
+.kostenblok__strook li span { color: var(--text-2); }
+.kostenblok__strook li b { font-family: var(--mono); font-weight: 400; white-space: nowrap; }
+.kostenblok__strook li.is-meer { border-bottom: 0; }
+.kostenblok__strook li.is-meer span { font-style: italic; color: var(--text-3); }
+.kostenblok__strook li.is-totaal {
+  margin-top: .35rem; padding-top: .8rem;
+  border-top: 2px solid var(--line-strong); border-bottom: 0;
+}
+.kostenblok__strook li.is-totaal span { color: var(--text); font-weight: 600; }
+.kostenblok__strook li.is-totaal b { color: var(--accent); font-size: 1rem; }
+.kostenblok__noot {
+  margin-top: .85rem; font-size: .76rem; line-height: 1.5; color: var(--text-3);
+}

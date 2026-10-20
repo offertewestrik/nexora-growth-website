@@ -1,0 +1,887 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pool house configurator demo: live price and preview | NEXT GROWTH</title>
+  <meta name="description" content="Live demo of the pool house configurator Next Growth builds for pool builders. Your customer picks dimensions, timber, siding, roof type and finishing options, with a realistic preview and a live price estimate.">
+  <link rel="canonical" href="https://nextgrowthdigital.nl/poolhouse-configurator-en">
+  <link rel="alternate" hreflang="en" href="https://nextgrowthdigital.nl/poolhouse-configurator-en">
+  <link rel="alternate" hreflang="nl" href="https://nextgrowthdigital.nl/poolhouse-configurator">
+  <link rel="alternate" hreflang="x-default" href="https://nextgrowthdigital.nl/poolhouse-configurator-en">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Next Growth">
+  <meta property="og:title" content="Pool house configurator demo: live price and preview | NEXT GROWTH">
+  <meta property="og:description" content="Live demo of the pool house configurator Next Growth builds for pool builders. Your customer picks dimensions, timber, siding, roof type and finishing options, with a realistic preview and a live price estimate.">
+  <meta property="og:url" content="https://nextgrowthdigital.nl/poolhouse-configurator">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Crect width='18' height='18' rx='4' fill='%23C9A45F'/%3E%3Cpath d='M5 13V5l8 8V5' stroke='%230A0A0B' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./assets/fonts.css">
+  <link rel="stylesheet" href="./assets/core.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Pool house configurator for pool builders",
+    "name": "Pool house configurator",
+    "url": "https://nextgrowthdigital.nl/poolhouse-configurator",
+    "provider": { "@type": "ProfessionalService", "name": "Next Growth", "email": "info@nextgrowthdigital.nl", "telephone": "+31683902192", "url": "https://nextgrowthdigital.nl/" },
+    "areaServed": ["Nederland"],
+    "description": "Live demo of the pool house configurator Next Growth builds for pool builders. Your customer picks dimensions, timber, siding, roof type and finishing options, with a realistic preview and a live price estimate."
+  }
+  </script>
+  <style>
+    :root { --acc: var(--accent); --acc-soft: rgba(var(--accent-rgb),.14); }
+    .cfg-hero { padding: calc(60px + clamp(1.6rem, 5vh, 3rem)) 0 0; text-align: center; }
+    .cfg-hero .pill { margin-bottom: 1rem; }
+    .cfg-hero .h1 { max-width: 20ch; margin-inline: auto; }
+    .cfg-hero .lede { margin: 1rem auto 0; max-width: 58ch; }
+
+    /* presets */
+    .presets { margin: 1.6rem auto 0; max-width: 900px; }
+    .presets__lbl { display: block; font-family: var(--mono); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: var(--text-3); margin-bottom: .7rem; }
+    .presets__row { display: flex; gap: .7rem; flex-wrap: wrap; justify-content: center; }
+    .preset { display: flex; align-items: center; gap: .6rem; border: 1px solid var(--line-strong); border-radius: 12px; background: var(--bg-raise); padding: .45rem .7rem .45rem .45rem; cursor: pointer; transition: border-color .12s ease, background .12s ease; text-align: left; }
+    .preset:hover { border-color: var(--acc); background: var(--bg-raise-2); }
+    .preset__th { width: 46px; height: 34px; border-radius: 7px; background-size: cover; background-position: center; flex: none; border: 1px solid rgba(255,255,255,.1); }
+    .preset__t b { display: block; font-size: .82rem; font-weight: 600; color: var(--text); line-height: 1.1; }
+    .preset__t span { font-size: .68rem; color: var(--text-3); }
+
+    /* configurator shell */
+    .conf { margin-top: clamp(1.8rem, 5vh, 3rem); }
+    .conf__layout { display: grid; grid-template-columns: 1fr; gap: 1.1rem; margin-top: 1.1rem; }
+    .conf__visual, .conf__options { min-width: 0; }
+    @media (min-width: 900px){
+      .conf__layout { grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); align-items: start; }
+      .conf__visual { position: sticky; top: 80px; }
+    @media (min-width:900px){ .conf__layout{ grid-template-columns:minmax(0,1.55fr) minmax(0,1fr); } }
+    @media (min-width:1200px){ .conf__layout{ grid-template-columns:minmax(0,1.7fr) minmax(0,1fr); } }
+
+    }
+    @media (max-width: 899px){
+      .conf__visual { position: sticky; top: 52px; z-index: 6; background: var(--bg); padding: 8px 0 10px; margin-top: -8px; }
+    }
+    .conf__head { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1.1rem; }
+    .conf__title { font-size: clamp(1.5rem, 4vw, 2.1rem); font-weight: 800; letter-spacing: -.02em; line-height: 1.05; }
+    .conf__title span { color: var(--acc); }
+    .conf__sub { font-size: .84rem; color: var(--text-2); margin-top: .3rem; }
+    .conf__badge { flex: none; display: inline-flex; align-items: center; gap: .5rem; border: 1px solid var(--line-strong); border-radius: 11px; padding: .55rem .8rem; font-size: .74rem; color: var(--text-2); background: var(--bg-raise); line-height: 1.2; max-width: 150px; }
+    .conf__badge svg { width: 20px; height: 20px; color: var(--acc); flex: none; }
+
+    .matswitch { display: inline-flex; flex-wrap: wrap; justify-content: center; max-width: 100%; gap: .3rem; padding: .32rem; border: 1px solid var(--line-strong); border-radius: 13px; background: var(--bg-raise); margin: 1.6rem auto 0; }
+    .matswitch a { display: inline-flex; align-items: center; gap: .5rem; border: none; background: transparent; color: var(--text-2); font: inherit; font-weight: 600; font-size: .9rem; padding: .65rem 1.3rem; border-radius: 10px; cursor: pointer; transition: background .14s ease, color .14s ease; text-decoration: none; }
+    .matswitch a.is-on { background: var(--acc); color: #17130a; }
+    .matswitch a:not(.is-on):hover { color: var(--text-1); }
+    .conf__hero { position: relative; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); margin-bottom: 1.2rem; aspect-ratio: 16/9; background: var(--bg-raise); }
+    .conf__hero .hbg { position: absolute; inset: 0; background-size: cover; background-position: center; filter: blur(30px) brightness(.42) saturate(.9); transform: scale(1.18); z-index: 0; transition: background-image .22s ease; }
+    .conf__hero .hbg::after { content:''; position:absolute; inset:0; background: radial-gradient(120% 90% at 50% 45%, transparent 55%, rgba(0,0,0,.5) 100%); }
+    .conf__hero img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: cover; display: block; transform-origin: center center; transition: opacity .22s ease, transform .38s cubic-bezier(.4,0,.2,1); will-change: transform; }
+    .conf__hero.is-scaled img { border-radius: 10px; box-shadow: 0 18px 50px rgba(0,0,0,.5); }
+    .conf__hero .live { position: absolute; top: .8rem; left: .8rem; z-index: 2; display: inline-flex; align-items: center; gap: .45rem; font-family: var(--mono); font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; color: #fff; background: rgba(0,0,0,.45); backdrop-filter: blur(6px); padding: .35rem .6rem; border-radius: 7px; }
+    .conf__hero .live .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--acc); box-shadow: 0 0 8px var(--acc); }
+    .conf__hero .dim { position: absolute; bottom: .8rem; right: .8rem; z-index: 2; font-family: var(--mono); font-size: .62rem; letter-spacing: .06em; color: #fff; background: rgba(0,0,0,.5); backdrop-filter: blur(6px); padding: .35rem .6rem; border-radius: 7px; display: inline-flex; align-items: center; gap: .4rem; }
+    .conf__hero .dim b { color: var(--acc); font-weight: 400; }
+    .tile__img { width: 100%; height: 54px; border-radius: 8px; background-size: cover; background-position: center; border: 1px solid rgba(255,255,255,.1); }
+
+    .grp { border: 1px solid var(--line); border-radius: 14px; background: var(--bg-raise); padding: 1.15rem 1.2rem 1.25rem; margin-bottom: .9rem; }
+    .grp__h { font-size: .78rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--text); margin-bottom: .85rem; }
+    .grp__h b { color: var(--acc); font-weight: 700; margin-right: .4rem; }
+    .grp__row { display: grid; gap: .8rem; }
+    @media (min-width: 720px){ .grp__row.cols3 { grid-template-columns: 1fr 1fr 1fr; } }
+
+    .tiles { display: grid; gap: .6rem; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+    .tiles.sm { grid-template-columns: repeat(auto-fit, minmax(84px, 1fr)); }
+    .tile { position: relative; cursor: pointer; }
+    .tile input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+    .tile__c { border: 1.5px solid var(--line); border-radius: 11px; background: var(--bg-raise-2); padding: .7rem .6rem; display: flex; flex-direction: column; align-items: center; gap: .5rem; text-align: center; height: 100%; transition: border-color .12s ease, background .12s ease; }
+    .tile__c .ico { width: 30px; height: 30px; color: var(--text-2); }
+    .tile__c .ico svg { width: 100%; height: 100%; }
+    .tile__c .lab { font-size: .76rem; font-weight: 600; color: var(--text); line-height: 1.25; }
+    .tile__c .sub { font-size: .68rem; color: var(--text-3); }
+    @media (max-width: 600px) { .tile__c .sub { font-size: .78rem; } }
+    .tile__sw { width: 100%; height: 40px; border-radius: 7px; border: 1px solid rgba(255,255,255,.12); }
+    .tile input:checked + .tile__c { border-color: var(--acc); background: color-mix(in srgb, var(--acc) 12%, var(--bg-raise-2)); }
+    .tile input:checked + .tile__c .ico { color: var(--acc); }
+    .tile input:focus-visible + .tile__c { outline: 2px solid var(--acc); outline-offset: 2px; }
+
+    /* price bar */
+    .pricebar { margin-top: 1rem; border: 1px solid var(--line-strong); border-radius: 14px; background: linear-gradient(var(--bg-raise-2), var(--bg-raise)); padding: 1.1rem 1.2rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .pricebar__p { flex: 1 1 auto; min-width: 140px; }
+    .pricebar__p .k { display: flex; align-items: center; gap: .5rem; font-family: var(--mono); font-size: .66rem; text-transform: uppercase; letter-spacing: .06em; color: var(--text-3); }
+    .pricebar__p .v { font-size: 1.8rem; font-weight: 800; color: var(--text); letter-spacing: -.02em; margin-top: .1rem; }
+    .btw { display: inline-flex; border: 1px solid var(--line-strong); border-radius: 7px; overflow: hidden; }
+    .btw button { border: none; background: transparent; color: var(--text-3); font: inherit; font-size: .62rem; font-family: var(--mono); padding: .28rem .5rem; cursor: pointer; }
+    .btw button.is-on { background: var(--acc-soft); color: var(--acc); }
+    .pricebar__cta { display: flex; gap: .5rem; align-items: stretch; flex-wrap: wrap; }
+    .btn--acc { background: var(--acc); color: #17130a; border: none; font-weight: 700; }
+    .btn--acc:hover { filter: brightness(1.06); box-shadow: 0 8px 24px color-mix(in srgb, var(--acc) 30%, transparent); }
+    .btn--icon { width: 46px; padding: 0; display: grid; place-items: center; }
+    .btn--icon svg { width: 18px; height: 18px; }
+
+    /* lead form */
+    .lead { display: grid; gap: .8rem; }
+    .lead__grid { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+    @media (max-width: 520px){ .lead__grid { grid-template-columns: 1fr; } }
+    .fld { display: grid; gap: .35rem; }
+    .fld label { font-size: .76rem; color: var(--text-2); font-weight: 500; }
+    .fld input, .fld textarea { width: 100%; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--bg-raise); color: var(--text); font: inherit; font-size: .88rem; padding: .7rem .85rem; }
+    .fld input:focus, .fld textarea:focus { outline: none; border-color: var(--acc); }
+    .lead__note { font-size: .74rem; color: var(--text-3); line-height: 1.5; }
+    .lead__msg { font-size: .84rem; padding: .8rem 1rem; border-radius: 10px; line-height: 1.5; }
+    .lead__msg.ok { background: var(--acc-soft); color: var(--acc); border: 1px solid color-mix(in srgb, var(--acc) 40%, transparent); }
+    .lead__msg.err { background: rgba(220,80,80,.1); color: #e88; border: 1px solid rgba(220,80,80,.35); }
+    .cfg__panel { padding: 1.6rem 1.6rem; display: grid; gap: 1.4rem; }
+  </style>
+  <style id="ng-protect-css">
+    /* Beeld- en kopieerbeveiliging */
+    img,picture,svg,.conf__hero,.conf__hero img,.tile__img,.preset__th,.hbg,.matswitch{
+      -webkit-user-drag:none;-khtml-user-drag:none;-moz-user-drag:none;-o-user-drag:none;user-select:none;
+      -webkit-touch-callout:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;
+    }
+    body{ -webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none; }
+    input,textarea,select,[contenteditable]{ -webkit-user-select:text!important;-moz-user-select:text!important;-ms-user-select:text!important;user-select:text!important; -webkit-touch-callout:default; }
+    .conf__hero,.conf__hero img,.tile__img,.preset__th,.hbg{ pointer-events:none; }
+    .tile,.preset,.matswitch a,.matswitch button{ pointer-events:auto; }
+  </style>
+  <script id="ng-protect-js">
+  (function(){
+    function inField(t){ return t && t.closest && t.closest('input,textarea,select,[contenteditable]'); }
+    document.addEventListener('contextmenu',function(e){ if(inField(e.target)) return; e.preventDefault(); },{capture:true});
+    document.addEventListener('dragstart',function(e){ e.preventDefault(); },{capture:true});
+    document.addEventListener('drop',function(e){ e.preventDefault(); },{capture:true});
+    document.addEventListener('copy',function(e){ if(!inField(e.target)) e.preventDefault(); },{capture:true});
+    document.addEventListener('cut',function(e){ if(!inField(e.target)) e.preventDefault(); },{capture:true});
+    // long-press op mobiel: blokkeer standaard-callout op beelden
+    document.addEventListener('touchstart',function(e){ var t=e.target; if(t&&t.closest&&t.closest('img,.conf__hero,.tile__img,.preset__th,.hbg')&&e.touches.length>1){ e.preventDefault(); } },{passive:false});
+  })();
+  </script>
+    <!-- ============ ENTITEIT (scripts/entiteit.py) ============ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://nextgrowthdigital.nl/#organization",
+          "name": "Next Growth",
+          "url": "https://nextgrowthdigital.nl/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://nextgrowthdigital.nl/assets/media/next-growth-logo.svg"
+          },
+          "description": "Next Growth is een landelijk werkend creatief groeibureau voor branding, webdesign, marketing en verkoopsoftware: websites, productconfigurators, offerteflow en CRM voor bedrijven die maatwerk verkopen.",
+          "email": "info@nextgrowthdigital.nl",
+          "telephone": "+31683902192",
+          "vatID": "NL004420281B57",
+          "taxID": "96002913",
+          "identifier": [
+            {
+              "@type": "PropertyValue",
+              "name": "KvK-nummer",
+              "value": "96002913"
+            },
+            {
+              "@type": "PropertyValue",
+              "name": "btw-identificatienummer",
+              "value": "NL004420281B57"
+            }
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "Noord-Brabant",
+            "addressCountry": "NL"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "sales",
+            "telephone": "+31683902192",
+            "email": "info@nextgrowthdigital.nl",
+            "areaServed": "NL",
+            "availableLanguage": [
+              "nl",
+              "en",
+              "de"
+            ]
+          },
+          "areaServed": [
+            {
+              "@type": "Country",
+              "name": "Nederland"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Noord-Brabant"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Gelderland"
+            },
+            {
+              "@type": "City",
+              "name": "Nijmegen"
+            },
+            {
+              "@type": "City",
+              "name": "Den Bosch"
+            },
+            {
+              "@type": "City",
+              "name": "Eindhoven"
+            },
+            {
+              "@type": "City",
+              "name": "Arnhem"
+            },
+            {
+              "@type": "City",
+              "name": "Uden"
+            },
+            {
+              "@type": "City",
+              "name": "Veghel"
+            },
+            {
+              "@type": "City",
+              "name": "Wijchen"
+            },
+            {
+              "@type": "City",
+              "name": "Vught"
+            },
+            {
+              "@type": "City",
+              "name": "Cuijk"
+            },
+            {
+              "@type": "City",
+              "name": "Grave"
+            }
+          ],
+          "knowsAbout": [
+            "Productconfigurator laten maken",
+            "Offertesoftware voor bouwbedrijven",
+            "Website laten maken voor bouw- en installatiebedrijven",
+            "Zoekmachineoptimalisatie",
+            "CRM voor bouwbedrijven",
+            "Dakopbouw",
+            "Uitbouw en aanbouw",
+            "Badkamer verbouwen",
+            "Overkapping op maat",
+            "Zwembadconfigurator",
+            "Dakkapel",
+            "Omgevingsvergunning bij verbouwen"
+          ],
+          "alternateName": [
+            "Next Growth Digital"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://nextgrowthdigital.nl/#website",
+          "url": "https://nextgrowthdigital.nl/",
+          "name": "Next Growth",
+          "inLanguage": "nl-NL",
+          "publisher": {
+            "@id": "https://nextgrowthdigital.nl/#organization"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://nextgrowthdigital.nl/poolhouse-configurator-en",
+          "url": "https://nextgrowthdigital.nl/poolhouse-configurator-en",
+          "name": "Pool house configurator demo: live price and preview | NEXT GROWTH",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://nextgrowthdigital.nl/#website"
+          },
+          "about": {
+            "@id": "https://nextgrowthdigital.nl/#organization"
+          },
+          "description": "Live demo of the pool house configurator Next Growth builds for pool builders. Your customer picks dimensions, timber, siding, roof type and finishing options, with a realistic preview and a live price estimate.",
+          "dateModified": "2026-08-28"
+        }
+      ]
+    }
+    </script>
+    <!-- ============ EINDE ENTITEIT ============ -->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,900;125,900&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/ngx-shell.css"><script>document.documentElement.classList.add("ngx-display")</script><style id="ngx-world">:root{--ink-900:#07111F;--ink-800:#0B1A2E;--ink-700:#0E2038;--ink-600:#112542;--ink-500:#172F52;--ink-400:#22406B;--tint:#0E2038;--bg:#0B1A2E;--bg-raise:#112542;--bg-raise-2:#172F52;--accent:#3D8BFF;--accent-strong:#2470E6;--accent-light:#A9CBFF;--accent-deep:#1748A0;--accent-dim:rgba(61,139,255,.13);--glow:rgba(61,139,255,.30);--accent-rgb:61,139,255;--acc:#3D8BFF;--acc-soft:rgba(61,139,255,.14);--acc-diep:#1748A0;--goud-metaal:linear-gradient(150deg,#1748A0 0%,#3D8BFF 26%,#A9CBFF 46%,#3D8BFF 66%,#1748A0 100%);--goud-lijn:linear-gradient(90deg,transparent,rgba(61,139,255,.55) 30%,rgba(61,139,255,.55) 70%,transparent);--serif:'Archivo','Arial Black',sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;}html,body{background:#0B1A2E}.ngx-nav{--x-sig:#3D8BFF;--x-ink:#FFFFFF;background:#0B1A2EF5}.ngx-nav .ngx-mark{background:#FFC400}</style></head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+    <header class="ngx-nav"><div class="ngx-wrap">
+<a class="ngx-brand" href="/"><span class="ngx-ring">NG</span><span>Next Growth<small>Creatief groeibureau · Landelijk</small></span></a>
+<a class="ngx-mark" href="/" aria-label="Next Growth, naar de homepage"><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14V4l10 10V4" stroke="#0A0800" stroke-width="2.8" stroke-linecap="square"/></svg></a>
+<nav class="ngx-links" aria-label="Hoofdmenu"><a href="/">Home</a><a href="/dienst-webdesign">Websites</a><a href="/dienst-branding">Branding</a><a href="/dienst-marketing">Marketing</a><a href="/dienst-configurators">Configurators</a><a href="/kennisbank">Kennisbank</a><a href="/prijzen">Prijzen</a></nav>
+<a class="ngx-cta" href="/#contact">Kennismaken</a>
+<button class="ngx-menu" type="button" aria-expanded="false" aria-controls="ngx-mnav">Menu</button>
+</div><nav id="ngx-mnav" class="ngx-mnav" aria-label="Mobiel menu" hidden><a href="/">Home</a><a href="/dienst-webdesign">Websites</a><a href="/dienst-branding">Branding</a><a href="/dienst-marketing">Marketing</a><a href="/dienst-configurators">Configurators</a><a href="/kennisbank">Kennisbank</a><a href="/prijzen">Prijzen</a><a href="/#contact" class="ngx-cta">Plan een kennismaking</a></nav></header>
+
+
+  <main id="main">
+    <section class="cfg-hero" aria-label="Pool house configurator">
+      <div class="wrap">
+        <p class="pill" data-reveal><span class="dot dot--ok"></span>Timber pool house &middot; installation included</p>
+        <h1 class="h1" data-reveal style="--i:1">Design your pool house <span class="grad-text">and see the price as you go.</span></h1>
+        <p class="lede" data-reveal style="--i:2">This is a live demo of a pool house configurator Next Growth builds for pool builders. Choose the timber, siding, roof type and finishing options. The estimate, including installation, updates as you go.</p>
+        <div class="matswitch" role="group" aria-label="Other designers" data-reveal style="--i:3"><a href="/pool-configurator-en">Pool</a><a href="/poolhouse-configurator-en" class="is-on" aria-current="page">Timber pool house</a><a href="/poolstudio-studio-en">Modern pool studio</a></div>
+        <div class="presets" data-reveal style="--i:3">
+          <span class="presets__lbl">Popular configurations</span>
+          <div class="presets__row" id="presetRow"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sectie" style="padding-top: clamp(1.5rem,4vh,2.5rem);" aria-label="Configurator">
+      <div class="wrap" style="max-width: 1600px; width: min(100%, 1600px);">
+        <div class="conf" data-reveal>
+          <div class="conf__head">
+            <div>
+              <div class="conf__title" id="confTitle"></div>
+              <div class="conf__sub" id="confSub"></div>
+            </div>
+            <div class="conf__badge" id="confBadge"></div>
+          </div>
+          <div class="conf__layout">
+            <div class="conf__visual">
+              <div class="conf__hero" id="confHeroWrap"><div class="hbg" id="confHeroBg"></div><img id="confHero" src="./assets/media/hero-poolhouse-douglas.jpg" alt="Preview of your pool house" width="1200" height="560"><span class="live"><span class="dot"></span>Live preview</span><span class="dim" id="confDim"><b>16′ × 11′</b></span></div>
+              <div class="pricebar">
+                                <div class="pricebar__p">
+                  <span class="k">Estimated total <span style="font-family:var(--mono);font-size:.62rem;color:var(--text-3)">excl. sales tax</span></span>
+                  <span class="v" id="prijs">$ 0</span>
+                </div>
+                <div class="pricebar__cta">
+                  <button class="btn btn--acc" type="button" id="naarOfferte">Request a quote</button>
+                  <button class="btn btn--ghost btn--icon" type="button" id="downloadBtn" aria-label="Download configuration" title="Download your configuration">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="conf__options">
+              <div id="groups"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LEAD FORM -->
+        <div class="card cfg__panel" id="offerte" data-reveal style="margin-top:1.4rem;">
+          <div>
+            <p class="eyebrow">Almost there</p>
+            <h2 class="h2" style="font-size:1.4rem; margin-top:.4rem;">Get your personal quote.</h2>
+            <p style="font-size:.86rem; margin-top:.5rem;">Your full configuration is attached automatically. We reply within one business day.</p>
+          </div>
+          <form class="lead" id="leadForm">
+            <div class="lead__grid">
+              <div class="fld"><label for="f_naam">Name</label><input id="f_naam" name="naam" required autocomplete="name"></div>
+              <div class="fld"><label for="f_plaats">City</label><input id="f_plaats" name="plaats" autocomplete="address-level2"></div>
+              <div class="fld"><label for="f_email">Email address</label><input id="f_email" name="email" type="email" required autocomplete="email"></div>
+              <div class="fld"><label for="f_tel">Phone</label><input id="f_tel" name="telefoon" type="tel" autocomplete="tel"></div>
+            </div>
+            <div class="fld"><label for="f_ber">Message (optional)</label><textarea id="f_ber" name="bericht" rows="3" placeholder="Site details, preferred timing, location…"></textarea></div>
+            <input type="hidden" id="f_config" name="configuratie">
+            <button class="btn btn--acc" type="submit" id="leadBtn" style="justify-self:start;">Send request</button>
+            <p class="lead__msg" id="leadMsg" role="status" hidden></p>
+            <p class="lead__note">Your request arrives with the full specification. Prefer to talk? <a href="mailto:info@nextgrowthdigital.nl" style="color:var(--acc)">info@nextgrowthdigital.nl</a>.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="sectie" aria-label="Photo gallery" style="padding-top:clamp(1rem,3vh,2rem);">
+      <div class="wrap" style="max-width:1040px;">
+        <p class="eyebrow" data-reveal>In the field</p>
+        <h2 class="h2" data-reveal style="--i:1; font-size:1.5rem; margin-top:.4rem;">Douglas fir craftsmanship, day and night.</h2>
+        <div class="phgal" data-reveal style="--i:2">
+          <figure class="phgal__big"><img src="./assets/media/gal-poolhouse-goldenhour.jpg" alt="Timber pool house at golden hour beside the pool" loading="lazy" width="1200" height="675"><figcaption>Golden hour by the pool</figcaption></figure>
+          <figure><img src="./assets/media/gal-poolhouse-interieur.jpg" alt="Warm interior with lounge seating" loading="lazy" width="800" height="450"><figcaption>Warm interior with lounge seating</figcaption></figure>
+          <figure><img src="./assets/media/gal-poolhouse-lichtstraat.jpg" alt="Skylight framed in Douglas fir, seen from inside" loading="lazy" width="800" height="450"><figcaption>Skylight in Douglas fir</figcaption></figure>
+          <figure><img src="./assets/media/gal-poolhouse-detail.jpg" alt="Douglas fir beam with steel connector" loading="lazy" width="800" height="450"><figcaption>Detail &amp; connection</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+  <!-- ============ CALLBACK REQUEST ============ -->
+  <div class="ng-terugbel" role="region" aria-labelledby="terugbel-kop">
+    <div class="wrap ng-terugbel__in">
+      <div class="ng-terugbel__tekst" data-reveal>
+        <p class="eyebrow">Callback request</p>
+        <h2 class="h2" id="terugbel-kop">Rather talk than type?</h2>
+        <p class="lede">Leave your number and we call you back the same working day. You talk to one of the people who build these configurators, not a call centre.</p>
+        <ul class="ng-terugbel__punten">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>We call back within one working day</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Ten minutes covers price and lead time</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>No obligation, nothing to sign</span></li>
+        </ul>
+        <p class="ng-terugbel__zelf">Prefer to call us? <a href="tel:+31683902192">+31 6 83 90 21 92</a></p>
+      </div>
+
+      <div class="card ng-terugbel__kaart" data-reveal style="--i:1">
+        <p class="ng-terugbel__kop"><span class="dot dot--ok" aria-hidden="true"></span>3 fields &middot; 20 seconds</p>
+        <form data-terugbel data-taal="en" data-bron="poolhouse-configurator-en.html" action="mailto:info@nextgrowthdigital.nl" method="post" enctype="text/plain" aria-label="Callback request">
+            <div class="ng-veld">
+              <label for="tb-naam">Name</label>
+              <input type="text" id="tb-naam" name="naam" placeholder="First and last name" autocomplete="name" required>
+            </div>
+            <div class="ng-veld">
+              <label for="tb-bedrijf">Company</label>
+              <input type="text" id="tb-bedrijf" name="bedrijf" placeholder="Your company" autocomplete="organization" required>
+            </div>
+            <div class="ng-veld">
+              <label for="tb-tel">Phone number</label>
+              <input type="tel" id="tb-tel" name="telefoon" placeholder="+31 6 12 34 56 78" autocomplete="tel" inputmode="tel" required>
+            </div>
+            <div class="ng-terugbel__honeypot" aria-hidden="true">
+              <label for="tb-website">Website (leave empty)</label>
+              <input type="text" id="tb-website" name="website" tabindex="-1" autocomplete="off">
+            </div>
+            <button class="btn ng-terugbel__verstuur" type="submit">Call me back</button>
+            <p class="ng-terugbel__noot">Used only to call you back. No newsletter, no cold calling.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  </main>
+
+  <style>
+    .phgal { display:grid; grid-template-columns:1fr 1fr; gap:.9rem; margin-top:1.4rem; }
+    .phgal figure { margin:0; position:relative; border-radius:14px; overflow:hidden; border:1px solid var(--line); background:var(--bg-raise); }
+    .phgal img { width:100%; height:100%; object-fit:cover; display:block; aspect-ratio:16/9; }
+    .phgal figcaption { position:absolute; left:.7rem; bottom:.6rem; font-family:var(--mono); font-size:.62rem; letter-spacing:.06em; text-transform:uppercase; color:#fff; background:rgba(0,0,0,.5); backdrop-filter:blur(6px); padding:.3rem .55rem; border-radius:7px; }
+    .phgal__big { grid-column:1 / -1; }
+    .phgal__big img { aspect-ratio:1200/560; }
+    @media (max-width:640px){ .phgal { grid-template-columns:1fr; } }
+  </style>
+
+    <footer class="ngx-foot"><div class="ngx-wrap">
+<div class="ngx-end"><h2>Zo'n configurator <span>op jouw site?</span></h2><div><p>Eén gesprek van twintig minuten. Je spreekt direct met de mensen die het bouwen en krijgt dezelfde dag een eerlijk advies.</p><a class="ngx-cta big" href="/#contact">Plan een kennismaking</a><a class="ngx-tel" href="tel:+31683902192">06 83 90 21 92</a></div></div>
+<div class="ngx-cols">
+<div><a class="ngx-brand" href="/"><span class="ngx-mk"><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14V4l10 10V4" stroke="#0A0800" stroke-width="2.8" stroke-linecap="square"/></svg></span><span>Next Growth Digital</span></a><p>Creatief groeibureau, landelijk actief. Branding, webdesign, marketing en eigen software.</p><p>info@nextgrowthdigital.nl</p></div>
+<div><h4>Diensten</h4><ul><li><a href="/dienst-branding">Branding</a></li><li><a href="/dienst-webdesign">Webdesign</a></li><li><a href="/dienst-marketing">Marketing</a></li><li><a href="/dienst-configurators">Configurators</a></li><li><a href="/dienst-crm">CRM &amp; offertes</a></li><li><a href="/prijzen">Prijzen</a></li></ul></div>
+<div><h4>Configurators</h4><ul><li><a href="/overkapping-configurator">Overkapping</a></li><li><a href="/aanbouw-configurator">Uitbouw</a></li><li><a href="/dakkapel-configurator">Dakkapel</a></li><li><a href="/dakopbouw-configurator">Dakopbouw</a></li><li><a href="/badkamer-configurator">Badkamer</a></li><li><a href="/zwembad-configurator">Zwembad</a></li><li><a href="/jacht-configurator">Jacht</a></li></ul></div>
+<div><h4>Kennisbank</h4><ul><li><a href="/kennisbank">Alle artikelen</a></li><li><a href="/kennisbank-configurator-kosten">Wat kost een configurator?</a></li><li><a href="/configurator-laten-maken">Configurator laten maken</a></li><li><a href="/kennisbank-website-kosten">Wat kost een website?</a></li></ul></div>
+<div><h4>Bedrijf</h4><ul><li><a href="/#cases">Cases</a></li><li><a href="/werkgebied">Werkgebied</a></li><li><a href="/privacyverklaring">Privacyverklaring</a></li><li><a href="/auteursrecht">Auteursrecht</a></li><li><a href="/#contact">Contact</a></li></ul></div>
+</div>
+<div class="ngx-legal"><span>© 2026 Next Growth Digital</span><span>KVK 96002913</span><span>Landelijk actief · Nederland</span></div>
+<p class="ngx-giant" aria-hidden="true">NEXT GROWTH</p></div></footer>
+<script>(function(){var b=document.querySelector('.ngx-menu'),n=document.getElementById('ngx-mnav');if(!b||!n)return;b.addEventListener('click',function(){var o=n.hasAttribute('hidden');if(o)n.removeAttribute('hidden');else n.setAttribute('hidden','');b.setAttribute('aria-expanded',o?'true':'false');b.textContent=o?'Sluiten':'Menu'})})();</script>
+
+
+    <script>
+  (function(){
+    if(window.__lbInit) return; window.__lbInit=1;
+    function init(){
+      var hero=document.querySelector('.conf__hero'); var img=document.getElementById('confHero');
+      if(!hero||!img){ setTimeout(init,300); return; }
+      hero.style.cursor='zoom-in';
+      var btn=document.createElement('button');
+      btn.type='button'; btn.setAttribute('aria-label','View image full screen');
+      btn.innerHTML='&#x26F6;';
+      btn.style.cssText='position:absolute;top:.8rem;right:.8rem;z-index:3;width:42px;height:42px;border-radius:10px;border:1px solid rgba(255,255,255,.28);background:rgba(0,0,0,.45);backdrop-filter:blur(6px);color:#fff;font-size:1.15rem;cursor:zoom-in;display:flex;align-items:center;justify-content:center;';
+      hero.appendChild(btn);
+      function openLB(){
+        var ov=document.createElement('div');
+        ov.style.cssText='position:fixed;inset:0;z-index:100000;background:rgba(6,6,5,.95);display:flex;align-items:center;justify-content:center;cursor:zoom-out;padding:2vh 2vw;';
+        var big=document.createElement('img');
+        big.src=img.getAttribute('src'); big.alt=img.getAttribute('alt')||'';
+        big.style.cssText='max-width:96vw;max-height:92vh;width:auto;height:auto;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.6);';
+        var x=document.createElement('button'); x.innerHTML='&times;'; x.setAttribute('aria-label','Close');
+        x.style.cssText='position:fixed;top:12px;right:20px;background:none;border:none;color:#fff;font-size:2.4rem;cursor:pointer;line-height:1;z-index:100001;';
+        ov.appendChild(big); ov.appendChild(x); document.body.appendChild(ov);
+        document.body.style.overflow='hidden';
+        function close(){ ov.remove(); document.body.style.overflow=''; document.removeEventListener('keydown',esc); }
+        function esc(e){ if(e.key==='Escape') close(); }
+        ov.addEventListener('click',close); document.addEventListener('keydown',esc);
+      }
+      img.addEventListener('click',openLB);
+      btn.addEventListener('click',function(e){ e.stopPropagation(); openLB(); });
+    }
+    if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+  })();
+  </script>
+  <script src="./assets/meting.js" defer></script>
+  <script src="./assets/terugbel.js" defer></script>
+  <script src="./assets/core.js" defer></script>
+  <script>
+  (function(){
+    "use strict";
+    var BTW = 0.21;
+    var HAVE = new Set(["hero-poolhouse", "hero-poolhouse-douglas", "hero-poolhouse-douglas-compact", "hero-poolhouse-douglas-dicht", "hero-poolhouse-douglas-glaswandr", "hero-poolhouse-douglas-groen", "hero-poolhouse-douglas-groen-dicht", "hero-poolhouse-douglas-groen-schuif", "hero-poolhouse-douglas-latten", "hero-poolhouse-douglas-plat", "hero-poolhouse-douglas-plat-compact", "hero-poolhouse-douglas-plat-dicht", "hero-poolhouse-douglas-plat-glaswandr", "hero-poolhouse-douglas-plat-latten", "hero-poolhouse-douglas-plat-licht", "hero-poolhouse-douglas-plat-rabat", "hero-poolhouse-douglas-plat-schuif", "hero-poolhouse-douglas-plat-spots", "hero-poolhouse-douglas-plat-zijopen", "hero-poolhouse-douglas-plat-zwartrabat", "hero-poolhouse-douglas-rabat", "hero-poolhouse-douglas-schuif", "hero-poolhouse-douglas-schuin", "hero-poolhouse-douglas-schuin-dicht", "hero-poolhouse-douglas-schuin-schuif", "hero-poolhouse-douglas-spots", "hero-poolhouse-douglas-zijopen", "hero-poolhouse-douglas-zijzwart", "hero-poolhouse-douglas-zwartrabat", "hero-poolhouse-eiken", "hero-poolhouse-eiken-dicht", "hero-poolhouse-eiken-glaswandr", "hero-poolhouse-eiken-groen", "hero-poolhouse-eiken-groen-dicht", "hero-poolhouse-eiken-groen-schuif", "hero-poolhouse-eiken-latten", "hero-poolhouse-eiken-plat", "hero-poolhouse-eiken-plat-dicht", "hero-poolhouse-eiken-plat-glaswandr", "hero-poolhouse-eiken-plat-latten", "hero-poolhouse-eiken-plat-licht", "hero-poolhouse-eiken-plat-rabat", "hero-poolhouse-eiken-plat-schuif", "hero-poolhouse-eiken-plat-spots", "hero-poolhouse-eiken-plat-zijopen", "hero-poolhouse-eiken-plat-zwartrabat", "hero-poolhouse-eiken-rabat", "hero-poolhouse-eiken-schuif", "hero-poolhouse-eiken-schuin", "hero-poolhouse-eiken-schuin-dicht", "hero-poolhouse-eiken-schuin-schuif", "hero-poolhouse-eiken-spots", "hero-poolhouse-eiken-zijopen", "hero-poolhouse-eiken-zijzwart", "hero-poolhouse-eiken-zwartrabat", "hero-poolhouse-grenen", "hero-poolhouse-grenen-dicht", "hero-poolhouse-grenen-glaswandr", "hero-poolhouse-grenen-groen", "hero-poolhouse-grenen-groen-dicht", "hero-poolhouse-grenen-groen-schuif", "hero-poolhouse-grenen-latten", "hero-poolhouse-grenen-plat", "hero-poolhouse-grenen-plat-dicht", "hero-poolhouse-grenen-plat-glaswandr", "hero-poolhouse-grenen-plat-latten", "hero-poolhouse-grenen-plat-licht", "hero-poolhouse-grenen-plat-rabat", "hero-poolhouse-grenen-plat-schuif", "hero-poolhouse-grenen-plat-spots", "hero-poolhouse-grenen-plat-zijopen", "hero-poolhouse-grenen-plat-zijzwart", "hero-poolhouse-grenen-plat-zwartrabat", "hero-poolhouse-grenen-rabat", "hero-poolhouse-grenen-schuif", "hero-poolhouse-grenen-schuin", "hero-poolhouse-grenen-schuin-dicht", "hero-poolhouse-grenen-schuin-schuif", "hero-poolhouse-grenen-spots", "hero-poolhouse-grenen-zijopen", "hero-poolhouse-grenen-zwartrabat", "hero-poolhouse-lariks", "hero-poolhouse-lariks-dicht", "hero-poolhouse-lariks-glaswandr", "hero-poolhouse-lariks-groen", "hero-poolhouse-lariks-groen-dicht", "hero-poolhouse-lariks-groen-schuif", "hero-poolhouse-lariks-latten", "hero-poolhouse-lariks-plat", "hero-poolhouse-lariks-plat-dicht", "hero-poolhouse-lariks-plat-glaswandr", "hero-poolhouse-lariks-plat-latten", "hero-poolhouse-lariks-plat-licht", "hero-poolhouse-lariks-plat-rabat", "hero-poolhouse-lariks-plat-schuif", "hero-poolhouse-lariks-plat-spots", "hero-poolhouse-lariks-plat-zijopen", "hero-poolhouse-lariks-plat-zijzwart", "hero-poolhouse-lariks-plat-zwartrabat", "hero-poolhouse-lariks-rabat", "hero-poolhouse-lariks-schuif", "hero-poolhouse-lariks-schuin", "hero-poolhouse-lariks-schuin-dicht", "hero-poolhouse-lariks-schuin-schuif", "hero-poolhouse-lariks-spots", "hero-poolhouse-lariks-zijopen", "hero-poolhouse-lariks-zwartrabat", "hero-poolhouse-thermohout", "hero-poolhouse-thermohout-dicht", "hero-poolhouse-thermohout-glaswandr", "hero-poolhouse-thermohout-groen", "hero-poolhouse-thermohout-groen-dicht", "hero-poolhouse-thermohout-groen-schuif", "hero-poolhouse-thermohout-latten", "hero-poolhouse-thermohout-plat", "hero-poolhouse-thermohout-plat-dicht", "hero-poolhouse-thermohout-plat-glaswandr", "hero-poolhouse-thermohout-plat-latten", "hero-poolhouse-thermohout-plat-licht", "hero-poolhouse-thermohout-plat-rabat", "hero-poolhouse-thermohout-plat-schuif", "hero-poolhouse-thermohout-plat-spots", "hero-poolhouse-thermohout-plat-zijopen", "hero-poolhouse-thermohout-plat-zwartrabat", "hero-poolhouse-thermohout-rabat", "hero-poolhouse-thermohout-schuif", "hero-poolhouse-thermohout-schuin", "hero-poolhouse-thermohout-schuin-dicht", "hero-poolhouse-thermohout-schuin-schuif", "hero-poolhouse-thermohout-spots", "hero-poolhouse-thermohout-zijopen", "hero-poolhouse-thermohout-zijzwart", "hero-poolhouse-thermohout-zwartrabat"]);
+    /* ==== FORMULIER: plak je gratis Web3Forms access key (web3forms.com). Leeg = e-mail fallback. ==== */
+    var WEB3FORMS_KEY = "695172ae-1f2d-40b7-bb31-b8a4a882ad62";
+
+    /* ---- kleine SVG-iconenset ---- */
+    function S(p){ return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">'+p+'</svg>'; }
+    var IC = {
+      ruler:  S('<path d="M3 8h18v8H3z"/><path d="M7 8v3M11 8v4M15 8v3M19 8v4"/>'),
+      geen:   S('<circle cx="12" cy="12" r="8"/><path d="M6 6l12 12"/>'),
+      platdak:S('<path d="M3 9h18M4 9v7M20 9v7"/><path d="M3 16h18"/>'),
+      zadeldak:S('<path d="M3 14L12 6l9 8"/><path d="M6 14v5M18 14v5"/>'),
+      schuindak:S('<path d="M4 15L20 8"/><path d="M4 15v4M20 8v11"/>'),
+      groendak:S('<path d="M3 12h18v4H3z"/><path d="M6 12c0-2 2-3 3-1 1-2 3-2 3 0 1-1 3 0 2 1"/><path d="M14 12c0-1 2-2 2 0 1-1 2 0 2 1"/>'),
+      houtwand:S('<rect x="4" y="4" width="16" height="16" rx="1"/><path d="M9 4v16M15 4v16"/>'),
+      rabat:  S('<rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 9h16M4 14h16"/>'),
+      latten: S('<rect x="4" y="4" width="16" height="16" rx="1"/><path d="M8 4v16M12 4v16M16 4v16"/>'),
+      schuifwand:S('<rect x="3" y="5" width="18" height="14" rx="1"/><path d="M12 5v14"/><path d="M8 12h-3M6 10l-2 2 2 2"/>'),
+      glas:   S('<rect x="3" y="5" width="18" height="14" rx="1"/><path d="M9 5v14M15 5v14M3 12h18"/>'),
+      led:    S('<path d="M9 18h6M10 21h4M12 3a6 6 0 00-4 10c1 1 1 2 1 3h6c0-1 0-2 1-3a6 6 0 00-4-10z"/>'),
+      strip:  S('<rect x="3" y="10" width="18" height="4" rx="2"/><path d="M6 14v2M10 14v2M14 14v2M18 14v2"/>'),
+      indirect:S('<path d="M4 16h16"/><path d="M6 16c0-3 2-5 6-5s6 2 6 5"/>'),
+      lichtstraat:S('<path d="M4 14L12 7l8 7"/><rect x="9" y="10" width="6" height="4"/>'),
+      stopcontact:S('<rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/>'),
+      warmte: S('<path d="M8 3c1 2-1 3 0 5M12 3c1 2-1 3 0 5M16 3c1 2-1 3 0 5"/><rect x="5" y="10" width="14" height="4" rx="2"/><path d="M7 18v2M12 18v2M17 18v2"/>'),
+      keuken: S('<path d="M4 4h16v6H4z"/><path d="M4 10v10M20 10v10M4 20h16"/><path d="M8 13h3v3H8z"/><circle cx="16" cy="14" r="1"/>'),
+      wastafel:S('<path d="M4 11h16v3a4 4 0 01-4 4H8a4 4 0 01-4-4z"/><path d="M12 11V6a2 2 0 012-2"/><circle cx="12" cy="8" r="1"/>'),
+      wijn:   S('<path d="M8 3h8l-1 6a3 3 0 01-6 0z"/><path d="M12 12v6M9 21h6"/>'),
+      tree:   S('<path d="M12 2L6 11h3l-4 6h5v5h4v-5h5l-4-6h3z"/>')
+    };
+
+    /* ---- poolhouse-data (alle bedragen EXCL. btw, incl. montage; pas hier aan) ---- */
+    var C = {
+      titel: '<span>Timber</span> pool house', accent: (getComputedStyle(document.documentElement).getPropertyValue('--accent').trim()||'#FFC400'), soft: ('rgba('+(getComputedStyle(document.documentElement).getPropertyValue('--accent-rgb').trim()||'255,196,0')+',.14)'),
+      sub: 'A free-standing outdoor room. Fully finished. Built to size.',
+      badge: { ic: IC.tree, t: 'Complete outdoor room' },
+      hero: './assets/media/hero-poolhouse-douglas.jpg',
+      basisM2: 867,
+      groepen: [
+        { id:'afm', t:'Dimensions', style:'text', kz:[
+          {v:'400x300', l:'13′ × 10′', m2:12},
+          {v:'500x350', l:'16′ × 11′', m2:17.5, def:1},
+          {v:'600x400', l:'20′ × 13′', m2:24},
+          {v:'700x400', l:'23′ × 13′', m2:28},
+          {v:'maatwerk', l:'Custom size', ic:IC.ruler, m2:17.5}
+        ]},
+        { id:'houtsoort', t:'Timber', style:'swatch', hero:1, kz:[
+          {v:'douglas', l:'Douglas fir', img:'./assets/media/mat-douglas.jpg', heroKey:'poolhouse-douglas', m2:0, def:1},
+          {v:'eiken', l:'Oak', img:'./assets/media/mat-eiken.jpg', heroKey:'poolhouse-eiken', m2:80},
+          {v:'lariks', l:'Larch', img:'./assets/media/mat-lariks.jpg', heroKey:'poolhouse-lariks', m2:20},
+          {v:'grenen', l:'Pine', img:'./assets/media/mat-grenen.jpg', heroKey:'poolhouse-grenen', m2:-25},
+          {v:'thermohout', l:'Thermowood', img:'./assets/media/mat-thermohout.jpg', heroKey:'poolhouse-thermohout', m2:45}
+        ]},
+        { row:1, groepen:[
+          { id:'daktype', t:'Roof type', style:'icon', kz:[
+            {v:'zadeldak', l:'Gable roof', ic:IC.zadeldak, roof:'', p:0, def:1},
+            {v:'platdak', l:'Flat roof', ic:IC.platdak, roof:'-plat', p:0},
+            {v:'lessenaars', l:'Shed roof', ic:IC.schuindak, roof:'-schuin', p:1450},
+            {v:'groendak', l:'Green roof', ic:IC.groendak, roof:'-groen', p:2650}
+          ]},
+          { id:'afwerking', t:'Siding', style:'icon', kz:[
+            {v:'naturel', l:'Natural timber', ic:IC.houtwand, p:0, def:1},
+            {v:'rabat', l:'Shiplap', ic:IC.rabat, heroMod:'-rabat', m2:35},
+            {v:'zwartrabat', l:'Black shiplap', ic:IC.rabat, heroMod:'-zwartrabat', m2:45},
+            {v:'latten', l:'Vertical battens', ic:IC.latten, heroMod:'-latten', m2:55}
+          ]},
+          { id:'wanden', t:'Walls', style:'icon', kz:[
+            {v:'open', l:'Standard sliding doors', ic:IC.geen, p:0, def:1},
+            {v:'schuif', l:'Extra sliding glass wall', ic:IC.schuifwand, heroMod:'-schuif', p:1850},
+            {v:'dicht', l:'Glass all round', ic:IC.glas, heroMod:'-dicht', p:3900}
+          ]}
+        ]},
+        { id:'zijwand', t:'Right side wall', style:'icon', kz:[
+          {v:'hout', l:'Timber wall', ic:IC.houtwand, p:0, def:1},
+          {v:'geen', l:'None', ic:IC.geen, heroMod:'-zijopen', p:-250},
+          {v:'glas', l:'Glass wall', ic:IC.glas, heroMod:'-glaswandr', p:950},
+          {v:'rabat', l:'Black shiplap', ic:IC.rabat, heroMod:'-zijzwart', m2:12}
+        ]},
+        { id:'verlichting', t:'Lighting', style:'icon', kz:[
+          {v:'geen', l:'None', ic:IC.geen, p:0},
+          {v:'led', l:'LED strip', ic:IC.strip, p:395, def:1},
+          {v:'spots', l:'LED spots', ic:IC.led, heroMod:'-spots', p:350},
+          {v:'indirect', l:'Indirect LED', ic:IC.indirect, p:450}
+        ]}
+      ],
+      extra: [
+        {v:'lichtstraat', l:'Skylight (flat roof)', ic:IC.lichtstraat, heroMod:'-licht', p:1250},
+        {v:'stopcontact', l:'Power outlet', ic:IC.stopcontact, p:95, def:1},
+        {v:'verwarming', l:'Heater', ic:IC.warmte, p:449},
+        {v:'buitenkeuken', l:'Outdoor kitchen', ic:IC.keuken, p:3450},
+        {v:'wastafel', l:'Sink', ic:IC.wastafel, p:650},
+        {v:'wijnkoeler', l:'Wine cooler', ic:IC.wijn, p:895}
+      ]
+    };
+
+    var $ = function(s,r){ return (r||document).querySelector(s); };
+    function euro(n){ return "$" + (Math.round(n/5)*5).toLocaleString('en-US'); }
+
+    var sel = {};      // group id -> value
+    var extras = {};   // extra v -> bool
+    var btwIncl = true;
+
+    function allGroups(){
+      var out=[]; C.groepen.forEach(function(g){ if(g.row){ g.groepen.forEach(function(x){out.push(x);}); } else out.push(g); }); return out;
+    }
+    function findKz(g){ return g.kz.filter(function(k){return k.v===sel[g.id];})[0] || g.kz[0]; }
+
+    function initSelection(){
+      sel = {}; extras = {};
+      allGroups().forEach(function(g){ var d=g.kz.filter(function(k){return k.def;})[0]||g.kz[0]; sel[g.id]=d.v; });
+      C.extra.forEach(function(e){ extras[e.v] = !!e.def; });
+    }
+
+    function m2(){ var g=allGroups().filter(function(x){return x.id==='afm';})[0]; return findKz(g).m2 || 17.5; }
+
+    function calc(){
+      var opp = m2(), tot = C.basisM2 * opp;
+      allGroups().forEach(function(g){ if(g.id==='afm') return; var k=findKz(g); if(k.p) tot+=k.p; if(k.m2) tot+=k.m2*opp; });
+      C.extra.forEach(function(e){ if(extras[e.v]) tot += e.p; });
+      return tot;
+    }
+
+    /* ---- render ---- */
+    function tile(name, k, checked, multi){
+      var input = '<input type="'+(multi?'checkbox':'radio')+'" name="'+name+'" value="'+k.v+'"'+(checked?' checked':'')+'>';
+      var inner;
+      if (k.img) inner = '<span class="tile__img" style="background-image:url('+k.img+')"></span>';
+      else if (k.sw) inner = '<span class="tile__sw" style="background:'+k.sw+'"></span>';
+      else inner = '<span class="ico">'+(k.ic||'')+'</span>';
+      var sub = k.sub ? '<span class="sub">'+k.sub+'</span>' : '';
+      return '<label class="tile">'+input+'<span class="tile__c">'+inner+'<span class="lab">'+k.l+'</span>'+sub+'</span></label>';
+    }
+    function groupBox(g, nr){
+      var cls = g.style==='swatch' ? 'tiles' : (g.style==='icon' ? 'tiles sm' : 'tiles');
+      var tiles = g.kz.map(function(k){ return tile('g_'+g.id, k, sel[g.id]===k.v, false); }).join('');
+      return '<div class="grp"><div class="grp__h"><b>'+nr+'.</b>'+g.t.toUpperCase()+'</div><div class="'+cls+'">'+tiles+'</div></div>';
+    }
+
+    function render(){
+      document.documentElement.style.setProperty('--acc', C.accent);
+      document.documentElement.style.setProperty('--acc-soft', C.soft);
+      $('#confTitle').innerHTML = C.titel;
+      $('#confSub').textContent = C.sub;
+      $('#confBadge').innerHTML = '<span>'+C.badge.ic+'</span><span>'+C.badge.t+'</span>';
+
+      var nr=0, html='';
+      C.groepen.forEach(function(g){
+        if (g.row){
+          html += '<div class="grp__row cols3">';
+          g.groepen.forEach(function(x){ nr++; html += groupBox(x, nr); });
+          html += '</div>';
+        } else { nr++; html += groupBox(g, nr); }
+      });
+      nr++;
+      var ex = C.extra.map(function(e){ return tile('x_'+e.v, e, !!extras[e.v], true); }).join('');
+      html += '<div class="grp"><div class="grp__h"><b>'+nr+'.</b>EXTRAS</div><div class="tiles sm">'+ex+'</div></div>';
+      $('#groups').innerHTML = html;
+
+      allGroups().forEach(function(g){
+        $('#groups').querySelectorAll('input[name="g_'+g.id+'"]').forEach(function(inp){
+          inp.addEventListener('change', function(){
+            sel[g.id]=this.value;
+            // lichtstraat kan alleen in een plat dak: uitvinken + tiles opnieuw tekenen bij dakwissel
+            if (g.id==='daktype' && sel.daktype!=='platdak' && extras.lichtstraat){ extras.lichtstraat=false; render(); return; }
+            price(); updateHero(); applyGates();
+          });
+        });
+      });
+      C.extra.forEach(function(e){
+        var inp = $('#groups').querySelector('input[name="x_'+e.v+'"]');
+        if(inp) inp.addEventListener('change', function(){ extras[e.v]=this.checked; price(); updateHero(); });
+      });
+      applyGates();
+      updateHero(true);
+      price();
+    }
+
+    // lichtstraat-tegel uitschakelen als het dak geen plat dak is
+    function applyGates(){
+      var li = $('#groups').querySelector('input[name="x_lichtstraat"]');
+      if (!li) return;
+      var ok = sel.daktype==='platdak';
+      li.disabled = !ok;
+      var lbl = li.closest('label');
+      if (lbl){ lbl.style.opacity = ok? '' : '.45'; lbl.title = ok? '' : 'Lichtstraat kan alleen in een plat dak'; }
+    }
+
+    function sizeBucket(){
+      // maat wordt visueel getoond via schaal (heroScale) — altijd het ruime, complete
+      // basisbeeld gebruiken zodat elke gekozen optie op elke maat zichtbaar blijft.
+      return 'ruim';
+    }
+    function groupById(id){ var r=null; allGroups().forEach(function(g){ if(g.id===id) r=g; }); return r; }
+    function heroSrc(){
+      // houtsoort key
+      var key=null;
+      allGroups().forEach(function(g){ if(g.hero){ var k=findKz(g); if(k.heroKey) key=k.heroKey; } });
+      if(!key) return C.hero;
+      // roof token from daktype (zadeldak='', platdak='-plat', lessenaars='-schuin', groendak='-groen')
+      var roof='';
+      var dg=groupById('daktype'); if(dg){ var dk=findKz(dg); if(dk.roof) roof=dk.roof; }
+      // one feature by priority: wanden > gevelafwerking > lichtstraat > spots
+      var feat='';
+      var wg=groupById('wanden'); if(wg){ var wk=findKz(wg); if(wk.heroMod) feat=wk.heroMod; }
+      if(!feat){ var ag=groupById('afwerking'); if(ag){ var ak=findKz(ag); if(ak.heroMod) feat=ak.heroMod; } }
+      if(!feat){ var zg=groupById('zijwand'); if(zg){ var zk=findKz(zg); if(zk.heroMod) feat=zk.heroMod; } }
+      if(!feat && extras['lichtstraat'] && roof==='-plat') feat='-licht';
+      if(!feat){ var vg=groupById('verlichting'); if(vg){ var vk=findKz(vg); if(vk.heroMod) feat=vk.heroMod; } }
+      var size = sizeBucket()==='compact' ? '-compact' : '';
+      // most specific -> least; roof correctness beats feature
+      var cands=[
+        key+roof+feat+size, key+roof+feat,
+        key+roof+size, key+roof,
+        key+feat+size, key+feat,
+        key+size, key
+      ];
+      for(var i=0;i<cands.length;i++){ if(HAVE.has('hero-'+cands[i])) return './assets/media/hero-'+cands[i]+'.jpg'; }
+      return C.hero;
+    }
+    function heroScale(){
+      // breedte 400 cm → 0.74 ... 700 cm → 1.00, zodat een kleiner poolhouse ook kleiner oogt
+      var v = sel['afm'] || '';
+      if (v === 'maatwerk') return 1;
+      var w = parseInt((v.split('x')[0]||'500'), 10);
+      if (!w) return 1;
+      w = Math.max(400, Math.min(700, w));
+      return Math.round((0.74 + (w - 400) / 300 * 0.26) * 1000) / 1000;
+    }
+    function dimLabel(){
+      var v = sel['afm'] || '';
+      if (v === 'maatwerk') return 'Custom size';
+      var p = v.split('x');
+      if (p.length < 2) return '';
+      var voet = function(cm){ return Math.round(parseInt(cm,10)/30.48) + '′'; };
+      return voet(p[0]) + ' × ' + voet(p[1]);
+    }
+    function applyScaleAndBg(src){
+      var wrap = $('#confHeroWrap'), bg = $('#confHeroBg'), dim = $('#confDim');
+      var sc = heroScale();
+      var img = $('#confHero');
+      if (img) img.style.transform = 'scale(' + sc + ')';
+      if (wrap) wrap.classList.toggle('is-scaled', sc < 0.995);
+      if (bg && src) bg.style.backgroundImage = "url('" + src + "')";
+      if (dim) dim.innerHTML = '<b>' + dimLabel() + '</b>';
+    }
+    /* Elke beeldwissel krijgt een volgnummer, en een fade die nog loopt terwijl
+       er alweer gekozen is zet zijn beeld niet meer neer. Zonder dat legt de
+       trage timer het oude beeld over de nieuwe keuze heen: wie binnen die
+       150 ms twee keer klikt, ziet iets staan wat hij net heeft weggeklikt,
+       naast een keuzelijst die iets anders zegt. */
+    var heroBeurt = 0;
+    function updateHero(instant){
+      var img = $('#confHero'), src = heroSrc();
+      // maat-schaal + achtergrond + label altijd bijwerken (ook als de foto zelf gelijk blijft)
+      applyScaleAndBg(src);
+      var beurt = ++heroBeurt;
+      if (img.getAttribute('src') === src){ img.style.opacity = '1'; return; }
+      if (instant){ img.src = src; img.style.opacity = '1'; return; }
+      img.style.opacity = '0';
+      setTimeout(function(){
+        if (beurt !== heroBeurt) return;   // ingehaald door een nieuwere keuze
+        img.src = src; img.style.opacity = '1';
+      }, 150);
+    }
+
+    function summaryText(){
+      var lines=['Product: Timber pool house'];
+      allGroups().forEach(function(g){ lines.push(g.t+': '+findKz(g).l); });
+      var chosen = C.extra.filter(function(e){return extras[e.v];}).map(function(e){return e.l;});
+      lines.push('Extras: '+(chosen.length?chosen.join(', '):'none'));
+      var excl=calc(), incl=excl*(1+BTW);
+      lines.push('Estimated total, installation included: '+euro(excl)+' (excl. sales tax)');
+      return lines.join('\n');
+    }
+    function price(){
+      var excl=calc(), incl=excl*(1+BTW);
+      $('#prijs').textContent = euro(excl);
+      $('#f_config').value = summaryText();
+    }
+
+    $('#naarOfferte').addEventListener('click', function(){ $('#offerte').scrollIntoView({behavior:'smooth', block:'start'}); });
+
+    // download config as .txt
+    $('#downloadBtn').addEventListener('click', function(){
+      var blob = new Blob(['Pool house configuration · Next Growth\n\n'+summaryText()+'\n\nnextgrowthdigital.nl · info@nextgrowthdigital.nl'], {type:'text/plain'});
+      var a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+      a.download='poolhouse.txt'; a.click(); URL.revokeObjectURL(a.href);
+    });
+
+    /* ---- lead form: Web3Forms + mailto fallback ---- */
+    function msg(t,type){ var m=$('#leadMsg'); m.hidden=false; m.textContent=t; m.className='lead__msg '+(type||''); }
+    function mailtoFallback(f){
+      var body="Request via the pool house designer\n=====================================\n\n"+f.configuratie.value+
+        "\n\n--- Contact details ---\nName: "+f.naam.value+"\nE-mail: "+f.email.value+
+        "\nPhone: "+(f.telefoon.value||"-")+"\nCity: "+(f.plaats.value||"-")+"\nMessage: "+(f.bericht.value||"-")+"\n";
+      window.location.href="mailto:info@nextgrowthdigital.nl?subject="+encodeURIComponent("Quote request pool house: "+(f.naam.value||""))+"&body="+encodeURIComponent(body);
+    }
+  /* Twee routes naast elkaar: FormSubmit levert vandaag af, Web3Forms vangt op
+     als die dienst hapert. Geeft hetzelfde antwoord terug als FormSubmit, zodat
+     de rest van de afhandeling ongewijzigd blijft. Pas als beide mislukken
+     opent de mailclient. */
+  function ngDubbel(payload, sleutel){
+    var a=fetch("https://formsubmit.co/ajax/info@nextgrowthdigital.nl",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(payload)})
+      .then(function(r){return r.json();}).then(function(d){return !!(d&&(d.success===true||d.success==="true"));}).catch(function(){return false;});
+    var b=sleutel?fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},
+      body:JSON.stringify(Object.assign({access_key:sleutel,from_name:"nextgrowthdigital.nl",subject:payload._subject},payload))})
+      .then(function(r){return r.ok;}).catch(function(){return false;}):Promise.resolve(false);
+    /* Niet Promise.all: dan wacht de bezoeker op het traagste kanaal, ook als
+       het eerste al ja heeft gezegd. Web3Forms staat op sommige blokkeerlijsten
+       en hangt dan tot de browser er zelf mee ophoudt. De lead is op dat moment
+       allang binnen via FormSubmit, maar het scherm blijft op Versturen staan en
+       de bezoeker denkt dat het mislukt is.
+
+       Dus: zodra een van de twee slaagt is het klaar. Zeggen ze allebei nee, dan
+       pas het mailtovangnet. Blijft er een hangen, dan valt na tien seconden de
+       beslissing alsnog op nee - want dan weten we het niet, en dan is de e-mail
+       openen eerlijker dan een bedankje dat nergens op slaat. Beide verzoeken
+       lopen intussen gewoon door; er wordt niets afgebroken. */
+    var beslist = new Promise(function (klaar) {
+      var open = 2;
+      [a, b].forEach(function (p) {
+        p.then(function (ok) { if (ok) klaar(true); else if (!--open) klaar(false); });
+      });
+      setTimeout(function () { klaar(false); }, 10000);
+    });
+    return beslist.then(function(ok){return {json:function(){return {success:ok};}};});
+  }
+
+    $('#leadForm').addEventListener('submit', function(e){
+      e.preventDefault(); var f=e.target;
+      if (f.reportValidity && !f.reportValidity()) return;
+      var btn=$('#leadBtn'), oud=btn.textContent; btn.disabled=true; btn.textContent="Sending…";
+      ngDubbel({_subject:"Quote request pool house: "+(f.naam.value||""), _template:"table", _captcha:"false", _replyto:f.email.value, Product:"Pool house",
+          Name:f.naam.value, "E-mail":f.email.value, Phone:(f.telefoon.value||"-"), City:(f.plaats.value||"-"), Message:(f.bericht.value||"-"), Configuration:f.configuratie.value}, WEB3FORMS_KEY).then(function(r){return r.json();}).then(function(d){
+        if(d&&(d.success===true||d.success==="true")){ f.reset(); msg("Thank you. Your request has been sent. We reply within one business day.","ok"); }
+        else { msg("Something went wrong. We are opening your email client with the request ready.","err"); mailtoFallback(f); }
+      }).catch(function(){ msg("No connection. We are opening your email client with the request ready.","err"); mailtoFallback(f); })
+        .finally(function(){ btn.disabled=false; btn.textContent=oud; });
+    });
+
+    // ---- presets (popular configurations) ----
+    var PRESETS=[
+      {n:'Flat roof with skylight', d:'Douglas fir, flat roof with skylight', th:'hero-poolhouse-douglas-plat-licht',
+        sel:{afm:'500x350', houtsoort:'douglas', afwerking:'naturel', daktype:'platdak', wanden:'open', verlichting:'spots'}, extras:{lichtstraat:true, stopcontact:true}},
+      {n:'Black shiplap lodge', d:'Flat roof + black shiplap, spots', th:'hero-poolhouse-douglas-plat-zwartrabat',
+        sel:{afm:'500x350', houtsoort:'douglas', afwerking:'zwartrabat', daktype:'platdak', wanden:'open', verlichting:'spots'}, extras:{stopcontact:true}},
+      {n:'Green roof lounge', d:'Douglas fir, green roof on flat deck', th:'hero-poolhouse-douglas-groen',
+        sel:{afm:'600x400', houtsoort:'douglas', afwerking:'naturel', daktype:'groendak', wanden:'open', verlichting:'spots'}, extras:{}},
+      {n:'Glass garden room', d:'Douglas fir, gable roof, glass all round', th:'hero-poolhouse-douglas-dicht',
+        sel:{afm:'700x400', houtsoort:'douglas', afwerking:'naturel', daktype:'zadeldak', wanden:'dicht', verlichting:'indirect'}, extras:{buitenkeuken:true, wastafel:true}}
+    ];
+    function applyPreset(p){
+      initSelection();
+      if(p.sel) Object.keys(p.sel).forEach(function(k){ sel[k]=p.sel[k]; });
+      if(p.extras) Object.keys(p.extras).forEach(function(k){ extras[k]=p.extras[k]; });
+      render();
+    }
+    function renderPresets(){
+      $('#presetRow').innerHTML = PRESETS.map(function(p,i){
+        return '<button type="button" class="preset" data-i="'+i+'">'+
+          '<span class="preset__th" style="background-image:url(./assets/media/'+p.th+'.jpg)"></span>'+
+          '<span class="preset__t"><b>'+p.n+'</b><span>'+p.d+'</span></span></button>';
+      }).join('');
+      $('#presetRow').querySelectorAll('.preset').forEach(function(btn){
+        btn.addEventListener('click', function(){ applyPreset(PRESETS[+this.getAttribute('data-i')]); });
+      });
+    }
+    renderPresets();
+
+    // init
+    initSelection();
+    render();
+  })();
+  </script>
+  
+  <!-- Vercel Analytics (scripts/analytics.py) -->
+  
+  
+</body>
+</html>

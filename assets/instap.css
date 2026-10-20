@@ -1,0 +1,58 @@
+/* Het instapblok: begin met samenstellen op de landingspagina zelf.
+ *
+ * Concurrenten zetten één knop "start de configurator" en hopen dat je
+ * klikt. Dat is een drempel: je weet niet wat je te wachten staat. Hier
+ * staan de echte startpunten uit de configurator al op de pagina, met
+ * beeld en maat erbij. Wie er een aanklikt, komt binnen op precies die
+ * samenstelling (via ?type=…&start=…) in plaats van op een leeg scherm.
+ *
+ * Los bestand omdat vier pagina's hem gebruiken en het blok bij elke
+ * pagina identiek moet werken; de omliggende opmaak verschilt wél per
+ * pagina, dat is de bedoeling.
+ */
+
+.instap { position: relative; }
+.instap__kop { max-width: 44rem; margin-bottom: clamp(1.8rem, 4vh, 2.6rem); }
+.instap__kop .h2 { margin-top: .6rem; }
+.instap__kop p { margin-top: .9rem; }
+
+.instap__rij {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(.8rem, 2vw, 1.2rem);
+}
+@media (max-width: 880px) { .instap__rij { grid-template-columns: 1fr; } }
+
+/* Elke kaart is één klik naar een voorgevulde configurator. */
+.instapkaart {
+  display: flex; flex-direction: column;
+  border: 1px solid var(--line); border-radius: var(--r-groot);
+  background: var(--bg-raise); overflow: hidden;
+  text-decoration: none; color: inherit;
+  box-shadow: var(--schaduw-2);
+  transition: border-color .18s var(--ease), transform .18s var(--ease);
+}
+.instapkaart:hover { border-color: var(--accent); transform: translateY(-3px); }
+.instapkaart img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.instapkaart__lijf { padding: 1.1rem 1.2rem 1.3rem; display: grid; gap: .35rem; align-content: start; }
+.instapkaart__maat {
+  font-family: var(--mono); font-size: .7rem; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--accent);
+}
+.instapkaart__naam { font-size: 1.05rem; font-weight: 600; color: var(--text); letter-spacing: -.01em; }
+.instapkaart p { font-size: .86rem; margin-top: .1rem; }
+.instapkaart__actie {
+  margin-top: .8rem; display: inline-flex; align-items: center; gap: .4rem;
+  font-size: .86rem; font-weight: 600; color: var(--accent);
+}
+.instapkaart:hover .instapkaart__actie svg { transform: translateX(3px); }
+.instapkaart__actie svg { transition: transform .18s var(--ease); }
+
+/* Onder de kaarten: blanco beginnen, en wat de configurator van je vraagt. */
+.instap__onder {
+  margin-top: clamp(1.4rem, 3vh, 2rem);
+  display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.4rem;
+}
+.instap__onder .btn { flex: none; }
+.instap__vraagt { font-size: .86rem; color: var(--text-3); max-width: 40rem; }
+.instap__vraagt b { color: var(--text-2); font-weight: 600; }

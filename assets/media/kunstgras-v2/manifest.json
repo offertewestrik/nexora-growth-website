@@ -1,0 +1,311 @@
+{
+  "description": "AI-generated atmosphere images. Not exact product photography or construction drawings. Short/medium/long are visual pile classes; request a physical sample.",
+  "renders": [
+    {
+      "id": "tuin-medium-natuurlijk",
+      "file": "tuin-medium-natuurlijk.webp",
+      "bytes": 498106,
+      "prompt": "Reference render generated for this project."
+    },
+    {
+      "id": "luxe-lang-natuurlijk",
+      "file": "luxe-lang-natuurlijk.webp",
+      "bytes": 494394,
+      "prompt": "Reference render generated for this project."
+    },
+    {
+      "id": "detail",
+      "file": "detail.webp",
+      "bytes": 349384,
+      "prompt": "Reference render generated for this project."
+    },
+    {
+      "id": "tuin-medium-lentegroen",
+      "file": "tuin-medium-lentegroen.webp",
+      "bytes": 442756,
+      "prompt": "Edit target: supplied Dutch garden artificial turf render. Change ONLY artificial turf colour to a slightly brighter fresh spring green, still realistic restrained green, not neon or yellow. Preserve EXACT same camera, perspective, shed, fence, patio, plants, lighting, shadows, crop, grass height and blade detail. Maintain fine green synthetic blades and curled beige underthatch. All background pixels visually invariant. Single landscape 16:9 full frame, no text. This is the medium pile spring green comparison variant."
+    },
+    {
+      "id": "tuin-medium-olijf",
+      "file": "tuin-medium-olijf.webp",
+      "bytes": 466928,
+      "prompt": "Edit ONLY the artificial lawn in this garden photo. keep medium height unchanged. Colour: muted olive green mixed with natural dark green, visibly less yellow and less vivid than spring green. Keep EXACT garden geometry, crop, camera, fence, shed, plants, patio, light, shadow and all objects unchanged. Photoreal artificial turf with fine polyethylene blades and restrained beige curled thatch. No neon no carpet no noise. Same landscape ratio. No text. Comparison image, preserve scene alignment."
+    },
+    {
+      "id": "tuin-kort-natuurlijk",
+      "file": "tuin-kort-natuurlijk.webp",
+      "bytes": 450904,
+      "prompt": "Edit ONLY the artificial lawn in this garden photo. short compact 30mm pile, visibly shorter and more closely cropped than the reference especially in the foreground, fine upright blades, never bare or bald. Colour: keep original natural medium green colour. Keep EXACT garden geometry, crop, camera, fence, shed, plants, patio, light, shadow and all objects unchanged. Photoreal artificial turf with fine polyethylene blades and restrained beige curled thatch. No neon no carpet no noise. Same landscape ratio. No text. Comparison image, preserve scene alignment."
+    },
+    {
+      "id": "tuin-kort-lentegroen",
+      "file": "tuin-kort-lentegroen.webp",
+      "bytes": 444836,
+      "prompt": "Edit ONLY turf colour to fresh spring green, slightly brighter and livelier, restrained not neon. Preserve exact reference geometry, camera, crop, shed, fence, patio, plants and lighting. Preserve SHORT 30mm compact artificial turf height and fine blades with beige curled thatch. No other changes. Landscape 16:9 product comparison render, no text."
+    },
+    {
+      "id": "tuin-kort-olijf",
+      "file": "tuin-kort-olijf.webp",
+      "bytes": 403570,
+      "prompt": "Edit ONLY turf colour to muted olive green with dark green fibres, noticeably more subdued than fresh spring green. Preserve exact reference geometry, camera, crop, shed, fence, patio, plants and lighting. Preserve SHORT 30mm compact artificial turf height and fine blades with beige curled thatch. No other changes. Landscape 16:9 product comparison render, no text."
+    },
+    {
+      "id": "tuin-lang-natuurlijk",
+      "file": "tuin-lang-natuurlijk.webp",
+      "bytes": 437556,
+      "prompt": "Edit ONLY artificial turf pile: make the artificial grass visibly denser and plusher with longer 50mm fine blades, a subtle lush pile rather than shaggy clumps. Preserve exact original natural green colour. Preserve EXACT same camera, perspective, crop, architecture, plants, terrace, furniture, light, shadows. Fine realistic synthetic grass blade structure and beige curled thatch, no flat carpet no noise no text. Landscape 16:9 same garden comparison image."
+    },
+    {
+      "id": "luxe-medium-natuurlijk",
+      "file": "luxe-medium-natuurlijk.webp",
+      "bytes": 456916,
+      "prompt": "Edit ONLY artificial turf pile: reduce grass blade height to a neater medium 40-45mm artificial turf pile, subtly shorter and more even than reference. Preserve exact original natural green colour. Preserve EXACT same camera, perspective, crop, architecture, plants, terrace, furniture, light, shadows. Fine realistic synthetic grass blade structure and beige curled thatch, no flat carpet no noise no text. Landscape 16:9 same garden comparison image."
+    },
+    {
+      "id": "tuin-lang-lentegroen",
+      "file": "tuin-lang-lentegroen.webp",
+      "bytes": 403474,
+      "prompt": "Edit ONLY artificial turf colour to fresh spring green, slightly brighter and livelier, restrained not neon. Preserve exact scene geometry, camera, crop, shed, fence, patio, plants and lighting. Preserve LONG plush 50mm artificial turf height and fine blades with beige curled thatch. No other changes. Landscape 16:9 comparison render, no text."
+    },
+    {
+      "id": "tuin-lang-olijf",
+      "file": "tuin-lang-olijf.webp",
+      "bytes": 403600,
+      "prompt": "Edit ONLY artificial turf colour to muted olive green mixed with dark green fibres, noticeably less vivid than fresh spring green. Preserve exact scene geometry, camera, crop, shed, fence, patio, plants and lighting. Preserve LONG plush 50mm artificial turf height and fine blades with beige curled thatch. No other changes. Landscape 16:9 comparison render, no text."
+    },
+    {
+      "id": "luxe-medium-lentegroen",
+      "file": "luxe-medium-lentegroen.webp",
+      "bytes": 473226,
+      "prompt": "Edit ONLY artificial lawn colour to fresh spring green, moderately brighter than reference but not neon. Preserve EXACT same villa, furniture, borders, plants, camera, composition, terrace, lighting and shadows. Preserve medium 40-45mm fine artificial grass texture and beige underthatch. Do not change anything beyond lawn colour. Same landscape 16:9 photograph, no text no logos."
+    },
+    {
+      "id": "luxe-medium-olijf",
+      "file": "luxe-medium-olijf.webp",
+      "bytes": 444778,
+      "prompt": "Edit ONLY artificial lawn colour to subdued olive green mixed with deeper green fibres, not brown or grey. Preserve EXACT same villa, furniture, borders, plants, camera, composition, terrace, lighting and shadows. Preserve medium 40-45mm fine artificial grass texture and beige underthatch. Do not change anything beyond lawn colour. Same landscape 16:9 photograph, no text no logos."
+    },
+    {
+      "id": "luxe-kort-natuurlijk",
+      "file": "luxe-kort-natuurlijk.webp",
+      "bytes": 452668,
+      "prompt": "Change ONLY the turf to a SHORT compact 30mm artificial grass pile, clearly neater and shorter fine blades in foreground. Keep original natural green colour. All else invariant: exact same villa, furniture, plants, patio, crop, camera, composition, shadows and exposure. Photorealistic fine synthetic grass blades with beige curled underthatch, no text no logos no noise, 16:9 comparison image."
+    },
+    {
+      "id": "luxe-lang-olijf",
+      "file": "luxe-lang-olijf.webp",
+      "bytes": 469310,
+      "prompt": "Change ONLY turf colour to subdued olive green mixed with darker green fibres. Preserve original plush long pile. Not grey or brown. All else invariant: exact same villa, furniture, plants, patio, crop, camera, composition, shadows and exposure. Photorealistic fine synthetic grass blades with beige curled underthatch, no text no logos no noise, 16:9 comparison image."
+    },
+    {
+      "id": "luxe-kort-lentegroen",
+      "file": "luxe-kort-lentegroen.webp",
+      "bytes": 472604,
+      "prompt": "Edit ONLY turf colour to fresh spring green, moderately brighter and livelier, not neon. Preserve SHORT neat 30mm grass pile. All else invariant: exact villa, furniture, plants, patio, crop, camera, composition, shadows and exposure. Photorealistic fine synthetic grass blades with beige curled underthatch, no text no logos no noise, 16:9 comparison image."
+    },
+    {
+      "id": "luxe-kort-olijf",
+      "file": "luxe-kort-olijf.webp",
+      "bytes": 468558,
+      "prompt": "Edit ONLY turf colour to subdued olive green mixed with deeper green, not brown. Preserve SHORT neat 30mm grass pile. All else invariant: exact villa, furniture, plants, patio, crop, camera, composition, shadows and exposure. Photorealistic fine synthetic grass blades with beige curled underthatch, no text no logos no noise, 16:9 comparison image."
+    },
+    {
+      "id": "luxe-lang-lentegroen",
+      "file": "luxe-lang-lentegroen.webp",
+      "bytes": 495628,
+      "prompt": "Edit ONLY lawn colour to fresh spring green, moderately brighter and livelier than reference, natural and not neon. Preserve LONG plush 50mm synthetic grass pile. All else invariant: exact villa, furniture, plants, terrace, crop, camera, composition, shadows and exposure. Photorealistic fine grass blades with beige curled underthatch, no text no logos no noise. Same 16:9 comparison image."
+    },
+    {
+      "id": "padel-blauw-buiten-standaard",
+      "file": "padel-blauw-buiten-standaard.webp",
+      "bytes": 447632,
+      "prompt": "Photorealistic architectural sports facility photograph, landscape 16:9. One outdoor padel court at a tasteful Dutch sports club. Elevated three quarter view from just above a near short-end corner so the ENTIRE rectangular court, both halves, central net, enclosure and surrounding paving are visible. Standard approximately 2:1 court rectangle in perspective. Blue short pile artificial sport turf. Exactly one black net with white top tape spans full court width at centre. Correct simple padel markings: one white service line parallel to net on EACH side, one longitudinal centre service line from each service line to net, no tennis alleys, no baseline-painted box. Clean dark anthracite standard framed cage with regular vertical posts, transparent glass end walls and mesh side sections. No lighting masts for this base variant. Restrained hedges trees and low clubhouse background. Bright diffused daylight, crisp glass reflections, subtle fine turf texture, accurate straight construction, premium commercial photography. No people no text no logos no ads no extra courts in frame. Whole court in frame with generous 8 percent margin. Not schematic, not a diagram."
+    },
+    {
+      "id": "padel-groen-buiten-standaard",
+      "file": "padel-groen-buiten-standaard.webp",
+      "bytes": 357170,
+      "prompt": "Edit ONLY blue padel playing turf colour to deep sport green. Preserve exact court markings, central net, glass, standard anthracite posts, paving, trees, clubhouse, light, camera, crop. No lights added, no text, no people, no geometry changes. Same 16:9 premium photorealistic comparison image."
+    },
+    {
+      "id": "padel-terracotta-buiten-standaard",
+      "file": "padel-terracotta-buiten-standaard.webp",
+      "bytes": 368548,
+      "prompt": "Edit ONLY blue padel playing turf colour to muted terracotta red clay colour, still artificial turf not actual clay. Preserve exact court markings, central net, glass, standard anthracite posts, paving, trees, clubhouse, light, camera, crop. No lights added, no text, no people, no geometry changes. Same 16:9 premium photorealistic comparison image."
+    },
+    {
+      "id": "padel-zwart-buiten-standaard",
+      "file": "padel-zwart-buiten-standaard.webp",
+      "bytes": 402708,
+      "prompt": "Edit ONLY blue padel playing turf colour to rich charcoal black, realistic black artificial turf with visible subtle texture. Preserve exact court markings, central net, glass, standard anthracite posts, paving, trees, clubhouse, light, camera, crop. No lights added no text no people no geometry changes. Same 16:9 premium photorealistic comparison image."
+    },
+    {
+      "id": "voetbal-panna",
+      "file": "voetbal-panna.webp",
+      "bytes": 421864,
+      "prompt": "Photorealistic premium architectural photograph of a compact rectangular panna football cage approximately 10 by 15 metre footprint in a Dutch neighbourhood pocket park. Elevated 3/4 corner camera high enough to see the entire playing surface over the near fence. Whole cage in frame with margin. Neat medium green artificial sports turf, simple white halfway line and centre circle. EXACTLY TWO small white metal panna goals, each centred on one of the two opposite SHORT END WALLS, both face inward toward each other along the long axis. No other goals. Continuous straight dark anthracite mesh enclosure, low blue and yellow plain kickboards, no openings disguised as goals. Restrained brick houses and deciduous trees in background, grey paver surround. Soft bright diffused daylight, clean realistic materials, crisp subtle turf texture, no oversaturation, no noise, no lighting poles, no people, no text, no logos or sponsor graphics. Landscape 16:9, professional landscape architecture photography, not diagram."
+    },
+    {
+      "id": "voetbal-cruyff",
+      "file": "voetbal-cruyff.webp",
+      "bytes": 424906,
+      "prompt": "High-end photorealistic architectural photograph of a Dutch neighbourhood small-sided community football court, roughly 23 by 50 metres, artificial green sports turf. Elevated corner view showing entire rectangular pitch with clear modest margin, oblique aerial camera about 8 metres high. EXACTLY two white youth football goals, centred on opposite short end lines facing one another; NO other goals anywhere. Clean white boundary, halfway line and central circle, simple small penalty boxes on each end. Dark anthracite mesh fencing, low solid blue kickboards with a slim yellow top strip, NO brand markings, no sponsor ads, no letters, no middle logo, no extra yellow disc. Restrained brick homes, deciduous trees and a simple paved path beyond enclosure, no people. Bright diffused neutral daylight, realistic turf texture and glass-free metal fencing, clean proportions. No lighting masts in this base scene. Landscape 16:9 single full frame professional photography, not diagram."
+    },
+    {
+      "id": "voetbal-half",
+      "file": "voetbal-half.webp",
+      "bytes": 394238,
+      "prompt": "Premium photorealistic oblique aerial architectural photograph of a medium-sized Dutch artificial grass football training field for small-sided youth training, roughly half a full football pitch area. Landscape 16:9. Camera high above one corner showing ENTIRE rectangle plus generous surroundings. Medium natural green short sports turf. Exactly two white youth goals centred on opposite short goal lines. Simple clean white pitch markings, central circle and halfway line, one rectangular penalty area each end. No other goals anywhere. Low dark mesh perimeter, plain restrained blue and yellow boards at boundary without logos, behind goals higher ball netting. Trees and small sports clubhouse in distance, paved access around field. Daytime soft bright overcast light, realistic turf microtexture at scale, neutral greens no stripes no neon, crisp metal and net textures, clean visual hierarchy. No lighting masts, no people no text no advertisements. Not a technical drawing, single professional aerial photograph."
+    },
+    {
+      "id": "voetbal-heel",
+      "file": "voetbal-heel.webp",
+      "bytes": 386824,
+      "prompt": "High quality photorealistic oblique aerial architectural photograph of ONE full size Dutch amateur football club artificial turf pitch. Entire rectangular field comfortably visible with margin all around in landscape 16:9. Camera roughly 35 metres above and behind a corner, 35mm equivalent drone optics. Full pitch proportions roughly 105 by 68m. Exactly two white full size football goals, centred at opposite short end lines, facing one another. Clean correct white standard football markings: perimeter, halfway line, centre circle, two penalty areas with six yard boxes and penalty arcs. No extra goals. Natural medium dark green short dense sports turf subtly textured, no aggressive striping. Low dark perimeter fence with plain blue and yellow boards, higher net behind end zones, deciduous trees and modest clubhouse beyond, no other pitches visible. Soft bright neutral daylight, realistic grass colour and metal detailing, balanced exposure, no lighting poles in this base scene. No people, no text, no brands, no advertising, no watermark. Single photographic atmosphere impression, not technical diagram."
+    },
+    {
+      "id": "padel-blauw-buiten-panorama",
+      "file": "padel-blauw-buiten-panorama.webp",
+      "bytes": 377170,
+      "prompt": "Edit padel court reference ONLY enclosure construction to PANORAMIC glass padel court: remove intermediate vertical posts from the two short glass end walls, retain structurally plausible corner columns, clean continuous end glass panels with minimal joints, keep side mesh support posts. No floating beams. Keep original court blue turf, net, markings, camera, crop, trees, clubhouse, paving, lighting exactly unchanged. No lighting poles no text no logos. Same 16:9 photographic comparison."
+    },
+    {
+      "id": "padel-blauw-binnen-standaard",
+      "file": "padel-blauw-binnen-standaard.webp",
+      "bytes": 218726,
+      "prompt": "Edit target outdoor standard blue padel court. Keep EXACT same court camera angle, crop, rectangle geometry, blue turf, white markings, central net and standard anthracite cage with vertical end posts. Change ONLY surroundings and lighting to an indoor Dutch premium padel sports hall: spacious high steel truss ceiling, skylights, warm grey acoustic sidewalls, even soft sports hall illumination, clean grey floor around court. Remove all trees, outdoor sky, plants and clubhouse, make enclosed indoor hall with adequate roof clearance. One court only. No lighting masts. Photorealistic architectural photograph, no people no text no signs no logos. Same 16:9 composition."
+    },
+    {
+      "id": "padel-blauw-binnen-panorama",
+      "file": "padel-blauw-binnen-panorama.webp",
+      "bytes": 185116,
+      "prompt": "Edit indoor padel court reference ONLY enclosure to panoramic glass construction. Remove intermediate vertical metal posts from both SHORT END glass walls, keeping strong corner columns and minimal glass joints. Keep side mesh support structure. Preserve exact indoor hall, roof, camera, crop, blue artificial turf, white markings, net, illumination and surrounding floor. No other changes. Premium photorealistic 16:9 comparison image, no text no people."
+    },
+    {
+      "id": "padel-groen-buiten-panorama",
+      "file": "padel-groen-buiten-panorama.webp",
+      "bytes": 344266,
+      "prompt": "Change ONLY blue playing turf colour to deep sport green. Keep EXACT court geometry, markings, net, glass enclosure posts, environment, crop, camera, exposure and lighting. Do not add anything. Same photorealistic 16:9 architectural comparison image, no text no logos no people."
+    },
+    {
+      "id": "padel-terracotta-buiten-panorama",
+      "file": "padel-terracotta-buiten-panorama.webp",
+      "bytes": 366614,
+      "prompt": "Change ONLY blue playing turf colour to muted terracotta red artificial turf, not clay. Keep EXACT court geometry, markings, net, glass enclosure posts, environment, crop, camera, exposure and lighting. Do not add anything. Same photorealistic 16:9 architectural comparison image, no text no logos no people."
+    },
+    {
+      "id": "padel-zwart-buiten-panorama",
+      "file": "padel-zwart-buiten-panorama.webp",
+      "bytes": 358280,
+      "prompt": "Change ONLY blue playing turf colour to rich charcoal black artificial turf. Keep EXACT court geometry, markings, net, glass enclosure posts, environment, crop, camera, exposure and lighting. Do not add anything. Same photorealistic 16:9 architectural comparison image, no text no logos no people."
+    },
+    {
+      "id": "padel-groen-binnen-standaard",
+      "file": "padel-groen-binnen-standaard.webp",
+      "bytes": 166696,
+      "prompt": "Change ONLY blue playing turf colour to deep sport green. Keep EXACT court geometry, markings, net, glass enclosure posts, environment, crop, camera, exposure and lighting. Do not add anything. Same photorealistic 16:9 architectural comparison image, no text no logos no people."
+    },
+    {
+      "id": "padel-terracotta-binnen-standaard",
+      "file": "padel-terracotta-binnen-standaard.webp",
+      "bytes": 173522,
+      "prompt": "Change ONLY blue playing turf colour to muted terracotta red artificial turf, not clay. Keep EXACT court geometry, markings, net, glass enclosure posts, environment, crop, camera, exposure and lighting. Do not add anything. Same photorealistic 16:9 architectural comparison image, no text no logos no people."
+    },
+    {
+      "id": "padel-zwart-binnen-standaard",
+      "file": "padel-zwart-binnen-standaard.webp",
+      "bytes": 182596,
+      "prompt": "Change ONLY blue playing turf colour to rich charcoal black artificial turf. Keep EXACT court geometry, markings, net, glass enclosure posts, environment, crop, camera, exposure and lighting. Do not add anything. Same photorealistic 16:9 architectural comparison image, no text no logos no people."
+    },
+    {
+      "id": "padel-groen-binnen-panorama",
+      "file": "padel-groen-binnen-panorama.webp",
+      "bytes": 159806,
+      "prompt": "Change ONLY blue playing turf colour to deep sport green. Keep EXACT court geometry, markings, net, glass enclosure posts, environment, crop, camera, exposure and lighting. Do not add anything. Same photorealistic 16:9 architectural comparison image, no text no logos no people."
+    },
+    {
+      "id": "padel-terracotta-binnen-panorama",
+      "file": "padel-terracotta-binnen-panorama.webp",
+      "bytes": 156280,
+      "prompt": "Change ONLY blue playing turf colour to muted terracotta red artificial turf, not clay. Keep EXACT court geometry, markings, net, glass enclosure posts, environment, crop, camera, exposure and lighting. Do not add anything. Same photorealistic 16:9 architectural comparison image, no text no logos no people."
+    },
+    {
+      "id": "padel-zwart-binnen-panorama",
+      "file": "padel-zwart-binnen-panorama.webp",
+      "bytes": 149120,
+      "prompt": "Change ONLY blue playing turf colour to rich charcoal black artificial turf. Keep EXACT court geometry, markings, net, glass enclosure posts, environment, crop, camera, exposure and lighting. Do not add anything. Same photorealistic 16:9 architectural comparison image, no text no logos no people."
+    },
+    {
+      "id": "voetbal-panna-rood",
+      "file": "voetbal-panna-rood.webp",
+      "bytes": 336536,
+      "prompt": "Change ONLY the blue AND yellow solid perimeter kickboard panels to a uniform deep red finish. Both yellow trims and blue panels become deep red. Preserve EXACT football turf green colour, white line markings, exactly two goals, dark fence posts and mesh, background, buildings, camera, crop and lighting. No other changes. Photorealistic 16:9 comparison image, no text, no ads, no extra goals."
+    },
+    {
+      "id": "voetbal-panna-groen",
+      "file": "voetbal-panna-groen.webp",
+      "bytes": 334846,
+      "prompt": "Change ONLY the blue AND yellow solid perimeter kickboard panels to a uniform forest green finish. Both yellow trims and blue panels become forest green. Preserve EXACT football turf green colour, white line markings, exactly two goals, dark fence posts and mesh, background, buildings, camera, crop and lighting. No other changes. Photorealistic 16:9 comparison image, no text, no ads, no extra goals."
+    },
+    {
+      "id": "voetbal-panna-zwart",
+      "file": "voetbal-panna-zwart.webp",
+      "bytes": 322704,
+      "prompt": "Change ONLY the blue AND yellow solid perimeter kickboard panels to a uniform charcoal black finish. Both yellow trims and blue panels become charcoal black. Preserve EXACT football turf green colour, white line markings, exactly two goals, dark fence posts and mesh, background, buildings, camera, crop and lighting. No other changes. Photorealistic 16:9 comparison image, no text, no ads, no extra goals."
+    },
+    {
+      "id": "voetbal-cruyff-rood",
+      "file": "voetbal-cruyff-rood.webp",
+      "bytes": 320636,
+      "prompt": "Change ONLY the blue AND yellow solid perimeter kickboard panels to a uniform deep red finish. Both yellow trims and blue panels become deep red. Preserve EXACT football turf green colour, white line markings, exactly two goals, dark fence posts and mesh, background, buildings, camera, crop and lighting. No other changes. Photorealistic 16:9 comparison image, no text, no ads, no extra goals."
+    },
+    {
+      "id": "voetbal-cruyff-groen",
+      "file": "voetbal-cruyff-groen.webp",
+      "bytes": 342262,
+      "prompt": "Change ONLY the blue AND yellow solid perimeter kickboard panels to a uniform forest green finish. Both yellow trims and blue panels become forest green. Preserve EXACT football turf green colour, white line markings, exactly two goals, dark fence posts and mesh, background, buildings, camera, crop and lighting. No other changes. Photorealistic 16:9 comparison image, no text, no ads, no extra goals."
+    },
+    {
+      "id": "voetbal-cruyff-zwart",
+      "file": "voetbal-cruyff-zwart.webp",
+      "bytes": 325662,
+      "prompt": "Change ONLY the blue AND yellow solid perimeter kickboard panels to a uniform charcoal black finish. Both yellow trims and blue panels become charcoal black. Preserve EXACT football turf green colour, white line markings, exactly two goals, dark fence posts and mesh, background, buildings, camera, crop and lighting. No other changes. Photorealistic 16:9 comparison image, no text, no ads, no extra goals."
+    },
+    {
+      "id": "voetbal-half-rood",
+      "file": "voetbal-half-rood.webp",
+      "bytes": 318530,
+      "prompt": "Change ONLY the blue AND yellow solid perimeter kickboard panels to a uniform deep red finish. Both yellow trims and blue panels become deep red. Preserve EXACT football turf green colour, white line markings, exactly two goals, dark fence posts and mesh, background, buildings, camera, crop and lighting. No other changes. Photorealistic 16:9 comparison image, no text, no ads, no extra goals."
+    },
+    {
+      "id": "voetbal-half-groen",
+      "file": "voetbal-half-groen.webp",
+      "bytes": 291672,
+      "prompt": "Change ONLY the blue AND yellow solid perimeter kickboard panels to a uniform forest green finish. Both yellow trims and blue panels become forest green. Preserve EXACT football turf green colour, white line markings, exactly two goals, dark fence posts and mesh, background, buildings, camera, crop and lighting. No other changes. Photorealistic 16:9 comparison image, no text, no ads, no extra goals."
+    },
+    {
+      "id": "voetbal-half-zwart",
+      "file": "voetbal-half-zwart.webp",
+      "bytes": 303558,
+      "prompt": "Change ONLY the blue AND yellow solid perimeter kickboard panels to a uniform charcoal black finish. Both yellow trims and blue panels become charcoal black. Preserve EXACT football turf green colour, white line markings, exactly two goals, dark fence posts and mesh, background, buildings, camera, crop and lighting. No other changes. Photorealistic 16:9 comparison image, no text, no ads, no extra goals."
+    },
+    {
+      "id": "voetbal-heel-rood",
+      "file": "voetbal-heel-rood.webp",
+      "bytes": 321092,
+      "prompt": "Change ONLY the blue AND yellow solid perimeter kickboard panels to a uniform deep red finish. Both yellow trims and blue panels become deep red. Preserve EXACT football turf green colour, white line markings, exactly two goals, dark fence posts and mesh, background, buildings, camera, crop and lighting. No other changes. Photorealistic 16:9 comparison image, no text, no ads, no extra goals."
+    },
+    {
+      "id": "voetbal-heel-groen",
+      "file": "voetbal-heel-groen.webp",
+      "bytes": 290736,
+      "prompt": "Change ONLY the blue AND yellow solid perimeter kickboard panels to a uniform forest green finish. Both yellow trims and blue panels become forest green. Preserve EXACT football turf green colour, white line markings, exactly two goals, dark fence posts and mesh, background, buildings, camera, crop and lighting. No other changes. Photorealistic 16:9 comparison image, no text, no ads, no extra goals."
+    },
+    {
+      "id": "voetbal-heel-zwart",
+      "file": "voetbal-heel-zwart.webp",
+      "bytes": 314936,
+      "prompt": "Change ONLY the blue AND yellow solid perimeter kickboard panels to a uniform charcoal black finish. Both yellow trims and blue panels become charcoal black. Preserve EXACT football turf green colour, white line markings, exactly two goals, dark fence posts and mesh, background, buildings, camera, crop and lighting. No other changes. Photorealistic 16:9 comparison image, no text, no ads, no extra goals."
+    }
+  ]
+}

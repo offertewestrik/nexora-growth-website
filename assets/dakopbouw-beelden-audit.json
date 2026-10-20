@@ -1,0 +1,2700 @@
+{
+  "date": "2026-09-25",
+  "base_commit": "ae5a81a138776af4d58c922d435e91b8d15c243b",
+  "reviewed_facades": 384,
+  "reviewed_option_images": 49,
+  "unchanged_positions": 330,
+  "reassigned_existing_images": 46,
+  "regenerated_images": 8,
+  "scope": "Visual review of contact sheets and anomalous full-size images; rendered examples, not measured CAD or calibrated RAL proofs.",
+  "records": [
+    {
+      "id": "DOP-355",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/antraciet-composiet/model01/antraciet-RAL7016/DOP-355-houtcomposiet-antraciet-composiet-model01-antraciet-RAL7016.webp",
+      "sha256": "145b89cc6168e0564d74f3243194e92c3dee1b06dfeb1b25cda20c5e52a52417",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-354",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/antraciet-composiet/model01/creme-RAL9001/DOP-354-houtcomposiet-antraciet-composiet-model01-creme-RAL9001.webp",
+      "sha256": "e9e1920b546ed5ea6f008a7ebbaaff3f03ff4ec446cbcc9f764a8d8874df0c5b",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-353",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/antraciet-composiet/model01/wit-RAL9016/DOP-353-houtcomposiet-antraciet-composiet-model01-wit-RAL9016.webp",
+      "sha256": "e08f0902be691f86d0a2b841cd36962ce1217f0f27d3f3971302ba767ac754a9",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-356",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/antraciet-composiet/model01/zwart-RAL9005/DOP-356-houtcomposiet-antraciet-composiet-model01-zwart-RAL9005.webp",
+      "sha256": "33fa1ab3692dc8944580512a44b979824798c237eb747e90f3a755055fc8638f",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-359",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/antraciet-composiet/model02/antraciet-RAL7016/DOP-359-houtcomposiet-antraciet-composiet-model02-antraciet-RAL7016.webp",
+      "sha256": "dd9314cf0e98fc97857f1b11d1c027095a3bf4cbd1dffde2f37bc4e8e62f061a",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-358",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/antraciet-composiet/model02/creme-RAL9001/DOP-358-houtcomposiet-antraciet-composiet-model02-creme-RAL9001.webp",
+      "sha256": "3016597c997c3a22f88e1920950ba48eb2e9fbccb2b0dd22185fcfb3a2691a08",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-357",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/antraciet-composiet/model02/wit-RAL9016/DOP-357-houtcomposiet-antraciet-composiet-model02-wit-RAL9016.webp",
+      "sha256": "480cceeaf13476875b5237f83cccf21df9bf73ef735ee5b98226bec15f15e3f4",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-360",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/antraciet-composiet/model02/zwart-RAL9005/DOP-360-houtcomposiet-antraciet-composiet-model02-zwart-RAL9005.webp",
+      "sha256": "9b45b1736d539749eaed50ea6bf4b803c5041aa6d8eeea607186175adc58b7e1",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-363",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/antraciet-composiet/model03/antraciet-RAL7016/DOP-363-houtcomposiet-antraciet-composiet-model03-antraciet-RAL7016.webp",
+      "sha256": "0c40e1bfdd681eac34488e3a40e5da3886d8be7f1e3055198181b2aba1f426bb",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-362",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/antraciet-composiet/model03/creme-RAL9001/DOP-362-houtcomposiet-antraciet-composiet-model03-creme-RAL9001.webp",
+      "sha256": "7d087a59a55fb7a28f47d425015dd608cd65484df3ee49d4a9eda9f2526fac23",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-361",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/antraciet-composiet/model03/wit-RAL9016/DOP-361-houtcomposiet-antraciet-composiet-model03-wit-RAL9016.webp",
+      "sha256": "35f69c219c771405a1bc85c9d171056536a5815b26499a579c72cb6cc874a4b8",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-364",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/antraciet-composiet/model03/zwart-RAL9005/DOP-364-houtcomposiet-antraciet-composiet-model03-zwart-RAL9005.webp",
+      "sha256": "a5de5aa5b25ce333a16363b3b2a6d56a96229d328dcf4634a937e9870b0ce1ed",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-367",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/antraciet-composiet/model04/antraciet-RAL7016/DOP-367-houtcomposiet-antraciet-composiet-model04-antraciet-RAL7016.webp",
+      "sha256": "1645c2ed671a0ba2c2c29aa8314e2441ac1301b5080146ce5713e7817ca12d32",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-366",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/antraciet-composiet/model04/creme-RAL9001/DOP-366-houtcomposiet-antraciet-composiet-model04-creme-RAL9001.webp",
+      "sha256": "a367cd8ec4b8aadd6a70d0645c0151de6d94fddb9771e603190c87a6fabf12a6",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-365",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/antraciet-composiet/model04/wit-RAL9016/DOP-365-houtcomposiet-antraciet-composiet-model04-wit-RAL9016.webp",
+      "sha256": "d2b392b03d07e259a77582cd5d1433f5303dc37713c08284a7ae03c8dbcf867c",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-368",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/antraciet-composiet/model04/zwart-RAL9005/DOP-368-houtcomposiet-antraciet-composiet-model04-zwart-RAL9005.webp",
+      "sha256": "29a8edc40bf50f4597d3db444a0dcdd515dff92cdcae5b7d41fff0c4e8b4dace",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-323",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/donker-walnoot/model01/antraciet-RAL7016/DOP-323-houtcomposiet-donker-walnoot-model01-antraciet-RAL7016.webp",
+      "sha256": "2263e745dc9ebc35a7c3ebf49619f75af28e7c482c11b3e895ef12571f617142",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-322",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/donker-walnoot/model01/creme-RAL9001/DOP-322-houtcomposiet-donker-walnoot-model01-creme-RAL9001.webp",
+      "sha256": "a5e318508bb2762d034ae734412fd4b9388d29f2f796a0ec7d0d9ff5800fe1ca",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-321",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/donker-walnoot/model01/wit-RAL9016/DOP-321-houtcomposiet-donker-walnoot-model01-wit-RAL9016.webp",
+      "sha256": "1352035db29ed34d23279b1abdc47305aa0ba2db7329112a52da80eb6bf25d29",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-324",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/donker-walnoot/model01/zwart-RAL9005/DOP-324-houtcomposiet-donker-walnoot-model01-zwart-RAL9005.webp",
+      "sha256": "36b822a97bff70353ae6bb370c187ae2d0d8b87861ff10d2974cbae1a9963ef4",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-327",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/donker-walnoot/model02/antraciet-RAL7016/DOP-327-houtcomposiet-donker-walnoot-model02-antraciet-RAL7016.webp",
+      "sha256": "9436853b47bbc70e26ef377a100452b174e6ba4831ba2578e04fb521438ebe68",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-326",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/donker-walnoot/model02/creme-RAL9001/DOP-326-houtcomposiet-donker-walnoot-model02-creme-RAL9001.webp",
+      "sha256": "2c0c5d1aeff96393c2e0bed838dab6067378a743f230de7b6b141e0d250574cc",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-325",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/donker-walnoot/model02/wit-RAL9016/DOP-325-houtcomposiet-donker-walnoot-model02-wit-RAL9016.webp",
+      "sha256": "4dcbef7dd284d5ca186d62032268342e6d6b01ff110423ce4d8bb60af6cc02e2",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-328",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/donker-walnoot/model02/zwart-RAL9005/DOP-328-houtcomposiet-donker-walnoot-model02-zwart-RAL9005.webp",
+      "sha256": "4995f2bdc039b314aef2cbfc010a3e664c46bc6290a96926508637a86b2fe80f",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-331",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/donker-walnoot/model03/antraciet-RAL7016/DOP-331-houtcomposiet-donker-walnoot-model03-antraciet-RAL7016.webp",
+      "sha256": "8bf50289a570a44f488818b18675765852a43c93090c322ba15d565314c7ed66",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-330",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/donker-walnoot/model03/creme-RAL9001/DOP-330-houtcomposiet-donker-walnoot-model03-creme-RAL9001.webp",
+      "sha256": "3210d6ed01adaf1d172f360414e0348ac5324c7085c29cb71f5b809852260e2b",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-329",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/donker-walnoot/model03/wit-RAL9016/DOP-329-houtcomposiet-donker-walnoot-model03-wit-RAL9016.webp",
+      "sha256": "f5204fdc030f44763729c674df2078dcc00bf5f2145f6a572027b73d26b2a7bf",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-332",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/donker-walnoot/model03/zwart-RAL9005/DOP-332-houtcomposiet-donker-walnoot-model03-zwart-RAL9005.webp",
+      "sha256": "3333b942a54f99bc29731c7e7318a2f5f7883c62c33c27f6c77b454c09ba0371",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-335",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/donker-walnoot/model04/antraciet-RAL7016/DOP-335-houtcomposiet-donker-walnoot-model04-antraciet-RAL7016.webp",
+      "sha256": "40605d42bbeb80df4d75b438742cde058e44c5a2450899d68f62a9c4405281f4",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-334",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/donker-walnoot/model04/creme-RAL9001/DOP-334-houtcomposiet-donker-walnoot-model04-creme-RAL9001.webp",
+      "sha256": "8ba1fe25acab6058a84efb40a146bf145cb74034296a91f5f920d81e31bf54d7",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-333",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/donker-walnoot/model04/wit-RAL9016/DOP-333-houtcomposiet-donker-walnoot-model04-wit-RAL9016.webp",
+      "sha256": "0e1f3433101ed471552a4f92e141c59520737de503110188ac76dd381219f23e",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-336",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/donker-walnoot/model04/zwart-RAL9005/DOP-336-houtcomposiet-donker-walnoot-model04-zwart-RAL9005.webp",
+      "sha256": "8882ef556b44118d5922e6c3ccded1e1776f734bcc2a134c1161308235bc9d91",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-291",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/licht-eiken/model01/antraciet-RAL7016/DOP-291-houtcomposiet-licht-eiken-model01-antraciet-RAL7016.webp",
+      "sha256": "ecc4e921a76fd501457fae3e1961d4597e9dc6da815550041478a2b2159332a5",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-290",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/licht-eiken/model01/creme-RAL9001/DOP-290-houtcomposiet-licht-eiken-model01-creme-RAL9001.webp",
+      "sha256": "95dcaad825c8675d21df9070578c9db2fc93923d52e915b03f1ef17065ddee28",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-289",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/licht-eiken/model01/wit-RAL9016/DOP-289-houtcomposiet-licht-eiken-model01-wit-RAL9016.webp",
+      "sha256": "59282ff25780fb0f148c02a22c43996f1a219a2c099cab77d0ada7909b90882e",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-292",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/licht-eiken/model01/zwart-RAL9005/DOP-292-houtcomposiet-licht-eiken-model01-zwart-RAL9005.webp",
+      "sha256": "1493622afe087c9242cd5570b69ee7e81cde27427fde4a60bcdbda0a368cb9ce",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-295",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/licht-eiken/model02/antraciet-RAL7016/DOP-295-houtcomposiet-licht-eiken-model02-antraciet-RAL7016.webp",
+      "sha256": "f67dd6f7560ba88c49259bd6f07d12ae48889751f29865f62221bf6416cb51fc",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-294",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/licht-eiken/model02/creme-RAL9001/DOP-294-houtcomposiet-licht-eiken-model02-creme-RAL9001.webp",
+      "sha256": "bfce1abc76d7aa70a862ebb6855f3478cadbdc8c3a9bc91ebc1a67492a0c29ff",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-293",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/licht-eiken/model02/wit-RAL9016/DOP-293-houtcomposiet-licht-eiken-model02-wit-RAL9016.webp",
+      "sha256": "04092a722b45673d1bd0690d2b9423144a32686863249b1636ad1ad7c358dab2",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-296",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/licht-eiken/model02/zwart-RAL9005/DOP-296-houtcomposiet-licht-eiken-model02-zwart-RAL9005.webp",
+      "sha256": "642bb7a0f838591d093c5625b725749ae8625e28c0114e1aeac46c57202f993c",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-299",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/licht-eiken/model03/antraciet-RAL7016/DOP-299-houtcomposiet-licht-eiken-model03-antraciet-RAL7016.webp",
+      "sha256": "be754977bf6c5b554080cba7f573c198cf26a08a4888311406bb88734ca726d1",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-298",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/licht-eiken/model03/creme-RAL9001/DOP-298-houtcomposiet-licht-eiken-model03-creme-RAL9001.webp",
+      "sha256": "7ed328c0f1148fd8d51c333c96cf42977687ca3298e8f9a51fb137c2d1e06899",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-297",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/licht-eiken/model03/wit-RAL9016/DOP-297-houtcomposiet-licht-eiken-model03-wit-RAL9016.webp",
+      "sha256": "d75d75dcd94126fed74ffe6ddcaa20a830b8ab413c9ae035eca00ce447bde7af",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-300",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/licht-eiken/model03/zwart-RAL9005/DOP-300-houtcomposiet-licht-eiken-model03-zwart-RAL9005.webp",
+      "sha256": "99ef7deac038cdc84284c31719c48c7b1d7433111b9540d2cdda0b8fc6c85272",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-303",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/licht-eiken/model04/antraciet-RAL7016/DOP-303-houtcomposiet-licht-eiken-model04-antraciet-RAL7016.webp",
+      "sha256": "265a0885872e79469ecf1c34f73d74d25a05196e07e767f7dc8b03912ebdcd09",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-302",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/licht-eiken/model04/creme-RAL9001/DOP-302-houtcomposiet-licht-eiken-model04-creme-RAL9001.webp",
+      "sha256": "cb9e84099e575b7f92685eff11ea57921829b66e6ccc08feccdfd45397a61e73",
+      "status": "reassigned",
+      "source_id": "DOP-301"
+    },
+    {
+      "id": "DOP-301",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/licht-eiken/model04/wit-RAL9016/DOP-301-houtcomposiet-licht-eiken-model04-wit-RAL9016.webp",
+      "sha256": "519a115537df4e7bd61c54d7b9e216e501d938b1f317b2ee31f3031f9a9caa7b",
+      "status": "reassigned",
+      "source_id": "DOP-302"
+    },
+    {
+      "id": "DOP-304",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/licht-eiken/model04/zwart-RAL9005/DOP-304-houtcomposiet-licht-eiken-model04-zwart-RAL9005.webp",
+      "sha256": "da2f88971025376318e4072a86f2e501709f8be60ba9e38d747925722346cab8",
+      "status": "regenerated",
+      "source_id": null
+    },
+    {
+      "id": "DOP-339",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/vergrijsd-hout/model01/antraciet-RAL7016/DOP-339-houtcomposiet-vergrijsd-hout-model01-antraciet-RAL7016.webp",
+      "sha256": "68ca43af76dae4d44cad4fb5942ac3eb68b17021e2a905f95c6c6da5582a37d2",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-338",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/vergrijsd-hout/model01/creme-RAL9001/DOP-338-houtcomposiet-vergrijsd-hout-model01-creme-RAL9001.webp",
+      "sha256": "e13eb65705a99248cf763aac11ac0469414db225203e1f8648ba66722e272905",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-337",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/vergrijsd-hout/model01/wit-RAL9016/DOP-337-houtcomposiet-vergrijsd-hout-model01-wit-RAL9016.webp",
+      "sha256": "b623f828a213d0eaa925bb2fac067e6e07e48686bff9780878ba7efa24fb96cd",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-340",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/vergrijsd-hout/model01/zwart-RAL9005/DOP-340-houtcomposiet-vergrijsd-hout-model01-zwart-RAL9005.webp",
+      "sha256": "d92864d6aaf7f576e57e51999c112bf367d7b9500c57c06c90aa5c87fb47c4bd",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-343",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/vergrijsd-hout/model02/antraciet-RAL7016/DOP-343-houtcomposiet-vergrijsd-hout-model02-antraciet-RAL7016.webp",
+      "sha256": "5f9b42b03fa4685c28d5cac492f746b29b1fbddafdf8f977fb08b25f34cd3748",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-342",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/vergrijsd-hout/model02/creme-RAL9001/DOP-342-houtcomposiet-vergrijsd-hout-model02-creme-RAL9001.webp",
+      "sha256": "7280dbf4ca65f9c26e745f83f72fe75b6b5c6ae7a87be09aebc1d9658132fee0",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-341",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/vergrijsd-hout/model02/wit-RAL9016/DOP-341-houtcomposiet-vergrijsd-hout-model02-wit-RAL9016.webp",
+      "sha256": "140d358dd66cc07416b87fd7dc4d70772c23eae1b41aa476c748287d8d1af1e8",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-344",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/vergrijsd-hout/model02/zwart-RAL9005/DOP-344-houtcomposiet-vergrijsd-hout-model02-zwart-RAL9005.webp",
+      "sha256": "9dc06b5f9ba8e46f18ea56cb679133336e488f3068b7ad532cf65e4b7f7be6a3",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-347",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/vergrijsd-hout/model03/antraciet-RAL7016/DOP-347-houtcomposiet-vergrijsd-hout-model03-antraciet-RAL7016.webp",
+      "sha256": "4cfdadb270c6ab8117d6171bad365a806c6b1ee512211751aa83780d42ce8583",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-346",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/vergrijsd-hout/model03/creme-RAL9001/DOP-346-houtcomposiet-vergrijsd-hout-model03-creme-RAL9001.webp",
+      "sha256": "4a611689b6a553e92d5630eae9c8a3dad4bde9273fe7393c70b9e85260191a2e",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-345",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/vergrijsd-hout/model03/wit-RAL9016/DOP-345-houtcomposiet-vergrijsd-hout-model03-wit-RAL9016.webp",
+      "sha256": "344b4f80f2bd7ea7285e8327803f9a2073f1a4a52997caa96cc97e9d417bc9a8",
+      "status": "regenerated",
+      "source_id": null
+    },
+    {
+      "id": "DOP-348",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/vergrijsd-hout/model03/zwart-RAL9005/DOP-348-houtcomposiet-vergrijsd-hout-model03-zwart-RAL9005.webp",
+      "sha256": "8276dd88417df14a76af285572d98e84ca4d47d694edd727e498329db7154cb4",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-351",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/vergrijsd-hout/model04/antraciet-RAL7016/DOP-351-houtcomposiet-vergrijsd-hout-model04-antraciet-RAL7016.webp",
+      "sha256": "3153cff56836563aa98c0194bad134bd74ba702e01922def77b8aace0035bb9c",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-350",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/vergrijsd-hout/model04/creme-RAL9001/DOP-350-houtcomposiet-vergrijsd-hout-model04-creme-RAL9001.webp",
+      "sha256": "9d601b333da7e661d439bbbb1d43b5cb3ea64a81274e8cb98472b43f0428ea56",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-349",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/vergrijsd-hout/model04/wit-RAL9016/DOP-349-houtcomposiet-vergrijsd-hout-model04-wit-RAL9016.webp",
+      "sha256": "263e912a096501d3f1a384c52e1da3a91e7bee7d668a430b58f671cba4b59c68",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-352",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/vergrijsd-hout/model04/zwart-RAL9005/DOP-352-houtcomposiet-vergrijsd-hout-model04-zwart-RAL9005.webp",
+      "sha256": "25d9adb06e836b787fa231a3653ab7a497b433e61e3747e55e564a0d9bd4e740",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-307",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/warme-ceder/model01/antraciet-RAL7016/DOP-307-houtcomposiet-warme-ceder-model01-antraciet-RAL7016.webp",
+      "sha256": "a0eefd8a4c0fbd32a48a02c9bf090b348111fa6a95bcccf563b4dd8623318bb3",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-306",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/warme-ceder/model01/creme-RAL9001/DOP-306-houtcomposiet-warme-ceder-model01-creme-RAL9001.webp",
+      "sha256": "5b281d5025433a07e59313f2b23334a00d6e5291416e2117c0e4b4b292a610f5",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-305",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/warme-ceder/model01/wit-RAL9016/DOP-305-houtcomposiet-warme-ceder-model01-wit-RAL9016.webp",
+      "sha256": "0dc606a9f059ddeeb0c03bdb1e25af6438848d6a2195118f87e5ea20b78d66ab",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-308",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/warme-ceder/model01/zwart-RAL9005/DOP-308-houtcomposiet-warme-ceder-model01-zwart-RAL9005.webp",
+      "sha256": "859356ad07216e04e33f125a93c30b23ea406b8e0d4f86a251c24c8a80400258",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-311",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/warme-ceder/model02/antraciet-RAL7016/DOP-311-houtcomposiet-warme-ceder-model02-antraciet-RAL7016.webp",
+      "sha256": "415773c7947ed78fbe4b2ace7443a304f29d11aba6cdcf23cc826b1ace6ea118",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-310",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/warme-ceder/model02/creme-RAL9001/DOP-310-houtcomposiet-warme-ceder-model02-creme-RAL9001.webp",
+      "sha256": "64d0d80576c1fb7612548932a36702cdc3fe6f2fd6d9381066772fd89568358b",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-309",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/warme-ceder/model02/wit-RAL9016/DOP-309-houtcomposiet-warme-ceder-model02-wit-RAL9016.webp",
+      "sha256": "6ba1961f4323d0d8c4c372dfac1ab98c0ae3a3d523f2752c592faae583b7d2b5",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-312",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/warme-ceder/model02/zwart-RAL9005/DOP-312-houtcomposiet-warme-ceder-model02-zwart-RAL9005.webp",
+      "sha256": "1d7473f10f4d8909291535e694ffdfb354fb015eeb125acea146cfc844cdaaee",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-315",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/warme-ceder/model03/antraciet-RAL7016/DOP-315-houtcomposiet-warme-ceder-model03-antraciet-RAL7016.webp",
+      "sha256": "2a8680778092925b6f38b89eb602bed42dd6e6a3232ca923ed946fa81357dc97",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-314",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/warme-ceder/model03/creme-RAL9001/DOP-314-houtcomposiet-warme-ceder-model03-creme-RAL9001.webp",
+      "sha256": "dda42da986affeb63405eb11a60243fb37b48dc934ab3177d27e87901b6b669a",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-313",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/warme-ceder/model03/wit-RAL9016/DOP-313-houtcomposiet-warme-ceder-model03-wit-RAL9016.webp",
+      "sha256": "3886c2266a5bcee3f188d51d49f0ab38b04c79350bfeec29d44f341e65ab0f5f",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-316",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/warme-ceder/model03/zwart-RAL9005/DOP-316-houtcomposiet-warme-ceder-model03-zwart-RAL9005.webp",
+      "sha256": "2ae657d66d0ecd58ffe062375570359cfd9b16dbf61c025e05a06a9fd615ae41",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-319",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/warme-ceder/model04/antraciet-RAL7016/DOP-319-houtcomposiet-warme-ceder-model04-antraciet-RAL7016.webp",
+      "sha256": "a2e922b4fb71f30673bf030ef7a6ffb496f5d514161dbfc75ab5b61a32e1e5f0",
+      "status": "regenerated",
+      "source_id": null
+    },
+    {
+      "id": "DOP-318",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/warme-ceder/model04/creme-RAL9001/DOP-318-houtcomposiet-warme-ceder-model04-creme-RAL9001.webp",
+      "sha256": "63a775925f80de0b2836a818da6d727431023765e77394ca45cfa7f507004a68",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-317",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/warme-ceder/model04/wit-RAL9016/DOP-317-houtcomposiet-warme-ceder-model04-wit-RAL9016.webp",
+      "sha256": "79536f0fec29d9d8e835f1eb835038c76ca962592954929f7f891b78e0715ba9",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-320",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/warme-ceder/model04/zwart-RAL9005/DOP-320-houtcomposiet-warme-ceder-model04-zwart-RAL9005.webp",
+      "sha256": "05f3adfd20ae610c805a0935ac7812cea7636820ff56d96d3c6ad25dbfb740f4",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-371",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/zwart-composiet/model01/antraciet-RAL7016/DOP-371-houtcomposiet-zwart-composiet-model01-antraciet-RAL7016.webp",
+      "sha256": "3fc19d13325bee573425e8debf6194320945695b0ecf9e7adbec587856fd80af",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-370",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/zwart-composiet/model01/creme-RAL9001/DOP-370-houtcomposiet-zwart-composiet-model01-creme-RAL9001.webp",
+      "sha256": "e0aacce2e0ad8bb0f45cd9f32d3e7a938a26382733cf46664d7056c7a754500c",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-369",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/zwart-composiet/model01/wit-RAL9016/DOP-369-houtcomposiet-zwart-composiet-model01-wit-RAL9016.webp",
+      "sha256": "8ec5e67dc1370de681df7c3f90a2b141de5ee0523be2278a1695b2a739a936ba",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-372",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/zwart-composiet/model01/zwart-RAL9005/DOP-372-houtcomposiet-zwart-composiet-model01-zwart-RAL9005.webp",
+      "sha256": "97c4290ff37041281aee55a0d4a427abde96f5e611ee4e8b56e948a20bf9ace8",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-375",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/zwart-composiet/model02/antraciet-RAL7016/DOP-375-houtcomposiet-zwart-composiet-model02-antraciet-RAL7016.webp",
+      "sha256": "87c7cc2418d681247acf886b950812e62f26545dc4fc219a563d37eb2aec0403",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-374",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/zwart-composiet/model02/creme-RAL9001/DOP-374-houtcomposiet-zwart-composiet-model02-creme-RAL9001.webp",
+      "sha256": "009f111cb6585b7a2a069c549529a10817854a9e982c8e448845c0a15bcd87b5",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-373",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/zwart-composiet/model02/wit-RAL9016/DOP-373-houtcomposiet-zwart-composiet-model02-wit-RAL9016.webp",
+      "sha256": "21280702bb6c9ccc5e37c12c8b0cd6ebd2d65a3ba8499f9922c196492444ba9a",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-376",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/zwart-composiet/model02/zwart-RAL9005/DOP-376-houtcomposiet-zwart-composiet-model02-zwart-RAL9005.webp",
+      "sha256": "80907f0eb64fdbe852b7921de6feef7e6353c26b15f45bc72f994bc0a4c6d0d7",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-379",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/zwart-composiet/model03/antraciet-RAL7016/DOP-379-houtcomposiet-zwart-composiet-model03-antraciet-RAL7016.webp",
+      "sha256": "0863891670e176f0a9f012bfa976783b3865ec081422b3e8376f9fb680a1c2ec",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-378",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/zwart-composiet/model03/creme-RAL9001/DOP-378-houtcomposiet-zwart-composiet-model03-creme-RAL9001.webp",
+      "sha256": "97571615d5b216ee1a1ea6d3b3a18ef5981d27f022cfb2e18753332ee14777f9",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-377",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/zwart-composiet/model03/wit-RAL9016/DOP-377-houtcomposiet-zwart-composiet-model03-wit-RAL9016.webp",
+      "sha256": "325ffd163a25bf2b7eaf20301702da1822391b137b8dc8318f58692ffc87560b",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-380",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/zwart-composiet/model03/zwart-RAL9005/DOP-380-houtcomposiet-zwart-composiet-model03-zwart-RAL9005.webp",
+      "sha256": "cab5479da56a810ce642eaa9163fb6cc8ec8cc0b2864f009c1ec8857b7320162",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-383",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/zwart-composiet/model04/antraciet-RAL7016/DOP-383-houtcomposiet-zwart-composiet-model04-antraciet-RAL7016.webp",
+      "sha256": "38d1f82c2834fa406d713959d7c4f5dba20832344c4f409ecb42ebcf834e1cc9",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-382",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/zwart-composiet/model04/creme-RAL9001/DOP-382-houtcomposiet-zwart-composiet-model04-creme-RAL9001.webp",
+      "sha256": "3136903f246821bd58be43682e6d8a045568d5a9aacd3d545b1dba14d3134b2c",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-381",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/zwart-composiet/model04/wit-RAL9016/DOP-381-houtcomposiet-zwart-composiet-model04-wit-RAL9016.webp",
+      "sha256": "15c37f806241e533a00f0222d95dee533bc35b8e96a5158852fe796fac8f3938",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-384",
+      "path": "assets/media/dakopbouw/visuals/houtcomposiet/zwart-composiet/model04/zwart-RAL9005/DOP-384-houtcomposiet-zwart-composiet-model04-zwart-RAL9005.webp",
+      "sha256": "f262998e826362cbd67f82951d6a49986ada493ce090a67b6f055791e18312ff",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-067",
+      "path": "assets/media/dakopbouw/visuals/keralit/antraciet/model01/antraciet-RAL7016/DOP-067-keralit-antraciet-model01-antraciet-RAL7016.webp",
+      "sha256": "8fd528b05c4c98267e11ad4b9ea9b54be6c89d84f035341b22f7fd0940178688",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-066",
+      "path": "assets/media/dakopbouw/visuals/keralit/antraciet/model01/creme-RAL9001/DOP-066-keralit-antraciet-model01-creme-RAL9001.webp",
+      "sha256": "9867d636353e8c28b92e2630561f523fb52164fc881c23ffead0c04cdd24048f",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-065",
+      "path": "assets/media/dakopbouw/visuals/keralit/antraciet/model01/wit-RAL9016/DOP-065-keralit-antraciet-model01-wit-RAL9016.webp",
+      "sha256": "90a0d396e0d8382ce831c2e337b01c3f0f2d2d434aa1c07a5a9c3c370163e66e",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-068",
+      "path": "assets/media/dakopbouw/visuals/keralit/antraciet/model01/zwart-RAL9005/DOP-068-keralit-antraciet-model01-zwart-RAL9005.webp",
+      "sha256": "2fd0259762ac8bdac32e8d259d546411ebfc8d379f0a7cf047545ac705412990",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-071",
+      "path": "assets/media/dakopbouw/visuals/keralit/antraciet/model02/antraciet-RAL7016/DOP-071-keralit-antraciet-model02-antraciet-RAL7016.webp",
+      "sha256": "49831db4a74a9120acb9b63996059a71da81174bb9d9f09557100d244e1ceb31",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-070",
+      "path": "assets/media/dakopbouw/visuals/keralit/antraciet/model02/creme-RAL9001/DOP-070-keralit-antraciet-model02-creme-RAL9001.webp",
+      "sha256": "3cfb124f4ee4be997f1957ed89e0a25130e8574c4e18e7f6d3efa09de4b417ba",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-069",
+      "path": "assets/media/dakopbouw/visuals/keralit/antraciet/model02/wit-RAL9016/DOP-069-keralit-antraciet-model02-wit-RAL9016.webp",
+      "sha256": "5e805e7c372fe0970d524f86a77641e44d9a270c38b899941985d332f7f8ec1a",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-072",
+      "path": "assets/media/dakopbouw/visuals/keralit/antraciet/model02/zwart-RAL9005/DOP-072-keralit-antraciet-model02-zwart-RAL9005.webp",
+      "sha256": "9a0695ccfba70a6d1c28a72c77c61c90ddcca57c07393bb702f1736ee2a501c2",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-075",
+      "path": "assets/media/dakopbouw/visuals/keralit/antraciet/model03/antraciet-RAL7016/DOP-075-keralit-antraciet-model03-antraciet-RAL7016.webp",
+      "sha256": "d9932775f72d5420416e3d54af9e70e78e9f3dd3bd1499936ad6cd578c0994a0",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-074",
+      "path": "assets/media/dakopbouw/visuals/keralit/antraciet/model03/creme-RAL9001/DOP-074-keralit-antraciet-model03-creme-RAL9001.webp",
+      "sha256": "c61fe78e04e240376ce677fee92856e1775f676e01fa054429c4a0829f9d6566",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-073",
+      "path": "assets/media/dakopbouw/visuals/keralit/antraciet/model03/wit-RAL9016/DOP-073-keralit-antraciet-model03-wit-RAL9016.webp",
+      "sha256": "1932fcc04bd11ac42e2db6925849d41205f49a0634836757d3045524db6aeebf",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-076",
+      "path": "assets/media/dakopbouw/visuals/keralit/antraciet/model03/zwart-RAL9005/DOP-076-keralit-antraciet-model03-zwart-RAL9005.webp",
+      "sha256": "c8f660d605e0e29e54762df6ff3dcc096a086efd30795d62b8720f89890add99",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-079",
+      "path": "assets/media/dakopbouw/visuals/keralit/antraciet/model04/antraciet-RAL7016/DOP-079-keralit-antraciet-model04-antraciet-RAL7016.webp",
+      "sha256": "d6ca3bf4e0adb3576443526bc9627d731ae8a8d9ba7a3742f9919c1bfa4565cd",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-078",
+      "path": "assets/media/dakopbouw/visuals/keralit/antraciet/model04/creme-RAL9001/DOP-078-keralit-antraciet-model04-creme-RAL9001.webp",
+      "sha256": "a60c60c4f2197d42f7c17eb2906436a41a0416649ab68a8c318d3ea5f22fadeb",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-077",
+      "path": "assets/media/dakopbouw/visuals/keralit/antraciet/model04/wit-RAL9016/DOP-077-keralit-antraciet-model04-wit-RAL9016.webp",
+      "sha256": "4806133909687cdcd77a2f8e71e1795b64092e96a32dfa443a67982975c69d24",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-080",
+      "path": "assets/media/dakopbouw/visuals/keralit/antraciet/model04/zwart-RAL9005/DOP-080-keralit-antraciet-model04-zwart-RAL9005.webp",
+      "sha256": "c554c8800015d93f8055955c18e09afca3ad62a5c150289e6af4ea759f3887f3",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-019",
+      "path": "assets/media/dakopbouw/visuals/keralit/creme/model01/antraciet-RAL7016/DOP-019-keralit-creme-model01-antraciet-RAL7016.webp",
+      "sha256": "c4a1691f522b94072c435f0abc630a1cac3ed7b9344fe58aa7d78bb0e85bef21",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-018",
+      "path": "assets/media/dakopbouw/visuals/keralit/creme/model01/creme-RAL9001/DOP-018-keralit-creme-model01-creme-RAL9001.webp",
+      "sha256": "41dc4b92a7db0a7f31789a26b95cff76c40e7e925084775e03047c7646e10d5e",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-017",
+      "path": "assets/media/dakopbouw/visuals/keralit/creme/model01/wit-RAL9016/DOP-017-keralit-creme-model01-wit-RAL9016.webp",
+      "sha256": "ff00e97d26bf660f37dfbe096247b9ca49014d5cda696159fe5a92a28d833328",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-020",
+      "path": "assets/media/dakopbouw/visuals/keralit/creme/model01/zwart-RAL9005/DOP-020-keralit-creme-model01-zwart-RAL9005.webp",
+      "sha256": "c61d1ef5406010e303dc210b93284747c21c16bd8da3c3ca2ca405c5fb15d810",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-023",
+      "path": "assets/media/dakopbouw/visuals/keralit/creme/model02/antraciet-RAL7016/DOP-023-keralit-creme-model02-antraciet-RAL7016.webp",
+      "sha256": "eff03590f5c340540bf3d0bd500220ab1271f6047141488a00dfc282facea417",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-022",
+      "path": "assets/media/dakopbouw/visuals/keralit/creme/model02/creme-RAL9001/DOP-022-keralit-creme-model02-creme-RAL9001.webp",
+      "sha256": "9deb2783719232402c7bade2fd279d1f78c9181dd71a601d17c1df3888e71ac9",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-021",
+      "path": "assets/media/dakopbouw/visuals/keralit/creme/model02/wit-RAL9016/DOP-021-keralit-creme-model02-wit-RAL9016.webp",
+      "sha256": "7103c2bbaa36da461f5025a9c2a072aa7170eeb774c2076dbccdea3926b34ec1",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-024",
+      "path": "assets/media/dakopbouw/visuals/keralit/creme/model02/zwart-RAL9005/DOP-024-keralit-creme-model02-zwart-RAL9005.webp",
+      "sha256": "299eb1384df3d7ff7af2c0bb7df53a66415d33c2b8e023cb7c597090bd0cf5ba",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-027",
+      "path": "assets/media/dakopbouw/visuals/keralit/creme/model03/antraciet-RAL7016/DOP-027-keralit-creme-model03-antraciet-RAL7016.webp",
+      "sha256": "62e45c6cbc3a9418afe3d60f0191b4701d5a588b15dad7f66f5af505fc81acc2",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-026",
+      "path": "assets/media/dakopbouw/visuals/keralit/creme/model03/creme-RAL9001/DOP-026-keralit-creme-model03-creme-RAL9001.webp",
+      "sha256": "c6eeb8132275aa622dc60cb1c48b71a68bc0dcf5a69e4ae8c7252c9e023594e7",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-025",
+      "path": "assets/media/dakopbouw/visuals/keralit/creme/model03/wit-RAL9016/DOP-025-keralit-creme-model03-wit-RAL9016.webp",
+      "sha256": "30e1c96aa8b9eb50960d4f78c8f75c11ff3a85d926596604182d18fe11244bce",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-028",
+      "path": "assets/media/dakopbouw/visuals/keralit/creme/model03/zwart-RAL9005/DOP-028-keralit-creme-model03-zwart-RAL9005.webp",
+      "sha256": "deb7a4e24b6eb8ccea7b9a889aba10496783779432674a8acab3b8c9a3fecfeb",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-031",
+      "path": "assets/media/dakopbouw/visuals/keralit/creme/model04/antraciet-RAL7016/DOP-031-keralit-creme-model04-antraciet-RAL7016.webp",
+      "sha256": "034392b9b35d3b82b0b25cf678ae6da9be1f3e1ff3a3e2756abb211a5e3e537a",
+      "status": "regenerated",
+      "source_id": null
+    },
+    {
+      "id": "DOP-030",
+      "path": "assets/media/dakopbouw/visuals/keralit/creme/model04/creme-RAL9001/DOP-030-keralit-creme-model04-creme-RAL9001.webp",
+      "sha256": "2fda9502d08faa8e4fd251a312c9b8e536d30bf37e495d64674fb6f4e1f21b0b",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-029",
+      "path": "assets/media/dakopbouw/visuals/keralit/creme/model04/wit-RAL9016/DOP-029-keralit-creme-model04-wit-RAL9016.webp",
+      "sha256": "15cf8a2de79491e0e797a2d0ce081477deb89697f6ac326ece33c99f58919809",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-032",
+      "path": "assets/media/dakopbouw/visuals/keralit/creme/model04/zwart-RAL9005/DOP-032-keralit-creme-model04-zwart-RAL9005.webp",
+      "sha256": "de49ed80b7e6434a90665ef3f0e152d8fba94bc104cafe42c420af7a06880e46",
+      "status": "regenerated",
+      "source_id": null
+    },
+    {
+      "id": "DOP-035",
+      "path": "assets/media/dakopbouw/visuals/keralit/lichtgrijs/model01/antraciet-RAL7016/DOP-035-keralit-lichtgrijs-model01-antraciet-RAL7016.webp",
+      "sha256": "ad4c5b9801826b14ffaa72c33136c6df4c6f07df678d8a86a2d2fef84f1b6478",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-034",
+      "path": "assets/media/dakopbouw/visuals/keralit/lichtgrijs/model01/creme-RAL9001/DOP-034-keralit-lichtgrijs-model01-creme-RAL9001.webp",
+      "sha256": "b1102e84c2a1434557be2bb38651ad3d0cbcf28dcd41df59f28aa6f239166a26",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-033",
+      "path": "assets/media/dakopbouw/visuals/keralit/lichtgrijs/model01/wit-RAL9016/DOP-033-keralit-lichtgrijs-model01-wit-RAL9016.webp",
+      "sha256": "78ae8146c8557e0a076decc6cf0a18824f431018f701a92d9bb2550ae49b45ba",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-036",
+      "path": "assets/media/dakopbouw/visuals/keralit/lichtgrijs/model01/zwart-RAL9005/DOP-036-keralit-lichtgrijs-model01-zwart-RAL9005.webp",
+      "sha256": "ad9bfee209974f385344fe9addda7488cc5184a9adb811cdacd12d4caa2ca408",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-039",
+      "path": "assets/media/dakopbouw/visuals/keralit/lichtgrijs/model02/antraciet-RAL7016/DOP-039-keralit-lichtgrijs-model02-antraciet-RAL7016.webp",
+      "sha256": "96524519085d8fd588062418f3a2196868ef2977629562c1449c5877dba45507",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-038",
+      "path": "assets/media/dakopbouw/visuals/keralit/lichtgrijs/model02/creme-RAL9001/DOP-038-keralit-lichtgrijs-model02-creme-RAL9001.webp",
+      "sha256": "be4525cfa4355ba56dfd24cc7e40b5232ee61ea8c761174859a2e46e56d9f434",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-037",
+      "path": "assets/media/dakopbouw/visuals/keralit/lichtgrijs/model02/wit-RAL9016/DOP-037-keralit-lichtgrijs-model02-wit-RAL9016.webp",
+      "sha256": "9b00931194a3c080df6a9ef2926e89663041c8c60dfe1506fb7256bfd189665d",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-040",
+      "path": "assets/media/dakopbouw/visuals/keralit/lichtgrijs/model02/zwart-RAL9005/DOP-040-keralit-lichtgrijs-model02-zwart-RAL9005.webp",
+      "sha256": "81dcdb7383be9469ef9979c0e4255adeb3a074720942abd68741a17ecac762c9",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-043",
+      "path": "assets/media/dakopbouw/visuals/keralit/lichtgrijs/model03/antraciet-RAL7016/DOP-043-keralit-lichtgrijs-model03-antraciet-RAL7016.webp",
+      "sha256": "98e92433b99c093d4a0b489e2a9fce5692860963cc3c115fa40becaca629f4b8",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-042",
+      "path": "assets/media/dakopbouw/visuals/keralit/lichtgrijs/model03/creme-RAL9001/DOP-042-keralit-lichtgrijs-model03-creme-RAL9001.webp",
+      "sha256": "ee8496d831503b7abd2d3e202c2bd14aa8e1c48cfab0c4735130aad70e760522",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-041",
+      "path": "assets/media/dakopbouw/visuals/keralit/lichtgrijs/model03/wit-RAL9016/DOP-041-keralit-lichtgrijs-model03-wit-RAL9016.webp",
+      "sha256": "dca7338cad9a2a4e1e5873b95e9093c6fe4b5dee9e6d39de7765d05f9516d8a0",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-044",
+      "path": "assets/media/dakopbouw/visuals/keralit/lichtgrijs/model03/zwart-RAL9005/DOP-044-keralit-lichtgrijs-model03-zwart-RAL9005.webp",
+      "sha256": "c5db795d920d77e4fee1a0356e4ee530272e7b6b33941ff85a5aa3512a2c99d0",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-047",
+      "path": "assets/media/dakopbouw/visuals/keralit/lichtgrijs/model04/antraciet-RAL7016/DOP-047-keralit-lichtgrijs-model04-antraciet-RAL7016.webp",
+      "sha256": "1fe27eca21f0d01a2244e6e6d397b01ea7067e7f31d263866379bef00d1bf2da",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-046",
+      "path": "assets/media/dakopbouw/visuals/keralit/lichtgrijs/model04/creme-RAL9001/DOP-046-keralit-lichtgrijs-model04-creme-RAL9001.webp",
+      "sha256": "76154de18104f2bd5d562b37cd3f769b24d77587db1adf0652ebcc03963a4443",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-045",
+      "path": "assets/media/dakopbouw/visuals/keralit/lichtgrijs/model04/wit-RAL9016/DOP-045-keralit-lichtgrijs-model04-wit-RAL9016.webp",
+      "sha256": "60350a3413486bb4f8d57d5b6f010e1ccfcab1e832b9e516c28e772555fdb34c",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-048",
+      "path": "assets/media/dakopbouw/visuals/keralit/lichtgrijs/model04/zwart-RAL9005/DOP-048-keralit-lichtgrijs-model04-zwart-RAL9005.webp",
+      "sha256": "5d49961a71dd764623694e9673a2abfa43b71e30d2ba471d56f469bd8d02aeeb",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-051",
+      "path": "assets/media/dakopbouw/visuals/keralit/taupe/model01/antraciet-RAL7016/DOP-051-keralit-taupe-model01-antraciet-RAL7016.webp",
+      "sha256": "80a785acc651f5b71d495955f18a81302d86096a7ae7b11dc43f96f128f2876e",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-050",
+      "path": "assets/media/dakopbouw/visuals/keralit/taupe/model01/creme-RAL9001/DOP-050-keralit-taupe-model01-creme-RAL9001.webp",
+      "sha256": "0f37dc847847b25336944e3eef15e95e084767593f537409abe2410980a1ed29",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-049",
+      "path": "assets/media/dakopbouw/visuals/keralit/taupe/model01/wit-RAL9016/DOP-049-keralit-taupe-model01-wit-RAL9016.webp",
+      "sha256": "cccbd92bede6d4ca67e286c88c957d3e9b4b2936dc63562183e08f5f8d1e5e67",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-052",
+      "path": "assets/media/dakopbouw/visuals/keralit/taupe/model01/zwart-RAL9005/DOP-052-keralit-taupe-model01-zwart-RAL9005.webp",
+      "sha256": "dbb2d4efd36702ffc4d650dc25c43c989b3c4a666c4a678b8aa2499db3286cbe",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-055",
+      "path": "assets/media/dakopbouw/visuals/keralit/taupe/model02/antraciet-RAL7016/DOP-055-keralit-taupe-model02-antraciet-RAL7016.webp",
+      "sha256": "bac8d4e1a89936c3dd5d8d8b294ea1f2973cbdb74daf825696e2731b89bf16bb",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-054",
+      "path": "assets/media/dakopbouw/visuals/keralit/taupe/model02/creme-RAL9001/DOP-054-keralit-taupe-model02-creme-RAL9001.webp",
+      "sha256": "8996f095c50d324af642ebb21d812c90a28f2e2537d40674d89442193a33ee56",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-053",
+      "path": "assets/media/dakopbouw/visuals/keralit/taupe/model02/wit-RAL9016/DOP-053-keralit-taupe-model02-wit-RAL9016.webp",
+      "sha256": "b3acf6f21190510d67fdd47c5fef280ed4f593dbee21846803c7968ab55cca88",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-056",
+      "path": "assets/media/dakopbouw/visuals/keralit/taupe/model02/zwart-RAL9005/DOP-056-keralit-taupe-model02-zwart-RAL9005.webp",
+      "sha256": "1cc808865ec2d2d9593686572b86801b8f58130c74fd3d9ea6c751e0d220f888",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-059",
+      "path": "assets/media/dakopbouw/visuals/keralit/taupe/model03/antraciet-RAL7016/DOP-059-keralit-taupe-model03-antraciet-RAL7016.webp",
+      "sha256": "859f394ed52eb5a6a2452263dee4fd972899983f7ed6a7887f0b4659cd1e0329",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-058",
+      "path": "assets/media/dakopbouw/visuals/keralit/taupe/model03/creme-RAL9001/DOP-058-keralit-taupe-model03-creme-RAL9001.webp",
+      "sha256": "e0a0e11e19862b831fde1f046e4cc14dba7e6eca6c35a626ee542130625f47ef",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-057",
+      "path": "assets/media/dakopbouw/visuals/keralit/taupe/model03/wit-RAL9016/DOP-057-keralit-taupe-model03-wit-RAL9016.webp",
+      "sha256": "db08fa02e281c72617b4450383667e72d94bc83d42c873b9aec4737acfcb5165",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-060",
+      "path": "assets/media/dakopbouw/visuals/keralit/taupe/model03/zwart-RAL9005/DOP-060-keralit-taupe-model03-zwart-RAL9005.webp",
+      "sha256": "9db0a632484809f4d4beac6e8713f8060042300b161e21439cd3ecb0edac8e22",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-063",
+      "path": "assets/media/dakopbouw/visuals/keralit/taupe/model04/antraciet-RAL7016/DOP-063-keralit-taupe-model04-antraciet-RAL7016.webp",
+      "sha256": "d8083e3d8a4bd00fd8cde8878ba0a226ffef15c7bc311627d6ceb96cb3ce595f",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-062",
+      "path": "assets/media/dakopbouw/visuals/keralit/taupe/model04/creme-RAL9001/DOP-062-keralit-taupe-model04-creme-RAL9001.webp",
+      "sha256": "e40f538bff7073c9542bdd66dacc475f205e70cb5c6185fae4b7fa899c4c1bb2",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-061",
+      "path": "assets/media/dakopbouw/visuals/keralit/taupe/model04/wit-RAL9016/DOP-061-keralit-taupe-model04-wit-RAL9016.webp",
+      "sha256": "68f48432a8a5aa7363226f836792e0b08c1c0e782c456ebac8b68c7b9ab2a85e",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-064",
+      "path": "assets/media/dakopbouw/visuals/keralit/taupe/model04/zwart-RAL9005/DOP-064-keralit-taupe-model04-zwart-RAL9005.webp",
+      "sha256": "977fd679530d4f58077f008f44019334fe287bee4a4ae3964ff5ed942aba7387",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-003",
+      "path": "assets/media/dakopbouw/visuals/keralit/wit/model01/antraciet-RAL7016/DOP-003-keralit-wit-model01-antraciet-RAL7016.jpg",
+      "sha256": "c778c4e6ee714bf4c8d2d495027a49c86503d7b6b092cfe393d918047bb4055f",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-002",
+      "path": "assets/media/dakopbouw/visuals/keralit/wit/model01/creme-RAL9001/DOP-002-keralit-wit-model01-creme-RAL9001.jpg",
+      "sha256": "726eb9ccffbbbccd533e34a298804984482c8888ca05d37e50b365eeeb4ce88e",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-001",
+      "path": "assets/media/dakopbouw/visuals/keralit/wit/model01/wit-RAL9016/DOP-001-keralit-wit-model01-wit-RAL9016.jpg",
+      "sha256": "5592c5e591191dd84837bd9a7293efcf9c404c524f83fb64048fedbb0681ab79",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-004",
+      "path": "assets/media/dakopbouw/visuals/keralit/wit/model01/zwart-RAL9005/DOP-004-keralit-wit-model01-zwart-RAL9005.jpg",
+      "sha256": "9e1f61204284d1d8561574544715eadf4183a4bf21094cfae825d92316ae775f",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-007",
+      "path": "assets/media/dakopbouw/visuals/keralit/wit/model02/antraciet-RAL7016/DOP-007-keralit-wit-model02-antraciet-RAL7016.jpg",
+      "sha256": "9799599b094fcb9e1040b36f958b84601c8576e374cd6deb277f44162d1bde46",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-006",
+      "path": "assets/media/dakopbouw/visuals/keralit/wit/model02/creme-RAL9001/DOP-006-keralit-wit-model02-creme-RAL9001.jpg",
+      "sha256": "ec6db8538d1f69ed39244439185f2f93f17fa0af20606c4b10f2b5a58ad5c8c7",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-005",
+      "path": "assets/media/dakopbouw/visuals/keralit/wit/model02/wit-RAL9016/DOP-005-keralit-wit-model02-wit-RAL9016.jpg",
+      "sha256": "5ac2dbd6a813724d545a43accbeacda6a4894ea3fd015c7e36897ed35c652343",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-008",
+      "path": "assets/media/dakopbouw/visuals/keralit/wit/model02/zwart-RAL9005/DOP-008-keralit-wit-model02-zwart-RAL9005.jpg",
+      "sha256": "fae004dc67253306b0d368b66bad69581da669fc8bf9ae8cd4d6ff52237ba648",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-011",
+      "path": "assets/media/dakopbouw/visuals/keralit/wit/model03/antraciet-RAL7016/DOP-011-keralit-wit-model03-antraciet-RAL7016.jpg",
+      "sha256": "88925bcfcea1ec85a5ec0ab47a3a06759aa39691abf196cdf6b70506b7b993cc",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-010",
+      "path": "assets/media/dakopbouw/visuals/keralit/wit/model03/creme-RAL9001/DOP-010-keralit-wit-model03-creme-RAL9001.jpg",
+      "sha256": "0ea4cd1e542424789a24d22ca774e5b4a2bf4ed836bc2b5f89c14c8cc874992a",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-009",
+      "path": "assets/media/dakopbouw/visuals/keralit/wit/model03/wit-RAL9016/DOP-009-keralit-wit-model03-wit-RAL9016.jpg",
+      "sha256": "0d73a6ec78616e5658cda6308cd8f30ae60ad0d2ff96f689638689c52937cd21",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-012",
+      "path": "assets/media/dakopbouw/visuals/keralit/wit/model03/zwart-RAL9005/DOP-012-keralit-wit-model03-zwart-RAL9005.jpg",
+      "sha256": "b48038d970f8c0c69197875b77277dff7e23efded8d60211c63cfb07148147af",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-015",
+      "path": "assets/media/dakopbouw/visuals/keralit/wit/model04/antraciet-RAL7016/DOP-015-keralit-wit-model04-antraciet-RAL7016.webp",
+      "sha256": "a1bf91d80b031939456d95206cd301e8a45fc9510dc0dedecba62b15ec15bb5c",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-014",
+      "path": "assets/media/dakopbouw/visuals/keralit/wit/model04/creme-RAL9001/DOP-014-keralit-wit-model04-creme-RAL9001.webp",
+      "sha256": "4ca040c51f7de3956d6984f2dbeee72b984adcf54666c381f0d89d3d20fb4760",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-013",
+      "path": "assets/media/dakopbouw/visuals/keralit/wit/model04/wit-RAL9016/DOP-013-keralit-wit-model04-wit-RAL9016.jpg",
+      "sha256": "6b6f877b8f2917b3aa360a1e1841d3e8f860ba8c552275a99e8fc3ad77384d7e",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-016",
+      "path": "assets/media/dakopbouw/visuals/keralit/wit/model04/zwart-RAL9005/DOP-016-keralit-wit-model04-zwart-RAL9005.webp",
+      "sha256": "ad090fda18e9ae487349af65b87d8cff3a9b35aad47a7a2c6d6b89211f805a4d",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-083",
+      "path": "assets/media/dakopbouw/visuals/keralit/zwart/model01/antraciet-RAL7016/DOP-083-keralit-zwart-model01-antraciet-RAL7016.webp",
+      "sha256": "44528a2926a5f5979a9498803e95ac41f2a4f283f61777318e920b4f37bd32a9",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-082",
+      "path": "assets/media/dakopbouw/visuals/keralit/zwart/model01/creme-RAL9001/DOP-082-keralit-zwart-model01-creme-RAL9001.webp",
+      "sha256": "9efb3866057be5dfe73058dad2a357fec8058ea216106d76a7e516251f680cd0",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-081",
+      "path": "assets/media/dakopbouw/visuals/keralit/zwart/model01/wit-RAL9016/DOP-081-keralit-zwart-model01-wit-RAL9016.webp",
+      "sha256": "6f92ebe8bd9998fa629f880aa3491aad1d5e913a488182ae9dca554b750d5d95",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-084",
+      "path": "assets/media/dakopbouw/visuals/keralit/zwart/model01/zwart-RAL9005/DOP-084-keralit-zwart-model01-zwart-RAL9005.webp",
+      "sha256": "6de685e3c4a53e4c6ef5d83b4553af6f28fd4fcccc7b1d4e11a166041da13934",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-087",
+      "path": "assets/media/dakopbouw/visuals/keralit/zwart/model02/antraciet-RAL7016/DOP-087-keralit-zwart-model02-antraciet-RAL7016.webp",
+      "sha256": "41bad044776fb72661e9c0c829b9c9c8bfe4d5d1c11fc959c15b98c5bf185134",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-086",
+      "path": "assets/media/dakopbouw/visuals/keralit/zwart/model02/creme-RAL9001/DOP-086-keralit-zwart-model02-creme-RAL9001.webp",
+      "sha256": "e1cadc0b49e2290a263fae8044ec8839c657a35bcd9c2dce3b8e759290823322",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-085",
+      "path": "assets/media/dakopbouw/visuals/keralit/zwart/model02/wit-RAL9016/DOP-085-keralit-zwart-model02-wit-RAL9016.webp",
+      "sha256": "b06e46eead75cdb835a9ee6069935f190e9d519f341638074d0665943f814644",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-088",
+      "path": "assets/media/dakopbouw/visuals/keralit/zwart/model02/zwart-RAL9005/DOP-088-keralit-zwart-model02-zwart-RAL9005.webp",
+      "sha256": "7d4c6ecb0cef4af0962c39b3419cd3cb96483b6870c21cc5bc31463342df8e6e",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-091",
+      "path": "assets/media/dakopbouw/visuals/keralit/zwart/model03/antraciet-RAL7016/DOP-091-keralit-zwart-model03-antraciet-RAL7016.webp",
+      "sha256": "d30e89decabec926d2bb59cce30846aab67e54dac6454deeb9c80a5b6cb68bc0",
+      "status": "regenerated",
+      "source_id": null
+    },
+    {
+      "id": "DOP-090",
+      "path": "assets/media/dakopbouw/visuals/keralit/zwart/model03/creme-RAL9001/DOP-090-keralit-zwart-model03-creme-RAL9001.webp",
+      "sha256": "ff2dfff1fa511fc9e28af36921b5b15cc08fc693f009e98686d86607c5504bd1",
+      "status": "regenerated",
+      "source_id": null
+    },
+    {
+      "id": "DOP-089",
+      "path": "assets/media/dakopbouw/visuals/keralit/zwart/model03/wit-RAL9016/DOP-089-keralit-zwart-model03-wit-RAL9016.webp",
+      "sha256": "eee8fc56525ca78e1a4df06181f64ef72a67ec0aef26e6087b1193ee2d7b85b1",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-092",
+      "path": "assets/media/dakopbouw/visuals/keralit/zwart/model03/zwart-RAL9005/DOP-092-keralit-zwart-model03-zwart-RAL9005.webp",
+      "sha256": "728d61abc267277f24fe72a23b0db13e79fc40a632b5d6bf4f7293f42adc5eba",
+      "status": "regenerated",
+      "source_id": null
+    },
+    {
+      "id": "DOP-095",
+      "path": "assets/media/dakopbouw/visuals/keralit/zwart/model04/antraciet-RAL7016/DOP-095-keralit-zwart-model04-antraciet-RAL7016.webp",
+      "sha256": "5b9acc9d6c3b864677d2513b0c027efc6fa2b13d98cefcffff2a7efded7cde0b",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-094",
+      "path": "assets/media/dakopbouw/visuals/keralit/zwart/model04/creme-RAL9001/DOP-094-keralit-zwart-model04-creme-RAL9001.webp",
+      "sha256": "de5f7b672685cab5541dd4ad395ce765a2b1deb3283fbf799c8137ac3b1ad399",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-093",
+      "path": "assets/media/dakopbouw/visuals/keralit/zwart/model04/wit-RAL9016/DOP-093-keralit-zwart-model04-wit-RAL9016.webp",
+      "sha256": "ad534d16a3078e0eb1ca170896a622c5d7f227a706db0cbdeda4e1a3f7478ac3",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-096",
+      "path": "assets/media/dakopbouw/visuals/keralit/zwart/model04/zwart-RAL9005/DOP-096-keralit-zwart-model04-zwart-RAL9005.webp",
+      "sha256": "f5fa6ef3101d023ae85f1bea1bcf8b96f41990a0231748b5ca4f03522061e3fc",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-163",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/donkerbruin/model01/antraciet-RAL7016/DOP-163-metselwerk-donkerbruin-model01-antraciet-RAL7016.webp",
+      "sha256": "19c3b267ff2e9780cd7b5991b7914b56bc47585f17fc21daf0b7ab4fac73755b",
+      "status": "reassigned",
+      "source_id": "DOP-168"
+    },
+    {
+      "id": "DOP-162",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/donkerbruin/model01/creme-RAL9001/DOP-162-metselwerk-donkerbruin-model01-creme-RAL9001.webp",
+      "sha256": "0746c3f5649bdcfb79a2f6dc7b99d940af349c81e0b0c538048b8df60109ba90",
+      "status": "reassigned",
+      "source_id": "DOP-165"
+    },
+    {
+      "id": "DOP-161",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/donkerbruin/model01/wit-RAL9016/DOP-161-metselwerk-donkerbruin-model01-wit-RAL9016.webp",
+      "sha256": "6ce5667d6eeb931829bf8117b01ceac8fe27b086315b83859d10a574b14d730d",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-164",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/donkerbruin/model01/zwart-RAL9005/DOP-164-metselwerk-donkerbruin-model01-zwart-RAL9005.webp",
+      "sha256": "59e66266f903706c448c1f71fc9d7a3a20216677bd9361a146fb4a4dc72b3680",
+      "status": "reassigned",
+      "source_id": "DOP-170"
+    },
+    {
+      "id": "DOP-167",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/donkerbruin/model02/antraciet-RAL7016/DOP-167-metselwerk-donkerbruin-model02-antraciet-RAL7016.webp",
+      "sha256": "309b002cbb221dc121cdb0fcbf18168863c323d9b30fd82f20d5b1503c3d14b5",
+      "status": "reassigned",
+      "source_id": "DOP-166"
+    },
+    {
+      "id": "DOP-166",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/donkerbruin/model02/creme-RAL9001/DOP-166-metselwerk-donkerbruin-model02-creme-RAL9001.webp",
+      "sha256": "f03248afe62a30e4dde1cb99f77369c8c7b5c4300d2959c44ae0d97f1356a541",
+      "status": "reassigned",
+      "source_id": "DOP-167"
+    },
+    {
+      "id": "DOP-165",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/donkerbruin/model02/wit-RAL9016/DOP-165-metselwerk-donkerbruin-model02-wit-RAL9016.webp",
+      "sha256": "34541966badbaa71384bf67d1a415bcc57afbe4a6ff4d878b17365fdd9f673a4",
+      "status": "reassigned",
+      "source_id": "DOP-162"
+    },
+    {
+      "id": "DOP-168",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/donkerbruin/model02/zwart-RAL9005/DOP-168-metselwerk-donkerbruin-model02-zwart-RAL9005.webp",
+      "sha256": "2e31ee02220f50f29646afe84996dfc91e31f3fe7d30a693b9f5215bd8223a9f",
+      "status": "reassigned",
+      "source_id": "DOP-169"
+    },
+    {
+      "id": "DOP-171",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/donkerbruin/model03/antraciet-RAL7016/DOP-171-metselwerk-donkerbruin-model03-antraciet-RAL7016.webp",
+      "sha256": "ac7048fe9e34a360d5200bec7786f19735c6e3dc11882571a1ddcca90197b082",
+      "status": "reassigned",
+      "source_id": "DOP-172"
+    },
+    {
+      "id": "DOP-170",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/donkerbruin/model03/creme-RAL9001/DOP-170-metselwerk-donkerbruin-model03-creme-RAL9001.webp",
+      "sha256": "9736a812a484d469e23232ae3ceebf076be150084f0cfd3e19c0189195434737",
+      "status": "reassigned",
+      "source_id": "DOP-171"
+    },
+    {
+      "id": "DOP-169",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/donkerbruin/model03/wit-RAL9016/DOP-169-metselwerk-donkerbruin-model03-wit-RAL9016.webp",
+      "sha256": "fe0c5299d2c318e00ceab96d189a8f6b64be2cfad33d1b3db07bcf83ba58626e",
+      "status": "reassigned",
+      "source_id": "DOP-163"
+    },
+    {
+      "id": "DOP-172",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/donkerbruin/model03/zwart-RAL9005/DOP-172-metselwerk-donkerbruin-model03-zwart-RAL9005.webp",
+      "sha256": "fff43bd15d1669ca62231df6748216bfa2c8787f75d0fe7e9f1f4c23f4655abd",
+      "status": "reassigned",
+      "source_id": "DOP-173"
+    },
+    {
+      "id": "DOP-175",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/donkerbruin/model04/antraciet-RAL7016/DOP-175-metselwerk-donkerbruin-model04-antraciet-RAL7016.webp",
+      "sha256": "ea91db07a5213a74ca8ea03744c6a9d12771705fd7230ecad67599cc195324dd",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-174",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/donkerbruin/model04/creme-RAL9001/DOP-174-metselwerk-donkerbruin-model04-creme-RAL9001.webp",
+      "sha256": "b8e114c6233dd097732e243e8353c57dfcfe95987d5b521ca47dcc46ca0f73b2",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-173",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/donkerbruin/model04/wit-RAL9016/DOP-173-metselwerk-donkerbruin-model04-wit-RAL9016.webp",
+      "sha256": "bf99f7272764cdf0c569c02a1f3fb33b189fea0cda9635ca894df7925df9355d",
+      "status": "reassigned",
+      "source_id": "DOP-164"
+    },
+    {
+      "id": "DOP-176",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/donkerbruin/model04/zwart-RAL9005/DOP-176-metselwerk-donkerbruin-model04-zwart-RAL9005.webp",
+      "sha256": "5fdb3e07c38b5ad296c10cf32a27a2f456ffb42ab5f012215178dc609cc337c3",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-179",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/grafiet/model01/antraciet-RAL7016/DOP-179-metselwerk-grafiet-model01-antraciet-RAL7016.webp",
+      "sha256": "d4add06ac7886344f3e3810816e527a853cfc88e653d4e8d5dd217773402da3c",
+      "status": "reassigned",
+      "source_id": "DOP-181"
+    },
+    {
+      "id": "DOP-178",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/grafiet/model01/creme-RAL9001/DOP-178-metselwerk-grafiet-model01-creme-RAL9001.webp",
+      "sha256": "1ca91d4ce2de836526c4060aa46c44b8c46d6715ad181980d6d1628b5ae02777",
+      "status": "reassigned",
+      "source_id": "DOP-182"
+    },
+    {
+      "id": "DOP-177",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/grafiet/model01/wit-RAL9016/DOP-177-metselwerk-grafiet-model01-wit-RAL9016.webp",
+      "sha256": "dd2977260447629801c54065ecdc62b07dd3573870729052b7d0f74af11b911c",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-180",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/grafiet/model01/zwart-RAL9005/DOP-180-metselwerk-grafiet-model01-zwart-RAL9005.webp",
+      "sha256": "402cf610033f6089ef676ba71dd56232561d79e47f2352c8afa90f9aa8555000",
+      "status": "reassigned",
+      "source_id": "DOP-183"
+    },
+    {
+      "id": "DOP-183",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/grafiet/model02/antraciet-RAL7016/DOP-183-metselwerk-grafiet-model02-antraciet-RAL7016.webp",
+      "sha256": "830c4e11af778903fa8d547f805d9f0a9fd517563c49bb29b8ca0f8ffdc18233",
+      "status": "reassigned",
+      "source_id": "DOP-186"
+    },
+    {
+      "id": "DOP-182",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/grafiet/model02/creme-RAL9001/DOP-182-metselwerk-grafiet-model02-creme-RAL9001.webp",
+      "sha256": "3bfe78902675496a4e5ff3bdf77062260b5f92a9772e09e868eb9a6be520a956",
+      "status": "reassigned",
+      "source_id": "DOP-184"
+    },
+    {
+      "id": "DOP-181",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/grafiet/model02/wit-RAL9016/DOP-181-metselwerk-grafiet-model02-wit-RAL9016.webp",
+      "sha256": "6c04bba9cc795fb29ea9ec0a9d05c8c69bc43ea4cad48c06601bd703ad3d8a2d",
+      "status": "reassigned",
+      "source_id": "DOP-178"
+    },
+    {
+      "id": "DOP-184",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/grafiet/model02/zwart-RAL9005/DOP-184-metselwerk-grafiet-model02-zwart-RAL9005.webp",
+      "sha256": "9ad2727465e0fe29bb7ac47adc65c446b4ec76c01748f40e346c842a807f1eb6",
+      "status": "reassigned",
+      "source_id": "DOP-185"
+    },
+    {
+      "id": "DOP-187",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/grafiet/model03/antraciet-RAL7016/DOP-187-metselwerk-grafiet-model03-antraciet-RAL7016.webp",
+      "sha256": "4669ce141f76518f6deb5464203a2ee3e112a027f4ffeee77b86d9df4be293e6",
+      "status": "reassigned",
+      "source_id": "DOP-188"
+    },
+    {
+      "id": "DOP-186",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/grafiet/model03/creme-RAL9001/DOP-186-metselwerk-grafiet-model03-creme-RAL9001.webp",
+      "sha256": "186e3fc327a938ecfe9f9f9262fb792ea4c99d3fd33d762283ac7331fed1a137",
+      "status": "reassigned",
+      "source_id": "DOP-187"
+    },
+    {
+      "id": "DOP-185",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/grafiet/model03/wit-RAL9016/DOP-185-metselwerk-grafiet-model03-wit-RAL9016.webp",
+      "sha256": "5460747a5217c18bec1c6c55adb333d9e3fcda89beef000a61d0208acc176dd5",
+      "status": "reassigned",
+      "source_id": "DOP-179"
+    },
+    {
+      "id": "DOP-188",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/grafiet/model03/zwart-RAL9005/DOP-188-metselwerk-grafiet-model03-zwart-RAL9005.webp",
+      "sha256": "6f3e874f660b6eba36c5e044a7d4f8327f6f15217783fc24e0f4c7ca3235026a",
+      "status": "reassigned",
+      "source_id": "DOP-189"
+    },
+    {
+      "id": "DOP-191",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/grafiet/model04/antraciet-RAL7016/DOP-191-metselwerk-grafiet-model04-antraciet-RAL7016.webp",
+      "sha256": "dec87efd1070390a2f0f3f6d382a4da814720be5dd208a0dc9bd2d6c7405b292",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-190",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/grafiet/model04/creme-RAL9001/DOP-190-metselwerk-grafiet-model04-creme-RAL9001.webp",
+      "sha256": "9da3d39b32cf9313de8845179d1f5500a0888aa5e1a4c513cd50f42eb0e21e3b",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-189",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/grafiet/model04/wit-RAL9016/DOP-189-metselwerk-grafiet-model04-wit-RAL9016.webp",
+      "sha256": "d47d060e87cbdd7296db36d3f9fddda19714f571005e04cdec0c14a68ba428aa",
+      "status": "reassigned",
+      "source_id": "DOP-180"
+    },
+    {
+      "id": "DOP-192",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/grafiet/model04/zwart-RAL9005/DOP-192-metselwerk-grafiet-model04-zwart-RAL9005.webp",
+      "sha256": "df654f4caa831bde626b309156e0981506bf6f25b60af8dcba1ef4c75f78df18",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-147",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/grijs/model01/antraciet-RAL7016/DOP-147-metselwerk-grijs-model01-antraciet-RAL7016.webp",
+      "sha256": "d98cd6bcc5ea208588ccf28b71fe5c7bb8e2dc07c41db1acf0d1e0fb5253f264",
+      "status": "reassigned",
+      "source_id": "DOP-150"
+    },
+    {
+      "id": "DOP-146",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/grijs/model01/creme-RAL9001/DOP-146-metselwerk-grijs-model01-creme-RAL9001.webp",
+      "sha256": "d7a6a490d203c1c3cf029ea016aaf2166c7937671708e2bc1293ef5e8243d548",
+      "status": "reassigned",
+      "source_id": "DOP-149"
+    },
+    {
+      "id": "DOP-145",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/grijs/model01/wit-RAL9016/DOP-145-metselwerk-grijs-model01-wit-RAL9016.webp",
+      "sha256": "49e1077f1d7ab3bf6628c6b7ccf0a529d0cb7141c3d49a7f7cceb6fddca88695",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-148",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/grijs/model01/zwart-RAL9005/DOP-148-metselwerk-grijs-model01-zwart-RAL9005.webp",
+      "sha256": "b3be4c43e0c5522f5b33d2fb489472e3d5847ec19af8bc9530cdec42e21f2a1c",
+      "status": "reassigned",
+      "source_id": "DOP-151"
+    },
+    {
+      "id": "DOP-151",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/grijs/model02/antraciet-RAL7016/DOP-151-metselwerk-grijs-model02-antraciet-RAL7016.webp",
+      "sha256": "7e58731419304bac2961b22682ba66ef59e7219518f355fe08e44abd66c2c8c4",
+      "status": "reassigned",
+      "source_id": "DOP-152"
+    },
+    {
+      "id": "DOP-150",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/grijs/model02/creme-RAL9001/DOP-150-metselwerk-grijs-model02-creme-RAL9001.webp",
+      "sha256": "0625b36121efdfedbd81b8499b2245985103ce937449f4482bf19160fbb52867",
+      "status": "reassigned",
+      "source_id": "DOP-154"
+    },
+    {
+      "id": "DOP-149",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/grijs/model02/wit-RAL9016/DOP-149-metselwerk-grijs-model02-wit-RAL9016.webp",
+      "sha256": "daa481023612f5a38124da393ef143fd2f0f219042c15e12a4d3d252871b6b31",
+      "status": "reassigned",
+      "source_id": "DOP-147"
+    },
+    {
+      "id": "DOP-152",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/grijs/model02/zwart-RAL9005/DOP-152-metselwerk-grijs-model02-zwart-RAL9005.webp",
+      "sha256": "8b890c93344089913c98ae710ff6d0dc38beeb079a869297aec9122cfb0f1b98",
+      "status": "reassigned",
+      "source_id": "DOP-153"
+    },
+    {
+      "id": "DOP-155",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/grijs/model03/antraciet-RAL7016/DOP-155-metselwerk-grijs-model03-antraciet-RAL7016.webp",
+      "sha256": "c7da71abd440500f4fb417039d8aa41b652dee89969ea408044991db3c478128",
+      "status": "reassigned",
+      "source_id": "DOP-156"
+    },
+    {
+      "id": "DOP-154",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/grijs/model03/creme-RAL9001/DOP-154-metselwerk-grijs-model03-creme-RAL9001.webp",
+      "sha256": "fe2b5fd4ae7e258dcd6539aea3c17cfa80b3acfd59804a64081bf479ceb2b4aa",
+      "status": "reassigned",
+      "source_id": "DOP-155"
+    },
+    {
+      "id": "DOP-153",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/grijs/model03/wit-RAL9016/DOP-153-metselwerk-grijs-model03-wit-RAL9016.webp",
+      "sha256": "ef408b3bd182146af09930f27f84428b58cb719064fcbcaffe7e694bec5f4dd1",
+      "status": "reassigned",
+      "source_id": "DOP-146"
+    },
+    {
+      "id": "DOP-156",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/grijs/model03/zwart-RAL9005/DOP-156-metselwerk-grijs-model03-zwart-RAL9005.webp",
+      "sha256": "3addc8cec50caa4f2cb58fb864049cb8ff3612cebb9f80a7f50deb4ac312138b",
+      "status": "reassigned",
+      "source_id": "DOP-158"
+    },
+    {
+      "id": "DOP-159",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/grijs/model04/antraciet-RAL7016/DOP-159-metselwerk-grijs-model04-antraciet-RAL7016.webp",
+      "sha256": "476a26b5e83187a16ceb149c5752273d3aaef8003257beb128e1013f36be910d",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-158",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/grijs/model04/creme-RAL9001/DOP-158-metselwerk-grijs-model04-creme-RAL9001.webp",
+      "sha256": "c23e1616eb2b90188ac10a24dcd8b5c0f7d4410f3f596f5e9c51f7ff6652e959",
+      "status": "reassigned",
+      "source_id": "DOP-157"
+    },
+    {
+      "id": "DOP-157",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/grijs/model04/wit-RAL9016/DOP-157-metselwerk-grijs-model04-wit-RAL9016.webp",
+      "sha256": "228bfc5d597fa27a9149d475b40c1f7ada2cf5dc1ef6d9f4ab07cdf378cc6557",
+      "status": "reassigned",
+      "source_id": "DOP-148"
+    },
+    {
+      "id": "DOP-160",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/grijs/model04/zwart-RAL9005/DOP-160-metselwerk-grijs-model04-zwart-RAL9005.webp",
+      "sha256": "ebab0fd0e3303ec6f10919cbf151c6665c2c09d4b29e7c8aff1c66ef0440efd8",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-099",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/rood/model01/antraciet-RAL7016/DOP-099-metselwerk-rood-model01-antraciet-RAL7016.webp",
+      "sha256": "b86447f21c772563543111402b7ea61829d5680e6c15c8c99ddb27fffad8dbdf",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-098",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/rood/model01/creme-RAL9001/DOP-098-metselwerk-rood-model01-creme-RAL9001.webp",
+      "sha256": "45b560f51773fc89bfcbcd1bed27f9a16e3aa53e53fea1537d16f41518d41825",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-097",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/rood/model01/wit-RAL9016/DOP-097-metselwerk-rood-model01-wit-RAL9016.webp",
+      "sha256": "0e34ea2a8ae9aba88c3332251982bb08adf1faf9807524537dced0432956f56f",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-100",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/rood/model01/zwart-RAL9005/DOP-100-metselwerk-rood-model01-zwart-RAL9005.webp",
+      "sha256": "1edf684c69e6ae74fe095e1fdf653be76312da056f624f7fbfbb263a484743f1",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-103",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/rood/model02/antraciet-RAL7016/DOP-103-metselwerk-rood-model02-antraciet-RAL7016.webp",
+      "sha256": "29afb92de11ae966dffa34204708ea975dc0e50e4641634d424c65c83326b772",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-102",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/rood/model02/creme-RAL9001/DOP-102-metselwerk-rood-model02-creme-RAL9001.webp",
+      "sha256": "3c5363ef062003e7ecc4063c7d180aa1f1ba5332346bb7e7e82f6bde0eaaaa32",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-101",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/rood/model02/wit-RAL9016/DOP-101-metselwerk-rood-model02-wit-RAL9016.webp",
+      "sha256": "1de2aee8554053bd963a1ef3f57b5e4eff1fe64ab3354f4961f7662438a5c24d",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-104",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/rood/model02/zwart-RAL9005/DOP-104-metselwerk-rood-model02-zwart-RAL9005.webp",
+      "sha256": "1f5eb2bbff6842f90a1d19d626904e036d103f8bef693117a1ef5355d5d15c97",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-107",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/rood/model03/antraciet-RAL7016/DOP-107-metselwerk-rood-model03-antraciet-RAL7016.webp",
+      "sha256": "173bbb006fad4cc9939344de69a7f78808c8703333bb151948eb3294dcf7cc4b",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-106",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/rood/model03/creme-RAL9001/DOP-106-metselwerk-rood-model03-creme-RAL9001.webp",
+      "sha256": "3e1f6223e08326a814125875a3a482d6e90ee15fc84992d2e3d21dd79e7050e3",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-105",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/rood/model03/wit-RAL9016/DOP-105-metselwerk-rood-model03-wit-RAL9016.webp",
+      "sha256": "7517e79e816c9d1505627ba62951a07f7fc37db521bf044d8e4c5b712899941a",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-108",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/rood/model03/zwart-RAL9005/DOP-108-metselwerk-rood-model03-zwart-RAL9005.webp",
+      "sha256": "2aede03feacb0a2402dad341f63bcbf146e7cff0753a3e3b82abf5157a683f1e",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-111",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/rood/model04/antraciet-RAL7016/DOP-111-metselwerk-rood-model04-antraciet-RAL7016.webp",
+      "sha256": "03d663ec443107f70e4a30c16fb95b9039e4e9fc929080cb2aca226dfcef012e",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-110",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/rood/model04/creme-RAL9001/DOP-110-metselwerk-rood-model04-creme-RAL9001.webp",
+      "sha256": "b9b04b149d0cd668e49346d5f3654556e7dfb3e00c0c2430b6ff96b36456daa5",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-109",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/rood/model04/wit-RAL9016/DOP-109-metselwerk-rood-model04-wit-RAL9016.webp",
+      "sha256": "7ecce39180d1aec033ad32e195ea44975c332322b3c230b03ac4083ce7065223",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-112",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/rood/model04/zwart-RAL9005/DOP-112-metselwerk-rood-model04-zwart-RAL9005.webp",
+      "sha256": "013a34336425ca57924118e34d81ac4978b3b426c1d0f29f53eb0a80f585c2cc",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-115",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/roodbruin/model01/antraciet-RAL7016/DOP-115-metselwerk-roodbruin-model01-antraciet-RAL7016.webp",
+      "sha256": "f71a4761ce692da009092a63570dcb7fec3c5429a4d34b9b5ee054aae80b37ea",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-114",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/roodbruin/model01/creme-RAL9001/DOP-114-metselwerk-roodbruin-model01-creme-RAL9001.webp",
+      "sha256": "74113f6cbce6921db76546336fb8ae416f3f25d400f7787d870887e2af0438a6",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-113",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/roodbruin/model01/wit-RAL9016/DOP-113-metselwerk-roodbruin-model01-wit-RAL9016.webp",
+      "sha256": "e7a1d731e8c3b9f5c9c4947c1c9bd6c8f88a37d0c62738a4d54abb8236907169",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-116",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/roodbruin/model01/zwart-RAL9005/DOP-116-metselwerk-roodbruin-model01-zwart-RAL9005.webp",
+      "sha256": "657aab22cfed7c33cd488b1dd4b86de529d7eef4493c68f24b0873961036333c",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-119",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/roodbruin/model02/antraciet-RAL7016/DOP-119-metselwerk-roodbruin-model02-antraciet-RAL7016.webp",
+      "sha256": "d3181afd3547e42b8d5ba0054a5263ac884ed090b6c7dfb3b3ca845ee1736999",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-118",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/roodbruin/model02/creme-RAL9001/DOP-118-metselwerk-roodbruin-model02-creme-RAL9001.webp",
+      "sha256": "7c3920e6715b425226d073d8dbaf315f097bb8933e575618046232acd7c2e7e6",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-117",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/roodbruin/model02/wit-RAL9016/DOP-117-metselwerk-roodbruin-model02-wit-RAL9016.webp",
+      "sha256": "bb0a15125ac74211a5eed733110bca2dbedac534bf8bc54cd2cf4909d8d9fa61",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-120",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/roodbruin/model02/zwart-RAL9005/DOP-120-metselwerk-roodbruin-model02-zwart-RAL9005.webp",
+      "sha256": "7c7646cfa3441cad8b81fc3f8715df0b80a5a1ed38254db73c661c3f4bfa3480",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-123",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/roodbruin/model03/antraciet-RAL7016/DOP-123-metselwerk-roodbruin-model03-antraciet-RAL7016.webp",
+      "sha256": "479d920056c1fcb89a357714153286aac64cc8997e12c9acab541ca8ee064c75",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-122",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/roodbruin/model03/creme-RAL9001/DOP-122-metselwerk-roodbruin-model03-creme-RAL9001.webp",
+      "sha256": "d61c010413b29a782ab34c6221ab26738aca5eca7ed9830b02858948fc1e0653",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-121",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/roodbruin/model03/wit-RAL9016/DOP-121-metselwerk-roodbruin-model03-wit-RAL9016.webp",
+      "sha256": "679498132c70462e82a80f8d964dc9d3c43d280d1cf5ff346f8ed88900294260",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-124",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/roodbruin/model03/zwart-RAL9005/DOP-124-metselwerk-roodbruin-model03-zwart-RAL9005.webp",
+      "sha256": "9af44073bcbbda2715a9cddc521d973de45a50dca8aba92688f8d32aa7ae5cf1",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-127",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/roodbruin/model04/antraciet-RAL7016/DOP-127-metselwerk-roodbruin-model04-antraciet-RAL7016.webp",
+      "sha256": "4a46a47b86a839b8712a572e2f88d9cc1ca52ba06a5a9f05d2be446985dab538",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-126",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/roodbruin/model04/creme-RAL9001/DOP-126-metselwerk-roodbruin-model04-creme-RAL9001.webp",
+      "sha256": "0d7efa4eca1512fcc939c9d6350ea749fa9d3d8ca7fa7fc3e43d24fc8126b08a",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-125",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/roodbruin/model04/wit-RAL9016/DOP-125-metselwerk-roodbruin-model04-wit-RAL9016.webp",
+      "sha256": "53a5abeeddf3f6636b633d1a51a15f2aeff6baff78b66f11eb240a39cdc11659",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-128",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/roodbruin/model04/zwart-RAL9005/DOP-128-metselwerk-roodbruin-model04-zwart-RAL9005.webp",
+      "sha256": "39848c23c76fb557db913a96272e79a1007549b1c115c638282e9927bd1f4331",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-131",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/zand/model01/antraciet-RAL7016/DOP-131-metselwerk-zand-model01-antraciet-RAL7016.webp",
+      "sha256": "ff8c9ad8c65a6234b0acc070c3b94a067ad794b4c274b3c7035c9ffeb7c5545b",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-130",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/zand/model01/creme-RAL9001/DOP-130-metselwerk-zand-model01-creme-RAL9001.webp",
+      "sha256": "34b8c40af941b35b329669072520cea32c8d5088f964fd9d5ce5b3f3fad5fc8e",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-129",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/zand/model01/wit-RAL9016/DOP-129-metselwerk-zand-model01-wit-RAL9016.webp",
+      "sha256": "d5b957d976f1c860d36590737b0d3750aa7b19548400a862b5eab4e239e5878f",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-132",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/zand/model01/zwart-RAL9005/DOP-132-metselwerk-zand-model01-zwart-RAL9005.webp",
+      "sha256": "3ab05bc6cb7eab1fdf38b0e8b3143f4c512d5f5b8bf39021063e00ec9ed78f4b",
+      "status": "reassigned",
+      "source_id": "DOP-134"
+    },
+    {
+      "id": "DOP-135",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/zand/model02/antraciet-RAL7016/DOP-135-metselwerk-zand-model02-antraciet-RAL7016.webp",
+      "sha256": "a35e9d18c45caeb7cde9a7327e3ef10bfe323512fa6ebabd109958b9a77bbdca",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-134",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/zand/model02/creme-RAL9001/DOP-134-metselwerk-zand-model02-creme-RAL9001.webp",
+      "sha256": "98737a435f42f733f2355bfe9691d89db87a17bbda6a8d8d522d4d61ebb33ef3",
+      "status": "reassigned",
+      "source_id": "DOP-136"
+    },
+    {
+      "id": "DOP-133",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/zand/model02/wit-RAL9016/DOP-133-metselwerk-zand-model02-wit-RAL9016.webp",
+      "sha256": "7531126acfaea69055012debf01c90313e06daaf1edc32a530ff27a76f3bf6f8",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-136",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/zand/model02/zwart-RAL9005/DOP-136-metselwerk-zand-model02-zwart-RAL9005.webp",
+      "sha256": "8f03e98185aaf1cad873aea13e3b9f96171cfbdd93c4f192e7e16f3b2749ab12",
+      "status": "reassigned",
+      "source_id": "DOP-138"
+    },
+    {
+      "id": "DOP-139",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/zand/model03/antraciet-RAL7016/DOP-139-metselwerk-zand-model03-antraciet-RAL7016.webp",
+      "sha256": "6ec3398a8cd50e10cccc3e3971ff5f625b04a1bad3f275e3ffc43159e70229af",
+      "status": "reassigned",
+      "source_id": "DOP-140"
+    },
+    {
+      "id": "DOP-138",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/zand/model03/creme-RAL9001/DOP-138-metselwerk-zand-model03-creme-RAL9001.webp",
+      "sha256": "65e4a2fbff920380a1b664098529fb500790e3ec2e1fde7a882c133b92e835f7",
+      "status": "reassigned",
+      "source_id": "DOP-139"
+    },
+    {
+      "id": "DOP-137",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/zand/model03/wit-RAL9016/DOP-137-metselwerk-zand-model03-wit-RAL9016.webp",
+      "sha256": "c727bc3c5ab2adf48005c6a1f3365588363e56d77797aa1c89e7ac736f5928a6",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-140",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/zand/model03/zwart-RAL9005/DOP-140-metselwerk-zand-model03-zwart-RAL9005.webp",
+      "sha256": "8063bb888e2152daed19c59074f46c57c3073571a44e4ee847e9fac2cbf993da",
+      "status": "reassigned",
+      "source_id": "DOP-141"
+    },
+    {
+      "id": "DOP-143",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/zand/model04/antraciet-RAL7016/DOP-143-metselwerk-zand-model04-antraciet-RAL7016.webp",
+      "sha256": "f89d44763722a4afb8ddd573154e0980ed76b189e54e26458fbfd496780bb11e",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-142",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/zand/model04/creme-RAL9001/DOP-142-metselwerk-zand-model04-creme-RAL9001.webp",
+      "sha256": "2755cb9a5e731db7183a20795970eb250917f352de373cacf9684424cd80d0b6",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-141",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/zand/model04/wit-RAL9016/DOP-141-metselwerk-zand-model04-wit-RAL9016.webp",
+      "sha256": "0dccf396619c51745fd53599110cba13786f20a664fe1c36c9b4d6a1cabc1ee7",
+      "status": "reassigned",
+      "source_id": "DOP-132"
+    },
+    {
+      "id": "DOP-144",
+      "path": "assets/media/dakopbouw/visuals/metselwerk/zand/model04/zwart-RAL9005/DOP-144-metselwerk-zand-model04-zwart-RAL9005.webp",
+      "sha256": "45986a238f86ac9c63f61ea3ff56a361573dfc98db1ef20a4cb0aca6ab7ebcb0",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-259",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/antraciet/model01/antraciet-RAL7016/DOP-259-stucwerk-antraciet-model01-antraciet-RAL7016.webp",
+      "sha256": "177fe5f6dbfe05cbb386556b8e7001f4dda204d032bcddb8a55ae148adc94938",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-258",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/antraciet/model01/creme-RAL9001/DOP-258-stucwerk-antraciet-model01-creme-RAL9001.webp",
+      "sha256": "9ba0a55244aa11e995c5bc4d25d92c85cc74ea3c3ce65e96ce1141ce6d0878be",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-257",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/antraciet/model01/wit-RAL9016/DOP-257-stucwerk-antraciet-model01-wit-RAL9016.webp",
+      "sha256": "6934e3ab5cdb338e6f9edd682e0099880e43964dc0845f93a4d927410f7bf26a",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-260",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/antraciet/model01/zwart-RAL9005/DOP-260-stucwerk-antraciet-model01-zwart-RAL9005.webp",
+      "sha256": "f993ea5f37f0e160aa12418329c1113292411570ac17b4fe385dc8260b53f747",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-263",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/antraciet/model02/antraciet-RAL7016/DOP-263-stucwerk-antraciet-model02-antraciet-RAL7016.webp",
+      "sha256": "94d95f1ad81338dcbeb328fe8e65316e7902fc63d336ba7da3bce2d534844962",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-262",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/antraciet/model02/creme-RAL9001/DOP-262-stucwerk-antraciet-model02-creme-RAL9001.webp",
+      "sha256": "dbbd0e743aa66438845ffb07de4c4ed01b6f491246ae043e3c46e9c058121e0c",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-261",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/antraciet/model02/wit-RAL9016/DOP-261-stucwerk-antraciet-model02-wit-RAL9016.webp",
+      "sha256": "1ea7e906972c0c7c5c56ba5623b84a75721899cbfd0a8442452444ff53018f7c",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-264",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/antraciet/model02/zwart-RAL9005/DOP-264-stucwerk-antraciet-model02-zwart-RAL9005.webp",
+      "sha256": "5dc3b8e1896b62ae1f288cce3242b0ea84f98726a61968777ba5366a0234a614",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-267",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/antraciet/model03/antraciet-RAL7016/DOP-267-stucwerk-antraciet-model03-antraciet-RAL7016.webp",
+      "sha256": "5556042acb1ae57f628bf6646adf03547aa1c0a3fa3a747960f1a498459555d2",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-266",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/antraciet/model03/creme-RAL9001/DOP-266-stucwerk-antraciet-model03-creme-RAL9001.webp",
+      "sha256": "cd71caccb47ad678140a9178bfdada3ed543b038728ae8d28fbe72e33436a07d",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-265",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/antraciet/model03/wit-RAL9016/DOP-265-stucwerk-antraciet-model03-wit-RAL9016.webp",
+      "sha256": "009b233e4e3e6cd54cf9dbd1b1b73f31a01595d9846ec70fbfafc0027668feb6",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-268",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/antraciet/model03/zwart-RAL9005/DOP-268-stucwerk-antraciet-model03-zwart-RAL9005.webp",
+      "sha256": "2b36c98a7fd3127bb187eb5493db2908f11ab7935dc84d1253a7f423f58c6b14",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-271",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/antraciet/model04/antraciet-RAL7016/DOP-271-stucwerk-antraciet-model04-antraciet-RAL7016.webp",
+      "sha256": "a92170dc4230f67dff6b8a03e7b322f45a49cc527ef5493971557a0876251aea",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-270",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/antraciet/model04/creme-RAL9001/DOP-270-stucwerk-antraciet-model04-creme-RAL9001.webp",
+      "sha256": "11dafc5498a138c6779ce226aeed8765d3667bfd090d85a858da1461c6ba6c56",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-269",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/antraciet/model04/wit-RAL9016/DOP-269-stucwerk-antraciet-model04-wit-RAL9016.webp",
+      "sha256": "6043c923d8f4883ef0cb15a159731416c3edf21af2b637afc1b8850063efea96",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-272",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/antraciet/model04/zwart-RAL9005/DOP-272-stucwerk-antraciet-model04-zwart-RAL9005.webp",
+      "sha256": "f150d595d8e2589a2912d69b1bc44baacc00d891cad468db22c3b7865727f6e7",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-211",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/creme/model01/antraciet-RAL7016/DOP-211-stucwerk-creme-model01-antraciet-RAL7016.webp",
+      "sha256": "914547a4fc966e8ca818e51dcb8abd1daee616cd3cb511a11e47fcf5256f02fc",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-210",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/creme/model01/creme-RAL9001/DOP-210-stucwerk-creme-model01-creme-RAL9001.webp",
+      "sha256": "7e41dc352a2978267e83d4daa5f84661c3ed2c8e46b51da583ceb28e8e291564",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-209",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/creme/model01/wit-RAL9016/DOP-209-stucwerk-creme-model01-wit-RAL9016.webp",
+      "sha256": "23c1c4618a28bf8a2314c35c5097a01cc4790f8d526a2155cc7b071932050f74",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-212",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/creme/model01/zwart-RAL9005/DOP-212-stucwerk-creme-model01-zwart-RAL9005.webp",
+      "sha256": "2927b8046d805b15e9980248468a3cb9107aedd0f5cba490bea99dd8e1dab361",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-215",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/creme/model02/antraciet-RAL7016/DOP-215-stucwerk-creme-model02-antraciet-RAL7016.webp",
+      "sha256": "10d6c126d469f5ea29b5f988679766553ed3a1ee53574e89310b2eb757bc57c6",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-214",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/creme/model02/creme-RAL9001/DOP-214-stucwerk-creme-model02-creme-RAL9001.webp",
+      "sha256": "131c17813308018eaed2ee0a75f26d5470c7cefdde5bee2eb292b96fb66eee11",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-213",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/creme/model02/wit-RAL9016/DOP-213-stucwerk-creme-model02-wit-RAL9016.webp",
+      "sha256": "ef3085b19929aba8212651ea8c7ed25c54035bc73530434fdcd59c5d96c10fe7",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-216",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/creme/model02/zwart-RAL9005/DOP-216-stucwerk-creme-model02-zwart-RAL9005.webp",
+      "sha256": "09170d162d5c3465c63efbcd95e239069dd5ba90c4cde2130e344321a4fb5516",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-219",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/creme/model03/antraciet-RAL7016/DOP-219-stucwerk-creme-model03-antraciet-RAL7016.webp",
+      "sha256": "4261bcadbc04ec9f8f1930cbcafa717d3b635ccf81a132c448405d11ea74d692",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-218",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/creme/model03/creme-RAL9001/DOP-218-stucwerk-creme-model03-creme-RAL9001.webp",
+      "sha256": "f01a01970fb4a0545782e3bf6e508d754e94ae3dad261d677f58f410b464c293",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-217",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/creme/model03/wit-RAL9016/DOP-217-stucwerk-creme-model03-wit-RAL9016.webp",
+      "sha256": "294c7a99bf0de87a13048014524dfdff0404c142ca1b451a2f1fc42adcb8ac14",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-220",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/creme/model03/zwart-RAL9005/DOP-220-stucwerk-creme-model03-zwart-RAL9005.webp",
+      "sha256": "6f81761eeec680751eedc8733d3e9b3c5ef779c272e7dd8118ca4f626260c948",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-223",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/creme/model04/antraciet-RAL7016/DOP-223-stucwerk-creme-model04-antraciet-RAL7016.webp",
+      "sha256": "576301947039425cc957c40449b67dd77da15ace46ae68a77b9611316477b5e1",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-222",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/creme/model04/creme-RAL9001/DOP-222-stucwerk-creme-model04-creme-RAL9001.webp",
+      "sha256": "fb7186d4c9c763847fc811882d9478598daa1d5e883696fe349410065b65490e",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-221",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/creme/model04/wit-RAL9016/DOP-221-stucwerk-creme-model04-wit-RAL9016.webp",
+      "sha256": "b4f333b8a4966e94a19929995a33c458f8db57431004ac97270597e2b7fa4158",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-224",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/creme/model04/zwart-RAL9005/DOP-224-stucwerk-creme-model04-zwart-RAL9005.webp",
+      "sha256": "2ee47e0b10a1c044f23deb75f756735338a9cc747db68d71e9ebb44b3a59718b",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-227",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/lichtgrijs/model01/antraciet-RAL7016/DOP-227-stucwerk-lichtgrijs-model01-antraciet-RAL7016.webp",
+      "sha256": "77b1ba586bcbc21cac2c7ffc3691b8caa53f1b84703754e8b26ad28af3af1c04",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-226",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/lichtgrijs/model01/creme-RAL9001/DOP-226-stucwerk-lichtgrijs-model01-creme-RAL9001.webp",
+      "sha256": "8a182ce7d8b4c29aec2a5baa2b32f8f3a08c7416a5ca63c274ef6ed54ce3ed87",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-225",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/lichtgrijs/model01/wit-RAL9016/DOP-225-stucwerk-lichtgrijs-model01-wit-RAL9016.webp",
+      "sha256": "5f78f69119aad794a28f6c2418ad1e2ecaf9a7302203c2132adb849ab9e17dbb",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-228",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/lichtgrijs/model01/zwart-RAL9005/DOP-228-stucwerk-lichtgrijs-model01-zwart-RAL9005.webp",
+      "sha256": "8409bb2f1d089d3466c982271f50d512568dfa6655d62e542f5f611438afd5e4",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-231",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/lichtgrijs/model02/antraciet-RAL7016/DOP-231-stucwerk-lichtgrijs-model02-antraciet-RAL7016.webp",
+      "sha256": "8070a521434c9ef8f79c0970979d8d431cf5741c3ce92a20dec1245d9e5f2834",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-230",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/lichtgrijs/model02/creme-RAL9001/DOP-230-stucwerk-lichtgrijs-model02-creme-RAL9001.webp",
+      "sha256": "9adf17a3e14b1aaecc1d26fe4a79a99fe7c2d65b453deab9493acefc8eb6a10d",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-229",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/lichtgrijs/model02/wit-RAL9016/DOP-229-stucwerk-lichtgrijs-model02-wit-RAL9016.webp",
+      "sha256": "6bd422fa3673a15e9de32a8bc1bb4fdc7e8643555919c2523e084a6bd5580d9f",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-232",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/lichtgrijs/model02/zwart-RAL9005/DOP-232-stucwerk-lichtgrijs-model02-zwart-RAL9005.webp",
+      "sha256": "822cd30d6f8715af8e30e55beffa466e95e991227cb5430c6b3259d4ab51ce5d",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-235",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/lichtgrijs/model03/antraciet-RAL7016/DOP-235-stucwerk-lichtgrijs-model03-antraciet-RAL7016.webp",
+      "sha256": "5cb75efd4f1d5636213448e78e476be92f23b29982d2a2f488de035fdabc26c7",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-234",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/lichtgrijs/model03/creme-RAL9001/DOP-234-stucwerk-lichtgrijs-model03-creme-RAL9001.webp",
+      "sha256": "be258f92fac7142e0582cecf782c25741ecde04c5a1393408faa03f58b03a5a9",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-233",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/lichtgrijs/model03/wit-RAL9016/DOP-233-stucwerk-lichtgrijs-model03-wit-RAL9016.webp",
+      "sha256": "1e114d4a201fb4295a9fac86bb07ad61a25be65cee2088c1ff03a315c044ee14",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-236",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/lichtgrijs/model03/zwart-RAL9005/DOP-236-stucwerk-lichtgrijs-model03-zwart-RAL9005.webp",
+      "sha256": "1992807f3fddbb75f384be80bf0138a2e159f5a3feacfb73f01a6248619fff52",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-239",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/lichtgrijs/model04/antraciet-RAL7016/DOP-239-stucwerk-lichtgrijs-model04-antraciet-RAL7016.webp",
+      "sha256": "269363e0eb6fbc6027217a78f8ae9297a34c580163328263aa37ac8cbc04fd6a",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-238",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/lichtgrijs/model04/creme-RAL9001/DOP-238-stucwerk-lichtgrijs-model04-creme-RAL9001.webp",
+      "sha256": "2a549be264a9a1868cdebd53e8d49040e197f1e2bd0cc2945a87c0e0711982ba",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-237",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/lichtgrijs/model04/wit-RAL9016/DOP-237-stucwerk-lichtgrijs-model04-wit-RAL9016.webp",
+      "sha256": "e58827925d43cfe9f2eca79a9e37f23ff33122dad3479cc98c683ddaf3313b41",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-240",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/lichtgrijs/model04/zwart-RAL9005/DOP-240-stucwerk-lichtgrijs-model04-zwart-RAL9005.webp",
+      "sha256": "9a6051f3ca928789ec36e8f7371beebf59d9cbd6286c30c47c554b04e19f7329",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-243",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/taupe/model01/antraciet-RAL7016/DOP-243-stucwerk-taupe-model01-antraciet-RAL7016.webp",
+      "sha256": "8ee1b650509ad7a01c7ae8f5757b6de223eb6ba1634f4ce4f5655b24535e3ae2",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-242",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/taupe/model01/creme-RAL9001/DOP-242-stucwerk-taupe-model01-creme-RAL9001.webp",
+      "sha256": "5c08f7e676aee3cffa0283e7082b55a81feb556a2fcc712a74227e8be564ce9a",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-241",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/taupe/model01/wit-RAL9016/DOP-241-stucwerk-taupe-model01-wit-RAL9016.webp",
+      "sha256": "7bb6b95eb2744e61fd508fa79c83234010f9bbba28a5e7a998d3f23798325e6c",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-244",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/taupe/model01/zwart-RAL9005/DOP-244-stucwerk-taupe-model01-zwart-RAL9005.webp",
+      "sha256": "d05346caf7f5f7100889773c937a50ff10ed594b88b937b20f4cfbce8a876122",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-247",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/taupe/model02/antraciet-RAL7016/DOP-247-stucwerk-taupe-model02-antraciet-RAL7016.webp",
+      "sha256": "85c50d476c206c6ef814755ac997246fe9d9af9c015868b1d705568e930673ee",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-246",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/taupe/model02/creme-RAL9001/DOP-246-stucwerk-taupe-model02-creme-RAL9001.webp",
+      "sha256": "3dcbe545b1f69a6a0d68d9f975803a50f2988fe78d73fdde1df316f10b6521ad",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-245",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/taupe/model02/wit-RAL9016/DOP-245-stucwerk-taupe-model02-wit-RAL9016.webp",
+      "sha256": "d1462c79fbd2ced1dd191dc2b424e39421b2e652c365361aa2132ccba4615738",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-248",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/taupe/model02/zwart-RAL9005/DOP-248-stucwerk-taupe-model02-zwart-RAL9005.webp",
+      "sha256": "451cf9d0c1d0c90416b84fdb17774626bab37014e185b3bcbaac449ff499abc4",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-251",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/taupe/model03/antraciet-RAL7016/DOP-251-stucwerk-taupe-model03-antraciet-RAL7016.webp",
+      "sha256": "00e604076afbd84d8bc3bca83844c27f56a3ee00a1aa46097c5e732000565229",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-250",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/taupe/model03/creme-RAL9001/DOP-250-stucwerk-taupe-model03-creme-RAL9001.webp",
+      "sha256": "4364db447bc0ea60d82829c59362f092cb5093cff184019b09a01325fa711ab1",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-249",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/taupe/model03/wit-RAL9016/DOP-249-stucwerk-taupe-model03-wit-RAL9016.webp",
+      "sha256": "6a4ce67abe552b9f64aff84d446b77a701f2a0937091625e10e8bfc6ebd155a2",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-252",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/taupe/model03/zwart-RAL9005/DOP-252-stucwerk-taupe-model03-zwart-RAL9005.webp",
+      "sha256": "168c870e83b01a5a1756065f59704c4f1cccd58216a7f488e2cd2d6580043fe0",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-255",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/taupe/model04/antraciet-RAL7016/DOP-255-stucwerk-taupe-model04-antraciet-RAL7016.webp",
+      "sha256": "a893978022528f6baf5e2db0c5ac1b66e1b13641b20847ad1b2a6933bb4714f7",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-254",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/taupe/model04/creme-RAL9001/DOP-254-stucwerk-taupe-model04-creme-RAL9001.webp",
+      "sha256": "e704ba8108ab5d1f7435388b06d95abfdeac148f812a08889031bed92f541afb",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-253",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/taupe/model04/wit-RAL9016/DOP-253-stucwerk-taupe-model04-wit-RAL9016.webp",
+      "sha256": "e3e33e833395ed6bcc5082c318539b77cd5afe0aafa5e4d02777fde0f0549024",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-256",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/taupe/model04/zwart-RAL9005/DOP-256-stucwerk-taupe-model04-zwart-RAL9005.webp",
+      "sha256": "5b91128cf4e04338cb81c740ebd80ca5ec34018ad1fd977b91802d6c5afeb0b6",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-195",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/wit/model01/antraciet-RAL7016/DOP-195-stucwerk-wit-model01-antraciet-RAL7016.webp",
+      "sha256": "1eb9d653ead33379cbdc89aa469550867591ea2eec1d939a8ebc43ed9dda1a2a",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-194",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/wit/model01/creme-RAL9001/DOP-194-stucwerk-wit-model01-creme-RAL9001.webp",
+      "sha256": "2276cb6b6c1efaaa6bc89b379102f5c267390125ff734549d1ad6e5f49516a09",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-193",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/wit/model01/wit-RAL9016/DOP-193-stucwerk-wit-model01-wit-RAL9016.webp",
+      "sha256": "675835ff51dc7f8b317bb1791549a1fc910eeebf9cc7f0a679a9c22a310ec673",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-196",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/wit/model01/zwart-RAL9005/DOP-196-stucwerk-wit-model01-zwart-RAL9005.webp",
+      "sha256": "045cda8b145b3fe455167cb6a38bddfe79fff9c528d4bc54ff003d09a2865d41",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-199",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/wit/model02/antraciet-RAL7016/DOP-199-stucwerk-wit-model02-antraciet-RAL7016.webp",
+      "sha256": "5cc26d051e1e3225e6e292ce89d8526c53f91c5703d9b4b0ac49a5e4e6d67fa9",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-198",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/wit/model02/creme-RAL9001/DOP-198-stucwerk-wit-model02-creme-RAL9001.webp",
+      "sha256": "f4115b2e1d30fc99d7d73c58847a3b335d121b7c9e85efa40db08f811bd1e236",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-197",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/wit/model02/wit-RAL9016/DOP-197-stucwerk-wit-model02-wit-RAL9016.webp",
+      "sha256": "5b6680d370a9bd5e9eda486d3b0dac2e0d4496638323c41f498000051f8409c3",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-200",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/wit/model02/zwart-RAL9005/DOP-200-stucwerk-wit-model02-zwart-RAL9005.webp",
+      "sha256": "745b926f8746893e33a9b0a0cccc5a3267d4ecfa5e0e302ca55daebcfce1e021",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-203",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/wit/model03/antraciet-RAL7016/DOP-203-stucwerk-wit-model03-antraciet-RAL7016.webp",
+      "sha256": "a5a58b7c0feb52d212c8ee3ac6eb2d3be3782e2a02782bcff1e1a3570a4c3c9e",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-202",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/wit/model03/creme-RAL9001/DOP-202-stucwerk-wit-model03-creme-RAL9001.webp",
+      "sha256": "77d1a2553ec9890b0787874bb30a3a71535a7652c7511f584a3196197fc05912",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-201",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/wit/model03/wit-RAL9016/DOP-201-stucwerk-wit-model03-wit-RAL9016.webp",
+      "sha256": "a743f07ea925ebe8e3607ffd0243cfbb6a0fb2ff0f1b5835b321b4842aabc48c",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-204",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/wit/model03/zwart-RAL9005/DOP-204-stucwerk-wit-model03-zwart-RAL9005.webp",
+      "sha256": "2449b28eccf9c1dda01504da353cd304e8a6c0147e47594d03d4769ff8be4ba7",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-207",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/wit/model04/antraciet-RAL7016/DOP-207-stucwerk-wit-model04-antraciet-RAL7016.webp",
+      "sha256": "ed86b95f0dfedf0de784ffd802e4a6a9a5e218acb0b3a755a5ada8774b1ed6ed",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-206",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/wit/model04/creme-RAL9001/DOP-206-stucwerk-wit-model04-creme-RAL9001.webp",
+      "sha256": "03a1e7df41e2f4d5fcaadd87b4d161a90d637c54d52e7379644986a95b164cf8",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-205",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/wit/model04/wit-RAL9016/DOP-205-stucwerk-wit-model04-wit-RAL9016.webp",
+      "sha256": "0064ed1e0deb1fa90319d350469d1600f8517da3d5da93a6587f2dafc4852c04",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-208",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/wit/model04/zwart-RAL9005/DOP-208-stucwerk-wit-model04-zwart-RAL9005.webp",
+      "sha256": "033c9b1955f26f9a160df0681e2af92bb59613189936b67a2364f1654dc64720",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-275",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/zwart/model01/antraciet-RAL7016/DOP-275-stucwerk-zwart-model01-antraciet-RAL7016.webp",
+      "sha256": "1b975d790c6a3d95305cc9e3b31dc4dc99920f14f20b762f30dac98ea855cd24",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-274",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/zwart/model01/creme-RAL9001/DOP-274-stucwerk-zwart-model01-creme-RAL9001.webp",
+      "sha256": "e7fdb4c4c0f89333dd7e1454537fc442b1adb65a6e5f53a6fb1736737e59e8a5",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-273",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/zwart/model01/wit-RAL9016/DOP-273-stucwerk-zwart-model01-wit-RAL9016.webp",
+      "sha256": "8e988219be7c2b033663f530be162f1faef2358f2702c570906c93e4a2762124",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-276",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/zwart/model01/zwart-RAL9005/DOP-276-stucwerk-zwart-model01-zwart-RAL9005.webp",
+      "sha256": "1a01192fb01c7b3c5a0ae638b9df667b6b35d2a6fe09faccfb0016a56d5d2a17",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-279",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/zwart/model02/antraciet-RAL7016/DOP-279-stucwerk-zwart-model02-antraciet-RAL7016.webp",
+      "sha256": "b6fac9427869c02252089fa0dfcbcee094b032c79d955e4b6830cf556ad6798b",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-278",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/zwart/model02/creme-RAL9001/DOP-278-stucwerk-zwart-model02-creme-RAL9001.webp",
+      "sha256": "8edb4220dbdffa863dc90af0de46c62477608ab35f68b67690f25c3714c3f805",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-277",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/zwart/model02/wit-RAL9016/DOP-277-stucwerk-zwart-model02-wit-RAL9016.webp",
+      "sha256": "355cb32b25001d9a64adfaf4a70fd7916e871a411eca4077c98a74c39a729f60",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-280",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/zwart/model02/zwart-RAL9005/DOP-280-stucwerk-zwart-model02-zwart-RAL9005.webp",
+      "sha256": "5c6db5dadce8b6bebab175e7f55d1c09b8d97ec6dfa43c07f31dc4c1c09a97a8",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-283",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/zwart/model03/antraciet-RAL7016/DOP-283-stucwerk-zwart-model03-antraciet-RAL7016.webp",
+      "sha256": "7c5d56bfc0a35bce9cee00af267ef7aa23a58b688f14563d22992e8175416db5",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-282",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/zwart/model03/creme-RAL9001/DOP-282-stucwerk-zwart-model03-creme-RAL9001.webp",
+      "sha256": "69571b17dde4770231981271b148a195747669467e327a7565e4d80c46141171",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-281",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/zwart/model03/wit-RAL9016/DOP-281-stucwerk-zwart-model03-wit-RAL9016.webp",
+      "sha256": "c17e756acdd55de49195a41cf667c504037c80680993feb1ff95817c681fc7ae",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-284",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/zwart/model03/zwart-RAL9005/DOP-284-stucwerk-zwart-model03-zwart-RAL9005.webp",
+      "sha256": "03d27574460486fa4f0188c54dda6cc2610e6c6c62e4890206e50ce97050e9c4",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-287",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/zwart/model04/antraciet-RAL7016/DOP-287-stucwerk-zwart-model04-antraciet-RAL7016.webp",
+      "sha256": "7892f6d9a47346dd73cbb8153b6833dffce4fb620a56093ebf02f664f364488e",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-286",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/zwart/model04/creme-RAL9001/DOP-286-stucwerk-zwart-model04-creme-RAL9001.webp",
+      "sha256": "deefffd99dc7ae23f8d889b8cf09ca9451cf293192780a343b4f5d72f160cac4",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-285",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/zwart/model04/wit-RAL9016/DOP-285-stucwerk-zwart-model04-wit-RAL9016.webp",
+      "sha256": "fbc2c815582fd428cee9ab2b289c8e2d99993ef760b5ff2046b4bd74e519c7da",
+      "status": "retained",
+      "source_id": null
+    },
+    {
+      "id": "DOP-288",
+      "path": "assets/media/dakopbouw/visuals/stucwerk/zwart/model04/zwart-RAL9005/DOP-288-stucwerk-zwart-model04-zwart-RAL9005.webp",
+      "sha256": "c72e46d755e616c68c1e09964dddc74163d6d548d74a8af84b79ba4e4c0387e5",
+      "status": "retained",
+      "source_id": null
+    }
+  ]
+}

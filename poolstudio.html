@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PoolStudio: a pool configurator for pool builders | NEXT GROWTH</title>
+  <link rel="canonical" href="https://nextgrowthdigital.nl/poolstudio">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:site_name" content="Next Growth">
+  <meta property="og:title" content="PoolStudio: a pool configurator for pool builders | NEXT GROWTH">
+  <meta property="og:description" content="A live demo of the online pool designer Next Growth builds for pool builders. Your customer picks shape, size, finish, entry steps and decking, sees a realistic image at every step and a live price in dollars. You receive a complete, specified request.">
+  <meta property="og:url" content="https://nextgrowthdigital.nl/poolstudio">
+  <meta property="og:image" content="https://nextgrowthdigital.nl/assets/media/dakopbouw/keralit-antraciet-keralit-met-zwarte-kozijnen.jpg">
+  <meta property="og:image:width" content="1400">
+  <meta property="og:image:height" content="1050">
+  <meta property="og:image:alt" content="Roof extension with anthracite Keralit cladding and black window frames">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="alternate" hreflang="en" href="https://nextgrowthdigital.nl/poolstudio">
+<meta name="description" content="A live demo of the online pool designer Next Growth builds for pool builders. Your customer picks shape, size, finish, entry steps and decking, sees a realistic image at every step and a live price in dollars. You receive a complete, specified request.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23101317'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='34' fill='%23C9A45F' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#141513;--ink2:#43443f;--mut:#706D65;--bg:#F5F0E7;--card:#fff;--line:#DED6C9;--dark:#101317;--gold:var(--accent);--gold-tekst:#86672D}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased}
+img,video{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.serif{font-family:'Cormorant Garamond',serif;font-weight:600;letter-spacing:.005em}
+
+header{background:var(--dark);color:#efece5;padding:64px 0 76px}
+.eyebrow{font-size:.76rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-tekst);font-weight:700}
+header h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,6vw,4.1rem);line-height:1.08;margin:16px 0 18px;font-weight:600}
+header h1 em{color:var(--gold-tekst);font-style:italic}
+header p{max-width:660px;color:#bcb9b1;font-size:1.06rem}
+
+.vid{margin:-46px auto 0;position:relative;z-index:2}
+.vidcard{background:#000;border-radius:16px;overflow:hidden;box-shadow:0 26px 70px rgba(20,18,12,.28)}
+.vidcap{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin:14px 2px 0;color:var(--mut);font-size:.88rem}
+
+section{padding:66px 0}
+h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.6vw,2.6rem);font-weight:600;margin-bottom:10px}
+.lead{color:var(--ink2);max-width:680px;margin-bottom:30px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px}
+.card h3{font-size:1.04rem;font-weight:800;margin-bottom:7px}
+.card p{color:var(--ink2);font-size:.95rem}
+.num{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold-tekst);line-height:1;margin-bottom:10px}
+
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:38px;align-items:center}
+@media(max-width:840px){.split{grid-template-columns:1fr}}
+
+.price{background:var(--dark);color:#efece5;border-radius:16px;padding:40px}
+.price .big{font-family:'Cormorant Garamond',serif;font-size:3rem;color:var(--gold-tekst);line-height:1}
+.price ul{list-style:none;margin:20px 0 0}
+.price li{padding:9px 0 9px 26px;position:relative;border-top:1px solid rgba(255,255,255,.09);color:#c6c3bb;font-size:.95rem}
+.price li:before{content:"";position:absolute;left:2px;top:17px;width:9px;height:9px;border-radius:50%;background:var(--gold)}
+
+.cta{display:inline-block;background:var(--gold);color:#1d1508;font-weight:800;padding:15px 30px;border-radius:999px;margin-top:8px}
+.cta.ghost{background:transparent;color:var(--gold-tekst);border:1.5px solid var(--gold)}
+.ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+
+footer{background:var(--dark);color:#8f8c85;padding:44px 0;font-size:.9rem}
+footer a{color:var(--gold-tekst)}
+
+    /* Deze links staan midden in lopende tekst en verschilden alleen in kleur,
+       met 1,43:1 tegen de tekst eromheen. WCAG vraagt 3:1 of een tweede
+       kenmerk; onderstrepen is dat kenmerk. */
+    p a[href^="mailto:"], p a[href^="http"], div a[href^="mailto:"], div a[href^="http"] { text-decoration: underline; text-underline-offset: .18em; }
+
+/* Het goud voor tekst is verdonkerd voor lichte achtergronden. In de donkere
+   secties en de footer keert het heldere goud terug: daar haalt var(--accent) 8,07:1
+   en zou de donkere variant juist op 3,59:1 uitkomen. */
+.dark, footer, header, nav, .price { --gold-tekst: var(--gold); }
+</style>
+    <!-- ============ ENTITEIT (scripts/entiteit.py) ============ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://nextgrowthdigital.nl/#organization",
+          "name": "Next Growth",
+          "url": "https://nextgrowthdigital.nl/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://nextgrowthdigital.nl/assets/media/next-growth-logo.svg"
+          },
+          "description": "Next Growth is een landelijk werkend creatief groeibureau voor branding, webdesign, marketing en verkoopsoftware: websites, productconfigurators, offerteflow en CRM voor bedrijven die maatwerk verkopen.",
+          "email": "info@nextgrowthdigital.nl",
+          "telephone": "+31683902192",
+          "vatID": "NL004420281B57",
+          "taxID": "96002913",
+          "identifier": [
+            {
+              "@type": "PropertyValue",
+              "name": "KvK-nummer",
+              "value": "96002913"
+            },
+            {
+              "@type": "PropertyValue",
+              "name": "btw-identificatienummer",
+              "value": "NL004420281B57"
+            }
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "Noord-Brabant",
+            "addressCountry": "NL"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "sales",
+            "telephone": "+31683902192",
+            "email": "info@nextgrowthdigital.nl",
+            "areaServed": "NL",
+            "availableLanguage": [
+              "nl",
+              "en",
+              "de"
+            ]
+          },
+          "areaServed": [
+            {
+              "@type": "Country",
+              "name": "Nederland"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Noord-Brabant"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Gelderland"
+            },
+            {
+              "@type": "City",
+              "name": "Nijmegen"
+            },
+            {
+              "@type": "City",
+              "name": "Den Bosch"
+            },
+            {
+              "@type": "City",
+              "name": "Eindhoven"
+            },
+            {
+              "@type": "City",
+              "name": "Arnhem"
+            },
+            {
+              "@type": "City",
+              "name": "Uden"
+            },
+            {
+              "@type": "City",
+              "name": "Veghel"
+            },
+            {
+              "@type": "City",
+              "name": "Wijchen"
+            },
+            {
+              "@type": "City",
+              "name": "Vught"
+            },
+            {
+              "@type": "City",
+              "name": "Cuijk"
+            },
+            {
+              "@type": "City",
+              "name": "Grave"
+            }
+          ],
+          "knowsAbout": [
+            "Productconfigurator laten maken",
+            "Offertesoftware voor bouwbedrijven",
+            "Website laten maken voor bouw- en installatiebedrijven",
+            "Zoekmachineoptimalisatie",
+            "CRM voor bouwbedrijven",
+            "Dakopbouw",
+            "Uitbouw en aanbouw",
+            "Badkamer verbouwen",
+            "Overkapping op maat",
+            "Zwembadconfigurator",
+            "Dakkapel",
+            "Omgevingsvergunning bij verbouwen"
+          ],
+          "alternateName": [
+            "Next Growth Digital"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://nextgrowthdigital.nl/#website",
+          "url": "https://nextgrowthdigital.nl/",
+          "name": "Next Growth",
+          "inLanguage": "nl-NL",
+          "publisher": {
+            "@id": "https://nextgrowthdigital.nl/#organization"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://nextgrowthdigital.nl/poolstudio",
+          "url": "https://nextgrowthdigital.nl/poolstudio",
+          "name": "PoolStudio: a pool configurator for pool builders | NEXT GROWTH",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://nextgrowthdigital.nl/#website"
+          },
+          "about": {
+            "@id": "https://nextgrowthdigital.nl/#organization"
+          },
+          "description": "A live demo of the online pool designer Next Growth builds for pool builders. Your customer picks shape, size, finish, entry steps and decking, sees a realistic image at every step and a live price in dollars. You receive a complete, specified request.",
+          "dateModified": "2026-08-27"
+        }
+      ]
+    }
+    </script>
+    <!-- ============ EINDE ENTITEIT ============ -->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,900;125,900&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/ngx-shell.css"><script>document.documentElement.classList.add("ngx-display")</script><style id="ngx-world">:root{--ink-900:#07111F;--ink-800:#0B1A2E;--ink-700:#0E2038;--ink-600:#112542;--ink-500:#172F52;--ink-400:#22406B;--tint:#0E2038;--bg:#0B1A2E;--bg-raise:#112542;--bg-raise-2:#172F52;--accent:#3D8BFF;--accent-strong:#2470E6;--accent-light:#A9CBFF;--accent-deep:#1748A0;--accent-dim:rgba(61,139,255,.13);--glow:rgba(61,139,255,.30);--accent-rgb:61,139,255;--acc:#3D8BFF;--acc-soft:rgba(61,139,255,.14);--acc-diep:#1748A0;--goud-metaal:linear-gradient(150deg,#1748A0 0%,#3D8BFF 26%,#A9CBFF 46%,#3D8BFF 66%,#1748A0 100%);--goud-lijn:linear-gradient(90deg,transparent,rgba(61,139,255,.55) 30%,rgba(61,139,255,.55) 70%,transparent);--serif:'Archivo','Arial Black',sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;}html,body{background:#0B1A2E}.ngx-nav{--x-sig:#3D8BFF;--x-ink:#FFFFFF;background:#0B1A2EF5}.ngx-nav .ngx-mark{background:#FFC400}</style></head>
+<body><header class="ngx-nav"><div class="ngx-wrap">
+<a class="ngx-brand" href="/"><span class="ngx-ring">NG</span><span>Next Growth<small>Creatief groeibureau · Landelijk</small></span></a>
+<a class="ngx-mark" href="/" aria-label="Next Growth, naar de homepage"><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14V4l10 10V4" stroke="#0A0800" stroke-width="2.8" stroke-linecap="square"/></svg></a>
+<nav class="ngx-links" aria-label="Hoofdmenu"><a href="/">Home</a><a href="/dienst-webdesign">Websites</a><a href="/dienst-branding">Branding</a><a href="/dienst-marketing">Marketing</a><a href="/dienst-configurators">Configurators</a><a href="/kennisbank">Kennisbank</a><a href="/prijzen">Prijzen</a></nav>
+<a class="ngx-cta" href="/#contact">Kennismaken</a>
+<button class="ngx-menu" type="button" aria-expanded="false" aria-controls="ngx-mnav">Menu</button>
+</div><nav id="ngx-mnav" class="ngx-mnav" aria-label="Mobiel menu" hidden><a href="/">Home</a><a href="/dienst-webdesign">Websites</a><a href="/dienst-branding">Branding</a><a href="/dienst-marketing">Marketing</a><a href="/dienst-configurators">Configurators</a><a href="/kennisbank">Kennisbank</a><a href="/prijzen">Prijzen</a><a href="/#contact" class="ngx-cta">Plan een kennismaking</a></nav></header>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">For pool builders</div>
+    <h1>From "how much is a pool?" <br>to <em>a complete request.</em></h1>
+    <p>PoolStudio is an online pool designer that Next Growth builds for pool builders. It runs on your own website, in your branding, with your catalog and your prices. Your customer designs the pool at the kitchen table. You get a lead that is already specified.</p>
+  </div>
+</header>
+<main id="hoofd">
+
+<div class="wrap vid">
+  <div class="vidcard">
+    <video controls preload="metadata" playsinline poster="./assets/media/zwembad-groot.jpg">
+      <source src="./assets/video/poolstudio-three-designers-en.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="vidcap"><span>50 seconds, recorded live in the three demos, nothing staged</span><span>Prices update on screen as options are clicked</span></div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2>What your customer does</h2>
+    <p class="lead">No forms, no waiting for a callback. Three steps, on any phone.</p>
+    <div class="grid">
+      <div class="card"><div class="num">1</div><h3>Uploads a photo of the backyard</h3><p>The pool is placed into their own yard, so they see it in the space they actually have. Not in a stock photo of somebody else's garden.</p></div>
+      <div class="card"><div class="num">2</div><h3>Picks shape, size and finish</h3><p>Shape, dimensions, liner color, entry steps, decking, cover, heating and pool house. A realistic image updates at every choice.</p></div>
+      <div class="card"><div class="num">3</div><h3>Sees a live price in dollars</h3><p>Sized in feet and inches, priced from your own numbers. They know the ballpark before they ever pick up the phone.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:#EFE8DC">
+  <div class="wrap">
+    <h2>What you get</h2>
+    <p class="lead">Every request lands in your inbox fully specified: model, dimensions, finish, entry steps, options and the calculated price. The "what does a pool cost?" call disappears, and the people who do reach out are already qualified.</p>
+    <div class="grid">
+      <div class="card"><h3>Your brand, not ours</h3><p>Your logo, colors and typography. Customers never see a third-party tool. It looks and feels like part of your site.</p></div>
+      <div class="card"><h3>Your catalog, your prices</h3><p>We load your models, options and pricing. You keep control: change a price, and the configurator changes with it.</p></div>
+      <div class="card"><h3>Live in two weeks</h3><p>We build it, you review it, it goes on your site. No integration project, no development team needed on your side.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap split">
+    <div>
+      <h2>Click through it yourself</h2>
+      <p class="lead">Three live demos, all in English, sized in feet and priced in dollars. Change a finish, a size or an option, and the image and the price move with you. Your version carries your branding, your models and your numbers.</p>
+      <div class="ctas">
+        <a class="cta" href="/pool-configurator-en">Pool designer</a>
+        <a class="cta ghost" href="/poolhouse-configurator-en">Timber pool house</a>
+        <a class="cta ghost" href="/poolstudio-studio-en">Modern pool studio</a>
+      </div>
+      <p style="margin-top:18px;font-size:.92rem;color:var(--mut)">Prefer the short pitch? <a href="./assets/video/poolstudio-sales-en.mp4" style="text-decoration:underline">40-second version</a> &middot; <a href="./assets/video/poolstudio-marketing-en.mp4" style="text-decoration:underline">30-second version</a>.</p>
+    </div>
+    <div class="vidcard" style="background:#000">
+      <video controls preload="none" playsinline poster="./assets/media/zwembad-groot-aerial.jpg">
+        <source src="./assets/video/poolstudio-marketing-en.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+
+<section style="background:#EFE8DC">
+  <div class="wrap">
+    <div class="price">
+      <div class="eyebrow">Pricing</div>
+      <div class="big" style="margin-top:12px">$4,950 <span style="font-size:1.1rem;color:#c6c3bb;font-family:Manrope">one-time</span></div>
+      <p style="color:#c6c3bb;margin-top:8px">then <strong style="color:#efece5">$349/month</strong></p>
+      <ul>
+        <li>Design and build of the full configurator in your branding</li>
+        <li>Your models, options and prices loaded and tested</li>
+        <li>Hosting, daily backups and storage of every request</li>
+        <li>Updates, changes and support included</li>
+        <li>Support answered within one business day (Central European Time); servers monitored around the clock</li>
+      </ul>
+      <div class="ctas">
+        <a class="cta" href="mailto:info@nextgrowthdigital.nl?subject=PoolStudio:%20I'd%20like%20to%20see%20it">Book a 15-minute walkthrough</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer>
+  <div class="wrap">
+    <strong style="color:#efece5">NEXT GROWTH</strong> · configurators for pool builders and outdoor living companies<br>
+    Sjoerd Westrik · the Netherlands · <a href="mailto:info@nextgrowthdigital.nl">info@nextgrowthdigital.nl</a> · <a href="https://nextgrowthdigital.nl">nextgrowthdigital.nl</a>
+  </div>
+</footer>
+
+  <!-- Vercel Analytics (scripts/analytics.py) -->
+  
+  
+<footer class="ngx-foot"><div class="ngx-wrap">
+<div class="ngx-end"><h2>Zo'n configurator <span>op jouw site?</span></h2><div><p>Eén gesprek van twintig minuten. Je spreekt direct met de mensen die het bouwen en krijgt dezelfde dag een eerlijk advies.</p><a class="ngx-cta big" href="/#contact">Plan een kennismaking</a><a class="ngx-tel" href="tel:+31683902192">06 83 90 21 92</a></div></div>
+<div class="ngx-cols">
+<div><a class="ngx-brand" href="/"><span class="ngx-mk"><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14V4l10 10V4" stroke="#0A0800" stroke-width="2.8" stroke-linecap="square"/></svg></span><span>Next Growth Digital</span></a><p>Creatief groeibureau, landelijk actief. Branding, webdesign, marketing en eigen software.</p><p>info@nextgrowthdigital.nl</p></div>
+<div><h4>Diensten</h4><ul><li><a href="/dienst-branding">Branding</a></li><li><a href="/dienst-webdesign">Webdesign</a></li><li><a href="/dienst-marketing">Marketing</a></li><li><a href="/dienst-configurators">Configurators</a></li><li><a href="/dienst-crm">CRM &amp; offertes</a></li><li><a href="/prijzen">Prijzen</a></li></ul></div>
+<div><h4>Configurators</h4><ul><li><a href="/overkapping-configurator">Overkapping</a></li><li><a href="/aanbouw-configurator">Uitbouw</a></li><li><a href="/dakkapel-configurator">Dakkapel</a></li><li><a href="/dakopbouw-configurator">Dakopbouw</a></li><li><a href="/badkamer-configurator">Badkamer</a></li><li><a href="/zwembad-configurator">Zwembad</a></li><li><a href="/jacht-configurator">Jacht</a></li></ul></div>
+<div><h4>Kennisbank</h4><ul><li><a href="/kennisbank">Alle artikelen</a></li><li><a href="/kennisbank-configurator-kosten">Wat kost een configurator?</a></li><li><a href="/configurator-laten-maken">Configurator laten maken</a></li><li><a href="/kennisbank-website-kosten">Wat kost een website?</a></li></ul></div>
+<div><h4>Bedrijf</h4><ul><li><a href="/#cases">Cases</a></li><li><a href="/werkgebied">Werkgebied</a></li><li><a href="/privacyverklaring">Privacyverklaring</a></li><li><a href="/auteursrecht">Auteursrecht</a></li><li><a href="/#contact">Contact</a></li></ul></div>
+</div>
+<div class="ngx-legal"><span>© 2026 Next Growth Digital</span><span>KVK 96002913</span><span>Landelijk actief · Nederland</span></div>
+<p class="ngx-giant" aria-hidden="true">NEXT GROWTH</p></div></footer>
+<script>(function(){var b=document.querySelector('.ngx-menu'),n=document.getElementById('ngx-mnav');if(!b||!n)return;b.addEventListener('click',function(){var o=n.hasAttribute('hidden');if(o)n.removeAttribute('hidden');else n.setAttribute('hidden','');b.setAttribute('aria-expanded',o?'true':'false');b.textContent=o?'Sluiten':'Menu'})})();</script></body>
+</html>

@@ -1,0 +1,110 @@
+/* Next Growth Dakstudio: focus on the roof, one decision group at a time. */
+[hidden]{display:none!important}
+html{scroll-padding-top:90px}
+body{user-select:text;-webkit-user-select:text}
+.cfg-hero{padding-top:100px;text-align:left}
+.cfg-hero .h1{font-size:clamp(2rem,4.8vw,4.2rem);max-width:none;margin:0;line-height:1.05}
+.cfg-hero .lede{margin:18px 0 0;max-width:64ch;font-size:1rem}
+.conf{margin-top:0}
+.conf__head{margin-bottom:1.5rem}
+.conf__title{font-size:1.25rem}
+.conf__badge{font-size:.875rem;max-width:none;line-height:1.4}
+.conf__sub{font-size:.875rem}
+.roof-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:0 0 28px;scroll-margin-top:90px}
+.roof-steps button{display:flex;align-items:center;justify-content:center;gap:10px;border:1px solid var(--line-strong);background:var(--bg-raise);border-radius:12px;color:var(--text-2);padding:14px 8px;font:inherit;font-size:.875rem;cursor:pointer;min-height:52px}
+.roof-steps b{font-size:.8rem;width:24px;height:24px;border:1px solid currentColor;border-radius:50%;display:grid;place-items:center;flex-shrink:0}
+.roof-steps button[aria-current=step]{background:var(--acc);border-color:var(--acc);color:#17130a;font-weight:700}
+.conf__options{background:var(--bg-raise);border:1px solid var(--line-strong);border-radius:20px;padding:24px}
+.conf__options h2{font-size:1.5rem;margin:0 0 22px;line-height:1.2}
+.conf__options h3{font-size:1rem;margin:24px 0 10px}
+.roof-routes{display:grid;gap:16px}
+.roof-routes button{display:grid;grid-template-columns:130px 1fr;gap:18px;align-items:center;padding:0;background:var(--bg-raise-2);color:var(--text);border:2px solid var(--line-strong);border-radius:14px;overflow:hidden;text-align:left;font:inherit;cursor:pointer}
+.roof-routes button[aria-pressed=true]{border-color:var(--acc)}
+.roof-routes img{width:130px;height:118px;object-fit:cover}
+.roof-routes span{padding:16px 14px 16px 0}
+.roof-routes b{font-size:1.05rem;display:block}
+.roof-routes small{font-size:.875rem;display:block;color:var(--text-2);margin-top:5px;line-height:1.4}
+.matswitch{margin:0;display:flex;justify-content:flex-start}
+.matswitch button{font-size:.875rem;min-height:44px;flex:1;padding:12px}
+.tiles,.tiles.sm{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.tile__c{text-align:left;align-items:stretch;padding:12px;gap:8px}
+.tile__c .lab{font-size:.9375rem;line-height:1.4}
+.tile__c .sub{font-size:.875rem;line-height:1.5;color:var(--text-2)}
+.tile__img{height:95px;background-size:cover}
+.tile input:disabled{cursor:default}
+.tile input:disabled+.tile__c{border-style:dashed}
+.grp__h{font-size:1rem;letter-spacing:0;line-height:1.4}
+.grp__h b{display:none}
+.grp__noot,.dim__m2,.rekenhulp .hint{font-size:.875rem;line-height:1.6}
+.grp{margin-bottom:24px}
+.dim__row{display:grid;grid-template-columns:1fr 95px;gap:12px}
+.dim__row label{grid-column:1/-1;font-size:.9375rem}
+.dim__row input[type=range]{width:100%;min-height:40px}
+.dim__row output{font-size:.875rem;align-self:center}
+.dim-exact{grid-column:1/-1;background:var(--bg);color:var(--text);border:1px solid var(--line-strong);border-radius:8px;padding:10px;font:inherit;width:100%;min-height:44px}
+.rekenhulp__rij{flex-wrap:wrap}
+.rekenhulp summary{font-size:.9375rem}
+.roof-next{display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid var(--line-strong);padding-top:22px;margin-top:24px}
+.roof-next span{font-size:.875rem;color:var(--text-2)}
+.roof-next button{min-height:44px;padding:10px 16px}
+.roof-next button:disabled{opacity:.4;cursor:default}
+.conf__hero{margin-bottom:10px;aspect-ratio:4/3;max-height:60vh}
+.conf__hero .live,.conf__hero .dim{font-size:.75rem;letter-spacing:0;font-family:var(--font);text-transform:none}
+.conf__hero .aanzicht button{font-size:.875rem;min-height:40px}
+.conf__hero .aanzicht{bottom:12px;left:12px}
+.conf__hero .dim{top:12px;bottom:auto}
+.roof-caption{font-size:.8125rem;color:var(--text-2);line-height:1.5;margin:10px 0 14px}
+.roof-gallery,.roof-costs,.roof-checks{border-top:1px solid var(--line-strong);padding:12px 0}
+.roof-gallery summary,.roof-costs summary,.roof-checks summary{cursor:pointer;font-size:.9375rem;font-weight:600;min-height:30px;padding:3px 0}
+.roof-gallery p,.roof-costs p,.roof-checks li{font-size:.875rem;line-height:1.6;color:var(--text-2)}
+.roof-checks ul{padding-left:20px}
+.roof-checks li+li{margin-top:8px}
+#keuzeBeelden{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px}
+#keuzeBeelden button{font:inherit;text-align:left;color:var(--text);background:var(--bg-raise);border:1px solid var(--line-strong);border-radius:10px;overflow:hidden;padding:0;cursor:pointer}
+#keuzeBeelden img{width:100%;aspect-ratio:4/3;object-fit:cover}
+#keuzeBeelden span{display:block;font-size:.8125rem;padding:8px;line-height:1.4}
+.conf__thumbs{margin:14px 0}
+.conf__thumbs button{min-height:44px}
+.pricebar{margin-top:14px;padding:18px;background:var(--bg-raise);gap:16px}
+.pricebar__p .k,.btw button{font-family:var(--font);font-size:.8125rem;letter-spacing:0;text-transform:none}
+.btw button{min-height:38px}
+.pricebar__p .v{font-size:2rem;display:block}
+.pricebar__cta .btn{font-size:.8125rem;min-height:42px;padding:10px 12px}
+.roof-selection{font-size:.875rem;font-weight:600;margin:16px 0}
+#prijsRegels>div{display:flex;justify-content:space-between;gap:20px;border-bottom:1px solid var(--line);padding:12px 0;font-size:.875rem}
+#prijsRegels b{white-space:nowrap}
+#prijsRegels small{display:block;font-size:.8125rem;color:var(--text-2);margin-top:4px}
+.roof-summary table{width:100%;font-size:.9375rem;border-collapse:collapse}
+.roof-summary th,.roof-summary td{padding:12px 0;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.roof-summary th{width:40%;font-weight:500;color:var(--text-2);padding-right:18px}
+.roof-notice{padding:18px;border:1px solid var(--acc);border-radius:12px;font-size:.9375rem;line-height:1.6;margin-bottom:20px}
+.fld label,.lead__note,.fld small{font-size:.875rem;line-height:1.5}
+.fld input,.fld textarea,.fld select{font-size:1rem}
+.fld select{padding:12px;border:1px solid var(--line-strong);border-radius:10px;background:var(--bg-raise);color:var(--text)}
+#fotoPreview{width:100%;max-width:320px;max-height:220px;object-fit:contain;border-radius:12px;margin-top:10px}
+.roof-honey{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+.roof-mobile{display:none}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+button:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid var(--acc);outline-offset:4px}
+@media(min-width:900px){.conf__layout{grid-template-columns:minmax(0,1.25fr) minmax(380px,1fr);gap:32px}.conf__visual{position:sticky;top:90px;max-height:calc(100vh - 110px);overflow-y:auto;scrollbar-width:thin;padding-right:8px}}
+@media(max-width:899px){.conf__visual{position:static;margin:0;padding:0;max-height:none}.conf__hero{max-height:none;aspect-ratio:4/3}.cfg-hero{padding-top:82px}.roof-steps{gap:4px;margin-bottom:20px}.roof-steps button{flex-direction:column;font-size:.75rem;padding:8px 3px;gap:7px}.conf__options{padding:20px}.pricebar__cta{width:100%}.pricebar__cta #naarOfferte{flex:1}.roof-mobile{position:fixed;display:flex;align-items:center;justify-content:space-between;gap:20px;bottom:0;left:0;right:0;padding:12px 20px calc(12px + env(safe-area-inset-bottom));background:var(--bg-raise);border-top:1px solid var(--line-strong);z-index:50}.roof-mobile small{display:block;font-size:.75rem;color:var(--text-2)}.roof-mobile strong{font-size:1.25rem}.roof-mobile button{min-height:44px;min-width:110px}.ng-mobielbalk{display:none!important}.nx-wa{bottom:98px!important}body{padding-bottom:100px}.roof-next{flex-wrap:wrap}.roof-next span{font-size:.8125rem}}
+@media(max-width:420px){.conf__options{padding:16px}.roof-routes button{grid-template-columns:100px 1fr;gap:12px}.roof-routes img{width:100px;height:126px}.roof-routes span{padding-right:8px}.roof-routes small{font-size:.8125rem}.roof-steps b{width:22px;height:22px}.roof-steps button{font-size:.7rem}.conf__badge{display:none}.tile__c{padding:10px}.tile__img{height:75px}.conf__hero .aanzicht button{font-size:.8rem;padding:7px 10px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{transition:none!important;animation:none!important}}
+
+.tile__img--product{background-size:contain;background-repeat:no-repeat;background-color:#fff;height:145px;border-radius:8px}
+.roof-product{display:grid;grid-template-columns:100px 1fr;gap:18px;padding:18px;border:1px solid var(--line-strong);border-radius:14px;margin:20px 0}
+.roof-product img{width:100%;background:white;border-radius:8px}.roof-product h3{margin:5px 0 10px}.roof-product p{font-size:.875rem;line-height:1.5}.roof-product a{color:var(--acc);font-size:.875rem}.roof-product small,.roof-product__note{color:var(--text-2)}
+@media(max-width:500px){.roof-product{grid-template-columns:1fr}.roof-product img{width:120px}.tile__img--product{height:120px}}
+
+.roof-example{padding:20px;border:1px solid var(--acc);border-radius:14px;margin:20px 0}.roof-example p{font-size:.9375rem;line-height:1.5}.roof-example small{display:block;color:var(--text-2);font-size:.8125rem;line-height:1.5;margin-top:12px}
+
+.roof-dossier{border:1px solid rgba(215,181,91,.28);border-radius:16px;padding:20px;margin:20px 0;background:rgba(215,181,91,.035)}
+.roof-dossier summary{font-weight:650;cursor:pointer;line-height:1.5}
+.roof-dossier p{font-size:.84rem;line-height:1.65;margin:14px 0;color:var(--muted,#aaa)}
+.roof-dossier .fld{display:grid;gap:7px;margin:12px 0}
+.roof-dossier input,.roof-dossier select,.roof-dossier textarea{width:100%;min-height:44px;border:1px solid #474747;border-radius:8px;padding:10px;background:#161619;color:#f5f5f5;font:inherit}
+.roof-dossier input:focus-visible,.roof-dossier select:focus-visible,.roof-dossier textarea:focus-visible{outline:2px solid #d7b55b;outline-offset:2px}
+.roof-dossier__checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px}
+.roof-dossier__checks label{font-size:.82rem;line-height:1.5;min-height:2.5em}
+.roof-dossier__actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+@media(max-width:580px){.roof-dossier__checks{grid-template-columns:1fr}.roof-dossier{padding:14px}}

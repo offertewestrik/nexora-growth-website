@@ -1,0 +1,837 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pool configurator demo: live price and preview | NEXT GROWTH</title>
+  <meta name="description" content="Live demo of the pool configurator Next Growth builds for pool builders. Your customer picks size, finish, entry steps, cover and equipment, with a realistic preview and a live price estimate.">
+  <link rel="canonical" href="https://nextgrowthdigital.nl/pool-configurator-en">
+  <link rel="alternate" hreflang="en" href="https://nextgrowthdigital.nl/pool-configurator-en">
+  <link rel="alternate" hreflang="nl" href="https://nextgrowthdigital.nl/zwembad-configurator">
+  <link rel="alternate" hreflang="x-default" href="https://nextgrowthdigital.nl/pool-configurator-en">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Next Growth">
+  <meta property="og:title" content="Pool configurator demo: live price and preview | NEXT GROWTH">
+  <meta property="og:description" content="Live demo of the pool configurator Next Growth builds for pool builders. Your customer picks size, finish, entry steps, cover and equipment, with a realistic preview and a live price estimate.">
+  <meta property="og:url" content="https://nextgrowthdigital.nl/zwembad-configurator">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Crect width='18' height='18' rx='4' fill='%23C9A45F'/%3E%3Cpath d='M5 13V5l8 8V5' stroke='%230A0A0B' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./assets/fonts.css">
+  <link rel="stylesheet" href="./assets/core.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Pool configurator for pool builders",
+    "name": "Pool configurator",
+    "url": "https://nextgrowthdigital.nl/zwembad-configurator",
+    "provider": { "@type": "ProfessionalService", "name": "Next Growth", "email": "info@nextgrowthdigital.nl", "telephone": "+31683902192", "url": "https://nextgrowthdigital.nl/" },
+    "areaServed": ["Nederland"],
+    "description": "Live demo of the pool configurator Next Growth builds for pool builders. Your customer picks size, finish, entry steps, cover and equipment, with a realistic preview and a live price estimate."
+  }
+  </script>
+  <style>
+    :root { --acc: var(--accent); --acc-soft: rgba(var(--accent-rgb),.14); }
+    .cfg-hero { padding: calc(60px + clamp(1.6rem, 5vh, 3rem)) 0 0; text-align: center; }
+    .cfg-hero .pill { margin-bottom: 1rem; }
+    .cfg-hero .h1 { max-width: 20ch; margin-inline: auto; }
+    .cfg-hero .lede { margin: 1rem auto 0; max-width: 58ch; }
+
+    /* material switch */
+    .matswitch { display: inline-flex; flex-wrap: wrap; justify-content: center; max-width: 100%; gap: .3rem; padding: .32rem; border: 1px solid var(--line-strong); border-radius: 13px; background: var(--bg-raise); margin: 1.6rem auto 0; }
+    .matswitch button, .matswitch a { display: inline-flex; align-items: center; gap: .5rem; border: none; background: transparent; color: var(--text-2); font: inherit; font-weight: 600; font-size: .9rem; padding: .65rem 1.3rem; border-radius: 10px; cursor: pointer; transition: background .14s ease, color .14s ease; text-decoration: none; }
+    .matswitch button svg { width: 17px; height: 17px; }
+    .matswitch button.is-on, .matswitch a.is-on { background: var(--acc); color: #17130a; }
+    .matswitch a:hover { color: var(--text-1); }
+    /* Vier tot zeven keuzes passen niet naast elkaar op een telefoon. Zonder
+       wrap liep de rij het scherm uit: de laatste optie was onbereikbaar en
+       de hele pagina schoof horizontaal mee. */
+    @media (max-width: 640px) {
+      .matswitch { gap: .25rem; }
+      .matswitch button, .matswitch a { padding: .55rem .8rem; font-size: .8rem; }
+    }
+
+    /* presets */
+    .presets { margin: 1.5rem auto 0; max-width: 900px; }
+    .presets__lbl { display: block; font-family: var(--mono); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: var(--text-3); margin-bottom: .7rem; }
+    .presets__row { display: flex; gap: .7rem; flex-wrap: wrap; justify-content: center; }
+    .preset { display: flex; align-items: center; gap: .6rem; border: 1px solid var(--line-strong); border-radius: 12px; background: var(--bg-raise); padding: .45rem .7rem .45rem .45rem; cursor: pointer; transition: border-color .12s ease, background .12s ease; text-align: left; }
+    .preset:hover { border-color: var(--acc); background: var(--bg-raise-2); }
+    .preset__th { width: 46px; height: 34px; border-radius: 7px; background-size: cover; background-position: center; flex: none; border: 1px solid rgba(255,255,255,.1); }
+    .preset__t b { display: block; font-size: .82rem; font-weight: 600; color: var(--text); line-height: 1.1; }
+    .preset__t span { font-size: .68rem; color: var(--text-3); }
+
+    /* configurator shell */
+    .conf { margin-top: clamp(1.8rem, 5vh, 3rem); }
+    .conf__layout { display: grid; grid-template-columns: 1fr; gap: 1.1rem; margin-top: 1.1rem; }
+    .conf__visual, .conf__options { min-width: 0; }
+    @media (min-width: 900px){
+      .conf__layout { grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); align-items: start; }
+      .conf__visual { position: sticky; top: 80px; }
+    @media (min-width:900px){ .conf__layout{ grid-template-columns:minmax(0,1.55fr) minmax(0,1fr); } }
+    @media (min-width:1200px){ .conf__layout{ grid-template-columns:minmax(0,1.7fr) minmax(0,1fr); } }
+
+    }
+    @media (max-width: 899px){
+      .conf__visual { position: sticky; top: 52px; z-index: 6; background: var(--bg); padding: 8px 0 10px; margin-top: -8px; }
+    }
+    .conf__head { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1.1rem; }
+    .conf__title { font-size: clamp(1.5rem, 4vw, 2.1rem); font-weight: 800; letter-spacing: -.02em; line-height: 1.05; }
+    .conf__title span { color: var(--acc); }
+    .conf__sub { font-size: .84rem; color: var(--text-2); margin-top: .3rem; }
+    .conf__badge { flex: none; display: inline-flex; align-items: center; gap: .5rem; border: 1px solid var(--line-strong); border-radius: 11px; padding: .55rem .8rem; font-size: .74rem; color: var(--text-2); background: var(--bg-raise); line-height: 1.2; max-width: 150px; }
+    .conf__badge svg { width: 20px; height: 20px; color: var(--acc); flex: none; }
+
+    .conf__hero { position: relative; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); margin-bottom: 1.2rem; aspect-ratio: 16/9; background: var(--bg-raise); }
+    .conf__hero .hbg { position: absolute; inset: 0; background-size: cover; background-position: center; filter: blur(30px) brightness(.42) saturate(.9); transform: scale(1.18); z-index: 0; transition: background-image .22s ease; }
+    .conf__hero .hbg::after { content:''; position:absolute; inset:0; background: radial-gradient(120% 90% at 50% 45%, transparent 55%, rgba(0,0,0,.5) 100%); }
+    .conf__hero img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: cover; display: block; transform-origin: center center; transition: opacity .22s ease, transform .38s cubic-bezier(.4,0,.2,1); will-change: transform; }
+    .conf__hero.is-scaled img { border-radius: 10px; box-shadow: 0 18px 50px rgba(0,0,0,.5); }
+    .conf__hero .live { position: absolute; top: .8rem; left: .8rem; z-index: 2; display: inline-flex; align-items: center; gap: .45rem; font-family: var(--mono); font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; color: #fff; background: rgba(0,0,0,.45); backdrop-filter: blur(6px); padding: .35rem .6rem; border-radius: 7px; }
+    .conf__hero .live .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--acc); box-shadow: 0 0 8px var(--acc); }
+    .conf__hero .dim { position: absolute; bottom: .8rem; right: .8rem; z-index: 2; font-family: var(--mono); font-size: .62rem; letter-spacing: .06em; color: #fff; background: rgba(0,0,0,.5); backdrop-filter: blur(6px); padding: .35rem .6rem; border-radius: 7px; display: inline-flex; align-items: center; gap: .4rem; }
+    .conf__hero .dim b { color: var(--acc); font-weight: 400; }
+    .tile__img { width: 100%; height: 54px; border-radius: 8px; background-size: cover; background-position: center; border: 1px solid rgba(255,255,255,.1); }
+
+    .grp { border: 1px solid var(--line); border-radius: 14px; background: var(--bg-raise); padding: 1.15rem 1.2rem 1.25rem; margin-bottom: .9rem; }
+    .grp__h { font-size: .78rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--text); margin-bottom: .85rem; }
+    .grp__h b { color: var(--acc); font-weight: 700; margin-right: .4rem; }
+    .grp__row { display: grid; gap: .8rem; }
+    @media (min-width: 720px){ .grp__row.cols3 { grid-template-columns: 1fr 1fr 1fr; } }
+
+    .tiles { display: grid; gap: .6rem; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+    .tiles.sm { grid-template-columns: repeat(auto-fit, minmax(84px, 1fr)); }
+    .tile { position: relative; cursor: pointer; }
+    .tile input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+    .tile__c { border: 1.5px solid var(--line); border-radius: 11px; background: var(--bg-raise-2); padding: .7rem .6rem; display: flex; flex-direction: column; align-items: center; gap: .5rem; text-align: center; height: 100%; transition: border-color .12s ease, background .12s ease; }
+    .tile__c .ico { width: 30px; height: 30px; color: var(--text-2); }
+    .tile__c .ico svg { width: 100%; height: 100%; }
+    .tile__c .lab { font-size: .76rem; font-weight: 600; color: var(--text); line-height: 1.25; }
+    .tile__c .sub { font-size: .68rem; color: var(--text-3); }
+    @media (max-width: 600px) { .tile__c .sub { font-size: .78rem; } }
+    .tile__sw { width: 100%; height: 40px; border-radius: 7px; border: 1px solid rgba(255,255,255,.12); }
+    .tile input:checked + .tile__c { border-color: var(--acc); background: color-mix(in srgb, var(--acc) 12%, var(--bg-raise-2)); }
+    .tile input:checked + .tile__c .ico { color: var(--acc); }
+    .tile input:focus-visible + .tile__c { outline: 2px solid var(--acc); outline-offset: 2px; }
+
+    /* price bar */
+    .pricebar { margin-top: 1rem; border: 1px solid var(--line-strong); border-radius: 14px; background: linear-gradient(var(--bg-raise-2), var(--bg-raise)); padding: 1.1rem 1.2rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .pricebar__p { flex: 1 1 auto; min-width: 140px; }
+    .pricebar__p .k { display: flex; align-items: center; gap: .5rem; font-family: var(--mono); font-size: .66rem; text-transform: uppercase; letter-spacing: .06em; color: var(--text-3); }
+    .pricebar__p .v { font-size: 1.8rem; font-weight: 800; color: var(--text); letter-spacing: -.02em; margin-top: .1rem; }
+    .btw { display: inline-flex; border: 1px solid var(--line-strong); border-radius: 7px; overflow: hidden; }
+    .btw button { border: none; background: transparent; color: var(--text-3); font: inherit; font-size: .62rem; font-family: var(--mono); padding: .28rem .5rem; cursor: pointer; }
+    .btw button.is-on { background: var(--acc-soft); color: var(--acc); }
+    .pricebar__cta { display: flex; gap: .5rem; align-items: stretch; flex-wrap: wrap; }
+    .btn--acc { background: var(--acc); color: #17130a; border: none; font-weight: 700; }
+    .btn--acc:hover { filter: brightness(1.06); box-shadow: 0 8px 24px color-mix(in srgb, var(--acc) 30%, transparent); }
+    .btn--icon { width: 46px; padding: 0; display: grid; place-items: center; }
+    .btn--icon svg { width: 18px; height: 18px; }
+
+    /* lead form */
+    .lead { display: grid; gap: .8rem; }
+    .lead__grid { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+    @media (max-width: 520px){ .lead__grid { grid-template-columns: 1fr; } }
+    .fld { display: grid; gap: .35rem; }
+    .fld label { font-size: .76rem; color: var(--text-2); font-weight: 500; }
+    .fld input, .fld textarea { width: 100%; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--bg-raise); color: var(--text); font: inherit; font-size: .88rem; padding: .7rem .85rem; }
+    .fld input:focus, .fld textarea:focus { outline: none; border-color: var(--acc); }
+    .lead__note { font-size: .74rem; color: var(--text-3); line-height: 1.5; }
+    .lead__msg { font-size: .84rem; padding: .8rem 1rem; border-radius: 10px; line-height: 1.5; }
+    .lead__msg.ok { background: var(--acc-soft); color: var(--acc); border: 1px solid color-mix(in srgb, var(--acc) 40%, transparent); }
+    .lead__msg.err { background: rgba(220,80,80,.1); color: #e88; border: 1px solid rgba(220,80,80,.35); }
+    .cfg__panel { padding: 1.6rem 1.6rem; display: grid; gap: 1.4rem; }
+  </style>
+  <style id="ng-protect-css">
+    /* Beeld- en kopieerbeveiliging */
+    img,picture,svg,.conf__hero,.conf__hero img,.tile__img,.preset__th,.hbg,.matswitch{
+      -webkit-user-drag:none;-khtml-user-drag:none;-moz-user-drag:none;-o-user-drag:none;user-select:none;
+      -webkit-touch-callout:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;
+    }
+    body{ -webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none; }
+    input,textarea,select,[contenteditable]{ -webkit-user-select:text!important;-moz-user-select:text!important;-ms-user-select:text!important;user-select:text!important; -webkit-touch-callout:default; }
+    .conf__hero,.conf__hero img,.tile__img,.preset__th,.hbg{ pointer-events:none; }
+    .tile,.preset,.matswitch a,.matswitch button{ pointer-events:auto; }
+  </style>
+  <script id="ng-protect-js">
+  (function(){
+    function inField(t){ return t && t.closest && t.closest('input,textarea,select,[contenteditable]'); }
+    document.addEventListener('contextmenu',function(e){ if(inField(e.target)) return; e.preventDefault(); },{capture:true});
+    document.addEventListener('dragstart',function(e){ e.preventDefault(); },{capture:true});
+    document.addEventListener('drop',function(e){ e.preventDefault(); },{capture:true});
+    document.addEventListener('copy',function(e){ if(!inField(e.target)) e.preventDefault(); },{capture:true});
+    document.addEventListener('cut',function(e){ if(!inField(e.target)) e.preventDefault(); },{capture:true});
+    // long-press op mobiel: blokkeer standaard-callout op beelden
+    document.addEventListener('touchstart',function(e){ var t=e.target; if(t&&t.closest&&t.closest('img,.conf__hero,.tile__img,.preset__th,.hbg')&&e.touches.length>1){ e.preventDefault(); } },{passive:false});
+  })();
+  </script>
+
+  <style id="zwembad-theme">
+    :root{
+  /* core.css bouwt zijn componenten op de inktschaal. Die is donker, dus een
+     licht thema moet hem meenemen - anders krijg je een donker invoerveld of
+     een donkere sectie midden op een lichte pagina. */
+  --ink-900:var(--bg-raise-2); --ink-800:var(--bg); --ink-700:var(--bg-raise-2);
+  --ink-600:var(--bg-raise); --ink-500:var(--bg-raise); --ink-400:var(--line-strong);
+  --tint:var(--bg-raise-2);
+
+      --bg:#EDF3F6; --bg-raise:#FFFFFF; --bg-raise-2:#E1EDF2;
+      --text:#0E2530; --text-2:rgba(14,37,48,.76); --text-3:rgba(14,37,48,.46);
+      --line:rgba(16,74,96,.14); --line-strong:rgba(16,74,96,.22);
+      --accent:#0E86B8; --accent-strong:#0A6A93; --accent-dim:rgba(14,134,184,.14); --glow:rgba(14,134,184,.32);
+      --acc:#0E86B8; --acc-soft:rgba(14,134,184,.14);
+    }
+    body{ background:var(--bg); color:var(--text-2); }
+    .nav{ background:rgba(255,255,255,.86)!important; }
+    .nav__links a:hover{ background:rgba(0,0,0,.05); }
+    .nav__logo{ color:var(--text); }
+    .grad-text{ background:linear-gradient(120deg,#39B7DF 8%,#0E86B8 55%,#0A6A93 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .btn--acc{ color:#fff; }
+    .btn:not(.btn--ghost):not(.btn--acc){ background:linear-gradient(180deg,#39B7DF,#0A6A93); color:#fff; }
+    .btn--ghost{ color:var(--text); }
+    .btn--ghost:hover{ background:rgba(0,0,0,.04); border-color:var(--line-strong); }
+    .matswitch button.is-on, .matswitch a.is-on{ color:#fff; }
+    .tile__img,.preset__th{ border-color:rgba(0,0,0,.10); }
+    .pill{ background:rgba(12,58,78,.03); box-shadow:0 1px 2px rgba(12,58,78,.05); }
+    /* fijnere afwerking op lichte achtergrond: zachte schaduw + schone beeld-achtergrond */
+    .conf__hero{ border-color:rgba(12,58,78,.10); box-shadow:0 1px 2px rgba(12,58,78,.05), 0 22px 48px -26px rgba(12,58,78,.45); background:var(--bg-raise-2); }
+    .conf__hero .hbg{ filter:blur(40px) brightness(1.08) saturate(1.05); opacity:.35; transform:scale(1.25); }
+    .conf__hero .hbg::after{ background:none; }
+    .grp, .pricebar, .conf__badge{ box-shadow:0 1px 2px rgba(12,58,78,.04), 0 14px 32px -24px rgba(12,58,78,.40); }
+    .preset{ box-shadow:0 1px 2px rgba(12,58,78,.05); }
+    .preset:hover{ box-shadow:0 6px 18px -8px rgba(12,58,78,.45); }
+    .tile__c{ box-shadow:0 1px 1px rgba(12,58,78,.03); }
+    .tile input:checked + .tile__c{ box-shadow:0 2px 8px -2px rgba(12,58,78,.30); }
+    .matswitch{ box-shadow:0 1px 2px rgba(12,58,78,.05); }
+    .btn--acc{ box-shadow:0 8px 22px -10px rgba(12,58,78,.55); }
+    .nav{ border-bottom:1px solid rgba(12,58,78,.10); }
+    ::selection{ background:var(--accent); color:#fff; }
+    .lead__msg.ok{ color:var(--accent-strong); }
+    /* groter live-voorbeeld: bredere beeldkolom + volledig 16:9-beeld */
+    .conf__hero{ aspect-ratio:16/9; }
+    @media (min-width:900px){ .conf__layout{ grid-template-columns:minmax(0,1.55fr) minmax(0,1fr); } }
+    @media (min-width:1200px){ .conf__layout{ grid-template-columns:minmax(0,1.7fr) minmax(0,1fr); } }
+  </style>
+    <!-- ============ ENTITEIT (scripts/entiteit.py) ============ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://nextgrowthdigital.nl/#organization",
+          "name": "Next Growth",
+          "url": "https://nextgrowthdigital.nl/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://nextgrowthdigital.nl/assets/media/next-growth-logo.svg"
+          },
+          "description": "Next Growth is een landelijk werkend creatief groeibureau voor branding, webdesign, marketing en verkoopsoftware: websites, productconfigurators, offerteflow en CRM voor bedrijven die maatwerk verkopen.",
+          "email": "info@nextgrowthdigital.nl",
+          "telephone": "+31683902192",
+          "vatID": "NL004420281B57",
+          "taxID": "96002913",
+          "identifier": [
+            {
+              "@type": "PropertyValue",
+              "name": "KvK-nummer",
+              "value": "96002913"
+            },
+            {
+              "@type": "PropertyValue",
+              "name": "btw-identificatienummer",
+              "value": "NL004420281B57"
+            }
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "Noord-Brabant",
+            "addressCountry": "NL"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "sales",
+            "telephone": "+31683902192",
+            "email": "info@nextgrowthdigital.nl",
+            "areaServed": "NL",
+            "availableLanguage": [
+              "nl",
+              "en",
+              "de"
+            ]
+          },
+          "areaServed": [
+            {
+              "@type": "Country",
+              "name": "Nederland"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Noord-Brabant"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Gelderland"
+            },
+            {
+              "@type": "City",
+              "name": "Nijmegen"
+            },
+            {
+              "@type": "City",
+              "name": "Den Bosch"
+            },
+            {
+              "@type": "City",
+              "name": "Eindhoven"
+            },
+            {
+              "@type": "City",
+              "name": "Arnhem"
+            },
+            {
+              "@type": "City",
+              "name": "Uden"
+            },
+            {
+              "@type": "City",
+              "name": "Veghel"
+            },
+            {
+              "@type": "City",
+              "name": "Wijchen"
+            },
+            {
+              "@type": "City",
+              "name": "Vught"
+            },
+            {
+              "@type": "City",
+              "name": "Cuijk"
+            },
+            {
+              "@type": "City",
+              "name": "Grave"
+            }
+          ],
+          "knowsAbout": [
+            "Productconfigurator laten maken",
+            "Offertesoftware voor bouwbedrijven",
+            "Website laten maken voor bouw- en installatiebedrijven",
+            "Zoekmachineoptimalisatie",
+            "CRM voor bouwbedrijven",
+            "Dakopbouw",
+            "Uitbouw en aanbouw",
+            "Badkamer verbouwen",
+            "Overkapping op maat",
+            "Zwembadconfigurator",
+            "Dakkapel",
+            "Omgevingsvergunning bij verbouwen"
+          ],
+          "alternateName": [
+            "Next Growth Digital"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://nextgrowthdigital.nl/#website",
+          "url": "https://nextgrowthdigital.nl/",
+          "name": "Next Growth",
+          "inLanguage": "nl-NL",
+          "publisher": {
+            "@id": "https://nextgrowthdigital.nl/#organization"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://nextgrowthdigital.nl/pool-configurator-en",
+          "url": "https://nextgrowthdigital.nl/pool-configurator-en",
+          "name": "Pool configurator demo: live price and preview | NEXT GROWTH",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://nextgrowthdigital.nl/#website"
+          },
+          "about": {
+            "@id": "https://nextgrowthdigital.nl/#organization"
+          },
+          "description": "Live demo of the pool configurator Next Growth builds for pool builders. Your customer picks size, finish, entry steps, cover and equipment, with a realistic preview and a live price estimate.",
+          "dateModified": "2026-08-28"
+        }
+      ]
+    }
+    </script>
+    <!-- ============ EINDE ENTITEIT ============ -->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,900;125,900&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/ngx-shell.css"><style id="ngx-world">:root{--accent:#0E6EFF;--accent-strong:#0B58CC;--accent-light:#7FB2FF;--accent-deep:#0B3A85;--accent-dim:rgba(14,110,255,.12);--glow:rgba(14,110,255,.25);--accent-rgb:14,110,255;--acc:#0E6EFF;--acc-soft:rgba(14,110,255,.14);--acc-diep:#0B3A85;--serif:'Archivo','Arial Black',sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;--goud-metaal:linear-gradient(150deg,#0B3A85 0%,#0E6EFF 30%,#7FB2FF 50%,#0E6EFF 70%,#0B3A85 100%);--goud-lijn:linear-gradient(90deg,transparent,rgba(14,110,255,.5) 30%,rgba(14,110,255,.5) 70%,transparent);}html{background:#F4F7FB}.ngx-nav{--x-sig:#0E6EFF;--x-ink:#FFFFFF}</style><script>document.documentElement.classList.add("ngx-display","ngx-light")</script></head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+    <header class="ngx-nav"><div class="ngx-wrap">
+<a class="ngx-brand" href="/"><span class="ngx-ring">NG</span><span>Next Growth<small>Creatief groeibureau · Landelijk</small></span></a>
+<a class="ngx-mark" href="/" aria-label="Next Growth, naar de homepage"><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14V4l10 10V4" stroke="#0A0800" stroke-width="2.8" stroke-linecap="square"/></svg></a>
+<nav class="ngx-links" aria-label="Hoofdmenu"><a href="/">Home</a><a href="/dienst-webdesign">Websites</a><a href="/dienst-branding">Branding</a><a href="/dienst-marketing">Marketing</a><a href="/dienst-configurators">Configurators</a><a href="/kennisbank">Kennisbank</a><a href="/prijzen">Prijzen</a></nav>
+<a class="ngx-cta" href="/#contact">Kennismaken</a>
+<button class="ngx-menu" type="button" aria-expanded="false" aria-controls="ngx-mnav">Menu</button>
+</div><nav id="ngx-mnav" class="ngx-mnav" aria-label="Mobiel menu" hidden><a href="/">Home</a><a href="/dienst-webdesign">Websites</a><a href="/dienst-branding">Branding</a><a href="/dienst-marketing">Marketing</a><a href="/dienst-configurators">Configurators</a><a href="/kennisbank">Kennisbank</a><a href="/prijzen">Prijzen</a><a href="/#contact" class="ngx-cta">Plan een kennismaking</a></nav></header>
+
+
+  <main id="main">
+        <section class="cfg-hero" aria-label="Configurator">
+      <div class="wrap">
+        <p class="pill" data-reveal><span class="dot dot--ok"></span>HDPE pool &middot; finish, entry steps &amp; cover &middot; installation included</p>
+        <h1 class="h1" data-reveal style="--i:1">Design your pool <span class="grad-text">and see the price as you go.</span></h1>
+        <p class="lede" data-reveal style="--i:2">This is a live demo of a pool configurator Next Growth builds for pool builders. Pick the size, finish, entry steps and cover. The image updates as you go, and the estimate, including installation, filtration and site work, recalculates instantly.</p>
+        <div class="matswitch" role="group" aria-label="Other designers" data-reveal style="--i:3"><a href="/pool-configurator-en" class="is-on" aria-current="page">Pool</a><a href="/poolhouse-configurator-en">Timber pool house</a><a href="/poolstudio-studio-en">Modern pool studio</a></div>
+        <div class="presets" data-reveal style="--i:4">
+          <span class="presets__lbl">Popular configurations</span>
+          <div class="presets__row" id="presetRow"></div>
+          
+        </div>
+      </div>
+    </section>
+
+    <section class="sectie" style="padding-top: clamp(1.5rem,4vh,2.5rem);" aria-label="Configurator">
+      <div class="wrap" style="max-width: 1600px; width: min(100%, 1600px);">
+        <div class="conf" data-reveal>
+          <div class="conf__head">
+            <div>
+              <div class="conf__title" id="confTitle"></div>
+              <div class="conf__sub" id="confSub"></div>
+            </div>
+            <div class="conf__badge" id="confBadge"></div>
+          </div>
+          <div class="conf__layout">
+            <div class="conf__visual">
+              <div class="conf__hero" id="confHeroWrap"><div class="hbg" id="confHeroBg"></div><img id="confHero" src="./assets/media/zwembad-groot.jpg" alt="Preview of your pool" width="1200" height="560"><span class="live"><span class="dot"></span>Live preview</span><span class="dim" id="confDim"><b>10′ × 10′</b></span></div>
+              <div class="pricebar">
+                                <div class="pricebar__p">
+                  <span class="k">Estimated total <span style="font-family:var(--mono);font-size:.62rem;color:var(--text-3)">excl. sales tax</span></span>
+                  <span class="v" id="prijs">$ 0</span>
+                </div>
+                <div class="pricebar__cta">
+                  <button class="btn btn--acc" type="button" id="naarOfferte">Request a quote</button>
+                  <button class="btn btn--ghost btn--icon" type="button" id="downloadBtn" aria-label="Download configuration" title="Download your configuration">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="conf__options">
+              <div id="groups"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LEAD FORM -->
+        <div class="card cfg__panel" id="offerte" data-reveal style="margin-top:1.4rem;">
+          <div>
+            <p class="eyebrow">Almost there</p>
+            <h2 class="h2" style="font-size:1.4rem; margin-top:.4rem;">Get your personal quote.</h2>
+            <p style="font-size:.86rem; margin-top:.5rem;">Your full configuration is attached automatically. We reply within one business day.</p>
+          </div>
+          <form class="lead" id="leadForm">
+            <div class="lead__grid">
+              <div class="fld"><label for="f_naam">Name</label><input id="f_naam" name="naam" required autocomplete="name"></div>
+              <div class="fld"><label for="f_plaats">City</label><input id="f_plaats" name="plaats" autocomplete="address-level2"></div>
+              <div class="fld"><label for="f_email">Email address</label><input id="f_email" name="email" type="email" required autocomplete="email"></div>
+              <div class="fld"><label for="f_tel">Phone</label><input id="f_tel" name="telefoon" type="tel" autocomplete="tel"></div>
+            </div>
+            <div class="fld"><label for="f_ber">Message (optional)</label><textarea id="f_ber" name="bericht" rows="3" placeholder="Site details, preferred timing, location…"></textarea></div>
+            <input type="hidden" id="f_config" name="configuratie">
+            <button class="btn btn--acc" type="submit" id="leadBtn" style="justify-self:start;">Send request</button>
+            <p class="lead__msg" id="leadMsg" role="status" hidden></p>
+            <p class="lead__note">Your request arrives with the full specification. Prefer to talk? <a href="mailto:info@nextgrowthdigital.nl" style="color:var(--acc)">info@nextgrowthdigital.nl</a>.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  
+<section class="sectie" aria-label="A real screen recording.">
+  <div class="wrap">
+    <div class="sectie-kop">
+      <p class="eyebrow">How it works</p>
+      <h2>A real screen recording.</h2>
+      <p style="color:var(--muted,#9c9a94);max-width:44rem;margin-top:.6rem">Every option repaints the image and moves the estimate. This is the configurator itself, not an animation.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%, 30rem),1fr));gap:clamp(1rem,2.5vw,1.6rem)">
+      <figure style="margin:0">
+        <div style="border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#0C0D10">
+          <video controls preload="none" playsinline poster="./assets/media/poster-pool-configurator-demo-en.jpg"
+                 style="width:100%;aspect-ratio:16/9;display:block;background:#0C0D10">
+            <source src="./assets/video/pool-configurator-demo-en.mp4" type="video/mp4">
+            Your browser cannot play this video. <a href="./assets/video/pool-configurator-demo-en.mp4">Download it here.</a>
+          </video>
+        </div>
+        <figcaption style="margin-top:.7rem">
+          <strong style="display:block">Every option, step by step (46 seconds)</strong>
+          <span style="color:var(--muted,#9c9a94);font-size:.92rem">English captions over the original Dutch build, so prices on screen are in euros.</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+  <!-- ============ CALLBACK REQUEST ============ -->
+  <div class="ng-terugbel" role="region" aria-labelledby="terugbel-kop">
+    <div class="wrap ng-terugbel__in">
+      <div class="ng-terugbel__tekst" data-reveal>
+        <p class="eyebrow">Callback request</p>
+        <h2 class="h2" id="terugbel-kop">Rather talk than type?</h2>
+        <p class="lede">Leave your number and we call you back the same working day. You talk to one of the people who build these configurators, not a call centre.</p>
+        <ul class="ng-terugbel__punten">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>We call back within one working day</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Ten minutes covers price and lead time</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>No obligation, nothing to sign</span></li>
+        </ul>
+        <p class="ng-terugbel__zelf">Prefer to call us? <a href="tel:+31683902192">+31 6 83 90 21 92</a></p>
+      </div>
+
+      <div class="card ng-terugbel__kaart" data-reveal style="--i:1">
+        <p class="ng-terugbel__kop"><span class="dot dot--ok" aria-hidden="true"></span>3 fields &middot; 20 seconds</p>
+        <form data-terugbel data-taal="en" data-bron="pool-configurator-en.html" action="mailto:info@nextgrowthdigital.nl" method="post" enctype="text/plain" aria-label="Callback request">
+            <div class="ng-veld">
+              <label for="tb-naam">Name</label>
+              <input type="text" id="tb-naam" name="naam" placeholder="First and last name" autocomplete="name" required>
+            </div>
+            <div class="ng-veld">
+              <label for="tb-bedrijf">Company</label>
+              <input type="text" id="tb-bedrijf" name="bedrijf" placeholder="Your company" autocomplete="organization" required>
+            </div>
+            <div class="ng-veld">
+              <label for="tb-tel">Phone number</label>
+              <input type="tel" id="tb-tel" name="telefoon" placeholder="+31 6 12 34 56 78" autocomplete="tel" inputmode="tel" required>
+            </div>
+            <div class="ng-terugbel__honeypot" aria-hidden="true">
+              <label for="tb-website">Website (leave empty)</label>
+              <input type="text" id="tb-website" name="website" tabindex="-1" autocomplete="off">
+            </div>
+            <button class="btn ng-terugbel__verstuur" type="submit">Call me back</button>
+            <p class="ng-terugbel__noot">Used only to call you back. No newsletter, no cold calling.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+    <footer class="ngx-foot"><div class="ngx-wrap">
+<div class="ngx-end"><h2>Zo'n configurator <span>op jouw site?</span></h2><div><p>Eén gesprek van twintig minuten. Je spreekt direct met de mensen die het bouwen en krijgt dezelfde dag een eerlijk advies.</p><a class="ngx-cta big" href="/#contact">Plan een kennismaking</a><a class="ngx-tel" href="tel:+31683902192">06 83 90 21 92</a></div></div>
+<div class="ngx-cols">
+<div><a class="ngx-brand" href="/"><span class="ngx-mk"><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14V4l10 10V4" stroke="#0A0800" stroke-width="2.8" stroke-linecap="square"/></svg></span><span>Next Growth Digital</span></a><p>Creatief groeibureau, landelijk actief. Branding, webdesign, marketing en eigen software.</p><p>info@nextgrowthdigital.nl</p></div>
+<div><h4>Diensten</h4><ul><li><a href="/dienst-branding">Branding</a></li><li><a href="/dienst-webdesign">Webdesign</a></li><li><a href="/dienst-marketing">Marketing</a></li><li><a href="/dienst-configurators">Configurators</a></li><li><a href="/dienst-crm">CRM &amp; offertes</a></li><li><a href="/prijzen">Prijzen</a></li></ul></div>
+<div><h4>Configurators</h4><ul><li><a href="/overkapping-configurator">Overkapping</a></li><li><a href="/aanbouw-configurator">Uitbouw</a></li><li><a href="/dakkapel-configurator">Dakkapel</a></li><li><a href="/dakopbouw-configurator">Dakopbouw</a></li><li><a href="/badkamer-configurator">Badkamer</a></li><li><a href="/zwembad-configurator">Zwembad</a></li><li><a href="/jacht-configurator">Jacht</a></li></ul></div>
+<div><h4>Kennisbank</h4><ul><li><a href="/kennisbank">Alle artikelen</a></li><li><a href="/kennisbank-configurator-kosten">Wat kost een configurator?</a></li><li><a href="/configurator-laten-maken">Configurator laten maken</a></li><li><a href="/kennisbank-website-kosten">Wat kost een website?</a></li></ul></div>
+<div><h4>Bedrijf</h4><ul><li><a href="/#cases">Cases</a></li><li><a href="/werkgebied">Werkgebied</a></li><li><a href="/privacyverklaring">Privacyverklaring</a></li><li><a href="/auteursrecht">Auteursrecht</a></li><li><a href="/#contact">Contact</a></li></ul></div>
+</div>
+<div class="ngx-legal"><span>© 2026 Next Growth Digital</span><span>KVK 96002913</span><span>Landelijk actief · Nederland</span></div>
+<p class="ngx-giant" aria-hidden="true">NEXT GROWTH</p></div></footer>
+<script>(function(){var b=document.querySelector('.ngx-menu'),n=document.getElementById('ngx-mnav');if(!b||!n)return;b.addEventListener('click',function(){var o=n.hasAttribute('hidden');if(o)n.removeAttribute('hidden');else n.setAttribute('hidden','');b.setAttribute('aria-expanded',o?'true':'false');b.textContent=o?'Sluiten':'Menu'})})();</script>
+
+
+    <script>
+  (function(){
+    if(window.__lbInit) return; window.__lbInit=1;
+    function init(){
+      var hero=document.querySelector('.conf__hero'); var img=document.getElementById('confHero');
+      if(!hero||!img){ setTimeout(init,300); return; }
+      hero.style.cursor='zoom-in';
+      var btn=document.createElement('button');
+      btn.type='button'; btn.setAttribute('aria-label','View image full screen');
+      btn.innerHTML='&#x26F6;';
+      btn.style.cssText='position:absolute;top:.8rem;right:.8rem;z-index:3;width:42px;height:42px;border-radius:10px;border:1px solid rgba(255,255,255,.28);background:rgba(0,0,0,.45);backdrop-filter:blur(6px);color:#fff;font-size:1.15rem;cursor:zoom-in;display:flex;align-items:center;justify-content:center;';
+      hero.appendChild(btn);
+      function openLB(){
+        var ov=document.createElement('div');
+        ov.style.cssText='position:fixed;inset:0;z-index:100000;background:rgba(6,6,5,.95);display:flex;align-items:center;justify-content:center;cursor:zoom-out;padding:2vh 2vw;';
+        var big=document.createElement('img');
+        big.src=img.getAttribute('src'); big.alt=img.getAttribute('alt')||'';
+        big.style.cssText='max-width:96vw;max-height:92vh;width:auto;height:auto;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.6);';
+        var x=document.createElement('button'); x.innerHTML='&times;'; x.setAttribute('aria-label','Close');
+        x.style.cssText='position:fixed;top:12px;right:20px;background:none;border:none;color:#fff;font-size:2.4rem;cursor:pointer;line-height:1;z-index:100001;';
+        ov.appendChild(big); ov.appendChild(x); document.body.appendChild(ov);
+        document.body.style.overflow='hidden';
+        function close(){ ov.remove(); document.body.style.overflow=''; document.removeEventListener('keydown',esc); }
+        function esc(e){ if(e.key==='Escape') close(); }
+        ov.addEventListener('click',close); document.addEventListener('keydown',esc);
+      }
+      img.addEventListener('click',openLB);
+      btn.addEventListener('click',function(e){ e.stopPropagation(); openLB(); });
+    }
+    if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+  })();
+  </script>
+  <script src="./assets/meting.js" defer></script>
+  <script src="./assets/terugbel.js" defer></script>
+  <script src="./assets/core.js" defer></script>
+  <script>
+
+  (function(){
+    "use strict";
+    var BTW = 0.21;
+    var HAVE = new Set(["zwembad-aerial", "zwembad-groot", "zwembad-groot-aerial", "zwembad-groot-aerial-antraciet", "zwembad-groot-aerial-antraciet-trapgeen", "zwembad-groot-aerial-antraciet-traphoek", "zwembad-groot-aerial-antraciet-trapromeins", "zwembad-groot-aerial-antraciet-trapzij", "zwembad-groot-aerial-lichtgrijs", "zwembad-groot-aerial-lichtgrijs-trapgeen", "zwembad-groot-aerial-lichtgrijs-traphoek", "zwembad-groot-aerial-lichtgrijs-trapromeins", "zwembad-groot-aerial-lichtgrijs-trapzij", "zwembad-groot-aerial-plateau", "zwembad-groot-aerial-rolluik", "zwembad-groot-aerial-trapgeen", "zwembad-groot-aerial-traphoek", "zwembad-groot-aerial-trapromeins", "zwembad-groot-aerial-trapzij", "zwembad-groot-aerial-zwart", "zwembad-groot-aerial-zwart-trapgeen", "zwembad-groot-aerial-zwart-traphoek", "zwembad-groot-aerial-zwart-trapromeins", "zwembad-groot-aerial-zwart-trapzij", "zwembad-groot-antraciet", "zwembad-groot-antraciet-trapgeen", "zwembad-groot-antraciet-traphoek", "zwembad-groot-antraciet-trapromeins", "zwembad-groot-antraciet-trapzij", "zwembad-groot-avond", "zwembad-groot-avond-trapgeen", "zwembad-groot-lichtgrijs", "zwembad-groot-lichtgrijs-trapgeen", "zwembad-groot-lichtgrijs-traphoek", "zwembad-groot-lichtgrijs-trapromeins", "zwembad-groot-lichtgrijs-trapzij", "zwembad-groot-plateau", "zwembad-groot-rolluik", "zwembad-groot-rolluik-blue", "zwembad-groot-rolluik-grey", "zwembad-groot-trapgeen", "zwembad-groot-traphoek", "zwembad-groot-trapromeins", "zwembad-groot-trapzij", "zwembad-groot-zwart", "zwembad-groot-zwart-trapgeen", "zwembad-groot-zwart-traphoek", "zwembad-groot-zwart-trapromeins", "zwembad-groot-zwart-trapzij", "zwembad-klein", "zwembad-klein-aerial", "zwembad-klein-aerial-antraciet", "zwembad-klein-aerial-antraciet-trapgeen", "zwembad-klein-aerial-antraciet-traphoek", "zwembad-klein-aerial-antraciet-trapromeins", "zwembad-klein-aerial-antraciet-trapzij", "zwembad-klein-aerial-lichtgrijs", "zwembad-klein-aerial-lichtgrijs-trapgeen", "zwembad-klein-aerial-lichtgrijs-traphoek", "zwembad-klein-aerial-lichtgrijs-trapromeins", "zwembad-klein-aerial-lichtgrijs-trapzij", "zwembad-klein-aerial-plateau", "zwembad-klein-aerial-rolluik", "zwembad-klein-aerial-trapgeen", "zwembad-klein-aerial-traphoek", "zwembad-klein-aerial-trapromeins", "zwembad-klein-aerial-trapzij", "zwembad-klein-aerial-zwart", "zwembad-klein-aerial-zwart-trapgeen", "zwembad-klein-aerial-zwart-traphoek", "zwembad-klein-aerial-zwart-trapromeins", "zwembad-klein-aerial-zwart-trapzij", "zwembad-klein-antraciet", "zwembad-klein-antraciet-trapgeen", "zwembad-klein-antraciet-traphoek", "zwembad-klein-antraciet-trapromeins", "zwembad-klein-antraciet-trapzij", "zwembad-klein-avond", "zwembad-klein-avond-trapgeen", "zwembad-klein-lichtgrijs", "zwembad-klein-lichtgrijs-trapgeen", "zwembad-klein-lichtgrijs-traphoek", "zwembad-klein-lichtgrijs-trapromeins", "zwembad-klein-lichtgrijs-trapzij", "zwembad-klein-plateau", "zwembad-klein-rolluik", "zwembad-klein-rolluik-blue", "zwembad-klein-rolluik-grey", "zwembad-klein-trapgeen", "zwembad-klein-traphoek", "zwembad-klein-trapromeins", "zwembad-klein-trapzij", "zwembad-klein-zwart", "zwembad-klein-zwart-trapgeen", "zwembad-klein-zwart-traphoek", "zwembad-klein-zwart-trapromeins", "zwembad-klein-zwart-trapzij", "zwembad-middel", "zwembad-middel-aerial", "zwembad-middel-aerial-antraciet", "zwembad-middel-aerial-antraciet-trapgeen", "zwembad-middel-aerial-antraciet-traphoek", "zwembad-middel-aerial-antraciet-trapromeins", "zwembad-middel-aerial-antraciet-trapzij", "zwembad-middel-aerial-lichtgrijs", "zwembad-middel-aerial-lichtgrijs-trapgeen", "zwembad-middel-aerial-lichtgrijs-traphoek", "zwembad-middel-aerial-lichtgrijs-trapromeins", "zwembad-middel-aerial-lichtgrijs-trapzij", "zwembad-middel-aerial-plateau", "zwembad-middel-aerial-rolluik", "zwembad-middel-aerial-trapgeen", "zwembad-middel-aerial-traphoek", "zwembad-middel-aerial-trapromeins", "zwembad-middel-aerial-trapzij", "zwembad-middel-aerial-zwart", "zwembad-middel-aerial-zwart-trapgeen", "zwembad-middel-aerial-zwart-traphoek", "zwembad-middel-aerial-zwart-trapromeins", "zwembad-middel-aerial-zwart-trapzij", "zwembad-middel-antraciet", "zwembad-middel-antraciet-trapgeen", "zwembad-middel-antraciet-traphoek", "zwembad-middel-antraciet-trapromeins", "zwembad-middel-antraciet-trapzij", "zwembad-middel-avond", "zwembad-middel-avond-trapgeen", "zwembad-middel-lichtgrijs", "zwembad-middel-lichtgrijs-trapgeen", "zwembad-middel-lichtgrijs-traphoek", "zwembad-middel-lichtgrijs-trapromeins", "zwembad-middel-lichtgrijs-trapzij", "zwembad-middel-plateau", "zwembad-middel-rolluik", "zwembad-middel-rolluik-blue", "zwembad-middel-rolluik-grey", "zwembad-middel-trapgeen", "zwembad-middel-traphoek", "zwembad-middel-trapromeins", "zwembad-middel-trapzij", "zwembad-middel-zwart", "zwembad-middel-zwart-trapgeen", "zwembad-middel-zwart-traphoek", "zwembad-middel-zwart-trapromeins", "zwembad-middel-zwart-trapzij", "zwembad-plunge", "zwembad-plunge-aerial", "zwembad-plunge-aerial-antraciet", "zwembad-plunge-aerial-antraciet-trapgeen", "zwembad-plunge-aerial-antraciet-traphoek", "zwembad-plunge-aerial-antraciet-trapromeins", "zwembad-plunge-aerial-antraciet-trapzij", "zwembad-plunge-aerial-lichtgrijs", "zwembad-plunge-aerial-lichtgrijs-trapgeen", "zwembad-plunge-aerial-lichtgrijs-traphoek", "zwembad-plunge-aerial-lichtgrijs-trapromeins", "zwembad-plunge-aerial-lichtgrijs-trapzij", "zwembad-plunge-aerial-plateau", "zwembad-plunge-aerial-rolluik", "zwembad-plunge-aerial-trapgeen", "zwembad-plunge-aerial-traphoek", "zwembad-plunge-aerial-trapromeins", "zwembad-plunge-aerial-trapzij", "zwembad-plunge-aerial-zwart", "zwembad-plunge-aerial-zwart-trapgeen", "zwembad-plunge-aerial-zwart-traphoek", "zwembad-plunge-aerial-zwart-trapromeins", "zwembad-plunge-aerial-zwart-trapzij", "zwembad-plunge-antraciet", "zwembad-plunge-antraciet-trapgeen", "zwembad-plunge-antraciet-traphoek", "zwembad-plunge-antraciet-trapromeins", "zwembad-plunge-antraciet-trapzij", "zwembad-plunge-avond", "zwembad-plunge-avond-trapgeen", "zwembad-plunge-lichtgrijs", "zwembad-plunge-lichtgrijs-trapgeen", "zwembad-plunge-lichtgrijs-traphoek", "zwembad-plunge-lichtgrijs-trapromeins", "zwembad-plunge-lichtgrijs-trapzij", "zwembad-plunge-plateau", "zwembad-plunge-rolluik", "zwembad-plunge-rolluik-blue", "zwembad-plunge-rolluik-grey", "zwembad-plunge-trapgeen", "zwembad-plunge-traphoek", "zwembad-plunge-trapromeins", "zwembad-plunge-trapzij", "zwembad-plunge-zwart", "zwembad-plunge-zwart-trapgeen", "zwembad-plunge-zwart-traphoek", "zwembad-plunge-zwart-trapromeins", "zwembad-plunge-zwart-trapzij", "zwembad-xl", "zwembad-xl-aerial", "zwembad-xl-aerial-antraciet", "zwembad-xl-aerial-antraciet-trapgeen", "zwembad-xl-aerial-antraciet-traphoek", "zwembad-xl-aerial-antraciet-trapromeins", "zwembad-xl-aerial-antraciet-trapzij", "zwembad-xl-aerial-lichtgrijs", "zwembad-xl-aerial-lichtgrijs-trapgeen", "zwembad-xl-aerial-lichtgrijs-traphoek", "zwembad-xl-aerial-lichtgrijs-trapromeins", "zwembad-xl-aerial-lichtgrijs-trapzij", "zwembad-xl-aerial-plateau", "zwembad-xl-aerial-rolluik", "zwembad-xl-aerial-trapgeen", "zwembad-xl-aerial-traphoek", "zwembad-xl-aerial-trapromeins", "zwembad-xl-aerial-trapzij", "zwembad-xl-aerial-zwart", "zwembad-xl-aerial-zwart-trapgeen", "zwembad-xl-aerial-zwart-traphoek", "zwembad-xl-aerial-zwart-trapromeins", "zwembad-xl-aerial-zwart-trapzij", "zwembad-xl-antraciet", "zwembad-xl-antraciet-trapgeen", "zwembad-xl-antraciet-traphoek", "zwembad-xl-antraciet-trapromeins", "zwembad-xl-antraciet-trapzij", "zwembad-xl-avond", "zwembad-xl-avond-trapgeen", "zwembad-xl-lichtgrijs", "zwembad-xl-lichtgrijs-trapgeen", "zwembad-xl-lichtgrijs-traphoek", "zwembad-xl-lichtgrijs-trapromeins", "zwembad-xl-lichtgrijs-trapzij", "zwembad-xl-plateau", "zwembad-xl-rolluik", "zwembad-xl-rolluik-blue", "zwembad-xl-rolluik-grey", "zwembad-xl-trapgeen", "zwembad-xl-traphoek", "zwembad-xl-trapromeins", "zwembad-xl-trapzij", "zwembad-xl-zwart", "zwembad-xl-zwart-trapgeen", "zwembad-xl-zwart-traphoek", "zwembad-xl-zwart-trapromeins", "zwembad-xl-zwart-trapzij"]);
+    var WEB3FORMS_KEY = "695172ae-1f2d-40b7-bb31-b8a4a882ad62";
+    function S(p){ return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">'+p+'</svg>'; }
+    var IC = {
+      ruler:S('<path d="M3 8h18v8H3z"/><path d="M7 8v3M11 8v4M15 8v3M19 8v4"/>'),
+      plank:S('<rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 9h18M3 14h18"/>'),
+      visgraat:S('<path d="M4 20l6-8M10 12l-6-4M20 20l-6-8M14 12l6-4M12 21V9"/>'),
+      tegel:S('<rect x="3" y="3" width="18" height="18" rx="1"/><path d="M12 3v18M3 12h18"/>'),
+      klik:S('<path d="M3 12h7l2-3 2 6 2-3h5"/>'),
+      lijm:S('<path d="M4 16c3-6 13-6 16 0"/><path d="M4 16v3h16v-3"/>'),
+      spc:S('<rect x="3" y="7" width="18" height="10" rx="1"/><path d="M3 12h18"/>'),
+      sofa:S('<path d="M4 11V8a2 2 0 012-2h12a2 2 0 012 2v3"/><path d="M2 12a2 2 0 012 2v3h16v-3a2 2 0 012-2"/><path d="M6 17v2M18 17v2"/>'),
+      keuken:S('<rect x="3" y="3" width="18" height="7" rx="1"/><rect x="3" y="12" width="18" height="9" rx="1"/><path d="M8 3v7M7 15h4"/>'),
+      bed:S('<path d="M3 18v-6a2 2 0 012-2h14a2 2 0 012 2v6"/><path d="M3 14h18M7 10V8h4v2"/>'),
+      geen:S('<circle cx="12" cy="12" r="8"/><path d="M6 6l12 12"/>'),
+      sound:S('<path d="M11 5L6 9H3v6h3l5 4z"/><path d="M15 9a4 4 0 010 6"/>'),
+      plint:S('<path d="M3 17h18v3H3z"/><path d="M5 17V7h14v10"/>'),
+      level:S('<rect x="3" y="9" width="18" height="6" rx="1"/><circle cx="12" cy="12" r="1.3"/>'),
+      profiel:S('<path d="M3 15h6l3-6 3 6h6"/>'),
+      tuin:S('<path d="M3 20h18"/><path d="M6 20c0-5 2-8 2-8M10 20c0-6 1-9 1-9M15 20c0-5 1-8 1-8M19 20c0-6-1-9-1-9"/>'),
+      balkon:S('<path d="M4 10h16v10H4z"/><path d="M4 14h16M8 10v10M12 10v10M16 10v10M4 6h16"/>'),
+      speel:S('<path d="M4 20l4-9 4 9M8 11V6"/><circle cx="8" cy="4" r="1.5"/><path d="M14 20v-6h6v6"/>'),
+      hond:S('<path d="M10 5l2 2 2-2v4l2 2v7H6v-7l2-2z"/><circle cx="10" cy="12" r=".6"/><circle cx="14" cy="12" r=".6"/>'),
+      sport:S('<circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 000 18M3 12h18"/>'),
+      led:S('<path d="M9 18h6M10 21h4M12 3a6 6 0 00-4 10c1 1 1 2 1 3h6c0-1 0-2 1-3a6 6 0 00-4-10z"/>'),
+      onderhoud:S('<path d="M14 7l3 3-7 7-3 1 1-3z"/><path d="M5 20h14"/>'),
+      water:S('<path d="M12 3s6 6 6 10a6 6 0 01-12 0c0-4 6-10 6-10z"/>'),
+      oog:S('<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/>'),
+      boven:S('<rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/>'),
+      zon:S('<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/>'),
+      trap:S('<path d="M3 20h4v-4h4v-4h4v-4h4V4"/>')
+    };
+    var CFG = {
+  kop:'Pool', file:'zwembad', accent:'#1E9BD7', soft:'rgba(30,155,215,.16)',
+  titel:'<span>Custom pool</span>, built to size', sub:'Choose finish, size and options. The estimate, including installation, updates live.',
+  badge:{ic:IC.water,t:'HDPE pool · installation included'}, hero:'./assets/media/zwembad-antraciet.jpg',
+  basisM2:1100, oppGroup:'maat',
+  groepen:[
+    {id:'kleur',t:'Finish',style:'swatch',hero:1,kz:[
+      {v:'wit',l:'White · RAL 9010',sub:'bright turquoise',sw:'#EFEEE8',def:1},
+      {v:'lichtgrijs',l:'Light grey · RAL 7035',sw:'#CBCEC9'},
+      {v:'antraciet',l:'Anthracite · RAL 7015',sw:'#333A40'},
+      {v:'zwart',l:'Black · RAL 9005',sw:'#141518'}
+    ]},
+    {id:'maat',t:'Size',style:'text',isOpp:1,kz:[
+      {v:'plunge',l:'Plunge pool',sub:'10′ × 10′',m2:9},{v:'klein',l:'Small',sub:'10′ × 20′',m2:18},{v:'midden',l:'Medium',sub:'12′ × 23′',m2:24.5,def:1},{v:'groot',l:'Large',sub:'13′ × 33′',m2:40},{v:'xl',l:'XL',sub:'13′ × 40′',m2:48},{v:'mw',l:'Custom size',ic:IC.ruler,m2:30}
+    ]},
+    {id:'aanzicht',t:'View',style:'icon',kz:[
+      {v:'ooghoogte',l:'Eye level',ic:IC.oog,def:1},{v:'boven',l:'Top view',ic:IC.boven}
+    ]},
+    {row:1,groepen:[
+      {id:'trap',t:'Entry steps',style:'icon',kz:[
+        {v:'geen',l:'None',ic:IC.geen,def:1},{v:'zij',l:'Side steps 28″',ic:IC.trap,p:1450},{v:'hoek',l:'Corner steps',ic:IC.tegel,p:1850},{v:'romeins',l:'Roman steps',ic:IC.trap,p:2650}
+      ]},
+      {id:'afdekking',t:'Cover',style:'icon',kz:[
+        {v:'geen',l:'None',ic:IC.geen,def:1},{v:'plateau',l:'Tanning ledge',ic:IC.sofa,p:1650},{v:'rolluik',l:'Automatic cover (manual)',ic:IC.plank,p:3900},{v:'rolluikmotor',l:'Automatic cover + motor',ic:IC.led,p:5900}
+      ]}
+    ]},
+    {id:'lamellen',t:'Slat color',style:'icon',when:function(s){return s.afdekking==='rolluik'||s.afdekking==='rolluikmotor';},kz:[
+      {v:'silver',l:'Solar Silver',sw:'#C9CDD0',def:1},{v:'blue',l:'Solar Blue',sw:'#2f6fae'},{v:'grey',l:'Solar Grey',sw:'#6d7378'}
+    ]},
+    {row:1,groepen:[
+      {id:'verlichting',t:'LED lighting',style:'icon',kz:[
+        {v:'geen',l:'None',ic:IC.geen,def:1},{v:'1',l:'1 light',ic:IC.led,p:420},{v:'2',l:'2 lights',ic:IC.led,p:780},{v:'3',l:'3 lights',ic:IC.led,p:1120},{v:'4',l:'4 lights',ic:IC.led,p:1450}
+      ]},
+      {id:'verwarming',t:'Heat pump',style:'icon',kz:[
+        {v:'geen',l:'None',ic:IC.geen,def:1},{v:'55',l:'19,000 BTU',ic:IC.zon,p:1950},{v:'9',l:'31,000 BTU',ic:IC.zon,p:2650},{v:'12',l:'41,000 BTU',ic:IC.zon,p:3200},{v:'20',l:'68,000 BTU',ic:IC.zon,p:4400}
+      ]}
+    ]},
+    {row:1,groepen:[
+      {id:'filter',t:'Filtration',style:'icon',kz:[
+        {v:'35',l:'up to 9,200 gal',ic:IC.spc,def:1},{v:'50',l:'up to 13,200 gal',ic:IC.spc,p:350},{v:'80',l:'up to 21,000 gal',ic:IC.spc,p:850}
+      ]},
+      {id:'water',t:'Water treatment',style:'icon',kz:[
+        {v:'chloor',l:'Chlorine dosing',ic:IC.water,def:1},{v:'zout',l:'Salt chlorination',ic:IC.water,p:1250}
+      ]}
+    ]},
+    {id:'tegenstroom',t:'Swim jet system',style:'icon',kz:[
+      {v:'nee',l:'None',ic:IC.geen,def:1},{v:'ja',l:'Swim jets (5 nozzles)',ic:IC.sport,p:3450}
+    ]}
+  ],
+  reflow:['afdekking'],
+  extra:[
+    {v:'afvoer',l:'Excavation, site work & decking',ic:IC.ruler,pM2:120,def:1},
+    {v:'skimmer',l:'Extra skimmer',ic:IC.water,p:180},
+    {v:'trapverlichting',l:'Step lighting',ic:IC.led,p:340,when:function(s){return s.trap!=='geen';}},
+    {v:'onderhoud',l:'Maintenance kit + robotic cleaner',ic:IC.onderhoud,p:1250},
+    {v:'warmteafdek',l:'Winter cover',ic:IC.plank,p:480}
+  ],
+  dim:function(sel){ var m={plunge:'Plunge · 10′ × 10′',klein:'10′ × 20′',midden:'12′ × 23′',groot:'13′ × 33′',xl:'13′ × 40′',mw:'Custom size'}; return m[sel.maat]||''; },
+  heroCands:function(sel){
+    var sz={plunge:'plunge',klein:'klein',midden:'middel',groot:'groot',xl:'xl',mw:'groot'}[sel.maat]||'groot';
+    var base='zwembad-'+sz;
+    var v=(sel.aanzicht==='boven')?'-aerial':'';
+    var rol=(sel.afdekking==='rolluik'||sel.afdekking==='rolluikmotor')?'-rolluik':'';
+    var av=(sel.verlichting&&sel.verlichting!=='geen')?'-avond':'';
+    var tr={geen:'-trapgeen',zij:'-trapzij',hoek:'-traphoek',romeins:'-trapromeins'}[sel.trap]||'';
+    var col={wit:'',lichtgrijs:'-lichtgrijs',antraciet:'-antraciet',zwart:'-zwart'}[sel.kleur]||'';
+    var lam=(rol&&sel.lamellen)?({silver:'',blue:'-blue',grey:'-grey'}[sel.lamellen]||''):'';
+    var c=[];
+    // prioriteit: rolluik(+lamellenkleur) > avond(alleen ooghoogte) > trap > kleur
+    if(rol){
+      if(lam){ c.push(base+v+rol+lam); c.push('zwembad-groot'+v+rol+lam); }
+      c.push(base+v+rol); c.push('zwembad-groot'+v+rol);
+    }
+    if(sel.afdekking==='plateau'){ c.push(base+v+'-plateau'); c.push('zwembad-groot'+v+'-plateau'); }
+    // Avondsfeer alleen bij een bad zonder trap: de avondbeelden met trap tonen
+    // de trapconstructie niet betrouwbaar, dus daar gaat het dagbeeld met de juiste trap voor.
+    if(av && v==='' && (!tr || tr==='-trapgeen')){ c.push(base+av+'-trapgeen'); c.push(base+av); c.push('zwembad-groot'+av); }
+    if(col && tr){ c.push(base+v+col+tr); }
+    if(tr){ c.push(base+v+tr); }
+    if(col){ c.push(base+v+col); c.push(base+col); }
+    c.push(base+v); c.push(base); c.push('zwembad-groot'+v); c.push('zwembad-groot');
+    return c;
+  },
+  presets:[
+    {n:'Plunge pool',d:'10′ × 10′ · compact luxury',th:'zwembad-plunge',sel:{kleur:'antraciet',maat:'plunge',trap:'zij',afdekking:'geen',verlichting:'2',verwarming:'55',filter:'35',water:'chloor',tegenstroom:'nee'},extras:{afvoer:true}},
+    {n:'Family pool',d:'12′ × 23′ · steps + LED',th:'zwembad-middel',sel:{kleur:'wit',maat:'midden',trap:'romeins',afdekking:'rolluikmotor',lamellen:'silver',verlichting:'3',verwarming:'12',filter:'50',water:'zout',tegenstroom:'nee'},extras:{afvoer:true,onderhoud:true}},
+    {n:'Large pool',d:'13′ × 33′ · salt · swim jets',th:'zwembad-groot',sel:{kleur:'antraciet',maat:'groot',trap:'hoek',afdekking:'plateau',verlichting:'4',verwarming:'20',filter:'80',water:'zout',tegenstroom:'ja'},extras:{afvoer:true,onderhoud:true}}
+  ]
+};
+    var $ = function(s,r){ return (r||document).querySelector(s); };
+    function euro(n){ return "$" + (Math.round(n/5)*5).toLocaleString('en-US'); }
+    var sel = {}, extras = {}, btwIncl = true;
+    function allGroups(){ var out=[]; CFG.groepen.forEach(function(g){ if(g.row){ g.groepen.forEach(function(x){out.push(x);}); } else out.push(g); }); return out; }
+    function findKz(g){ return g.kz.filter(function(k){return k.v===sel[g.id];})[0] || g.kz[0]; }
+    function groupById(id){ var r=null; allGroups().forEach(function(g){ if(g.id===id) r=g; }); return r; }
+    function initSelection(){ sel={}; extras={};
+      allGroups().forEach(function(g){ var d=g.kz.filter(function(k){return k.def;})[0]||g.kz[0]; sel[g.id]=d.v; });
+      CFG.extra.forEach(function(e){ extras[e.v]=!!e.def; }); }
+    function opp(){ var gs=allGroups().filter(function(g){ return g.isOpp && (!g.when||g.when(sel)); }); var g=gs[0]||groupById(CFG.oppGroup); if(!g) return 1; return findKz(g).m2||1; }
+    function calc(){
+      var o=opp(), tot=CFG.basisM2*o;
+      allGroups().forEach(function(g){ if(g.isOpp||g.id===CFG.oppGroup) return; if(g.when && !g.when(sel)) return; var k=findKz(g); if(k.p) tot+=k.p; if(k.pM2) tot+=k.pM2*o; });
+      CFG.extra.forEach(function(e){ if(e.when && !e.when(sel)) return; if(extras[e.v]){ tot += (e.pM2? e.pM2*o : (e.p||0)); } });
+      return tot;
+    }
+    function tile(name,k,checked,multi){
+      var input='<input type="'+(multi?'checkbox':'radio')+'" name="'+name+'" value="'+k.v+'"'+(checked?' checked':'')+'>';
+      var inner; if(k.img) inner='<span class="tile__img" style="background-image:url('+k.img+')"></span>';
+      else if(k.sw) inner='<span class="tile__sw" style="background:'+k.sw+'"></span>';
+      else inner='<span class="ico">'+(k.ic||'')+'</span>';
+      var sub=k.sub?'<span class="sub">'+k.sub+'</span>':'';
+      return '<label class="tile">'+input+'<span class="tile__c">'+inner+'<span class="lab">'+k.l+'</span>'+sub+'</span></label>';
+    }
+    function groupBox(g,nr){
+      var cls=g.style==='swatch'?'tiles':(g.style==='icon'?'tiles sm':'tiles');
+      var tiles=g.kz.map(function(k){ return tile('g_'+g.id,k,sel[g.id]===k.v,false); }).join('');
+      return '<div class="grp"><div class="grp__h"><b>'+nr+'.</b>'+g.t.toUpperCase()+'</div><div class="'+cls+'">'+tiles+'</div></div>';
+    }
+    function render(){
+      document.documentElement.style.setProperty('--acc',CFG.accent);
+      document.documentElement.style.setProperty('--acc-soft',CFG.soft);
+      $('#confTitle').innerHTML=CFG.titel; $('#confSub').textContent=CFG.sub;
+      $('#confBadge').innerHTML='<span>'+CFG.badge.ic+'</span><span>'+CFG.badge.t+'</span>';
+      var nr=0, html='';
+      function vis(g){ return !g.when || g.when(sel); }
+      CFG.groepen.forEach(function(g){
+        if(g.row){
+          if(g.when && !g.when(sel)) return;
+          var subs=g.groepen.filter(vis); if(!subs.length) return;
+          html+='<div class="grp__row" style="grid-template-columns:repeat(auto-fit,minmax(min(160px,100%),1fr))">';
+          subs.forEach(function(x){ nr++; html+=groupBox(x,nr); }); html+='</div>';
+        } else { if(!vis(g)) return; nr++; html+=groupBox(g,nr); }
+      });
+      nr++;
+      var ex=CFG.extra.filter(function(e){ return !e.when||e.when(sel); }).map(function(e){ return tile('x_'+e.v,e,!!extras[e.v],true); }).join('');
+      html+='<div class="grp"><div class="grp__h"><b>'+nr+'.</b>EXTRAS</div><div class="tiles sm">'+ex+'</div></div>';
+      $('#groups').innerHTML=html;
+      allGroups().forEach(function(g){
+        $('#groups').querySelectorAll('input[name="g_'+g.id+'"]').forEach(function(inp){
+          inp.addEventListener('change',function(){ sel[g.id]=this.value; if(CFG.reflow&&CFG.reflow.indexOf(g.id)>=0){ render(); } else { price(); updateHero(); } });
+        });
+      });
+      CFG.extra.forEach(function(e){ var inp=$('#groups').querySelector('input[name="x_'+e.v+'"]'); if(inp) inp.addEventListener('change',function(){ extras[e.v]=this.checked; price(); updateHero(); }); });
+      updateHero(true); price();
+    }
+    function heroSrc(){
+      var cands=CFG.heroCands(sel,extras);
+      for(var i=0;i<cands.length;i++){ if(HAVE.has(cands[i])) return './assets/media/'+cands[i]+'.jpg'; }
+      return CFG.hero;
+    }
+    function dimLabel(){ return CFG.dim(sel); }
+    /* Elke beeldwissel krijgt een volgnummer, en een fade die nog loopt terwijl
+       er alweer gekozen is zet zijn beeld niet meer neer. Zonder dat legt de
+       trage timer het oude beeld over de nieuwe keuze heen: wie binnen die
+       150 ms twee keer klikt, ziet iets staan wat hij net heeft weggeklikt,
+       naast een keuzelijst die iets anders zegt. */
+    var heroBeurt = 0;
+    function updateHero(instant){
+      var img=$('#confHero'), src=heroSrc(), bg=$('#confHeroBg'), dim=$('#confDim');
+      if(bg&&src) bg.style.backgroundImage="url('"+src+"')";
+      if(dim) dim.innerHTML='<b>'+dimLabel()+'</b>';
+      var beurt = ++heroBeurt;
+      if (img.getAttribute('src') === src){ img.style.opacity = '1'; return; }
+      if (instant){ img.src = src; img.style.opacity = '1'; return; }
+      img.style.opacity='0'; setTimeout(function(){
+        if (beurt !== heroBeurt) return;   // ingehaald door een nieuwere keuze
+        img.src = src; img.style.opacity = '1';
+      }, 150);
+    }
+    function summaryText(){
+      var lines=[CFG.kop];
+      allGroups().forEach(function(g){ if(g.when && !g.when(sel)) return; lines.push(g.t+': '+findKz(g).l); });
+      var chosen=CFG.extra.filter(function(e){return extras[e.v] && (!e.when||e.when(sel));}).map(function(e){return e.l;});
+      lines.push('Extras: '+(chosen.length?chosen.join(', '):'none'));
+      var excl=calc(), incl=excl*(1+BTW);
+      lines.push('Estimated total, installation included: '+euro(excl)+' (excl. sales tax)');
+      return lines.join('\n');
+    }
+    function price(){ var excl=calc(), incl=excl*(1+BTW); $('#prijs').textContent=euro(excl); $('#f_config').value=summaryText(); }
+  /* Twee routes naast elkaar: FormSubmit levert vandaag af, Web3Forms vangt op
+     als die dienst hapert. Geeft hetzelfde antwoord terug als FormSubmit, zodat
+     de rest van de afhandeling ongewijzigd blijft. Pas als beide mislukken
+     opent de mailclient. */
+  function ngDubbel(payload, sleutel){
+    var a=fetch("https://formsubmit.co/ajax/info@nextgrowthdigital.nl",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(payload)})
+      .then(function(r){return r.json();}).then(function(d){return !!(d&&(d.success===true||d.success==="true"));}).catch(function(){return false;});
+    var b=sleutel?fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},
+      body:JSON.stringify(Object.assign({access_key:sleutel,from_name:"nextgrowthdigital.nl",subject:payload._subject},payload))})
+      .then(function(r){return r.ok;}).catch(function(){return false;}):Promise.resolve(false);
+    /* Niet Promise.all: dan wacht de bezoeker op het traagste kanaal, ook als
+       het eerste al ja heeft gezegd. Web3Forms staat op sommige blokkeerlijsten
+       en hangt dan tot de browser er zelf mee ophoudt. De lead is op dat moment
+       allang binnen via FormSubmit, maar het scherm blijft op Versturen staan en
+       de bezoeker denkt dat het mislukt is.
+
+       Dus: zodra een van de twee slaagt is het klaar. Zeggen ze allebei nee, dan
+       pas het mailtovangnet. Blijft er een hangen, dan valt na tien seconden de
+       beslissing alsnog op nee - want dan weten we het niet, en dan is de e-mail
+       openen eerlijker dan een bedankje dat nergens op slaat. Beide verzoeken
+       lopen intussen gewoon door; er wordt niets afgebroken. */
+    var beslist = new Promise(function (klaar) {
+      var open = 2;
+      [a, b].forEach(function (p) {
+        p.then(function (ok) { if (ok) klaar(true); else if (!--open) klaar(false); });
+      });
+      setTimeout(function () { klaar(false); }, 10000);
+    });
+    return beslist.then(function(ok){return {json:function(){return {success:ok};}};});
+  }
+
+        function msg(t,type){ var m=$('#leadMsg'); if(!m) return; m.hidden=false; m.textContent=t; m.className='lead__msg '+(type||''); }
+    function mailtoFallback(f){
+      var body="Request via the "+CFG.kop+" configurator\n=====================================\n\n"+f.configuratie.value+
+        "\n\n--- Contact details ---\nName: "+f.naam.value+"\nE-mail: "+f.email.value+"\nPhone: "+(f.telefoon.value||"-")+"\nCity: "+(f.plaats.value||"-")+"\nMessage: "+(f.bericht.value||"-")+"\n";
+      window.location.href="mailto:info@nextgrowthdigital.nl?subject="+encodeURIComponent("Quote request "+CFG.kop+": "+(f.naam.value||""))+"&body="+encodeURIComponent(body);
+    }
+    $('#leadForm').addEventListener('submit',function(e){
+      e.preventDefault(); var f=e.target; if(f.reportValidity&&!f.reportValidity())return;
+      var btn=$('#leadBtn'),oud=btn.textContent; btn.disabled=true; btn.textContent="Sending…";
+      ngDubbel({_subject:"Quote request "+CFG.kop+": "+(f.naam.value||""),_template:"table",_captcha:"false",_replyto:f.email.value,Product:CFG.kop,Name:f.naam.value,"E-mail":f.email.value,Phone:(f.telefoon.value||"-"),City:(f.plaats.value||"-"),Message:(f.bericht.value||"-"),Configuration:f.configuratie.value}, WEB3FORMS_KEY).then(function(r){return r.json();}).then(function(d){ if(d&&(d.success===true||d.success==="true")){ f.reset(); msg("Thank you. Your request has been sent. We reply within one business day.","ok"); } else { msg("Something went wrong. We are opening your email client with the request ready.","err"); mailtoFallback(f); } }).catch(function(){ msg("No connection. We are opening your email client with the request ready.","err"); mailtoFallback(f); }).finally(function(){ btn.disabled=false; btn.textContent=oud; });
+    });
+    function applyPreset(p){ if(p.sel) Object.keys(p.sel).forEach(function(k){ sel[k]=p.sel[k]; }); if(p.extras) Object.keys(p.extras).forEach(function(k){ extras[k]=p.extras[k]; }); render(); }
+    function renderPresets(){
+      $('#presetRow').innerHTML=CFG.presets.map(function(p,i){ return '<button type="button" class="preset" data-i="'+i+'"><span class="preset__th" style="background-image:url(./assets/media/'+p.th+'.jpg)"></span><span class="preset__t"><b>'+p.n+'</b><span>'+p.d+'</span></span></button>'; }).join('');
+      $('#presetRow').querySelectorAll('.preset').forEach(function(btn){ btn.addEventListener('click',function(){ applyPreset(CFG.presets[+this.getAttribute('data-i')]); }); });
+    }
+    initSelection(); render(); renderPresets();
+  })();
+
+  </script>
+  
+  <!-- Vercel Analytics (scripts/analytics.py) -->
+  
+  
+</body>
+</html>

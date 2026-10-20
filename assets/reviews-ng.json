@@ -1,0 +1,25 @@
+{
+  "_leesmij": [
+    "Onze eigen Google-reviews. Zolang 'aantal' 0 is of 'reviews' leeg, toont",
+    "de site geen reviewblok en geeft hij ook geen beoordelingsgegevens aan",
+    "Google door. Dat is bewust: een verzonnen review of een score die niet op",
+    "echte, verifieerbare beoordelingen berust is een misleidende",
+    "handelspraktijk (art. 6:193 BW), en Google verwijdert sterren die het niet",
+    "kan controleren - met kans op een handmatige maatregel op het hele domein.",
+    "",
+    "Invullen en daarna 'python3 scripts/reviews.py' draaien; dan komt het blok",
+    "op index.html, cases.html en prijzen.html te staan, inclusief het",
+    "AggregateRating-schema.",
+    "",
+    "score   het gemiddelde zoals Google het toont, bijvoorbeeld 4.9",
+    "aantal  het aantal beoordelingen waarop dat gemiddelde berust",
+    "profiel de openbare link naar het Google-profiel, zodat het te",
+    "        controleren is",
+    "reviews per stuk: naam zoals de reviewer hem zelf toont, datum (ISO),",
+    "        score en de tekst letterlijk - niet inkorten, niet mooier maken"
+  ],
+  "score": 0,
+  "aantal": 0,
+  "profiel": "",
+  "reviews": []
+}
