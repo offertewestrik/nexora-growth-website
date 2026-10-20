@@ -1,0 +1,843 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verbouwkosten-calculator, live demo voor bouwbedrijven | Next Growth</title>
+  <meta name="description" content="Live demo van een verbouwkosten-calculator die Next Growth bouwt voor aannemers en bouwbedrijven: uitbouw, dakkapel, stucwerk, vloeren, badkamer, elektra en isolatie in één calculator, met een richtprijs per onderdeel.">
+  <link rel="canonical" href="https://nextgrowthdigital.nl/verbouwkosten-calculator">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="nl_NL">
+  <meta property="og:site_name" content="Next Growth">
+  <meta property="og:title" content="Verbouwkosten-calculator, live demo voor bouwbedrijven | Next Growth">
+  <meta property="og:description" content="Live demo van een verbouwkosten-calculator die Next Growth bouwt voor aannemers en bouwbedrijven: uitbouw, dakkapel, stucwerk, vloeren, badkamer, elektra en isolatie in één calculator, met een richtprijs per onderdeel.">
+  <meta property="og:url" content="https://nextgrowthdigital.nl/verbouwkosten-calculator">
+  <meta property="og:image" content="https://nextgrowthdigital.nl/assets/media/dakopbouw/interieur/indeling-open-woonruimte-01.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Crect width='18' height='18' rx='4' fill='%23C9A45F'/%3E%3Cpath d='M5 13V5l8 8V5' stroke='%230B0A08' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./assets/fonts.css">
+  <link rel="stylesheet" href="./assets/core.css">
+  <link rel="stylesheet" href="./assets/instap.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://nextgrowthdigital.nl/#organization",
+        "name": "Next Growth",
+        "url": "https://nextgrowthdigital.nl/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://nextgrowthdigital.nl/assets/media/next-growth-logo.svg"
+        },
+        "description": "Next Growth is een creatief groeibureau voor branding, websites, marketing en configurators. Voor bouw- en installatiebedrijven bouwt Next Growth productconfiguratoren, offertesoftware, CRM-koppelingen en websites, door heel Nederland.",
+        "email": "info@nextgrowthdigital.nl",
+        "telephone": "+31683902192",
+        "vatID": "NL004420281B57",
+        "taxID": "96002913",
+        "identifier": [
+          {
+            "@type": "PropertyValue",
+            "name": "KvK-nummer",
+            "value": "96002913"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "btw-identificatienummer",
+            "value": "NL004420281B57"
+          }
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "Noord-Brabant",
+          "addressCountry": "NL"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "telephone": "+31683902192",
+          "email": "info@nextgrowthdigital.nl",
+          "areaServed": "NL",
+          "availableLanguage": [
+            "nl",
+            "en",
+            "de"
+          ]
+        },
+        "areaServed": [
+          {
+            "@type": "Country",
+            "name": "Nederland"
+          },
+          {
+            "@type": "AdministrativeArea",
+            "name": "Noord-Brabant"
+          },
+          {
+            "@type": "AdministrativeArea",
+            "name": "Gelderland"
+          },
+          {
+            "@type": "City",
+            "name": "Nijmegen"
+          },
+          {
+            "@type": "City",
+            "name": "Den Bosch"
+          },
+          {
+            "@type": "City",
+            "name": "Eindhoven"
+          },
+          {
+            "@type": "City",
+            "name": "Arnhem"
+          },
+          {
+            "@type": "City",
+            "name": "Uden"
+          },
+          {
+            "@type": "City",
+            "name": "Veghel"
+          },
+          {
+            "@type": "City",
+            "name": "Wijchen"
+          },
+          {
+            "@type": "City",
+            "name": "Vught"
+          },
+          {
+            "@type": "City",
+            "name": "Cuijk"
+          },
+          {
+            "@type": "City",
+            "name": "Grave"
+          }
+        ],
+        "knowsAbout": [
+          "Productconfigurator laten maken",
+          "Offertesoftware voor bouwbedrijven",
+          "Website laten maken voor bouw- en installatiebedrijven",
+          "Zoekmachineoptimalisatie",
+          "CRM voor bouwbedrijven",
+          "Dakopbouw",
+          "Uitbouw en aanbouw",
+          "Badkamer verbouwen",
+          "Overkapping op maat",
+          "Zwembad aanleggen",
+          "Dakkapel",
+          "Omgevingsvergunning bij verbouwen"
+        ],
+        "alternateName": [
+          "Next Growth Digital"
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://nextgrowthdigital.nl/verbouwkosten-calculator",
+        "url": "https://nextgrowthdigital.nl/verbouwkosten-calculator",
+        "name": "Verbouwkosten-calculator, live demo voor bouwbedrijven | Next Growth",
+        "inLanguage": "nl-NL",
+        "isPartOf": {
+          "@id": "https://nextgrowthdigital.nl/#website"
+        },
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://nextgrowthdigital.nl/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Verbouwkosten berekenen",
+              "item": "https://nextgrowthdigital.nl/verbouwkosten-calculator"
+            }
+          ]
+        },
+        "dateModified": "2026-08-27"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://nextgrowthdigital.nl/#website",
+        "url": "https://nextgrowthdigital.nl/",
+        "name": "Next Growth",
+        "inLanguage": "nl-NL",
+        "publisher": { "@id": "https://nextgrowthdigital.nl/#organization" }
+      },
+      {
+        "@type": "WebApplication",
+        "name": "Verbouwkosten-calculator",
+        "url": "https://nextgrowthdigital.nl/verbouwkosten-calculator",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "browserRequirements": "Werkt in elke moderne browser; de berekening draait volledig in je eigen browser.",
+        "inLanguage": "nl-NL",
+        "publisher": { "@id": "https://nextgrowthdigital.nl/#organization" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+        "description": "Live demo van een rekentool die Next Growth bouwt voor bouwbedrijven. Reken alle werkzaamheden van een verbouwing door (uitbouw, dakopbouw, dakkapel, doorbraken, stucwerk, vloeren, vloerverwarming, badkamer, keuken, elektra, isolatie, dakwerk en schilderwerk) en zie de bandbreedte voor het geheel, inclusief opslagen voor regio, onvoorzien en leges. De bedragen zijn richtprijzen uit landelijke kostenoverzichten met bronvermelding, geen offerte."
+      },
+      {
+        "@type": "HowTo",
+        "publisher": { "@id": "https://nextgrowthdigital.nl/#organization" },
+        "name": "Verbouwkosten berekenen in vijf stappen",
+        "step": [
+          { "@type": "HowToStep", "position": 1, "name": "Vink aan wat er moet gebeuren", "text": "Loop de negen groepen langs, van uitbreiden tot sloop en afvoer, en vul per werkzaamheid het aantal vierkante meters, strekkende meters of stuks in. Alleen wat je invult telt mee." },
+          { "@type": "HowToStep", "position": 2, "name": "Zet de opslagen goed", "text": "Kies je regio, de post onvoorzien en of er een omgevingsvergunning nodig is. Die drie posten bepalen samen vaak een kwart van het eindbedrag en ontbreken in de meeste online calculators." },
+          { "@type": "HowToStep", "position": 3, "name": "Lees de bandbreedte, niet het gemiddelde", "text": "Je krijgt bewust een onder- en bovengrens. De onderkant hoort bij eenvoudig werk in een woning zonder verrassingen, de bovenkant bij maatwerk en een oud pand. Ga voor je budget uit van het midden en houd rekening met de bovenkant." },
+          { "@type": "HowToStep", "position": 4, "name": "Druk het kostenoverzicht af", "text": "Het overzicht zet elke post op één A4 met aantal, eenheidsprijs, subtotaal, de gebruikte bronnen en de voorbehouden. Daarmee leg je binnenkomende offertes naast een onderbouwd referentiekader." },
+          { "@type": "HowToStep", "position": 5, "name": "Stel de echte uitvoering samen in een configurator", "text": "Voor uitbouw, dakopbouw en badkamer stel je in een configurator de werkelijke uitvoering samen; die geeft een richtprijs voor precies jouw samenstelling in plaats van een landelijk gemiddelde. Voor de doorbraak maak je online de balkberekening. In deze demo zijn dat de configurators van Next Growth." }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Wat kost een verbouwing gemiddeld?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Landelijke kostenoverzichten noemen voor een complete woningrenovatie bedragen van ongeveer €60.000 tot €150.000 en voor een begane grond zo'n €30.000 tot €60.000. Aan zulke gemiddelden heb je weinig, omdat ze niets zeggen over je huis en je wensenlijst. De calculator op deze pagina rekent daarom van onderaf op: per werkzaamheid een aantal en een richtprijs, opgeteld tot een bandbreedte voor je eigen plan." }
+          },
+          {
+            "@type": "Question",
+            "name": "Zijn dit prijzen van Next Growth?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Nee, en dat staat ook op het overzicht. Het zijn richtprijzen uit landelijke kostenoverzichten, met per regel een bronvermelding. Het is een indicatie om een budget mee te bepalen en offertes mee te beoordelen, geen offerte en geen aanbod. Next Growth bouwt deze calculator als demo voor bouwbedrijven. Voor uitbouw, dakopbouw, badkamer en de balkberekening krijg je in de demo-configurators een richtprijs voor precies jouw samenstelling." }
+          },
+          {
+            "@type": "Question",
+            "name": "Waarom krijg ik een bandbreedte en geen bedrag?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Omdat het verschil tussen eenvoudig en luxe werk bij vrijwel elke post een factor twee is, en omdat niemand die je woning niet gezien heeft weet wat er achter de muren zit. Eén bedrag zou precisie suggereren die er niet is. De onderkant hoort bij eenvoudig werk in een woning zonder verrassingen, de bovenkant bij maatwerk, een oud pand of slechte bereikbaarheid." }
+          },
+          {
+            "@type": "Question",
+            "name": "Zit de btw er al in?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Ja. Alle bedragen in de calculator zijn richtprijzen inclusief btw en inclusief arbeid. Voor schilderen, stukadoren, behangen en het aanbrengen van isolatiemateriaal geldt bij woningen die ouder zijn dan twee jaar het verlaagde btw-tarief van 9%; het isolatiemateriaal zelf valt onder 21%. Dat verschil zit al in de richtprijzen verwerkt. Alleen de uurtarieven onderaan de pagina staan exclusief btw, zoals in de bouw gebruikelijk is." }
+          },
+          {
+            "@type": "Question",
+            "name": "Wat zit er niet in de berekening?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Steigerwerk, tijdelijke huisvesting, verhuizen en opslag, herstel van tuin of bestrating, en de asbestinventarisatie die verplicht is voordat er gesloopt wordt. Verder kan de calculator niet weten wat er in je woning verborgen zit: de staat van de fundering, oude leidingen, vocht of asbest achter een wand. Daar is de post onvoorzien voor, en daarom staat die standaard op 10%." }
+          },
+          {
+            "@type": "Question",
+            "name": "Hoeveel moet ik reserveren voor onvoorzien?",
+            "acceptedAnswer": { "@type": "Answer", "text": "In de bouw is 5 tot 10% van de bouwsom de gebruikelijke vuistregel. Bij woningen van voor 1970 is 10% realistischer dan 5%, en bij een casco-aanpak waarbij alles open gaat mag het gerust 15% zijn. Het is geen bronprijs maar ervaring: de kosten die je niet zag aankomen, komen bijna altijd." }
+          },
+          {
+            "@type": "Question",
+            "name": "Waarom lopen de legeskosten voor de vergunning zo uiteen?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Omdat elke gemeente haar eigen legesverordening heeft. Bij eenzelfde bouwsom rekent de ene gemeente 0,9% en de andere 8,4%. Bij een verbouwing van een ton loopt dat verschil in de duizenden euro's. De calculator rekent daarom met die volle landelijke spreiding. Wil je het precies weten, kijk dan in de legesverordening van je eigen gemeente." }
+          },
+          {
+            "@type": "Question",
+            "name": "Blijven mijn ingevulde gegevens bewaard?",
+            "acceptedAnswer": { "@type": "Answer", "text": "De berekening draait volledig in je eigen browser en je invoer blijft daar ook staan, zodat je later verder kunt. Er gaat niets naar een server en er wordt niets opgeslagen. Pas als je zelf een offerte aanvraagt, komt er een mens in beeld." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    /* --------------------------------------------------------------
+       Verbouwkosten-calculator. Het motief is hier het REKENBLAD:
+       genummerde regels in een monospace kolom, bedragen rechts
+       uitgelijnd, alles in tabelritme. Waar de andere verbouwpagina's
+       vertellen, telt deze pagina op — de vormtaal moet dat verschil
+       meteen laten zien.
+       -------------------------------------------------------------- */
+    .sectie--licht {
+      --bg-raise: var(--cream-2);
+      --bg-raise-2: var(--cream-2);
+      --line: var(--cream-line);
+      --line-strong: rgba(30, 27, 21, .24);
+      --text: var(--cream-ink);
+      --text-2: var(--cream-ink-2);
+      --text-3: rgba(30, 27, 21, .66);
+      --accent: #836733;
+      --accent-dim: rgba(160, 126, 62, .14);
+      --schaduw-2: 0 2px 4px rgba(30, 27, 21, .05), 0 8px 16px -6px rgba(30, 27, 21, .08);
+      --schaduw-3: 0 4px 8px rgba(30, 27, 21, .05), 0 16px 32px -10px rgba(30, 27, 21, .10);
+    }
+    .sectie.sectie--licht { background: var(--cream); }
+    .sectie.sectie--licht::before {
+      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: var(--goud-lijn);
+    }
+
+    /* ---------- hero ---------- */
+    .hero { position: relative; padding: calc(60px + clamp(2.6rem, 6vh, 4rem)) 0 clamp(2rem, 4vh, 3rem); overflow: clip; }
+    .hero::before {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse 65% 60% at 20% 0%, black 22%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse 65% 60% at 20% 0%, black 22%, transparent 70%);
+      opacity: .5; pointer-events: none;
+    }
+    .kopblok { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(1.8rem, 4vw, 3.6rem); align-items: center; }
+    @media (max-width: 960px) { .kopblok { grid-template-columns: 1fr; } }
+    .kopblok .h1 { margin: 1.1rem 0; }
+    .kopblok__lede { font-size: clamp(1.02rem, 1.4vw, 1.2rem); line-height: 1.6; color: var(--text-2); max-width: 40em; }
+    .kopblok__acties { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: 1.7rem; }
+    .kopblok__klein { margin-top: 1rem; font-size: .8rem; color: var(--text-3); max-width: 42em; }
+    .kopblok__beeld { margin: 0; border: 1px solid var(--line); border-radius: var(--r-groot); overflow: hidden; }
+    .kopblok__beeld img { display: block; width: 100%; height: auto; }
+
+    /* ---------- feitenband ---------- */
+    .band { display: flex; flex-wrap: wrap; gap: .7rem clamp(1.2rem, 3vw, 2.4rem); align-items: center; padding: 1rem 0; border-block: 1px solid var(--line); }
+    .band span { display: inline-flex; gap: .5rem; align-items: baseline; font-size: .85rem; color: var(--text-2); }
+    .band svg { flex: none; color: var(--accent); transform: translateY(2px); }
+
+    /* ---------- de calculator ---------- */
+    .calc { display: grid; grid-template-columns: minmax(0, 1fr) 21rem; gap: clamp(1.5rem, 3vw, 2.6rem); align-items: start; margin-top: clamp(1.6rem, 4vh, 2.4rem); }
+    @media (max-width: 1020px) { .calc { grid-template-columns: 1fr; } }
+
+    .vk-groep { border-top: 1px solid var(--line-strong); padding-top: 1.3rem; margin-top: 1.9rem; }
+    .vk-groep:first-child { margin-top: 0; }
+    .vk-groep__kop { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .3rem 1rem; align-items: baseline; margin-bottom: .9rem; }
+    .vk-groep__kop h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(1.2rem, 2.2vw, 1.5rem); letter-spacing: -.02em; }
+    .vk-groep__kop p { grid-column: 1 / -1; font-size: .88rem; color: var(--text-2); max-width: 54em; }
+    .vk-groep__som { font-family: var(--mono); font-size: .82rem; color: var(--accent); white-space: nowrap; }
+
+    .vk-rij {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 8.5rem 6.4rem 8.6rem;
+      gap: .4rem .9rem; align-items: center;
+      padding: .75rem 0; border-bottom: 1px solid var(--line);
+    }
+    .vk-rij.is-aan { background: var(--accent-dim); box-shadow: -10px 0 0 var(--accent-dim), 10px 0 0 var(--accent-dim); }
+    @media (max-width: 780px) {
+      .vk-rij { grid-template-columns: minmax(0, 1fr) auto; }
+      .vk-rij__prijs { grid-row: 2; }
+      .vk-rij__invoer { grid-row: 1; grid-column: 2; }
+      .vk-rij__som { grid-row: 2; grid-column: 2; }
+    }
+    .vk-rij__naam label { font-size: .95rem; font-weight: 600; line-height: 1.35; display: block; cursor: pointer; }
+    .vk-rij__noot { margin-top: .25rem; font-size: .8rem; color: var(--text-2); max-width: 46em; }
+    .vk-rij__link { display: inline-block; margin-top: .35rem; font-size: .8rem; color: var(--accent); text-decoration: none; border-bottom: 1px solid currentColor; }
+    .vk-rij__prijs { display: flex; flex-direction: column; gap: .15rem; }
+    .vk-rij__eenheidprijs { font-family: var(--mono); font-size: .76rem; color: var(--text-2); line-height: 1.35; }
+    .vk-rij__eenheidprijs em { display: block; font-style: normal; color: var(--text-3); }
+    .vk-rij__bron { font-family: var(--mono); font-size: .64rem; letter-spacing: .1em; text-transform: uppercase; color: var(--text-3); }
+    .vk-rij__invoer { display: flex; align-items: center; gap: .45rem; }
+    .vk-rij__invoer input {
+      width: 5rem; padding: .48rem .6rem; font: inherit; font-size: .95rem;
+      color: var(--text); background: var(--bg-raise); border: 1px solid var(--line-strong); border-radius: 8px;
+    }
+    .vk-rij__invoer input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+    .vk-rij__eenheid { font-family: var(--mono); font-size: .78rem; color: var(--text-3); }
+    .vk-rij__som { font-family: var(--mono); font-size: .84rem; text-align: right; white-space: nowrap; color: var(--text); }
+
+    /* ---------- de optelling ---------- */
+    .som { position: sticky; top: 76px; border: 1px solid var(--line-strong); border-radius: var(--r-groot); background: var(--bg-raise); box-shadow: var(--schaduw-3); overflow: hidden; }
+    /* Op één kolom staat de optelling boven de lijst in plaats van eronder:
+       anders moet de bezoeker langs 48 regels scrollen om zijn totaal te
+       zien. De groepskoppen houden onderweg het tussentotaal bij. */
+    @media (max-width: 1020px) { .som { position: static; order: -1; } }
+    .som__kop { padding: 1.05rem 1.2rem .9rem; border-bottom: 1px solid var(--line); }
+    .som__kop h3 { font-size: 1rem; font-weight: 600; }
+    .som__kop p { margin-top: .2rem; font-family: var(--mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--text-3); }
+    .som__lijf { padding: 1.05rem 1.2rem 1.2rem; }
+    .som__keuze { display: block; margin-bottom: .85rem; }
+    .som__keuze > span { display: block; font-size: .8rem; color: var(--text-2); margin-bottom: .3rem; }
+    .som__keuze select { width: 100%; padding: .5rem .6rem; font: inherit; font-size: .88rem; color: var(--text); background: var(--bg); border: 1px solid var(--line-strong); border-radius: 8px; }
+    .som__vink { display: flex; gap: .55rem; align-items: flex-start; font-size: .84rem; line-height: 1.45; margin: .2rem 0 1.1rem; cursor: pointer; }
+    .som__vink input { margin-top: .18rem; flex: none; }
+    .som__regel { display: flex; justify-content: space-between; gap: .8rem; align-items: baseline; padding: .42rem 0; font-size: .84rem; border-top: 1px solid var(--line); }
+    .som__regel span:last-child { font-family: var(--mono); white-space: nowrap; }
+    /* Het eindbedrag krijgt een eigen regel: "€ 52.700 – € 115.000" past
+       naast een label niet in de kolom en werd afgekapt. */
+    .som__totaal { margin-top: .7rem; padding-top: .8rem; border-top: 2px solid var(--line-strong); }
+    .som__totaal b { display: block; font-size: .82rem; color: var(--text-2); font-weight: 600; }
+    .som__totaal strong { display: block; margin-top: .25rem; font-family: var(--mono); font-size: clamp(1.02rem, 1.6vw, 1.18rem); color: var(--accent); letter-spacing: -.01em; }
+    .som__acties { display: grid; gap: .5rem; margin-top: 1.1rem; }
+    .som__acties .btn { width: 100%; justify-content: center; }
+    .som__acties button[disabled] { opacity: .45; cursor: not-allowed; }
+    .som__voet { margin-top: .9rem; font-size: .74rem; color: var(--text-3); line-height: 1.5; }
+    .som__leeg { padding: .4rem 0 .2rem; font-size: .86rem; color: var(--text-2); line-height: 1.55; }
+
+    /* ---------- rekenblad-regels (het proces) ---------- */
+    .werkblad { margin-top: clamp(1.6rem, 4vh, 2.4rem); border-top: 1px solid var(--line); max-width: 64rem; }
+    .werkregel { display: grid; grid-template-columns: 4.5rem minmax(0, 20rem) minmax(0, 1fr); gap: clamp(.8rem, 3vw, 2.2rem); padding: clamp(1.2rem, 2.6vw, 1.8rem) 0; border-bottom: 1px solid var(--line); align-items: start; }
+    @media (max-width: 860px) { .werkregel { grid-template-columns: 3rem minmax(0, 1fr); } .werkregel__uit { grid-column: 2; } }
+    .werkregel__nr { font-family: var(--mono); font-size: .82rem; letter-spacing: .1em; color: var(--accent); padding-top: .2rem; }
+    .werkregel__naam { font-size: 1.02rem; font-weight: 600; line-height: 1.35; letter-spacing: -.01em; }
+    .werkregel__uit p { font-size: .92rem; max-width: 46em; }
+    .werkregel__uit p + p { margin-top: .7rem; }
+
+    /* ---------- uurtarieven ---------- */
+    .tarieven { width: 100%; border-collapse: collapse; margin-top: 1.4rem; max-width: 40rem; }
+    .tarieven th, .tarieven td { text-align: left; padding: .62rem .5rem; font-size: .9rem; border-bottom: 1px solid var(--line); }
+    .tarieven th { font-family: var(--mono); font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: var(--text-3); font-weight: 400; }
+    .tarieven td:last-child, .tarieven th:last-child { text-align: right; font-family: var(--mono); white-space: nowrap; }
+
+    /* ---------- twee kolommen tekst ---------- */
+    .duo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.4rem, 3vw, 2.6rem); margin-top: 1.6rem; }
+    @media (max-width: 820px) { .duo { grid-template-columns: 1fr; } }
+    .kaartje { border: 1px solid var(--line); border-radius: var(--r); background: var(--bg-raise); padding: 1.2rem 1.3rem; }
+    .kaartje h3 { font-size: 1rem; font-weight: 600; margin-bottom: .45rem; }
+    .kaartje p { font-size: .89rem; }
+    .kaartje ul { margin: .6rem 0 0; padding-left: 1.1rem; }
+    .kaartje li { font-size: .87rem; color: var(--text-2); margin: .3rem 0; }
+
+    /* ---------- beeldrij ---------- */
+    .beeldrij { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.8rem; }
+    @media (max-width: 880px) { .beeldrij { grid-template-columns: 1fr; } }
+    .beeldrij figure { margin: 0; border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; background: var(--bg-raise); }
+    .beeldrij img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+    .beeldrij figcaption { padding: .8rem 1.05rem; font-size: .81rem; color: var(--text-3); }
+
+    /* ---------- bronnen ---------- */
+    .bronnen { margin-top: 1.3rem; padding-left: 1.1rem; max-width: 52rem; }
+    .bronnen li { font-size: .85rem; color: var(--text-2); margin: .35rem 0; }
+    .bronnen a { color: var(--text); }
+
+    /* ---------- oproepblok ---------- */
+    .oproep { border: 1px solid var(--line); border-radius: var(--r-groot); background: var(--bg-raise); box-shadow: var(--schaduw-2); padding: clamp(1.5rem, 4vw, 2.3rem); display: flex; flex-wrap: wrap; gap: 1.3rem; align-items: center; justify-content: space-between; }
+    .oproep__copy { max-width: 36rem; }
+    .oproep__copy h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(1.4rem, 3vw, 1.95rem); letter-spacing: -.02em; margin-bottom: .4rem; }
+    .oproep__copy p { font-size: .9rem; }
+
+    /* ---------- faq ---------- */
+    .faq-lijst { max-width: 46rem; }
+    .faq { border-top: 1px solid var(--line); padding: 1.25rem 0; }
+    .faq:last-child { border-bottom: 1px solid var(--line); }
+    .faq summary { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; cursor: pointer; list-style: none; font-size: 1.01rem; font-weight: 600; color: var(--text); }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary .plus { flex: none; color: var(--accent); font-size: 1.3rem; line-height: 1; transition: transform .25s var(--ease); }
+    .faq[open] summary .plus { transform: rotate(45deg); }
+    .faq p { margin-top: .8rem; font-size: .92rem; max-width: 62ch; }
+
+    /* ---------- vaste actiebalk op mobiel ---------- */
+    .actiebalk { display: none; }
+    @media (max-width: 820px) {
+      body { padding-bottom: 4.6rem; }
+      .actiebalk {
+        display: flex; gap: .6rem; align-items: center;
+        position: fixed; left: 0; right: 0; bottom: 0; z-index: 200;
+        padding: .7rem clamp(1rem, 4vw, 1.5rem);
+        background: rgba(10, 10, 11, .93);
+        backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+        border-top: 1px solid var(--line-strong);
+      }
+      .actiebalk .btn { flex: 1; padding-inline: .9rem; }
+      .actiebalk a.bel { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--line-strong); color: var(--text); text-decoration: none; }
+    }
+  </style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,900;125,900&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/ngx-shell.css"><script>document.documentElement.classList.add("ngx-display")</script><style id="ngx-world">:root{--ink-900:#0A131F;--ink-800:#0E1A2B;--ink-700:#122034;--ink-600:#15253B;--ink-500:#1B2E48;--ink-400:#263A57;--tint:#122034;--bg:#0E1A2B;--bg-raise:#15253B;--bg-raise-2:#1B2E48;--accent:#FF6A3D;--accent-strong:#E5552B;--accent-light:#FFB49C;--accent-deep:#A53A1C;--accent-dim:rgba(255,106,61,.13);--glow:rgba(255,106,61,.30);--accent-rgb:255,106,61;--acc:#FF6A3D;--acc-soft:rgba(255,106,61,.14);--acc-diep:#A53A1C;--goud-metaal:linear-gradient(150deg,#A53A1C 0%,#FF6A3D 26%,#FFB49C 46%,#FF6A3D 66%,#A53A1C 100%);--goud-lijn:linear-gradient(90deg,transparent,rgba(255,106,61,.55) 30%,rgba(255,106,61,.55) 70%,transparent);--serif:'Archivo','Arial Black',sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;}html,body{background:#0E1A2B}.ngx-nav{--x-sig:#FF6A3D;--x-ink:#FFFFFF;background:#0E1A2BF5}.ngx-nav .ngx-mark{background:#FFC400}</style></head>
+<body>
+  <a class="skip" href="#main">Direct naar inhoud</a>
+  <header class="ngx-nav"><div class="ngx-wrap">
+<a class="ngx-brand" href="/"><span class="ngx-ring">NG</span><span>Next Growth<small>Creatief groeibureau · Landelijk</small></span></a>
+<a class="ngx-mark" href="/" aria-label="Next Growth, naar de homepage"><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14V4l10 10V4" stroke="#0A0800" stroke-width="2.8" stroke-linecap="square"/></svg></a>
+<nav class="ngx-links" aria-label="Hoofdmenu"><a href="/">Home</a><a href="/dienst-webdesign">Websites</a><a href="/dienst-branding">Branding</a><a href="/dienst-marketing">Marketing</a><a href="/dienst-configurators">Configurators</a><a href="/kennisbank">Kennisbank</a><a href="/prijzen">Prijzen</a></nav>
+<a class="ngx-cta" href="/#contact">Kennismaken</a>
+<button class="ngx-menu" type="button" aria-expanded="false" aria-controls="ngx-mnav">Menu</button>
+</div><nav id="ngx-mnav" class="ngx-mnav" aria-label="Mobiel menu" hidden><a href="/">Home</a><a href="/dienst-webdesign">Websites</a><a href="/dienst-branding">Branding</a><a href="/dienst-marketing">Marketing</a><a href="/dienst-configurators">Configurators</a><a href="/kennisbank">Kennisbank</a><a href="/prijzen">Prijzen</a><a href="/#contact" class="ngx-cta">Plan een kennismaking</a></nav></header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-label="Verbouwkosten berekenen">
+      <div class="glow-field" aria-hidden="true"></div>
+      <div class="wrap kopblok">
+        <div>
+          <span class="pill"><span class="dot dot--ok"></span>Live demo &middot; rekentool voor bouwbedrijven &middot; richtprijzen met bron</span>
+          <h1 class="h1">Wat kost je verbouwing? <em>Tel het op in plaats van te gokken.</em></h1>
+          <p class="kopblok__lede">Dit is een live demo van een verbouwkosten-calculator die Next Growth bouwt voor aannemers en bouwbedrijven. De meeste kostencalculators vragen om je postcode en geven je daarna één bedrag terug waar je niets aan hebt. Deze rekent zoals een calculator in de bouw het doet: post voor post. Je vinkt aan wat er moet gebeuren (een uitbouw, een dakkapel, stucwerk, een nieuwe vloer, vloerverwarming, de badkamer, de elektra), vult de aantallen in en ziet de bandbreedte voor het geheel. Inclusief de drie posten die in offertes het vaakst ontbreken: regio, onvoorzien en leges.</p>
+          <div class="kopblok__acties">
+            <a class="btn" href="#calculator">Reken je verbouwing door <span aria-hidden="true">&rarr;</span></a>
+            <a class="btn btn--ghost" href="#lezen">Hoe lees je de uitkomst?</a>
+          </div>
+          <p class="kopblok__klein">Gratis en zonder registratie. De berekening draait volledig in je eigen browser; er gaat niets naar een server.</p>
+        </div>
+        <figure class="kopblok__beeld">
+          <img src="./assets/media/dakopbouw/interieur/indeling-open-woonruimte-01.jpg" alt="Open woonruimte na een complete verbouwing met visgraatvloer, gestucte wanden en inbouwkasten" width="1200" height="670">
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ FEITENBAND ============ -->
+    <section class="sectie sectie--strak" aria-label="In het kort">
+      <div class="wrap">
+        <div class="band">
+          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>48 werkzaamheden in 9 groepen</span>
+          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Elke regel met bronvermelding</span>
+          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Bedragen inclusief btw en arbeid</span>
+          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>Kostenoverzicht op A4, om af te drukken</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DE CALCULATOR ============ -->
+    <section class="sectie sectie--licht" id="calculator" aria-label="Verbouwkosten-calculator">
+      <div class="wrap">
+        <p class="eyebrow"><span class="dot dot--ok"></span>De calculator</p>
+        <h2 class="h2">Vink aan wat er moet gebeuren.</h2>
+        <p style="max-width:52em">Vul alleen in wat op jou van toepassing is; lege regels tellen niet mee. Weet je een aantal nog niet precies, vul dan een ruwe schatting in. Voor een budget is de orde van grootte belangrijker dan de decimaal. De optelling loopt meteen mee, en elke groep houdt zijn eigen tussentotaal bij.</p>
+
+        <div class="calc">
+          <div id="vkGroepen"></div>
+
+          <aside class="som" aria-label="Je kostenindicatie">
+            <div class="som__kop">
+              <h3>Je kostenindicatie</h3>
+              <p id="vkAantalPosten">0 posten gekozen</p>
+            </div>
+            <div class="som__lijf">
+              <p class="som__leeg" id="vkLeeg">Vul bij de werkzaamheden een aantal in. Zodra je het eerste aantal invult, verschijnt hier de bandbreedte voor je verbouwing, met de opslagen erbij.</p>
+
+              <div id="vkUitkomst" hidden>
+                <label class="som__keuze">
+                  <span>Waar staat de woning?</span>
+                  <select id="vkRegioKeuze">
+                    <option value="buiten">Buiten de Randstad (o.a. Brabant, Gelderland)</option>
+                    <option value="randstad">In de Randstad</option>
+                  </select>
+                </label>
+                <label class="som__keuze">
+                  <span>Post onvoorzien</span>
+                  <select id="vkOnvoorzienKeuze">
+                    <option value="0">Geen reservering</option>
+                    <option value="0.05">5%: nieuwbouw of recent verbouwd</option>
+                    <option value="0.1" selected>10%: gebruikelijke reservering</option>
+                    <option value="0.15">15%: oud pand of casco-aanpak</option>
+                  </select>
+                </label>
+                <label class="som__vink">
+                  <input type="checkbox" id="vkVergunning">
+                  <span>Er is een omgevingsvergunning nodig (leges 0,9&ndash;8,4% van de bouwsom, per gemeente verschillend)</span>
+                </label>
+
+                <div class="som__regel"><span>Werkzaamheden</span><span id="vkWerk">–</span></div>
+                <div class="som__regel" id="vkRijRegio" hidden><span>Regio-opslag Randstad</span><span id="vkRegio">–</span></div>
+                <div class="som__regel" id="vkRijOnvoorzien" hidden><span>Onvoorzien</span><span id="vkOnvoorzien">–</span></div>
+                <div class="som__regel" id="vkRijLeges" hidden><span>Leges vergunning</span><span id="vkLeges">–</span></div>
+                <div class="som__totaal"><b>Bandbreedte totaal</b><strong id="vkTotaal">–</strong></div>
+              </div>
+
+              <div class="som__acties">
+                <button type="button" class="btn" id="vkOverzichtBtn" disabled>Open het kostenoverzicht</button>
+                <a class="btn btn--ghost" href="/#contact">Offerte aanvragen</a>
+                <button type="button" class="btn btn--ghost" id="vkWisBtn">Alles wissen</button>
+              </div>
+              <p class="som__voet">Richtprijzen inclusief btw uit landelijke kostenoverzichten. Dit is een indicatie om een budget mee te bepalen, geen offerte. Deze calculator is een demo van Next Growth.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HOE LEEST U DIT ============ -->
+    <section class="sectie" id="lezen" aria-label="Hoe lees je de uitkomst">
+      <div class="wrap">
+        <p class="eyebrow"><span class="dot dot--ok"></span>De uitkomst lezen</p>
+        <h2 class="h2">Een bandbreedte zegt meer dan een bedrag.</h2>
+        <p style="max-width:54em">Wie je één getal geeft voor een verbouwing die hij niet gezien heeft, verkoopt je zekerheid die niet bestaat. Daarom eindigt deze calculator met twee getallen. Zo gebruik je ze.</p>
+
+        <div class="duo">
+          <div class="kaartje">
+            <h3>Waar de onderkant bij hoort</h3>
+            <p>Eenvoudige uitvoering, standaard materialen, een woning waar niets tegenvalt en een werkplek die goed bereikbaar is. Ruime kamers werken in je voordeel: hoe groter het vlak, hoe lager de prijs per vierkante meter.</p>
+          </div>
+          <div class="kaartje">
+            <h3>Waar de bovenkant bij hoort</h3>
+            <p>Maatwerk, luxe afwerking, een pand van voor de oorlog, kleine ruimtes met veel hoeken, werken in bewoonde staat en een achtertuin waar geen kruiwagen langs kan. In de praktijk komen die dingen vaak samen.</p>
+          </div>
+          <div class="kaartje">
+            <h3>Wat er niet in zit</h3>
+            <ul>
+              <li>Steigerwerk en verticaal transport</li>
+              <li>Tijdelijke huisvesting, verhuizen en opslag</li>
+              <li>Herstel van tuin, bestrating en oprit</li>
+              <li>De verplichte asbestinventarisatie vooraf</li>
+              <li>Wat er achter de muur blijkt te zitten</li>
+            </ul>
+          </div>
+          <div class="kaartje">
+            <h3>Btw: 21% en 9% door elkaar</h3>
+            <p>Alle bedragen zijn inclusief btw. Voor schilderen, stukadoren, behangen en het aanbrengen van isolatiemateriaal geldt bij woningen ouder dan twee jaar het verlaagde tarief van 9%; isolatiemateriaal zelf blijft 21%. Dat verschil zit al in de richtprijzen. Zie je op een offerte overal 21% staan bij een oud huis, vraag daar dan naar.</p>
+          </div>
+        </div>
+
+        <div class="beeldrij">
+          <figure>
+            <img src="./assets/media/dakopbouw/interieur/badkamer-luxe-01.jpg" alt="Afgewerkte badkamer met grootformaat tegelwerk en inloopdouche" loading="lazy" width="800" height="600">
+            <figcaption>Badkamer: de duurste kamer per vierkante meter, omdat leidingwerk, tegelwerk en sanitair er samenkomen.</figcaption>
+          </figure>
+          <figure>
+            <img src="./assets/media/dakopbouw/installaties/dakopbouw-warmtepomp-01.jpg" alt="Warmtepomp-buitenunit aan de gevel van een woning" loading="lazy" width="800" height="600">
+            <figcaption>Installaties bepalen in oudere woningen vaker de planning dan het bouwkundige werk.</figcaption>
+          </figure>
+          <figure>
+            <img src="./assets/media/staal/blad-s01.jpg" alt="Berekeningsblad S-01 met belastingopbouw, controles en oplegging van de stalen ligger" loading="lazy" width="800" height="600">
+            <figcaption>Zit er een doorbraak in je plan? In de draagbalk-demo maak je direct online de voordimensionering van de ligger.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HET REKENBLAD: ZO GEBRUIKT U HET ============ -->
+    <section class="sectie sectie--licht" aria-label="Zo gebruik je de calculator">
+      <div class="wrap">
+        <p class="eyebrow"><span class="dot dot--ok"></span>Van indicatie naar echte prijs</p>
+        <h2 class="h2">Vijf stappen, en je weet waar je aan toe bent.</h2>
+        <p style="max-width:52em">Een budget bepalen is stap één. Daarna wil je offertes kunnen beoordelen zonder dat je de bouw in hoeft te duiken. Zo kom je daar.</p>
+
+        <ol class="werkblad">
+          <li class="werkregel">
+            <span class="werkregel__nr">01</span>
+            <span class="werkregel__naam">Vink aan wat er moet gebeuren</span>
+            <div class="werkregel__uit">
+              <p>Loop de negen groepen langs en vul per werkzaamheid een aantal in: vierkante meters voor vloeren en stucwerk, strekkende meters voor een dakkapel of keuken, stuks voor een groepenkast of een doorbraak. Alleen wat je invult telt mee, en je kunt eindeloos schuiven.</p>
+              <p>Weet je een oppervlakte niet? Meet de kamer grofweg op en rond naar boven af. Voor een budget is een halve meter verschil onbelangrijk; een vergeten post van vijfduizend euro is dat wel.</p>
+            </div>
+          </li>
+          <li class="werkregel">
+            <span class="werkregel__nr">02</span>
+            <span class="werkregel__naam">Zet de drie opslagen goed</span>
+            <div class="werkregel__uit">
+              <p>Regio, onvoorzien en leges. Samen zijn ze vaak goed voor een kwart van het eindbedrag, en juist die drie ontbreken in de meeste calculators. Dat verklaart waarom mensen zeggen dat hun verbouwing &ldquo;veel duurder uitviel dan berekend&rdquo;.</p>
+              <p>In Brabant en Gelderland laat je de regio-opslag uit staan: die geldt voor de Randstad, waar tarieven 20 tot 30% hoger liggen.</p>
+            </div>
+          </li>
+          <li class="werkregel">
+            <span class="werkregel__nr">03</span>
+            <span class="werkregel__naam">Druk het kostenoverzicht af</span>
+            <div class="werkregel__uit">
+              <p>Eén A4 met elke post, het aantal, de eenheidsprijs, het subtotaal en de bandbreedte voor het geheel. Onderaan staan de gebruikte bronnen en de voorbehouden, inclusief wat er níet in zit.</p>
+              <p>Neem dat vel mee naar het keukentafelgesprek. Een aannemer die ziet dat je weet wat de posten zijn, rekent anders dan een aannemer die denkt dat je alleen op de onderste regel let.</p>
+            </div>
+          </li>
+          <li class="werkregel">
+            <span class="werkregel__nr">04</span>
+            <span class="werkregel__naam">Leg offertes ernaast, post voor post</span>
+            <div class="werkregel__uit">
+              <p>Vergelijk niet de eindbedragen maar de regels. Een offerte die veel lager uitkomt dan je indicatie mist meestal iets: het stucwerk, de afvoer, het herstel van de vloer na de doorbraak. Een offerte die er ver boven zit, mag dat uitleggen.</p>
+              <p>Let vooral op wat er niet staat. Steiger, container, en het aanwerken na de sloop zijn de klassieke drie.</p>
+            </div>
+          </li>
+          <li class="werkregel">
+            <span class="werkregel__nr">05</span>
+            <span class="werkregel__naam">Stel de echte uitvoering samen in een configurator</span>
+            <div class="werkregel__uit">
+              <p>Voor een uitbouw, dakopbouw of badkamer hoef je geen landelijk gemiddelde te gebruiken: in een configurator stel je de werkelijke uitvoering samen en zie je de richtprijs van precies díe samenstelling, met beeld erbij. Zit er een doorbraak in je plan, dan maak je de balkberekening online, inclusief de kolommen als de hele gevel opengaat. Next Growth bouwt die configurators voor bouwbedrijven; hieronder staan de demo's.</p>
+              <p>De rest van je verbouwing hou je met dit overzicht in de hand.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ INSTAP NAAR DE CONFIGURATORS ============ -->
+    <section class="sectie instap" aria-label="Direct samenstellen">
+      <div class="wrap">
+        <div class="instap__kop">
+          <p class="eyebrow"><span class="dot dot--ok"></span>Van richtprijs naar jouw prijs</p>
+          <h2 class="h2">Voor deze onderdelen rekent een configurator je eigen samenstelling door.</h2>
+          <p>De calculator hierboven werkt met landelijke richtprijzen. Met een configurator op de site van een bouwbedrijf kan het preciezer: je stelt het onderdeel samen en ziet de richtprijs van je eigen keuzes, met een beeld bij je eigen woning. Probeer het in de demo's van Next Growth.</p>
+        </div>
+        <div class="instap__rij">
+          <a class="instapkaart" href="./aanbouw-configurator.html?type=uitbouw&amp;start=2">
+            <span class="instapkaart__label">Uitbouw &amp; aanbouw</span>
+            <span class="instapkaart__titel">Stel je uitbouw samen</span>
+            <span class="instapkaart__uit">Afmetingen, gevel en pui, met de richtprijs die bij elke keuze meebeweegt en je eigen achtergevel als achtergrond.</span>
+            <span class="instapkaart__actie">Openen <span aria-hidden="true">&rarr;</span></span>
+          </a>
+          <a class="instapkaart" href="/dakopbouw-configurator">
+            <span class="instapkaart__label">Dakopbouw</span>
+            <span class="instapkaart__titel">Stel je dakopbouw samen</span>
+            <span class="instapkaart__uit">Inclusief de draagcheck op je bestaande muren en een eerlijk antwoord op de vergunningsvraag.</span>
+            <span class="instapkaart__actie">Openen <span aria-hidden="true">&rarr;</span></span>
+          </a>
+          <a class="instapkaart" href="/draagbalk-berekenen">
+            <span class="instapkaart__label">Doorbraak</span>
+            <span class="instapkaart__titel">Bereken je draagbalk</span>
+            <span class="instapkaart__uit">Voordimensionering van de stalen ligger, met kolommen als de hele gevel opengaat. Klaar voor controle door een constructeur.</span>
+            <span class="instapkaart__actie">Openen <span aria-hidden="true">&rarr;</span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ UURTARIEVEN + BRONNEN ============ -->
+    <section class="sectie sectie--licht" aria-label="Uurtarieven en bronnen">
+      <div class="wrap">
+        <div class="duo" style="align-items:start">
+          <div>
+            <p class="eyebrow"><span class="dot dot--ok"></span>Ter controle</p>
+            <h2 class="h2">Uurtarieven in de bouw.</h2>
+            <p style="max-width:44em">Staat er op je offerte regiewerk in plaats van een vaste prijs, dan wil je weten of het tarief klopt. Dit zijn de gangbare tarieven voor 2026. Let op: dit zijn de enige bedragen op deze pagina <b>exclusief</b> btw, zoals in de bouw gebruikelijk.</p>
+            <table class="tarieven" id="vkTarieven">
+              <thead><tr><th scope="col">Vakman</th><th scope="col">Per uur, excl. btw</th></tr></thead>
+              <tbody id="vkTarievenLijf"></tbody>
+            </table>
+          </div>
+          <div>
+            <p class="eyebrow"><span class="dot dot--ok"></span>Verantwoording</p>
+            <h2 class="h2">Waar deze bedragen vandaan komen.</h2>
+            <p style="max-width:44em">Geen enkel bedrag in deze calculator is een eigen schatting. Elk bereik komt uit een openbaar kostenoverzicht, en op het afgedrukte overzicht staat per verbouwing welke bronnen zijn gebruikt. In een versie voor een bouwbedrijf kunnen dit ook de eigen prijzen van dat bedrijf zijn.</p>
+            <ul class="bronnen" id="vkBronnen"></ul>
+            <p style="margin-top:1rem;font-size:.85rem;color:var(--text-3)">Over de btw-tarieven: zie de toelichting van de <a href="https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/btw/tarieven_en_vrijstellingen/diensten_9_btw/werkzaamheden_aan_woningen/woningen_ouder_dan_2_jaar" rel="nofollow noopener" target="_blank">Belastingdienst over werkzaamheden aan woningen ouder dan 2 jaar</a>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="sectie" aria-label="Veelgestelde vragen over verbouwkosten">
+      <div class="wrap">
+        <p class="eyebrow"><span class="dot dot--ok"></span>Vragen die hier vaak op volgen</p>
+        <h2 class="h2">Over verbouwkosten.</h2>
+        <div class="faq-lijst" style="margin-top:1.6rem">
+          <details class="faq">
+            <summary>Wat kost een verbouwing gemiddeld? <span class="plus" aria-hidden="true">+</span></summary>
+            <p>Landelijke kostenoverzichten noemen voor een complete woningrenovatie bedragen van ongeveer &euro;60.000 tot &euro;150.000 en voor alleen de begane grond zo'n &euro;30.000 tot &euro;60.000. Aan zulke gemiddelden heb je weinig: ze zeggen niets over je huis en je wensenlijst. De calculator hierboven rekent daarom van onderaf op: per werkzaamheid een aantal en een richtprijs, opgeteld tot een bandbreedte voor je eigen plan.</p>
+          </details>
+          <details class="faq">
+            <summary>Zijn dit prijzen van Next Growth? <span class="plus" aria-hidden="true">+</span></summary>
+            <p>Nee, en dat staat ook op het overzicht. Het zijn richtprijzen uit landelijke kostenoverzichten, met per regel een bronvermelding. Het is bedoeld om een budget te bepalen en offertes te beoordelen. Het is geen offerte en geen aanbod. Next Growth bouwt deze calculator als demo voor bouwbedrijven. Voor uitbouw, dakopbouw, badkamer en de balkberekening krijg je in de demo-configurators een richtprijs voor precies jouw samenstelling.</p>
+          </details>
+          <details class="faq">
+            <summary>Waarom krijg ik een bandbreedte en geen bedrag? <span class="plus" aria-hidden="true">+</span></summary>
+            <p>Omdat het verschil tussen eenvoudig en luxe werk bij vrijwel elke post een factor twee is, en omdat niemand die je woning niet gezien heeft weet wat er achter de muren zit. E&eacute;n bedrag zou precisie suggereren die er niet is. Gebruik het midden voor je budget en houd rekening met de bovenkant.</p>
+          </details>
+          <details class="faq">
+            <summary>Zit de btw er al in? <span class="plus" aria-hidden="true">+</span></summary>
+            <p>Ja, alle bedragen in de calculator zijn inclusief btw en inclusief arbeid. Voor schilderen, stukadoren, behangen en het aanbrengen van isolatiemateriaal geldt bij woningen ouder dan twee jaar het verlaagde tarief van 9%; het isolatiemateriaal zelf valt onder 21%. Alleen de uurtarieven hierboven staan exclusief btw.</p>
+          </details>
+          <details class="faq">
+            <summary>Hoeveel moet ik reserveren voor onvoorzien? <span class="plus" aria-hidden="true">+</span></summary>
+            <p>In de bouw is 5 tot 10% van de bouwsom de gebruikelijke vuistregel. Bij woningen van voor 1970 is 10% realistischer dan 5%, en bij een casco-aanpak waarbij alles opengaat mag het gerust 15% zijn. Het is geen bronprijs maar ervaring: de kosten die je niet zag aankomen, komen bijna altijd.</p>
+          </details>
+          <details class="faq">
+            <summary>Waarom lopen de legeskosten voor de vergunning zo uiteen? <span class="plus" aria-hidden="true">+</span></summary>
+            <p>Omdat elke gemeente haar eigen legesverordening heeft. Bij dezelfde bouwsom rekent de ene gemeente 0,9% en de andere 8,4%. Bij een verbouwing van een ton scheelt dat duizenden euro's. De calculator rekent daarom met die volle landelijke spreiding. Wil je het precies weten, kijk dan in de legesverordening van je eigen gemeente.</p>
+          </details>
+          <details class="faq">
+            <summary>Blijven mijn ingevulde gegevens bewaard? <span class="plus" aria-hidden="true">+</span></summary>
+            <p>Je invoer blijft in je eigen browser staan zodat je later verder kunt, maar er gaat niets naar een server en er wordt niets opgeslagen. Pas als je zelf een offerte aanvraagt, komt er een mens in beeld.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SLOT-CTA ============ -->
+    <section class="sectie sectie--licht" aria-label="Aan de slag">
+      <div class="wrap">
+        <div class="oproep">
+          <div class="oproep__copy">
+            <h3>Weet je je budget? Dan is ontwerpen de volgende stap.</h3>
+            <p>Voor de uitbouw, de dakopbouw en de badkamer stel je in de demo-configurators in tien minuten samen wat je werkelijk wilt, met beeld en richtprijs, en zonder dat je ergens aan vastzit.</p>
+          </div>
+          <a class="btn" href="/aanbouw-configurator">Ontwerp je uitbouw <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+    </section>
+
+
+  <!-- ============ TERUGBELVERZOEK ============ -->
+  <div class="ng-terugbel" role="region" aria-labelledby="terugbel-kop">
+    <div class="wrap ng-terugbel__in">
+      <div class="ng-terugbel__tekst" data-reveal>
+        <p class="eyebrow">Terugbelverzoek</p>
+        <h2 class="h2" id="terugbel-kop">Liever even bellen over zo'n calculator?</h2>
+        <p class="lede">Laat je nummer achter, dan bellen we je dezelfde werkdag terug om je plan door te nemen. Geen verkooppraatje, gewoon antwoord.</p>
+        <ul class="ng-terugbel__punten">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Binnen &eacute;&eacute;n werkdag gebeld</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Direct antwoord op kosten en planning</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Vrijblijvend, je zit nergens aan vast</span></li>
+        </ul>
+        <p class="ng-terugbel__zelf">Liever zelf bellen? <a href="tel:+31683902192">06 83 90 21 92</a></p>
+      </div>
+
+      <div class="card ng-terugbel__kaart" data-reveal style="--i:1">
+        <p class="ng-terugbel__kop"><span class="dot dot--ok" aria-hidden="true"></span>2 velden &middot; 15 seconden</p>
+        <form data-terugbel data-bron="verbouwkosten-calculator.html" action="mailto:info@nextgrowthdigital.nl" method="post" enctype="text/plain" aria-label="Terugbelverzoek">
+            <div class="ng-veld">
+              <label for="tb-naam">Naam</label>
+              <input type="text" id="tb-naam" name="naam" placeholder="Voor- en achternaam" autocomplete="name" required>
+            </div>
+            <div class="ng-veld">
+              <label for="tb-tel">Telefoonnummer</label>
+              <input type="tel" id="tb-tel" name="telefoon" placeholder="06 12 34 56 78" autocomplete="tel" inputmode="tel" required>
+            </div>
+            <div class="ng-terugbel__honeypot" aria-hidden="true">
+              <label for="tb-website">Website (niet invullen)</label>
+              <input type="text" id="tb-website" name="website" tabindex="-1" autocomplete="off">
+            </div>
+            <button class="btn ng-terugbel__verstuur" type="submit">Bel mij terug</button>
+            <p class="ng-terugbel__noot">Alleen om je terug te bellen. Geen nieuwsbrief, geen belrondes.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  </main>
+
+  <div class="actiebalk" aria-label="Snelle acties">
+    <a class="btn" href="#calculator">Reken je verbouwing door</a>
+    <a class="bel" href="tel:+31683902192" aria-label="Bel Next Growth">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+    </a>
+  </div>
+
+  <footer class="ngx-foot"><div class="ngx-wrap">
+<div class="ngx-end"><h2>Zo'n configurator <span>op jouw site?</span></h2><div><p>Eén gesprek van twintig minuten. Je spreekt direct met de mensen die het bouwen en krijgt dezelfde dag een eerlijk advies.</p><a class="ngx-cta big" href="/#contact">Plan een kennismaking</a><a class="ngx-tel" href="tel:+31683902192">06 83 90 21 92</a></div></div>
+<div class="ngx-cols">
+<div><a class="ngx-brand" href="/"><span class="ngx-mk"><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14V4l10 10V4" stroke="#0A0800" stroke-width="2.8" stroke-linecap="square"/></svg></span><span>Next Growth Digital</span></a><p>Creatief groeibureau, landelijk actief. Branding, webdesign, marketing en eigen software.</p><p>info@nextgrowthdigital.nl</p></div>
+<div><h4>Diensten</h4><ul><li><a href="/dienst-branding">Branding</a></li><li><a href="/dienst-webdesign">Webdesign</a></li><li><a href="/dienst-marketing">Marketing</a></li><li><a href="/dienst-configurators">Configurators</a></li><li><a href="/dienst-crm">CRM &amp; offertes</a></li><li><a href="/prijzen">Prijzen</a></li></ul></div>
+<div><h4>Configurators</h4><ul><li><a href="/overkapping-configurator">Overkapping</a></li><li><a href="/aanbouw-configurator">Uitbouw</a></li><li><a href="/dakkapel-configurator">Dakkapel</a></li><li><a href="/dakopbouw-configurator">Dakopbouw</a></li><li><a href="/badkamer-configurator">Badkamer</a></li><li><a href="/zwembad-configurator">Zwembad</a></li><li><a href="/jacht-configurator">Jacht</a></li></ul></div>
+<div><h4>Kennisbank</h4><ul><li><a href="/kennisbank">Alle artikelen</a></li><li><a href="/kennisbank-configurator-kosten">Wat kost een configurator?</a></li><li><a href="/configurator-laten-maken">Configurator laten maken</a></li><li><a href="/kennisbank-website-kosten">Wat kost een website?</a></li></ul></div>
+<div><h4>Bedrijf</h4><ul><li><a href="/#cases">Cases</a></li><li><a href="/werkgebied">Werkgebied</a></li><li><a href="/privacyverklaring">Privacyverklaring</a></li><li><a href="/auteursrecht">Auteursrecht</a></li><li><a href="/#contact">Contact</a></li></ul></div>
+</div>
+<div class="ngx-legal"><span>© 2026 Next Growth Digital</span><span>KVK 96002913</span><span>Landelijk actief · Nederland</span></div>
+<p class="ngx-giant" aria-hidden="true">NEXT GROWTH</p></div></footer>
+<script>(function(){var b=document.querySelector('.ngx-menu'),n=document.getElementById('ngx-mnav');if(!b||!n)return;b.addEventListener('click',function(){var o=n.hasAttribute('hidden');if(o)n.removeAttribute('hidden');else n.setAttribute('hidden','');b.setAttribute('aria-expanded',o?'true':'false');b.textContent=o?'Sluiten':'Menu'})})();</script>
+
+  <script src="./assets/meting.js" defer></script>
+  <script src="./assets/terugbel.js" defer></script>
+  <script src="./assets/core.js" defer></script>
+  <script src="./assets/verbouwkosten-data.js"></script>
+<script src="./assets/afdrukvenster.js" defer></script>
+  <script src="./assets/verbouwkosten.js"></script>
+  <script>
+    /* Uurtarieven en bronnenlijst komen uit dezelfde prijstabel, zodat er
+       maar één plek is waar bedragen en bronnen onderhouden worden. */
+    (function () {
+      var D = window.NGVerbouwPrijzen;
+      if (!D) return;
+      var tl = document.getElementById('vkTarievenLijf');
+      if (tl) {
+        tl.innerHTML = D.uurtarieven.map(function (t) {
+          return '<tr><td>' + t.vak + '</td><td>&euro; ' + t.lo + ' – &euro; ' + t.hi + '</td></tr>';
+        }).join('');
+      }
+      var bl = document.getElementById('vkBronnen');
+      if (bl) {
+        var gebruikt = {};
+        D.groepen.forEach(function (g) { g.items.forEach(function (i) { gebruikt[i.bron] = true; }); });
+        bl.innerHTML = Object.keys(gebruikt).map(function (k) {
+          var b = D.bronnen[k]; if (!b) return '';
+          return '<li>' + (b.url
+            ? '<a href="' + b.url + '" rel="nofollow noopener" target="_blank">' + b.naam + '</a>'
+            : b.naam) + '</li>';
+        }).join('') + '<li>Prijspeil bijgewerkt op ' + D.bijgewerkt + '.</li>';
+      }
+    })();
+  </script>
+  
+  <a class="nx-wa" href="https://wa.me/31683902192" target="_blank" rel="noopener" aria-label="Stel je vraag via WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a9.9 9.9 0 0 0-8.5 15L2 22l5.2-1.4A9.9 9.9 0 1 0 12 2zm0 1.7a8.2 8.2 0 1 1-4.2 15.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.7zm-3.1 4.2c-.2 0-.5 0-.7.3-.2.3-.9.9-.9 2.1s.9 2.5 1 2.6c.1.2 1.8 2.8 4.3 3.8 2.1.8 2.6.7 3 .6.5 0 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.4-.2-1.5-.7c-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.5 7.5 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5v-.5L9.5 8.2c-.2-.4-.4-.3-.6-.3z"/></svg></a>
+  <!-- Vercel Analytics (scripts/analytics.py) -->
+  
+  
+</body>
+</html>

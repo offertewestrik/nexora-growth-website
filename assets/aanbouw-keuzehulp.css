@@ -1,0 +1,127 @@
+/* Only the extension configurator loads this stylesheet. */
+.ng-designs{margin-top:20px;padding:18px;border:1px solid var(--line-strong);border-radius:12px;background:var(--bg-raise);font-size:1rem;color:var(--text)}
+.ng-designs summary{cursor:pointer;font-weight:650;padding:8px 0;min-height:40px}
+.ng-designs p{font-size:.875rem;line-height:1.6;margin:12px 0;color:var(--text-2)}
+.ng-design-actions{display:flex;flex-wrap:wrap;gap:8px}
+.ng-design-actions button,.ng-designs button{min-height:44px;font-size:.875rem;white-space:normal}
+#ngDesignLink{width:100%;min-width:0;box-sizing:border-box;padding:12px;margin:12px 0;background:var(--bg-raise-2);color:var(--text);border:1px solid var(--acc);border-radius:8px;font:inherit}
+#ngDesignStatus{color:var(--text)}
+#ngCompare{overflow:auto;margin-top:18px}
+#ngCompare table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:.875rem}
+#ngCompare th,#ngCompare td{padding:10px 6px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;overflow-wrap:anywhere}
+#ngCompare th{font-weight:600;color:var(--text)}
+#ngCompare>button{margin:6px 8px 0 0}
+.ng-choice-help{margin:8px 0;font-size:.875rem;line-height:1.6;color:var(--text-2)}
+.ng-choice-help summary{cursor:pointer;color:var(--text);min-height:40px;padding:8px 0}
+.ng-guided [hidden]{display:none!important}
+.ng-guided .cfg-hero{padding-top:86px;text-align:left}
+.ng-guided .cfg-hero .wrap{max-width:1600px}
+.ng-guided .cfg-hero .h1{font-family:var(--font,Inter,sans-serif);font-size:clamp(1.6rem,3vw,2.4rem);max-width:none;margin:0;line-height:1.15}
+.ng-guided .cfg-hero .lede{margin:.55rem 0 0;font-size:1rem;max-width:70ch}
+.ng-guided .cfg-hero .pill{display:none}
+.ng-projecttypes{margin-top:1rem;font-size:.875rem;color:var(--text-2)}
+.ng-projecttypes summary{cursor:pointer;min-height:32px}
+.ng-projecttypes .matswitch{margin:.6rem 0 0}
+.ng-guided .presets{margin:1rem 0 0;max-width:none}
+.ng-guided .presets__row{justify-content:flex-start}
+.ng-guided .preset__t b,.ng-guided .preset__t span{font-size:.875rem;line-height:1.4}
+.ng-guided .presets__lbl{font-size:.75rem}
+.ng-guided .conf{margin-top:0;scroll-margin-top:80px}
+.ng-guided .conf__head{display:none}
+.ng-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;scroll-margin-top:80px;margin-bottom:1.3rem}
+.ng-steps button{font:inherit;font-weight:600;font-size:.875rem;padding:14px 10px;border:1px solid var(--line-strong);border-radius:10px;background:var(--bg-raise);color:var(--text-2);cursor:pointer}
+.ng-steps button[aria-current]{background:var(--acc);color:#17130a;border-color:var(--acc)}
+.ng-step-title{font-size:1.35rem;margin:0 0 .5rem;color:var(--text);outline:none}
+.ng-tax-note,.ng-fit-note,.ng-budget-note,.ng-image-note{font-size:.875rem!important;line-height:1.55;color:var(--text-2)!important}
+.ng-image-note{margin:-.4rem 0 .9rem}
+.ng-fit-note{padding:12px;border-left:3px solid var(--acc);background:var(--bg-raise);margin:0 0 12px}
+.ng-tax-note{margin-bottom:1rem}
+.ng-guided .tile__c .lab,.ng-guided .tile__c .sub{font-size:.875rem;line-height:1.45}
+.ng-guided .tile__c .sub{color:var(--text-2)}
+.ng-guided .tile input:disabled+.tile__c{opacity:.5;cursor:not-allowed;border-style:dashed}
+.ng-guided .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+.ng-guided .grp__h{font-size:.875rem}
+.ng-guided .grp__h b{display:none}
+.ng-guided .dim__row{display:grid;grid-template-columns:76px minmax(70px,1fr);gap:10px;margin-bottom:18px}
+.ng-guided .dim__row label{font-size:.875rem;color:var(--text)}
+.ng-guided .dim__row>output{display:none}
+.ng-guided .dim__row>input{width:100%;accent-color:var(--acc);min-width:0}
+.ng-number{grid-column:1/-1;display:flex;align-items:center;gap:8px;justify-content:flex-end}
+.ng-number button{width:40px;height:40px;border:1px solid var(--line-strong);border-radius:8px;background:var(--bg-raise-2);color:var(--text);font:inherit;cursor:pointer}
+.ng-number input{width:84px;height:42px;border:1px solid var(--line-strong);background:var(--bg-raise-2);color:var(--text);font:inherit;border-radius:8px;text-align:center}
+.ng-number>span{font-size:.875rem;color:var(--text-2)}
+.ng-step-actions{display:flex;justify-content:space-between;gap:10px;margin-top:18px}
+.ng-step-actions button{min-height:44px;font-size:.875rem}
+.ng-layout-step{background:var(--bg-raise);padding:20px;border:1px solid var(--line);border-radius:14px}
+.ng-layout-step p{font-size:1rem;margin-bottom:20px}
+.ng-guided .pricebar__p .k{font-size:.75rem;flex-wrap:wrap;color:var(--text-2)}
+.ng-guided .btw button{font-size:.75rem;min-height:36px}
+.ng-guided .pricebar__cta .btn{font-size:.875rem;padding:12px 16px}
+.ng-price-detail{width:100%;font-size:.875rem;border-top:1px solid var(--line);padding-top:12px}
+.ng-price-detail summary,.ng-technical summary{cursor:pointer;font-weight:600;color:var(--text);padding:8px 0}
+#ngBreakdown>div{display:flex;justify-content:space-between;gap:15px;margin:10px 0;color:var(--text-2)}
+#ngBreakdown strong{white-space:nowrap;color:var(--text)}
+.ng-budget-note{width:100%;margin:0}
+.ng-notice{background:var(--bg-raise);border:1px solid var(--acc);border-radius:10px;padding:14px;color:var(--text);font-size:1rem}
+.ng-technical{border:1px solid var(--line);border-radius:12px;padding:16px;margin-top:24px}
+#ngTechnicalActions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+#ngReview{background:var(--bg-raise);border:1px solid var(--line);border-radius:14px;padding:20px}
+#ngReview h3{font-size:1.15rem;margin:0 0 16px}
+#ngReview dl{margin:0 0 20px}
+#ngReview dl>div{padding:10px 0;border-bottom:1px solid var(--line)}
+#ngReview dt{font-size:.875rem;color:var(--text-2)}
+#ngReview dd{margin:4px 0 0;font-size:1rem;overflow-wrap:anywhere}
+#ngReview .ng-image-note{margin:16px 0 0}
+.ng-mobile-progress{display:none}
+.ng-guided #offerte{scroll-margin-top:90px}
+.ng-guided .ng-layout-card{color-scheme:light}
+.ng-guided .ng-layout-card h2,.ng-guided .ng-layout-card h3,.ng-guided .ng-layout-card select,.ng-guided .ng-layout-card option,.ng-guided .ng-layout-card .ng-layout-close{color:#171717}
+.ng-guided .ng-layout-card p,.ng-guided .ng-layout-card .ng-room-area{color:#57534e;font-size:.875rem}
+.ng-guided .ng-layout-card select{font-size:1rem}
+@media(max-width:899px){
+ .ng-guided{padding-bottom:94px}
+ .ng-guided .cfg-hero{padding-top:78px}
+ .ng-guided .cfg-hero .h1{font-size:1.6rem}
+ .ng-guided .cfg-hero .lede{font-size:.875rem}
+ .ng-guided .presets__row{display:flex;flex-wrap:nowrap;overflow:auto;padding-bottom:8px;scroll-snap-type:x proximity}
+ .ng-guided .preset{min-width:210px;scroll-snap-align:start}
+ .ng-guided .presets__lbl{margin-bottom:8px}
+ .ng-guided .sectie[aria-label=Configurator]{padding-top:1rem!important}
+ /* Vijf stappen naast elkaar geeft op een telefoon vakjes van 67 px. Met
+    overflow-wrap:anywhere brak "2. Buitenkant" dan midden in het woord af en
+    werden de labels twee regels hoog. Nu een strook die horizontaal
+    meeschuift; elk label blijft op één regel en sync() schuift de stap waar
+    je bent vanzelf in beeld. */
+ .ng-steps{display:flex;gap:8px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity;scrollbar-width:none;padding-bottom:4px;margin-bottom:1.1rem;scroll-margin-top:74px}
+ .ng-steps::-webkit-scrollbar{display:none}
+ /* Zonder deze vervaging leest een half afgesneden kaart als kapot in plaats
+    van als "er staat rechts nog meer". */
+ .ng-steps,.ng-guided .presets__row{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 30px),transparent 100%);mask-image:linear-gradient(90deg,#000 calc(100% - 30px),transparent 100%)}
+ .ng-steps button{flex:0 0 auto;white-space:nowrap;padding:12px 16px;font-size:.8125rem;min-height:44px;scroll-snap-align:center}
+ /* De sfeerimpressie stond onder alle keuzes: je stelde je uitbouw samen
+    zonder hem te zien, en zag het resultaat pas voorbij de knop naar de
+    volgende stap. display:contents haalt de wikkel uit de stroom, zodat
+    foto, voorbehoud en prijsblok los te ordenen zijn. Alleen de foto plakt
+    mee onder de navigatiebalk — het prijsblok met vijf knoppen is te hoog om
+    mee te nemen en zakt naar onderen. */
+ .ng-guided .conf__layout{gap:16px;display:flex;flex-direction:column}
+ .ng-guided .conf__visual{display:contents}
+ /* De eerste ring in de paginakleur dekt af wat er langs de ronde hoeken
+    doorheen zou scrollen; de tweede is de slagschaduw. */
+ .ng-guided #confHeroWrap{order:0;position:sticky;top:64px;z-index:6;margin-bottom:0;box-shadow:0 0 0 10px var(--bg),0 18px 34px rgba(0,0,0,.42)}
+ .ng-guided .ng-image-note{order:1;margin:0}
+ .ng-guided .conf__options{width:100%;order:2}
+ .ng-guided .pricebar{order:3}
+ .ng-guided .ng-mobielbalk,.ng-guided .nx-wa{display:none!important}
+ .ng-mobile-progress{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:90;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:var(--bg-raise);border-top:1px solid var(--line-strong);align-items:center;justify-content:space-between;gap:12px}
+ .ng-mobile-progress>div{display:grid;gap:2px}
+ .ng-mobile-progress small{font-size:.75rem;line-height:1.3;color:var(--text-2)}
+ .ng-mobile-progress strong{font-size:1.3rem;color:var(--text)}
+ .ng-mobile-progress button{font-size:.875rem;min-height:46px;padding:12px 18px}
+ .ng-guided .tile__c{padding:12px 10px}
+ .ng-guided .grp{padding:16px}
+ .ng-guided .dim__row{grid-template-columns:70px minmax(70px,1fr)}
+ .ng-step-actions{flex-wrap:wrap}
+ .ng-step-actions #ngNext{margin-left:auto}
+}
+@media(prefers-reduced-motion:reduce){.ng-guided *{scroll-behavior:auto!important}}

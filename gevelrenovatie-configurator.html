@@ -1,0 +1,1669 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gevelrenovatie-configurator, live demo voor gevelbedrijven | Next Growth</title>
+  <meta name="description" content="Live demo van een gevelrenovatie-configurator die Next Growth bouwt voor gevel- en bouwbedrijven. De klant kiest reinigen, voegwerk, steenherstel, scheurherstel, stucwerk en impregneren, ziet de gevel voor en na en krijgt live een richtprijs inclusief btw.">
+  <link rel="canonical" href="https://nextgrowthdigital.nl/gevelrenovatie-configurator">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="nl_NL">
+  <meta property="og:site_name" content="Next Growth">
+  <meta property="og:title" content="Gevelrenovatie-configurator, live demo voor gevelbedrijven | Next Growth">
+  <meta property="og:description" content="Live demo van een gevelrenovatie-configurator van Next Growth: reinigen, voegwerk, steenherstel, scheurherstel, stucwerk en impregneren, met een voor-en-na schuifbeeld en een live richtprijs.">
+  <meta property="og:url" content="https://nextgrowthdigital.nl/gevelrenovatie-configurator">
+  <meta property="og:image" content="https://nextgrowthdigital.nl/assets/media/dakopbouw/keralit-antraciet-keralit-met-zwarte-kozijnen.jpg">
+  <meta property="og:image:width" content="1400">
+  <meta property="og:image:height" content="1050">
+  <meta property="og:image:alt" content="Dakopbouw met antraciet keralit en zwarte kozijnen">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Crect width='18' height='18' rx='4' fill='%23C9A45F'/%3E%3Cpath d='M5 13V5l8 8V5' stroke='%230A0A0B' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./assets/fonts.css">
+  <link rel="stylesheet" href="./assets/core.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Gevelrenovatie en gevelreiniging",
+    "name": "Gevelrenovatie configurator",
+    "url": "https://nextgrowthdigital.nl/gevelrenovatie-configurator",
+    "provider": { "@type": "ProfessionalService", "name": "Next Growth", "email": "info@nextgrowthdigital.nl", "telephone": "+31683902192", "url": "https://nextgrowthdigital.nl/" },
+    "areaServed": ["Nederland"],
+    "description": "Live demo van een gevelrenovatie-configurator die Next Growth bouwt voor gevelbedrijven: reinigen, voegwerk, steenherstel, scheurherstel, stucwerk en impregneren, met een voor-en-na schuifbeeld en een live richtprijs."
+  }
+  </script>
+  <style>
+    :root { --acc: var(--accent); --acc-soft: rgba(var(--accent-rgb),.14); }
+    .cfg-hero { padding: clamp(1.6rem, 5vh, 3rem) 0 0; text-align: center; }
+    .cfg-hero .pill { margin-bottom: 1rem; }
+    .cfg-hero .h1 { max-width: 22ch; margin-inline: auto; }
+    .cfg-hero .lede { margin: 1rem auto 0; max-width: 60ch; }
+
+    .matswitch { display: inline-flex; flex-wrap: wrap; justify-content: center; max-width: 100%; gap: .3rem; padding: .32rem; border: 1px solid var(--line-strong); border-radius: 13px; background: var(--bg-raise); margin: 1.6rem auto 0; }
+    .matswitch button, .matswitch a { display: inline-flex; align-items: center; gap: .5rem; border: none; background: transparent; color: var(--text-2); font: inherit; font-weight: 600; font-size: .9rem; padding: .65rem 1.3rem; border-radius: 10px; cursor: pointer; transition: background .14s ease, color .14s ease; text-decoration: none; }
+    .matswitch button.is-on, .matswitch a.is-on { background: var(--acc); color: #17130a; }
+    .matswitch a:hover { color: var(--text-1); }
+    @media (max-width: 640px) { .matswitch { gap: .25rem; } .matswitch button, .matswitch a { padding: .55rem .8rem; font-size: .8rem; } }
+
+    /* De navigatiebalk staat vast bovenaan en is zestig hoog; de hero rekent
+     * daar zelf mee. Deze balk staat erboven, dus hij moet dat ook doen -
+     * anders schuift hij eronder en leest niemand hem. */
+    .demobalk { border-bottom: 1px solid var(--line); background: var(--bg-raise);
+                padding-top: 60px; }
+    .demobalk__in { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+                    gap: .8rem; padding: .8rem 0; }
+    .demobalk p { font-size: .82rem; color: var(--text-2); margin: 0; max-width: 62ch; }
+    .demobalk b { color: var(--text-1); }
+    .demobalk .btn { font-size: .8rem; padding: .5rem .9rem; white-space: nowrap; }
+    @media (max-width: 640px) { .demobalk .btn { width: 100%; text-align: center; } }
+
+    .conf { border: 1px solid var(--line); border-radius: 18px; background: var(--bg-raise); padding: clamp(1rem, 3vw, 1.7rem); }
+    .conf__layout { display: grid; grid-template-columns: 1fr; gap: 1.1rem; margin-top: 1.1rem; }
+    .conf__visual, .conf__options { min-width: 0; }
+    @media (min-width: 860px) {
+      /* De kolom is precies zo breed als het beeld, en niet breder.
+       *
+       * Eerst begrensde ik alleen het BEELD op de vensterhoogte. Dat loste op
+       * dat je de onderkant van je gevel nooit zag, maar het liet de kolom
+       * even breed staan: op een laag venster stond het beeld daardoor klein
+       * in een brede kolom met een gat ernaast. Nu krimpt de kolom mee, en
+       * gaat de vrijgekomen ruimte naar de keuzes ernaast. */
+      .conf__layout { grid-template-columns: min(60%, calc(100vh - 250px)) minmax(0, 1fr); align-items: start; }
+      /* HET BEELD MOET IN HET SCHERM PASSEN
+         Het schuifbeeld is vierkant, dus de breedte bepaalt ook de hoogte.
+         Zonder grens werd de kolom hoger dan het venster, en omdat hij
+         meekleeft kon de bezoeker de onderkant van zijn eigen gevel nooit
+         zien - hij scrollde en er kwam niets bij. De grens rekent de menubalk,
+         de prijsbalk en wat lucht eraf. Op een hoog scherm doet hij niets, want
+         dan is de kolom toch al smaller. */
+      .conf__visual { position: sticky; top: 80px; }
+    }
+    .conf__head { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1.1rem; }
+    .conf__title { font-size: clamp(1.5rem, 4vw, 2.1rem); font-weight: 800; letter-spacing: -.02em; line-height: 1.05; }
+    .conf__title span { color: var(--acc); }
+    .conf__sub { font-size: .84rem; color: var(--text-2); margin-top: .3rem; }
+
+    /* HET VOOR-EN-NA SCHUIFBEELD
+       Dit is het hart van deze configurator. Twee opnames van precies dezelfde
+       woning, over elkaar, met een greep ertussen. De bezoeker sleept en ziet
+       zijn eigen gevel schoon worden - dat is het argument, en geen tekst haalt
+       daarbij in de buurt. Het werkt alleen omdat de renders tot op de steen
+       uitgelijnd zijn; zou het beeld springen, dan viel de hele truc uit elkaar. */
+    .vn { position: relative; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); aspect-ratio: 1/1; background: var(--bg-raise-2); touch-action: pan-y; user-select: none; }
+    .vn img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+    .vn__na { clip-path: inset(0 0 0 var(--x, 50%)); }
+    .vn__greep { position: absolute; top: 0; bottom: 0; left: var(--x, 50%); width: 2px; background: var(--acc); z-index: 3; cursor: ew-resize; }
+    .vn__greep::after { content: ''; position: absolute; top: 50%; left: 50%; width: 40px; height: 40px; transform: translate(-50%, -50%); border-radius: 50%; background: var(--acc); box-shadow: 0 3px 14px rgba(0,0,0,.45); }
+    .vn__greep svg { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 22px; height: 22px; z-index: 1; color: #17130a; }
+    .vn__lab { position: absolute; bottom: .8rem; z-index: 2; font-family: var(--mono); font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; color: #fff; background: rgba(0,0,0,.5); backdrop-filter: blur(6px); padding: .35rem .6rem; border-radius: 7px; pointer-events: none; }
+    .vn__lab--voor { left: .8rem; }
+    .vn__lab--na { right: .8rem; }
+    .vn__leeg { position: absolute; inset: 0; z-index: 4; display: none; flex-direction: column; align-items: center; justify-content: center; gap: .5rem; text-align: center; padding: 1.5rem; background: rgba(10,9,7,.72); backdrop-filter: blur(2px); }
+    .vn__leeg b { font-size: .95rem; }
+    .vn__leeg span { font-size: .8rem; color: var(--text-2); max-width: 34ch; }
+    .vn.is-leeg .vn__leeg { display: flex; }
+
+    /* De detailstrook: een halve vierkante meter muur, want daar zie je een
+       voegsoort en een reinigingsmethode werkelijk - op een gevelfoto van vijf
+       meter afstand is een knipvoeg een grijze lijn. */
+    /* OP EEN TELEFOON BLIJFT HET BEELD IN ZICHT
+       Zonder dit scrolt de bezoeker het schuifbeeld voorbij zodra hij bij de
+       keuzes komt - en dan verandert er iets wat hij niet ziet. Bij een
+       configurator die over "zo wordt het" gaat, is dat het enige wat er echt
+       toe doet. Alleen het beeld en de prijs kleven mee; de detailstrook en de
+       offertestaat mogen weglopen, die zijn om na te lezen. */
+    @media (max-width: 859px) {
+      .conf__visual { position: sticky; top: 66px; z-index: 6; background: var(--bg-raise); padding-bottom: .5rem; }
+      /* Vierkant is op een telefoon te hoog: dan blijft er geen keuze over om
+         naar te kijken terwijl je hem maakt. Hier stond vier op drie, maar de
+         renders zijn vierkant en werden dus bijgesneden: de onderste kwart van
+         de gevel viel eraf. Het beeld blijft nu vierkant en heel, en is alleen
+         niet hoger dan een deel van het scherm. */
+      .vn { max-width: min(100%, 38vh); margin-inline: auto; }
+    }
+    /* WAT ER NIET IN HET GROTE BEELD ZIT
+     * Een andere reinigingsmethode verandert de gevel op vijf meter afstand
+     * nauwelijks, en een voegkleur al helemaal niet. Zonder uitleg denkt de
+     * bezoeker dat de knop stuk is - dus staat er boven de strook wat er waar
+     * te zien is. */
+    .strookkop { font-size: .78rem; color: var(--text-2); margin: .9rem 0 -.2rem; }
+    /* De strook stond op auto-fit met 1fr, dus bij drie beelden rekte elk op
+     * tot een derde van de hele breedte - vierkant, en dus zeshonderd bij
+     * zeshonderd. Een halve vierkante meter muur op ware grootte, onderaan de
+     * pagina. Het is een naslagstrook, geen tentoonstelling: hij mag meegroeien
+     * tot een formaat waarop je de voeg ziet, en niet verder. */
+    .detailstrook { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 210px));
+                    justify-content: start; gap: .6rem; margin-top: .9rem; }
+    .dtl { border: 1px solid var(--line); border-radius: 11px; overflow: hidden; background: var(--bg-raise-2); }
+    /* height:auto hoort hier, en het ontbreken ervan was de fout. Op het img
+     * staat height="2048" - dat is er met opzet op gezet zodat de browser
+     * ruimte reserveert voordat het beeld binnen is. Maar zonder height:auto
+     * wint dat getal van de vierkantsverhouding, en dan is elke tegel
+     * tweehonderd breed en tweeduizend hoog. */
+    .dtl img { width: 100%; height: auto; aspect-ratio: 1/1; object-fit: cover; display: block; }
+    .dtl b { display: block; font-size: .7rem; padding: .45rem .55rem .1rem; }
+    .dtl span { display: block; font-size: .64rem; color: var(--text-3); padding: 0 .55rem .5rem; }
+
+    .pricebar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1.1rem; padding: 1rem 1.1rem; border: 1px solid var(--line-strong); border-radius: 14px; background: var(--bg-raise-2); }
+    .pricebar__p .k { display: flex; align-items: center; gap: .6rem; font-family: var(--mono); font-size: .66rem; letter-spacing: .08em; text-transform: uppercase; color: var(--text-3); }
+    .pricebar__p .v { display: block; font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 800; letter-spacing: -.02em; margin-top: .25rem; }
+    .pricebar__cta { display: flex; flex-wrap: wrap; gap: .55rem; }
+    .btw { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+    .btw button { border: none; background: transparent; color: var(--text-3); font: inherit; font-size: .62rem; padding: .18rem .45rem; cursor: pointer; }
+    .btw button.is-on { background: var(--acc); color: #17130a; }
+
+    .grp { border-top: 1px solid var(--line); padding: 1.1rem 0; }
+    .grp:first-child { border-top: none; padding-top: 0; }
+    .grp__h { display: flex; align-items: baseline; gap: .5rem; font-family: var(--mono); font-size: .68rem; letter-spacing: .09em; color: var(--text-3); margin-bottom: .75rem; }
+    .grp__h b { color: var(--acc); font-weight: 400; }
+    .grp__noot { font-size: .72rem; color: var(--text-3); margin-top: .55rem; line-height: 1.5; }
+    .grp__row { display: grid; grid-template-columns: repeat(auto-fit, minmax(132px, 1fr)); gap: .55rem; }
+
+    .tile { position: relative; display: block; cursor: pointer; }
+    .tile input { position: absolute; opacity: 0; pointer-events: none; }
+    .tile__c { display: block; border: 1px solid var(--line-strong); border-radius: 11px; background: var(--bg-raise-2); padding: .5rem; transition: border-color .12s ease, background .12s ease; height: 100%; }
+    .tile:hover .tile__c { border-color: var(--acc); }
+    .tile input:checked + .tile__c { border-color: var(--acc); background: var(--acc-soft); }
+    .tile input:focus-visible + .tile__c { outline: 2px solid var(--acc); outline-offset: 2px; }
+    .tile__img { display: block; width: 100%; aspect-ratio: 4/3; border-radius: 7px; background-size: cover; background-position: center; margin-bottom: .45rem; background-color: var(--bg); }
+    .tile .lab { display: block; font-size: .78rem; font-weight: 600; line-height: 1.2; }
+    .tile .sub { display: block; font-size: .67rem; color: var(--text-3); margin-top: .18rem; line-height: 1.3; }
+    .tile .prijs { display: block; font-size: .67rem; color: var(--acc); margin-top: .18rem; }
+
+    .maat { display: flex; align-items: center; gap: .7rem; flex-wrap: wrap; }
+    .maat input[type=range] { flex: 1 1 180px; accent-color: var(--acc); }
+    .maat output { font-family: var(--mono); font-size: .85rem; color: var(--text); min-width: 5.5ch; }
+    .maat .hint { flex-basis: 100%; font-size: .72rem; color: var(--text-3); }
+
+    /* De offertestaat: elke gekozen post met zijn eigen bedrag. Zonder die
+       uitsplitsing is een totaalbedrag een getal om te wantrouwen. */
+    .staat { margin-top: 1.1rem; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+    .staat table { width: 100%; border-collapse: collapse; font-size: .8rem; }
+    .staat th, .staat td { text-align: left; padding: .55rem .8rem; border-bottom: 1px solid var(--line); }
+    .staat th { font-family: var(--mono); font-size: .64rem; letter-spacing: .07em; text-transform: uppercase; color: var(--text-3); font-weight: 400; background: var(--bg-raise-2); }
+    .staat td:last-child, .staat th:last-child { text-align: right; white-space: nowrap; }
+    .staat tr:last-child td { border-bottom: none; }
+    .staat .tot td { font-weight: 700; background: var(--bg-raise-2); }
+    .lead { display: grid; gap: .8rem; margin-top: 1.1rem; }
+    .lead__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: .8rem; }
+    .fld { display: grid; gap: .3rem; }
+    .fld label { font-family: var(--mono); font-size: .64rem; letter-spacing: .07em; text-transform: uppercase; color: var(--text-3); }
+    .fld input, .fld textarea { width: 100%; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--bg-raise-2); color: var(--text); font: inherit; font-size: .85rem; padding: .6rem .7rem; }
+    .fld input:focus, .fld textarea:focus { outline: 2px solid var(--acc); outline-offset: 1px; border-color: var(--acc); }
+    .lead__knoppen { display: flex; flex-wrap: wrap; gap: .55rem; }
+    .lead__msg { font-size: .82rem; padding: .55rem .7rem; border-radius: 9px; background: var(--bg-raise-2); border: 1px solid var(--line-strong); }
+    .lead__msg.ok { border-color: var(--acc); color: var(--acc); }
+    .lead__note { font-size: .74rem; color: var(--text-3); }
+    .staat .leeg td { color: var(--text-3); font-style: italic; }
+
+    /* De foto's van de bezoeker.
+     *
+     * Een gevel laat zich niet in een getal vangen. Vijftig vierkante meter
+     * zegt niets over de aanslag, over of het voegwerk nog vast zit, of over
+     * de dakgoot waar het water dertig jaar langs is gelopen. Daarom mag de
+     * bezoeker foto's meesturen: dan weet degene die de opname inplant vooraf
+     * wat hij aantreft, en dat is precies het verschil tussen een richtprijs
+     * en een offerte.
+     *
+     * De invoer is een echte <input type=file> die alleen uit beeld staat, met
+     * een <label for> als knop ervoor. Dat is niet hetzelfde als een nagebouwde
+     * knop: het toetsenbord, de schermlezer en op een telefoon de keuze tussen
+     * camera en galerij blijven van de invoer zelf. Reden om hem te verbergen
+     * is de opdruk - die komt van de browser en staat in de taal van de
+     * browser, dus op deze Nederlandse pagina leest de helft van de bezoekers
+     * "Choose files - No file chosen". */
+    .fotos__kop { font-family: var(--mono); font-size: .64rem; letter-spacing: .07em; text-transform: uppercase; color: var(--text-3); }
+    .fotos__uit { font-size: .74rem; color: var(--text-3); line-height: 1.55; margin: -.1rem 0 .15rem; }
+    .fotos__invoer { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0; }
+    .fld label.fotos__knop { display: inline-flex; align-items: center; gap: .5rem; justify-self: start; border: 1px dashed var(--line-strong); border-radius: 10px; background: var(--bg-raise-2); color: var(--text); font-size: .82rem; padding: .55rem .85rem; cursor: pointer; text-transform: none; letter-spacing: 0; font-family: inherit; }
+    .fld label.fotos__knop:hover { border-color: var(--acc); color: var(--acc); }
+    .fotos__invoer:focus-visible + label.fotos__knop { outline: 2px solid var(--acc); outline-offset: 2px; }
+    .fld label.fotos__knop svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 1.7; }
+    .fotos__lijst { display: grid; grid-template-columns: repeat(auto-fill, minmax(104px, 152px)); gap: .5rem; margin-top: .2rem; justify-content: start; }
+    .foto { position: relative; aspect-ratio: 4/3; border-radius: 9px; overflow: hidden; border: 1px solid var(--line-strong); background: var(--bg-raise-2); }
+    .foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    /* Het kruisje staat op het beeld en niet ernaast: naast een tegel van
+     * negentig pixels is geen ruimte, en op het beeld is meteen duidelijk
+     * welke foto er weggaat. */
+    .foto__weg { position: absolute; top: 4px; right: 4px; width: 24px; height: 24px; display: grid; place-items: center; border: none; border-radius: 50%; background: rgba(8,8,10,.72); color: #fff; font-size: .95rem; line-height: 1; cursor: pointer; padding: 0; }
+    .foto__weg:hover { background: rgba(8,8,10,.9); color: var(--acc); }
+    .foto__maat { position: absolute; left: 0; right: 0; bottom: 0; font-family: var(--mono); font-size: .58rem; letter-spacing: .04em; color: var(--text-2); background: linear-gradient(to top, rgba(8,8,10,.85), rgba(8,8,10,0)); padding: .5rem .35rem .25rem; text-align: center; }
+    .fotos__melding { font-size: .74rem; color: var(--text-3); }
+    .fotos__melding.let { color: var(--acc); }
+  </style>
+    <!-- ============ ENTITEIT (scripts/entiteit.py) ============ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://nextgrowthdigital.nl/#organization",
+          "name": "Next Growth",
+          "url": "https://nextgrowthdigital.nl/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://nextgrowthdigital.nl/assets/media/next-growth-logo.svg"
+          },
+          "description": "Next Growth is een creatief groeibureau voor branding, websites, marketing en configurators. Voor bouw- en installatiebedrijven bouwt Next Growth productconfiguratoren, offertesoftware, CRM-koppelingen en websites, door heel Nederland.",
+          "email": "info@nextgrowthdigital.nl",
+          "telephone": "+31683902192",
+          "vatID": "NL004420281B57",
+          "taxID": "96002913",
+          "identifier": [
+            {
+              "@type": "PropertyValue",
+              "name": "KvK-nummer",
+              "value": "96002913"
+            },
+            {
+              "@type": "PropertyValue",
+              "name": "btw-identificatienummer",
+              "value": "NL004420281B57"
+            }
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "Noord-Brabant",
+            "addressCountry": "NL"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "sales",
+            "telephone": "+31683902192",
+            "email": "info@nextgrowthdigital.nl",
+            "areaServed": "NL",
+            "availableLanguage": [
+              "nl",
+              "en",
+              "de"
+            ]
+          },
+          "areaServed": [
+            {
+              "@type": "Country",
+              "name": "Nederland"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Noord-Brabant"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Gelderland"
+            },
+            {
+              "@type": "City",
+              "name": "Nijmegen"
+            },
+            {
+              "@type": "City",
+              "name": "Den Bosch"
+            },
+            {
+              "@type": "City",
+              "name": "Eindhoven"
+            },
+            {
+              "@type": "City",
+              "name": "Arnhem"
+            },
+            {
+              "@type": "City",
+              "name": "Uden"
+            },
+            {
+              "@type": "City",
+              "name": "Veghel"
+            },
+            {
+              "@type": "City",
+              "name": "Wijchen"
+            },
+            {
+              "@type": "City",
+              "name": "Vught"
+            },
+            {
+              "@type": "City",
+              "name": "Cuijk"
+            },
+            {
+              "@type": "City",
+              "name": "Grave"
+            }
+          ],
+          "knowsAbout": [
+            "Productconfigurator laten maken",
+            "Offertesoftware voor bouwbedrijven",
+            "Website laten maken voor bouw- en installatiebedrijven",
+            "Zoekmachineoptimalisatie",
+            "CRM voor bouwbedrijven",
+            "Dakopbouw",
+            "Uitbouw en aanbouw",
+            "Badkamer verbouwen",
+            "Overkapping op maat",
+            "Zwembad aanleggen",
+            "Dakkapel",
+            "Omgevingsvergunning bij verbouwen"
+          ],
+          "alternateName": [
+            "Next Growth Digital"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://nextgrowthdigital.nl/#website",
+          "url": "https://nextgrowthdigital.nl/",
+          "name": "Next Growth",
+          "inLanguage": "nl-NL",
+          "publisher": {
+            "@id": "https://nextgrowthdigital.nl/#organization"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://nextgrowthdigital.nl/gevelrenovatie-configurator",
+          "url": "https://nextgrowthdigital.nl/gevelrenovatie-configurator",
+          "name": "Gevelrenovatie-configurator, live demo voor gevelbedrijven | Next Growth",
+          "inLanguage": "nl",
+          "isPartOf": {
+            "@id": "https://nextgrowthdigital.nl/#website"
+          },
+          "about": {
+            "@id": "https://nextgrowthdigital.nl/#organization"
+          },
+          "description": "Live demo van een gevelrenovatie-configurator die Next Growth bouwt voor gevel- en bouwbedrijven. De klant kiest reinigen, voegwerk, steenherstel, scheurherstel, stucwerk en impregneren, ziet de gevel voor en na en krijgt live een richtprijs inclusief btw.",
+          "dateModified": "2026-08-27"
+        }
+      ]
+    }
+    </script>
+    <!-- ============ EINDE ENTITEIT ============ -->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,900;125,900&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/ngx-shell.css"><script>document.documentElement.classList.add("ngx-display")</script><style id="ngx-world">:root{--ink-900:#0A131F;--ink-800:#0E1A2B;--ink-700:#122034;--ink-600:#15253B;--ink-500:#1B2E48;--ink-400:#263A57;--tint:#122034;--bg:#0E1A2B;--bg-raise:#15253B;--bg-raise-2:#1B2E48;--accent:#FF6A3D;--accent-strong:#E5552B;--accent-light:#FFB49C;--accent-deep:#A53A1C;--accent-dim:rgba(255,106,61,.13);--glow:rgba(255,106,61,.30);--accent-rgb:255,106,61;--acc:#FF6A3D;--acc-soft:rgba(255,106,61,.14);--acc-diep:#A53A1C;--goud-metaal:linear-gradient(150deg,#A53A1C 0%,#FF6A3D 26%,#FFB49C 46%,#FF6A3D 66%,#A53A1C 100%);--goud-lijn:linear-gradient(90deg,transparent,rgba(255,106,61,.55) 30%,rgba(255,106,61,.55) 70%,transparent);--serif:'Archivo','Arial Black',sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;}html,body{background:#0E1A2B}.ngx-nav{--x-sig:#FF6A3D;--x-ink:#FFFFFF;background:#0E1A2BF5}.ngx-nav .ngx-mark{background:#FFC400}</style></head>
+<body>
+  <a class="skip" href="#main">Direct naar inhoud</a>
+  <header class="ngx-nav"><div class="ngx-wrap">
+<a class="ngx-brand" href="/"><span class="ngx-ring">NG</span><span>Next Growth<small>Creatief groeibureau · Landelijk</small></span></a>
+<a class="ngx-mark" href="/" aria-label="Next Growth, naar de homepage"><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14V4l10 10V4" stroke="#0A0800" stroke-width="2.8" stroke-linecap="square"/></svg></a>
+<nav class="ngx-links" aria-label="Hoofdmenu"><a href="/">Home</a><a href="/dienst-webdesign">Websites</a><a href="/dienst-branding">Branding</a><a href="/dienst-marketing">Marketing</a><a href="/dienst-configurators">Configurators</a><a href="/kennisbank">Kennisbank</a><a href="/prijzen">Prijzen</a></nav>
+<a class="ngx-cta" href="/#contact">Kennismaken</a>
+<button class="ngx-menu" type="button" aria-expanded="false" aria-controls="ngx-mnav">Menu</button>
+</div><nav id="ngx-mnav" class="ngx-mnav" aria-label="Mobiel menu" hidden><a href="/">Home</a><a href="/dienst-webdesign">Websites</a><a href="/dienst-branding">Branding</a><a href="/dienst-marketing">Marketing</a><a href="/dienst-configurators">Configurators</a><a href="/kennisbank">Kennisbank</a><a href="/prijzen">Prijzen</a><a href="/#contact" class="ngx-cta">Plan een kennismaking</a></nav></header>
+
+  <main id="main">
+    <!-- WIE LEEST DIT, EN WIE KOOPT ER IETS
+         De pagina zelf spreekt de huiseigenaar aan, want anders is de demo geen
+         demo. Maar wij verkopen geen gevelrenovaties: wij verkopen deze
+         configurator aan gevelbedrijven. Zonder die regel bovenaan denkt een
+         gevelbedrijf dat het naar een concurrent kijkt. -->
+    <div class="demobalk">
+      <div class="wrap demobalk__in">
+        <p><b>Live demo van een gevelrenovatie-configurator.</b> Next Growth past hem volledig aan op jouw
+          bedrijf, jouw werkzaamheden en jouw prijzen. Alles hieronder is een voorbeeld.</p>
+        <a class="btn btn--acc" href="/configurator-laten-maken">Deze configurator op je eigen website</a>
+      </div>
+    </div>
+    <section class="cfg-hero" aria-label="Gevelrenovatie configurator">
+      <div class="wrap">
+        <p class="pill" data-reveal><span class="dot dot--ok"></span>Live demo &middot; voor en na, in beeld</p>
+        <h1 class="h1" data-reveal style="--i:1">Stel je gevelrenovatie samen <span class="grad-text">en zie het verschil.</span></h1>
+        <p class="lede" data-reveal style="--i:2">Zo werkt de configurator voor de klant van een gevelbedrijf. Kies je woning en je gevel, en daarna wat er moet gebeuren: reinigen, voegwerk, steenherstel, scheurherstel, stucwerk, impregneren. Sleep de greep over het beeld en zie het resultaat. De richtprijs rekent live mee.</p>
+        <div class="matswitch" role="radiogroup" aria-label="Woningtype" data-reveal style="--i:3">
+          <button type="button" data-t="rijtjeswoning" class="is-on" aria-pressed="true">Rijtjeswoning</button>
+          <button type="button" data-t="vrijstaand" aria-pressed="false">Vrijstaande woning</button>
+          <button type="button" data-t="flatgebouw" aria-pressed="false">Flatgebouw / VvE</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="sectie" style="padding-top: clamp(1.5rem,4vh,2.5rem);" aria-label="Configurator">
+      <div class="wrap" style="max-width: 1500px; width: min(100%, 1500px);">
+        <div class="conf" data-reveal>
+          <div class="conf__head">
+            <div>
+              <div class="conf__title" id="confTitle"></div>
+              <div class="conf__sub" id="confSub"></div>
+            </div>
+          </div>
+          <div class="conf__layout">
+            <div class="conf__visual">
+              <div class="vn" id="vn">
+                <img id="vnVoor" alt="Je gevel in de huidige staat" width="2048" height="2048">
+                <img id="vnNa" class="vn__na" alt="Je gevel na de gekozen behandeling" width="2048" height="2048">
+                <span class="vn__lab vn__lab--voor">Nu</span>
+                <span class="vn__lab vn__lab--na" id="vnLabNa">Na</span>
+                <div class="vn__greep" id="vnGreep" role="slider" tabindex="0"
+                     aria-label="Schuif tussen voor en na" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l-5 6 5 6M15 6l5 6-5 6"/></svg>
+                </div>
+                <div class="vn__leeg" id="vnLeeg">
+                  <b>Opname volgt</b>
+                  <span id="vnLeegT">Deze combinatie is nog niet gefotografeerd. Kies een andere stap, of vraag toch een offerte aan. We sturen het beeld na.</span>
+                </div>
+              </div>
+              <div class="pricebar">
+                <div class="pricebar__p">
+                  <span class="k">Richtprijs
+                    <span class="btw" role="group" aria-label="btw">
+                      <button type="button" id="btwIncl" class="is-on" aria-pressed="true">incl. btw</button>
+                      <button type="button" id="btwExcl" aria-pressed="false">excl. btw</button>
+                    </span>
+                  </span>
+                  <span class="v" id="prijs">&euro; 0</span>
+                </div>
+                <div class="pricebar__cta">
+                  <button class="btn btn--acc" type="button" id="naarOfferte">Offerte aanvragen</button>
+                </div>
+              </div>
+            </div>
+            <div class="conf__options">
+              <div id="groups"></div>
+            </div>
+          </div>
+          <p class="strookkop" id="strookkop"></p>
+          <div class="detailstrook" id="detailstrook"></div>
+          <div class="staat" id="staat"></div>
+        </div>
+
+        <div class="conf" id="offerte" data-reveal style="margin-top:1.4rem;">
+          <p class="eyebrow">Bijna klaar</p>
+          <h2 class="h2" style="font-size:1.4rem; margin-top:.4rem;">Ontvang je offerte op maat.</h2>
+          <p style="font-size:.86rem; margin-top:.5rem; color:var(--text-2);">Je hele samenstelling en de prijsopbouw gaan automatisch mee. In deze demo neemt het gevelbedrijf binnen &eacute;&eacute;n werkdag contact op om de gevel in te meten. Een richtprijs is namelijk geen offerte: het verschil zit in wat er op de muur te zien is.</p>
+          <form class="lead" id="leadForm">
+            <div class="lead__grid">
+              <div class="fld"><label for="f_naam">Naam</label><input id="f_naam" name="naam" required autocomplete="name"></div>
+              <div class="fld"><label for="f_plaats">Plaats</label><input id="f_plaats" name="plaats" autocomplete="address-level2"></div>
+              <div class="fld"><label for="f_email">E-mailadres</label><input id="f_email" name="email" type="email" required autocomplete="email"></div>
+              <div class="fld"><label for="f_tel">Telefoon</label><input id="f_tel" name="telefoon" type="tel" autocomplete="tel"></div>
+            </div>
+            <div class="fld"><label for="f_ber">Bericht (optioneel)</label><textarea id="f_ber" name="bericht" rows="3" placeholder="Bouwjaar, hoogte, bijzonderheden, gewenste periode&hellip;"></textarea></div>
+            <div class="fld">
+              <span class="fotos__kop">Foto's van je gevel (optioneel)</span>
+              <p class="fotos__uit">Een foto zegt meer dan een aantal vierkante meters: daarop is de aanslag te zien, of het voegwerk nog vast zit, en of er een steiger bij moet. Maximaal vier, ze worden in je browser verkleind voordat ze meegaan.</p>
+              <input id="f_fotos" name="fotos" type="file" accept="image/*" multiple class="fotos__invoer">
+              <label class="fotos__knop" for="f_fotos"><svg viewBox="0 0 24 24" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5l1.2-2h5.6L16 5"/></svg>Foto&rsquo;s kiezen</label>
+              <div class="fotos__lijst" id="fotolijst" hidden></div>
+              <p class="fotos__melding" id="fotoMelding" role="status" hidden></p>
+            </div>
+            <input type="hidden" id="f_config" name="configuratie">
+            <div class="lead__knoppen">
+              <button class="btn btn--acc" type="submit" id="leadBtn">Verstuur aanvraag</button>
+              <button class="btn btn--ghost" type="button" id="bladBtn" title="Open een afdrukbaar overzicht">Offerteblad openen</button>
+              <button class="btn btn--ghost" type="button" id="staatBtn" title="Open de materiaalstaat voor de werkvoorbereiding">Materiaalstaat</button>
+            </div>
+            <p class="lead__msg" id="leadMsg" role="status" hidden></p>
+            <p class="lead__note">Liever bellen? <a href="tel:+31683902192" style="color:var(--acc)">06 83 90 21 92</a></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+<!-- Een schermopname uit deze configurator, en niet drie zoals bij het dak.
+     Daar zijn een pannendak, een plat dak en een gootklus drie verschillende
+     gesprekken; een gevel is er een. De film loopt de keuzes langs, sleept de
+     schuif open, en eindigt op de twee bladen die er echt uit rollen: de
+     offerte en de materiaalstaat. Geen animatie en geen nagemaakt scherm - dit
+     is de pagina waar u nu op staat, opgenomen terwijl hij gebruikt wordt. -->
+<section class="sectie" aria-label="Zo werkt de gevelrenovatieconfigurator">
+  <div class="wrap">
+    <div class="sectie-kop">
+      <p class="eyebrow">Zo werkt het</p>
+      <h2>Echte opname van de demo, geen animatie.</h2>
+      <p style="color:var(--muted,#9c9a94);max-width:46rem;margin-top:.6rem">Een minuut uit deze demo-configurator: de gevelsoort, de reiniging, het herstel en de voeg, met de schuif tussen voor en na, de richtprijs die meerekent, en aan het eind de offerte en de materiaalstaat.</p>
+    </div>
+    <figure style="margin:0;max-width:64rem">
+      <div style="border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#0C0D10">
+        <video controls preload="none" playsinline poster="./assets/media/poster-gevelrenovatie.jpg"
+               style="width:100%;aspect-ratio:16/9;display:block;background:#0C0D10">
+          <source src="./assets/video/gevelrenovatie.mp4" type="video/mp4">
+          Je browser kan deze video niet afspelen. <a href="./assets/video/gevelrenovatie.mp4">Download hem hier.</a>
+        </video>
+      </div>
+      <figcaption style="margin-top:.7rem">
+        <strong style="display:block">Gevelrenovatie van vuil tot gevoegd</strong>
+        <span style="color:var(--muted,#9c9a94);font-size:.92rem">Drie gevelsoorten, vier reinigingsmethodes, het herstel eronder en de steiger erbij. Plus de twee bladen die de werkvoorbereiding doen.</span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+    <!-- ============ PER PLAATS (scripts/configuratorsteden.py) ============ -->
+    <div class="ng-blok" role="region" aria-labelledby="perplaats-kop">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <p class="eyebrow">Per plaats</p>
+          <h2 class="h2" id="perplaats-kop">Zo'n configurator voor je eigen bedrijf, per plaats</h2>
+          <p>Deze gevelrenovatie-configurator is een demo. Next Growth bouwt hem voor bedrijven in hun eigen huisstijl en met hun eigen prijzen. Per plaats staat wat de markt daar vraagt.</p>
+        </div>
+        <div class="ng-branches">
+          <a class="ng-branche" href="/dienst-webdesign"><b>Configurator laten maken</b><span>Landelijk</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-nijmegen"><b>Configurator laten maken in Nijmegen</b><span>Gelderland</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-arnhem"><b>Configurator laten maken in Arnhem</b><span>Gelderland</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-den-bosch"><b>Configurator laten maken in Den Bosch</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-uden"><b>Configurator laten maken in Uden</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-veghel"><b>Configurator laten maken in Veghel</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-wijchen"><b>Configurator laten maken in Wijchen</b><span>Gelderland</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-vught"><b>Configurator laten maken in Vught</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-cuijk"><b>Configurator laten maken in Cuijk</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-grave"><b>Configurator laten maken in Grave</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-eindhoven"><b>Configurator laten maken in Eindhoven</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <!-- ============ EINDE PER PLAATS ============ -->
+  <!-- ============ TERUGBELVERZOEK ============ -->
+  <div class="ng-terugbel" role="region" aria-labelledby="terugbel-kop">
+    <div class="wrap ng-terugbel__in">
+      <div class="ng-terugbel__tekst" data-reveal>
+        <p class="eyebrow">Terugbelverzoek</p>
+        <h2 class="h2" id="terugbel-kop">Liever even bellen dan typen?</h2>
+        <p class="lede">Laat je nummer achter, dan bellen we je dezelfde werkdag terug. Je krijgt iemand aan de lijn die deze systemen zelf bouwt, geen callcenter.</p>
+        <ul class="ng-terugbel__punten">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Binnen &eacute;&eacute;n werkdag gebeld</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Tien minuten is genoeg voor prijs en doorlooptijd</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Vrijblijvend, je zit nergens aan vast</span></li>
+        </ul>
+        <p class="ng-terugbel__zelf">Liever zelf bellen? <a href="tel:+31683902192">06 83 90 21 92</a></p>
+      </div>
+
+      <div class="card ng-terugbel__kaart" data-reveal style="--i:1">
+        <p class="ng-terugbel__kop"><span class="dot dot--ok" aria-hidden="true"></span>3 velden &middot; 20 seconden</p>
+        <form data-terugbel data-bron="gevelrenovatie-configurator.html" action="mailto:info@nextgrowthdigital.nl" method="post" enctype="text/plain" aria-label="Terugbelverzoek">
+            <div class="ng-veld">
+              <label for="tb-naam">Naam</label>
+              <input type="text" id="tb-naam" name="naam" placeholder="Voor- en achternaam" autocomplete="name" required>
+            </div>
+            <div class="ng-veld">
+              <label for="tb-bedrijf">Bedrijf</label>
+              <input type="text" id="tb-bedrijf" name="bedrijf" placeholder="Van Dijk Installaties" autocomplete="organization" required>
+            </div>
+            <div class="ng-veld">
+              <label for="tb-tel">Telefoonnummer</label>
+              <input type="tel" id="tb-tel" name="telefoon" placeholder="06 12 34 56 78" autocomplete="tel" inputmode="tel" required>
+            </div>
+            <div class="ng-terugbel__honeypot" aria-hidden="true">
+              <label for="tb-website">Website (niet invullen)</label>
+              <input type="text" id="tb-website" name="website" tabindex="-1" autocomplete="off">
+            </div>
+            <button class="btn ng-terugbel__verstuur" type="submit">Bel mij terug</button>
+            <p class="ng-terugbel__noot">Alleen om je terug te bellen. Geen nieuwsbrief, geen belrondes.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  </main>
+  <footer class="ngx-foot"><div class="ngx-wrap">
+<div class="ngx-end"><h2>Zo'n configurator <span>op jouw site?</span></h2><div><p>Eén gesprek van twintig minuten. Je spreekt direct met de mensen die het bouwen en krijgt dezelfde dag een eerlijk advies.</p><a class="ngx-cta big" href="/#contact">Plan een kennismaking</a><a class="ngx-tel" href="tel:+31683902192">06 83 90 21 92</a></div></div>
+<div class="ngx-cols">
+<div><a class="ngx-brand" href="/"><span class="ngx-mk"><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14V4l10 10V4" stroke="#0A0800" stroke-width="2.8" stroke-linecap="square"/></svg></span><span>Next Growth Digital</span></a><p>Creatief groeibureau, landelijk actief. Branding, webdesign, marketing en eigen software.</p><p>info@nextgrowthdigital.nl</p></div>
+<div><h4>Diensten</h4><ul><li><a href="/dienst-branding">Branding</a></li><li><a href="/dienst-webdesign">Webdesign</a></li><li><a href="/dienst-marketing">Marketing</a></li><li><a href="/dienst-configurators">Configurators</a></li><li><a href="/dienst-crm">CRM &amp; offertes</a></li><li><a href="/prijzen">Prijzen</a></li></ul></div>
+<div><h4>Configurators</h4><ul><li><a href="/overkapping-configurator">Overkapping</a></li><li><a href="/aanbouw-configurator">Uitbouw</a></li><li><a href="/dakkapel-configurator">Dakkapel</a></li><li><a href="/dakopbouw-configurator">Dakopbouw</a></li><li><a href="/badkamer-configurator">Badkamer</a></li><li><a href="/zwembad-configurator">Zwembad</a></li><li><a href="/jacht-configurator">Jacht</a></li></ul></div>
+<div><h4>Kennisbank</h4><ul><li><a href="/kennisbank">Alle artikelen</a></li><li><a href="/kennisbank-configurator-kosten">Wat kost een configurator?</a></li><li><a href="/configurator-laten-maken">Configurator laten maken</a></li><li><a href="/kennisbank-website-kosten">Wat kost een website?</a></li></ul></div>
+<div><h4>Bedrijf</h4><ul><li><a href="/#cases">Cases</a></li><li><a href="/werkgebied">Werkgebied</a></li><li><a href="/privacyverklaring">Privacyverklaring</a></li><li><a href="/auteursrecht">Auteursrecht</a></li><li><a href="/#contact">Contact</a></li></ul></div>
+</div>
+<div class="ngx-legal"><span>© 2026 Next Growth Digital</span><span>KVK 96002913</span><span>Landelijk actief · Nederland</span></div>
+<p class="ngx-giant" aria-hidden="true">NEXT GROWTH</p></div></footer>
+<script>(function(){var b=document.querySelector('.ngx-menu'),n=document.getElementById('ngx-mnav');if(!b||!n)return;b.addEventListener('click',function(){var o=n.hasAttribute('hidden');if(o)n.removeAttribute('hidden');else n.setAttribute('hidden','');b.setAttribute('aria-expanded',o?'true':'false');b.textContent=o?'Sluiten':'Menu'})})();</script>  <script src="./assets/configuratie-bewaren.js"></script>
+  <script src="./assets/gevel-prijzen.js"></script>
+  <script src="./assets/gevel-beelden.js"></script>
+  <script src="./assets/gevel-staat.js"></script>
+  <script src="./assets/afdrukvenster.js"></script>
+  <script>
+  /* De gevelrenovatieconfigurator.
+   *
+   * WAT DEZE ANDERS MAAKT DAN DE ANDERE CONFIGURATORS
+   * Bij een dakopbouw of een aanbouw kiest de bezoeker iets nieuws. Hier kiest
+   * hij wat er met iets bestaands gebeurt, en dan is de vergelijking het
+   * product: niet "zo wordt het", maar "zo was het en zo wordt het". Vandaar
+   * dat het schuifbeeld het hart van de pagina is en niet een aardigheidje.
+   *
+   * DRIE REGELS DIE DE HELE PAGINA DRAGEN
+   *
+   * 1. De exacte combinatie of niets. De beeldbank valt nooit terug op een
+   *    naburig beeld. Wie gele steen kiest en een rode gevel te zien krijgt,
+   *    denkt dat hij dat koopt.
+   *
+   * 2. Geen keuze tonen die niet bestaat. Een gestucte gevel heeft geen voeg en
+   *    geen steen; voegwerk en steenherstel horen daar niet in het scherm en al
+   *    helemaal niet in de prijs. Zandstralen staat alleen bij gele steen.
+   *
+   * 3. Elke euro is terug te vinden. Het totaal staat nooit alleen: eronder
+   *    staat elke post met zijn eigen bedrag en zijn eenheid. Een totaalbedrag
+   *    zonder uitsplitsing is een getal om te wantrouwen, en deze bedragen
+   *    moeten een echte offerte kunnen dragen.
+   */
+  (function () {
+    'use strict';
+    var P = window.NGGevelPrijzen, B = window.NGGevelBeelden;
+    if (!P || !B) return;
+
+    var TYPE = [
+      { v: 'rijtjeswoning', l: 'Rijtjeswoning', d: 'Tussen- of hoekwoning' },
+      { v: 'vrijstaand',    l: 'Vrijstaande woning', d: 'Vrijstaand op eigen kavel' },
+      { v: 'flatgebouw',    l: 'Flatgebouw / VvE', d: 'Portiek- of galerijflat' }
+    ];
+    var GEVEL = [
+      { v: 'rood',    l: 'Rode baksteen',  d: 'Metselwerk met voegen' },
+      { v: 'geel',    l: 'Gele baksteen',  d: 'Metselwerk met voegen' },
+      { v: 'gestuct', l: 'Gestucte gevel', d: 'Doorlopende stuclaag' }
+    ];
+
+    /* De behandelstappen per gevelsoort, in de volgorde waarin ze in het echt
+     * gebeuren: eerst schoon, dan heel, dan afgewerkt, dan beschermd. Die
+     * volgorde is niet cosmetisch - hij is het verkoopverhaal. */
+    var STAP = {
+      baksteen: [
+        { v: 'geen',                   l: 'Geen herstel',           d: 'Alleen gevelreiniging' },
+        { v: 'voegenherstel',          l: 'Voegenherstel',          d: 'Plaatselijk, waar de voeg weg is' },
+        { v: 'uitgehakt',              l: 'Voegen uithakken',       d: 'Tussenstap; altijd gevolgd door voegen' },
+        { v: 'gevoegd',                l: 'Volledig opnieuw voegen',d: 'De hele gevel opnieuw' },
+        { v: 'steenherstel',           l: 'Stenen vervangen',       d: 'Beschadigde stenen eruit' },
+        { v: 'scheurherstel',          l: 'Scheurherstel',          d: 'Met roestvaste spiraalankers' },
+        { v: 'compleet',               l: 'Complete renovatie',     d: 'Schoon, heel en opnieuw gevoegd' },
+        { v: 'compleet-geimpregneerd', l: 'Compleet + impregneren', d: 'En waterafstotend gemaakt' }
+      ],
+      stuc: [
+        { v: 'geen',                   l: 'Geen herstel',           d: 'Alleen gevelreiniging' },
+        { v: 'scheurherstel',          l: 'Scheurherstel',          d: 'Craquelé en scheuren dicht' },
+        { v: 'stucherstel',            l: 'Stucherstel',            d: 'Holliggende vlakken bijwerken' },
+        { v: 'opnieuw-gestuct',        l: 'Opnieuw stucen',         d: 'De hele gevel in één nieuwe laag' },
+        { v: 'geschilderd',            l: 'Gevel schilderen',       d: 'Gerepareerd en mat geschilderd' },
+        { v: 'compleet',               l: 'Complete renovatie',     d: 'Schoon, heel en afgewerkt' },
+        { v: 'compleet-geimpregneerd', l: 'Compleet + impregneren', d: 'En waterafstotend gemaakt' }
+      ]
+    };
+
+    /* Welke prijspost bij welke stap hoort. Sommige stappen zijn er twee:
+     * "compleet" is reinigen plus herstel plus voegen, en dat hoort ook zo in
+     * de offerte te staan - anders lijkt een complete renovatie goedkoper dan
+     * de som van zijn delen en klopt er iets niet. */
+    var STAPPOST = {
+      'voegenherstel':          ['voegenherstel'],
+      'uitgehakt':              ['uitgehakt'],
+      'gevoegd':                ['uitgehakt', 'gevoegd'],
+      'steenherstel':           ['steenherstel'],
+      'scheurherstel':          ['scheurherstel'],
+      'stucherstel':            ['stucherstel'],
+      'opnieuw-gestuct':        ['opnieuw-gestuct'],
+      'geschilderd':            ['geschilderd'],
+      'compleet':               ['uitgehakt', 'gevoegd', 'steenherstel', 'scheurherstel'],
+      'compleet-geimpregneerd': ['uitgehakt', 'gevoegd', 'steenherstel', 'scheurherstel', 'impregneren']
+    };
+    var STAPPOST_STUC = {
+      'compleet':               ['stucherstel', 'scheurherstel', 'opnieuw-gestuct'],
+      'compleet-geimpregneerd': ['stucherstel', 'scheurherstel', 'opnieuw-gestuct', 'impregneren']
+    };
+
+    var REINIGING = [
+      { v: 'stoomreiniging',      l: 'Stoomreiniging',      d: 'Zacht; laat het oppervlak met rust' },
+      { v: 'softwash',            l: 'Softwash',            d: 'Biocide op lage druk; aanslag blijft langer weg' },
+      { v: 'chemische-reiniging', l: 'Chemische reiniging', d: 'Het gelijkmatigst; haalt ook uitslag weg' },
+      { v: 'nevelstralen',        l: 'Nevelstralen',        d: 'Licht schurend; de steen krijgt zijn kleur terug' },
+      { v: 'zandstralen',         l: 'Zandstralen',         d: 'Terug naar de oorspronkelijke kleur; neemt wel de bakhuid mee. Alleen op gele steen' }
+    ];
+
+    var st = {
+      woningtype: 'rijtjeswoning',
+      gevelsoort: 'rood',
+      opp: P.OPPERVLAK.rijtjeswoning,
+      reiniging: 'softwash',
+      stap: 'compleet',
+      voegsoort: 'platvol',
+      voegkleur: 'lichtgrijs',
+      stenen: 12,
+      scheurmeter: 4,
+      herstelopp: 6,
+      steiger: true,
+      btwIncl: true
+    };
+
+    var soort = function () { return st.gevelsoort === 'gestuct' ? 'stuc' : 'baksteen'; };
+    var eu = function (n) { return '€ ' + Math.round(n).toLocaleString('nl-NL'); };
+
+    /* Btw. Op arbeid aan woningen ouder dan twee jaar geldt 9 procent voor
+     * schilderen en stukadoren; de rest valt onder 21. De tarieven in
+     * gevel-prijzen.js zijn inclusief het tarief dat er in de praktijk op zit,
+     * dus de knop rekent terug in plaats van vooruit - zo rekent niemand zich
+     * rijk met een bedrag dat er straks anders uitziet. */
+    var LAAG = { 'geschilderd': 1, 'opnieuw-gestuct': 1, 'stucherstel': 1 };
+    function excl(sleutel, bedrag) {
+      return bedrag / (1 + (LAAG[sleutel] ? 0.09 : 0.21));
+    }
+
+    /* EEN PLEK WAAR DE BTW-KNOP WORDT TOEGEPAST
+     *
+     * Hij werd op vier plekken los toegepast en op drie ervan niet consequent:
+     * het scherm rekende hem netjes door, maar de meegestuurde samenvatting en
+     * het afdrukbare offerteblad zetten de bedragen per regel altijd inclusief
+     * en het totaal volgens de knop. Wie op 'excl. btw' klikte kreeg dus een
+     * blad waarop de regels niet optellen tot het totaal, met 'incl. btw'
+     * eronder. Dat is geen schoonheidsfoutje: dat is een prijsopgave die niet
+     * klopt, en die gaat de deur uit naar een klant.
+     *
+     * Nu gaat elk bedrag door dezelfde twee functies, en staat het opschrift
+     * nergens meer hard ingetypt. */
+    function bedragVan(sleutel, bedrag) {
+      return st.btwIncl ? bedrag : excl(sleutel, bedrag);
+    }
+    function btwWoord() { return st.btwIncl ? 'incl. btw' : 'excl. btw'; }
+
+    /* Welke reinigingsmethoden bij deze gevelsoort horen. Dezelfde poort als in
+     * de renderlijst en in de prijslijst, en dat is met opzet: staat het op één
+     * plek anders, dan loopt het uiteen zodra iemand iets toevoegt. */
+    function reinigingen() {
+      return REINIGING.filter(function (r) {
+        var p = P.BEHANDELING[r.v];
+        return p && (!p.alleen || p.alleen.indexOf(st.gevelsoort) >= 0);
+      });
+    }
+    function stappen() { return STAP[soort()]; }
+
+    /* De posten die bij de huidige keuze horen, elk met eenheid en bedrag. Dit
+     * is de enige plek waar de prijs ontstaat; de balk en de tabel lezen er
+     * allebei uit, zodat ze niet uit elkaar kunnen lopen. */
+    function posten() {
+      var uit = [];
+      function bij(sleutel, aantal) {
+        var b = P.BEHANDELING[sleutel];
+        if (!b) return;
+        if (b.alleen && b.alleen.indexOf(st.gevelsoort) < 0) return;
+        var eenheden = b.eenheid === 'm2' ? st.opp : aantal;
+        if (!eenheden) return;
+        var bedrag = b.p * eenheden;
+        if (b.minimum && bedrag < b.minimum) bedrag = b.minimum;
+        uit.push({
+          sleutel: sleutel, l: b.l, bedrag: bedrag,
+          hoeveel: b.eenheid === 'm2' ? st.opp + ' m²'
+                 : b.eenheid === 'steen' ? aantal + ' stuks'
+                 : b.eenheid === 'm1' ? aantal + ' m'
+                 : aantal + ' m²',
+          tarief: b.p
+        });
+      }
+      bij(st.reiniging);
+      var lijst = (soort() === 'stuc' && STAPPOST_STUC[st.stap])
+        ? STAPPOST_STUC[st.stap] : (STAPPOST[st.stap] || []);
+      lijst.forEach(function (s) {
+        bij(s, s === 'steenherstel' ? st.stenen
+             : s === 'scheurherstel' ? st.scheurmeter
+             : s === 'voegenherstel' || s === 'stucherstel' ? st.herstelopp
+             : 0);
+      });
+      /* De voegsoort is een toeslag op het voegwerk en geen eigen post: hij
+       * bestaat alleen als er ook werkelijk gevoegd wordt. */
+      var voegt = uit.some(function (p) { return p.sleutel === 'gevoegd'; });
+      var vs = P.VOEGSOORT[st.voegsoort];
+      if (voegt && vs && vs.t) {
+        uit.push({ sleutel: 'voegsoort', l: 'Toeslag ' + vs.l.toLowerCase(),
+                   bedrag: vs.t * st.opp, hoeveel: st.opp + ' m²', tarief: vs.t });
+      }
+      if (st.steiger) bij('steiger');
+      return uit;
+    }
+
+    function totaal() {
+      return posten().reduce(function (s, p) {
+        return s + bedragVan(p.sleutel, p.bedrag);
+      }, 0);
+    }
+
+    /* ------------------------------------------------------------ tekenen */
+
+    var $ = function (id) { return document.getElementById(id); };
+    function esc(s) { return String(s).replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+
+    function tegel(groep, o, aan, beeld, prijs) {
+      return '<label class="tile"><input type="radio" name="g_' + groep + '" value="' + o.v + '"'
+        + (aan ? ' checked' : '') + '>'
+        + '<span class="tile__c">'
+        + (beeld ? '<span class="tile__img" style="background-image:url(' + beeld + ')"></span>' : '')
+        + '<span class="lab">' + esc(o.l) + '</span>'
+        + (o.d ? '<span class="sub">' + esc(o.d) + '</span>' : '')
+        + (prijs ? '<span class="prijs">' + prijs + '</span>' : '')
+        + '</span></label>';
+    }
+    function grp(nr, titel, inhoud, noot) {
+      return '<div class="grp"><div class="grp__h"><b>' + nr + '.</b>' + titel.toUpperCase() + '</div>'
+        + inhoud + (noot ? '<p class="grp__noot">' + noot + '</p>' : '') + '</div>';
+    }
+
+    function tekenGroepen() {
+      var h = '', nr = 0;
+
+      h += grp(++nr, 'Wat voor gevel heb je?',
+        '<div class="grp__row">' + GEVEL.map(function (g) {
+          return tegel('gevelsoort', g, st.gevelsoort === g.v,
+            B.beeld(st.woningtype, g.v, 'vervuild'));
+        }).join('') + '</div>');
+
+      h += grp(++nr, 'Hoeveel vierkante meter gevel?',
+        '<div class="maat">'
+        + '<input type="range" id="oppR" aria-label="Geveloppervlak in vierkante meter" min="20" max="600" step="5" value="' + st.opp + '">'
+        + '<output id="oppO">' + st.opp + ' m²</output>'
+        + '<span class="hint">Alleen de gevel die behandeld wordt. Weet je het niet precies? '
+        + 'De voorzet hierboven hoort bij een ' + esc(TYPE.filter(function (t) {
+            return t.v === st.woningtype; })[0].l.toLowerCase()) + '; wij meten het in bij de opname.</span>'
+        + '</div>');
+
+      var r = reinigingen();
+      h += grp(++nr, 'Hoe wordt hij gereinigd?',
+        '<div class="grp__row">' + r.map(function (o) {
+          var p = P.BEHANDELING[o.v];
+          return tegel('reiniging', o, st.reiniging === o.v,
+            B.detail(st.gevelsoort, o.v), '€ ' + p.p + ' per m²');
+        }).join('') + '</div>',
+        st.gevelsoort === 'gestuct'
+          ? 'Nevelstralen en zandstralen staan hier niet: schurend werk op een stuclaag is geen reiniging maar sloop.'
+          : st.gevelsoort === 'rood'
+          ? 'Zandstralen staat alleen bij gele steen.'
+          : 'Zandstralen neemt de bakhuid van de steen mee. Het reinigt grondig, maar de gevel wordt matter en de voegen slijten uit.');
+
+      var s = stappen();
+      h += grp(++nr, 'Wat moet er hersteld worden?',
+        '<div class="grp__row">' + s.map(function (o) {
+          return tegel('stap', o, st.stap === o.v,
+            B.detail(st.gevelsoort, o.v === 'geen' ? 'gereinigd' : o.v,
+                     o.v === 'gevoegd' ? 'platvol' : 'geen',
+                     o.v === 'gevoegd' ? 'middengrijs' : 'geen'));
+        }).join('') + '</div>',
+        soort() === 'stuc'
+          ? 'Voegwerk en steenherstel staan hier niet: een gestucte gevel heeft geen voeg en geen steen.'
+          : '');
+
+      /* De aantallen verschijnen alleen als de gekozen stap ze werkelijk
+       * gebruikt. Een veld voor "hoeveel stenen" bij een keuze waar geen steen
+       * aan te pas komt, nodigt uit tot een getal dat nergens in terechtkomt. */
+      var lijst = (soort() === 'stuc' && STAPPOST_STUC[st.stap])
+        ? STAPPOST_STUC[st.stap] : (STAPPOST[st.stap] || []);
+      var velden = '';
+      if (lijst.indexOf('steenherstel') >= 0 && soort() === 'baksteen')
+        velden += '<div class="maat"><input type="range" id="stenenR" aria-label="Aantal te vervangen stenen" min="0" max="200" step="1" value="' + st.stenen + '">'
+          + '<output id="stenenO">' + st.stenen + ' stuks</output>'
+          + '<span class="hint">Beschadigde stenen. € ' + P.BEHANDELING.steenherstel.p + ' per steen.</span></div>';
+      if (lijst.indexOf('scheurherstel') >= 0)
+        velden += '<div class="maat"><input type="range" id="scheurR" aria-label="Lengte scheurherstel in meter" min="0" max="40" step="1" value="' + st.scheurmeter + '">'
+          + '<output id="scheurO">' + st.scheurmeter + ' m</output>'
+          + '<span class="hint">Lengte van de scheuren. € ' + P.BEHANDELING.scheurherstel.p + ' per meter, minimaal € '
+          + P.BEHANDELING.scheurherstel.minimum + '.</span></div>';
+      if (lijst.indexOf('voegenherstel') >= 0 || lijst.indexOf('stucherstel') >= 0)
+        velden += '<div class="maat"><input type="range" id="herstelR" aria-label="Oppervlak stucherstel in vierkante meter" min="0" max="120" step="1" value="' + st.herstelopp + '">'
+          + '<output id="herstelO">' + st.herstelopp + ' m²</output>'
+          + '<span class="hint">Oppervlak dat plaatselijk hersteld wordt.</span></div>';
+      if (velden) h += grp(++nr, 'Hoeveel herstelwerk?', velden);
+
+      /* De voegsoort verschijnt alleen als er ook werkelijk gevoegd wordt. */
+      if (lijst.indexOf('gevoegd') >= 0) {
+        h += grp(++nr, 'Welke voeg?',
+          '<div class="grp__row">' + Object.keys(P.VOEGSOORT).map(function (k) {
+            var vs = P.VOEGSOORT[k];
+            return tegel('voegsoort', { v: k, l: vs.l }, st.voegsoort === k,
+              B.detail('rood', 'voegsoort', k, 'middengrijs'),
+              vs.t ? '+ € ' + vs.t + ' per m²' : 'inbegrepen');
+          }).join('') + '</div>',
+          'De knipvoeg is handwerk met de voegspijker; vandaar de toeslag. De andere vier gaan machinaal.');
+
+        h += grp(++nr, 'Welke voegkleur?',
+          '<div class="grp__row">' + P.VOEGKLEUR.map(function (k) {
+            return tegel('voegkleur', { v: k, l: k.charAt(0).toUpperCase() + k.slice(1) },
+              st.voegkleur === k, null, 'geen meerprijs');
+          }).join('') + '</div>',
+          'Mortel wordt op kleur gemengd, dus de kleur kost niets extra. '
+          + 'De kleur is op een gevelfoto van vijf meter afstand niet te '
+          + 'beoordelen; bij de opname leggen we hem naast je eigen steen vast.');
+      }
+
+      h += grp(++nr, 'Steiger',
+        '<div class="grp__row">'
+        /* Hier stond 'rood' hard ingetypt. Wie een gele of een gestucte gevel
+         * koos, kreeg dus een RODE woning op de steigertegel te zien - een
+         * ander huis dan het zijne, midden tussen zijn eigen keuzes. Dat is
+         * precies de regel van de beeldbank: de combinatie die er is, of
+         * niets. */
+        + tegel('steiger', { v: 'ja', l: 'Met steiger', d: 'Op- en afbouw plus huur' }, st.steiger,
+                B.beeld(st.woningtype, st.gevelsoort, 'steiger'), '€ ' + P.BEHANDELING.steiger.p + ' per m²')
+        + tegel('steiger', { v: 'nee', l: 'Zonder steiger', d: 'Alleen bij lage gevels' }, !st.steiger, null, '€ 0')
+        + '</div>',
+        st.woningtype === 'flatgebouw'
+          ? 'Bij een flatgebouw is een steiger geen keuze: boven de tweeënhalve meter werkhoogte moet hij er staan.'
+          : 'Boven tweeënhalve meter werkhoogte is een steiger verplicht. Zonder steiger kan alleen bij een lage gevel die vanaf de grond bereikbaar is.');
+
+      $('groups').innerHTML = h;
+    }
+
+    /* Het schuifbeeld. Links altijd de huidige staat, rechts het resultaat van
+     * de gekozen stap - en als die opname er niet is, zegt het scherm dat
+     * eerlijk in plaats van een ander huis te tonen. */
+    /* KLIK JE OP DE STEIGER, DAN ZIE JE DE STEIGER
+     *
+     * Eerst liet ik de steiger alleen in de strook onder het beeld zien, met de
+     * redenering dat het schuifbeeld over het RESULTAAT gaat en een steiger
+     * over de uitvoering. Dat klopt als redenering en het werkt niet in de
+     * praktijk: die strook staat op een telefoon ver onder de keuze, dus wie op
+     * 'Met steiger' klikt ziet niets gebeuren en denkt dat de knop stuk is.
+     *
+     * Nu neemt de steiger het grote beeld over zodra je hem aanklikt, met een
+     * eigen opschrift. Elke andere keuze zet hem weer terug op het resultaat -
+     * anders opent de pagina op de steiger, want die staat standaard aan, en
+     * dan zie je het resultaat juist nooit. */
+    var toonSteiger = false;
+
+    function tekenBeeld() {
+      var voor = B.beeld(st.woningtype, st.gevelsoort, 'vervuild');
+      var doel = st.stap === 'geen' ? 'gereinigd' : st.stap;
+      var na = B.beeld(st.woningtype, st.gevelsoort, doel, 'platvol', 'lichtgrijs')
+            || B.beeld(st.woningtype, st.gevelsoort, doel);
+      if (toonSteiger && st.steiger) {
+        na = B.beeld(st.woningtype, st.gevelsoort, 'steiger') || na;
+      }
+      var vn = $('vn');
+      if (voor) $('vnVoor').src = voor;
+      if (na) $('vnNa').src = na;
+      vn.classList.toggle('is-leeg', !voor || !na);
+      if (!na && voor) {
+        $('vnLeegT').textContent = 'Van deze stap is op dit woningtype nog geen '
+          + 'gevelopname. In de strook eronder zie je hem wel van dichtbij; '
+          + 'vraag gerust een offerte aan, dan sturen we het gevelbeeld na.';
+      }
+      var lab = stappen().filter(function (o) { return o.v === st.stap; })[0];
+      $('vnLabNa').textContent = (toonSteiger && st.steiger)
+        ? 'Met steiger' : (lab ? lab.l : 'Na');
+    }
+
+    /* De detailstrook. Wat er van dichtbij te zien is bij deze keuze: de
+     * reinigingsmethode en de herstelstap, en de voeg als er gevoegd wordt. */
+    function tekenDetails() {
+      var rij = [];
+      var rl = REINIGING.filter(function (o) { return o.v === st.reiniging; })[0];
+      rij.push({ src: B.detail(st.gevelsoort, st.reiniging), b: rl ? rl.l : '', s: 'reiniging, van dichtbij' });
+      if (st.stap !== 'geen') {
+        var sl = stappen().filter(function (o) { return o.v === st.stap; })[0];
+        rij.push({ src: B.detail(st.gevelsoort, st.stap,
+                                 st.stap === 'gevoegd' ? 'platvol' : 'geen',
+                                 st.stap === 'gevoegd' ? 'middengrijs' : 'geen'),
+                   b: sl ? sl.l : '', s: 'herstel, van dichtbij' });
+      }
+      var lijst = (soort() === 'stuc' && STAPPOST_STUC[st.stap])
+        ? STAPPOST_STUC[st.stap] : (STAPPOST[st.stap] || []);
+      if (lijst.indexOf('gevoegd') >= 0) {
+        rij.push({ src: B.detail('rood', 'voegsoort', st.voegsoort, 'middengrijs'),
+                   b: P.VOEGSOORT[st.voegsoort].l, s: 'voeg, van dichtbij' });
+      }
+      /* De steiger stond alleen in de prijs. Elke andere keuze tekent zich in
+       * het beeld, deze niet, en dus leek het alsof de klik niets deed. Hij
+       * hoort ook niet in het schuifbeeld thuis: het schuifbeeld gaat over
+       * hoe de gevel wordt, en een steiger is hoe het werk gebeurt. Daarom
+       * staat hij hier, met een bijschrift dat zegt wat het is. */
+      if (st.steiger) {
+        rij.push({ src: B.beeld(st.woningtype, st.gevelsoort, 'steiger'),
+                   b: 'Steiger', s: 'tijdens het werk' });
+      }
+      /* Benoem wat er in de strook staat en waarom het niet in het grote beeld
+       * zit. Met de naam van de gekozen methode erin, want een algemene zin
+       * leest niemand. */
+      var namen = rij.filter(function (r) { return r.src && r.s !== 'tijdens het werk'; })
+                     .map(function (r) { return r.b.toLowerCase(); });
+      $('strookkop').textContent = namen.length
+        ? 'Van dichtbij: ' + namen.join(', ')
+          + '. Een reinigingsmethode en een voegprofiel zijn op een gevelfoto van '
+          + 'vijf meter afstand niet te beoordelen. Hier wel.'
+        : '';
+      $('detailstrook').innerHTML = rij.filter(function (r) { return r.src; })
+        .map(function (r) {
+          return '<div class="dtl"><img src="' + r.src + '" alt="' + esc(r.b)
+            + ', ' + esc(r.s) + '" loading="lazy" width="2048" height="2048">'
+            + '<b>' + esc(r.b) + '</b><span>' + esc(r.s) + '</span></div>';
+        }).join('');
+    }
+
+    function tekenPrijs() {
+      var p = posten();
+      $('prijs').textContent = eu(totaal());
+      var rijen = p.map(function (x) {
+        var bedrag = bedragVan(x.sleutel, x.bedrag);
+        return '<tr><td>' + esc(x.l) + '</td><td>' + esc(x.hoeveel) + '</td><td>'
+          + eu(bedrag) + '</td></tr>';
+      }).join('');
+      if (!rijen) rijen = '<tr class="leeg"><td colspan="3">Nog niets gekozen.</td></tr>';
+      $('staat').innerHTML = '<table><thead><tr><th>Post</th><th>Hoeveelheid</th>'
+        + '<th>' + btwWoord() + '</th></tr></thead><tbody>'
+        + rijen + '<tr class="tot"><td>Totaal</td><td></td><td>' + eu(totaal())
+        + '</td></tr></tbody></table>';
+    }
+
+    function tekenKop() {
+      var t = TYPE.filter(function (x) { return x.v === st.woningtype; })[0];
+      var g = GEVEL.filter(function (x) { return x.v === st.gevelsoort; })[0];
+      $('confTitle').innerHTML = esc(t.l) + ' <span>' + esc(g.l.toLowerCase()) + '</span>';
+      $('confSub').textContent = st.opp + ' m² gevel · richtprijs, geen offerte';
+    }
+
+    function render() {
+      tekenKop(); tekenGroepen(); tekenBeeld(); tekenDetails(); tekenPrijs();
+      if (window.NGBewaren) NGBewaren.bewaar(st);
+    }
+
+    /* ------------------------------------------------------- gebeurtenissen */
+
+    /* Als het woningtype wisselt, verandert ook het geveloppervlak - maar
+     * alleen als de bezoeker de schuif nog niet zelf heeft aangeraakt. Iemand
+     * die 80 m2 heeft ingesteld en daarna van woningtype wisselt, wil zijn
+     * eigen getal houden en niet stilletjes teruggezet worden. */
+    var oppZelfGezet = false;
+
+    document.querySelectorAll('.matswitch button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        st.woningtype = b.dataset.t;
+        document.querySelectorAll('.matswitch button').forEach(function (x) {
+          var aan = x === b;
+          x.classList.toggle('is-on', aan);
+          x.setAttribute('aria-pressed', aan ? 'true' : 'false');
+        });
+        if (!oppZelfGezet) st.opp = P.OPPERVLAK[st.woningtype];
+        /* Een flatgebouw krijgt altijd een steiger; dat is geen keuze maar een
+         * eis. Wie hem eerder had uitgezet, krijgt hem hier terug. */
+        if (st.woningtype === 'flatgebouw') st.steiger = true;
+        toonSteiger = false;
+        render();
+      });
+    });
+
+    $('groups').addEventListener('change', function (e) {
+      var t = e.target;
+      if (t.type !== 'radio') return;
+      var groep = t.name.replace(/^g_/, '');
+      if (groep === 'gevelsoort') {
+        st.gevelsoort = t.value;
+        /* Van baksteen naar stuc en terug: de gekozen stap en de gekozen
+         * reiniging bestaan daar misschien niet. Dan terug naar iets wat wel
+         * bestaat, in plaats van een keuze onthouden die nergens op slaat. */
+        if (!stappen().some(function (o) { return o.v === st.stap; })) st.stap = 'compleet';
+        if (!reinigingen().some(function (o) { return o.v === st.reiniging; })) st.reiniging = 'softwash';
+      } else if (groep === 'reiniging') st.reiniging = t.value;
+      else if (groep === 'stap') st.stap = t.value;
+      else if (groep === 'voegsoort') st.voegsoort = t.value;
+      else if (groep === 'voegkleur') st.voegkleur = t.value;
+      /* De steiger wordt hierboven bij de klik afgehandeld; hier alleen nog
+       * terugzetten dat het grote beeld weer het resultaat toont. */
+      if (groep !== 'steiger') toonSteiger = false;
+      render();
+    });
+
+    /* EEN KLIK OP EEN KEUZE DIE AL AAN STAAT
+     *
+     * De steiger staat standaard aan. Klik je erop, dan verandert er niets aan
+     * de radioknop en vuurt er dus geen 'change' - en dan gebeurde er ook niets
+     * in beeld. Precies de knop waarvan gemeld werd dat hij stuk was, en hij
+     * was het ook: alleen uit-en-weer-aan liet de steiger zien.
+     *
+     * Bij de andere groepen speelt dit niet, want daar staat de gekozen stand
+     * al in beeld. De steiger is de enige die het beeld tijdelijk overneemt, en
+     * dus de enige die ook op een klik zonder verandering moet reageren. */
+    $('groups').addEventListener('click', function (e) {
+      var lab = e.target.closest ? e.target.closest('label.tile') : null;
+      var el = lab && lab.querySelector('input[name="g_steiger"]');
+      if (!el) return;
+      /* Deze afhandelaar doet het hele werk voor de steiger, en niet alleen het
+       * tonen. Dat moet ook: render() bouwt de keuzes opnieuw op, en daarmee
+       * verdwijnt het element waar de browser zijn 'change' nog op wilde
+       * afvuren. Die gebeurtenis gaat dus verloren zodra hier getekend wordt -
+       * en dan zou een klik op 'Zonder steiger' hem niet meer uitzetten.
+       * Vandaar dat de steigergroep hieronder ook uit de change-afhandelaar is
+       * gehaald: een keuze hoort op een plek afgehandeld te worden. */
+      toonSteiger = el.value === 'ja';
+      if (!(st.woningtype === 'flatgebouw' && el.value === 'nee')) {
+        st.steiger = el.value === 'ja';
+      }
+      render();
+    });
+
+    /* De schuiven werken live mee terwijl je sleept, maar tekenen niet de hele
+     * pagina opnieuw - dat zou de schuif onder je vinger vandaan halen. Alleen
+     * het getal en de prijs lopen mee; de rest volgt bij loslaten. */
+    $('groups').addEventListener('input', function (e) {
+      var t = e.target;
+      if (t.type !== 'range') return;
+      var v = parseInt(t.value, 10);
+      if (t.id === 'oppR') { st.opp = v; oppZelfGezet = true; $('oppO').textContent = v + ' m²'; }
+      else if (t.id === 'stenenR') { st.stenen = v; $('stenenO').textContent = v + ' stuks'; }
+      else if (t.id === 'scheurR') { st.scheurmeter = v; $('scheurO').textContent = v + ' m'; }
+      else if (t.id === 'herstelR') { st.herstelopp = v; $('herstelO').textContent = v + ' m²'; }
+      tekenKop(); tekenPrijs();
+    });
+
+    $('btwIncl').addEventListener('click', function () { zetBtw(true); });
+    $('btwExcl').addEventListener('click', function () { zetBtw(false); });
+    function zetBtw(incl) {
+      st.btwIncl = incl;
+      $('btwIncl').classList.toggle('is-on', incl);
+      $('btwIncl').setAttribute('aria-pressed', incl ? 'true' : 'false');
+      $('btwExcl').classList.toggle('is-on', !incl);
+      $('btwExcl').setAttribute('aria-pressed', !incl ? 'true' : 'false');
+      tekenPrijs();
+    }
+
+    /* HET SLEPEN
+     * Met de muis, met de vinger en met de pijltjestoetsen. Dat laatste is geen
+     * bijzaak: een schuifbeeld dat alleen met een muis werkt sluit iedereen uit
+     * die met het toetsenbord werkt, en dit is het enige element op de pagina
+     * waar het hele argument in zit. */
+    var vn = $('vn'), greep = $('vnGreep'), sleept = false;
+    function zet(x) {
+      var r = vn.getBoundingClientRect();
+      var pct = Math.max(0, Math.min(100, ((x - r.left) / r.width) * 100));
+      vn.style.setProperty('--x', pct + '%');
+      greep.setAttribute('aria-valuenow', Math.round(pct));
+    }
+    function start(e) { sleept = true; zet(e.touches ? e.touches[0].clientX : e.clientX); e.preventDefault(); }
+    function beweeg(e) { if (sleept) zet(e.touches ? e.touches[0].clientX : e.clientX); }
+    function stop() { sleept = false; }
+    vn.addEventListener('mousedown', start);
+    vn.addEventListener('touchstart', start, { passive: false });
+    window.addEventListener('mousemove', beweeg);
+    window.addEventListener('touchmove', beweeg, { passive: true });
+    window.addEventListener('mouseup', stop);
+    window.addEventListener('touchend', stop);
+    greep.addEventListener('keydown', function (e) {
+      var nu = parseInt(greep.getAttribute('aria-valuenow'), 10) || 50;
+      var stap = e.shiftKey ? 10 : 2, nieuw = nu;
+      if (e.key === 'ArrowLeft') nieuw = nu - stap;
+      else if (e.key === 'ArrowRight') nieuw = nu + stap;
+      else if (e.key === 'Home') nieuw = 0;
+      else if (e.key === 'End') nieuw = 100;
+      else return;
+      e.preventDefault();
+      nieuw = Math.max(0, Math.min(100, nieuw));
+      vn.style.setProperty('--x', nieuw + '%');
+      greep.setAttribute('aria-valuenow', nieuw);
+    });
+
+    /* ---------------------------------------------------------- de offerte */
+
+    function omschrijving() {
+      var t = TYPE.filter(function (x) { return x.v === st.woningtype; })[0].l;
+      var g = GEVEL.filter(function (x) { return x.v === st.gevelsoort; })[0].l;
+      return t + ', ' + g.toLowerCase() + ', ' + st.opp + ' m² gevel';
+    }
+    function samenvatting() {
+      return omschrijving() + '\n\n'
+        + posten().map(function (x) {
+            return '• ' + x.l + ' (' + x.hoeveel + '): '
+              + eu(bedragVan(x.sleutel, x.bedrag));
+          }).join('\n')
+        + '\n\nTotaal ' + btwWoord() + ': ' + eu(totaal());
+    }
+
+    /* Naar het formulier scrollen in plaats van een mailtje openen.
+     *
+     * Een mailto-knop ziet eruit als versturen maar is het niet: hij opent het
+     * mailprogramma van de bezoeker als dat er is, doet niets op een telefoon
+     * zonder ingesteld account, en de helft van de mensen sluit het venster.
+     * De aanvraag komt dan nooit aan en niemand weet dat. */
+    $('naarOfferte').addEventListener('click', function () {
+      $('offerte').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () { $('f_naam').focus({ preventScroll: true }); }, 500);
+    });
+
+    /* ------------------------------------------------- foto's van de gevel */
+
+    /* Waarom er verkleind wordt, en waarom in de browser.
+     *
+     * Een telefoonfoto van vandaag is vier- tot twaalfduizend pixels breed en
+     * drie tot acht megabyte groot. Vier daarvan zijn samen ruim boven de tien
+     * megabyte die de verzenddienst als bijlage aanneemt, dus zonder verkleinen
+     * komt de aanvraag mét foto's juist NIET aan - en dat is de stilste manier
+     * om een lead kwijt te raken. Zestienhonderd pixels op de lange zijde is
+     * ruim genoeg om aanslag, scheuren en de staat van de voegen op te zien;
+     * daaronder gaat dat verloren.
+     *
+     * Het gebeurt in de browser omdat er geen server is die het kan doen: deze
+     * pagina is een los HTML-bestand op een statische host. */
+    var FOTO_MAX = 4;              // meer dan vier zegt niets extra's
+    var FOTO_ZIJDE = 1600;         // langste zijde na verkleinen, in pixels
+    var FOTO_KWALITEIT = 0.82;     // jpeg; daarboven wordt het bestand groot zonder zichtbare winst
+    var FOTO_SAMEN = 8 * 1024 * 1024;  // marge onder de tien megabyte van de dienst
+    var fotos = [];                // [{ naam, blob, url }]
+
+    /* Een beeld inlezen mét de draaiing die de telefoon erin gezet heeft.
+     * createImageBitmap kan dat zelf; een <img> op een canvas tekenen doet dat
+     * in oudere browsers niet, en dan staat een staande gevelfoto op zijn kant
+     * in de mailbox. Kan de eerste route niet, dan valt hij terug op de tweede
+     * - liever een foto op zijn kant dan geen foto. */
+    function leesBeeld(bestand) {
+      var viaImg = function () {
+        return new Promise(function (klaar, mis) {
+          var url = URL.createObjectURL(bestand), img = new Image();
+          img.onload = function () {
+            klaar({ beeld: img, breed: img.naturalWidth, hoog: img.naturalHeight,
+                    op: function () { URL.revokeObjectURL(url); } });
+          };
+          img.onerror = function () { URL.revokeObjectURL(url); mis(); };
+          img.src = url;
+        });
+      };
+      if (!window.createImageBitmap) return viaImg();
+      try {
+        return createImageBitmap(bestand, { imageOrientation: 'from-image' })
+          .then(function (bm) {
+            return { beeld: bm, breed: bm.width, hoog: bm.height,
+                     op: function () { if (bm.close) bm.close(); } };
+          })
+          .catch(viaImg);
+      } catch (e) { return viaImg(); }
+    }
+
+    function verklein(bestand) {
+      return leesBeeld(bestand).then(function (bron) {
+        var f = Math.min(1, FOTO_ZIJDE / Math.max(bron.breed, bron.hoog));
+        var doek = document.createElement('canvas');
+        doek.width = Math.max(1, Math.round(bron.breed * f));
+        doek.height = Math.max(1, Math.round(bron.hoog * f));
+        doek.getContext('2d').drawImage(bron.beeld, 0, 0, doek.width, doek.height);
+        bron.op();
+        var teGroot = Math.max(bron.breed, bron.hoog) > FOTO_ZIJDE;
+        var isJpeg = /^image\/jpe?g$/i.test(bestand.type || '');
+        return new Promise(function (klaar) {
+          doek.toBlob(function (blob) {
+            /* Het origineel mag alleen blijven als het al een jpeg van
+             * bescheiden afmeting is én opnieuw opslaan niets oplevert.
+             *
+             * Niet alleen op bestandsgrootte kijken. Een iPhone levert heic,
+             * dat twee keer zo goed comprimeert als jpeg - het origineel is
+             * dan altijd kleiner en zou dus altijd winnen, en belandt daarna
+             * als onopenbare bijlage in de mailbox van iemand met Outlook.
+             * Alles wat geen jpeg is gaat er daarom hoe dan ook doorheen. */
+            if (!blob) return klaar(bestand);
+            klaar(!teGroot && isJpeg && blob.size >= bestand.size ? bestand : blob);
+          }, 'image/jpeg', FOTO_KWALITEIT);
+        });
+      }).catch(function () { return bestand; });
+    }
+
+    function kb(n) {
+      return n >= 1024 * 1024 ? (n / 1048576).toFixed(1).replace('.', ',') + ' MB'
+                              : Math.round(n / 1024) + ' kB';
+    }
+    function fotoMelding(t, let_) {
+      var m = $('fotoMelding');
+      if (!t) { m.hidden = true; m.textContent = ''; return; }
+      m.hidden = false; m.textContent = t; m.className = 'fotos__melding' + (let_ ? ' let' : '');
+    }
+    function fotosSamen() {
+      return fotos.reduce(function (n, f) { return n + f.blob.size; }, 0);
+    }
+    function fotoZin() {
+      if (!fotos.length) return '';
+      return fotos.length === 1
+        ? 'Eén foto gaat mee met de aanvraag (' + kb(fotosSamen()) + ').'
+        : fotos.length + " foto's gaan mee met de aanvraag (" + kb(fotosSamen()) + ').';
+    }
+
+    function tekenFotos() {
+      var lijst = $('fotolijst');
+      lijst.textContent = '';
+      lijst.hidden = !fotos.length;
+      fotos.forEach(function (f, i) {
+        var d = document.createElement('div');
+        d.className = 'foto';
+        var img = document.createElement('img');
+        img.src = f.url; img.alt = 'Foto ' + (i + 1) + ' van je gevel';
+        var maat = document.createElement('span');
+        maat.className = 'foto__maat'; maat.textContent = kb(f.blob.size);
+        var weg = document.createElement('button');
+        weg.type = 'button'; weg.className = 'foto__weg';
+        weg.setAttribute('aria-label', 'Foto ' + (i + 1) + ' verwijderen');
+        weg.innerHTML = '&times;';
+        weg.addEventListener('click', function () {
+          URL.revokeObjectURL(f.url);
+          fotos.splice(i, 1);
+          tekenFotos();
+          fotoMelding(fotoZin());
+        });
+        d.appendChild(img); d.appendChild(maat); d.appendChild(weg);
+        lijst.appendChild(d);
+      });
+    }
+
+    $('f_fotos').addEventListener('change', function (e) {
+      var gekozen = Array.prototype.slice.call(e.target.files || [])
+        .filter(function (f) { return /^image\//.test(f.type); });
+      /* Het invoerveld wordt meteen leeggemaakt: de bestanden zitten nu in
+       * fotos[], en een gevuld veld zou bij een tweede keuze de eerste weer
+       * overschrijven én dezelfde foto niet nog eens laten kiezen. */
+      e.target.value = '';
+      if (!gekozen.length) return;
+
+      var ruimte = FOTO_MAX - fotos.length;
+      var teveel = gekozen.length - ruimte;
+      gekozen = gekozen.slice(0, Math.max(0, ruimte));
+      if (!gekozen.length) { fotoMelding('Je kunt er maximaal ' + FOTO_MAX + ' meesturen.', true); return; }
+
+      fotoMelding('Bezig met verkleinen…');
+      Promise.all(gekozen.map(function (bestand) {
+        return verklein(bestand).then(function (blob) {
+          return { naam: (bestand.name || 'gevelfoto').replace(/\.[^.]+$/, '') + '.jpg',
+                   blob: blob, url: URL.createObjectURL(blob) };
+        });
+      })).then(function (nieuw) {
+        fotos = fotos.concat(nieuw);
+        /* Passen ze samen niet in een mail, dan gaat de laatste er weer af.
+         * Beter dat de bezoeker het hier hoort dan dat de hele aanvraag stil
+         * geweigerd wordt door de verzenddienst. */
+        var af = 0;
+        while (fotos.length > 1 && fotosSamen() > FOTO_SAMEN) {
+          URL.revokeObjectURL(fotos[fotos.length - 1].url); fotos.pop(); af++;
+        }
+        tekenFotos();
+        var t = fotoZin();
+        if (teveel > 0) t += ' Meer dan ' + FOTO_MAX + ' kan niet.';
+        if (af > 0) t += ' De laatste ' + (af > 1 ? af + ' zijn' : 'is') + ' te groot en niet meegenomen.';
+        fotoMelding(t, teveel > 0 || af > 0);
+      });
+    });
+
+    /* Twee verzendroutes naast elkaar, net als bij de andere configurators:
+     * hapert de ene dienst, dan levert de andere af. Pas als ze allebei falen
+     * komt het mailprogramma eraan te pas, en dan wéét de bezoeker dat.
+     *
+     * De foto's kunnen maar via één van de twee. FormSubmit neemt bijlagen aan
+     * als het bericht als multipart verstuurd wordt (samen hoogstens tien
+     * megabyte); bij Web3Forms zijn bijlagen een betaalde uitbreiding en zou
+     * het bestand er stilzwijgend af vallen. Dus: zijn er foto's, dan gaat de
+     * eerste route als multipart, en houdt de tweede route zijn tekstbericht
+     * met de mededeling dat er foto's onderweg zijn via de andere. Zo weet de
+     * ontvanger van de reservemail dat hij ze ergens moet hebben - en zien we
+     * hieronder ook of de foto's daadwerkelijk de deur uit zijn. */
+    var WEB3FORMS_KEY = '695172ae-1f2d-40b7-bb31-b8a4a882ad62';
+    function verstuur(payload, bijlagen) {
+      var mee = bijlagen && bijlagen.length ? bijlagen : null;
+      var a;
+      if (mee) {
+        var fd = new FormData();
+        Object.keys(payload).forEach(function (k) { fd.append(k, payload[k] == null ? '' : payload[k]); });
+        /* Elke bijlage een eigen veldnaam: FormSubmit hangt elk bestandsveld
+         * afzonderlijk aan de mail, en vier keer dezelfde naam kan bij zo'n
+         * dienst betekenen dat alleen de laatste overblijft. */
+        mee.forEach(function (f, i) { fd.append('attachment' + (i ? i + 1 : ''), f.blob, f.naam); });
+        a = fetch('https://formsubmit.co/ajax/info@nextgrowthdigital.nl', {
+          method: 'POST', headers: { Accept: 'application/json' }, body: fd
+        });
+      } else {
+        a = fetch('https://formsubmit.co/ajax/info@nextgrowthdigital.nl', {
+          method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(payload)
+        });
+      }
+      a = a.then(function (r) { return r.ok ? r.json() : null; })
+           .then(function (d) { return !!(d && (d.success === true || d.success === 'true')); })
+           .catch(function () { return false; });
+      var tweede = Object.assign({ access_key: WEB3FORMS_KEY,
+        from_name: 'nextgrowthdigital.nl', subject: payload._subject }, payload);
+      if (mee) tweede.Fotos = mee.length + " foto's zijn met de bijlageroute meegestuurd";
+      var b = fetch('https://api.web3forms.com/submit', {
+        method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(tweede)
+      }).then(function (r) { return r.ok; }).catch(function () { return false; });
+      return Promise.all([a, b]).then(function (u) {
+        return { ok: u[0] || u[1], metFotos: u[0] };
+      });
+    }
+
+    function melding(t, soort) {
+      var m = $('leadMsg');
+      m.hidden = false; m.textContent = t; m.className = 'lead__msg ' + (soort || '');
+    }
+
+    $('leadForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var f = e.target;
+      if (f.reportValidity && !f.reportValidity()) return;
+      f.configuratie.value = samenvatting();
+      var knop = $('leadBtn'), oud = knop.textContent;
+      knop.disabled = true; knop.textContent = 'Versturen…';
+      verstuur({
+        _subject: 'Offerteaanvraag gevelrenovatie: ' + (f.naam.value || ''),
+        _template: 'table', _captcha: 'false', _replyto: f.email.value,
+        Product: 'Gevelrenovatie configurator',
+        Naam: f.naam.value, Plaats: f.plaats.value,
+        Email: f.email.value, Telefoon: f.telefoon.value,
+        Bericht: f.bericht.value, Configuratie: f.configuratie.value,
+        /* De materiaalstaat gaat mee met de aanvraag. Niet voor de klant maar
+         * voor degene die de opname inplant: die weet dan voor het bezoek al
+         * hoeveel steiger er staat, hoeveel mortel eruit gaat en hoeveel dagen
+         * het is - en kan de afspraak daarop inrichten in plaats van erna. */
+        Materiaalstaat: staatTekst(),
+        /* Staat er niets bij, dan is dat ook informatie: dan komt de opname
+         * zonder beeld en moet er ter plekke gekeken worden. */
+        Fotos: fotos.length === 0 ? 'geen foto meegestuurd'
+          : fotos.length === 1 ? 'e\u00e9n foto van de gevel meegestuurd'
+          : fotos.length + " foto's van de gevel meegestuurd"
+      }, fotos).then(function (u) {
+        if (!u.ok) throw 0;
+        f.reset();
+        /* Kwam de aanvraag binnen langs de reserveroute, dan is de tekst er wel
+         * en zijn de foto's er niet. Dat hoort de bezoeker te weten voordat hij
+         * de pagina sluit - anders wacht hij op een reactie op beeld dat nooit
+         * is aangekomen. */
+        if (fotos.length && !u.metFotos) {
+          melding('Dank je! Je aanvraag is verstuurd. De foto\'s konden er niet bij; '
+            + 'stuur ze gerust los naar info@nextgrowthdigital.nl, dan koppelen we ze aan je aanvraag.', 'ok');
+        } else {
+          melding('Dank je! Je aanvraag is verstuurd. We nemen binnen één werkdag contact op.', 'ok');
+          fotos.forEach(function (x) { URL.revokeObjectURL(x.url); });
+          fotos = []; tekenFotos(); fotoMelding('');
+        }
+      }).catch(function () {
+        melding('Versturen via de site lukte niet. We openen je e-mailprogramma als alternatief.', '');
+        location.href = 'mailto:info@nextgrowthdigital.nl?subject='
+          + encodeURIComponent('Offerteaanvraag gevelrenovatie: ' + (f.naam.value || ''))
+          + '&body=' + encodeURIComponent(samenvatting() + '\n\nNaam: ' + f.naam.value
+              + '\nPlaats: ' + f.plaats.value + '\nE-mail: ' + f.email.value
+              + '\nTelefoon: ' + f.telefoon.value + '\nBericht: ' + f.bericht.value
+              + (fotos.length ? '\n\n(Er staan ' + fotos.length + " foto's van de gevel klaar;"
+                  + ' een mailtje kan die niet zelf meenemen, dus voeg ze hier even toe.)' : ''));
+      }).finally(function () { knop.disabled = false; knop.textContent = oud; });
+    });
+
+    /* Een afdrukbaar offerteblad.
+     *
+     * Een gevelrenovatie is een beslissing van duizenden euro's, en die neemt
+     * bijna niemand alleen achter een scherm. Er wordt over gepraat, met een
+     * partner, een VvE-bestuur, een buurman die het ook wil. Dan moet er iets
+     * op tafel kunnen liggen dat de prijsopbouw laat zien - anders wordt het
+     * "iets van vierduizend geloof ik" en dat is de helft van het gesprek weg. */
+    function offerteblad() {
+      var e = function (x) { return String(x).replace(/[&<>]/g, function (c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]; }); };
+      var p = posten();
+      var rijen = p.map(function (x) {
+        return '<tr><td>' + e(x.l) + '</td><td>' + e(x.hoeveel) + '</td>'
+          + '<td class="r">' + eu(bedragVan(x.sleutel, x.tarief)) + '</td>'
+          + '<td class="r">' + eu(bedragVan(x.sleutel, x.bedrag)) + '</td></tr>';
+      }).join('');
+      var voor = B.beeld(st.woningtype, st.gevelsoort, 'vervuild');
+      var doel = st.stap === 'geen' ? 'gereinigd' : st.stap;
+      var na = B.beeld(st.woningtype, st.gevelsoort, doel, 'platvol', 'lichtgrijs')
+            || B.beeld(st.woningtype, st.gevelsoort, doel);
+      var basis = location.href.replace(/[^/]*$/, '');
+      return '<!doctype html><html lang="nl"><head><meta charset="utf-8">'
+        + '<title>Gevelrenovatie: richtprijs</title><style>'
+        + 'body{font:13px/1.5 system-ui,sans-serif;color:#111;margin:0;padding:24px;max-width:820px}'
+        + 'h1{font-size:20px;margin:0 0 2px}h2{font-size:13px;margin:22px 0 6px;'
+        + 'text-transform:uppercase;letter-spacing:.06em;color:#666;font-weight:600}'
+        + '.sub{color:#666;margin:0 0 18px}'
+        + 'table{width:100%;border-collapse:collapse;margin-top:4px}'
+        + 'th,td{text-align:left;padding:6px 8px;border-bottom:1px solid #ddd}'
+        + 'th{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:#666;font-weight:600}'
+        + '.r{text-align:right;white-space:nowrap}tr.tot td{font-weight:700;border-top:2px solid #111}'
+        + '.beelden{display:flex;gap:10px;margin-top:8px}.beelden figure{margin:0;flex:1}'
+        + '.beelden img{width:100%;border:1px solid #ccc}'
+        + '.beelden figcaption{font-size:11px;color:#666;margin-top:3px}'
+        + '.noot{font-size:11px;color:#666;margin-top:18px;border-top:1px solid #ddd;padding-top:10px}'
+        + 'button{margin-top:16px;font:inherit;padding:8px 14px;cursor:pointer}'
+        + '@media print{button{display:none}}@page{size:A4 portrait;margin:16mm}'
+        + '</style></head><body>'
+        + '<h1>Gevelrenovatie: richtprijs</h1>'
+        + '<p class="sub">' + e(omschrijving()) + '</p>'
+        + (voor && na ? '<h2>Nu en na</h2><div class="beelden">'
+            + '<figure><img src="' + basis + voor.replace('./', '') + '"><figcaption>Huidige staat</figcaption></figure>'
+            + '<figure><img src="' + basis + na.replace('./', '') + '"><figcaption>Na de gekozen behandeling</figcaption></figure>'
+            + '</div>' : '')
+        + '<h2>Prijsopbouw</h2><table><thead><tr><th>Post</th><th>Hoeveelheid</th>'
+        + '<th class="r">Tarief</th><th class="r">Bedrag</th></tr></thead><tbody>' + rijen
+        + '<tr class="tot"><td>Totaal ' + btwWoord() + '</td><td></td><td></td><td class="r">'
+        + eu(totaal()) + '</td></tr></tbody></table>'
+        + '<p class="noot">Dit is een richtprijs op basis van het opgegeven geveloppervlak, '
+        + 'geen offerte. De uiteindelijke prijs volgt uit de opname ter plaatse: de staat van '
+        + 'het voegwerk, de bereikbaarheid en de werkelijke hoeveelheid herstelwerk bepalen '
+        + 'het verschil. Tarieven per augustus 2026, ' + (st.btwIncl
+            ? 'inclusief btw: 9% op schilder- en stukadoorswerk aan woningen '
+              + 'ouder dan twee jaar, 21% op het overige.'
+            : 'exclusief btw. Daarbovenop komt 9% op schilder- en stukadoorswerk aan '
+              + 'woningen ouder dan twee jaar en 21% op het overige.') + '<br>'
+        + 'Next Growth &middot; info@nextgrowthdigital.nl &middot; 06 83 90 21 92</p>'
+        + '<button data-ng-print>Afdrukken of opslaan als pdf</button>'
+        + '</body></html>';
+    }
+    /* DE MATERIAALSTAAT
+     *
+     * Het offerteblad is voor de klant: wat kost het. De materiaalstaat is voor
+     * de uitvoerder: wat moet ik bestellen en hoeveel dagen sta ik er. Dat zijn
+     * twee bladen omdat het twee lezers zijn, en ze komen allebei uit dezelfde
+     * keuzes - wijkt een blad af van het scherm, dan is het blad fout, en door
+     * ze uit een bron te voeden kan dat niet.
+     *
+     * De hoeveelheden komen uit gevel-staat.js. Die staat apart omdat een prijs
+     * een verkoopgetal is en een bestellijst een inkoopgetal: op het eerste mag
+     * afgerond worden, op het tweede komt een vrachtwagen af. */
+    function staatObject() {
+      return window.NGGevelStaat ? NGGevelStaat.staat(st) : null;
+    }
+    function staatTekst() {
+      var S = staatObject();
+      return S ? NGGevelStaat.tekst(S) : '';
+    }
+    function materiaalstaat() {
+      var S = staatObject();
+      if (!S) return '';
+      var e = function (x) { return String(x == null ? '' : x).replace(/[&<>]/g, function (c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]; }); };
+      var nl = function (n) { return n.toLocaleString('nl-NL'); };
+      var groep = null, rijen = '';
+      S.regels.forEach(function (x) {
+        if (x.groep !== groep) {
+          groep = x.groep;
+          rijen += '<tr class="grp"><td colspan="3">' + e(groep) + '</td></tr>';
+        }
+        rijen += '<tr><td class="r">' + nl(x.aantal) + '</td><td class="eh">' + e(x.eh)
+              + '</td><td>' + e(x.wat)
+              + (x.noot ? '<span class="noot2">, ' + e(x.noot) + '</span>' : '')
+              + '</td></tr>';
+      });
+      var uren = S.uren.map(function (u) {
+        return '<tr><td class="r">' + nl(u.uren) + '</td><td class="eh">uur</td><td>'
+             + e(u.wat) + '</td></tr>';
+      }).join('');
+      return '<!doctype html><html lang="nl"><head><meta charset="utf-8">'
+        + '<title>Materiaalstaat gevelrenovatie</title><style>'
+        + 'body{font:13px/1.55 system-ui,sans-serif;color:#111;margin:0;padding:24px;max-width:820px}'
+        + 'h1{font-size:20px;margin:0 0 2px}h2{font-size:12px;margin:22px 0 6px;'
+        + 'text-transform:uppercase;letter-spacing:.06em;color:#666;font-weight:600}'
+        + '.sub{color:#666;margin:0 0 18px}'
+        + 'table{width:100%;border-collapse:collapse;margin-top:4px}'
+        + 'th,td{text-align:left;padding:5px 8px;border-bottom:1px solid #ddd;vertical-align:top}'
+        + 'td.r{text-align:right;white-space:nowrap;width:66px;font-variant-numeric:tabular-nums}'
+        + 'td.eh{width:56px;color:#666}'
+        + 'tr.grp td{border-bottom:none;padding-top:14px;font-size:11px;font-weight:700;'
+        + 'text-transform:uppercase;letter-spacing:.05em;color:#a8823c}'
+        + 'tr.tot td{border-top:2px solid #111;border-bottom:none;font-weight:700;padding-top:9px}'
+        + '.noot2{color:#666}'
+        + '.noot{font-size:11px;color:#666;margin-top:16px;border-top:1px solid #ddd;padding-top:10px}'
+        + 'ul{margin:6px 0 0;padding-left:18px;font-size:11.5px;color:#444;line-height:1.7}'
+        + 'button{margin-top:16px;font:inherit;padding:8px 14px;cursor:pointer}'
+        + '@media print{button{display:none}}@page{size:A4 portrait;margin:16mm}'
+        + '</style></head><body>'
+        + '<h1>Materiaalstaat gevelrenovatie</h1>'
+        + '<p class="sub">' + e(omschrijving()) + '</p>'
+        + '<p class="noot" style="margin-top:0;border:0;padding:0">Hoeveelheden om mee in '
+        + 'te kopen en uren om mee te plannen. Dit is geen bestek en geen '
+        + 'constructieberekening: verlies en breuk zitten in de hoeveelheden, de aannames '
+        + 'staan onderaan.</p>'
+        + '<h2>Materiaal</h2><table>' + rijen + '</table>'
+        + '<h2>Arbeid</h2><table>' + uren
+        + '<tr class="tot"><td class="r">' + nl(S.totaalUren) + '</td><td class="eh">uur</td>'
+        + '<td>Totaal: ca. ' + nl(S.dagen) + ' werkdagen met twee man</td></tr></table>'
+        + '<h2>Aannames</h2><ul>'
+        + S.aannames.map(function (a) { return '<li>' + e(a) + '</li>'; }).join('') + '</ul>'
+        + (S.controle.length ? '<h2>Na te meten bij de opname</h2><ul>'
+            + S.controle.map(function (c) { return '<li>' + e(c) + '</li>'; }).join('')
+            + '</ul>' : '')
+        + '<p class="noot">Next Growth &middot; info@nextgrowthdigital.nl &middot; 06 83 90 21 92</p>'
+        + '<button data-ng-print>Afdrukken of opslaan als pdf</button>'
+        + '</body></html>';
+    }
+
+    /* Een pop-up wordt geblokkeerd zodra de bezoeker dat ooit heeft ingesteld,
+     * en dan gebeurt er niets. NGAfdruk vangt dat op door het blad in de pagina
+     * te zetten; is die module er niet, dan blijft het een venster. */
+    function blad(html, naam, titel) {
+      if (window.NGAfdruk) { NGAfdruk.toon(html, naam, titel); return; }
+      var w = window.open('', naam);
+      if (!w) { melding('Sta pop-ups toe om dit blad te openen.', ''); return; }
+      w.document.open(); w.document.write(html); w.document.close(); (function(k){ if(k) k.addEventListener('click', function(){ w.print(); }); })(w.document.querySelector('[data-ng-print]'));
+    }
+    $('bladBtn').addEventListener('click', function () {
+      blad(offerteblad(), 'ng-gevelblad', 'Offerteblad gevelrenovatie');
+    });
+    $('staatBtn').addEventListener('click', function () {
+      blad(materiaalstaat(), 'ng-gevelstaat', 'Materiaalstaat gevelrenovatie');
+    });
+
+    /* De samenstelling overleeft een herlaad.
+     *
+     * Iemand schuift zijn geveloppervlak goed, kiest een reinigingsmethode,
+     * weegt drie voegsoorten tegen elkaar af - en drukt dan op F5, of klikt
+     * naar de prijzenpagina en terug. Alles weg. Dat is niet alleen zonde van
+     * zijn tijd: het is precies het moment waarop iemand afhaakt, want opnieuw
+     * beginnen doet niemand.
+     *
+     * De bewaarmodule sleutelt op st.type, dus die krijgt hier een vaste
+     * waarde - anders zou een gevelconfiguratie in de la van een andere
+     * configurator belanden. */
+    st.type = 'gevelrenovatie';
+    if (window.NGBewaren) {
+      var herstelde = NGBewaren.laad(st);
+      /* Wie zelf een oppervlak had ingesteld, heeft dat ook bewaard: dan mag
+       * een wisseling van woningtype het niet alsnog overschrijven. */
+      if (herstelde && st.opp !== P.OPPERVLAK[st.woningtype]) oppZelfGezet = true;
+      if (herstelde) NGBewaren.melden(st, function () { location.reload(); });
+    }
+
+    render();
+    vn.style.setProperty('--x', '50%');
+
+    /* Voor de tests: de keuze en de prijs zijn van buitenaf te lezen, zodat een
+     * toets niet hoeft af te gaan op wat er toevallig op het scherm staat. */
+    window.NGGevelKeuze = function () {
+      return { st: JSON.parse(JSON.stringify(st)), posten: posten(), totaal: totaal() };
+    };
+    /* De twee teksten die de deur uit gaan, zodat een toets ze kan nakijken
+     * zonder een mail te versturen of een venster te openen. Juist daar ging de
+     * btw-knop mis: op het scherm klopte hij en in deze twee niet. */
+    window.NGGevelTekst = function () {
+      return { samenvatting: samenvatting(), blad: offerteblad(),
+               staat: materiaalstaat(), staatTekst: staatTekst() };
+    };
+  })();
+  </script>
+  <script src="./assets/meting.js" defer></script>
+  <script src="./assets/terugbel.js" defer></script>
+  <script src="./assets/core.js" defer></script>
+  
+  <a class="nx-wa" href="https://wa.me/31683902192" target="_blank" rel="noopener" aria-label="Stel je vraag via WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a9.9 9.9 0 0 0-8.5 15L2 22l5.2-1.4A9.9 9.9 0 1 0 12 2zm0 1.7a8.2 8.2 0 1 1-4.2 15.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.7zm-3.1 4.2c-.2 0-.5 0-.7.3-.2.3-.9.9-.9 2.1s.9 2.5 1 2.6c.1.2 1.8 2.8 4.3 3.8 2.1.8 2.6.7 3 .6.5 0 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.4-.2-1.5-.7c-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.5 7.5 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5v-.5L9.5 8.2c-.2-.4-.4-.3-.6-.3z"/></svg></a>
+  <!-- Vercel Analytics (scripts/analytics.py) -->
+  
+  
+</body>
+</html>
