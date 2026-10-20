@@ -1,0 +1,1217 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tegelvloerconfigurator voor tegelzetters: live demo | Next Growth</title>
+  <meta name="description" content="Live demo van een tegelvloerconfigurator die Next Growth bouwt voor tegelzetters. Kies formaat, materiaal, voegkleur en legpatroon, zie de vloer direct liggen en krijg een richtprijs per vierkante meter.">
+  <link rel="canonical" href="https://nextgrowthdigital.nl/tegelvloer-configurator">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="nl_NL">
+  <meta property="og:site_name" content="Next Growth">
+  <meta property="og:title" content="Tegelvloerconfigurator voor tegelzetters: live demo | Next Growth">
+  <meta property="og:description" content="Live demo van een tegelvloerconfigurator die Next Growth bouwt voor tegelzetters. Kies formaat, materiaal, voegkleur en legpatroon, zie de vloer direct liggen en krijg een richtprijs per vierkante meter.">
+  <meta property="og:url" content="https://nextgrowthdigital.nl/tegelvloer-configurator">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Crect width='18' height='18' rx='4' fill='%23C9A45F'/%3E%3Cpath d='M5 13V5l8 8V5' stroke='%230A0A0B' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./assets/fonts.css">
+  <link rel="stylesheet" href="./assets/core.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Tegelvloerconfigurator laten maken",
+    "name": "Tegelvloer configurator",
+    "url": "https://nextgrowthdigital.nl/tegelvloer-configurator",
+    "provider": { "@type": "ProfessionalService", "name": "Next Growth", "email": "info@nextgrowthdigital.nl", "telephone": "+31683902192", "url": "https://nextgrowthdigital.nl/" },
+    "areaServed": ["Nederland"],
+    "description": "Live demo van een tegelvloerconfigurator die Next Growth bouwt voor tegelzetters. Stel een tegelvloer samen: kies formaat, materiaal, voegkleur, legpatroon en plint, zie de vloer live in een echte kamer getekend en krijg direct een indicatieprijs per m² inclusief lijmen, leggen en voegen."
+  }
+  </script>
+  <style>
+    :root { --acc: var(--accent); --acc-soft: rgba(var(--accent-rgb),.14); }
+    .cfg-hero { padding: calc(60px + clamp(1.6rem, 5vh, 3rem)) 0 0; text-align: center; }
+    .cfg-hero .pill { margin-bottom: 1rem; }
+    .cfg-hero .h1 { max-width: 20ch; margin-inline: auto; }
+    .cfg-hero .lede { margin: 1rem auto 0; max-width: 58ch; }
+
+    /* material switch */
+    .matswitch { display: inline-flex; flex-wrap: wrap; justify-content: center; max-width: 100%; gap: .3rem; padding: .32rem; border: 1px solid var(--line-strong); border-radius: 13px; background: var(--bg-raise); margin: 1.6rem auto 0; }
+    .matswitch button, .matswitch a { display: inline-flex; align-items: center; gap: .5rem; border: none; background: transparent; color: var(--text-2); font: inherit; font-weight: 600; font-size: .9rem; padding: .65rem 1.3rem; border-radius: 10px; cursor: pointer; transition: background .14s ease, color .14s ease; text-decoration: none; }
+    .matswitch button svg { width: 17px; height: 17px; }
+    .matswitch button.is-on, .matswitch a.is-on { background: var(--acc); color: #17130a; }
+    .matswitch a:hover { color: var(--text-1); }
+    /* Vier tot zeven keuzes passen niet naast elkaar op een telefoon. Zonder
+       wrap liep de rij het scherm uit: de laatste optie was onbereikbaar en
+       de hele pagina schoof horizontaal mee. */
+    @media (max-width: 640px) {
+      .matswitch { gap: .25rem; }
+      .matswitch button, .matswitch a { padding: .55rem .8rem; font-size: .8rem; }
+    }
+
+    /* presets */
+    .presets { margin: 1.5rem auto 0; max-width: 900px; }
+    .presets__lbl { display: block; font-family: var(--mono); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: var(--text-3); margin-bottom: .7rem; }
+    .presets__row { display: flex; gap: .7rem; flex-wrap: wrap; justify-content: center; }
+    .preset { display: flex; align-items: center; gap: .6rem; border: 1px solid var(--line-strong); border-radius: 12px; background: var(--bg-raise); padding: .45rem .7rem .45rem .45rem; cursor: pointer; transition: border-color .12s ease, background .12s ease; text-align: left; }
+    .preset:hover { border-color: var(--acc); background: var(--bg-raise-2); }
+    .preset__th { width: 46px; height: 34px; border-radius: 7px; background-size: cover; background-position: center; flex: none; border: 1px solid rgba(255,255,255,.1); }
+    .preset__t b { display: block; font-size: .82rem; font-weight: 600; color: var(--text); line-height: 1.1; }
+    .preset__t span { font-size: .68rem; color: var(--text-3); }
+
+    /* configurator shell */
+    .conf { margin-top: clamp(1.8rem, 5vh, 3rem); }
+    .conf__layout { display: grid; grid-template-columns: 1fr; gap: 1.1rem; margin-top: 1.1rem; }
+    .conf__visual, .conf__options { min-width: 0; }
+    @media (min-width: 900px){
+      .conf__layout { grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); align-items: start; }
+      .conf__visual { position: sticky; top: 80px; }
+    @media (min-width:900px){ .conf__layout{ grid-template-columns:minmax(0,1.55fr) minmax(0,1fr); } }
+    @media (min-width:1200px){ .conf__layout{ grid-template-columns:minmax(0,1.7fr) minmax(0,1fr); } }
+
+    }
+    @media (max-width: 899px){
+      .conf__visual { position: sticky; top: 52px; z-index: 6; background: var(--bg); padding: 8px 0 10px; margin-top: -8px; }
+    }
+    .conf__head { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1.1rem; }
+    .conf__title { font-size: clamp(1.5rem, 4vw, 2.1rem); font-weight: 800; letter-spacing: -.02em; line-height: 1.05; }
+    .conf__title span { color: var(--acc); }
+    .conf__sub { font-size: .84rem; color: var(--text-2); margin-top: .3rem; }
+    .conf__badge { flex: none; display: inline-flex; align-items: center; gap: .5rem; border: 1px solid var(--line-strong); border-radius: 11px; padding: .55rem .8rem; font-size: .74rem; color: var(--text-2); background: var(--bg-raise); line-height: 1.2; max-width: 150px; }
+    .conf__badge svg { width: 20px; height: 20px; color: var(--acc); flex: none; }
+
+    .conf__hero { position: relative; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); margin-bottom: 1.2rem; aspect-ratio: 16/9; background: var(--bg-raise); }
+    #confHero { display: block; width: 100%; height: 100%; }
+    .conf__hero .hbg { position: absolute; inset: 0; background-size: cover; background-position: center; filter: blur(30px) brightness(.42) saturate(.9); transform: scale(1.18); z-index: 0; transition: background-image .22s ease; }
+    .conf__hero .hbg::after { content:''; position:absolute; inset:0; background: radial-gradient(120% 90% at 50% 45%, transparent 55%, rgba(0,0,0,.5) 100%); }
+    .conf__hero img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: cover; display: block; transform-origin: center center; transition: opacity .22s ease, transform .38s cubic-bezier(.4,0,.2,1); will-change: transform; }
+    .conf__hero.is-scaled img { border-radius: 10px; box-shadow: 0 18px 50px rgba(0,0,0,.5); }
+    .conf__hero .live { position: absolute; top: .8rem; left: .8rem; z-index: 2; display: inline-flex; align-items: center; gap: .45rem; font-family: var(--mono); font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; color: #fff; background: rgba(0,0,0,.45); backdrop-filter: blur(6px); padding: .35rem .6rem; border-radius: 7px; }
+    .conf__hero .live .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--acc); box-shadow: 0 0 8px var(--acc); }
+    .conf__hero .dim { position: absolute; bottom: .8rem; right: .8rem; z-index: 2; font-family: var(--mono); font-size: .62rem; letter-spacing: .06em; color: #fff; background: rgba(0,0,0,.5); backdrop-filter: blur(6px); padding: .35rem .6rem; border-radius: 7px; display: inline-flex; align-items: center; gap: .4rem; }
+    .conf__hero .dim b { color: var(--acc); font-weight: 400; }
+    .tile__img { width: 100%; height: 54px; border-radius: 8px; background-size: cover; background-position: center; border: 1px solid rgba(255,255,255,.1); }
+
+    .grp { border: 1px solid var(--line); border-radius: 14px; background: var(--bg-raise); padding: 1.15rem 1.2rem 1.25rem; margin-bottom: .9rem; }
+    .grp__h { font-size: .78rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--text); margin-bottom: .85rem; }
+    .grp__h b { color: var(--acc); font-weight: 700; margin-right: .4rem; }
+    .grp__row { display: grid; gap: .8rem; }
+    @media (min-width: 720px){ .grp__row.cols3 { grid-template-columns: 1fr 1fr 1fr; } }
+
+    .tiles { display: grid; gap: .6rem; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+    .tiles.sm { grid-template-columns: repeat(auto-fit, minmax(84px, 1fr)); }
+    .tile { position: relative; cursor: pointer; }
+    .tile input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+    .tile__c { border: 1.5px solid var(--line); border-radius: 11px; background: var(--bg-raise-2); padding: .7rem .6rem; display: flex; flex-direction: column; align-items: center; gap: .5rem; text-align: center; height: 100%; transition: border-color .12s ease, background .12s ease; }
+    .tile__c .ico { width: 30px; height: 30px; color: var(--text-2); }
+    .tile__c .ico svg { width: 100%; height: 100%; }
+    .tile__c .lab { font-size: .76rem; font-weight: 600; color: var(--text); line-height: 1.25; }
+    .tile__c .sub { font-size: .68rem; color: var(--text-3); }
+    @media (max-width: 600px) { .tile__c .sub { font-size: .78rem; } }
+    .tile__sw { width: 100%; height: 40px; border-radius: 7px; border: 1px solid rgba(255,255,255,.12); }
+    .tile input:checked + .tile__c { border-color: var(--acc); background: color-mix(in srgb, var(--acc) 12%, var(--bg-raise-2)); }
+    .tile input:checked + .tile__c .ico { color: var(--acc); }
+    .tile input:focus-visible + .tile__c { outline: 2px solid var(--acc); outline-offset: 2px; }
+
+    /* price bar */
+    .pricebar { margin-top: 1rem; border: 1px solid var(--line-strong); border-radius: 14px; background: linear-gradient(var(--bg-raise-2), var(--bg-raise)); padding: 1.1rem 1.2rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .pricebar__p { flex: 1 1 auto; min-width: 140px; }
+    .pricebar__p .k { display: flex; align-items: center; gap: .5rem; font-family: var(--mono); font-size: .66rem; text-transform: uppercase; letter-spacing: .06em; color: var(--text-3); }
+    .pricebar__let { display:block; margin-top:.3rem; font-size:.7rem; line-height:1.45; color: var(--text-3); max-width: 42ch; }
+    .pricebar__p .v { font-size: 1.8rem; font-weight: 800; color: var(--text); letter-spacing: -.02em; margin-top: .1rem; }
+    .btw { display: inline-flex; border: 1px solid var(--line-strong); border-radius: 7px; overflow: hidden; }
+    .btw button { border: none; background: transparent; color: var(--text-3); font: inherit; font-size: .62rem; font-family: var(--mono); padding: .28rem .5rem; cursor: pointer; }
+    .btw button.is-on { background: var(--acc-soft); color: var(--acc); }
+    .pricebar__cta { display: flex; gap: .5rem; align-items: stretch; flex-wrap: wrap; }
+    .btn--acc { background: var(--acc); color: #17130a; border: none; font-weight: 700; }
+    .btn--acc:hover { filter: brightness(1.06); box-shadow: 0 8px 24px color-mix(in srgb, var(--acc) 30%, transparent); }
+    .btn--icon { width: 46px; padding: 0; display: grid; place-items: center; }
+    .btn--icon svg { width: 18px; height: 18px; }
+
+    /* lead form */
+    .lead { display: grid; gap: .8rem; }
+    .lead__grid { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+    @media (max-width: 520px){ .lead__grid { grid-template-columns: 1fr; } }
+    .fld { display: grid; gap: .35rem; }
+    .fld label { font-size: .76rem; color: var(--text-2); font-weight: 500; }
+    .fld input, .fld textarea { width: 100%; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--bg-raise); color: var(--text); font: inherit; font-size: .88rem; padding: .7rem .85rem; }
+    .fld input:focus, .fld textarea:focus { outline: none; border-color: var(--acc); }
+    .lead__note { font-size: .74rem; color: var(--text-3); line-height: 1.5; }
+    .lead__msg { font-size: .84rem; padding: .8rem 1rem; border-radius: 10px; line-height: 1.5; }
+    .lead__msg.ok { background: var(--acc-soft); color: var(--acc); border: 1px solid color-mix(in srgb, var(--acc) 40%, transparent); }
+    .lead__msg.err { background: rgba(220,80,80,.1); color: #e88; border: 1px solid rgba(220,80,80,.35); }
+    .cfg__panel { padding: 1.6rem 1.6rem; display: grid; gap: 1.4rem; }
+  </style>
+  <style id="ng-protect-css">
+    /* Beeld- en kopieerbeveiliging */
+    img,picture,svg,.conf__hero,.conf__hero img,.tile__img,.preset__th,.hbg,.matswitch{
+      -webkit-user-drag:none;-khtml-user-drag:none;-moz-user-drag:none;-o-user-drag:none;user-select:none;
+      -webkit-touch-callout:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;
+    }
+    body{ -webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none; }
+    input,textarea,select,[contenteditable]{ -webkit-user-select:text!important;-moz-user-select:text!important;-ms-user-select:text!important;user-select:text!important; -webkit-touch-callout:default; }
+    .conf__hero,.conf__hero img,.tile__img,.preset__th,.hbg{ pointer-events:none; }
+    .tile,.preset,.matswitch a,.matswitch button{ pointer-events:auto; }
+  </style>
+  <script id="ng-protect-js">
+  (function(){
+    function inField(t){ return t && t.closest && t.closest('input,textarea,select,[contenteditable]'); }
+    document.addEventListener('contextmenu',function(e){ if(inField(e.target)) return; e.preventDefault(); },{capture:true});
+    document.addEventListener('dragstart',function(e){ e.preventDefault(); },{capture:true});
+    document.addEventListener('drop',function(e){ e.preventDefault(); },{capture:true});
+    document.addEventListener('copy',function(e){ if(!inField(e.target)) e.preventDefault(); },{capture:true});
+    document.addEventListener('cut',function(e){ if(!inField(e.target)) e.preventDefault(); },{capture:true});
+    // long-press op mobiel: blokkeer standaard-callout op beelden
+    document.addEventListener('touchstart',function(e){ var t=e.target; if(t&&t.closest&&t.closest('img,.conf__hero,.tile__img,.preset__th,.hbg')&&e.touches.length>1){ e.preventDefault(); } },{passive:false});
+  })();
+  </script>
+
+  <style id="vloer-theme">
+    :root{
+      --bg:#F1ECE3; --bg-raise:#FBF8F3; --bg-raise-2:#EFE7DB;
+      --text:#241C13; --text-2:rgba(36,28,19,.76); --text-3:rgba(36,28,19,.48);
+      --line:rgba(70,50,25,.14); --line-strong:rgba(70,50,25,.22);
+      --accent:#9A6E45; --accent-strong:#78522F; --accent-dim:rgba(154,110,69,.15); --glow:rgba(154,110,69,.30);
+      --acc:#9A6E45; --acc-soft:rgba(154,110,69,.15);
+      /* De om-en-om tint van de secties en de vulling van de invoervelden.
+         Zonder deze regel pakt core.css --ink-700 (#0E0E12) en staat de
+         donkere tekst van dit palet op een bijna zwart vlak. */
+      --tint:var(--bg-raise-2);
+          /* Ook de rest van de inktschaal: core.css vult invoervelden met
+         --ink-800 en tekent hun rand met --ink-400. */
+      --ink-900:var(--bg-raise-2); --ink-800:var(--bg); --ink-700:var(--bg-raise-2);
+      --ink-600:var(--bg-raise); --ink-500:var(--bg-raise); --ink-400:var(--line-strong);
+    }
+    body{ background:var(--bg); color:var(--text-2); }
+    .nav{ background:rgba(251,248,243,.88)!important; }
+    .nav__links a:hover{ background:rgba(0,0,0,.05); }
+    .nav__logo{ color:var(--text); }
+    .grad-text{ background:linear-gradient(120deg,#C79A6A 8%,#9A6E45 55%,#78522F 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .btn--acc{ color:#fff; }
+    .btn:not(.btn--ghost):not(.btn--acc){ background:linear-gradient(180deg,#C79A6A,#78522F); color:#fff; }
+    .btn--ghost{ color:var(--text); }
+    .btn--ghost:hover{ background:rgba(0,0,0,.04); border-color:var(--line-strong); }
+    .matswitch button.is-on, .matswitch a.is-on{ color:#fff; }
+    .tile__img,.preset__th{ border-color:rgba(0,0,0,.10); }
+    .pill{ background:rgba(54,38,18,.03); box-shadow:0 1px 2px rgba(54,38,18,.05); }
+    /* fijnere afwerking op lichte achtergrond: zachte schaduw + schone beeld-achtergrond */
+    .conf__hero{ border-color:rgba(54,38,18,.10); box-shadow:0 1px 2px rgba(54,38,18,.05), 0 22px 48px -26px rgba(54,38,18,.45); background:var(--bg-raise-2); }
+    .conf__hero .hbg{ filter:blur(40px) brightness(1.08) saturate(1.05); opacity:.35; transform:scale(1.25); }
+    .conf__hero .hbg::after{ background:none; }
+    .grp, .pricebar, .conf__badge{ box-shadow:0 1px 2px rgba(54,38,18,.04), 0 14px 32px -24px rgba(54,38,18,.40); }
+    .preset{ box-shadow:0 1px 2px rgba(54,38,18,.05); }
+    .preset:hover{ box-shadow:0 6px 18px -8px rgba(54,38,18,.45); }
+    .tile__c{ box-shadow:0 1px 1px rgba(54,38,18,.03); }
+    .tile input:checked + .tile__c{ box-shadow:0 2px 8px -2px rgba(54,38,18,.30); }
+    .matswitch{ box-shadow:0 1px 2px rgba(54,38,18,.05); }
+    .btn--acc{ box-shadow:0 8px 22px -10px rgba(54,38,18,.55); }
+    .nav{ border-bottom:1px solid rgba(54,38,18,.10); }
+    ::selection{ background:var(--accent); color:#fff; }
+    .lead__msg.ok{ color:var(--accent-strong); }
+    /* groter live-voorbeeld: bredere beeldkolom + volledig 16:9-beeld */
+    .conf__hero{ aspect-ratio:16/9; }
+    @media (min-width:900px){ .conf__layout{ grid-template-columns:minmax(0,1.55fr) minmax(0,1fr); } }
+    @media (min-width:1200px){ .conf__layout{ grid-template-columns:minmax(0,1.7fr) minmax(0,1fr); } }
+  </style>
+    <!-- ============ ENTITEIT (scripts/entiteit.py) ============ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://nextgrowthdigital.nl/#organization",
+          "name": "Next Growth",
+          "url": "https://nextgrowthdigital.nl/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://nextgrowthdigital.nl/assets/media/next-growth-logo.svg"
+          },
+          "description": "Next Growth is een creatief groeibureau en bouwt productconfiguratoren, offertesoftware, CRM-koppelingen en websites voor bouw- en installatiebedrijven, door heel Nederland.",
+          "email": "info@nextgrowthdigital.nl",
+          "telephone": "+31683902192",
+          "vatID": "NL004420281B57",
+          "taxID": "96002913",
+          "identifier": [
+            {
+              "@type": "PropertyValue",
+              "name": "KvK-nummer",
+              "value": "96002913"
+            },
+            {
+              "@type": "PropertyValue",
+              "name": "btw-identificatienummer",
+              "value": "NL004420281B57"
+            }
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "Noord-Brabant",
+            "addressCountry": "NL"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "sales",
+            "telephone": "+31683902192",
+            "email": "info@nextgrowthdigital.nl",
+            "areaServed": "NL",
+            "availableLanguage": [
+              "nl",
+              "en",
+              "de"
+            ]
+          },
+          "areaServed": [
+            {
+              "@type": "Country",
+              "name": "Nederland"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Noord-Brabant"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Gelderland"
+            },
+            {
+              "@type": "City",
+              "name": "Nijmegen"
+            },
+            {
+              "@type": "City",
+              "name": "Den Bosch"
+            },
+            {
+              "@type": "City",
+              "name": "Eindhoven"
+            },
+            {
+              "@type": "City",
+              "name": "Arnhem"
+            },
+            {
+              "@type": "City",
+              "name": "Uden"
+            },
+            {
+              "@type": "City",
+              "name": "Veghel"
+            },
+            {
+              "@type": "City",
+              "name": "Wijchen"
+            },
+            {
+              "@type": "City",
+              "name": "Vught"
+            },
+            {
+              "@type": "City",
+              "name": "Cuijk"
+            },
+            {
+              "@type": "City",
+              "name": "Grave"
+            }
+          ],
+          "knowsAbout": [
+            "Productconfigurator laten maken",
+            "Offertesoftware voor bouwbedrijven",
+            "Website laten maken voor bouw- en installatiebedrijven",
+            "Zoekmachineoptimalisatie",
+            "CRM voor bouwbedrijven",
+            "Dakopbouw",
+            "Uitbouw en aanbouw",
+            "Badkamer verbouwen",
+            "Overkapping op maat",
+            "Zwembad aanleggen",
+            "Dakkapel",
+            "Omgevingsvergunning bij verbouwen"
+          ],
+          "alternateName": [
+            "Next Growth Digital"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://nextgrowthdigital.nl/#website",
+          "url": "https://nextgrowthdigital.nl/",
+          "name": "Next Growth",
+          "inLanguage": "nl-NL",
+          "publisher": {
+            "@id": "https://nextgrowthdigital.nl/#organization"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://nextgrowthdigital.nl/tegelvloer-configurator",
+          "url": "https://nextgrowthdigital.nl/tegelvloer-configurator",
+          "name": "Tegelvloerconfigurator voor tegelzetters: live demo | Next Growth",
+          "inLanguage": "nl",
+          "isPartOf": {
+            "@id": "https://nextgrowthdigital.nl/#website"
+          },
+          "about": {
+            "@id": "https://nextgrowthdigital.nl/#organization"
+          },
+          "description": "Live demo van een tegelvloerconfigurator die Next Growth bouwt voor tegelzetters. Kies formaat, materiaal, voegkleur en legpatroon, zie de vloer direct liggen en krijg een richtprijs per vierkante meter.",
+          "dateModified": "2026-08-28"
+        }
+      ]
+    }
+    </script>
+    <!-- ============ EINDE ENTITEIT ============ -->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,900;125,900&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/ngx-shell.css"><style id="ngx-world">:root{--accent:#A97A22;--accent-strong:#8C6726;--accent-light:#E0B15A;--accent-deep:#6E4F17;--accent-dim:rgba(169,122,34,.12);--glow:rgba(169,122,34,.25);--accent-rgb:169,122,34;--acc:#A97A22;--acc-soft:rgba(169,122,34,.14);--acc-diep:#6E4F17;--serif:'Archivo','Arial Black',sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;--goud-metaal:linear-gradient(150deg,#6E4F17 0%,#A97A22 30%,#E0B15A 50%,#A97A22 70%,#6E4F17 100%);--goud-lijn:linear-gradient(90deg,transparent,rgba(169,122,34,.5) 30%,rgba(169,122,34,.5) 70%,transparent);}html{background:#F6EFE6}.ngx-nav{--x-sig:#A97A22;--x-ink:#FFFFFF}</style><script>document.documentElement.classList.add("ngx-display","ngx-light")</script></head>
+<body data-meet="ng-tegelvloer">
+  <a class="skip" href="#main">Direct naar inhoud</a>
+  <header class="ngx-nav"><div class="ngx-wrap">
+<a class="ngx-brand" href="/"><span class="ngx-ring">NG</span><span>Next Growth<small>Creatief groeibureau · Landelijk</small></span></a>
+<a class="ngx-mark" href="/" aria-label="Next Growth, naar de homepage"><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14V4l10 10V4" stroke="#0A0800" stroke-width="2.8" stroke-linecap="square"/></svg></a>
+<nav class="ngx-links" aria-label="Hoofdmenu"><a href="/">Home</a><a href="/dienst-webdesign">Websites</a><a href="/dienst-branding">Branding</a><a href="/dienst-marketing">Marketing</a><a href="/dienst-configurators">Configurators</a><a href="/kennisbank">Kennisbank</a><a href="/prijzen">Prijzen</a></nav>
+<a class="ngx-cta" href="/#contact">Kennismaken</a>
+<button class="ngx-menu" type="button" aria-expanded="false" aria-controls="ngx-mnav">Menu</button>
+</div><nav id="ngx-mnav" class="ngx-mnav" aria-label="Mobiel menu" hidden><a href="/">Home</a><a href="/dienst-webdesign">Websites</a><a href="/dienst-branding">Branding</a><a href="/dienst-marketing">Marketing</a><a href="/dienst-configurators">Configurators</a><a href="/kennisbank">Kennisbank</a><a href="/prijzen">Prijzen</a><a href="/#contact" class="ngx-cta">Plan een kennismaking</a></nav></header>
+
+  <main id="main">
+        <section class="cfg-hero" aria-label="Configurator">
+      <div class="wrap">
+        <p class="pill" data-reveal><span class="dot dot--ok"></span>Zes formaten &middot; vijf materialen &middot; live in de kamer</p>
+        <h1 class="h1" data-reveal style="--i:1">Stel je tegelvloer samen <span class="grad-text">en zie hem meteen liggen.</span></h1>
+        <p class="lede" data-reveal style="--i:2">Dit is een live demo van de tegelvloerconfigurator die Next Growth bouwt voor tegelzetters. Kies formaat, materiaal, voegkleur en legpatroon. De vloer wordt live in een echte kamer getekend, met de echte voegbreedte en het echte verband, tot tegen de plint. De indicatieprijs per m² inclusief leggen rekent mee.</p>
+        <div class="matswitch" role="group" aria-label="Andere configurators" data-reveal style="--i:3"><a href="/tegel-configurator">Wand &amp; vloer</a><a href="/pvc-configurator">PVC-vloer</a><a href="/kunstgras-configurator">Kunstgras</a><a href="/zwembad-configurator">Zwembad</a></div>
+        <div class="presets" data-reveal style="--i:4">
+          <span class="presets__lbl">Populaire samenstellingen</span>
+          <div class="presets__row" id="presetRow"></div>
+          
+        </div>
+      </div>
+    </section>
+
+    <section class="sectie" style="padding-top: clamp(1.5rem,4vh,2.5rem);" aria-label="Configurator">
+      <div class="wrap" style="max-width: 1600px; width: min(100%, 1600px);">
+        <div class="conf" data-reveal>
+          <div class="conf__head">
+            <div>
+              <div class="conf__title" id="confTitle"></div>
+              <div class="conf__sub" id="confSub"></div>
+            </div>
+            <div class="conf__badge" id="confBadge"></div>
+          </div>
+          <div class="conf__layout">
+            <div class="conf__visual">
+              <div class="conf__hero" id="confHeroWrap"><canvas id="confHero" width="1280" height="720" aria-label="Voorbeeld van de gekozen tegelvloer in een kamer"></canvas><span class="live"><span class="dot"></span>Live getekend</span><span class="dim" id="confDim"></span></div>
+              <div class="pricebar">
+                <div class="pricebar__p">
+                  <span class="k">Indicatieprijs
+                    <span class="btw" role="group" aria-label="btw">
+                      <button type="button" id="btwIncl" class="is-on" aria-pressed="true">incl. btw</button>
+                      <button type="button" id="btwExcl" aria-pressed="false">excl. btw</button>
+                    </span>
+                  </span>
+                  <span class="v" id="prijs">€ 0</span>
+                  <span class="pricebar__let">Richtbedrag, geen offerte &middot; de definitieve prijs volgt na het opmeten ter plaatse</span>
+                </div>
+                <div class="pricebar__cta">
+                  <button class="btn btn--acc" type="button" id="naarOfferte">Offerte aanvragen</button>
+                  <button class="btn btn--ghost btn--icon" type="button" id="downloadBtn" aria-label="Download configuratie" title="Download je configuratie">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="conf__options">
+              <div id="groups"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LEAD FORM -->
+        <div class="card cfg__panel" id="offerte" data-reveal style="margin-top:1.4rem;">
+          <div>
+            <p class="eyebrow">Bijna klaar</p>
+            <h2 class="h2" style="font-size:1.4rem; margin-top:.4rem;">Ontvang je offerte op maat.</h2>
+            <p style="font-size:.86rem; margin-top:.5rem;">Je volledige configuratie wordt automatisch meegestuurd. De tegelzetter neemt binnen één werkdag contact op om het inmeten in te plannen.</p>
+          </div>
+          <form class="lead" id="leadForm">
+            <div class="lead__grid">
+              <div class="fld"><label for="f_naam">Naam</label><input id="f_naam" name="naam" required autocomplete="name"></div>
+              <div class="fld"><label for="f_plaats">Plaats</label><input id="f_plaats" name="plaats" autocomplete="address-level2"></div>
+              <div class="fld"><label for="f_email">E-mailadres</label><input id="f_email" name="email" type="email" required autocomplete="email"></div>
+              <div class="fld"><label for="f_tel">Telefoon</label><input id="f_tel" name="telefoon" type="tel" autocomplete="tel"></div>
+            </div>
+            <div class="fld"><label for="f_ber">Bericht (optioneel)</label><textarea id="f_ber" name="bericht" rows="3" placeholder="Bijzonderheden, gewenste periode, locatie…"></textarea></div>
+            <input type="hidden" id="f_config" name="configuratie">
+            <button class="btn btn--acc" type="submit" id="leadBtn" style="justify-self:start;">Verstuur aanvraag</button>
+            <p class="lead__msg" id="leadMsg" role="status" hidden></p>
+            <p class="lead__note">In deze demo komt je aanvraag met de volledige configuratie binnen bij Next Growth. Liever bellen? <a href="tel:+31683902192" style="color:var(--acc)"><a href="tel:+31683902192">06 83 90 21 92</a></a>.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  
+<section class="sectie" aria-labelledby="tv-uitleg">
+  <div class="wrap">
+    <div class="sectie-kop">
+      <p class="eyebrow">Waar je op let</p>
+      <h2 id="tv-uitleg">Wat een tegelvloer duur of goedkoop maakt</h2>
+      <p style="color:var(--muted,#9c9a94);max-width:46rem;margin-top:.6rem">Niet de tegel
+        alleen. Het formaat, het legpatroon en de staat van de ondergrond bepalen samen vaak
+        meer dan de helft van de rekening.</p>
+    </div>
+
+    <div class="ovk-uitleg">
+      <article>
+        <h3>Het formaat bepaalt het legtarief</h3>
+        <p>Een tegel van 60 bij 60 is met twee handen te leggen en vergeeft een ondergrond die
+          niet perfect vlak is. Bij 120 bij 60 moet de vloer binnen enkele millimeters vlak
+          liggen over de hele lengte, is er bijna altijd egaliseren nodig en kost zagen meer
+          tijd. Een gebroken grootformaattegel is bovendien duur.</p>
+        <p>Mozaïek is het andere uiterste: klein, op matten geleverd, en per m² veel meer
+          voegwerk. Mooi in een douchevloer omdat het meeloopt met het afschot, maar op een
+          woonkamervloer betaal je vooral aan arbeid.</p>
+      </article>
+
+      <article>
+        <h3>Het legpatroon telt door in de uren</h3>
+        <p>Recht verband is het snelst. Halfsteens kost iets meer omdat elke rij ingemeten moet
+          worden. Visgraat en Hongaarse punt zijn een ander verhaal: daar wordt elke tegel
+          langs de wanden op maat gezaagd en loopt het snijverlies flink op.</p>
+        <p>Reken bij recht verband op 5 procent extra boven de netto oppervlakte voor
+          zaagverlies, en bij visgraat of Hongaarse punt eerder op 10 tot 15 procent.</p>
+      </article>
+
+      <article>
+        <h3>Visgraat en Hongaarse punt zijn niet hetzelfde</h3>
+        <p>Bij visgraat liggen hele tegels haaks op elkaar; de koppen steken om en om uit. Bij
+          Hongaarse punt is elke tegel onder 45 graden afgezaagd, zodat de naden één
+          doorlopende punt vormen. Dat tweede beeld is rustiger en strakker, maar het zagen
+          kost meer en het vraagt een tegel die daar geschikt voor is.</p>
+        <p>Beide patronen kunnen alleen met een tegel die precies twee keer zo lang is als
+          breed. Daarom verdwijnen ze hierboven uit de lijst zodra je een vierkante tegel kiest.</p>
+      </article>
+
+      <article>
+        <h3>De voegkleur bepaalt het beeld</h3>
+        <p>Sterker dan mensen verwachten. Een voeg in de kleur van de tegel laat het vlak
+          doorlopen en maakt de ruimte rustiger. Een contrasterende voeg maakt er juist een
+          raster van en benadrukt het formaat.</p>
+        <p>Praktisch: een lichte voeg op een vloer die veel belopen wordt, wordt vuil. In een
+          hal of keuken is zilvergrijs of zandbeige verstandiger dan wit. In deze demo is de standaardvoeg
+          3 mm bij gerectificeerde tegels.</p>
+      </article>
+
+      <article>
+        <h3>Vloerverwarming</h3>
+        <p>Keramiek en vloerverwarming gaan uitstekend samen: steen geleidt warmte beter dan
+          hout of PVC, dus je kunt op een lagere aanvoertemperatuur stoken. Groot formaat werkt
+          nog iets gunstiger, want minder voegen betekent minder onderbreking.</p>
+        <p>Wel moet er volvlak worden gelijmd met een lijm die geschikt is voor
+          vloerverwarming, en moet de vloer volgens een opstookprotocol op temperatuur zijn
+          geweest voordat er getegeld wordt. Anders ontstaan holle plekken die bij opwarmen
+          gaan kraken. Dat is het werk dat achter die extra optie hierboven zit.</p>
+      </article>
+
+      <article>
+        <h3>De ondergrond is de stille kostenpost</h3>
+        <p>Een tegel legt de ondergrond niet recht, hij volgt hem. Een dekvloer die een
+          centimeter afloopt over vier meter moet eerst geëgaliseerd worden, en bij groot
+          formaat is dat geen luxe maar een voorwaarde. Ligt er nog een oude vloer, dan komt
+          het uitbreken en afvoeren daar nog bij.</p>
+        <p>Dat is ook precies waarom de prijs hierboven een indicatie is en geen offerte: pas
+          na het opmeten is te zien wat er onder ligt.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- De film staat vóór de FAQ: wie hier is beland heeft de configurator al
+     gezien, maar wie via een zoekresultaat op de FAQ landt niet. -->
+<section class="sectie" aria-label="Zo werkt de tegelvloerconfigurator">
+  <div class="wrap">
+    <div class="sectie-kop">
+      <p class="eyebrow">Zo werkt het</p>
+      <h2 class="h2">Echte opname, geen animatie.</h2>
+      <p style="color:var(--muted,#9c9a94);max-width:46rem;margin-top:.6rem">Vierenveertig seconden uit deze configurator, met gesproken uitleg: het formaat, het materiaal en de voegkleur. En het patroon dat er echt bij getekend wordt.</p>
+    </div>
+    <figure style="margin:0;max-width:64rem">
+      <div style="border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#0C0D10">
+        <video controls preload="none" playsinline poster="./assets/media/poster-intro-tegelvloer.jpg"
+               style="width:100%;aspect-ratio:16/9;display:block;background:#0C0D10">
+          <source src="./assets/video/intro-tegelvloer.mp4" type="video/mp4">
+          Je browser kan deze video niet afspelen. <a href="./assets/video/intro-tegelvloer.mp4">Download hem hier.</a>
+        </video>
+      </div>
+      <figcaption style="margin-top:.7rem">
+        <strong style="display:block">Een tegelvloer samenstellen</strong>
+        <span style="color:var(--muted,#9c9a94);font-size:.92rem">Van 30 bij 30 tot een visgraatstrook, met de voeg in de kleur die je kiest, meegetekend.</span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+<section class="sectie" aria-labelledby="tv-faq">
+  <div class="wrap">
+    <div class="sectie-kop">
+      <p class="eyebrow">Veelgestelde vragen</p>
+      <h2 id="tv-faq">Vragen over een tegelvloer</h2>
+    </div>
+    <div class="ovk-faq">
+      <details>
+        <summary><span>Wat kost het leggen van een tegelvloer per m2?</span></summary>
+        <p>Dat hangt vooral af van het formaat, het legpatroon en de ondergrond. Groot formaat
+          en visgraat kosten meer omdat de vloer vlakker moet zijn en er meer gezaagd wordt.
+          De configurator hierboven rekent het legtarief per keuze mee, zodat je een indicatie
+          ziet inclusief lijmen, leggen en voegen. Het is een richtbedrag, geen offerte.</p>
+      </details>
+      <details>
+        <summary><span>Welk tegelformaat past het beste bij mijn ruimte?</span></summary>
+        <p>In een kleine ruimte werkt 30×30 of 30×60 vaak beter dan groot formaat, omdat een
+          grote tegel er zelden heel in past en je dan overal smalle stroken krijgt. In een
+          grote open ruimte geeft 120×60 of 60×60 juist rust, omdat er veel minder voegen
+          zijn.</p>
+      </details>
+      <details>
+        <summary><span>Wat is het verschil tussen visgraat en Hongaarse punt?</span></summary>
+        <p>Bij visgraat liggen hele rechthoekige tegels haaks op elkaar, waarbij de koppen om
+          en om uitsteken. Bij Hongaarse punt is elke tegel onder 45 graden afgezaagd, zodat
+          de naden een doorlopende punt vormen. Hongaarse punt is strakker van beeld en duurder
+          in arbeid. Beide vragen een tegel die twee keer zo lang is als breed.</p>
+      </details>
+      <details>
+        <summary><span>Welke voegkleur moet ik kiezen?</span></summary>
+        <p>Een voeg in de kleur van de tegel laat het vlak doorlopen en maakt de ruimte
+          rustiger; een contrasterende voeg benadrukt het formaat. Let ook op onderhoud: een
+          witte voeg in een hal of keuken wordt zichtbaar vuil. Zilvergrijs of zandbeige is
+          daar praktischer.</p>
+      </details>
+      <details>
+        <summary><span>Kan een tegelvloer op vloerverwarming?</span></summary>
+        <p>Ja, en beter dan hout of PVC: steen geleidt warmte goed, dus je kunt op een lagere
+          aanvoertemperatuur stoken. Er moet wel volvlak gelijmd worden met een geschikte lijm,
+          en de vloer moet volgens het opstookprotocol op temperatuur zijn geweest voordat er
+          getegeld wordt.</p>
+      </details>
+      <details>
+        <summary><span>Hoeveel m2 moet ik bestellen?</span></summary>
+        <p>Reken op 5 tot 10 procent extra boven de netto oppervlakte voor zaagverlies. Bij een
+          recht verband in een rechthoekige ruimte is 5 procent genoeg; bij visgraat, Hongaarse
+          punt, een schuine wand of veel hoeken is 10 tot 15 procent verstandiger.</p>
+      </details>
+      <details>
+        <summary><span>Zijn de prijzen in deze configurator bindend?</span></summary>
+        <p>Nee. Dit is een demo van een configurator die Next Growth bouwt voor tegelzetters. De bedragen zijn richtbedragen uit
+          de markt en bedoeld om te laten zien hoe zo'n rekensom meebeweegt met de keuzes. Wat
+          je vloer werkelijk kost hangt af van de ondergrond, het snijverlies en de leverancier,
+          en volgt pas als de tegelzetter heeft opgemeten.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="sectie" aria-label="Zie je tegelvloer in je eigen kamer">
+  <div class="wrap">
+    <div id="aifoto"></div>
+  </div>
+</section>
+
+<section class="sectie ng-vraag" aria-label="Zelf zo'n configurator">
+  <div class="wrap">
+    <div class="ng-vraag__kaart">
+      <div class="ng-vraag__tekst">
+        <p class="eyebrow">Dit is een demo van Next Growth</p>
+        <h2>Zo'n vloerconfigurator op je eigen website?</h2>
+        <p class="lede">Je klanten stellen zelf hun vloer samen, zien direct hun richtprijs en sturen
+          een complete aanvraag door. Jij krijgt hem binnen met alles erin. Geen telefoontjes
+          meer om uit te zoeken wat iemand eigenlijk wil.</p>
+        <ul class="ng-vraag__punten">
+          <li><span></span>Jouw huisstijl, jouw assortiment, jouw prijzen</li>
+          <li><span></span>Twee weken van start tot live</li>
+          <li><span></span>Elke aanvraag compleet in je dashboard</li>
+        </ul>
+        <div class="ng-vraag__knoppen">
+          <a class="btn" href="./contact.html?over=pvc">Laat zien hoe dit er voor mijn product uitziet</a>
+          <a class="btn btn--ghost" href="/prijzen">Wat kost het?</a>
+        </div>
+        <p class="ng-vraag__noot">Vrijblijvend. Je krijgt binnen 24 uur een voorbeeld van je
+          eigen product in deze configurator te zien.</p>
+      </div>
+    </div>
+  </div>
+</section>
+    <!-- ============ PER PLAATS (scripts/configuratorsteden.py) ============ -->
+    <div class="ng-blok" role="region" aria-labelledby="perplaats-kop">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <p class="eyebrow">Per plaats</p>
+          <h2 class="h2" id="perplaats-kop">Zo'n configurator voor je eigen bedrijf, per plaats</h2>
+          <p>Deze tegelvloerconfigurator bouwen we voor tegelzetters en vloerenbedrijven, in hun eigen huisstijl en met hun eigen prijzen. Per plaats staat wat de markt daar vraagt.</p>
+        </div>
+        <div class="ng-branches">
+          <a class="ng-branche" href="/dienst-webdesign"><b>Configurator laten maken, landelijk</b><span>Heel Nederland</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-nijmegen"><b>Configurator laten maken in Nijmegen</b><span>Gelderland</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-arnhem"><b>Configurator laten maken in Arnhem</b><span>Gelderland</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-den-bosch"><b>Configurator laten maken in Den Bosch</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-uden"><b>Configurator laten maken in Uden</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-veghel"><b>Configurator laten maken in Veghel</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-wijchen"><b>Configurator laten maken in Wijchen</b><span>Gelderland</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-vught"><b>Configurator laten maken in Vught</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-cuijk"><b>Configurator laten maken in Cuijk</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-grave"><b>Configurator laten maken in Grave</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-eindhoven"><b>Configurator laten maken in Eindhoven</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <!-- ============ EINDE PER PLAATS ============ -->
+</main>
+
+  <footer class="ngx-foot"><div class="ngx-wrap">
+<div class="ngx-end"><h2>Zo'n configurator <span>op jouw site?</span></h2><div><p>Eén gesprek van twintig minuten. Je spreekt direct met de mensen die het bouwen en krijgt dezelfde dag een eerlijk advies.</p><a class="ngx-cta big" href="/#contact">Plan een kennismaking</a><a class="ngx-tel" href="tel:+31683902192">06 83 90 21 92</a></div></div>
+<div class="ngx-cols">
+<div><a class="ngx-brand" href="/"><span class="ngx-mk"><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14V4l10 10V4" stroke="#0A0800" stroke-width="2.8" stroke-linecap="square"/></svg></span><span>Next Growth Digital</span></a><p>Creatief groeibureau, landelijk actief. Branding, webdesign, marketing en eigen software.</p><p>info@nextgrowthdigital.nl</p></div>
+<div><h4>Diensten</h4><ul><li><a href="/dienst-branding">Branding</a></li><li><a href="/dienst-webdesign">Webdesign</a></li><li><a href="/dienst-marketing">Marketing</a></li><li><a href="/dienst-configurators">Configurators</a></li><li><a href="/dienst-crm">CRM &amp; offertes</a></li><li><a href="/prijzen">Prijzen</a></li></ul></div>
+<div><h4>Configurators</h4><ul><li><a href="/overkapping-configurator">Overkapping</a></li><li><a href="/aanbouw-configurator">Uitbouw</a></li><li><a href="/dakkapel-configurator">Dakkapel</a></li><li><a href="/dakopbouw-configurator">Dakopbouw</a></li><li><a href="/badkamer-configurator">Badkamer</a></li><li><a href="/zwembad-configurator">Zwembad</a></li><li><a href="/jacht-configurator">Jacht</a></li></ul></div>
+<div><h4>Kennisbank</h4><ul><li><a href="/kennisbank">Alle artikelen</a></li><li><a href="/kennisbank-configurator-kosten">Wat kost een configurator?</a></li><li><a href="/configurator-laten-maken">Configurator laten maken</a></li><li><a href="/kennisbank-website-kosten">Wat kost een website?</a></li></ul></div>
+<div><h4>Bedrijf</h4><ul><li><a href="/#cases">Cases</a></li><li><a href="/werkgebied">Werkgebied</a></li><li><a href="/privacyverklaring">Privacyverklaring</a></li><li><a href="/auteursrecht">Auteursrecht</a></li><li><a href="/#contact">Contact</a></li></ul></div>
+</div>
+<div class="ngx-legal"><span>© 2026 Next Growth Digital</span><span>KVK 96002913</span><span>Landelijk actief · Nederland</span></div>
+<p class="ngx-giant" aria-hidden="true">NEXT GROWTH</p></div></footer>
+<script>(function(){var b=document.querySelector('.ngx-menu'),n=document.getElementById('ngx-mnav');if(!b||!n)return;b.addEventListener('click',function(){var o=n.hasAttribute('hidden');if(o)n.removeAttribute('hidden');else n.setAttribute('hidden','');b.setAttribute('aria-expanded',o?'true':'false');b.textContent=o?'Sluiten':'Menu'})})();</script>
+
+    <script>
+  (function(){
+    if(window.__lbInit) return; window.__lbInit=1;
+    function init(){
+      var hero=document.querySelector('.conf__hero'); var img=document.getElementById('confHero');
+      if(!hero||!img){ setTimeout(init,300); return; }
+      hero.style.cursor='zoom-in';
+      var btn=document.createElement('button');
+      btn.type='button'; btn.setAttribute('aria-label','Bekijk afbeelding op volledig scherm');
+      btn.innerHTML='&#x26F6;';
+      btn.style.cssText='position:absolute;top:.8rem;right:.8rem;z-index:3;width:42px;height:42px;border-radius:10px;border:1px solid rgba(255,255,255,.28);background:rgba(0,0,0,.45);backdrop-filter:blur(6px);color:#fff;font-size:1.15rem;cursor:zoom-in;display:flex;align-items:center;justify-content:center;';
+      hero.appendChild(btn);
+      function openLB(){
+        var ov=document.createElement('div');
+        ov.style.cssText='position:fixed;inset:0;z-index:100000;background:rgba(6,6,5,.95);display:flex;align-items:center;justify-content:center;cursor:zoom-out;padding:2vh 2vw;';
+        var big=document.createElement('img');
+        big.src=img.getAttribute('src'); big.alt=img.getAttribute('alt')||'';
+        big.style.cssText='max-width:96vw;max-height:92vh;width:auto;height:auto;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.6);';
+        var x=document.createElement('button'); x.innerHTML='&times;'; x.setAttribute('aria-label','Sluiten');
+        x.style.cssText='position:fixed;top:12px;right:20px;background:none;border:none;color:#fff;font-size:2.4rem;cursor:pointer;line-height:1;z-index:100001;';
+        ov.appendChild(big); ov.appendChild(x); document.body.appendChild(ov);
+        document.body.style.overflow='hidden';
+        function close(){ ov.remove(); document.body.style.overflow=''; document.removeEventListener('keydown',esc); }
+        function esc(e){ if(e.key==='Escape') close(); }
+        ov.addEventListener('click',close); document.addEventListener('keydown',esc);
+      }
+      img.addEventListener('click',openLB);
+      btn.addEventListener('click',function(e){ e.stopPropagation(); openLB(); });
+    }
+    if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+  })();
+  </script>
+  <script src="./assets/meting.js" defer></script>
+  <script src="./assets/core.js" defer></script>
+  <script src="./assets/meten.js" defer></script>
+  <script src="./assets/merk.js"></script>
+  <script src="./assets/tegelbeeld.js"></script>
+  <script>
+
+  (function(){
+    "use strict";
+    var BTW = 0.21;
+    var WEB3FORMS_KEY = "695172ae-1f2d-40b7-bb31-b8a4a882ad62";
+    function S(p){ return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">'+p+'</svg>'; }
+    var IC = {
+      ruler:S('<path d="M3 8h18v8H3z"/><path d="M7 8v3M11 8v4M15 8v3M19 8v4"/>'),
+      plank:S('<rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 9h18M3 14h18"/>'),
+      visgraat:S('<path d="M4 20l6-8M10 12l-6-4M20 20l-6-8M14 12l6-4M12 21V9"/>'),
+      tegel:S('<rect x="3" y="3" width="18" height="18" rx="1"/><path d="M12 3v18M3 12h18"/>'),
+      klik:S('<path d="M3 12h7l2-3 2 6 2-3h5"/>'),
+      lijm:S('<path d="M4 16c3-6 13-6 16 0"/><path d="M4 16v3h16v-3"/>'),
+      spc:S('<rect x="3" y="7" width="18" height="10" rx="1"/><path d="M3 12h18"/>'),
+      sofa:S('<path d="M4 11V8a2 2 0 012-2h12a2 2 0 012 2v3"/><path d="M2 12a2 2 0 012 2v3h16v-3a2 2 0 012-2"/><path d="M6 17v2M18 17v2"/>'),
+      keuken:S('<rect x="3" y="3" width="18" height="7" rx="1"/><rect x="3" y="12" width="18" height="9" rx="1"/><path d="M8 3v7M7 15h4"/>'),
+      bed:S('<path d="M3 18v-6a2 2 0 012-2h14a2 2 0 012 2v6"/><path d="M3 14h18M7 10V8h4v2"/>'),
+      geen:S('<circle cx="12" cy="12" r="8"/><path d="M6 6l12 12"/>'),
+      sound:S('<path d="M11 5L6 9H3v6h3l5 4z"/><path d="M15 9a4 4 0 010 6"/>'),
+      plint:S('<path d="M3 17h18v3H3z"/><path d="M5 17V7h14v10"/>'),
+      level:S('<rect x="3" y="9" width="18" height="6" rx="1"/><circle cx="12" cy="12" r="1.3"/>'),
+      profiel:S('<path d="M3 15h6l3-6 3 6h6"/>'),
+      tuin:S('<path d="M3 20h18"/><path d="M6 20c0-5 2-8 2-8M10 20c0-6 1-9 1-9M15 20c0-5 1-8 1-8M19 20c0-6-1-9-1-9"/>'),
+      balkon:S('<path d="M4 10h16v10H4z"/><path d="M4 14h16M8 10v10M12 10v10M16 10v10M4 6h16"/>'),
+      speel:S('<path d="M4 20l4-9 4 9M8 11V6"/><circle cx="8" cy="4" r="1.5"/><path d="M14 20v-6h6v6"/>'),
+      hond:S('<path d="M10 5l2 2 2-2v4l2 2v7H6v-7l2-2z"/><circle cx="10" cy="12" r=".6"/><circle cx="14" cy="12" r=".6"/>'),
+      sport:S('<circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 000 18M3 12h18"/>'),
+      led:S('<path d="M9 18h6M10 21h4M12 3a6 6 0 00-4 10c1 1 1 2 1 3h6c0-1 0-2 1-3a6 6 0 00-4-10z"/>'),
+      onderhoud:S('<path d="M14 7l3 3-7 7-3 1 1-3z"/><path d="M5 20h14"/>'),
+      water:S('<path d="M12 3s6 6 6 10a6 6 0 01-12 0c0-4 6-10 6-10z"/>'),
+      oog:S('<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/>'),
+      boven:S('<rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/>'),
+      zon:S('<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/>'),
+      groot:S('<rect x="2" y="6" width="20" height="12" rx="1"/><path d="M12 6v12"/>'),
+      raster:S('<rect x="3" y="3" width="18" height="18" rx="1"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/>'),
+      half:S('<rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 12h18M12 4v8M7 12v8M17 12v8"/>'),
+      mozaiek:S('<rect x="3" y="3" width="18" height="18" rx="1"/><path d="M7 3v18M11 3v18M15 3v18M19 3v18M3 7h18M3 11h18M3 15h18M3 19h18"/>'),
+      hongaars:S('<path d="M3 19l5-7 4 7M12 19l5-7 4 7M3 12l5-7 4 7M12 12l5-7 4 7"/>'),
+      beton:S('<rect x="3" y="3" width="18" height="18" rx="1"/><path d="M7 8h3M14 7h4M6 14h5M15 16h3M9 18h2"/>'),
+      marmer:S('<rect x="3" y="3" width="18" height="18" rx="1"/><path d="M5 15c3-2 4-7 7-8s4 4 7 3"/><path d="M6 20c2-3 5-3 7-6"/>'),
+      steen:S('<path d="M3 9l4-4 6 2 4-3 4 4v9a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M7 5v14M13 7v12M17 4v15"/>'),
+      terrazzo:S('<rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8" cy="8" r="1.1"/><circle cx="15" cy="7" r=".9"/><circle cx="11" cy="13" r="1.2"/><circle cx="17" cy="15" r="1"/><circle cx="7" cy="17" r=".9"/>'),
+      warm:S('<path d="M8 21V8a2 2 0 114 0v13M16 21V8a2 2 0 114 0v13"/><path d="M4 5c1.5-2 3-2 4.5 0S12 7 13.5 5"/>'),
+      trap:S('<path d="M3 20h4v-4h4v-4h4v-4h4V4"/>')
+    };
+    /* Alles wat er te kiezen valt staat hier, en alleen hier. De motor eronder
+       (render, calc, price) is die van de PVC-configurator en is niet aangepast,
+       op één haakje na: CFG.napas, waarmee een keuze een andere keuze kan
+       bijstellen. Dat is nodig omdat een visgraatstrook per definitie in
+       visgraat wordt gelegd, en omdat visgraat en Hongaarse punt alleen kunnen
+       met een tegel die precies twee keer zo lang is als breed.
+
+       PRIJZEN ZIJN INDICATIEF. Dit is een demonstratie op onze eigen site en
+       geen prijslijst: de bedragen zijn richtbedragen uit de markt, bedoeld om
+       te laten zien dat de rekensom meebeweegt. Wat een vloer echt kost hangt
+       af van de ondergrond, het snijverlies en de leverancier. */
+    var CFG = {
+  kop:'Tegelvloer', file:'tegelvloer', accent:'#9C8B72', soft:'rgba(156,139,114,.18)',
+  titel:'<span>Tegelvloer</span> op maat',
+  sub:'Kies formaat, materiaal, voegkleur en legpatroon. De vloer wordt live in de kamer getekend, met de echte voegbreedte en het echte verband. De indicatieprijs per m² inclusief leggen rekent mee.',
+  badge:{ic:IC.tegel,t:'Indicatie incl. lijmen, leggen &amp; voegen'},
+  hero:'./assets/media/pvc-kamer-beton.jpg',
+  // richtbedrag per m2 voor een keramische 60x60 in recht verband, inclusief
+  // lijmen, leggen en voegen. Alles daarboven komt uit de keuzes hieronder.
+  basisM2:62, oppGroup:'opp',
+  reflow:['materiaal','formaat','legpatroon','plint'],
+
+  /* Een keuze kan een andere onmogelijk maken. Dan is stilletjes iets anders
+     doen erger dan de keuze bijstellen en dat laten zien. */
+  napas:function(sel,gewijzigd){
+    var f=FORMAAT[sel.formaat]||{};
+    // Een visgraatstrook wordt gekocht om in visgraat te leggen, dus die staat
+    // meteen goed. Eenmalig, op het moment dat het formaat wijzigt: wie daarna
+    // toch recht wil leggen mag dat gewoon kiezen.
+    if(gewijzigd==='formaat' && sel.formaat==='visgraatstrook') sel.legpatroon='visgraat';
+    // Visgraat en Hongaarse punt kunnen alleen met een tegel die twee keer zo
+    // lang is als breed. Bij een vierkante tegel valt de keuze terug én
+    // verdwijnt hij uit de lijst, zodat zichtbaar is dat het niet kan.
+    if(!f.tweeEen && (sel.legpatroon==='visgraat'||sel.legpatroon==='hongaars')) sel.legpatroon='recht';
+  },
+
+  groepen:[
+    {id:'opp',t:'Oppervlakte',style:'text',isOpp:1,kz:[
+      {v:'6',l:'6 m²',sub:'toilet',m2:6},
+      {v:'12',l:'12 m²',sub:'badkamer',m2:12},
+      {v:'25',l:'25 m²',m2:25,def:1},
+      {v:'40',l:'40 m²',m2:40},
+      {v:'60',l:'60 m²',m2:60},
+      {v:'100',l:'100 m²',m2:100},
+      {v:'mw',l:'Maatwerk',ic:IC.ruler,sub:'we meten in',m2:35}
+    ]},
+
+    {id:'formaat',t:'Tegelformaat',style:'icon',kz:[
+      {v:'60x60',l:'60 × 60 cm',ic:IC.tegel,sub:'meest gelegd',def:1},
+      {v:'120x60',l:'120 × 60 cm',ic:IC.groot,sub:'groot formaat',pM2:16},
+      {v:'30x60',l:'30 × 60 cm',ic:IC.tegel,sub:'ook op de wand',pM2:2},
+      {v:'30x30',l:'30 × 30 cm',ic:IC.raster,sub:'klassiek',pM2:-2},
+      {v:'mozaiek',l:'Mozaïek',ic:IC.mozaiek,sub:'op matten',pM2:44},
+      {v:'visgraatstrook',l:'Visgraatstrook',ic:IC.visgraat,sub:'30 × 60, voor visgraat',pM2:9}
+    ]},
+
+    {id:'materiaal',t:'Materiaal',style:'icon',kz:[
+      {v:'keramiek',l:'Keramiek',ic:IC.tegel,sub:'egaal, strak',def:1},
+      {v:'betonlook',l:'Betonlook',ic:IC.beton,sub:'rustig en neutraal',pM2:4},
+      {v:'marmerlook',l:'Marmerlook',ic:IC.marmer,sub:'aders, veel diepte',pM2:22},
+      {v:'natuursteen',l:'Natuursteenlook',ic:IC.steen,sub:'warm en levendig',pM2:14},
+      {v:'terrazzo',l:'Terrazzo',ic:IC.terrazzo,sub:'spikkels in het vlak',pM2:26}
+    ]},
+
+    /* Per materiaal een eigen kleurgroep. De motor toont een groep alleen als
+       when() waar is, dus zo hoeft er niets aan de motor te veranderen en zie
+       je nooit een marmerkleur bij terrazzo staan. */
+    {id:'kl_keramiek',t:'Kleur',style:'swatch',when:function(s){return s.materiaal==='keramiek';},kz:[
+      {v:'superwit',l:'Superwit',img:'./assets/media/tegel-swatch-keramiek-superwit.jpg'},
+      {v:'creme',l:'Crème',img:'./assets/media/tegel-swatch-keramiek-creme.jpg'},
+      {v:'lichtgrijs',l:'Lichtgrijs',img:'./assets/media/tegel-swatch-keramiek-lichtgrijs.jpg',def:1},
+      {v:'antraciet',l:'Antraciet',img:'./assets/media/tegel-swatch-keramiek-antraciet.jpg',pM2:3}
+    ]},
+    {id:'kl_betonlook',t:'Kleur',style:'swatch',when:function(s){return s.materiaal==='betonlook';},kz:[
+      {v:'lichtgrijs',l:'Lichtgrijs',img:'./assets/media/tegel-swatch-betonlook-lichtgrijs.jpg',def:1},
+      {v:'greige',l:'Greige',img:'./assets/media/tegel-swatch-betonlook-greige.jpg'},
+      {v:'taupe',l:'Taupe',img:'./assets/media/tegel-swatch-betonlook-taupe.jpg'},
+      {v:'antraciet',l:'Antraciet',img:'./assets/media/tegel-swatch-betonlook-antraciet.jpg',pM2:3}
+    ]},
+    {id:'kl_marmerlook',t:'Kleur',style:'swatch',when:function(s){return s.materiaal==='marmerlook';},kz:[
+      {v:'calacatta',l:'Calacatta',img:'./assets/media/tegel-swatch-marmerlook-calacatta.jpg',def:1},
+      {v:'statuario',l:'Statuario',img:'./assets/media/tegel-swatch-marmerlook-statuario.jpg'},
+      {v:'emperador',l:'Emperador bruin',img:'./assets/media/tegel-swatch-marmerlook-emperador.jpg',pM2:6},
+      {v:'nero',l:'Nero marquina',img:'./assets/media/tegel-swatch-marmerlook-nero.jpg',pM2:8}
+    ]},
+    {id:'kl_natuursteen',t:'Kleur',style:'swatch',when:function(s){return s.materiaal==='natuursteen';},kz:[
+      {v:'travertin',l:'Travertin',img:'./assets/media/tegel-swatch-natuursteen-travertin.jpg',def:1},
+      {v:'kalksteen',l:'Kalksteen',img:'./assets/media/tegel-swatch-natuursteen-kalksteen.jpg'},
+      {v:'leisteen',l:'Leisteen',img:'./assets/media/tegel-swatch-natuursteen-leisteen.jpg',pM2:4},
+      {v:'basalt',l:'Basalt',img:'./assets/media/tegel-swatch-natuursteen-basalt.jpg',pM2:6}
+    ]},
+    {id:'kl_terrazzo',t:'Kleur',style:'swatch',when:function(s){return s.materiaal==='terrazzo';},kz:[
+      {v:'wit',l:'Wit',img:'./assets/media/tegel-swatch-terrazzo-wit.jpg',def:1},
+      {v:'zand',l:'Zand',img:'./assets/media/tegel-swatch-terrazzo-zand.jpg'},
+      {v:'grijs',l:'Grijs',img:'./assets/media/tegel-swatch-terrazzo-grijs.jpg'},
+      {v:'antraciet',l:'Antraciet',img:'./assets/media/tegel-swatch-terrazzo-antraciet.jpg',pM2:4}
+    ]},
+
+    {row:1,groepen:[
+      {id:'legpatroon',t:'Legpatroon',style:'icon',kz:[
+        {v:'recht',l:'Recht',ic:IC.raster,def:1},
+        {v:'half',l:'Halfsteens',ic:IC.half,pM2:5},
+        {v:'visgraat',l:'Visgraat',ic:IC.visgraat,pM2:26,when2:'tweeEen'},
+        {v:'hongaars',l:'Hongaarse punt',ic:IC.hongaars,pM2:34,when2:'tweeEen'}
+      ]},
+      /* De voegkleur krijgt een eigen groep omdat hij het beeld sterker
+         bepaalt dan mensen verwachten: dezelfde tegel met een witte of een
+         antracieten voeg zijn twee verschillende vloeren. */
+      {id:'voeg',t:'Voegkleur',style:'swatch',kz:[
+        {v:'wit',l:'Wit',sw:'#EFEEEA'},
+        {v:'zilvergrijs',l:'Zilvergrijs',sw:'#C9C7C1',def:1},
+        {v:'grijs',l:'Grijs',sw:'#A8A6A1'},
+        {v:'zandbeige',l:'Zandbeige',sw:'#CBBFA6'},
+        {v:'antraciet',l:'Antraciet',sw:'#4C4D50'},
+        {v:'zwart',l:'Zwart',sw:'#2B2C2E'},
+        {v:'tegel',l:'Kleur van de tegel',ic:IC.tegel}
+      ]}
+    ]},
+
+    /* De plint. Een tegelplint is een gezaagde strook van de vloertegel zelf,
+       dus hij heeft per definitie dezelfde kleur en dezelfde structuur als de
+       vloer — daarom staat er geen kleurkeuze bij. Het zagen en het extra
+       voegwerk maken hem duurder dan een houten plint, en dat zit in de prijs
+       per strekkende meter. */
+    {id:'plint',t:'Plint',style:'icon',kz:[
+      {v:'tegel',l:'Tegelplint',ic:IC.plint,sub:'gezaagd uit dezelfde tegel',pM1:24,def:1},
+      {v:'hout',l:'Houten plint',ic:IC.plank,sub:'wit gelakt, 70 mm',pM1:9},
+      {v:'geen',l:'Geen plint',ic:IC.geen,sub:'kitvoeg langs de wand',pM1:3}
+    ]}
+  ],
+
+  extra:[
+    {v:'vloerverwarming',l:'Vloerverwarming',ic:IC.warm,pM2:18,
+     sub:'volvlak lijmen, dunnere lijmlaag'},
+    {v:'egaliseren',l:'Egaliseren van de ondergrond',ic:IC.level,pM2:11,def:1},
+    {v:'verwijderen',l:'Oude vloer verwijderen',ic:IC.geen,pM2:14},
+    {v:'profielen',l:'Profielen &amp; drempels',ic:IC.profiel,p:110}
+  ],
+
+  dim:function(sel){
+    var f=FORMAAT[sel.formaat];
+    return f.l+' · '+(sel.opp==='mw'?'maatwerk':sel.opp+' m²');
+  },
+
+  presets:[
+    {n:'Strak en licht',d:'60×60 betonlook, zilvergrijze voeg',th:'tegel-swatch-betonlook-lichtgrijs',
+     sel:{opp:'25',formaat:'60x60',materiaal:'betonlook',kl_betonlook:'lichtgrijs',legpatroon:'recht',voeg:'zilvergrijs'},
+     extras:{egaliseren:true,plinten:true}},
+    {n:'Groot formaat',d:'120×60 keramiek, voeg in tegelkleur',th:'tegel-swatch-keramiek-lichtgrijs',
+     sel:{opp:'40',formaat:'120x60',materiaal:'keramiek',kl_keramiek:'lichtgrijs',legpatroon:'recht',voeg:'tegel'},
+     extras:{egaliseren:true,vloerverwarming:true}},
+    {n:'Marmer visgraat',d:'Calacatta in visgraat',th:'tegel-swatch-marmerlook-calacatta',
+     sel:{opp:'25',formaat:'visgraatstrook',materiaal:'marmerlook',kl_marmerlook:'calacatta',legpatroon:'visgraat',voeg:'wit'},
+     extras:{egaliseren:true}},
+    {n:'Terrazzo',d:'Wit terrazzo, grijze voeg',th:'tegel-swatch-terrazzo-wit',
+     sel:{opp:'12',formaat:'60x60',materiaal:'terrazzo',kl_terrazzo:'wit',legpatroon:'recht',voeg:'grijs'},
+     extras:{egaliseren:true}},
+    {n:'Donker natuursteen',d:'Basalt 30×60 halfsteens',th:'tegel-swatch-natuursteen-basalt',
+     sel:{opp:'12',formaat:'30x60',materiaal:'natuursteen',kl_natuursteen:'basalt',legpatroon:'half',voeg:'antraciet'},
+     extras:{egaliseren:true,verwijderen:true}}
+  ]
+};
+    var $ = function(s,r){ return (r||document).querySelector(s); };
+    function euro(n){ return "€ " + (Math.round(n/5)*5).toLocaleString('nl-NL') + ",-"; }
+    var sel = {}, extras = {}, btwIncl = true;
+    function allGroups(){ var out=[]; CFG.groepen.forEach(function(g){ if(g.row){ g.groepen.forEach(function(x){out.push(x);}); } else out.push(g); }); return out; }
+    function findKz(g){ return g.kz.filter(function(k){return k.v===sel[g.id];})[0] || g.kz[0]; }
+    function groupById(id){ var r=null; allGroups().forEach(function(g){ if(g.id===id) r=g; }); return r; }
+    function initSelection(){ sel={}; extras={};
+      allGroups().forEach(function(g){ var d=g.kz.filter(function(k){return k.def;})[0]||g.kz[0]; sel[g.id]=d.v; });
+      CFG.extra.forEach(function(e){ extras[e.v]=!!e.def; }); }
+    function opp(){ var gs=allGroups().filter(function(g){ return g.isOpp && (!g.when||g.when(sel)); }); var g=gs[0]||groupById(CFG.oppGroup); if(!g) return 1; return findKz(g).m2||1; }
+    function omtrek(){ return 4*Math.sqrt(opp()); }
+    function calc(){
+      var o=opp(), tot=CFG.basisM2*o, m1=omtrek();
+      allGroups().forEach(function(g){ if(g.isOpp||g.id===CFG.oppGroup) return; if(g.when && !g.when(sel)) return; var k=findKz(g); if(k.p) tot+=k.p; if(k.pM2) tot+=k.pM2*o; if(k.pM1) tot+=k.pM1*m1; });
+      CFG.extra.forEach(function(e){ if(e.when && !e.when(sel)) return; if(extras[e.v]){ tot += (e.pM2? e.pM2*o : (e.p||0)); } });
+      return tot;
+    }
+    function tile(name,k,checked,multi){
+      var input='<input type="'+(multi?'checkbox':'radio')+'" name="'+name+'" value="'+k.v+'"'+(checked?' checked':'')+'>';
+      var inner; if(k.img) inner='<span class="tile__img" style="background-image:url('+k.img+')"></span>';
+      else if(k.sw) inner='<span class="tile__sw" style="background:'+k.sw+'"></span>';
+      else inner='<span class="ico">'+(k.ic||'')+'</span>';
+      var sub=k.sub?'<span class="sub">'+k.sub+'</span>':'';
+      return '<label class="tile">'+input+'<span class="tile__c">'+inner+'<span class="lab">'+k.l+'</span>'+sub+'</span></label>';
+    }
+    function groupBox(g,nr){
+      var cls=g.style==='swatch'?'tiles':(g.style==='icon'?'tiles sm':'tiles');
+      // when2 verwijst naar een eigenschap van het gekozen formaat: visgraat en
+      // Hongaarse punt kunnen alleen met een tegel die twee keer zo lang is als
+      // breed. Een optie die stilletjes iets anders doet is erger dan een optie
+      // die er niet staat.
+      var kzs=g.kz.filter(function(k){ return !k.when2 || !!(FORMAAT[sel.formaat]||{})[k.when2]; });
+      var tiles=kzs.map(function(k){ return tile('g_'+g.id,k,sel[g.id]===k.v,false); }).join('');
+      return '<div class="grp"><div class="grp__h"><b>'+nr+'.</b>'+g.t.toUpperCase()+'</div><div class="'+cls+'">'+tiles+'</div></div>';
+    }
+    function render(){
+      var _mk=window.NGMerk&&NGMerk.merk();
+      if(!(_mk&&_mk.kleur)){
+        document.documentElement.style.setProperty('--acc',CFG.accent);
+        document.documentElement.style.setProperty('--acc-soft',CFG.soft);
+      }
+      $('#confTitle').innerHTML=CFG.titel; $('#confSub').textContent=CFG.sub;
+      $('#confBadge').innerHTML='<span>'+CFG.badge.ic+'</span><span>'+CFG.badge.t+'</span>';
+      var nr=0, html='';
+      function vis(g){ return !g.when || g.when(sel); }
+      CFG.groepen.forEach(function(g){
+        if(g.row){
+          if(g.when && !g.when(sel)) return;
+          var subs=g.groepen.filter(vis); if(!subs.length) return;
+          html+='<div class="grp__row" style="grid-template-columns:repeat(auto-fit,minmax(min(160px,100%),1fr))">';
+          subs.forEach(function(x){ nr++; html+=groupBox(x,nr); }); html+='</div>';
+        } else { if(!vis(g)) return; nr++; html+=groupBox(g,nr); }
+      });
+      nr++;
+      var ex=CFG.extra.filter(function(e){ return !e.when||e.when(sel); }).map(function(e){ return tile('x_'+e.v,e,!!extras[e.v],true); }).join('');
+      html+='<div class="grp"><div class="grp__h"><b>'+nr+'.</b>EXTRA OPTIES</div><div class="tiles sm">'+ex+'</div></div>';
+      $('#groups').innerHTML=html;
+      allGroups().forEach(function(g){
+        $('#groups').querySelectorAll('input[name="g_'+g.id+'"]').forEach(function(inp){
+          inp.addEventListener('change',function(){
+            sel[g.id]=this.value;
+            // een keuze kan een andere onmogelijk maken; dan stellen we die bij
+            if(CFG.napas) CFG.napas(sel,g.id);
+            if(CFG.reflow&&CFG.reflow.indexOf(g.id)>=0){ render(); } else { price(); updateHero(); }
+          });
+        });
+      });
+      CFG.extra.forEach(function(e){ var inp=$('#groups').querySelector('input[name="x_'+e.v+'"]'); if(inp) inp.addEventListener('change',function(){ extras[e.v]=this.checked; price(); updateHero(); }); });
+      updateHero(true); price();
+    }
+    /* ---------- van keuze naar tegel ----------
+       Het beeld wordt getekend door assets/tegelbeeld.js — dezelfde tekenaar
+       als de tegelconfigurator. Hier staat alleen hoe een keuze zich vertaalt
+       naar een materiaal: welke maat, welke structuur, welke voegkleur. */
+
+    var FORMAAT = {
+      '60x60':          {l:'60 × 60 cm',   b:60,  h:60},
+      '120x60':         {l:'120 × 60 cm',  b:120, h:60,  tweeEen:1},
+      '30x60':          {l:'30 × 60 cm',   b:60,  h:30,  tweeEen:1},
+      '30x30':          {l:'30 × 30 cm',   b:30,  h:30},
+      'mozaiek':        {l:'Mozaïek 5 × 5 cm', b:5, h:5},
+      'visgraatstrook': {l:'Visgraatstrook 30 × 60 cm', b:60, h:30, tweeEen:1}
+    };
+
+    /* Hoe een materiaal getekend wordt. korrel = fijne structuur, ader =
+       hoeveel adering, spikkel = terrazzo, nerf = houtnerf (hier nooit). */
+    var MATERIAAL = {
+      keramiek:    {korrel:2,  ader:0},
+      betonlook:   {korrel:9,  ader:0},
+      marmerlook:  {korrel:3,  ader:1},
+      natuursteen: {korrel:14, ader:.35},
+      terrazzo:    {korrel:0,  ader:0, spikkel:1}
+    };
+
+    /* Grondkleur en, waar van toepassing, aderkleuren of spikkelpalet.
+       Deze kleuren zijn dezelfde als waarmee de swatches getekend zijn. */
+    var KLEUR = {
+      keramiek:    {superwit:{c:'#f2f1ed'}, creme:{c:'#e7e0d2'}, lichtgrijs:{c:'#cfcdc8'}, antraciet:{c:'#4a4b4e'}},
+      betonlook:   {lichtgrijs:{c:'#cfcdc8'}, greige:{c:'#c6bdb0'}, taupe:{c:'#a89c8d'}, antraciet:{c:'#4a4b4e'}},
+      marmerlook:  {calacatta:{c:'#f1eee8',a:'#c3a05c',a2:'#9a958c'},
+                    statuario:{c:'#e9e7e3',a:'#8e9298',a2:'#b6b2ab'},
+                    emperador:{c:'#6d5a4b',a:'#c8ae8c',a2:'#3f342b'},
+                    nero:{c:'#33343a',a:'#e8e6e0',a2:'#7d7f85'}},
+      natuursteen: {travertin:{c:'#d7c8ae'}, kalksteen:{c:'#cfc7b6'}, leisteen:{c:'#5c5f60'}, basalt:{c:'#494b4d'}},
+      terrazzo:    {wit:{c:'#e6e3dc',s:['#8d8377','#c4b7a3','#5d5b57','#f2efe8','#a58f74']},
+                    zand:{c:'#d8ccb4',s:['#7d6f57','#bfae8c','#55503f','#ece2cd','#9c8a6c']},
+                    grijs:{c:'#b9b7b2',s:['#6f6d69','#d3d1cb','#4a4947','#8e8c87','#e0ded8']},
+                    antraciet:{c:'#55565a',s:['#c9c6bf','#8b8a88','#2f3033','#e6e2d9','#6f7d84']}}
+    };
+
+    var VOEGHEX = {wit:'#EFEEEA', zilvergrijs:'#C9C7C1', grijs:'#A8A6A1',
+                   zandbeige:'#CBBFA6', antraciet:'#4C4D50', zwart:'#2B2C2E'};
+
+    function ontleedHex(hex){
+      var n=parseInt(hex.slice(1),16);
+      return [(n>>16)&255,(n>>8)&255,n&255];
+    }
+    function voegRGB(welke,tegelKleur){
+      if(VOEGHEX[welke]) return ontleedHex(VOEGHEX[welke]);
+      // "kleur van de tegel": net iets donkerder bij een lichte tegel en net
+      // iets lichter bij een donkere, anders is er geen voeg meer te zien
+      var c=ontleedHex(tegelKleur);
+      var l=(c[0]*.299+c[1]*.587+c[2]*.114)/255, d=l>.5?-16:18;
+      return [Math.max(0,Math.min(255,c[0]+d)),Math.max(0,Math.min(255,c[1]+d)),Math.max(0,Math.min(255,c[2]+d))];
+    }
+
+    /* De gekozen kleur zit in de kleurgroep van het gekozen materiaal. */
+    function kleurKeuze(){
+      var m=sel.materiaal||'keramiek';
+      var lijst=KLEUR[m]||KLEUR.keramiek;
+      var k=sel['kl_'+m];
+      return lijst[k] ? {v:k,t:lijst[k]} : {v:Object.keys(lijst)[0],t:lijst[Object.keys(lijst)[0]]};
+    }
+
+    function materiaalVoorTekenaar(){
+      var f=FORMAAT[sel.formaat]||FORMAAT['60x60'];
+      var m=sel.materiaal||'keramiek';
+      var kk=kleurKeuze(), tn=kk.t;
+      var p=sel.legpatroon||'recht';
+      return {
+        tw:f.b/100, th:f.h/100, g:0.003,
+        sprong: p==='half' ? .5 : 0,
+        visgraat: p==='visgraat',
+        hongaars: p==='hongaars',
+        kleur: tn.c,
+        lk: MATERIAAL[m]||MATERIAAL.keramiek,
+        // gepolijst zou in een woonkamer overdreven glimmen; mat leest eerlijker
+        af: {v:'mat', glans:.07},
+        tn: tn,
+        voegRGB: voegRGB(sel.voeg||'zilvergrijs', tn.c)
+      };
+    }
+
+    /* De plint. Een tegelplint is een strook die uit de vloertegel gezaagd
+       wordt, dus hij draagt dezelfde kleur, dezelfde structuur en dezelfde
+       voeg — maar nooit het legpatroon: je kunt geen visgraat zagen uit één
+       strook. Vandaar recht, altijd. Bij een houten plint of geen plint
+       tekenen we niets en blijft de plint uit de foto staan. */
+    function plintMateriaal(){
+      if(sel.plint!=='tegel') return null;
+      var m=materiaalVoorTekenaar();
+      m.sprong=0; m.visgraat=false; m.hongaars=false;
+      return m;
+    }
+
+    function dimLabel(){ return CFG.dim(sel); }
+
+    /* Het beeld wordt getekend, niet opgehaald. Een tegelvloer is een raster
+       met voegen; dat is meetkunde. Bij een bibliotheek voorgerenderde beelden
+       moet er per combinatie een beeld bij en is er altijd een combinatie waar
+       er geen is — hier kan dat per definitie niet gebeuren. */
+    function updateHero(){
+      var c=$('#confHero'), B=window.NGTegelBeeld, dim=$('#confDim');
+      if(dim) dim.innerHTML='<b>'+dimLabel()+'</b>';
+      if(!c||!B) return;
+      var op={vloer:materiaalVoorTekenaar(), wand:null, plint:plintMateriaal()};
+      if(!B.fotoKlaar()) B.laadFoto(function(){ updateHero(); });
+      B.woonkamer(c, op);
+    }
+    function summaryText(){
+      var lines=[CFG.kop];
+      allGroups().forEach(function(g){ if(g.when && !g.when(sel)) return; lines.push(g.t+': '+findKz(g).l); });
+      var chosen=CFG.extra.filter(function(e){return extras[e.v] && (!e.when||e.when(sel));}).map(function(e){return e.l;});
+      lines.push('Extra opties: '+(chosen.length?chosen.join(', '):'geen'));
+      var excl=calc(), incl=excl*(1+BTW);
+      lines.push('Totaalprijs incl. montage: '+euro(excl)+' excl. btw  /  '+euro(incl)+' incl. btw');
+      return lines.join('\n');
+    }
+    function price(){ var excl=calc(), incl=excl*(1+BTW); $('#prijs').textContent=euro(btwIncl?incl:excl); $('#f_config').value=summaryText(); }
+    function setBtw(on){ btwIncl=on; $('#btwIncl').classList.toggle('is-on',on); $('#btwIncl').setAttribute('aria-pressed',on); $('#btwExcl').classList.toggle('is-on',!on); $('#btwExcl').setAttribute('aria-pressed',!on); price(); }
+    $('#btwIncl').addEventListener('click',function(){ setBtw(true); });
+    $('#btwExcl').addEventListener('click',function(){ setBtw(false); });
+    $('#naarOfferte').addEventListener('click',function(){ $('#offerte').scrollIntoView({behavior:'smooth',block:'start'}); });
+    $('#downloadBtn').addEventListener('click',function(){
+      var blob=new Blob([CFG.kop+' · Next Growth\n\n'+summaryText()+'\n\nnextgrowthdigital.nl · <a href="tel:+31683902192">06 83 90 21 92</a>'],{type:'text/plain'});
+      var a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=CFG.file+'.txt'; a.click(); URL.revokeObjectURL(a.href);
+    });
+    function msg(t,type){ var m=$('#leadMsg'); m.hidden=false; m.textContent=t; m.className='lead__msg '+(type||''); }
+    function mailtoFallback(f){
+      var body="Aanvraag via "+CFG.kop+" configurator\n=====================================\n\n"+f.configuratie.value+
+        "\n\n--- Contactgegevens ---\nNaam: "+f.naam.value+"\nE-mail: "+f.email.value+"\nTelefoon: "+(f.telefoon.value||"-")+"\nPlaats: "+(f.plaats.value||"-")+"\nBericht: "+(f.bericht.value||"-")+"\n";
+      window.location.href="mailto:info@nextgrowthdigital.nl?subject="+encodeURIComponent("Offerteaanvraag "+CFG.kop+" · "+(f.naam.value||""))+"&body="+encodeURIComponent(body);
+    }
+  /* Twee routes naast elkaar: FormSubmit levert vandaag af, Web3Forms vangt op
+     als die dienst hapert. Geeft hetzelfde antwoord terug als FormSubmit, zodat
+     de rest van de afhandeling ongewijzigd blijft. */
+  function ngDubbel(payload, sleutel){
+    var a=fetch("https://formsubmit.co/ajax/info@nextgrowthdigital.nl",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(payload)})
+      .then(function(r){return r.json();}).then(function(d){return !!(d&&(d.success===true||d.success==="true"));}).catch(function(){return false;});
+    var b=sleutel?fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},
+      body:JSON.stringify(Object.assign({access_key:sleutel,from_name:"nextgrowthdigital.nl",subject:payload._subject},payload))})
+      .then(function(r){return r.ok;}).catch(function(){return false;}):Promise.resolve(false);
+    /* Niet Promise.all: dan wacht de bezoeker op het traagste kanaal, ook als
+       het eerste al ja heeft gezegd. Web3Forms staat op sommige blokkeerlijsten
+       en hangt dan tot de browser er zelf mee ophoudt. De lead is op dat moment
+       allang binnen via FormSubmit, maar het scherm blijft op Versturen staan en
+       de bezoeker denkt dat het mislukt is.
+
+       Dus: zodra een van de twee slaagt is het klaar. Zeggen ze allebei nee, dan
+       pas het mailtovangnet. Blijft er een hangen, dan valt na tien seconden de
+       beslissing alsnog op nee - want dan weten we het niet, en dan is de e-mail
+       openen eerlijker dan een bedankje dat nergens op slaat. Beide verzoeken
+       lopen intussen gewoon door; er wordt niets afgebroken. */
+    var beslist = new Promise(function (klaar) {
+      var open = 2;
+      [a, b].forEach(function (p) {
+        p.then(function (ok) { if (ok) klaar(true); else if (!--open) klaar(false); });
+      });
+      setTimeout(function () { klaar(false); }, 10000);
+    });
+    return beslist.then(function(ok){return {json:function(){return {success:ok};}};});
+  }
+
+    $('#leadForm').addEventListener('submit',function(e){
+      e.preventDefault(); var f=e.target; if(f.reportValidity&&!f.reportValidity())return;
+      var btn=$('#leadBtn'),oud=btn.textContent; btn.disabled=true; btn.textContent="Versturen…";
+      ngDubbel({_subject:"Offerteaanvraag "+CFG.kop+" · "+(f.naam.value||""),_template:"table",_captcha:"false",_replyto:f.email.value,Product:CFG.kop,Naam:f.naam.value,"E-mail":f.email.value,Telefoon:(f.telefoon.value||"-"),Plaats:(f.plaats.value||"-"),Bericht:(f.bericht.value||"-"),Configuratie:f.configuratie.value}, WEB3FORMS_KEY).then(function(r){return r.json();}).then(function(d){ if(d&&(d.success===true||d.success==="true")){ f.reset(); msg("Bedankt! Je aanvraag is verstuurd. We nemen binnen één werkdag contact op.","ok"); } else { msg("Er ging iets mis. We openen je e-mail met de aanvraag klaar.","err"); mailtoFallback(f); } }).catch(function(){ msg("Geen verbinding. We openen je e-mail met de aanvraag klaar.","err"); mailtoFallback(f); }).finally(function(){ btn.disabled=false; btn.textContent=oud; });
+    });
+    function applyPreset(p){ if(p.sel) Object.keys(p.sel).forEach(function(k){ sel[k]=p.sel[k]; }); if(p.extras) Object.keys(p.extras).forEach(function(k){ extras[k]=p.extras[k]; }); if(CFG.napas) CFG.napas(sel,'preset'); render(); }
+    function renderPresets(){
+      $('#presetRow').innerHTML=CFG.presets.map(function(p,i){ return '<button type="button" class="preset" data-i="'+i+'"><span class="preset__th" style="background-image:url(./assets/media/'+p.th+'.jpg)"></span><span class="preset__t"><b>'+p.n+'</b><span>'+p.d+'</span></span></button>'; }).join('');
+      $('#presetRow').querySelectorAll('.preset').forEach(function(btn){ btn.addEventListener('click',function(){ applyPreset(CFG.presets[+this.getAttribute('data-i')]); }); });
+    }
+    initSelection(); if(CFG.napas) CFG.napas(sel,"start"); render(); renderPresets();
+  
+  /* De keuzes bereikbaar maken voor de AI-foto onderaan de pagina. De
+     configurator draait in zijn eigen scope; zonder deze regel ziet de
+     fotomodule geen enkele keuze en stuurt hij een lege beschrijving mee. */
+  window.NGKeuze = function () { return typeof sel === 'undefined' ? null : sel; };
+})();
+
+  </script>
+
+<script src="./assets/aifoto.js" defer></script>
+<script>
+/* De AI-foto: keuzes van deze configurator vertalen naar de beschrijving die
+   het beeldmodel krijgt. Onbekende waarden worden aan de andere kant netjes
+   opgevangen met een standaardwaarde, dus een nieuwe optie breekt niets - hij
+   valt alleen terug tot hij hier ook genoemd wordt. */
+window.addEventListener('DOMContentLoaded', function () {
+  if (!window.NGFoto) return;
+  NGFoto.init({
+    product: 'tegelvloer',
+    scene: 'binnen',
+    kop: 'Zie je tegelvloer in je eigen kamer',
+    lead: 'Upload een foto van je kamer. Alleen de vloer verandert. Je meubels, wanden en het licht door het raam blijven precies zoals ze zijn.',
+    payload: function () {
+      var sel = window.NGKeuze && window.NGKeuze();
+      if (!sel) return {};
+      var m = sel.materiaal || 'keramiek';
+      return {
+        materiaal: m,
+        kleur: sel['kl_' + m] || '',
+        formaat: sel.formaat === 'visgraatstrook' ? '30x60' : (sel.formaat || '60x60'),
+        // de voegkleur is het verschil tussen een strakke en een rommelige
+        // tegelvloer, dus die moet het beeldmodel weten
+        voeg: sel.voeg || 'zilvergrijs',
+        patroon: sel.legpatroon || 'recht',
+        // de plint hoort erbij: een tegelplint verandert de rand van de kamer
+        plint: sel.plint || 'tegel',
+        m2: Number(sel.opp) || 0
+      };
+    }
+  });
+});
+</script>
+  
+  <a class="nx-wa" href="https://wa.me/31683902192" target="_blank" rel="noopener" aria-label="Stel je vraag via WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a9.9 9.9 0 0 0-8.5 15L2 22l5.2-1.4A9.9 9.9 0 1 0 12 2zm0 1.7a8.2 8.2 0 1 1-4.2 15.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.7zm-3.1 4.2c-.2 0-.5 0-.7.3-.2.3-.9.9-.9 2.1s.9 2.5 1 2.6c.1.2 1.8 2.8 4.3 3.8 2.1.8 2.6.7 3 .6.5 0 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.4-.2-1.5-.7c-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.5 7.5 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5v-.5L9.5 8.2c-.2-.4-.4-.3-.6-.3z"/></svg></a>
+  <!-- Vercel Analytics (scripts/analytics.py) -->
+  
+  
+</body>
+</html>

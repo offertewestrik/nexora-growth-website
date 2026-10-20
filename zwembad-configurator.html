@@ -1,0 +1,999 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zwembadconfigurator voor zwembadbouwers: live demo | Next Growth</title>
+  <meta name="description" content="Live demo van een zwembadconfigurator die Next Growth bouwt voor zwembadbouwers. Kies RAL-kleur, afmeting, trap, afdekking en verwarming en zie direct een vrijblijvende richtprijs inclusief montage.">
+  <link rel="canonical" href="https://nextgrowthdigital.nl/zwembad-configurator">
+  <link rel="alternate" hreflang="nl" href="https://nextgrowthdigital.nl/zwembad-configurator">
+  <link rel="alternate" hreflang="en" href="https://nextgrowthdigital.nl/pool-configurator-en">
+  <link rel="alternate" hreflang="x-default" href="https://nextgrowthdigital.nl/pool-configurator-en">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="nl_NL">
+  <meta property="og:site_name" content="Next Growth">
+  <meta property="og:title" content="Zwembadconfigurator voor zwembadbouwers: live demo | Next Growth">
+  <meta property="og:description" content="Live demo van een zwembadconfigurator die Next Growth bouwt voor zwembadbouwers. Kies RAL-kleur, afmeting, trap, afdekking en verwarming en zie direct een vrijblijvende richtprijs inclusief montage.">
+  <meta property="og:url" content="https://nextgrowthdigital.nl/zwembad-configurator">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Crect width='18' height='18' rx='4' fill='%23C9A45F'/%3E%3Cpath d='M5 13V5l8 8V5' stroke='%230A0A0B' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./assets/fonts.css">
+  <link rel="stylesheet" href="./assets/core.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Zwembadconfigurator laten maken",
+    "name": "Zwembad configurator",
+    "url": "https://nextgrowthdigital.nl/zwembad-configurator",
+    "provider": { "@type": "ProfessionalService", "name": "Next Growth", "email": "info@nextgrowthdigital.nl", "telephone": "+31683902192", "url": "https://nextgrowthdigital.nl/" },
+    "areaServed": ["Nederland"],
+    "description": "Live demo van een zwembadconfigurator die Next Growth bouwt voor zwembadbouwers. Bezoekers stellen een kunststof zwembad samen: kleur (RAL), afmeting, trap, afdekking, verwarming en verlichting, met direct een vrijblijvende richtprijs inclusief installatie."
+  }
+  </script>
+  <style>
+    :root { --acc: var(--accent); --acc-soft: rgba(var(--accent-rgb),.14); }
+    .cfg-hero { padding: calc(60px + clamp(1.6rem, 5vh, 3rem)) 0 0; text-align: center; }
+    .cfg-hero .pill { margin-bottom: 1rem; }
+    .cfg-hero .h1 { max-width: 20ch; margin-inline: auto; }
+    .cfg-hero .lede { margin: 1rem auto 0; max-width: 58ch; }
+
+    /* material switch */
+    .matswitch { display: inline-flex; flex-wrap: wrap; justify-content: center; max-width: 100%; gap: .3rem; padding: .32rem; border: 1px solid var(--line-strong); border-radius: 13px; background: var(--bg-raise); margin: 1.6rem auto 0; }
+    .matswitch button, .matswitch a { display: inline-flex; align-items: center; gap: .5rem; border: none; background: transparent; color: var(--text-2); font: inherit; font-weight: 600; font-size: .9rem; padding: .65rem 1.3rem; border-radius: 10px; cursor: pointer; transition: background .14s ease, color .14s ease; text-decoration: none; }
+    .matswitch button svg { width: 17px; height: 17px; }
+    .matswitch button.is-on, .matswitch a.is-on { background: var(--acc); color: #17130a; }
+    .matswitch a:hover { color: var(--text-1); }
+    /* Vier tot zeven keuzes passen niet naast elkaar op een telefoon. Zonder
+       wrap liep de rij het scherm uit: de laatste optie was onbereikbaar en
+       de hele pagina schoof horizontaal mee. */
+    @media (max-width: 640px) {
+      .matswitch { gap: .25rem; }
+      .matswitch button, .matswitch a { padding: .55rem .8rem; font-size: .8rem; }
+    }
+
+    /* presets */
+    .presets { margin: 1.5rem auto 0; max-width: 900px; }
+    .presets__lbl { display: block; font-family: var(--mono); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: var(--text-3); margin-bottom: .7rem; }
+    .presets__row { display: flex; gap: .7rem; flex-wrap: wrap; justify-content: center; }
+    .preset { display: flex; align-items: center; gap: .6rem; border: 1px solid var(--line-strong); border-radius: 12px; background: var(--bg-raise); padding: .45rem .7rem .45rem .45rem; cursor: pointer; transition: border-color .12s ease, background .12s ease; text-align: left; }
+    .preset:hover { border-color: var(--acc); background: var(--bg-raise-2); }
+    .preset__th { width: 46px; height: 34px; border-radius: 7px; background-size: cover; background-position: center; flex: none; border: 1px solid rgba(255,255,255,.1); }
+    .preset__t b { display: block; font-size: .82rem; font-weight: 600; color: var(--text); line-height: 1.1; }
+    .preset__t span { font-size: .68rem; color: var(--text-3); }
+
+    /* configurator shell */
+    .conf { margin-top: clamp(1.8rem, 5vh, 3rem); }
+    .conf__layout { display: grid; grid-template-columns: 1fr; gap: 1.1rem; margin-top: 1.1rem; }
+    .conf__visual, .conf__options { min-width: 0; }
+    @media (min-width: 900px){
+      .conf__layout { grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); align-items: start; }
+      .conf__visual { position: sticky; top: 80px; }
+    @media (min-width:900px){ .conf__layout{ grid-template-columns:minmax(0,1.55fr) minmax(0,1fr); } }
+    @media (min-width:1200px){ .conf__layout{ grid-template-columns:minmax(0,1.7fr) minmax(0,1fr); } }
+
+    }
+    @media (max-width: 899px){
+      .conf__visual { position: sticky; top: 52px; z-index: 6; background: var(--bg); padding: 8px 0 10px; margin-top: -8px; }
+    }
+    .conf__head { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1.1rem; }
+    .conf__title { font-size: clamp(1.5rem, 4vw, 2.1rem); font-weight: 800; letter-spacing: -.02em; line-height: 1.05; }
+    .conf__title span { color: var(--acc); }
+    .conf__sub { font-size: .84rem; color: var(--text-2); margin-top: .3rem; }
+    .conf__badge { flex: none; display: inline-flex; align-items: center; gap: .5rem; border: 1px solid var(--line-strong); border-radius: 11px; padding: .55rem .8rem; font-size: .74rem; color: var(--text-2); background: var(--bg-raise); line-height: 1.2; max-width: 150px; }
+    .conf__badge svg { width: 20px; height: 20px; color: var(--acc); flex: none; }
+
+    .conf__hero { position: relative; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); margin-bottom: 1.2rem; aspect-ratio: 16/9; background: var(--bg-raise); }
+    .conf__hero .hbg { position: absolute; inset: 0; background-size: cover; background-position: center; filter: blur(30px) brightness(.42) saturate(.9); transform: scale(1.18); z-index: 0; transition: background-image .22s ease; }
+    .conf__hero .hbg::after { content:''; position:absolute; inset:0; background: radial-gradient(120% 90% at 50% 45%, transparent 55%, rgba(0,0,0,.5) 100%); }
+    .conf__hero img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: cover; display: block; transform-origin: center center; transition: opacity .22s ease, transform .38s cubic-bezier(.4,0,.2,1); will-change: transform; }
+    .conf__hero.is-scaled img { border-radius: 10px; box-shadow: 0 18px 50px rgba(0,0,0,.5); }
+    .conf__hero .live { position: absolute; top: .8rem; left: .8rem; z-index: 2; display: inline-flex; align-items: center; gap: .45rem; font-family: var(--mono); font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; color: #fff; background: rgba(0,0,0,.45); backdrop-filter: blur(6px); padding: .35rem .6rem; border-radius: 7px; }
+    .conf__hero .live .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--acc); box-shadow: 0 0 8px var(--acc); }
+    .conf__hero .dim { position: absolute; bottom: .8rem; right: .8rem; z-index: 2; font-family: var(--mono); font-size: .62rem; letter-spacing: .06em; color: #fff; background: rgba(0,0,0,.5); backdrop-filter: blur(6px); padding: .35rem .6rem; border-radius: 7px; display: inline-flex; align-items: center; gap: .4rem; }
+    .conf__hero .dim b { color: var(--acc); font-weight: 400; }
+    .tile__img { width: 100%; height: 54px; border-radius: 8px; background-size: cover; background-position: center; border: 1px solid rgba(255,255,255,.1); }
+
+    .grp { border: 1px solid var(--line); border-radius: 14px; background: var(--bg-raise); padding: 1.15rem 1.2rem 1.25rem; margin-bottom: .9rem; }
+    .grp__h { font-size: .78rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--text); margin-bottom: .85rem; }
+    .grp__h b { color: var(--acc); font-weight: 700; margin-right: .4rem; }
+    .grp__row { display: grid; gap: .8rem; }
+    @media (min-width: 720px){ .grp__row.cols3 { grid-template-columns: 1fr 1fr 1fr; } }
+
+    .tiles { display: grid; gap: .6rem; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+    .tiles.sm { grid-template-columns: repeat(auto-fit, minmax(84px, 1fr)); }
+    .tile { position: relative; cursor: pointer; }
+    .tile input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+    .tile__c { border: 1.5px solid var(--line); border-radius: 11px; background: var(--bg-raise-2); padding: .7rem .6rem; display: flex; flex-direction: column; align-items: center; gap: .5rem; text-align: center; height: 100%; transition: border-color .12s ease, background .12s ease; }
+    .tile__c .ico { width: 30px; height: 30px; color: var(--text-2); }
+    .tile__c .ico svg { width: 100%; height: 100%; }
+    .tile__c .lab { font-size: .76rem; font-weight: 600; color: var(--text); line-height: 1.25; }
+    .tile__c .sub { font-size: .68rem; color: var(--text-3); }
+    @media (max-width: 600px) { .tile__c .sub { font-size: .78rem; } }
+    .tile__sw { width: 100%; height: 40px; border-radius: 7px; border: 1px solid rgba(255,255,255,.12); }
+    .tile input:checked + .tile__c { border-color: var(--acc); background: color-mix(in srgb, var(--acc) 12%, var(--bg-raise-2)); }
+    .tile input:checked + .tile__c .ico { color: var(--acc); }
+    .tile input:focus-visible + .tile__c { outline: 2px solid var(--acc); outline-offset: 2px; }
+
+    /* price bar */
+    .pricebar { margin-top: 1rem; border: 1px solid var(--line-strong); border-radius: 14px; background: linear-gradient(var(--bg-raise-2), var(--bg-raise)); padding: 1.1rem 1.2rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .pricebar__p { flex: 1 1 auto; min-width: 140px; }
+    .pricebar__p .k { display: flex; align-items: center; gap: .5rem; font-family: var(--mono); font-size: .66rem; text-transform: uppercase; letter-spacing: .06em; color: var(--text-3); }
+    .pricebar__p .v { font-size: 1.8rem; font-weight: 800; color: var(--text); letter-spacing: -.02em; margin-top: .1rem; }
+    .btw { display: inline-flex; border: 1px solid var(--line-strong); border-radius: 7px; overflow: hidden; }
+    .btw button { border: none; background: transparent; color: var(--text-3); font: inherit; font-size: .62rem; font-family: var(--mono); padding: .28rem .5rem; cursor: pointer; }
+    .btw button.is-on { background: var(--acc-soft); color: var(--acc); }
+    .pricebar__cta { display: flex; gap: .5rem; align-items: stretch; flex-wrap: wrap; }
+    .btn--acc { background: var(--acc); color: #17130a; border: none; font-weight: 700; }
+    .btn--acc:hover { filter: brightness(1.06); box-shadow: 0 8px 24px color-mix(in srgb, var(--acc) 30%, transparent); }
+    .btn--icon { width: 46px; padding: 0; display: grid; place-items: center; }
+    .btn--icon svg { width: 18px; height: 18px; }
+
+    /* lead form */
+    .lead { display: grid; gap: .8rem; }
+    .lead__grid { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+    @media (max-width: 520px){ .lead__grid { grid-template-columns: 1fr; } }
+    .fld { display: grid; gap: .35rem; }
+    .fld label { font-size: .76rem; color: var(--text-2); font-weight: 500; }
+    .fld input, .fld textarea { width: 100%; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--bg-raise); color: var(--text); font: inherit; font-size: .88rem; padding: .7rem .85rem; }
+    .fld input:focus, .fld textarea:focus { outline: none; border-color: var(--acc); }
+    .lead__note { font-size: .74rem; color: var(--text-3); line-height: 1.5; }
+    .lead__msg { font-size: .84rem; padding: .8rem 1rem; border-radius: 10px; line-height: 1.5; }
+    .lead__msg.ok { background: var(--acc-soft); color: var(--acc); border: 1px solid color-mix(in srgb, var(--acc) 40%, transparent); }
+    .lead__msg.err { background: rgba(220,80,80,.1); color: #e88; border: 1px solid rgba(220,80,80,.35); }
+    .cfg__panel { padding: 1.6rem 1.6rem; display: grid; gap: 1.4rem; }
+  </style>
+  <style id="ng-protect-css">
+    /* Beeld- en kopieerbeveiliging */
+    img,picture,svg,.conf__hero,.conf__hero img,.tile__img,.preset__th,.hbg,.matswitch{
+      -webkit-user-drag:none;-khtml-user-drag:none;-moz-user-drag:none;-o-user-drag:none;user-select:none;
+      -webkit-touch-callout:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;
+    }
+    body{ -webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none; }
+    input,textarea,select,[contenteditable]{ -webkit-user-select:text!important;-moz-user-select:text!important;-ms-user-select:text!important;user-select:text!important; -webkit-touch-callout:default; }
+    .conf__hero,.conf__hero img,.tile__img,.preset__th,.hbg{ pointer-events:none; }
+    .tile,.preset,.matswitch a,.matswitch button{ pointer-events:auto; }
+  </style>
+  <script id="ng-protect-js">
+  (function(){
+    function inField(t){ return t && t.closest && t.closest('input,textarea,select,[contenteditable]'); }
+    document.addEventListener('contextmenu',function(e){ if(inField(e.target)) return; e.preventDefault(); },{capture:true});
+    document.addEventListener('dragstart',function(e){ e.preventDefault(); },{capture:true});
+    document.addEventListener('drop',function(e){ e.preventDefault(); },{capture:true});
+    document.addEventListener('copy',function(e){ if(!inField(e.target)) e.preventDefault(); },{capture:true});
+    document.addEventListener('cut',function(e){ if(!inField(e.target)) e.preventDefault(); },{capture:true});
+    // long-press op mobiel: blokkeer standaard-callout op beelden
+    document.addEventListener('touchstart',function(e){ var t=e.target; if(t&&t.closest&&t.closest('img,.conf__hero,.tile__img,.preset__th,.hbg')&&e.touches.length>1){ e.preventDefault(); } },{passive:false});
+  })();
+  </script>
+
+  <style id="zwembad-theme">
+    :root{
+  /* De inktschaal uit core.css hoort ook licht te zijn op deze pagina. Zonder
+     deze regels pakt bijvoorbeeld .sectie:nth-of-type(even) de donkere --tint
+     en krijg je donkerblauwe tekst op een donkere vlak. */
+  --ink-900:#D6E4EB; --ink-800:#EDF3F6; --ink-700:#E4EDF1;
+  --ink-600:#FFFFFF; --ink-500:#F7FBFC; --ink-400:rgba(16,74,96,.20);
+  --tint:#E4EDF1;
+
+      --bg:#EDF3F6; --bg-raise:#FFFFFF; --bg-raise-2:#E1EDF2;
+      --text:#0E2530; --text-2:rgba(14,37,48,.76); --text-3:rgba(14,37,48,.46);
+      --line:rgba(16,74,96,.14); --line-strong:rgba(16,74,96,.22);
+      --accent:#0E86B8; --accent-strong:#0A6A93; --accent-dim:rgba(14,134,184,.14); --glow:rgba(14,134,184,.32);
+      --acc:#0E86B8; --acc-soft:rgba(14,134,184,.14);
+    }
+    body{ background:var(--bg); color:var(--text-2); }
+    .nav{ background:rgba(255,255,255,.86)!important; }
+    .nav__links a:hover{ background:rgba(0,0,0,.05); }
+    .nav__logo{ color:var(--text); }
+    .grad-text{ background:linear-gradient(120deg,#39B7DF 8%,#0E86B8 55%,#0A6A93 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .btn--acc{ color:#fff; }
+    .btn:not(.btn--ghost):not(.btn--acc){ background:linear-gradient(180deg,#39B7DF,#0A6A93); color:#fff; }
+    .btn--ghost{ color:var(--text); }
+    .btn--ghost:hover{ background:rgba(0,0,0,.04); border-color:var(--line-strong); }
+    .matswitch button.is-on, .matswitch a.is-on{ color:#fff; }
+    .tile__img,.preset__th{ border-color:rgba(0,0,0,.10); }
+    .pill{ background:rgba(12,58,78,.03); box-shadow:0 1px 2px rgba(12,58,78,.05); }
+    /* fijnere afwerking op lichte achtergrond: zachte schaduw + schone beeld-achtergrond */
+    .conf__hero{ border-color:rgba(12,58,78,.10); box-shadow:0 1px 2px rgba(12,58,78,.05), 0 22px 48px -26px rgba(12,58,78,.45); background:var(--bg-raise-2); }
+    .conf__hero .hbg{ filter:blur(40px) brightness(1.08) saturate(1.05); opacity:.35; transform:scale(1.25); }
+    .conf__hero .hbg::after{ background:none; }
+    .grp, .pricebar, .conf__badge{ box-shadow:0 1px 2px rgba(12,58,78,.04), 0 14px 32px -24px rgba(12,58,78,.40); }
+    .preset{ box-shadow:0 1px 2px rgba(12,58,78,.05); }
+    .preset:hover{ box-shadow:0 6px 18px -8px rgba(12,58,78,.45); }
+    .tile__c{ box-shadow:0 1px 1px rgba(12,58,78,.03); }
+    .tile input:checked + .tile__c{ box-shadow:0 2px 8px -2px rgba(12,58,78,.30); }
+    .matswitch{ box-shadow:0 1px 2px rgba(12,58,78,.05); }
+    .btn--acc{ box-shadow:0 8px 22px -10px rgba(12,58,78,.55); }
+    .nav{ border-bottom:1px solid rgba(12,58,78,.10); }
+    ::selection{ background:var(--accent); color:#fff; }
+    .lead__msg.ok{ color:var(--accent-strong); }
+    /* groter live-voorbeeld: bredere beeldkolom + volledig 16:9-beeld */
+    .conf__hero{ aspect-ratio:16/9; }
+    @media (min-width:900px){ .conf__layout{ grid-template-columns:minmax(0,1.55fr) minmax(0,1fr); } }
+    @media (min-width:1200px){ .conf__layout{ grid-template-columns:minmax(0,1.7fr) minmax(0,1fr); } }
+  </style>
+  <script type="application/ld+json" data-productfaq>{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Wat kost een kunststof zwembad?","acceptedAnswer":{"@type":"Answer","text":"Voor een polyester bad van 6 bij 3 met filterinstallatie, warmtepomp en plaatsing ligt het zwaartepunt tussen de dertig- en vijftigduizend euro, sterk afhankelijk van het grondwerk en de bereikbaarheid. Grote verschillen tussen offertes zitten vrijwel altijd in wat er níét in staat: afvoer van grond, terras, elektra en afdekking. In de configurator hierboven zie je per keuze wat hij doet met de richtprijs."}},{"@type":"Question","name":"Heb ik een vergunning nodig voor een zwembad?","acceptedAnswer":{"@type":"Answer","text":"Een zwembad in de grond in het achtererfgebied is meestal vergunningsvrij, omdat het geen bouwwerk is dat boven de grond uitsteekt. Zodra er een overkapping, een poolhouse of een hoge omheining bij komt, gelden de regels voor bijbehorende bouwwerken wel. Ook het omgevingsplan van je gemeente kan iets zeggen over verharding en oppervlakte. Vraag het na bij de gemeente voordat de kraan komt. Dat kost een telefoontje en voorkomt een probleem."}},{"@type":"Question","name":"Hoe lang duurt de aanleg?","acceptedAnswer":{"@type":"Answer","text":"Een polyester monoblok kan in twee tot drie weken van eerste spade tot zwemmen, mits de tuin bereikbaar is en de techniek klaarligt. Een paneelbad duurt drie tot vijf weken, een betonnen bad zes tot tien. Het grondwerk en het weer bepalen meer dan het bad zelf: in een natte winter ligt het werk stil."}},{"@type":"Question","name":"Polyester of beton: wat is beter?","acceptedAnswer":{"@type":"Answer","text":"Polyester is sneller, goedkoper en makkelijker schoon te houden; beton is vrijer in vorm en gaat het langst mee. Voor een gewone achtertuin met een rechthoekig bad wint polyester het bijna altijd. Wil je een afwijkende vorm, een overloopbad of een bad tegen een niveauverschil aan, dan kom je bij beton uit."}},{"@type":"Question","name":"Wat kost een zwembad per jaar?","acceptedAnswer":{"@type":"Answer","text":"Reken met een warmtepomp en een lamellenafdekking op een paar honderd euro stroom per seizoen, plus chemie en water. Zonder afdekking verdubbelt het warmteverbruik ongeveer, omdat verdamping veruit het grootste verlies is. Een zoutelektrolyse-installatie scheelt in chemicaliën maar niet in stroom."}},{"@type":"Question","name":"Kan ik het zwembad in mijn eigen tuin zien voordat ik iets beslis?","acceptedAnswer":{"@type":"Answer","text":"Ja. Upload in de configurator een foto van je tuin, dan komt de gekozen samenstelling er fotorealistisch op terug: op de plek waar het bad zou komen, in de maat die je koos. Geen voorbeeldfoto van iemand anders zijn tuin."}}]}</script>
+    <!-- ============ ENTITEIT (scripts/entiteit.py) ============ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://nextgrowthdigital.nl/#organization",
+          "name": "Next Growth",
+          "url": "https://nextgrowthdigital.nl/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://nextgrowthdigital.nl/assets/media/next-growth-logo.svg"
+          },
+          "description": "Next Growth is een creatief groeibureau en bouwt productconfiguratoren, offertesoftware, CRM-koppelingen en websites voor bouw- en installatiebedrijven, door heel Nederland.",
+          "email": "info@nextgrowthdigital.nl",
+          "telephone": "+31683902192",
+          "vatID": "NL004420281B57",
+          "taxID": "96002913",
+          "identifier": [
+            {
+              "@type": "PropertyValue",
+              "name": "KvK-nummer",
+              "value": "96002913"
+            },
+            {
+              "@type": "PropertyValue",
+              "name": "btw-identificatienummer",
+              "value": "NL004420281B57"
+            }
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "Noord-Brabant",
+            "addressCountry": "NL"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "sales",
+            "telephone": "+31683902192",
+            "email": "info@nextgrowthdigital.nl",
+            "areaServed": "NL",
+            "availableLanguage": [
+              "nl",
+              "en",
+              "de"
+            ]
+          },
+          "areaServed": [
+            {
+              "@type": "Country",
+              "name": "Nederland"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Noord-Brabant"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Gelderland"
+            },
+            {
+              "@type": "City",
+              "name": "Nijmegen"
+            },
+            {
+              "@type": "City",
+              "name": "Den Bosch"
+            },
+            {
+              "@type": "City",
+              "name": "Eindhoven"
+            },
+            {
+              "@type": "City",
+              "name": "Arnhem"
+            },
+            {
+              "@type": "City",
+              "name": "Uden"
+            },
+            {
+              "@type": "City",
+              "name": "Veghel"
+            },
+            {
+              "@type": "City",
+              "name": "Wijchen"
+            },
+            {
+              "@type": "City",
+              "name": "Vught"
+            },
+            {
+              "@type": "City",
+              "name": "Cuijk"
+            },
+            {
+              "@type": "City",
+              "name": "Grave"
+            }
+          ],
+          "knowsAbout": [
+            "Productconfigurator laten maken",
+            "Offertesoftware voor bouwbedrijven",
+            "Website laten maken voor bouw- en installatiebedrijven",
+            "Zoekmachineoptimalisatie",
+            "CRM voor bouwbedrijven",
+            "Dakopbouw",
+            "Uitbouw en aanbouw",
+            "Badkamer verbouwen",
+            "Overkapping op maat",
+            "Zwembad aanleggen",
+            "Dakkapel",
+            "Omgevingsvergunning bij verbouwen"
+          ],
+          "alternateName": [
+            "Next Growth Digital"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://nextgrowthdigital.nl/#website",
+          "url": "https://nextgrowthdigital.nl/",
+          "name": "Next Growth",
+          "inLanguage": "nl-NL",
+          "publisher": {
+            "@id": "https://nextgrowthdigital.nl/#organization"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://nextgrowthdigital.nl/zwembad-configurator",
+          "url": "https://nextgrowthdigital.nl/zwembad-configurator",
+          "name": "Zwembadconfigurator voor zwembadbouwers: live demo | Next Growth",
+          "inLanguage": "nl",
+          "isPartOf": {
+            "@id": "https://nextgrowthdigital.nl/#website"
+          },
+          "about": {
+            "@id": "https://nextgrowthdigital.nl/#organization"
+          },
+          "description": "Live demo van een zwembadconfigurator die Next Growth bouwt voor zwembadbouwers. Kies RAL-kleur, afmeting, trap, afdekking en verwarming en zie direct een vrijblijvende richtprijs inclusief montage.",
+          "dateModified": "2026-08-28"
+        }
+      ]
+    }
+    </script>
+    <!-- ============ EINDE ENTITEIT ============ -->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,900;125,900&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/ngx-shell.css"><style id="ngx-world">:root{--accent:#0E6EFF;--accent-strong:#0B58CC;--accent-light:#7FB2FF;--accent-deep:#0B3A85;--accent-dim:rgba(14,110,255,.12);--glow:rgba(14,110,255,.25);--accent-rgb:14,110,255;--acc:#0E6EFF;--acc-soft:rgba(14,110,255,.14);--acc-diep:#0B3A85;--serif:'Archivo','Arial Black',sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;--goud-metaal:linear-gradient(150deg,#0B3A85 0%,#0E6EFF 30%,#7FB2FF 50%,#0E6EFF 70%,#0B3A85 100%);--goud-lijn:linear-gradient(90deg,transparent,rgba(14,110,255,.5) 30%,rgba(14,110,255,.5) 70%,transparent);}html{background:#F4F7FB}.ngx-nav{--x-sig:#0E6EFF;--x-ink:#FFFFFF}</style><script>document.documentElement.classList.add("ngx-display","ngx-light")</script></head>
+<body>
+  <a class="skip" href="#main">Direct naar inhoud</a>
+  <header class="ngx-nav"><div class="ngx-wrap">
+<a class="ngx-brand" href="/"><span class="ngx-ring">NG</span><span>Next Growth<small>Creatief groeibureau · Landelijk</small></span></a>
+<a class="ngx-mark" href="/" aria-label="Next Growth, naar de homepage"><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14V4l10 10V4" stroke="#0A0800" stroke-width="2.8" stroke-linecap="square"/></svg></a>
+<nav class="ngx-links" aria-label="Hoofdmenu"><a href="/">Home</a><a href="/dienst-webdesign">Websites</a><a href="/dienst-branding">Branding</a><a href="/dienst-marketing">Marketing</a><a href="/dienst-configurators">Configurators</a><a href="/kennisbank">Kennisbank</a><a href="/prijzen">Prijzen</a></nav>
+<a class="ngx-cta" href="/#contact">Kennismaken</a>
+<button class="ngx-menu" type="button" aria-expanded="false" aria-controls="ngx-mnav">Menu</button>
+</div><nav id="ngx-mnav" class="ngx-mnav" aria-label="Mobiel menu" hidden><a href="/">Home</a><a href="/dienst-webdesign">Websites</a><a href="/dienst-branding">Branding</a><a href="/dienst-marketing">Marketing</a><a href="/dienst-configurators">Configurators</a><a href="/kennisbank">Kennisbank</a><a href="/prijzen">Prijzen</a><a href="/#contact" class="ngx-cta">Plan een kennismaking</a></nav></header>
+
+  <main id="main">
+        <section class="cfg-hero" aria-label="Configurator">
+      <div class="wrap">
+        <p class="pill" data-reveal><span class="dot dot--ok"></span>Live demo &middot; HDPE-zwembad &middot; kleur, trap &amp; afdekking</p>
+        <h1 class="h1" data-reveal style="--i:1">Stel je kunststof zwembad samen <span class="grad-text">en zie direct je prijs.</span></h1>
+        <p class="lede" data-reveal style="--i:2">Dit is een live demo van de zwembadconfigurator die Next Growth bouwt voor zwembadbouwers. Kies je formaat, kleur, trap en afdekking. Het beeld verandert live mee en je vrijblijvende richtprijs, inclusief installatie, filter en aanleg, rekent direct door.</p>
+        <div class="matswitch" role="group" aria-label="Andere configurators" data-reveal style="--i:3"><a href="/kunstgras-configurator">Kunstgras</a><a href="/pvc-configurator">PVC-vloer</a><a href="/overkapping-configurator">Overkapping</a><a href="/poolhouse-configurator">Poolhouse</a></div>
+        <div class="presets" data-reveal style="--i:4">
+          <span class="presets__lbl">Populaire samenstellingen</span>
+          <div class="presets__row" id="presetRow"></div>
+          <a href="/aanbouw-configurator" title="Naar de aanbouw &amp; uitbouw configurator">Aanbouw</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="sectie" style="padding-top: clamp(1.5rem,4vh,2.5rem);" aria-label="Configurator">
+      <div class="wrap" style="max-width: 1600px; width: min(100%, 1600px);">
+        <div class="conf" data-reveal>
+          <div class="conf__head">
+            <div>
+              <div class="conf__title" id="confTitle"></div>
+              <div class="conf__sub" id="confSub"></div>
+            </div>
+            <div class="conf__badge" id="confBadge"></div>
+          </div>
+          <div class="conf__layout">
+            <div class="conf__visual">
+              <div class="conf__hero" id="confHeroWrap"><div class="hbg" id="confHeroBg"></div><img id="confHero" src="./assets/media/zwembad-groot.jpg" alt="Voorbeeld van je kunststof zwembad" width="1200" height="560"><span class="live"><span class="dot"></span>Live voorbeeld</span><span class="dim" id="confDim"><b>3,00 × 3,00 m</b></span></div>
+              <div class="pricebar">
+                <div class="pricebar__p">
+                  <span class="k">Totaalprijs
+                    <span class="btw" role="group" aria-label="btw">
+                      <button type="button" id="btwIncl" class="is-on" aria-pressed="true">incl. btw</button>
+                      <button type="button" id="btwExcl" aria-pressed="false">excl. btw</button>
+                    </span>
+                  </span>
+                  <span class="v" id="prijs">€ 0</span>
+                </div>
+                <div class="pricebar__cta">
+                  <button class="btn btn--acc" type="button" id="naarOfferte">Offerte aanvragen</button>
+                  <button class="btn btn--ghost btn--icon" type="button" id="downloadBtn" aria-label="Download configuratie" title="Download je configuratie">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="conf__options">
+              <div id="groups"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LEAD FORM -->
+        <div class="card cfg__panel" id="offerte" data-reveal style="margin-top:1.4rem;">
+          <div>
+            <p class="eyebrow">Bijna klaar</p>
+            <h2 class="h2" style="font-size:1.4rem; margin-top:.4rem;">Ontvang je offerte op maat.</h2>
+            <p style="font-size:.86rem; margin-top:.5rem;">Je volledige configuratie wordt automatisch meegestuurd. De zwembadbouwer neemt binnen één werkdag contact op om het inmeten in te plannen.</p>
+          </div>
+          <form class="lead" id="leadForm">
+            <div class="lead__grid">
+              <div class="fld"><label for="f_naam">Naam</label><input id="f_naam" name="naam" required autocomplete="name"></div>
+              <div class="fld"><label for="f_plaats">Plaats</label><input id="f_plaats" name="plaats" autocomplete="address-level2"></div>
+              <div class="fld"><label for="f_email">E-mailadres</label><input id="f_email" name="email" type="email" required autocomplete="email"></div>
+              <div class="fld"><label for="f_tel">Telefoon</label><input id="f_tel" name="telefoon" type="tel" autocomplete="tel"></div>
+            </div>
+            <div class="fld"><label for="f_ber">Bericht (optioneel)</label><textarea id="f_ber" name="bericht" rows="3" placeholder="Bijzonderheden, gewenste periode, locatie…"></textarea></div>
+            <input type="hidden" id="f_config" name="configuratie">
+            <button class="btn btn--acc" type="submit" id="leadBtn" style="justify-self:start;">Verstuur aanvraag</button>
+            <p class="lead__msg" id="leadMsg" role="status" hidden></p>
+            <p class="lead__note">In deze demo komt je aanvraag met de volledige configuratie binnen bij Next Growth. Liever bellen? <a href="tel:+31683902192" style="color:var(--acc)"><a href="tel:+31683902192">06 83 90 21 92</a></a>.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  
+<section class="sectie" aria-label="Een echte opname, geen animatie.">
+  <div class="wrap">
+    <div class="sectie-kop">
+      <p class="eyebrow">Zo werkt het</p>
+      <h2>Een echte opname, geen animatie.</h2>
+      <p style="color:var(--muted,#9c9a94);max-width:44rem;margin-top:.6rem">Een schermopname uit deze configurator, plus de uitgebreide uitleg over wat het voor jouw bedrijf doet.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%, 30rem),1fr));gap:clamp(1rem,2.5vw,1.6rem)">
+      <figure style="margin:0">
+        <div style="border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#0C0D10">
+          <video controls preload="none" playsinline poster="./assets/media/poster-demo-zwembad.webp"
+                 style="width:100%;aspect-ratio:16/9;display:block;background:#0C0D10">
+            <source src="./assets/video/demo-zwembad.mp4" type="video/mp4">
+            Je browser kan deze video niet afspelen. <a href="./assets/video/demo-zwembad.mp4">Download hem hier.</a>
+          </video>
+        </div>
+        <figcaption style="margin-top:.7rem">
+          <strong style="display:block">Zwembad-configurator · 40 seconden</strong>
+          <span style="color:var(--muted,#9c9a94);font-size:.92rem">Vorm, maat, kleur, trap, afdekking en verwarming.</span>
+        </figcaption>
+      </figure>
+      <figure style="margin:0">
+        <div style="border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#0C0D10">
+          <video controls preload="none" playsinline poster="./assets/media/poster-zwembadstudio-sales-nl.jpg"
+                 style="width:100%;aspect-ratio:16/9;display:block;background:#0C0D10">
+            <source src="./assets/video/zwembadstudio-sales-nl.mp4" type="video/mp4">
+            Je browser kan deze video niet afspelen. <a href="./assets/video/zwembadstudio-sales-nl.mp4">Download hem hier.</a>
+          </video>
+        </div>
+        <figcaption style="margin-top:.7rem">
+          <strong style="display:block">Wat het jou oplevert · 39 seconden</strong>
+          <span style="color:var(--muted,#9c9a94);font-size:.92rem">Wat de klant doet en wat er in je mailbox terechtkomt.</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="sectie" aria-label="Zie het zwembad in je eigen tuin">
+  <div class="wrap">
+    <div id="aifoto"></div>
+  </div>
+</section>
+
+<section class="sectie ng-vraag" aria-label="Zelf zo'n configurator">
+  <div class="wrap">
+    <div class="ng-vraag__kaart">
+      <div class="ng-vraag__tekst">
+        <p class="eyebrow">Dit is een demo van Next Growth</p>
+        <h2>Zo'n zwembadconfigurator op je eigen website?</h2>
+        <p class="lede">Je klanten stellen zelf hun zwembad samen, zien direct hun richtprijs en sturen
+          een complete aanvraag door. Jij krijgt hem binnen met alles erin. Geen telefoontjes
+          meer om uit te zoeken wat iemand eigenlijk wil.</p>
+        <ul class="ng-vraag__punten">
+          <li><span></span>Jouw huisstijl, jouw assortiment, jouw prijzen</li>
+          <li><span></span>Twee weken van start tot live</li>
+          <li><span></span>Elke aanvraag compleet in je dashboard</li>
+        </ul>
+        <div class="ng-vraag__knoppen">
+          <a class="btn" href="./contact.html?over=zwembad">Laat zien hoe dit er voor mijn product uitziet</a>
+          <a class="btn btn--ghost" href="/prijzen">Wat kost het?</a>
+        </div>
+        <p class="ng-vraag__noot">Vrijblijvend. Je krijgt binnen 24 uur een voorbeeld van je
+          eigen product in deze configurator te zien.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sectie" aria-labelledby="zwb-uitleg">
+  <div class="wrap">
+    <div class="sectie-kop">
+      <p class="eyebrow">Waar je op let</p>
+      <h2 class="h2" id="zwb-uitleg">Een zwembad samenstellen: wat bepaalt de prijs</h2>
+      <p class="lede">De prijs van een zwembad zit maar voor de helft in het bad zelf. De andere helft zit in het gat, de techniek en het terras eromheen. Hieronder staat per keuze wat hij in de praktijk betekent, zodat je weet waar je naar kijkt terwijl je samenstelt.</p>
+    </div>
+
+    <div class="ovk-uitleg">
+      <article>
+        <h3>Afmeting en diepte</h3>
+        <p>Polyester baden komen in standaardmaten omdat ze in één stuk uit de mal komen. <strong>6 bij 3 meter</strong> is de meest gekozen maat voor een gemiddelde tuin: groot genoeg om te zwemmen, klein genoeg om te verwarmen. <strong>8 bij 4</strong> is de maat waarbij het echt baantjes trekken wordt, met een navenant hogere rekening voor water, warmte en onderhoud.</p>
+        <p>Voor de diepte zijn er twee scholen. Een <strong>constante diepte van 1,40 meter</strong> zwemt het prettigst en is het makkelijkst schoon te houden. Een <strong>aflopende bodem</strong> van 1,20 naar 1,80 is fijner met kleine kinderen aan de ene kant en een duikplank aan de andere. Wie twijfelt: constante diepte wordt achteraf zelden betreurd, aflopend wel.</p>
+      </article>
+      <article>
+        <h3>Polyester, paneel of beton</h3>
+        <p>Een <strong>polyester monoblok</strong> komt in één stuk op een dieplader en gaat met een kraan de tuin in. Dat is de snelste manier: het bad ligt vaak binnen een dag. En de gladde wand is het makkelijkst schoon te houden. De maat ligt wel vast.</p>
+        <p>Een <strong>paneelbad</strong> wordt ter plekke opgebouwd uit stalen of kunststof panelen met een liner erin. Dat kan in elke maat en past door een gewone poort, wat uitmaakt als de tuin niet bereikbaar is voor een kraan. De liner gaat vijftien tot twintig jaar mee en is dan te vervangen.</p>
+        <p>Een <strong>betonnen bad</strong> is de duurste en meest vrije oplossing: elke vorm, elke diepte, elke afwerking. Reken op een langere bouwtijd en op een fundering die is berekend op de grondsoort ter plaatse.</p>
+      </article>
+      <article>
+        <h3>Het gat, en of de kraan erbij kan</h3>
+        <p>Dit is de post die de meeste offertes uit elkaar laat lopen, en hij staat zelden vooraan. Er moet ongeveer <strong>vijftig tot tachtig kuub grond</strong> uit, en die moet ergens heen. Blijft hij in de tuin als verhoging, dan scheelt dat flink; moet hij worden afgevoerd, dan is dat een vrachtwagen of vijf.</p>
+        <p>Belangrijker nog is de bereikbaarheid. Een monoblok van acht meter moet met een kraan over de woning heen of via een brede oprit naar achteren. Staat het huis in een rij zonder achterom, dan valt de goedkoopste oplossing af en kom je bij een paneelbad uit. Laat dat vóór de offerte bekijken, niet erna.</p>
+        <p>Bij een hoge grondwaterstand, in de Maasuiterwaarden en delen van het rivierengebied eerder regel dan uitzondering, is een <strong>ontlastput of drainage</strong> nodig. Zonder die voorziening kan een leeg bad bij hoog water omhoog komen.</p>
+      </article>
+      <article>
+        <h3>Techniek: filter, warmte en verlichting</h3>
+        <p>De <strong>filterinstallatie</strong> is de basis. Een zandfilter is het goedkoopst en bewezen; glasparels in plaats van zand filteren fijner en gaan langer mee. De pomp hoort bij de inhoud te passen: te klein en het water wordt niet rond gekregen, te groot en je betaalt elke dag voor niets.</p>
+        <p>Een <strong>warmtepomp</strong> is inmiddels standaard. Hij haalt warmte uit de buitenlucht en levert vier tot vijf keer meer warmte dan hij aan stroom verbruikt. Reken op een seizoen van april tot oktober; wie in maart wil zwemmen, heeft een zwaardere pomp én een afdekking nodig.</p>
+        <p>Verlichting in de wand is goedkoop om meteen mee te nemen en duur om achteraf in te bouwen. Hetzelfde geldt voor een <strong>tegenstroominstallatie</strong>: de doorvoer moet in de wand zitten voordat het bad de grond in gaat.</p>
+      </article>
+      <article>
+        <h3>Afdekking en veiligheid</h3>
+        <p>Een <strong>lamellenafdekking</strong> houdt warmte binnen, houdt blad buiten en scheelt meetbaar in het energieverbruik. Bovenop de rand is de goedkoopste variant en altijd zichtbaar; <strong>onder de rand weggewerkt</strong> is mooier en duurder, maar moet in het ontwerp zitten omdat het bad er langer voor wordt.</p>
+        <p>Voor veiligheid geldt: een afdekking die een kind draagt is iets anders dan een afdekking die warmte vasthoudt. Wil je het bad afsluitbaar hebben, zeg dat dan vooraf: het bepaalt het type lamel en de motor.</p>
+      </article>
+      <article>
+        <h3>Terras, omranding en wat er verder bij komt</h3>
+        <p>Rond het bad komt een <strong>boordsteen</strong> en daarbuiten het terras. Dat is geen detail: bij een bad van 8 bij 4 gaat het al snel om vijftig vierkante meter bestrating, en die post staat in de ene offerte wel en in de andere niet. Vergelijk offertes dus op wat er ín zit, niet op het eindbedrag.</p>
+        <p>Denk verder aan een <strong>technische ruimte</strong> voor pomp en filter (een schacht naast het bad of een hoek in de schuur) en aan een stroomgroep die de warmtepomp aankan. Beide zijn vooraf goedkoop en achteraf een verbouwing.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sectie" aria-labelledby="zwb-faq">
+  <div class="wrap">
+    <div class="sectie-kop">
+      <p class="eyebrow">Veelgestelde vragen</p>
+      <h2 class="h2" id="zwb-faq">Vragen over een zwembad samenstellen</h2>
+    </div>
+    <div class="ovk-faq">
+      <details>
+        <summary><span>Wat kost een kunststof zwembad?</span></summary>
+        <p>Voor een polyester bad van 6 bij 3 met filterinstallatie, warmtepomp en plaatsing ligt het zwaartepunt tussen de dertig- en vijftigduizend euro, sterk afhankelijk van het grondwerk en de bereikbaarheid. Grote verschillen tussen offertes zitten vrijwel altijd in wat er níét in staat: afvoer van grond, terras, elektra en afdekking. In de configurator hierboven zie je per keuze wat hij doet met de richtprijs.</p>
+      </details>
+      <details>
+        <summary><span>Heb ik een vergunning nodig voor een zwembad?</span></summary>
+        <p>Een zwembad in de grond in het achtererfgebied is meestal vergunningsvrij, omdat het geen bouwwerk is dat boven de grond uitsteekt. Zodra er een overkapping, een poolhouse of een hoge omheining bij komt, gelden de regels voor bijbehorende bouwwerken wel. Ook het omgevingsplan van je gemeente kan iets zeggen over verharding en oppervlakte. Vraag het na bij de gemeente voordat de kraan komt. Dat kost een telefoontje en voorkomt een probleem.</p>
+      </details>
+      <details>
+        <summary><span>Hoe lang duurt de aanleg?</span></summary>
+        <p>Een polyester monoblok kan in twee tot drie weken van eerste spade tot zwemmen, mits de tuin bereikbaar is en de techniek klaarligt. Een paneelbad duurt drie tot vijf weken, een betonnen bad zes tot tien. Het grondwerk en het weer bepalen meer dan het bad zelf: in een natte winter ligt het werk stil.</p>
+      </details>
+      <details>
+        <summary><span>Polyester of beton: wat is beter?</span></summary>
+        <p>Polyester is sneller, goedkoper en makkelijker schoon te houden; beton is vrijer in vorm en gaat het langst mee. Voor een gewone achtertuin met een rechthoekig bad wint polyester het bijna altijd. Wil je een afwijkende vorm, een overloopbad of een bad tegen een niveauverschil aan, dan kom je bij beton uit.</p>
+      </details>
+      <details>
+        <summary><span>Wat kost een zwembad per jaar?</span></summary>
+        <p>Reken met een warmtepomp en een lamellenafdekking op een paar honderd euro stroom per seizoen, plus chemie en water. Zonder afdekking verdubbelt het warmteverbruik ongeveer, omdat verdamping veruit het grootste verlies is. Een zoutelektrolyse-installatie scheelt in chemicaliën maar niet in stroom.</p>
+      </details>
+      <details>
+        <summary><span>Kan ik het zwembad in mijn eigen tuin zien voordat ik iets beslis?</span></summary>
+        <p>Ja. Upload in de configurator een foto van je tuin, dan komt de gekozen samenstelling er fotorealistisch op terug: op de plek waar het bad zou komen, in de maat die je koos. Geen voorbeeldfoto van iemand anders zijn tuin.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+    <!-- ============ PER PLAATS (scripts/configuratorsteden.py) ============ -->
+    <div class="ng-blok" role="region" aria-labelledby="perplaats-kop">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <p class="eyebrow">Per plaats</p>
+          <h2 class="h2" id="perplaats-kop">Zo'n configurator voor je eigen bedrijf, per plaats</h2>
+          <p>Deze zwembadconfigurator bouwen we voor zwembadbouwers, in hun eigen huisstijl en met hun eigen prijzen. Per plaats staat wat de markt daar vraagt.</p>
+        </div>
+        <div class="ng-branches">
+          <a class="ng-branche" href="/dienst-webdesign"><b>Configurator laten maken, landelijk</b><span>Heel Nederland</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-nijmegen"><b>Configurator laten maken in Nijmegen</b><span>Gelderland</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-arnhem"><b>Configurator laten maken in Arnhem</b><span>Gelderland</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-den-bosch"><b>Configurator laten maken in Den Bosch</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-uden"><b>Configurator laten maken in Uden</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-veghel"><b>Configurator laten maken in Veghel</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-wijchen"><b>Configurator laten maken in Wijchen</b><span>Gelderland</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-vught"><b>Configurator laten maken in Vught</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-cuijk"><b>Configurator laten maken in Cuijk</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-grave"><b>Configurator laten maken in Grave</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-eindhoven"><b>Configurator laten maken in Eindhoven</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <!-- ============ EINDE PER PLAATS ============ -->
+</main>
+
+  <footer class="ngx-foot"><div class="ngx-wrap">
+<div class="ngx-end"><h2>Zo'n configurator <span>op jouw site?</span></h2><div><p>Eén gesprek van twintig minuten. Je spreekt direct met de mensen die het bouwen en krijgt dezelfde dag een eerlijk advies.</p><a class="ngx-cta big" href="/#contact">Plan een kennismaking</a><a class="ngx-tel" href="tel:+31683902192">06 83 90 21 92</a></div></div>
+<div class="ngx-cols">
+<div><a class="ngx-brand" href="/"><span class="ngx-mk"><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14V4l10 10V4" stroke="#0A0800" stroke-width="2.8" stroke-linecap="square"/></svg></span><span>Next Growth Digital</span></a><p>Creatief groeibureau, landelijk actief. Branding, webdesign, marketing en eigen software.</p><p>info@nextgrowthdigital.nl</p></div>
+<div><h4>Diensten</h4><ul><li><a href="/dienst-branding">Branding</a></li><li><a href="/dienst-webdesign">Webdesign</a></li><li><a href="/dienst-marketing">Marketing</a></li><li><a href="/dienst-configurators">Configurators</a></li><li><a href="/dienst-crm">CRM &amp; offertes</a></li><li><a href="/prijzen">Prijzen</a></li></ul></div>
+<div><h4>Configurators</h4><ul><li><a href="/overkapping-configurator">Overkapping</a></li><li><a href="/aanbouw-configurator">Uitbouw</a></li><li><a href="/dakkapel-configurator">Dakkapel</a></li><li><a href="/dakopbouw-configurator">Dakopbouw</a></li><li><a href="/badkamer-configurator">Badkamer</a></li><li><a href="/zwembad-configurator">Zwembad</a></li><li><a href="/jacht-configurator">Jacht</a></li></ul></div>
+<div><h4>Kennisbank</h4><ul><li><a href="/kennisbank">Alle artikelen</a></li><li><a href="/kennisbank-configurator-kosten">Wat kost een configurator?</a></li><li><a href="/configurator-laten-maken">Configurator laten maken</a></li><li><a href="/kennisbank-website-kosten">Wat kost een website?</a></li></ul></div>
+<div><h4>Bedrijf</h4><ul><li><a href="/#cases">Cases</a></li><li><a href="/werkgebied">Werkgebied</a></li><li><a href="/privacyverklaring">Privacyverklaring</a></li><li><a href="/auteursrecht">Auteursrecht</a></li><li><a href="/#contact">Contact</a></li></ul></div>
+</div>
+<div class="ngx-legal"><span>© 2026 Next Growth Digital</span><span>KVK 96002913</span><span>Landelijk actief · Nederland</span></div>
+<p class="ngx-giant" aria-hidden="true">NEXT GROWTH</p></div></footer>
+<script>(function(){var b=document.querySelector('.ngx-menu'),n=document.getElementById('ngx-mnav');if(!b||!n)return;b.addEventListener('click',function(){var o=n.hasAttribute('hidden');if(o)n.removeAttribute('hidden');else n.setAttribute('hidden','');b.setAttribute('aria-expanded',o?'true':'false');b.textContent=o?'Sluiten':'Menu'})})();</script>
+
+    <script>
+  (function(){
+    if(window.__lbInit) return; window.__lbInit=1;
+    function init(){
+      var hero=document.querySelector('.conf__hero'); var img=document.getElementById('confHero');
+      if(!hero||!img){ setTimeout(init,300); return; }
+      hero.style.cursor='zoom-in';
+      var btn=document.createElement('button');
+      btn.type='button'; btn.setAttribute('aria-label','Bekijk afbeelding op volledig scherm');
+      btn.innerHTML='&#x26F6;';
+      btn.style.cssText='position:absolute;top:.8rem;right:.8rem;z-index:3;width:42px;height:42px;border-radius:10px;border:1px solid rgba(255,255,255,.28);background:rgba(0,0,0,.45);backdrop-filter:blur(6px);color:#fff;font-size:1.15rem;cursor:zoom-in;display:flex;align-items:center;justify-content:center;';
+      hero.appendChild(btn);
+      function openLB(){
+        var ov=document.createElement('div');
+        ov.style.cssText='position:fixed;inset:0;z-index:100000;background:rgba(6,6,5,.95);display:flex;align-items:center;justify-content:center;cursor:zoom-out;padding:2vh 2vw;';
+        var big=document.createElement('img');
+        big.src=img.getAttribute('src'); big.alt=img.getAttribute('alt')||'';
+        big.style.cssText='max-width:96vw;max-height:92vh;width:auto;height:auto;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.6);';
+        var x=document.createElement('button'); x.innerHTML='&times;'; x.setAttribute('aria-label','Sluiten');
+        x.style.cssText='position:fixed;top:12px;right:20px;background:none;border:none;color:#fff;font-size:2.4rem;cursor:pointer;line-height:1;z-index:100001;';
+        ov.appendChild(big); ov.appendChild(x); document.body.appendChild(ov);
+        document.body.style.overflow='hidden';
+        function close(){ ov.remove(); document.body.style.overflow=''; document.removeEventListener('keydown',esc); }
+        function esc(e){ if(e.key==='Escape') close(); }
+        ov.addEventListener('click',close); document.addEventListener('keydown',esc);
+      }
+      img.addEventListener('click',openLB);
+      btn.addEventListener('click',function(e){ e.stopPropagation(); openLB(); });
+    }
+    if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+  })();
+  </script>
+  <script src="./assets/meting.js" defer></script>
+  <script src="./assets/core.js" defer></script>
+  <script>
+
+  (function(){
+    "use strict";
+    var BTW = 0.21;
+    var HAVE = new Set(["zwembad-aerial", "zwembad-groot", "zwembad-groot-aerial", "zwembad-groot-aerial-antraciet", "zwembad-groot-aerial-antraciet-trapgeen", "zwembad-groot-aerial-antraciet-traphoek", "zwembad-groot-aerial-antraciet-trapromeins", "zwembad-groot-aerial-antraciet-trapzij", "zwembad-groot-aerial-lichtgrijs", "zwembad-groot-aerial-lichtgrijs-trapgeen", "zwembad-groot-aerial-lichtgrijs-traphoek", "zwembad-groot-aerial-lichtgrijs-trapromeins", "zwembad-groot-aerial-lichtgrijs-trapzij", "zwembad-groot-aerial-plateau", "zwembad-groot-aerial-rolluik", "zwembad-groot-aerial-trapgeen", "zwembad-groot-aerial-traphoek", "zwembad-groot-aerial-trapromeins", "zwembad-groot-aerial-trapzij", "zwembad-groot-aerial-zwart", "zwembad-groot-aerial-zwart-trapgeen", "zwembad-groot-aerial-zwart-traphoek", "zwembad-groot-aerial-zwart-trapromeins", "zwembad-groot-aerial-zwart-trapzij", "zwembad-groot-antraciet", "zwembad-groot-antraciet-trapgeen", "zwembad-groot-antraciet-traphoek", "zwembad-groot-antraciet-trapromeins", "zwembad-groot-antraciet-trapzij", "zwembad-groot-avond", "zwembad-groot-avond-trapgeen", "zwembad-groot-avond-traphoek", "zwembad-groot-avond-trapromeins", "zwembad-groot-avond-trapzij", "zwembad-groot-lichtgrijs", "zwembad-groot-lichtgrijs-trapgeen", "zwembad-groot-lichtgrijs-traphoek", "zwembad-groot-lichtgrijs-trapromeins", "zwembad-groot-lichtgrijs-trapzij", "zwembad-groot-plateau", "zwembad-groot-rolluik", "zwembad-groot-rolluik-blue", "zwembad-groot-rolluik-grey", "zwembad-groot-trapgeen", "zwembad-groot-traphoek", "zwembad-groot-trapromeins", "zwembad-groot-trapzij", "zwembad-groot-zwart", "zwembad-groot-zwart-trapgeen", "zwembad-groot-zwart-traphoek", "zwembad-groot-zwart-trapromeins", "zwembad-groot-zwart-trapzij", "zwembad-klein", "zwembad-klein-aerial", "zwembad-klein-aerial-antraciet", "zwembad-klein-aerial-antraciet-trapgeen", "zwembad-klein-aerial-antraciet-traphoek", "zwembad-klein-aerial-antraciet-trapromeins", "zwembad-klein-aerial-antraciet-trapzij", "zwembad-klein-aerial-lichtgrijs", "zwembad-klein-aerial-lichtgrijs-trapgeen", "zwembad-klein-aerial-lichtgrijs-traphoek", "zwembad-klein-aerial-lichtgrijs-trapromeins", "zwembad-klein-aerial-lichtgrijs-trapzij", "zwembad-klein-aerial-plateau", "zwembad-klein-aerial-rolluik", "zwembad-klein-aerial-trapgeen", "zwembad-klein-aerial-traphoek", "zwembad-klein-aerial-trapromeins", "zwembad-klein-aerial-trapzij", "zwembad-klein-aerial-zwart", "zwembad-klein-aerial-zwart-trapgeen", "zwembad-klein-aerial-zwart-traphoek", "zwembad-klein-aerial-zwart-trapromeins", "zwembad-klein-aerial-zwart-trapzij", "zwembad-klein-antraciet", "zwembad-klein-antraciet-trapgeen", "zwembad-klein-antraciet-traphoek", "zwembad-klein-antraciet-trapromeins", "zwembad-klein-antraciet-trapzij", "zwembad-klein-avond", "zwembad-klein-avond-trapgeen", "zwembad-klein-avond-traphoek", "zwembad-klein-avond-trapromeins", "zwembad-klein-avond-trapzij", "zwembad-klein-lichtgrijs", "zwembad-klein-lichtgrijs-trapgeen", "zwembad-klein-lichtgrijs-traphoek", "zwembad-klein-lichtgrijs-trapromeins", "zwembad-klein-lichtgrijs-trapzij", "zwembad-klein-plateau", "zwembad-klein-rolluik", "zwembad-klein-rolluik-blue", "zwembad-klein-rolluik-grey", "zwembad-klein-trapgeen", "zwembad-klein-traphoek", "zwembad-klein-trapromeins", "zwembad-klein-trapzij", "zwembad-klein-zwart", "zwembad-klein-zwart-trapgeen", "zwembad-klein-zwart-traphoek", "zwembad-klein-zwart-trapromeins", "zwembad-klein-zwart-trapzij", "zwembad-middel", "zwembad-middel-aerial", "zwembad-middel-aerial-antraciet", "zwembad-middel-aerial-antraciet-trapgeen", "zwembad-middel-aerial-antraciet-traphoek", "zwembad-middel-aerial-antraciet-trapromeins", "zwembad-middel-aerial-antraciet-trapzij", "zwembad-middel-aerial-lichtgrijs", "zwembad-middel-aerial-lichtgrijs-trapgeen", "zwembad-middel-aerial-lichtgrijs-traphoek", "zwembad-middel-aerial-lichtgrijs-trapromeins", "zwembad-middel-aerial-lichtgrijs-trapzij", "zwembad-middel-aerial-plateau", "zwembad-middel-aerial-rolluik", "zwembad-middel-aerial-trapgeen", "zwembad-middel-aerial-traphoek", "zwembad-middel-aerial-trapromeins", "zwembad-middel-aerial-trapzij", "zwembad-middel-aerial-zwart", "zwembad-middel-aerial-zwart-trapgeen", "zwembad-middel-aerial-zwart-traphoek", "zwembad-middel-aerial-zwart-trapromeins", "zwembad-middel-aerial-zwart-trapzij", "zwembad-middel-antraciet", "zwembad-middel-antraciet-trapgeen", "zwembad-middel-antraciet-traphoek", "zwembad-middel-antraciet-trapromeins", "zwembad-middel-antraciet-trapzij", "zwembad-middel-avond", "zwembad-middel-avond-trapgeen", "zwembad-middel-avond-traphoek", "zwembad-middel-avond-trapromeins", "zwembad-middel-avond-trapzij", "zwembad-middel-lichtgrijs", "zwembad-middel-lichtgrijs-trapgeen", "zwembad-middel-lichtgrijs-traphoek", "zwembad-middel-lichtgrijs-trapromeins", "zwembad-middel-lichtgrijs-trapzij", "zwembad-middel-plateau", "zwembad-middel-rolluik", "zwembad-middel-rolluik-blue", "zwembad-middel-rolluik-grey", "zwembad-middel-trapgeen", "zwembad-middel-traphoek", "zwembad-middel-trapromeins", "zwembad-middel-trapzij", "zwembad-middel-zwart", "zwembad-middel-zwart-trapgeen", "zwembad-middel-zwart-traphoek", "zwembad-middel-zwart-trapromeins", "zwembad-middel-zwart-trapzij", "zwembad-plunge", "zwembad-plunge-aerial", "zwembad-plunge-aerial-antraciet", "zwembad-plunge-aerial-antraciet-trapgeen", "zwembad-plunge-aerial-antraciet-traphoek", "zwembad-plunge-aerial-antraciet-trapromeins", "zwembad-plunge-aerial-antraciet-trapzij", "zwembad-plunge-aerial-lichtgrijs", "zwembad-plunge-aerial-lichtgrijs-trapgeen", "zwembad-plunge-aerial-lichtgrijs-traphoek", "zwembad-plunge-aerial-lichtgrijs-trapromeins", "zwembad-plunge-aerial-lichtgrijs-trapzij", "zwembad-plunge-aerial-plateau", "zwembad-plunge-aerial-rolluik", "zwembad-plunge-aerial-trapgeen", "zwembad-plunge-aerial-traphoek", "zwembad-plunge-aerial-trapromeins", "zwembad-plunge-aerial-trapzij", "zwembad-plunge-aerial-zwart", "zwembad-plunge-aerial-zwart-trapgeen", "zwembad-plunge-aerial-zwart-traphoek", "zwembad-plunge-aerial-zwart-trapromeins", "zwembad-plunge-aerial-zwart-trapzij", "zwembad-plunge-antraciet", "zwembad-plunge-antraciet-trapgeen", "zwembad-plunge-antraciet-traphoek", "zwembad-plunge-antraciet-trapromeins", "zwembad-plunge-antraciet-trapzij", "zwembad-plunge-avond", "zwembad-plunge-avond-trapgeen", "zwembad-plunge-avond-traphoek", "zwembad-plunge-avond-trapromeins", "zwembad-plunge-avond-trapzij", "zwembad-plunge-lichtgrijs", "zwembad-plunge-lichtgrijs-trapgeen", "zwembad-plunge-lichtgrijs-traphoek", "zwembad-plunge-lichtgrijs-trapromeins", "zwembad-plunge-lichtgrijs-trapzij", "zwembad-plunge-plateau", "zwembad-plunge-rolluik", "zwembad-plunge-rolluik-blue", "zwembad-plunge-rolluik-grey", "zwembad-plunge-trapgeen", "zwembad-plunge-traphoek", "zwembad-plunge-trapromeins", "zwembad-plunge-trapzij", "zwembad-plunge-zwart", "zwembad-plunge-zwart-trapgeen", "zwembad-plunge-zwart-traphoek", "zwembad-plunge-zwart-trapromeins", "zwembad-plunge-zwart-trapzij", "zwembad-xl", "zwembad-xl-aerial", "zwembad-xl-aerial-antraciet", "zwembad-xl-aerial-antraciet-trapgeen", "zwembad-xl-aerial-antraciet-traphoek", "zwembad-xl-aerial-antraciet-trapromeins", "zwembad-xl-aerial-antraciet-trapzij", "zwembad-xl-aerial-lichtgrijs", "zwembad-xl-aerial-lichtgrijs-trapgeen", "zwembad-xl-aerial-lichtgrijs-traphoek", "zwembad-xl-aerial-lichtgrijs-trapromeins", "zwembad-xl-aerial-lichtgrijs-trapzij", "zwembad-xl-aerial-plateau", "zwembad-xl-aerial-rolluik", "zwembad-xl-aerial-trapgeen", "zwembad-xl-aerial-traphoek", "zwembad-xl-aerial-trapromeins", "zwembad-xl-aerial-trapzij", "zwembad-xl-aerial-zwart", "zwembad-xl-aerial-zwart-trapgeen", "zwembad-xl-aerial-zwart-traphoek", "zwembad-xl-aerial-zwart-trapromeins", "zwembad-xl-aerial-zwart-trapzij", "zwembad-xl-antraciet", "zwembad-xl-antraciet-trapgeen", "zwembad-xl-antraciet-traphoek", "zwembad-xl-antraciet-trapromeins", "zwembad-xl-antraciet-trapzij", "zwembad-xl-avond", "zwembad-xl-avond-trapgeen", "zwembad-xl-avond-traphoek", "zwembad-xl-avond-trapromeins", "zwembad-xl-avond-trapzij", "zwembad-xl-lichtgrijs", "zwembad-xl-lichtgrijs-trapgeen", "zwembad-xl-lichtgrijs-traphoek", "zwembad-xl-lichtgrijs-trapromeins", "zwembad-xl-lichtgrijs-trapzij", "zwembad-xl-plateau", "zwembad-xl-rolluik", "zwembad-xl-rolluik-blue", "zwembad-xl-rolluik-grey", "zwembad-xl-trapgeen", "zwembad-xl-traphoek", "zwembad-xl-trapromeins", "zwembad-xl-trapzij", "zwembad-xl-zwart", "zwembad-xl-zwart-trapgeen", "zwembad-xl-zwart-traphoek", "zwembad-xl-zwart-trapromeins", "zwembad-xl-zwart-trapzij"]);
+    var WEB3FORMS_KEY = "695172ae-1f2d-40b7-bb31-b8a4a882ad62";
+    function S(p){ return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">'+p+'</svg>'; }
+    var IC = {
+      ruler:S('<path d="M3 8h18v8H3z"/><path d="M7 8v3M11 8v4M15 8v3M19 8v4"/>'),
+      plank:S('<rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 9h18M3 14h18"/>'),
+      visgraat:S('<path d="M4 20l6-8M10 12l-6-4M20 20l-6-8M14 12l6-4M12 21V9"/>'),
+      tegel:S('<rect x="3" y="3" width="18" height="18" rx="1"/><path d="M12 3v18M3 12h18"/>'),
+      klik:S('<path d="M3 12h7l2-3 2 6 2-3h5"/>'),
+      lijm:S('<path d="M4 16c3-6 13-6 16 0"/><path d="M4 16v3h16v-3"/>'),
+      spc:S('<rect x="3" y="7" width="18" height="10" rx="1"/><path d="M3 12h18"/>'),
+      sofa:S('<path d="M4 11V8a2 2 0 012-2h12a2 2 0 012 2v3"/><path d="M2 12a2 2 0 012 2v3h16v-3a2 2 0 012-2"/><path d="M6 17v2M18 17v2"/>'),
+      keuken:S('<rect x="3" y="3" width="18" height="7" rx="1"/><rect x="3" y="12" width="18" height="9" rx="1"/><path d="M8 3v7M7 15h4"/>'),
+      bed:S('<path d="M3 18v-6a2 2 0 012-2h14a2 2 0 012 2v6"/><path d="M3 14h18M7 10V8h4v2"/>'),
+      geen:S('<circle cx="12" cy="12" r="8"/><path d="M6 6l12 12"/>'),
+      sound:S('<path d="M11 5L6 9H3v6h3l5 4z"/><path d="M15 9a4 4 0 010 6"/>'),
+      plint:S('<path d="M3 17h18v3H3z"/><path d="M5 17V7h14v10"/>'),
+      level:S('<rect x="3" y="9" width="18" height="6" rx="1"/><circle cx="12" cy="12" r="1.3"/>'),
+      profiel:S('<path d="M3 15h6l3-6 3 6h6"/>'),
+      tuin:S('<path d="M3 20h18"/><path d="M6 20c0-5 2-8 2-8M10 20c0-6 1-9 1-9M15 20c0-5 1-8 1-8M19 20c0-6-1-9-1-9"/>'),
+      balkon:S('<path d="M4 10h16v10H4z"/><path d="M4 14h16M8 10v10M12 10v10M16 10v10M4 6h16"/>'),
+      speel:S('<path d="M4 20l4-9 4 9M8 11V6"/><circle cx="8" cy="4" r="1.5"/><path d="M14 20v-6h6v6"/>'),
+      hond:S('<path d="M10 5l2 2 2-2v4l2 2v7H6v-7l2-2z"/><circle cx="10" cy="12" r=".6"/><circle cx="14" cy="12" r=".6"/>'),
+      sport:S('<circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 000 18M3 12h18"/>'),
+      led:S('<path d="M9 18h6M10 21h4M12 3a6 6 0 00-4 10c1 1 1 2 1 3h6c0-1 0-2 1-3a6 6 0 00-4-10z"/>'),
+      onderhoud:S('<path d="M14 7l3 3-7 7-3 1 1-3z"/><path d="M5 20h14"/>'),
+      water:S('<path d="M12 3s6 6 6 10a6 6 0 01-12 0c0-4 6-10 6-10z"/>'),
+      oog:S('<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/>'),
+      boven:S('<rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/>'),
+      zon:S('<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/>'),
+      trap:S('<path d="M3 20h4v-4h4v-4h4v-4h4V4"/>')
+    };
+    var CFG = {
+  kop:'Zwembad', file:'zwembad', accent:'#1E9BD7', soft:'rgba(30,155,215,.16)',
+  titel:'<span>Kunststof zwembad</span> op maat', sub:'Kies kleur, afmeting en opties. Je vrijblijvende richtprijs incl. installatie rekent live mee.',
+  badge:{ic:IC.water,t:'HDPE-zwembad · inclusief installatie'}, hero:'./assets/media/zwembad-antraciet.jpg',
+  basisM2:1100, oppGroup:'maat',
+  groepen:[
+    {id:'kleur',t:'Kleur',style:'swatch',hero:1,kz:[
+      {v:'wit',l:'Wit · RAL 9010',sub:'helder turquoise',sw:'#EFEEE8',def:1},
+      {v:'lichtgrijs',l:'Licht grijs · RAL 7035',sw:'#CBCEC9'},
+      {v:'antraciet',l:'Antraciet · RAL 7015',sw:'#333A40'},
+      {v:'zwart',l:'Zwart · RAL 9005',sw:'#141518'}
+    ]},
+    {id:'maat',t:'Formaat',style:'text',isOpp:1,kz:[
+      {v:'plunge',l:'Plunge pool',sub:'± 3 × 3 m',m2:9},{v:'klein',l:'Klein',sub:'3 × 6 m',m2:18},{v:'midden',l:'Midden',sub:'3,5 × 7 m',m2:24.5,def:1},{v:'groot',l:'Groot',sub:'4 × 10 m',m2:40},{v:'xl',l:'XL',sub:'4 × 12 m',m2:48},{v:'mw',l:'Maatwerk',ic:IC.ruler,m2:30}
+    ]},
+    {id:'aanzicht',t:'Aanzicht',style:'icon',kz:[
+      {v:'ooghoogte',l:'Ooghoogte',ic:IC.oog,def:1},{v:'boven',l:'Bovenaanzicht',ic:IC.boven}
+    ]},
+    {row:1,groepen:[
+      {id:'trap',t:'Trap',style:'icon',kz:[
+        {v:'geen',l:'Geen',ic:IC.geen,def:1},{v:'zij',l:'Zijtrap 70 cm',ic:IC.trap,p:1450},{v:'hoek',l:'Hoektrap',ic:IC.tegel,p:1850},{v:'romeins',l:'Romeinse trap',ic:IC.trap,p:2650}
+      ]},
+      {id:'afdekking',t:'Afdekking',style:'icon',kz:[
+        {v:'geen',l:'Geen',ic:IC.geen,def:1},{v:'plateau',l:'Zitplateau',ic:IC.sofa,p:1650},{v:'rolluik',l:'Rolluik (handmatig)',ic:IC.plank,p:3900},{v:'rolluikmotor',l:'Rolluik + motor',ic:IC.led,p:5900}
+      ]}
+    ]},
+    {id:'lamellen',t:'Lamellenkleur',style:'icon',when:function(s){return s.afdekking==='rolluik'||s.afdekking==='rolluikmotor';},kz:[
+      {v:'silver',l:'Solar Silver',sw:'#C9CDD0',def:1},{v:'blue',l:'Solar Blue',sw:'#2f6fae'},{v:'grey',l:'Solar Grey',sw:'#6d7378'}
+    ]},
+    {row:1,groepen:[
+      {id:'verlichting',t:'LED-verlichting',style:'icon',kz:[
+        {v:'geen',l:'Geen',ic:IC.geen,def:1},{v:'1',l:'1 lamp',ic:IC.led,p:420},{v:'2',l:'2 lampen',ic:IC.led,p:780},{v:'3',l:'3 lampen',ic:IC.led,p:1120},{v:'4',l:'4 lampen',ic:IC.led,p:1450}
+      ]},
+      {id:'verwarming',t:'Warmtepomp',style:'icon',kz:[
+        {v:'geen',l:'Geen',ic:IC.geen,def:1},{v:'55',l:'5,5 kW',ic:IC.zon,p:1950},{v:'9',l:'9 kW',ic:IC.zon,p:2650},{v:'12',l:'12 kW',ic:IC.zon,p:3200},{v:'20',l:'20 kW',ic:IC.zon,p:4400}
+      ]}
+    ]},
+    {row:1,groepen:[
+      {id:'filter',t:'Filterinstallatie',style:'icon',kz:[
+        {v:'35',l:'tot 35 m³',ic:IC.spc,def:1},{v:'50',l:'tot 50 m³',ic:IC.spc,p:350},{v:'80',l:'tot 80 m³',ic:IC.spc,p:850}
+      ]},
+      {id:'water',t:'Waterbehandeling',style:'icon',kz:[
+        {v:'chloor',l:'Chloor-dosering',ic:IC.water,def:1},{v:'zout',l:'Zout-elektrolyse',ic:IC.water,p:1250}
+      ]}
+    ]},
+    {id:'tegenstroom',t:'Tegenstroominstallatie',style:'icon',kz:[
+      {v:'nee',l:'Geen',ic:IC.geen,def:1},{v:'ja',l:'Tegenstroom (5 jets)',ic:IC.sport,p:3450}
+    ]}
+  ],
+  reflow:['afdekking'],
+  extra:[
+    {v:'afvoer',l:'Aanleg, grondwerk & bestrating',ic:IC.ruler,pM2:120,def:1},
+    {v:'skimmer',l:'Extra skimmer',ic:IC.water,p:180},
+    {v:'trapverlichting',l:'Trapverlichting',ic:IC.led,p:340,when:function(s){return s.trap!=='geen';}},
+    {v:'onderhoud',l:'Onderhoudsset + zwembadrobot',ic:IC.onderhoud,p:1250},
+    {v:'warmteafdek',l:'Winterafdekking',ic:IC.plank,p:480}
+  ],
+  dim:function(sel){ var m={plunge:'Plunge · 3 × 3 m',klein:'3 × 6 m',midden:'3,5 × 7 m',groot:'4 × 10 m',xl:'4 × 12 m',mw:'Maatwerk'}; return m[sel.maat]||''; },
+  heroCands:function(sel){
+    var sz={plunge:'plunge',klein:'klein',midden:'middel',groot:'groot',xl:'xl',mw:'groot'}[sel.maat]||'groot';
+    var base='zwembad-'+sz;
+    var v=(sel.aanzicht==='boven')?'-aerial':'';
+    var rol=(sel.afdekking==='rolluik'||sel.afdekking==='rolluikmotor')?'-rolluik':'';
+    var av=(sel.verlichting&&sel.verlichting!=='geen')?'-avond':'';
+    var tr={geen:'-trapgeen',zij:'-trapzij',hoek:'-traphoek',romeins:'-trapromeins'}[sel.trap]||'';
+    var col={wit:'',lichtgrijs:'-lichtgrijs',antraciet:'-antraciet',zwart:'-zwart'}[sel.kleur]||'';
+    var lam=(rol&&sel.lamellen)?({silver:'',blue:'-blue',grey:'-grey'}[sel.lamellen]||''):'';
+    var c=[];
+    // prioriteit: rolluik(+lamellenkleur) > avond(alleen ooghoogte) > trap > kleur
+    if(rol){
+      if(lam){ c.push(base+v+rol+lam); c.push('zwembad-groot'+v+rol+lam); }
+      c.push(base+v+rol); c.push('zwembad-groot'+v+rol);
+    }
+    if(sel.afdekking==='plateau'){ c.push(base+v+'-plateau'); c.push('zwembad-groot'+v+'-plateau'); }
+    // Avondsfeer, alleen op ooghoogte — van bovenaf bestaat geen avondbeeld.
+    // Sinds V2E heeft elke maat alle vier de trapopties ook bij avond, dus de
+    // gekozen trap gaat gewoon mee; daarvoor viel hij terug op het dagbeeld.
+    // Wél alleen bij de standaardafwerking: de avondreeks bestaat niet in
+    // antraciet, lichtgrijs of zwart. Wie een kleur kiest krijgt liever het
+    // dagbeeld in zíjn kleur dan een avondbeeld in een kleur die hij niet koopt.
+    if(av && v==='' && !col){ c.push(base+av+tr); c.push(base+av+'-trapgeen'); }
+    if(col && tr){ c.push(base+v+col+tr); }
+    if(tr){ c.push(base+v+tr); }
+    if(col){ c.push(base+v+col); c.push(base+col); }
+    c.push(base+v); c.push(base); c.push('zwembad-groot'+v); c.push('zwembad-groot');
+    return c;
+  },
+  presets:[
+    {n:'Plunge pool',d:'± 3 × 3 m · compact luxe',th:'zwembad-plunge',sel:{kleur:'antraciet',maat:'plunge',trap:'zij',afdekking:'geen',verlichting:'2',verwarming:'55',filter:'35',water:'chloor',tegenstroom:'nee'},extras:{afvoer:true}},
+    {n:'Familiebad',d:'3,5 × 7 m · trap + LED',th:'zwembad-middel',sel:{kleur:'wit',maat:'midden',trap:'romeins',afdekking:'rolluikmotor',lamellen:'silver',verlichting:'3',verwarming:'12',filter:'50',water:'zout',tegenstroom:'nee'},extras:{afvoer:true,onderhoud:true}},
+    {n:'Groot zwembad',d:'4 × 10 m · zout · tegenstroom',th:'zwembad-groot',sel:{kleur:'antraciet',maat:'groot',trap:'hoek',afdekking:'plateau',verlichting:'4',verwarming:'20',filter:'80',water:'zout',tegenstroom:'ja'},extras:{afvoer:true,onderhoud:true}}
+  ]
+};
+    var $ = function(s,r){ return (r||document).querySelector(s); };
+    function euro(n){ return "€ " + (Math.round(n/5)*5).toLocaleString('nl-NL') + ",-"; }
+    var sel = {}, extras = {}, btwIncl = true;
+    function allGroups(){ var out=[]; CFG.groepen.forEach(function(g){ if(g.row){ g.groepen.forEach(function(x){out.push(x);}); } else out.push(g); }); return out; }
+    function findKz(g){ return g.kz.filter(function(k){return k.v===sel[g.id];})[0] || g.kz[0]; }
+    function groupById(id){ var r=null; allGroups().forEach(function(g){ if(g.id===id) r=g; }); return r; }
+    function initSelection(){ sel={}; extras={};
+      allGroups().forEach(function(g){ var d=g.kz.filter(function(k){return k.def;})[0]||g.kz[0]; sel[g.id]=d.v; });
+      CFG.extra.forEach(function(e){ extras[e.v]=!!e.def; }); }
+    function opp(){ var gs=allGroups().filter(function(g){ return g.isOpp && (!g.when||g.when(sel)); }); var g=gs[0]||groupById(CFG.oppGroup); if(!g) return 1; return findKz(g).m2||1; }
+    function calc(){
+      var o=opp(), tot=CFG.basisM2*o;
+      allGroups().forEach(function(g){ if(g.isOpp||g.id===CFG.oppGroup) return; if(g.when && !g.when(sel)) return; var k=findKz(g); if(k.p) tot+=k.p; if(k.pM2) tot+=k.pM2*o; });
+      CFG.extra.forEach(function(e){ if(e.when && !e.when(sel)) return; if(extras[e.v]){ tot += (e.pM2? e.pM2*o : (e.p||0)); } });
+      return tot;
+    }
+    function tile(name,k,checked,multi){
+      var input='<input type="'+(multi?'checkbox':'radio')+'" name="'+name+'" value="'+k.v+'"'+(checked?' checked':'')+'>';
+      var inner; if(k.img) inner='<span class="tile__img" style="background-image:url('+k.img+')"></span>';
+      else if(k.sw) inner='<span class="tile__sw" style="background:'+k.sw+'"></span>';
+      else inner='<span class="ico">'+(k.ic||'')+'</span>';
+      var sub=k.sub?'<span class="sub">'+k.sub+'</span>':'';
+      return '<label class="tile">'+input+'<span class="tile__c">'+inner+'<span class="lab">'+k.l+'</span>'+sub+'</span></label>';
+    }
+    function groupBox(g,nr){
+      var cls=g.style==='swatch'?'tiles':(g.style==='icon'?'tiles sm':'tiles');
+      var tiles=g.kz.map(function(k){ return tile('g_'+g.id,k,sel[g.id]===k.v,false); }).join('');
+      return '<div class="grp"><div class="grp__h"><b>'+nr+'.</b>'+g.t.toUpperCase()+'</div><div class="'+cls+'">'+tiles+'</div></div>';
+    }
+    function render(){
+      document.documentElement.style.setProperty('--acc',CFG.accent);
+      document.documentElement.style.setProperty('--acc-soft',CFG.soft);
+      $('#confTitle').innerHTML=CFG.titel; $('#confSub').textContent=CFG.sub;
+      $('#confBadge').innerHTML='<span>'+CFG.badge.ic+'</span><span>'+CFG.badge.t+'</span>';
+      var nr=0, html='';
+      function vis(g){ return !g.when || g.when(sel); }
+      CFG.groepen.forEach(function(g){
+        if(g.row){
+          if(g.when && !g.when(sel)) return;
+          var subs=g.groepen.filter(vis); if(!subs.length) return;
+          html+='<div class="grp__row" style="grid-template-columns:repeat(auto-fit,minmax(min(160px,100%),1fr))">';
+          subs.forEach(function(x){ nr++; html+=groupBox(x,nr); }); html+='</div>';
+        } else { if(!vis(g)) return; nr++; html+=groupBox(g,nr); }
+      });
+      nr++;
+      var ex=CFG.extra.filter(function(e){ return !e.when||e.when(sel); }).map(function(e){ return tile('x_'+e.v,e,!!extras[e.v],true); }).join('');
+      html+='<div class="grp"><div class="grp__h"><b>'+nr+'.</b>EXTRA OPTIES</div><div class="tiles sm">'+ex+'</div></div>';
+      $('#groups').innerHTML=html;
+      allGroups().forEach(function(g){
+        $('#groups').querySelectorAll('input[name="g_'+g.id+'"]').forEach(function(inp){
+          inp.addEventListener('change',function(){ sel[g.id]=this.value; if(CFG.reflow&&CFG.reflow.indexOf(g.id)>=0){ render(); } else { price(); updateHero(); } });
+        });
+      });
+      CFG.extra.forEach(function(e){ var inp=$('#groups').querySelector('input[name="x_'+e.v+'"]'); if(inp) inp.addEventListener('change',function(){ extras[e.v]=this.checked; price(); updateHero(); }); });
+      updateHero(true); price();
+    }
+    function heroSrc(){
+      var cands=CFG.heroCands(sel,extras);
+      for(var i=0;i<cands.length;i++){ if(HAVE.has(cands[i])) return './assets/media/'+cands[i]+'.jpg'; }
+      return CFG.hero;
+    }
+    function dimLabel(){ return CFG.dim(sel); }
+    /* Elke beeldwissel krijgt een volgnummer, en een fade die nog loopt terwijl
+       er alweer gekozen is zet zijn beeld niet meer neer. Zonder dat legt de
+       trage timer het oude beeld over de nieuwe keuze heen: wie binnen die
+       150 ms twee keer klikt, ziet iets staan wat hij net heeft weggeklikt,
+       naast een keuzelijst die iets anders zegt. */
+    var heroBeurt = 0;
+    function updateHero(instant){
+      var img=$('#confHero'), src=heroSrc(), bg=$('#confHeroBg'), dim=$('#confDim');
+      if(bg&&src) bg.style.backgroundImage="url('"+src+"')";
+      if(dim) dim.innerHTML='<b>'+dimLabel()+'</b>';
+      var beurt = ++heroBeurt;
+      if (img.getAttribute('src') === src){ img.style.opacity = '1'; return; }
+      if (instant){ img.src = src; img.style.opacity = '1'; return; }
+      img.style.opacity='0'; setTimeout(function(){
+        if (beurt !== heroBeurt) return;   // ingehaald door een nieuwere keuze
+        img.src = src; img.style.opacity = '1';
+      }, 150);
+    }
+    function summaryText(){
+      var lines=[CFG.kop];
+      allGroups().forEach(function(g){ if(g.when && !g.when(sel)) return; lines.push(g.t+': '+findKz(g).l); });
+      var chosen=CFG.extra.filter(function(e){return extras[e.v] && (!e.when||e.when(sel));}).map(function(e){return e.l;});
+      lines.push('Extra opties: '+(chosen.length?chosen.join(', '):'geen'));
+      var excl=calc(), incl=excl*(1+BTW);
+      lines.push('Totaalprijs incl. montage: '+euro(excl)+' excl. btw  /  '+euro(incl)+' incl. btw');
+      return lines.join('\n');
+    }
+    function price(){ var excl=calc(), incl=excl*(1+BTW); $('#prijs').textContent=euro(btwIncl?incl:excl); $('#f_config').value=summaryText(); }
+    function setBtw(on){ btwIncl=on; $('#btwIncl').classList.toggle('is-on',on); $('#btwIncl').setAttribute('aria-pressed',on); $('#btwExcl').classList.toggle('is-on',!on); $('#btwExcl').setAttribute('aria-pressed',!on); price(); }
+    $('#btwIncl').addEventListener('click',function(){ setBtw(true); });
+    $('#btwExcl').addEventListener('click',function(){ setBtw(false); });
+    $('#naarOfferte').addEventListener('click',function(){ $('#offerte').scrollIntoView({behavior:'smooth',block:'start'}); });
+    $('#downloadBtn').addEventListener('click',function(){
+      var blob=new Blob([CFG.kop+' · Next Growth\n\n'+summaryText()+'\n\nnextgrowthdigital.nl · <a href="tel:+31683902192">06 83 90 21 92</a>'],{type:'text/plain'});
+      var a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=CFG.file+'.txt'; a.click(); URL.revokeObjectURL(a.href);
+    });
+    function msg(t,type){ var m=$('#leadMsg'); m.hidden=false; m.textContent=t; m.className='lead__msg '+(type||''); }
+    function mailtoFallback(f){
+      var body="Aanvraag via "+CFG.kop+" configurator\n=====================================\n\n"+f.configuratie.value+
+        "\n\n--- Contactgegevens ---\nNaam: "+f.naam.value+"\nE-mail: "+f.email.value+"\nTelefoon: "+(f.telefoon.value||"-")+"\nPlaats: "+(f.plaats.value||"-")+"\nBericht: "+(f.bericht.value||"-")+"\n";
+      window.location.href="mailto:info@nextgrowthdigital.nl?subject="+encodeURIComponent("Offerteaanvraag "+CFG.kop+" · "+(f.naam.value||""))+"&body="+encodeURIComponent(body);
+    }
+  /* Twee routes naast elkaar: FormSubmit levert vandaag af, Web3Forms vangt op
+     als die dienst hapert. Geeft hetzelfde antwoord terug als FormSubmit, zodat
+     de rest van de afhandeling ongewijzigd blijft. */
+  function ngDubbel(payload, sleutel){
+    var a=fetch("https://formsubmit.co/ajax/info@nextgrowthdigital.nl",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(payload)})
+      .then(function(r){return r.json();}).then(function(d){return !!(d&&(d.success===true||d.success==="true"));}).catch(function(){return false;});
+    var b=sleutel?fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},
+      body:JSON.stringify(Object.assign({access_key:sleutel,from_name:"nextgrowthdigital.nl",subject:payload._subject},payload))})
+      .then(function(r){return r.ok;}).catch(function(){return false;}):Promise.resolve(false);
+    /* Niet Promise.all: dan wacht de bezoeker op het traagste kanaal, ook als
+       het eerste al ja heeft gezegd. Web3Forms staat op sommige blokkeerlijsten
+       en hangt dan tot de browser er zelf mee ophoudt. De lead is op dat moment
+       allang binnen via FormSubmit, maar het scherm blijft op Versturen staan en
+       de bezoeker denkt dat het mislukt is.
+
+       Dus: zodra een van de twee slaagt is het klaar. Zeggen ze allebei nee, dan
+       pas het mailtovangnet. Blijft er een hangen, dan valt na tien seconden de
+       beslissing alsnog op nee - want dan weten we het niet, en dan is de e-mail
+       openen eerlijker dan een bedankje dat nergens op slaat. Beide verzoeken
+       lopen intussen gewoon door; er wordt niets afgebroken. */
+    var beslist = new Promise(function (klaar) {
+      var open = 2;
+      [a, b].forEach(function (p) {
+        p.then(function (ok) { if (ok) klaar(true); else if (!--open) klaar(false); });
+      });
+      setTimeout(function () { klaar(false); }, 10000);
+    });
+    return beslist.then(function(ok){return {json:function(){return {success:ok};}};});
+  }
+
+    $('#leadForm').addEventListener('submit',function(e){
+      e.preventDefault(); var f=e.target; if(f.reportValidity&&!f.reportValidity())return;
+      var btn=$('#leadBtn'),oud=btn.textContent; btn.disabled=true; btn.textContent="Versturen…";
+      ngDubbel({_subject:"Offerteaanvraag "+CFG.kop+" · "+(f.naam.value||""),_template:"table",_captcha:"false",_replyto:f.email.value,Product:CFG.kop,Naam:f.naam.value,"E-mail":f.email.value,Telefoon:(f.telefoon.value||"-"),Plaats:(f.plaats.value||"-"),Bericht:(f.bericht.value||"-"),Configuratie:f.configuratie.value}, WEB3FORMS_KEY).then(function(r){return r.json();}).then(function(d){ if(d&&(d.success===true||d.success==="true")){ f.reset(); msg("Bedankt! Je aanvraag is verstuurd. We nemen binnen één werkdag contact op.","ok"); } else { msg("Er ging iets mis. We openen je e-mail met de aanvraag klaar.","err"); mailtoFallback(f); } }).catch(function(){ msg("Geen verbinding. We openen je e-mail met de aanvraag klaar.","err"); mailtoFallback(f); }).finally(function(){ btn.disabled=false; btn.textContent=oud; });
+    });
+    function applyPreset(p){ if(p.sel) Object.keys(p.sel).forEach(function(k){ sel[k]=p.sel[k]; }); if(p.extras) Object.keys(p.extras).forEach(function(k){ extras[k]=p.extras[k]; }); render(); }
+    function renderPresets(){
+      $('#presetRow').innerHTML=CFG.presets.map(function(p,i){ return '<button type="button" class="preset" data-i="'+i+'"><span class="preset__th" style="background-image:url(./assets/media/'+p.th+'.jpg)"></span><span class="preset__t"><b>'+p.n+'</b><span>'+p.d+'</span></span></button>'; }).join('');
+      $('#presetRow').querySelectorAll('.preset').forEach(function(btn){ btn.addEventListener('click',function(){ applyPreset(CFG.presets[+this.getAttribute('data-i')]); }); });
+    }
+    initSelection(); render(); renderPresets();
+  
+  /* De keuzes bereikbaar maken voor de AI-foto onderaan de pagina. De
+     configurator draait in zijn eigen scope; zonder deze regel ziet de
+     fotomodule geen enkele keuze en stuurt hij een lege beschrijving mee. */
+  window.NGKeuze = function () { return typeof sel === 'undefined' ? null : sel; };
+})();
+
+  </script>
+
+<script src="./assets/aifoto.js" defer></script>
+<script>
+/* De AI-foto: keuzes van deze configurator vertalen naar de beschrijving die
+   het beeldmodel krijgt. Onbekende waarden worden aan de andere kant netjes
+   opgevangen met een standaardwaarde, dus een nieuwe optie breekt niets - hij
+   valt alleen terug tot hij hier ook genoemd wordt. */
+window.addEventListener('DOMContentLoaded', function () {
+  if (!window.NGFoto) return;
+  NGFoto.init({
+    product: 'zwembad',
+    scene: 'buiten',
+    kop: 'Zie het zwembad in je eigen tuin',
+    lead: 'Upload een foto van je tuin. Je krijgt je eigen samenstelling er fotorealistisch op terug, op de open plek in het gazon.',
+    payload: function () {
+      var sel = window.NGKeuze && window.NGKeuze();
+      if (!sel) return {};
+      var m = sel.maat || 'midden';
+      return {
+        shape: 'rect',
+        size: (m === 'plunge' || m === 'klein') ? 's' : (m === 'groot' || m === 'xl') ? 'l' : 'm',
+        liner: sel.kleur === 'wit' ? 'white' : sel.kleur === 'zand' ? 'sand'
+             : sel.kleur === 'antraciet' || sel.kleur === 'donker' ? 'dark' : 'light',
+        deck: 'tile',
+        stairs: sel.trap === 'romeinse' || sel.trap === 'romeins' ? 'roman'
+              : sel.trap === 'hoektrap' ? 'corner'
+              : sel.trap === 'zijtrap' ? 'full' : 'ladder',
+        cover: sel.afdekking === 'lamellen' ? 'slats' : '',
+        evening: sel.verlichting && sel.verlichting !== 'geen' ? '1' : ''
+      };
+    }
+  });
+});
+</script>
+  
+  <a class="nx-wa" href="https://wa.me/31683902192" target="_blank" rel="noopener" aria-label="Stel je vraag via WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a9.9 9.9 0 0 0-8.5 15L2 22l5.2-1.4A9.9 9.9 0 1 0 12 2zm0 1.7a8.2 8.2 0 1 1-4.2 15.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.7zm-3.1 4.2c-.2 0-.5 0-.7.3-.2.3-.9.9-.9 2.1s.9 2.5 1 2.6c.1.2 1.8 2.8 4.3 3.8 2.1.8 2.6.7 3 .6.5 0 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.4-.2-1.5-.7c-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.5 7.5 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5v-.5L9.5 8.2c-.2-.4-.4-.3-.6-.3z"/></svg></a>
+  <!-- Vercel Analytics (scripts/analytics.py) -->
+  
+  
+</body>
+</html>

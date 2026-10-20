@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tegelconfigurator voor tegelzetters: live demo | Next Growth</title>
+  <meta name="description" content="Live demo van een tegelconfigurator die Next Growth bouwt voor tegelzetters. Stel tegels samen en zie ze meteen liggen in badkamer, toilet en woonkamer. Wand of vloer, 60x60 tot 120x120, met een richtprijs per vierkante meter.">
+  <link rel="canonical" href="https://nextgrowthdigital.nl/tegel-configurator">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="nl_NL">
+  <meta property="og:site_name" content="Next Growth">
+  <meta property="og:title" content="Tegelconfigurator voor tegelzetters: live demo | Next Growth">
+  <meta property="og:description" content="Live demo van een tegelconfigurator die Next Growth bouwt voor tegelzetters. Stel tegels samen en zie ze meteen liggen in badkamer, toilet en woonkamer. Wand of vloer, 60x60 tot 120x120, met een richtprijs per vierkante meter.">
+  <meta property="og:url" content="https://nextgrowthdigital.nl/tegel-configurator">
+  <meta property="og:image" content="https://nextgrowthdigital.nl/assets/media/dakopbouw/keralit-antraciet-keralit-met-zwarte-kozijnen.jpg">
+  <meta property="og:image:width" content="1400">
+  <meta property="og:image:height" content="1050">
+  <meta property="og:image:alt" content="Dakopbouw met antraciet keralit en zwarte kozijnen">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Crect width='18' height='18' rx='4' fill='%23C9A45F'/%3E%3Cpath d='M5 13V5l8 8V5' stroke='%230A0A0B' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./assets/fonts.css">
+  <link rel="stylesheet" href="./assets/core.css">
+  <style>
+    :root { --acc: var(--accent); --acc-soft: rgba(var(--accent-rgb),.14); }
+    .cfg-hero { padding: calc(60px + clamp(1.6rem, 5vh, 3rem)) 0 0; text-align: center; }
+    .cfg-hero .pill { margin-bottom: 1rem; }
+    .cfg-hero .h1 { max-width: 20ch; margin-inline: auto; }
+    .cfg-hero .lede { margin: 1rem auto 0; max-width: 58ch; }
+
+    /* material switch */
+    .matswitch { display: inline-flex; flex-wrap: wrap; justify-content: center; max-width: 100%; gap: .3rem; padding: .32rem; border: 1px solid var(--line-strong); border-radius: 13px; background: var(--bg-raise); margin: 1.6rem auto 0; }
+    .matswitch button, .matswitch a { display: inline-flex; align-items: center; gap: .5rem; border: none; background: transparent; color: var(--text-2); font: inherit; font-weight: 600; font-size: .9rem; padding: .65rem 1.3rem; border-radius: 10px; cursor: pointer; transition: background .14s ease, color .14s ease; text-decoration: none; }
+    .matswitch button svg { width: 17px; height: 17px; }
+    .matswitch button.is-on, .matswitch a.is-on { background: var(--acc); color: #17130a; }
+    .matswitch a:hover { color: var(--text-1); }
+    /* Vier tot zeven keuzes passen niet naast elkaar op een telefoon. Zonder
+       wrap liep de rij het scherm uit: de laatste optie was onbereikbaar en
+       de hele pagina schoof horizontaal mee. */
+    @media (max-width: 640px) {
+      .matswitch { gap: .25rem; }
+      .matswitch button, .matswitch a { padding: .55rem .8rem; font-size: .8rem; }
+    }
+
+    /* presets */
+    .presets { margin: 1.5rem auto 0; max-width: 900px; }
+    .presets__lbl { display: block; font-family: var(--mono); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: var(--text-3); margin-bottom: .7rem; }
+    .presets__row { display: flex; gap: .7rem; flex-wrap: wrap; justify-content: center; }
+    .preset { display: flex; align-items: center; gap: .6rem; border: 1px solid var(--line-strong); border-radius: 12px; background: var(--bg-raise); padding: .45rem .7rem .45rem .45rem; cursor: pointer; transition: border-color .12s ease, background .12s ease; text-align: left; }
+    .preset:hover { border-color: var(--acc); background: var(--bg-raise-2); }
+    .preset__th { width: 46px; height: 34px; border-radius: 7px; background-size: cover; background-position: center; flex: none; border: 1px solid rgba(255,255,255,.1); }
+    .preset__t b { display: block; font-size: .82rem; font-weight: 600; color: var(--text); line-height: 1.1; }
+    .preset__t span { font-size: .68rem; color: var(--text-3); }
+
+    /* configurator shell */
+    .conf { margin-top: clamp(1.8rem, 5vh, 3rem); }
+    .conf__layout { display: grid; grid-template-columns: 1fr; gap: 1.1rem; margin-top: 1.1rem; }
+    .conf__visual, .conf__options { min-width: 0; }
+    @media (min-width: 900px){
+      .conf__layout { grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); align-items: start; }
+      .conf__visual { position: sticky; top: 80px; }
+    @media (min-width:900px){ .conf__layout{ grid-template-columns:minmax(0,1.55fr) minmax(0,1fr); } }
+    @media (min-width:1200px){ .conf__layout{ grid-template-columns:minmax(0,1.7fr) minmax(0,1fr); } }
+
+    }
+    @media (max-width: 899px){
+      .conf__visual { position: sticky; top: 52px; z-index: 6; background: var(--bg); padding: 8px 0 10px; margin-top: -8px; }
+    }
+    .conf__head { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1.1rem; }
+    .conf__title { font-size: clamp(1.5rem, 4vw, 2.1rem); font-weight: 800; letter-spacing: -.02em; line-height: 1.05; }
+    .conf__title span { color: var(--acc-diep); }
+    .conf__sub { font-size: .84rem; color: var(--text-2); margin-top: .3rem; }
+    .conf__badge { flex: none; display: inline-flex; align-items: center; gap: .5rem; border: 1px solid var(--line-strong); border-radius: 11px; padding: .55rem .8rem; font-size: .74rem; color: var(--text-2); background: var(--bg-raise); line-height: 1.2; max-width: 150px; }
+    .conf__badge svg { width: 20px; height: 20px; color: var(--acc); flex: none; }
+
+    .conf__hero { position: relative; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); margin-bottom: 1.2rem; aspect-ratio: 16/9; background: var(--bg-raise); }
+    .conf__hero .hbg { position: absolute; inset: 0; background-size: cover; background-position: center; filter: blur(30px) brightness(.42) saturate(.9); transform: scale(1.18); z-index: 0; transition: background-image .22s ease; }
+    .conf__hero .hbg::after { content:''; position:absolute; inset:0; background: radial-gradient(120% 90% at 50% 45%, transparent 55%, rgba(0,0,0,.5) 100%); }
+    .conf__hero img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: cover; display: block; transform-origin: center center; transition: opacity .22s ease, transform .38s cubic-bezier(.4,0,.2,1); will-change: transform; }
+    .conf__hero.is-scaled img { border-radius: 10px; box-shadow: 0 18px 50px rgba(0,0,0,.5); }
+    .conf__hero .live { position: absolute; top: .8rem; left: .8rem; z-index: 2; display: inline-flex; align-items: center; gap: .45rem; font-family: var(--mono); font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; color: #fff; background: rgba(0,0,0,.45); backdrop-filter: blur(6px); padding: .35rem .6rem; border-radius: 7px; }
+    .conf__hero .live .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--acc); box-shadow: 0 0 8px var(--acc); }
+    .conf__hero .dim { position: absolute; bottom: .8rem; right: .8rem; z-index: 2; font-family: var(--mono); font-size: .62rem; letter-spacing: .06em; color: #fff; background: rgba(0,0,0,.5); backdrop-filter: blur(6px); padding: .35rem .6rem; border-radius: 7px; display: inline-flex; align-items: center; gap: .4rem; }
+    .conf__hero .dim b { color: var(--acc-diep); font-weight: 400; }
+    .tile__img { width: 100%; height: 54px; border-radius: 8px; background-size: cover; background-position: center; border: 1px solid rgba(255,255,255,.1); }
+
+    .grp { border: 1px solid var(--line); border-radius: 14px; background: var(--bg-raise); padding: 1.15rem 1.2rem 1.25rem; margin-bottom: .9rem; }
+    .grp__h { font-size: .78rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--text); margin-bottom: .85rem; }
+    .grp__h b { color: var(--acc-diep); font-weight: 700; margin-right: .4rem; }
+    .grp__row { display: grid; gap: .8rem; }
+    @media (min-width: 720px){ .grp__row.cols3 { grid-template-columns: 1fr 1fr 1fr; } }
+
+    .tiles { display: grid; gap: .6rem; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+    .tiles.sm { grid-template-columns: repeat(auto-fit, minmax(84px, 1fr)); }
+    .tile { position: relative; cursor: pointer; }
+    .tile input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+    .tile__c { border: 1.5px solid var(--line); border-radius: 11px; background: var(--bg-raise-2); padding: .7rem .6rem; display: flex; flex-direction: column; align-items: center; gap: .5rem; text-align: center; height: 100%; transition: border-color .12s ease, background .12s ease; }
+    .tile__c .ico { width: 30px; height: 30px; color: var(--text-2); }
+    .tile__c .ico svg { width: 100%; height: 100%; }
+    .tile__c .lab { font-size: .76rem; font-weight: 600; color: var(--text); line-height: 1.25; }
+    .tile__c .sub { font-size: .68rem; color: var(--text-3); }
+    @media (max-width: 600px) { .tile__c .sub { font-size: .78rem; } }
+    .tile__sw { width: 100%; height: 40px; border-radius: 7px; border: 1px solid rgba(255,255,255,.12); }
+    .tile input:checked + .tile__c { border-color: var(--acc); background: color-mix(in srgb, var(--acc) 12%, var(--bg-raise-2)); }
+    .tile input:checked + .tile__c .ico { color: var(--acc); }
+    .tile input:focus-visible + .tile__c { outline: 2px solid var(--acc); outline-offset: 2px; }
+
+    /* price bar */
+    .pricebar { margin-top: 1rem; border: 1px solid var(--line-strong); border-radius: 14px; background: linear-gradient(var(--bg-raise-2), var(--bg-raise)); padding: 1.1rem 1.2rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .pricebar__p { flex: 1 1 auto; min-width: 140px; }
+    .pricebar__p .k { display: flex; align-items: center; gap: .5rem; font-family: var(--mono); font-size: .66rem; text-transform: uppercase; letter-spacing: .06em; color: var(--text-3); }
+    .pricebar__p .v { font-size: 1.8rem; font-weight: 800; color: var(--text); letter-spacing: -.02em; margin-top: .1rem; }
+    .btw { display: inline-flex; border: 1px solid var(--line-strong); border-radius: 7px; overflow: hidden; }
+    .btw button { border: none; background: transparent; color: var(--text-3); font: inherit; font-size: .62rem; font-family: var(--mono); padding: .28rem .5rem; cursor: pointer; }
+    .btw button.is-on { background: var(--acc-soft); color: var(--acc); }
+    .pricebar__cta { display: flex; gap: .5rem; align-items: stretch; flex-wrap: wrap; }
+    .btn--acc { background: var(--acc-diep); color: #17130a; border: none; font-weight: 700; }
+    .btn--acc:hover { filter: brightness(1.06); box-shadow: 0 8px 24px color-mix(in srgb, var(--acc) 30%, transparent); }
+    .btn--icon { width: 46px; padding: 0; display: grid; place-items: center; }
+    .btn--icon svg { width: 18px; height: 18px; }
+
+    /* lead form */
+    .lead { display: grid; gap: .8rem; }
+    .lead__grid { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+    @media (max-width: 520px){ .lead__grid { grid-template-columns: 1fr; } }
+    .fld { display: grid; gap: .35rem; }
+    .fld label { font-size: .76rem; color: var(--text-2); font-weight: 500; }
+    .fld input, .fld textarea { width: 100%; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--bg-raise); color: var(--text); font: inherit; font-size: .88rem; padding: .7rem .85rem; }
+    .fld input:focus, .fld textarea:focus { outline: none; border-color: var(--acc); }
+    .lead__note { font-size: .74rem; color: var(--text-3); line-height: 1.5; }
+    .lead__msg { font-size: .84rem; padding: .8rem 1rem; border-radius: 10px; line-height: 1.5; }
+    .lead__msg.ok { background: var(--acc-soft); color: var(--acc); border: 1px solid color-mix(in srgb, var(--acc) 40%, transparent); }
+    .lead__msg.err { background: rgba(220,80,80,.1); color: #e88; border: 1px solid rgba(220,80,80,.35); }
+    .cfg__panel { padding: 1.6rem 1.6rem; display: grid; gap: 1.4rem; }
+  </style>
+  <style id="ng-protect-css">
+    /* Beeld- en kopieerbeveiliging */
+    img,picture,svg,.conf__hero,.conf__hero img,.tile__img,.preset__th,.hbg,.matswitch{
+      -webkit-user-drag:none;-khtml-user-drag:none;-moz-user-drag:none;-o-user-drag:none;user-select:none;
+      -webkit-touch-callout:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;
+    }
+    body{ -webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none; }
+    input,textarea,select,[contenteditable]{ -webkit-user-select:text!important;-moz-user-select:text!important;-ms-user-select:text!important;user-select:text!important; -webkit-touch-callout:default; }
+    .conf__hero,.conf__hero img,.tile__img,.preset__th,.hbg{ pointer-events:none; }
+    .tile,.preset,.matswitch a,.matswitch button{ pointer-events:auto; }
+  </style>
+  <script id="ng-protect-js">
+  (function(){
+    function inField(t){ return t && t.closest && t.closest('input,textarea,select,[contenteditable]'); }
+    document.addEventListener('contextmenu',function(e){ if(inField(e.target)) return; e.preventDefault(); },{capture:true});
+    document.addEventListener('dragstart',function(e){ e.preventDefault(); },{capture:true});
+    document.addEventListener('drop',function(e){ e.preventDefault(); },{capture:true});
+    document.addEventListener('copy',function(e){ if(!inField(e.target)) e.preventDefault(); },{capture:true});
+    document.addEventListener('cut',function(e){ if(!inField(e.target)) e.preventDefault(); },{capture:true});
+    // long-press op mobiel: blokkeer standaard-callout op beelden
+    document.addEventListener('touchstart',function(e){ var t=e.target; if(t&&t.closest&&t.closest('img,.conf__hero,.tile__img,.preset__th,.hbg')&&e.touches.length>1){ e.preventDefault(); } },{passive:false});
+  })();
+  </script>
+
+  <style id="vloer-theme">
+    :root{
+      --bg:#F1ECE3; --bg-raise:#FBF8F3; --bg-raise-2:#EFE7DB;
+      --text:#241C13; --text-2:rgba(36,28,19,.76); --muted: var(--text-2); --text-3:rgba(36,28,19,.64);
+      --line:rgba(70,50,25,.14); --line-strong:rgba(70,50,25,.22);
+      --accent:#9A6E45; --accent-strong:#78522F; --accent-dim:rgba(154,110,69,.15); --glow:rgba(154,110,69,.30);
+      --acc-diep:#786039; --acc:#9A6E45; --acc-soft:rgba(154,110,69,.15);
+      /* De om-en-om tint van de secties en de vulling van de invoervelden.
+         Zonder deze regel pakt core.css --ink-700 (#0E0E12) en staat de
+         donkere tekst van dit palet op een bijna zwart vlak. */
+      --tint:var(--bg-raise-2);
+          /* Ook de rest van de inktschaal: core.css vult invoervelden met
+         --ink-800 en tekent hun rand met --ink-400. */
+      --ink-900:var(--bg-raise-2); --ink-800:var(--bg); --ink-700:var(--bg-raise-2);
+      --ink-600:var(--bg-raise); --ink-500:var(--bg-raise); --ink-400:var(--line-strong);
+    }
+    .eyebrow{ color: #835D3B; }
+    body{ background:var(--bg); color:var(--text-2); }
+    .nav{ background:rgba(251,248,243,.88)!important; }
+    .nav__links a:hover{ background:rgba(0,0,0,.05); }
+    .nav__logo{ color:var(--text); }
+    .grad-text{ background:linear-gradient(120deg,#C79A6A 8%,#9A6E45 55%,#78522F 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .btn--acc{ color:#fff; }
+    .btn:not(.btn--ghost):not(.btn--acc){ background:linear-gradient(180deg,#C79A6A,#78522F); color:#fff; }
+    .btn--ghost{ color:var(--text); }
+    .btn--ghost:hover{ background:rgba(0,0,0,.04); border-color:var(--line-strong); }
+    .matswitch button.is-on, .matswitch a.is-on{ color:#fff; background: var(--acc-diep); }
+    .tile__img,.preset__th{ border-color:rgba(0,0,0,.10); }
+    .pill{ background:rgba(54,38,18,.03); box-shadow:0 1px 2px rgba(54,38,18,.05); }
+    /* fijnere afwerking op lichte achtergrond: zachte schaduw + schone beeld-achtergrond */
+    .conf__hero{ border-color:rgba(54,38,18,.10); box-shadow:0 1px 2px rgba(54,38,18,.05), 0 22px 48px -26px rgba(54,38,18,.45); background:var(--bg-raise-2); }
+    .conf__hero .hbg{ filter:blur(40px) brightness(1.08) saturate(1.05); opacity:.35; transform:scale(1.25); }
+    .conf__hero .hbg::after{ background:none; }
+    .grp, .pricebar, .conf__badge{ box-shadow:0 1px 2px rgba(54,38,18,.04), 0 14px 32px -24px rgba(54,38,18,.40); }
+    .preset{ box-shadow:0 1px 2px rgba(54,38,18,.05); }
+    .preset:hover{ box-shadow:0 6px 18px -8px rgba(54,38,18,.45); }
+    .tile__c{ box-shadow:0 1px 1px rgba(54,38,18,.03); }
+    .tile input:checked + .tile__c{ box-shadow:0 2px 8px -2px rgba(54,38,18,.30); }
+    .matswitch{ box-shadow:0 1px 2px rgba(54,38,18,.05); }
+    .btn--acc{ box-shadow:0 8px 22px -10px rgba(54,38,18,.55); }
+    .nav{ border-bottom:1px solid rgba(54,38,18,.10); }
+    ::selection{ background:var(--accent); color:#fff; }
+    .lead__msg.ok{ color:var(--accent-strong); }
+    /* groter live-voorbeeld: bredere beeldkolom + volledig 16:9-beeld */
+    .conf__hero{ aspect-ratio:16/9; }
+    @media (min-width:900px){ .conf__layout{ grid-template-columns:minmax(0,1.55fr) minmax(0,1fr); } }
+    @media (min-width:1200px){ .conf__layout{ grid-template-columns:minmax(0,1.7fr) minmax(0,1fr); } }
+  </style>
+    <!-- ============ ENTITEIT (scripts/entiteit.py) ============ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://nextgrowthdigital.nl/#organization",
+          "name": "Next Growth",
+          "url": "https://nextgrowthdigital.nl/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://nextgrowthdigital.nl/assets/media/next-growth-logo.svg"
+          },
+          "description": "Next Growth is een creatief groeibureau en bouwt productconfiguratoren, offertesoftware, CRM-koppelingen en websites voor bouw- en installatiebedrijven, door heel Nederland.",
+          "email": "info@nextgrowthdigital.nl",
+          "telephone": "+31683902192",
+          "vatID": "NL004420281B57",
+          "taxID": "96002913",
+          "identifier": [
+            {
+              "@type": "PropertyValue",
+              "name": "KvK-nummer",
+              "value": "96002913"
+            },
+            {
+              "@type": "PropertyValue",
+              "name": "btw-identificatienummer",
+              "value": "NL004420281B57"
+            }
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "Noord-Brabant",
+            "addressCountry": "NL"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "sales",
+            "telephone": "+31683902192",
+            "email": "info@nextgrowthdigital.nl",
+            "areaServed": "NL",
+            "availableLanguage": [
+              "nl",
+              "en",
+              "de"
+            ]
+          },
+          "areaServed": [
+            {
+              "@type": "Country",
+              "name": "Nederland"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Noord-Brabant"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Gelderland"
+            },
+            {
+              "@type": "City",
+              "name": "Nijmegen"
+            },
+            {
+              "@type": "City",
+              "name": "Den Bosch"
+            },
+            {
+              "@type": "City",
+              "name": "Eindhoven"
+            },
+            {
+              "@type": "City",
+              "name": "Arnhem"
+            },
+            {
+              "@type": "City",
+              "name": "Uden"
+            },
+            {
+              "@type": "City",
+              "name": "Veghel"
+            },
+            {
+              "@type": "City",
+              "name": "Wijchen"
+            },
+            {
+              "@type": "City",
+              "name": "Vught"
+            },
+            {
+              "@type": "City",
+              "name": "Cuijk"
+            },
+            {
+              "@type": "City",
+              "name": "Grave"
+            }
+          ],
+          "knowsAbout": [
+            "Productconfigurator laten maken",
+            "Offertesoftware voor bouwbedrijven",
+            "Website laten maken voor bouw- en installatiebedrijven",
+            "Zoekmachineoptimalisatie",
+            "CRM voor bouwbedrijven",
+            "Dakopbouw",
+            "Uitbouw en aanbouw",
+            "Badkamer verbouwen",
+            "Overkapping op maat",
+            "Zwembad aanleggen",
+            "Dakkapel",
+            "Omgevingsvergunning bij verbouwen"
+          ],
+          "alternateName": [
+            "Next Growth Digital"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://nextgrowthdigital.nl/#website",
+          "url": "https://nextgrowthdigital.nl/",
+          "name": "Next Growth",
+          "inLanguage": "nl-NL",
+          "publisher": {
+            "@id": "https://nextgrowthdigital.nl/#organization"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://nextgrowthdigital.nl/tegel-configurator",
+          "url": "https://nextgrowthdigital.nl/tegel-configurator",
+          "name": "Tegelconfigurator voor tegelzetters: live demo | Next Growth",
+          "inLanguage": "nl",
+          "isPartOf": {
+            "@id": "https://nextgrowthdigital.nl/#website"
+          },
+          "about": {
+            "@id": "https://nextgrowthdigital.nl/#organization"
+          },
+          "description": "Live demo van een tegelconfigurator die Next Growth bouwt voor tegelzetters. Stel tegels samen en zie ze meteen liggen in badkamer, toilet en woonkamer. Wand of vloer, 60x60 tot 120x120, met een richtprijs per vierkante meter.",
+          "dateModified": "2026-08-27"
+        }
+      ]
+    }
+    </script>
+    <!-- ============ EINDE ENTITEIT ============ -->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,900;125,900&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/ngx-shell.css"><style id="ngx-world">:root{--accent:#A97A22;--accent-strong:#8C6726;--accent-light:#E0B15A;--accent-deep:#6E4F17;--accent-dim:rgba(169,122,34,.12);--glow:rgba(169,122,34,.25);--accent-rgb:169,122,34;--acc:#A97A22;--acc-soft:rgba(169,122,34,.14);--acc-diep:#6E4F17;--serif:'Archivo','Arial Black',sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;--goud-metaal:linear-gradient(150deg,#6E4F17 0%,#A97A22 30%,#E0B15A 50%,#A97A22 70%,#6E4F17 100%);--goud-lijn:linear-gradient(90deg,transparent,rgba(169,122,34,.5) 30%,rgba(169,122,34,.5) 70%,transparent);}html{background:#F6EFE6}.ngx-nav{--x-sig:#A97A22;--x-ink:#FFFFFF}</style><script>document.documentElement.classList.add("ngx-display","ngx-light")</script></head>
+<body>
+  <a class="skip" href="#main">Direct naar inhoud</a>
+  <header class="ngx-nav"><div class="ngx-wrap">
+<a class="ngx-brand" href="/"><span class="ngx-ring">NG</span><span>Next Growth<small>Creatief groeibureau · Landelijk</small></span></a>
+<a class="ngx-mark" href="/" aria-label="Next Growth, naar de homepage"><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14V4l10 10V4" stroke="#0A0800" stroke-width="2.8" stroke-linecap="square"/></svg></a>
+<nav class="ngx-links" aria-label="Hoofdmenu"><a href="/">Home</a><a href="/dienst-webdesign">Websites</a><a href="/dienst-branding">Branding</a><a href="/dienst-marketing">Marketing</a><a href="/dienst-configurators">Configurators</a><a href="/kennisbank">Kennisbank</a><a href="/prijzen">Prijzen</a></nav>
+<a class="ngx-cta" href="/#contact">Kennismaken</a>
+<button class="ngx-menu" type="button" aria-expanded="false" aria-controls="ngx-mnav">Menu</button>
+</div><nav id="ngx-mnav" class="ngx-mnav" aria-label="Mobiel menu" hidden><a href="/">Home</a><a href="/dienst-webdesign">Websites</a><a href="/dienst-branding">Branding</a><a href="/dienst-marketing">Marketing</a><a href="/dienst-configurators">Configurators</a><a href="/kennisbank">Kennisbank</a><a href="/prijzen">Prijzen</a><a href="/#contact" class="ngx-cta">Plan een kennismaking</a></nav></header>
+
+  <main id="main">
+<section class="cfg-hero" aria-label="Tegelconfigurator">
+  <div class="wrap">
+    <p class="eyebrow"><span class="dot dot--ok"></span>Badkamer, toilet &amp; woonkamervloer &middot; 52 kleuren</p>
+    <h1 class="h1">Stel je tegels samen <br><em>en zie direct je prijs.</em></h1>
+    <p class="lede">Dit is een live demo van de tegelconfigurator die Next Growth bouwt voor tegelzetters. Kies waar de tegels komen, het formaat, de look en het legpatroon. Je ziet
+      ze meteen liggen in een badkamer, een toilet en op een echte woonkamervloer, met
+      de echte voegbreedte, het echte verband en het licht van de ruimte. De m&sup2;-prijs
+      inclusief leggen rekent onder in beeld mee.</p>
+  </div>
+</section>
+
+<section class="sectie" style="padding-top: clamp(1.5rem,4vh,2.5rem)" aria-label="Samenstellen">
+  <div class="wrap">
+    <div class="tg">
+
+      <div class="tg__viz">
+        <div class="tg__ruimtes" id="tgRuimtes" role="group" aria-label="Kies de ruimte"></div>
+        <div class="tg__vizin">
+          <canvas id="tgCanvas" width="1600" height="900" aria-label="Voorbeeld van de gekozen tegels"></canvas>
+          <span class="live"><span class="dot"></span>Live voorbeeld</span>
+          <span class="tg__maat" id="tgMaat"></span>
+        </div>
+        <p class="tg__onder" id="tgOnder"></p>
+
+        <div class="tg__prijs" id="tgPrijs">
+          <div class="tg__prijsrij">
+            <span>Richtprijs</span>
+            <b id="tgTot">&euro; 0</b>
+          </div>
+          <p class="tg__prijssub" id="tgSub"></p>
+          <div class="tg__knoppen">
+            <a class="btn" id="tgOfferte" href="./contact.html?over=tegel">Vraag een offerte aan</a>
+            <button type="button" class="btn btn--ghost" id="tgKopieer">Kopieer samenstelling</button>
+          </div>
+          <p class="tg__noot">Richtprijs op basis van je keuzes, inclusief leggen en voegen.
+            De definitieve prijs volgt na het opmeten ter plaatse.</p>
+        </div>
+      </div>
+
+      <div class="tg__opts">
+        <div id="tgGroups"></div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="sectie" aria-labelledby="tg-uitleg">
+  <div class="wrap">
+    <div class="sectie-kop">
+      <p class="eyebrow">Waar je op let</p>
+      <h2 class="h2" id="tg-uitleg">Welk tegelformaat past bij jouw ruimte</h2>
+      <p class="lede">Het formaat bepaalt meer dan alleen het uiterlijk: het bepaalt hoeveel
+        voegen je krijgt, hoe vlak de ondergrond moet zijn en wat het leggen kost.</p>
+    </div>
+
+    <div class="ovk-uitleg">
+      <article>
+        <h3>60&times;60: de veilige keuze</h3>
+        <p>Het meest gelegde formaat, en niet zonder reden. Een tegel van 60 bij 60 is met
+          twee handen te leggen, laat zich makkelijk op maat zagen rond een deur of een put,
+          en vergeeft een ondergrond die niet perfect vlak is.</p>
+        <p>Meer voegen dan bij een groot formaat, dus een drukker beeld. Maar in een
+          kleine ruimte werkt dat juist beter dan een tegel die niet heel in het vlak past.</p>
+      </article>
+
+      <article>
+        <h3>120&times;60: rust in de lengte</h3>
+        <p>Half zoveel voegen als 60&times;60 en een duidelijke richting in het beeld. Leg je
+          hem in de lengterichting van de ruimte, dan lijkt die langer; dwars gelegd juist
+          breder.</p>
+        <p>In halfsteens verband ziet het er levendig uit, maar let op: bij grote formaten mag
+          de verspringing niet meer dan een vijfde van de lengte zijn, anders komt de tegel
+          hol te liggen. In deze demo houdt de tegelzetter daarom maximaal een derde verspringing aan.</p>
+      </article>
+
+      <article>
+        <h3>120&times;120: het rustigste beeld</h3>
+        <p>Vier keer zo weinig voegen als 60&times;60. In een grote, open ruimte geeft dat een
+          vloer die niet meer als raster leest maar als vlak. Dat is het effect waar in
+          nieuwbouw en verbouw het meest om gevraagd wordt.</p>
+        <p>Wel de meest veeleisende keuze. De ondergrond moet vlak zijn binnen enkele
+          millimeters over de hele lengte, en er is bijna altijd egaliseren nodig. Zagen kost
+          meer tijd en een gebroken tegel is duur. Reken op een hoger legtarief.</p>
+      </article>
+
+      <article>
+        <h3>Wand of vloer</h3>
+        <p>Een wandtegel is dunner en lichter; een vloertegel moet belopen kunnen worden. Een
+          vloertegel kan bijna altijd ook op de wand, andersom niet. Wil je wand en vloer
+          doorlopend in hetzelfde beeld, kies dan een vloertegel voor allebei.</p>
+        <p>Voor de badkamervloer en elke natte ruimte geldt een slipklasse. Een gepolijste
+          tegel is daar geen goed idee, hoe mooi hij ook is.</p>
+      </article>
+
+      <article>
+        <h3>De voeg</h3>
+        <p>De voegkleur bepaalt het beeld sterker dan mensen verwachten. Een voeg in de kleur
+          van de tegel laat het vlak doorlopen; een contrasterende voeg maakt er een raster
+          van. Wil je de rust van een groot formaat, kies dan ook een voeg die er dicht
+          tegenaan zit.</p>
+        <p>In deze demo is de standaardvoeg 3 mm bij gerectificeerde tegels. Smaller kan, maar dan is er
+          geen ruimte meer om werken in de vloer op te vangen.</p>
+      </article>
+
+      <article>
+        <h3>Vloerverwarming</h3>
+        <p>Keramiek en vloerverwarming gaan uitstekend samen: steen geleidt warmte beter dan
+          hout of PVC, dus je kunt op een lagere aanvoertemperatuur stoken. Groot formaat werkt
+          daarbij nog iets gunstiger, want minder voegen betekent minder onderbreking.</p>
+        <p>Wel moet de lijm geschikt zijn en moet de vloer volvlak worden gelijmd, anders
+          ontstaan holle plekken die bij opwarmen kraken.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sectie" aria-label="Zie de tegels in je eigen ruimte">
+  <div class="wrap">
+    <div id="aifoto"></div>
+  </div>
+</section>
+
+<section class="sectie ng-vraag" aria-label="Zelf zo'n configurator">
+  <div class="wrap">
+    <div class="ng-vraag__kaart">
+      <div class="ng-vraag__tekst">
+        <p class="eyebrow">Dit is een demo van Next Growth</p>
+        <h2>Zo'n tegelconfigurator op je eigen website?</h2>
+        <p class="lede">Je klanten stellen zelf hun tegels samen, zien direct hun m&sup2;-prijs en sturen
+          een complete aanvraag door. Jij krijgt hem binnen met alles erin: formaat,
+          aantal m&sup2;, legpatroon en voeg.</p>
+        <ul class="ng-vraag__punten">
+          <li><span></span>Jouw collectie, jouw prijzen, jouw huisstijl</li>
+          <li><span></span>Twee weken van start tot live</li>
+          <li><span></span>Elke aanvraag compleet in je dashboard</li>
+        </ul>
+        <div class="ng-vraag__knoppen">
+          <a class="btn" href="./contact.html?over=tegel">Laat zien hoe dit er voor mijn collectie uitziet</a>
+          <a class="btn btn--ghost" href="/prijzen">Wat kost het?</a>
+        </div>
+        <p class="ng-vraag__noot">Vrijblijvend. Je krijgt binnen 24 uur een voorbeeld van je
+          eigen tegels in deze configurator te zien.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sectie" aria-labelledby="tg-faq">
+  <div class="wrap">
+    <div class="sectie-kop">
+      <p class="eyebrow">Veelgestelde vragen</p>
+      <h2 class="h2" id="tg-faq">Vragen over tegels kiezen</h2>
+    </div>
+    <div class="ovk-faq">
+      <details>
+        <summary><span>Welk tegelformaat is het beste: 60x60, 120x60 of 120x120?</span></summary>
+        <p>60&times;60 is de veiligste keuze: makkelijk te leggen, makkelijk te zagen en
+          vergevingsgezind bij een ondergrond die niet perfect vlak is. 120&times;60 halveert
+          het aantal voegen en geeft richting aan de ruimte. 120&times;120 geeft het rustigste
+          beeld, maar vraagt een vlakke ondergrond en een hoger legtarief.</p>
+      </details>
+      <details>
+        <summary><span>Kan ik dezelfde tegel op de wand en op de vloer gebruiken?</span></summary>
+        <p>Een vloertegel kan bijna altijd ook op de wand, andersom niet: een wandtegel is
+          dunner en niet gemaakt om belopen te worden. Wil je wand en vloer doorlopend in
+          hetzelfde beeld, kies dan een vloertegel voor allebei.</p>
+      </details>
+      <details>
+        <summary><span>Hoeveel m2 moet ik bestellen?</span></summary>
+        <p>Reken op 5 tot 10 procent extra boven de netto oppervlakte voor zaagverlies. Bij een
+          recht verband en een rechthoekige ruimte is 5 procent genoeg; bij visgraat, een
+          schuine wand of veel hoeken is 10 procent verstandiger. Groot formaat geeft meer
+          zaagverlies dan klein formaat.</p>
+      </details>
+      <details>
+        <summary><span>Zijn keramische tegels geschikt voor vloerverwarming?</span></summary>
+        <p>Ja, en beter dan hout of PVC: steen geleidt warmte goed, dus je kunt op een lagere
+          aanvoertemperatuur stoken. Groot formaat werkt nog iets gunstiger omdat er minder
+          voegen zijn. De vloer moet wel volvlak gelijmd worden, anders ontstaan holle plekken
+          die bij opwarmen kraken.</p>
+      </details>
+      <details>
+        <summary><span>Welke voegkleur moet ik kiezen?</span></summary>
+        <p>Een voeg in de kleur van de tegel laat het vlak doorlopen en maakt de ruimte
+          rustiger. Een contrasterende voeg maakt er juist een raster van en benadrukt het
+          formaat. Kies je een groot formaat voor de rust, kies dan ook een voeg die dicht bij
+          de tegelkleur ligt.</p>
+      </details>
+      <details>
+        <summary><span>Wat kost het leggen van tegels per m2?</span></summary>
+        <p>Dat hangt vooral af van het formaat en het verband. Groot formaat kost meer, omdat de
+          ondergrond vlakker moet zijn en zagen meer tijd kost. In de configurator hierboven
+          rekent het legtarief per keuze mee, zodat je de richtprijs inclusief leggen ziet.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+
+  <!-- ============ TERUGBELVERZOEK ============ -->
+  <div class="ng-terugbel" role="region" aria-labelledby="terugbel-kop">
+    <div class="wrap ng-terugbel__in">
+      <div class="ng-terugbel__tekst" data-reveal>
+        <p class="eyebrow">Terugbelverzoek</p>
+        <h2 class="h2" id="terugbel-kop">Liever even bellen over zo'n configurator?</h2>
+        <p class="lede">Laat je nummer achter, dan bellen we je dezelfde werkdag terug om je plan door te nemen. Geen verkooppraatje, gewoon antwoord.</p>
+        <ul class="ng-terugbel__punten">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Binnen &eacute;&eacute;n werkdag gebeld</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Direct antwoord op kosten en planning</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Vrijblijvend, je zit nergens aan vast</span></li>
+        </ul>
+        <p class="ng-terugbel__zelf">Liever zelf bellen? <a href="tel:+31683902192">06 83 90 21 92</a></p>
+      </div>
+
+      <div class="card ng-terugbel__kaart" data-reveal style="--i:1">
+        <p class="ng-terugbel__kop"><span class="dot dot--ok" aria-hidden="true"></span>2 velden &middot; 15 seconden</p>
+        <form data-terugbel data-bron="tegel-configurator.html" action="mailto:info@nextgrowthdigital.nl" method="post" enctype="text/plain" aria-label="Terugbelverzoek">
+            <div class="ng-veld">
+              <label for="tb-naam">Naam</label>
+              <input type="text" id="tb-naam" name="naam" placeholder="Voor- en achternaam" autocomplete="name" required>
+            </div>
+            <div class="ng-veld">
+              <label for="tb-tel">Telefoonnummer</label>
+              <input type="tel" id="tb-tel" name="telefoon" placeholder="06 12 34 56 78" autocomplete="tel" inputmode="tel" required>
+            </div>
+            <div class="ng-terugbel__honeypot" aria-hidden="true">
+              <label for="tb-website">Website (niet invullen)</label>
+              <input type="text" id="tb-website" name="website" tabindex="-1" autocomplete="off">
+            </div>
+            <button class="btn ng-terugbel__verstuur" type="submit">Bel mij terug</button>
+            <p class="ng-terugbel__noot">Alleen om je terug te bellen. Geen nieuwsbrief, geen belrondes.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  </main>
+
+<footer class="ngx-foot"><div class="ngx-wrap">
+<div class="ngx-end"><h2>Zo'n configurator <span>op jouw site?</span></h2><div><p>Eén gesprek van twintig minuten. Je spreekt direct met de mensen die het bouwen en krijgt dezelfde dag een eerlijk advies.</p><a class="ngx-cta big" href="/#contact">Plan een kennismaking</a><a class="ngx-tel" href="tel:+31683902192">06 83 90 21 92</a></div></div>
+<div class="ngx-cols">
+<div><a class="ngx-brand" href="/"><span class="ngx-mk"><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14V4l10 10V4" stroke="#0A0800" stroke-width="2.8" stroke-linecap="square"/></svg></span><span>Next Growth Digital</span></a><p>Creatief groeibureau, landelijk actief. Branding, webdesign, marketing en eigen software.</p><p>info@nextgrowthdigital.nl</p></div>
+<div><h4>Diensten</h4><ul><li><a href="/dienst-branding">Branding</a></li><li><a href="/dienst-webdesign">Webdesign</a></li><li><a href="/dienst-marketing">Marketing</a></li><li><a href="/dienst-configurators">Configurators</a></li><li><a href="/dienst-crm">CRM &amp; offertes</a></li><li><a href="/prijzen">Prijzen</a></li></ul></div>
+<div><h4>Configurators</h4><ul><li><a href="/overkapping-configurator">Overkapping</a></li><li><a href="/aanbouw-configurator">Uitbouw</a></li><li><a href="/dakkapel-configurator">Dakkapel</a></li><li><a href="/dakopbouw-configurator">Dakopbouw</a></li><li><a href="/badkamer-configurator">Badkamer</a></li><li><a href="/zwembad-configurator">Zwembad</a></li><li><a href="/jacht-configurator">Jacht</a></li></ul></div>
+<div><h4>Kennisbank</h4><ul><li><a href="/kennisbank">Alle artikelen</a></li><li><a href="/kennisbank-configurator-kosten">Wat kost een configurator?</a></li><li><a href="/configurator-laten-maken">Configurator laten maken</a></li><li><a href="/kennisbank-website-kosten">Wat kost een website?</a></li></ul></div>
+<div><h4>Bedrijf</h4><ul><li><a href="/#cases">Cases</a></li><li><a href="/werkgebied">Werkgebied</a></li><li><a href="/privacyverklaring">Privacyverklaring</a></li><li><a href="/auteursrecht">Auteursrecht</a></li><li><a href="/#contact">Contact</a></li></ul></div>
+</div>
+<div class="ngx-legal"><span>© 2026 Next Growth Digital</span><span>KVK 96002913</span><span>Landelijk actief · Nederland</span></div>
+<p class="ngx-giant" aria-hidden="true">NEXT GROWTH</p></div></footer>
+<script>(function(){var b=document.querySelector('.ngx-menu'),n=document.getElementById('ngx-mnav');if(!b||!n)return;b.addEventListener('click',function(){var o=n.hasAttribute('hidden');if(o)n.removeAttribute('hidden');else n.setAttribute('hidden','');b.setAttribute('aria-expanded',o?'true':'false');b.textContent=o?'Sluiten':'Menu'})})();</script>
+
+    <script>
+  (function(){
+    if(window.__lbInit) return; window.__lbInit=1;
+    function init(){
+      var hero=document.querySelector('.conf__hero'); var img=document.getElementById('confHero');
+      if(!hero||!img){ setTimeout(init,300); return; }
+      hero.style.cursor='zoom-in';
+      var btn=document.createElement('button');
+      btn.type='button'; btn.setAttribute('aria-label','Bekijk afbeelding op volledig scherm');
+      btn.innerHTML='&#x26F6;';
+      btn.style.cssText='position:absolute;top:.8rem;right:.8rem;z-index:3;width:42px;height:42px;border-radius:10px;border:1px solid rgba(255,255,255,.28);background:rgba(0,0,0,.45);backdrop-filter:blur(6px);color:#fff;font-size:1.15rem;cursor:zoom-in;display:flex;align-items:center;justify-content:center;';
+      hero.appendChild(btn);
+      function openLB(){
+        var ov=document.createElement('div');
+        ov.style.cssText='position:fixed;inset:0;z-index:100000;background:rgba(6,6,5,.95);display:flex;align-items:center;justify-content:center;cursor:zoom-out;padding:2vh 2vw;';
+        var big=document.createElement('img');
+        big.src=img.getAttribute('src'); big.alt=img.getAttribute('alt')||'';
+        big.style.cssText='max-width:96vw;max-height:92vh;width:auto;height:auto;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.6);';
+        var x=document.createElement('button'); x.innerHTML='&times;'; x.setAttribute('aria-label','Sluiten');
+        x.style.cssText='position:fixed;top:12px;right:20px;background:none;border:none;color:#fff;font-size:2.4rem;cursor:pointer;line-height:1;z-index:100001;';
+        ov.appendChild(big); ov.appendChild(x); document.body.appendChild(ov);
+        document.body.style.overflow='hidden';
+        function close(){ ov.remove(); document.body.style.overflow=''; document.removeEventListener('keydown',esc); }
+        function esc(e){ if(e.key==='Escape') close(); }
+        ov.addEventListener('click',close); document.addEventListener('keydown',esc);
+      }
+      img.addEventListener('click',openLB);
+      btn.addEventListener('click',function(e){ e.stopPropagation(); openLB(); });
+    }
+    if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+  })();
+  </script>
+  <script src="./assets/meting.js" defer></script>
+  <script src="./assets/terugbel.js" defer></script>
+  <script src="./assets/core.js" defer></script>
+  
+
+<script src="./assets/tegelbeeld.js" defer></script>
+<script src="./assets/tegel.js" defer></script>
+<script src="./assets/aifoto.js" defer></script>
+<script>
+/* De AI-foto voor tegels. Als enige samen met de pvc-configurator een
+   binnenruimte: de bezoeker uploadt zijn badkamer of woonkamer, en alleen het
+   tegelvlak verandert. NGKeuze() wordt door tegel.js gezet. */
+window.addEventListener('DOMContentLoaded', function () {
+  if (!window.NGFoto) return;
+  NGFoto.init({
+    product: 'tegel',
+    scene: 'binnen',
+    kop: 'Zie de tegels in je eigen ruimte',
+    lead: 'Upload een foto van je badkamer, keuken of woonkamer. Alleen de tegels veranderen. Je meubels, wanden en het licht blijven precies zoals ze zijn.',
+    payload: function () {
+      var k = window.NGKeuze && window.NGKeuze();
+      if (!k) return {};
+      return k;
+    }
+  });
+});
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Service","name":"Tegelconfigurator voor tegelzetters: wand en vloer","provider":{"@type":"ProfessionalService","name":"Next Growth","url":"https://nextgrowthdigital.nl/"},"areaServed":{"@type":"Country","name":"Nederland"},"description":"Live demo van een tegelconfigurator die Next Growth bouwt voor tegelzetters: tegels samenstellen in 60x60, 120x60 of 120x120 voor wand en vloer, met live richtprijs inclusief leggen."},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nextgrowthdigital.nl/"},{"@type":"ListItem","position":2,"name":"Configurators","item":"https://nextgrowthdigital.nl/configurators"},{"@type":"ListItem","position":3,"name":"Tegels","item":"https://nextgrowthdigital.nl/tegel-configurator"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Welk tegelformaat is het beste: 60x60, 120x60 of 120x120?","acceptedAnswer":{"@type":"Answer","text":"60&times;60 is de veiligste keuze: makkelijk te leggen, makkelijk te zagen en vergevingsgezind bij een ondergrond die niet perfect vlak is. 120&times;60 halveert het aantal voegen en geeft richting aan de ruimte. 120&times;120 geeft het rustigste beeld, maar vraagt een vlakke ondergrond en een hoger legtarief."}},{"@type":"Question","name":"Kan ik dezelfde tegel op de wand en op de vloer gebruiken?","acceptedAnswer":{"@type":"Answer","text":"Een vloertegel kan bijna altijd ook op de wand, andersom niet: een wandtegel is dunner en niet gemaakt om belopen te worden. Wil je wand en vloer doorlopend in hetzelfde beeld, kies dan een vloertegel voor allebei."}},{"@type":"Question","name":"Hoeveel m2 moet ik bestellen?","acceptedAnswer":{"@type":"Answer","text":"Reken op 5 tot 10 procent extra boven de netto oppervlakte voor zaagverlies. Bij een recht verband en een rechthoekige ruimte is 5 procent genoeg; bij visgraat, een schuine wand of veel hoeken is 10 procent verstandiger. Groot formaat geeft meer zaagverlies dan klein formaat."}},{"@type":"Question","name":"Zijn keramische tegels geschikt voor vloerverwarming?","acceptedAnswer":{"@type":"Answer","text":"Ja, en beter dan hout of PVC: steen geleidt warmte goed, dus je kunt op een lagere aanvoertemperatuur stoken. Groot formaat werkt nog iets gunstiger omdat er minder voegen zijn. De vloer moet wel volvlak gelijmd worden, anders ontstaan holle plekken die bij opwarmen kraken."}},{"@type":"Question","name":"Welke voegkleur moet ik kiezen?","acceptedAnswer":{"@type":"Answer","text":"Een voeg in de kleur van de tegel laat het vlak doorlopen en maakt de ruimte rustiger. Een contrasterende voeg maakt er juist een raster van en benadrukt het formaat. Kies je een groot formaat voor de rust, kies dan ook een voeg die dicht bij de tegelkleur ligt."}},{"@type":"Question","name":"Wat kost het leggen van tegels per m2?","acceptedAnswer":{"@type":"Answer","text":"Dat hangt vooral af van het formaat en het verband. Groot formaat kost meer, omdat de ondergrond vlakker moet zijn en zagen meer tijd kost. In de configurator hierboven rekent het legtarief per keuze mee, zodat je de richtprijs inclusief leggen ziet."}}]}]}</script>
+  
+  <a class="nx-wa" href="https://wa.me/31683902192" target="_blank" rel="noopener" aria-label="Stel je vraag via WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a9.9 9.9 0 0 0-8.5 15L2 22l5.2-1.4A9.9 9.9 0 1 0 12 2zm0 1.7a8.2 8.2 0 1 1-4.2 15.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.7zm-3.1 4.2c-.2 0-.5 0-.7.3-.2.3-.9.9-.9 2.1s.9 2.5 1 2.6c.1.2 1.8 2.8 4.3 3.8 2.1.8 2.6.7 3 .6.5 0 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.4-.2-1.5-.7c-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.5 7.5 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5v-.5L9.5 8.2c-.2-.4-.4-.3-.6-.3z"/></svg></a>
+  <!-- Vercel Analytics (scripts/analytics.py) -->
+  
+  
+</body>
+</html>
