@@ -1,0 +1,85 @@
+{
+  "_lees_dit_eerst": [
+    "Het bestand van één dakopbouwbedrijf: Opbouw in één Week (opbouwineenweek.nl).",
+    "Dit is een demonstratie-opzet, gemaakt vóór het gesprek. Alles is optioneel;",
+    "wat hier niet staat valt terug op onze standaard.",
+    "Te bereiken via dakopbouw-configurator.html?bedrijf=opbouwineenweek",
+    "",
+    "Wat hier NOG NIET klopt en in het gesprek ingevuld moet worden, staat per",
+    "onderdeel bij _openstaand. Liever een leeg veld dan een verzonnen waarde:",
+    "een telefoonnummer of e-mailadres dat wij bedenken is erger dan geen."
+  ],
+
+  "naam": "Opbouw in één Week",
+  "_openstaand_merk": [
+    "kleur — staat nu op een neutrale bouwblauw. Eén hex uit hun huisstijl en",
+    "  de hele configurator kleurt om: knoppen, randen, actieve keuzes, prijsbalk.",
+    "logo — pad naar een PNG/SVG; verschijnt dan links in de kop.",
+    "telefoon en email — bewust leeg gelaten. Zolang ze leeg zijn verdwijnt het",
+    "  telefoonnummer uit de kop en uit de regel onder het formulier, in plaats",
+    "  van dat er een nummer van ons staat."
+  ],
+  "kleur": "#1B4F8A",
+  "logo": null,
+  "telefoon": null,
+  "email": null,
+  "site": "https://www.opbouwineenweek.nl",
+
+  "prijs": {
+    "_uitleg": [
+      "opslag vermenigvuldigt al onze richtbedragen. 1.00 = onze bedragen,",
+      "1.12 = twaalf procent daarboven. Met dat ene getal heeft een bedrijf",
+      "meteen een prijslijst die klopt met zijn eigen marge.",
+      "per overschrijft losse bedragen, met groep:optie als sleutel.",
+      "De sleutels staan één op één in dakopbouw-configurator.html; zie ook",
+      "LEESMIJ.md in deze map voor de lijst met groepen."
+    ],
+    "_openstaand": [
+      "Onze richtprijs staat op € 1.900 per m² casco tot € 2.250 per m² compleet,",
+      "plus € 1.250 transport en kraan en € 3.250 leidingwerk. Dat is",
+      "marktgemiddeld voor prefab dakopbouw en dus niet hún prijs.",
+      "Eén getal in opslag zet de hele lijst goed; wat daarna niet klopt gaat",
+      "per optie in de lijst hieronder. Dit is het enige onderdeel dat écht af",
+      "moet zijn voordat de configurator naar bezoekers gaat."
+    ],
+    "opslag": 1,
+    "per": {}
+  },
+
+  "assortiment": {
+    "_uitleg": [
+      "verberg haalt opties weg die dit bedrijf niet levert.",
+      "hernoem geeft een optie de naam die het bedrijf er zelf aan geeft; de",
+      "waarde eronder blijft dezelfde, dus prijzen, beelden en tekenwerk vallen",
+      "niet om van een andere naam."
+    ],
+    "_voorstel_verberg": [
+      "Nog niets verborgen — wat zij niet leveren weten wij niet, en een optie",
+      "wegnemen die zij wél verkopen kost hen omzet.",
+      "Te bespreken kandidaten, met de reden erbij:",
+      "  material:metselwerk  — steenstrips is nat werk op de steiger en staat",
+      "    op gespannen voet met 'in één week wind- en waterdicht'.",
+      "  roofing:green        — een sedumdak is extra permanente belasting op",
+      "    een prefab element; past dat binnen hun standaard berekening?",
+      "  fundering:trap-bestaand — leveren zij het doortrekken van een",
+      "    bestaande trap, of altijd een nieuwe?"
+    ],
+    "verberg": [],
+    "hernoem": {
+      "finish:casco": "Wind- en waterdicht opgeleverd",
+      "finish:luxe": "Sleutelklaar opgeleverd"
+    }
+  },
+
+  "aanvraag": {
+    "_uitleg": [
+      "Waar de offerteaanvraag heen gaat. endpoint is een koppeling met hun",
+      "eigen CRM of offertesysteem; zonder endpoint valt hij terug op e-mail.",
+      "Beide leeg = de aanvraag komt bij Next Growth binnen. Dat is bewust de",
+      "stand tijdens de demonstratie: dan zien wij de proefaanvragen die zij",
+      "in het gesprek zelf versturen."
+    ],
+    "endpoint": null,
+    "email": null
+  }
+}

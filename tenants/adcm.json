@@ -1,0 +1,264 @@
+{
+  "_lees_dit_eerst": [
+    "Het bestand van één aannemer: ADCM Bouw & Renovatie B.V., Groningen",
+    "(adcmbouwenrenovatiebv.nl). Werkgebied Groningen, Drenthe en Friesland.",
+    "Live op hun site sinds oktober 2026, ingesloten als kader (iframe) op een",
+    "eigen pagina in hun Framer-site. Alles is optioneel; wat hier niet staat",
+    "valt terug op onze standaard.",
+    "Te bereiken via dakopbouw-configurator.html?bedrijf=adcm",
+    "",
+    "Naam, kleuren, letter, logo, telefoon, e-mail en adres zijn overgenomen van",
+    "hun eigen site op 5 oktober 2026. Wat wij niet weten staat per onderdeel",
+    "bij _openstaand en is leeg gelaten in plaats van verzonnen."
+  ],
+
+  "_uitleg_status": [
+    "De configurator staat op onze server; het bedrijf sluit hem alleen in.",
+    "status 'opgeschort' of een verstreken geldig_tot (JJJJ-MM-DD) zet hem uit:",
+    "de bezoeker ziet dan een melding met hun telefoonnummer in plaats van de",
+    "configurator, in hun eigen huisstijl en zonder één woord over facturen.",
+    "Bij betaling de datum een jaar vooruit. Zonder datum verloopt er niets."
+  ],
+  "status": "actief",
+  "geldig_tot": null,
+  "live": true,
+  "prijzen": false,
+  "stapsgewijs": true,
+  "basisFoto": { "src": "./assets/media/dakopbouw/adcm-project-houtlook.webp", "label": "Gerealiseerd project ADCM", "stappen": ["afmetingen", "sloop", "doorgang", "vergunning"] },
+  "vanafPrijs": "Vanaf € 27.500 excl. btw",
+  "achterom": false,
+  "advies": ["roofing", "skylight", "klimaat", "isolatie", "extras"],
+  "maten": { "breedte": 15, "diepte": 12, "hoogte": 4 },
+  "stappen": ["afmetingen", "sloop", "doorgang", "vergunning", "material", "facadeColor", "kozijnindeling", "kozijnAchter", "frameColor", "balustrade", "roofing", "skylight", "indeling", "elektra", "isolatie", "finish", "extras"],
+  "insluiten": ["https://adcmbouwenrenovatiebv.nl", "https://*.adcmbouwenrenovatiebv.nl"],
+
+  "naam": "ADCM Bouw & Renovatie",
+  "kleur": "#EE4E34",
+  "logo": "./assets/media/tenants/adcm-woordmerk-wit.png",
+  "telefoon": "050 234 01 98",
+  "email": "advies@adcmbouwenrenovatiebv.nl",
+  "site": "https://adcmbouwenrenovatiebv.nl",
+
+  "thema": {
+    "_uitleg": [
+      "Hun site is licht: wit en lichtgrijs, diepgroene koppen en voet, één",
+      "oranjerood accent, Inter Tight als kopletter en pilvormige knoppen.",
+      "modus 'licht' zet de hele configurator om; achtergrond, vlak en inkt",
+      "zijn de drie kleuren waaruit de rest wordt afgeleid. kopbalk is de",
+      "balk met het logo bovenaan en de voet onderaan — bij hen diepgroen,",
+      "zodat het witte woordmerk erop past."
+    ],
+    "modus": "licht",
+    "achtergrond": "#FFFFFF",
+    "vlak": "#F5F5F5",
+    "inkt": "#103C3C",
+    "kopbalk": "#103C3C",
+    "font": "Inter",
+    "kopfont": "Inter Tight",
+    "knopvorm": "pil",
+    "knoptekst": "#FFFFFF"
+  },
+
+  "prijs": {
+    "_uitleg": [
+      "opslag vermenigvuldigt al onze richtbedragen. 1.00 = onze bedragen,",
+      "1.12 = twaalf procent daarboven. per overschrijft losse bedragen, met",
+      "groep:optie als sleutel. De sleutels staan in LEESMIJ.md in deze map."
+    ],
+    "_openstaand": [
+      "Hun site noemt een vanafprijs van € 45.000 inclusief materialen,",
+      "voorbereiding en afbouw. Onze richtprijs staat op € 1.900 per m² casco",
+      "tot € 2.250 per m² compleet, plus € 1.250 transport en kraan en € 3.250",
+      "leidingwerk — marktgemiddeld voor prefab, en dus niet hún prijs.",
+      "Eén getal in opslag zet de hele lijst goed; wat daarna niet klopt gaat",
+      "per optie in de lijst hieronder.",
+      "Oktober 2026: ADCM wil zelf de prijs geven, dus prijzen: false bovenaan.",
+      "De bezoeker ziet geen bedrag; deze lijst doet pas mee als dat omgaat."
+    ],
+    "opslag": 1,
+    "per": {}
+  },
+
+  "assortiment": {
+    "_uitleg": [
+      "verberg haalt opties weg die dit bedrijf niet levert.",
+      "hernoem geeft een optie de naam die het bedrijf er zelf aan geeft; de",
+      "waarde eronder blijft dezelfde, dus prijzen, beelden en tekenwerk vallen",
+      "niet om van een andere naam."
+    ],
+    "_voorstel_verberg": [
+      "Nog niets verborgen — wat zij niet leveren weten wij niet, en een optie",
+      "wegnemen die zij wél verkopen kost hen omzet.",
+      "Te bespreken, met de reden erbij:",
+      "  material:metselwerk  — zij bouwen prefab met SIP-panelen (Kingspan TEK);",
+      "    steenstrips kan daarop, maar is nat werk op de steiger. Doen ze dat?",
+      "  roofing:green        — een sedumdak is extra permanente belasting op",
+      "    een SIP-element; past dat binnen hun standaard berekening?",
+      "  fundering:trap-bestaand — leveren zij het doortrekken van een",
+      "    bestaande trap, of altijd een nieuwe?"
+    ],
+    "verberg": ["vorm:l-links", "vorm:l-rechts", "vorm:u-vorm", "fundering:trap-bestaand", "fundering:verzwaring-balklaag", "fundering:lvl-portaal", "extras:dakterras", "extras:dakraam"],
+    "hernoem": {
+      "finish:luxe": "Volledig ontzorgd opgeleverd"
+    }
+  },
+
+  "kozijnMaten": {
+    "_uitleg": "Standaardmaten b × h in cm uit de prijslijst 2026; getoond bij de kozijnkeuzes, in de plattegrond en in de aanvraag.",
+    "voor": {
+      "model01": [{ "l": "Schuifpui 3-delig", "b": 300, "h": 220 }],
+      "model02": [{ "l": "Dubbele openslaande deuren", "b": 180, "h": 220 }],
+      "model03": [{ "l": "Vast raamkozijn", "b": 170, "h": 150 }, { "l": "Raamkozijn", "b": 135, "h": 150 }],
+      "model04": [{ "l": "Draaikiepraam", "b": 120, "h": 100 }, { "l": "Raamkozijn", "b": 135, "h": 150 }]
+    },
+    "achter": {
+      "dicht": [],
+      "raam": [{ "l": "Raamkozijn met ventilatierooster", "b": 100, "h": 170 }],
+      "twee": [{ "l": "Raamkozijn met ventilatierooster", "b": 100, "h": 170 }, { "l": "Raamkozijn met ventilatierooster", "b": 100, "h": 170 }],
+      "model01": [{ "l": "Schuifpui 3-delig", "b": 300, "h": 220 }],
+      "model02": [{ "l": "Dubbele openslaande deuren", "b": 180, "h": 220 }]
+    }
+  },
+  "calculatie": {
+    "_uitleg": [
+      "Interne calculatie voor ADCM (prijslijst 2026, voorlopige bedragen, excl. btw).",
+      "De klant ziet deze bedragen niet: ze gaan alleen mee in de aanvraag aan ADCM.",
+      "Een bedrag als [min, max] is een bandbreedte uit de prijslijst."
+    ],
+    "basis": { "prijs": 27500, "m2": 9, "perExtraM2": 1350, "omschrijving": "Basis 3×3 m (9 m²), h 2,60: steenstrips, open ruimte, trapgat, 2× standaard raamkozijn voorgevel, wind- en waterdicht, bitumen, 1 schakelaar + 1 lichtpunt" },
+    "kozijnVoor": { "model01": 3950, "model02": 2650, "model03": 0, "model04": 0 },
+    "kozijnAchter": { "dicht": 0, "raam": 950, "twee": 1900, "model01": 3950, "model02": 2650 },
+    "balustradePerM": { "glas": 480, "spijlen": 305, "dicht": 400 },
+    "trap": { "trap-nieuw": 4100, "trap-bestaand": 4100 },
+    "zonweringPerStuk": { "screens": [450, 850], "rolluiken": [500, 950] },
+    "dakPerM2": { "epdm": 0, "bitumen": [15, 30], "white-roofing": [20, 35], "green": [60, 100] },
+    "lichtstraat": { "none": 0, "glasplaat-200": 1250, "glasplaat-300": 1650, "glasplaat-400": 2050, "vakverdeling-200": 1450, "vakverdeling-300": 1900, "vakverdeling-400": 2350 },
+    "gevelPerM2": { "metselwerk": 195, "keralit": 140, "houtcomposiet": 215, "stucwerk": 250 },
+    "gevelInbegrepenPerM2": 195,
+    "wandPerM2": 275,
+    "doorgang": { "hout": 1500, "beton": 5505 },
+    "vergunning": { "vergunning": 4000, "haalbaarheid": 400 },
+    "sloopPerM2": { "dakbedekking": 61, "grind": 90 },
+    "stucBinnenPerM2": 35,
+    "binnendeur": 375,
+    "badkamer": 14000,
+    "toilet": 6000,
+    "overstek": 900,
+    "elektra": { "spot": 80, "lamp": 209, "wcd": 165 },
+    "elektraInbegrepen": { "lamp": 1 }
+  },
+  "aanvraag": {
+    "_uitleg": [
+      "Waar de offerteaanvraag heen gaat. email krijgt de aanvraag via",
+      "FormSubmit; Next Growth krijgt altijd een kopie via Web3Forms, wat hier",
+      "ook staat. endpoint is later een koppeling met hun eigen CRM.",
+      "FormSubmit stuurt bij de eerste aanvraag naar een nieuw adres één",
+      "bevestigingsmail; tot iemand bij ADCM daarop klikt komen hun aanvragen",
+      "alleen via onze kopie binnen. Doe dus zelf de eerste proefaanvraag."
+    ],
+    "endpoint": null,
+    "email": "advies@adcmbouwenrenovatiebv.nl"
+  },
+  "offerte": {
+    "_uitleg": [
+      "Teksten van de offerte (offerte-dakopbouw.html), overgenomen uit hun eigen",
+      "offerte 20260024. De regels en bedragen komen uit calculatie hierboven."
+    ],
+    "bedrijf": "ADCM bouw en renovatie B.V",
+    "adres": "Stalstraat 64",
+    "postcode": "9712ES Groningen",
+    "plaats": "Groningen",
+    "geldigDagen": 30,
+    "voet": "Gespecialiseerd in complete verbouwingen zonder zorgen",
+    "webadres": "adcmbouwenrenovatiebv.nl",
+    "tagline": "Bouwen met vertrouwen",
+    "kop": "Een concreet plan voor jouw droomverbouwing",
+    "intro": "Wij bouwen niet zomaar wat je vraagt. We denken mee, adviseren en maken het concreet met ontwerp, 3D-visuals en een helder plan — zodat je precies weet waar je aan toe bent.",
+    "usps": [
+      "Vast eigen team",
+      "Groningen · Drenthe · Friesland",
+      "A-merken & duurzame materialen",
+      "Heldere afspraken, geen verrassingen"
+    ],
+    "stappen": [
+      [
+        "Kennismaking & advies",
+        "We luisteren naar jouw wensen en situatie en geven meteen praktisch advies dat past bij jouw woning."
+      ],
+      [
+        "3D-ontwerp & offerte",
+        "Je krijgt een duidelijk ontwerp met visuals en een vrijblijvende offerte, zonder kleine lettertjes."
+      ],
+      [
+        "Uitvoering",
+        "Ons eigen vaste team coördineert de hele uitvoering, met korte lijnen en concrete planning."
+      ],
+      [
+        "Oplevering & nazorg",
+        "Netjes en vlot opgeleverd, met garantie en nazorg zodat jij zorgeloos kunt genieten."
+      ]
+    ],
+    "diensten": [
+      [
+        "Aanbouw",
+        "Woonruimte uitbreiden met een aanbouw op maat, van ontwerp tot oplevering."
+      ],
+      [
+        "Dakopbouw",
+        "Een extra verdieping voor slaapkamer, werkruimte of badkamer."
+      ],
+      [
+        "Dakkapel",
+        "Prefab of maatwerk dakkapel voor meer licht en ruimte op zolder."
+      ],
+      [
+        "Tuinkantoor",
+        "Een vrijstaande werkplek of studio, volledig verzorgd in de tuin."
+      ],
+      [
+        "Badkamerrenovatie",
+        "Van sloop tot afwerking, een badkamer die precies past bij jouw wensen."
+      ],
+      [
+        "(Totaal)renovatie",
+        "Complete woningrenovatie van A tot Z, met één vast team."
+      ]
+    ],
+    "over": [
+      "ADCM Bouw & Renovatie is actief in Groningen, Drenthe en Friesland en helpt woningeigenaren van eerste idee tot oplevering, zonder gedoe. Geen losse aannemers of vage offertes, maar één vast team dat helder communiceert en met aandacht voor detail werkt.",
+      "We stellen kritische vragen, denken vooruit en maken plannen tastbaar met ontwerp, 3D-visuals en een concrete planning — zodat je vooraf precies weet wat je krijgt en wat het kost."
+    ],
+    "citaat": "Wij bouwen niet zomaar wat je vraagt — we denken mee, adviseren en maken het concreet.",
+    "cijfers": [
+      [
+        "2020",
+        "Opgericht"
+      ],
+      [
+        "3",
+        "Provincies actief"
+      ],
+      [
+        "5★",
+        "Beoordeeld"
+      ],
+      [
+        "1",
+        "Vast eigen team"
+      ]
+    ],
+    "reviews": [
+      [
+        "Ontzettend tevreden over de badkamerrenovatie: efficiënt ruimtegebruik, altijd goed bereikbaar en de afwerking is heel netjes.",
+        "Camille de Vroome"
+      ],
+      [
+        "Het proces van aanvraag tot oplevering van onze aanbouw verliep soepel. Dankzij hun vakkennis en creativiteit hebben we de stap durven zetten.",
+        "Fam. van der Veen"
+      ]
+    ],
+    "slotKop": "Klaar om jouw woondromen waar te maken?",
+    "slotTekst": "Laat je gegevens achter en ontvang vrijblijvend advies afgestemd op jouw situatie. We nemen binnen 2 werkdagen contact met je op.",
+    "social": "facebook.com/adcmbouwenrenovatie · instagram.com/adcmbouwenrenovatiebv"
+  }
+}

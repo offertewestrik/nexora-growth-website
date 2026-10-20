@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<title>Badkamer 3D — referentiescènes</title>
+<meta name="robots" content="noindex,nofollow">
+<style>
+  body { margin: 0; background: #14161a; color: #e8e6e2;
+         font: 14px/1.5 system-ui, sans-serif; }
+  #doek { width: 1280px; height: 720px; }
+  #doek canvas { display: block; }
+  .balk { padding: 8px 12px; font-family: ui-monospace, monospace; font-size: 12px; }
+</style>
+</head>
+<body>
+<div id="doek"></div>
+<div class="balk" id="stand">—</div>
+
+<script src="../assets/tegelbeeld.js"></script>
+<script type="importmap">
+{ "imports": { "three": "./vendor/three.module.js", "three/addons/": "./vendor/addons/" } }
+</script>
+<script type="module">
+import { Bad3D } from './bad3d.js';
+
+/* Zes vaste kamers en zes vaste camerastanden. Altijd dezelfde, zodat een
+   verbetering aan het beeld te vergelijken valt in plaats van te beweren.
+   Verandert er hier iets, dan is de hele nulmeting waardeloos — dus deze
+   opstelling verandert alleen bewust en nooit terloops. */
+
+const tegel = (b, h, kleur, voeg, sprong = .5, glans = .10) => ({
+  tw: b / 100, th: h / 100, g: 0.003, sprong: sprong,
+  visgraat: false, hongaars: false, kleur: kleur,
+  lk: { korrel: 4, ader: 0, nerf: 0, spikkel: 0 },
+  af: { v: 'mat', glans: glans },
+  tn: {}, voegRGB: voeg
+});
+
+const WIT = [206, 202, 196], DONKER = [92, 92, 95];
+
+export const SCENES = {
+  'wc': {
+    naam: 'Klein toilet 1,1 × 1,9 m',
+    maat: { B: 1.1, D: 1.9, Hg: 2.6 },
+    vloer: tegel(60, 60, '#cfcac2', WIT),
+    wand: tegel(30, 60, '#eeebe5', WIT),
+    inr: { toilet: 'links', toiletsoort: 'wand', bediening: 'wit',
+           wastafelsoort: 'geen', douche: 'geen', bad: 'geen',
+           kraankleur: 'chroom', radiator: 'geen' }
+  },
+  'compact': {
+    naam: 'Compacte badkamer 1,8 × 2,4 m',
+    maat: { B: 1.8, D: 2.4, Hg: 2.6 },
+    vloer: tegel(60, 60, '#c6bdb0', WIT),
+    wand: tegel(30, 60, '#f2f1ed', WIT),
+    inr: { toilet: 'links', toiletsoort: 'wand', bediening: 'wit',
+           wastafel: 'rechts', wastafelsoort: 'enkel', meubelkleur: 'eiken',
+           douche: 'rechts', douchevloer: 'tegel', afvoer: 'wand', regendouche: true,
+           bad: 'geen', kraankleur: 'chroom', radiator: 'handdoek' }
+  },
+  'gemiddeld': {
+    naam: 'Gemiddelde badkamer 2,4 × 3,0 m',
+    maat: { B: 2.4, D: 3.0, Hg: 2.6 },
+    vloer: tegel(60, 120, '#cfcdc8', WIT, 0),
+    wand: tegel(30, 60, '#eeebe5', WIT),
+    inr: { toilet: 'links', toiletsoort: 'wand', bediening: 'wit',
+           wastafel: 'rechts', wastafelsoort: 'enkel', meubelkleur: 'eiken',
+           douche: 'links', douchevloer: 'tegel', afvoer: 'wand', regendouche: true,
+           bad: 'geen', kraankleur: 'chroom', radiator: 'handdoek' }
+  },
+  'luxe': {
+    naam: 'Luxe badkamer 3,6 × 4,4 m',
+    maat: { B: 3.6, D: 4.4, Hg: 2.7 },
+    vloer: tegel(120, 120, '#d7c8ae', [186, 176, 158], 0, .16),
+    wand: tegel(60, 120, '#f1eee8', [214, 210, 202], 0, .14),
+    inr: { toilet: 'rechts', toiletsoort: 'randloos', bediening: 'zwart',
+           wastafel: 'links', wastafelsoort: 'dubbel', meubelkleur: 'noten',
+           douche: 'rechts', douchevloer: 'tegel', afvoer: 'midden', regendouche: true,
+           bad: 'vrij', badkraan: 'vloer', kraankleur: 'matzwart', radiator: 'handdoek' }
+  },
+  'inloop': {
+    naam: 'Inloopdouche zonder bad 2,2 × 3,4 m',
+    maat: { B: 2.2, D: 3.4, Hg: 2.6 },
+    vloer: tegel(60, 60, '#4a4b4e', DONKER, .5, .14),
+    wand: tegel(7.5, 15, '#f2f1ed', WIT),
+    inr: { toilet: 'rechts', toiletsoort: 'wand', bediening: 'zwart',
+           wastafel: 'links', wastafelsoort: 'enkel', meubelkleur: 'antraciet',
+           douche: 'links', douchevloer: 'tegel', afvoer: 'wand', regendouche: true,
+           bad: 'geen', kraankleur: 'matzwart', radiator: 'handdoek' }
+  },
+  'vrijstaand': {
+    naam: 'Badkamer met vrijstaand bad 3,0 × 4,0 m',
+    maat: { B: 3.0, D: 4.0, Hg: 2.6 },
+    vloer: tegel(60, 60, '#e6e3dc', WIT, 0),
+    wand: tegel(30, 60, '#f2f1ed', WIT),
+    inr: { toilet: 'rechts', toiletsoort: 'wand', bediening: 'wit',
+           wastafel: 'links', wastafelsoort: 'enkel', meubelkleur: 'eiken',
+           douche: 'links', douchevloer: 'tegel', afvoer: 'wand', regendouche: true,
+           bad: 'vrij', badkraan: 'vloer', kraankleur: 'chroom', radiator: 'handdoek' }
+  }
+};
+
+export const STANDEN = ['overzicht', 'deur', 'hoek', 'boven', 'wastafel', 'natcel'];
+
+Bad3D.init(document.getElementById('doek'));
+
+window.__ref = {
+  scenes: SCENES, standen: STANDEN,
+  zet: async (sleutel) => {
+    const s = SCENES[sleutel];
+    /* Dezelfde artikelkoppeling als de configurator zelf. Zonder dit meet de
+       nulmeting de getekende vormen en niet wat een bezoeker te zien krijgt,
+       en dan vergelijk je straks twee dingen die geen van beide het product
+       zijn. */
+    const br = s.inr.wastafelsoort === 'dubbel' ? 120 : 80;
+    const KAST = { 60: 'BTH-0032', 80: 'BTH-0033', 100: 'BTH-0034', 120: 'BTH-0035' };
+    const KOM = { 60: 'BTH-0016', 80: 'BTH-0017', 100: 'BTH-0018', 120: 'BTH-0019' };
+    const POT = { wand: 'BTH-0066', randloos: 'BTH-0067' };
+    if (s.inr.wastafelsoort && s.inr.wastafelsoort !== 'geen') {
+      Bad3D.koppel('wastafel', [KAST[br], KOM[br], 'BTH-0052']);
+    } else Bad3D.ontkoppel('wastafel');
+    if (s.inr.toiletsoort && s.inr.toiletsoort !== 'geen') {
+      Bad3D.koppel('toilet', ['BTH-0073', POT[s.inr.toiletsoort] || POT.wand,
+                              s.inr.bediening === 'zwart' ? 'BTH-0074' : 'BTH-0076']);
+    } else Bad3D.ontkoppel('toilet');
+    Bad3D.update({ maat: s.maat, vloer: s.vloer, wand: s.wand, inrichting: s.inr });
+    document.getElementById('stand').textContent = s.naam;
+    return s.naam;
+  },
+  kijk: (stand) => Bad3D.stand2(stand),
+  klaar: () => !Bad3D.stand().vlucht,
+  beeld: () => document.querySelector('#doek canvas').toDataURL('image/png'),
+  diag: () => Bad3D.diag()
+};
+</script>
+</body>
+</html>

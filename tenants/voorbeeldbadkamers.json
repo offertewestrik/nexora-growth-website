@@ -1,0 +1,53 @@
+{
+  "_lees_dit_eerst": [
+    "Dit is het bestand van één badkamerzaak. Alles is optioneel: wat hier niet",
+    "staat, valt terug op de standaard. Zo kan een bedrijf beginnen met alleen",
+    "een naam en een opslagfactor, en de rest later aanvullen.",
+    "Te bereiken via badkamer-configurator.html?bedrijf=voorbeeldbadkamers"
+  ],
+
+  "naam": "Voorbeeld Badkamers",
+  "kleur": "#2E6F73",
+  "telefoon": "+31 6 12 34 56 78",
+  "email": "offerte@voorbeeldbadkamers.nl",
+  "site": "https://www.voorbeeldbadkamers.nl",
+
+  "prijs": {
+    "_uitleg": [
+      "basisM2 is het tegelwerk per m2 vloer, inclusief arbeid.",
+      "opslag vermenigvuldigt alle overige richtbedragen: 1.15 is vijftien",
+      "procent boven de markt. Wie daarmee begint heeft in één getal een",
+      "prijslijst die klopt met zijn eigen marge.",
+      "per overschrijft losse opties, met groep:optie als sleutel."
+    ],
+    "basisM2": 695,
+    "opslag": 1.12,
+    "per": {
+      "toiletsoort:douchewc": 3950,
+      "wastafelsoort:dubbel": 2450,
+      "badsoort:vrijstaand": 2190
+    }
+  },
+
+  "assortiment": {
+    "_uitleg": [
+      "verberg haalt opties weg die dit bedrijf niet levert.",
+      "hernoem geeft een optie de naam van de eigen serie."
+    ],
+    "verberg": [
+      "kleur:terrazzo",
+      "formaat:mozaiek",
+      "toiletsoort:staand"
+    ],
+    "hernoem": {
+      "kleur:calacatta": "Calacatta Oro (huisserie)",
+      "kleur:nero": "Nero Marquina (huisserie)"
+    }
+  },
+
+  "aanvraag": {
+    "_uitleg": "Waar de offerteaanvraag heen gaat. Zonder endpoint valt hij terug op e-mail.",
+    "endpoint": null,
+    "email": "offerte@voorbeeldbadkamers.nl"
+  }
+}

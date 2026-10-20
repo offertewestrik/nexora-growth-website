@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<title>Badkamer 3D — proefopstelling</title>
+<meta name="robots" content="noindex,nofollow">
+<style>
+  body { margin: 0; font: 15px/1.5 system-ui, sans-serif; background: #14161a; color: #e8e6e2; }
+  #doek { width: 100vw; height: 72vh; }
+  #doek canvas { display: block; }
+  .balk { padding: 10px 14px; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  button, select { font: inherit; padding: 6px 12px; border-radius: 6px; border: 1px solid #444;
+                   background: #23262b; color: #e8e6e2; cursor: pointer; }
+  label { display: flex; gap: 6px; align-items: center; font-size: 13px; }
+</style>
+</head>
+<body>
+<div id="doek"></div>
+<div class="balk">
+  <button id="v_over">Overzicht</button>
+  <button id="v_in">In de ruimte</button>
+  <button id="v_boven">Van boven</button>
+  <label>Breedte <input id="mb" type="range" min="1.7" max="4.2" step="0.1" value="2.4"><b id="mbv">2,4</b></label>
+  <label>Lengte <input id="md" type="range" min="2.0" max="5.6" step="0.1" value="3.0"><b id="mdv">3,0</b></label>
+  <label>Douche <select id="dk"><option value="links">links</option><option value="rechts">rechts</option><option value="geen">geen</option></select></label>
+  <label>Bad <select id="bd"><option value="geen">geen</option><option value="vrij">vrijstaand</option><option value="ombouw">ombouw</option></select></label>
+  <label>Toiletwand <select id="tw"><option value="">automatisch</option><option value="achter">achter</option><option value="links">links</option><option value="rechts">rechts</option><option value="voor">voor</option></select></label>
+  <span id="melding"></span>
+</div>
+
+<script src="../assets/tegelbeeld.js"></script>
+<script type="importmap">
+{ "imports": { "three": "./vendor/three.module.js", "three/addons/": "./vendor/addons/" } }
+</script>
+<script type="module">
+import { Bad3D } from './bad3d.js';
+
+const tegel = (b, h, kleur) => ({
+  tw: b / 100, th: h / 100, g: 0.003, sprong: .5,
+  visgraat: false, hongaars: false, kleur,
+  lk: { korrel: .3, ader: 0, nerf: 0, spikkel: 0 },
+  af: { v: 'mat', glans: .10 },
+  tn: { a: undefined, a2: undefined, s: undefined },
+  voegRGB: [206, 202, 196]
+});
+
+Bad3D.init(document.getElementById('doek'));
+
+const S = () => ({
+  maat: { B: +mb.value, D: +md.value, Hg: 2.6 },
+  vloer: tegel(60, 60, '#cfcac2'),
+  wand:  tegel(60, 30, '#eeebe5'),
+  inrichting: {
+    toilet: 'links', toiletsoort: 'wand', reservoir: 'half', bediening: 'wit',
+    wastafel: 'rechts', wastafelsoort: 'enkel', meubelkleur: 'eiken',
+    komsoort: 'verzonken', wastafelkraan: 'standaard', kraankleur: 'chroom',
+    spiegelsoort: 'vlak',
+    douche: dk.value, douchevloer: 'tegel', afvoer: 'wand', regendouche: true,
+    bad: bd.value, badkraan: 'rand', radiator: 'handdoek',
+    plek: tw.value ? { toilet: { wand: tw.value, l: null } } : {}
+  }
+});
+
+function teken() {
+  mbv.textContent = (+mb.value).toFixed(1).replace('.', ',');
+  mdv.textContent = (+md.value).toFixed(1).replace('.', ',');
+  Bad3D.update(S());
+}
+['mb','md','dk','bd','tw'].forEach(id =>
+  document.getElementById(id).addEventListener('input', teken));
+
+v_over.onclick = () => Bad3D.overzicht();
+v_in.onclick   = () => Bad3D.inDeRuimte();
+v_boven.onclick= () => Bad3D.boven();
+
+Bad3D.onGeplaatst = (sleutel, wand, l) => {
+  melding.textContent = sleutel + ' → ' + wand + ' op ' + l.toFixed(2) + ' m';
+};
+Bad3D.onGekozen = (sleutel) => { melding.textContent = sleutel + ' aangeklikt'; };
+
+teken();
+window.__teken = teken;
+</script>
+</body>
+</html>

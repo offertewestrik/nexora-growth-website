@@ -128,30 +128,30 @@ Heel Nederland, op locatie en op afstand. Regiopagina's voor Nijmegen, Arnhem, D
 - [Een zwembad in de tuin: wat komt erbij kijken?](https://nextgrowthdigital.nl/kennisbank-zwembad-aanleg): Een zwembad laten aanleggen: de vergunningvraag, het grondwerk, welk type bad bij welke tuin past, de techniek en de warmtepomp, het onderhoud per week en wat er in de winter gebeurt.
 
 ## Configurators (live demo)
-- https://nextgrowthdigital.nl/aanbouw-configurator.html
-- https://nextgrowthdigital.nl/badkamer-configurator.html
-- https://nextgrowthdigital.nl/dakkapel-configurator.html
-- https://nextgrowthdigital.nl/dakopbouw-configurator.html
-- https://nextgrowthdigital.nl/dakrenovatie-configurator.html
-- https://nextgrowthdigital.nl/demos-en.html
-- https://nextgrowthdigital.nl/draagbalk-berekenen.html
-- https://nextgrowthdigital.nl/gevelrenovatie-configurator.html
-- https://nextgrowthdigital.nl/jacht-configurator.html
-- https://nextgrowthdigital.nl/kunstgras-configurator.html
-- https://nextgrowthdigital.nl/nokverhoging-configurator.html
-- https://nextgrowthdigital.nl/overkapping-configurator.html
-- https://nextgrowthdigital.nl/pool-configurator-en.html
-- https://nextgrowthdigital.nl/poolhouse-configurator.html
-- https://nextgrowthdigital.nl/poolhouse-configurator-en.html
-- https://nextgrowthdigital.nl/poolstudio.html
-- https://nextgrowthdigital.nl/poolstudio-studio-en.html
-- https://nextgrowthdigital.nl/pvc-configurator.html
-- https://nextgrowthdigital.nl/tegel-configurator.html
-- https://nextgrowthdigital.nl/tegelvloer-configurator.html
-- https://nextgrowthdigital.nl/verbouwkosten-calculator.html
-- https://nextgrowthdigital.nl/yacht-configurator.html
-- https://nextgrowthdigital.nl/yacht-konfigurator.html
-- https://nextgrowthdigital.nl/zwembad-configurator.html
+- https://nextgrowthdigital.nl/aanbouw-configurator
+- https://nextgrowthdigital.nl/badkamer-configurator
+- https://nextgrowthdigital.nl/dakkapel-configurator
+- https://nextgrowthdigital.nl/dakopbouw-configurator
+- https://nextgrowthdigital.nl/dakrenovatie-configurator
+- https://nextgrowthdigital.nl/demos-en
+- https://nextgrowthdigital.nl/draagbalk-berekenen
+- https://nextgrowthdigital.nl/gevelrenovatie-configurator
+- https://nextgrowthdigital.nl/jacht-configurator
+- https://nextgrowthdigital.nl/kunstgras-configurator
+- https://nextgrowthdigital.nl/nokverhoging-configurator
+- https://nextgrowthdigital.nl/overkapping-configurator
+- https://nextgrowthdigital.nl/pool-configurator-en
+- https://nextgrowthdigital.nl/poolhouse-configurator
+- https://nextgrowthdigital.nl/poolhouse-configurator-en
+- https://nextgrowthdigital.nl/poolstudio
+- https://nextgrowthdigital.nl/poolstudio-studio-en
+- https://nextgrowthdigital.nl/pvc-configurator
+- https://nextgrowthdigital.nl/tegel-configurator
+- https://nextgrowthdigital.nl/tegelvloer-configurator
+- https://nextgrowthdigital.nl/verbouwkosten-calculator
+- https://nextgrowthdigital.nl/yacht-configurator
+- https://nextgrowthdigital.nl/yacht-konfigurator
+- https://nextgrowthdigital.nl/zwembad-configurator
 
 ## Overige pagina's
 - [Auteursrecht en gebruik: Next Growth](https://nextgrowthdigital.nl/auteursrecht)
