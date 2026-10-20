@@ -1,0 +1,757 @@
+{
+  "notes": "Padelverlichting heeft aparte binnen- en buitenbeelden. Hoofdbeelden volgen de volledige hoofdvariant, afhankelijk van de andere keuzes. Geen verlichting toont de hoofdscène zonder aparte lichtimpressie. Maten en aantallen staan in het optieplan.",
+  "choices": [
+    {
+      "application": "tuin",
+      "group": "toepassing",
+      "option": "tuin",
+      "label": "Tuin",
+      "visual": "tuin-medium-natuurlijk",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "tuin",
+      "group": "toepassing",
+      "option": "padel",
+      "label": "Padel / sport",
+      "visual": "padel-blauw-buiten-standaard",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "tuin",
+      "group": "toepassing",
+      "option": "voetbal",
+      "label": "Voetbalveld",
+      "visual": "voetbal-panna",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "tuin",
+      "group": "opp",
+      "option": "10",
+      "label": "10 m²",
+      "visual": "maatplan / tuin-medium-natuurlijk",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "tuin",
+      "group": "opp",
+      "option": "25",
+      "label": "25 m²",
+      "visual": "maatplan / tuin-medium-natuurlijk",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "tuin",
+      "group": "opp",
+      "option": "50",
+      "label": "50 m²",
+      "visual": "maatplan / tuin-medium-natuurlijk",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "tuin",
+      "group": "opp",
+      "option": "75",
+      "label": "75 m²",
+      "visual": "maatplan / tuin-medium-natuurlijk",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "tuin",
+      "group": "opp",
+      "option": "100",
+      "label": "100 m²",
+      "visual": "maatplan / tuin-medium-natuurlijk",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "tuin",
+      "group": "opp",
+      "option": "mw",
+      "label": "Maatwerk",
+      "visual": "maatplan / tuin-medium-natuurlijk",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "tuin",
+      "group": "tuintype",
+      "option": "standaard",
+      "label": "Standaard tuin",
+      "visual": "tuin-medium-natuurlijk",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "tuin",
+      "group": "tuintype",
+      "option": "luxe",
+      "label": "Grote luxe tuin",
+      "visual": "luxe-medium-natuurlijk",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "tuin",
+      "group": "kwaliteit",
+      "option": "java",
+      "label": "Java · 30mm",
+      "visual": "tuin-pool-kort",
+      "kind": "detail"
+    },
+    {
+      "application": "tuin",
+      "group": "kwaliteit",
+      "option": "dubai",
+      "label": "Dubai · 40mm",
+      "visual": "detail",
+      "kind": "detail"
+    },
+    {
+      "application": "tuin",
+      "group": "kwaliteit",
+      "option": "ibiza",
+      "label": "Ibiza · 45mm",
+      "visual": "detail",
+      "kind": "detail"
+    },
+    {
+      "application": "tuin",
+      "group": "kwaliteit",
+      "option": "bali",
+      "label": "Bali · 50mm",
+      "visual": "tuin-pool-lang",
+      "kind": "detail"
+    },
+    {
+      "application": "tuin",
+      "group": "kwaliteit",
+      "option": "dubaixl",
+      "label": "Dubai XL · 50mm",
+      "visual": "tuin-pool-lang",
+      "kind": "detail"
+    },
+    {
+      "application": "tuin",
+      "group": "kleur",
+      "option": "natuurlijk",
+      "label": "Natuurlijk groen",
+      "visual": "tuin-medium-natuurlijk",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "tuin",
+      "group": "kleur",
+      "option": "lentegroen",
+      "label": "Lentegroen",
+      "visual": "tuin-medium-lentegroen",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "tuin",
+      "group": "kleur",
+      "option": "olijf",
+      "label": "Olijf / tweekleurig",
+      "visual": "tuin-medium-olijf",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "tuin",
+      "group": "extra",
+      "option": "onderlaag",
+      "label": "Stabilisatie-onderlaag",
+      "visual": "tuin-onderlaag",
+      "kind": "detail"
+    },
+    {
+      "application": "tuin",
+      "group": "extra",
+      "option": "kantopsluiting",
+      "label": "Kantopsluiting",
+      "visual": "tuin-kantopsluiting",
+      "kind": "detail"
+    },
+    {
+      "application": "tuin",
+      "group": "extra",
+      "option": "zand",
+      "label": "Instrooizand",
+      "visual": "tuin-zand",
+      "kind": "detail"
+    },
+    {
+      "application": "tuin",
+      "group": "extra",
+      "option": "afvoer",
+      "label": "Afvoer oude situatie",
+      "visual": "tuin-afvoer",
+      "kind": "detail"
+    },
+    {
+      "application": "padel",
+      "group": "toepassing",
+      "option": "tuin",
+      "label": "Tuin",
+      "visual": "tuin-medium-natuurlijk",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "padel",
+      "group": "toepassing",
+      "option": "padel",
+      "label": "Padel / sport",
+      "visual": "padel-blauw-buiten-standaard",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "padel",
+      "group": "toepassing",
+      "option": "voetbal",
+      "label": "Voetbalveld",
+      "visual": "voetbal-panna",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "padel",
+      "group": "banen",
+      "option": "1",
+      "label": "1 baan",
+      "visual": "maatplan / padel-blauw-buiten-standaard",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "padel",
+      "group": "banen",
+      "option": "2",
+      "label": "2 banen",
+      "visual": "maatplan / padel-blauw-buiten-standaard",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "padel",
+      "group": "banen",
+      "option": "3",
+      "label": "3 banen",
+      "visual": "maatplan / padel-blauw-buiten-standaard",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "padel",
+      "group": "banen",
+      "option": "4",
+      "label": "4 banen",
+      "visual": "maatplan / padel-blauw-buiten-standaard",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "padel",
+      "group": "locatie",
+      "option": "buiten",
+      "label": "Buitenbaan",
+      "visual": "padel-blauw-buiten-standaard",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "padel",
+      "group": "locatie",
+      "option": "binnen",
+      "label": "Binnen (hal)",
+      "visual": "padel-blauw-binnen-standaard",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "padel",
+      "group": "uitvoering",
+      "option": "standaard",
+      "label": "Standaard kooi",
+      "visual": "padel-blauw-buiten-standaard",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "padel",
+      "group": "uitvoering",
+      "option": "panorama",
+      "label": "Panorama (glas)",
+      "visual": "padel-blauw-buiten-panorama",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "padel",
+      "group": "baankleur",
+      "option": "blauw",
+      "label": "Blauw",
+      "visual": "padel-blauw-buiten-standaard",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "padel",
+      "group": "baankleur",
+      "option": "groen",
+      "label": "Groen",
+      "visual": "padel-groen-buiten-standaard",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "padel",
+      "group": "baankleur",
+      "option": "terracotta",
+      "label": "Terracotta",
+      "visual": "padel-terracotta-buiten-standaard",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "padel",
+      "group": "baankleur",
+      "option": "zwart",
+      "label": "Zwart",
+      "visual": "padel-zwart-buiten-standaard",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "padel",
+      "group": "framekleur",
+      "option": "antraciet",
+      "label": "Antraciet",
+      "visual": "padel-frame-antraciet",
+      "kind": "detail"
+    },
+    {
+      "application": "padel",
+      "group": "framekleur",
+      "option": "zwart",
+      "label": "Zwart",
+      "visual": "padel-frame-zwart",
+      "kind": "detail"
+    },
+    {
+      "application": "padel",
+      "group": "framekleur",
+      "option": "groen",
+      "label": "Groen",
+      "visual": "padel-frame-groen",
+      "kind": "detail"
+    },
+    {
+      "application": "padel",
+      "group": "framekleur",
+      "option": "wit",
+      "label": "Wit",
+      "visual": "padel-frame-wit",
+      "kind": "detail"
+    },
+    {
+      "application": "padel",
+      "group": "verlichting",
+      "option": "geen",
+      "label": "Geen",
+      "visual": "padel-blauw-buiten-standaard",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "padel",
+      "group": "verlichting",
+      "option": "led4",
+      "label": "4 LED-masten",
+      "visual": "padel-led4-buiten",
+      "kind": "detail"
+    },
+    {
+      "application": "padel",
+      "group": "verlichting",
+      "option": "led8",
+      "label": "8 LED-masten",
+      "visual": "padel-led8-buiten",
+      "kind": "detail"
+    },
+    {
+      "application": "padel",
+      "group": "net",
+      "option": "standaard",
+      "label": "Standaard",
+      "visual": "padel-net-standaard",
+      "kind": "detail"
+    },
+    {
+      "application": "padel",
+      "group": "net",
+      "option": "wedstrijd",
+      "label": "Wedstrijd",
+      "visual": "padel-net-wedstrijd",
+      "kind": "detail"
+    },
+    {
+      "application": "padel",
+      "group": "fundering",
+      "option": "beton",
+      "label": "Betonplaat",
+      "visual": "padel-fundering-beton",
+      "kind": "detail"
+    },
+    {
+      "application": "padel",
+      "group": "fundering",
+      "option": "asfalt",
+      "label": "Asfalt",
+      "visual": "padel-fundering-asfalt",
+      "kind": "detail"
+    },
+    {
+      "application": "padel",
+      "group": "fundering",
+      "option": "bestaand",
+      "label": "Bestaande ondergrond",
+      "visual": "padel-fundering-bestaand",
+      "kind": "detail"
+    },
+    {
+      "application": "padel",
+      "group": "extra",
+      "option": "scorebord",
+      "label": "Scorebord",
+      "visual": "padel-scorebord",
+      "kind": "detail"
+    },
+    {
+      "application": "padel",
+      "group": "extra",
+      "option": "bankjes",
+      "label": "Spelersbankjes",
+      "visual": "padel-bankjes",
+      "kind": "detail"
+    },
+    {
+      "application": "padel",
+      "group": "extra",
+      "option": "ballenmand",
+      "label": "Ballenmand & net-set",
+      "visual": "padel-ballenmand",
+      "kind": "detail"
+    },
+    {
+      "application": "padel",
+      "group": "extra",
+      "option": "reclame",
+      "label": "Reclamedoeken",
+      "visual": "padel-reclame",
+      "kind": "detail"
+    },
+    {
+      "application": "voetbal",
+      "group": "toepassing",
+      "option": "tuin",
+      "label": "Tuin",
+      "visual": "tuin-medium-natuurlijk",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "voetbal",
+      "group": "toepassing",
+      "option": "padel",
+      "label": "Padel / sport",
+      "visual": "padel-blauw-buiten-standaard",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "voetbal",
+      "group": "toepassing",
+      "option": "voetbal",
+      "label": "Voetbalveld",
+      "visual": "voetbal-panna",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "voetbal",
+      "group": "veld",
+      "option": "panna",
+      "label": "Pannakooi",
+      "visual": "maatplan / voetbal-panna",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "voetbal",
+      "group": "veld",
+      "option": "cruyff",
+      "label": "Cruyff Court",
+      "visual": "maatplan / voetbal-cruyff",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "voetbal",
+      "group": "veld",
+      "option": "half",
+      "label": "Half veld",
+      "visual": "maatplan / voetbal-half",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "voetbal",
+      "group": "veld",
+      "option": "heel",
+      "label": "Heel veld · 11v11",
+      "visual": "maatplan / voetbal-heel",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "voetbal",
+      "group": "kleurstelling",
+      "option": "klassiek",
+      "label": "Blauw / geel",
+      "visual": "voetbal-panna",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "voetbal",
+      "group": "kleurstelling",
+      "option": "rood",
+      "label": "Rood",
+      "visual": "voetbal-panna-rood",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "voetbal",
+      "group": "kleurstelling",
+      "option": "groen",
+      "label": "Groen",
+      "visual": "voetbal-panna-groen",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "voetbal",
+      "group": "kleurstelling",
+      "option": "zwart",
+      "label": "Zwart",
+      "visual": "voetbal-panna-zwart",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "voetbal",
+      "group": "vezel",
+      "option": "mono",
+      "label": "Monofilament + krullaag",
+      "visual": "voetbal-vezel-mono",
+      "kind": "detail"
+    },
+    {
+      "application": "voetbal",
+      "group": "vezel",
+      "option": "combi",
+      "label": "Combi-vezel",
+      "visual": "voetbal-vezel-combi",
+      "kind": "detail"
+    },
+    {
+      "application": "voetbal",
+      "group": "vezel",
+      "option": "noninfill",
+      "label": "Non-infill (5G)",
+      "visual": "voetbal-vezel-noninfill",
+      "kind": "detail"
+    },
+    {
+      "application": "voetbal",
+      "group": "vhoogte",
+      "option": "40",
+      "label": "40 mm",
+      "visual": "voetbal-hoogte-40",
+      "kind": "detail"
+    },
+    {
+      "application": "voetbal",
+      "group": "vhoogte",
+      "option": "50",
+      "label": "50 mm",
+      "visual": "voetbal-hoogte-50",
+      "kind": "detail"
+    },
+    {
+      "application": "voetbal",
+      "group": "vhoogte",
+      "option": "60",
+      "label": "60 mm",
+      "visual": "voetbal-hoogte-60",
+      "kind": "detail"
+    },
+    {
+      "application": "voetbal",
+      "group": "belijning",
+      "option": "wit",
+      "label": "Wit",
+      "visual": "voetbal-belijning-wit",
+      "kind": "detail"
+    },
+    {
+      "application": "voetbal",
+      "group": "belijning",
+      "option": "geel",
+      "label": "Geel",
+      "visual": "voetbal-belijning-geel",
+      "kind": "detail"
+    },
+    {
+      "application": "voetbal",
+      "group": "belijning",
+      "option": "blauw",
+      "label": "Blauw",
+      "visual": "voetbal-belijning-blauw",
+      "kind": "detail"
+    },
+    {
+      "application": "voetbal",
+      "group": "omheining",
+      "option": "hek",
+      "label": "Standaard hekwerk",
+      "visual": "voetbal-omheining-hek",
+      "kind": "detail"
+    },
+    {
+      "application": "voetbal",
+      "group": "omheining",
+      "option": "ballenvanger",
+      "label": "Hoog ballenvangnet",
+      "visual": "voetbal-omheining-ballenvanger",
+      "kind": "detail"
+    },
+    {
+      "application": "voetbal",
+      "group": "omheining",
+      "option": "boarding",
+      "label": "Met reclameborden",
+      "visual": "voetbal-omheining-boarding",
+      "kind": "detail"
+    },
+    {
+      "application": "voetbal",
+      "group": "verlichting",
+      "option": "geen",
+      "label": "Geen",
+      "visual": "voetbal-panna",
+      "kind": "hoofdbeeld / maatplan"
+    },
+    {
+      "application": "voetbal",
+      "group": "verlichting",
+      "option": "led4",
+      "label": "4 LED-masten",
+      "visual": "voetbal-led4",
+      "kind": "detail"
+    },
+    {
+      "application": "voetbal",
+      "group": "verlichting",
+      "option": "led8",
+      "label": "8 LED-masten",
+      "visual": "voetbal-led8",
+      "kind": "detail"
+    },
+    {
+      "application": "voetbal",
+      "group": "doeltype",
+      "option": "panna",
+      "label": "Pannadoeltjes",
+      "visual": "voetbal-doel-panna",
+      "kind": "detail"
+    },
+    {
+      "application": "voetbal",
+      "group": "doeltype",
+      "option": "jeugd",
+      "label": "Jeugddoelen",
+      "visual": "voetbal-doel-jeugd",
+      "kind": "detail"
+    },
+    {
+      "application": "voetbal",
+      "group": "doeltype",
+      "option": "pro",
+      "label": "Wedstrijddoelen",
+      "visual": "voetbal-doel-pro",
+      "kind": "detail"
+    },
+    {
+      "application": "voetbal",
+      "group": "invulling",
+      "option": "kurk",
+      "label": "Kurk (organic)",
+      "visual": "voetbal-invulling-kurk",
+      "kind": "detail"
+    },
+    {
+      "application": "voetbal",
+      "group": "invulling",
+      "option": "sbr",
+      "label": "SBR-rubber",
+      "visual": "voetbal-invulling-sbr",
+      "kind": "detail"
+    },
+    {
+      "application": "voetbal",
+      "group": "invulling",
+      "option": "epdm",
+      "label": "EPDM (kleur)",
+      "visual": "voetbal-invulling-epdm",
+      "kind": "detail"
+    },
+    {
+      "application": "voetbal",
+      "group": "invulling",
+      "option": "kokos",
+      "label": "Kokos/organic mix",
+      "visual": "voetbal-invulling-kokos",
+      "kind": "detail"
+    },
+    {
+      "application": "voetbal",
+      "group": "vfundering",
+      "option": "lava",
+      "label": "Sporttechn. laag",
+      "visual": "voetbal-fundering-lava",
+      "kind": "detail"
+    },
+    {
+      "application": "voetbal",
+      "group": "vfundering",
+      "option": "shockpad",
+      "label": "+ Shockpad (e-layer)",
+      "visual": "voetbal-fundering-shockpad",
+      "kind": "detail"
+    },
+    {
+      "application": "voetbal",
+      "group": "vfundering",
+      "option": "bestaand",
+      "label": "Bestaande ondergrond",
+      "visual": "voetbal-fundering-bestaand",
+      "kind": "detail"
+    },
+    {
+      "application": "voetbal",
+      "group": "extra",
+      "option": "logomidden",
+      "label": "Clublogo op middenstip",
+      "visual": "voetbal-logomidden",
+      "kind": "detail"
+    },
+    {
+      "application": "voetbal",
+      "group": "extra",
+      "option": "scorebord",
+      "label": "Scorebord",
+      "visual": "voetbal-scorebord",
+      "kind": "detail"
+    },
+    {
+      "application": "voetbal",
+      "group": "extra",
+      "option": "dugout",
+      "label": "Dug-outs / spelersbanken",
+      "visual": "voetbal-dugout",
+      "kind": "detail"
+    },
+    {
+      "application": "voetbal",
+      "group": "extra",
+      "option": "ballenmand",
+      "label": "Ballenmand & onderhoudsset",
+      "visual": "voetbal-ballenmand",
+      "kind": "detail"
+    }
+  ]
+}

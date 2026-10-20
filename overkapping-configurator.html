@@ -1,0 +1,1223 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Overkapping-configurator | live demo | Next Growth</title>
+  <meta name="description" content="Live demo van de overkapping-configurator die Next Growth bouwt voor verandabouwers. Je klant kiest hout of aluminium, maat, daktype en opties en ziet direct de richtprijs.">
+  <link rel="canonical" href="https://nextgrowthdigital.nl/overkapping-configurator">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="nl_NL">
+  <meta property="og:site_name" content="Next Growth">
+  <meta property="og:title" content="Overkapping-configurator | live demo | Next Growth">
+  <meta property="og:description" content="Live demo van de overkapping-configurator die Next Growth bouwt voor verandabouwers. Je klant kiest hout of aluminium, maat, daktype en opties en ziet direct de richtprijs.">
+  <meta property="og:url" content="https://nextgrowthdigital.nl/overkapping-configurator">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Crect width='18' height='18' rx='4' fill='%23C9A45F'/%3E%3Cpath d='M5 13V5l8 8V5' stroke='%230A0A0B' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./assets/fonts.css">
+  <link rel="stylesheet" href="./assets/core.css">
+  <!-- Het hero-beeld is het LCP-element van deze pagina. Zonder preload
+       vecht het om bandbreedte met negen scripts en twee videoposters en
+       verliest het; met preload gaat het als eerste. -->
+  <link rel="preload" as="image" href="./assets/media/hero-hout-douglas.webp" fetchpriority="high">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Overkapping-configurator laten maken",
+    "name": "Overkapping configurator",
+    "url": "https://nextgrowthdigital.nl/overkapping-configurator",
+    "provider": { "@type": "ProfessionalService", "name": "Next Growth", "email": "info@nextgrowthdigital.nl", "telephone": "+31683902192", "url": "https://nextgrowthdigital.nl/" },
+    "areaServed": ["Nederland"],
+    "description": "Live demo van een configurator waarmee klanten van een verandabouwer zelf een overkapping in hout of aluminium samenstellen, met direct een totaalprijs inclusief montage."
+  }
+  </script>
+  <style>
+    :root { --acc: var(--accent); --acc-soft: rgba(var(--accent-rgb),.14); }
+    .cfg-hero { padding: calc(60px + clamp(1.6rem, 5vh, 3rem)) 0 0; text-align: center; }
+    .cfg-hero .pill { margin-bottom: 1rem; }
+    .cfg-hero .h1 { max-width: 20ch; margin-inline: auto; }
+    .cfg-hero .lede { margin: 1rem auto 0; max-width: 58ch; }
+
+    /* material switch */
+    .matswitch { display: inline-flex; flex-wrap: wrap; justify-content: center; max-width: 100%; gap: .3rem; padding: .32rem; border: 1px solid var(--line-strong); border-radius: 13px; background: var(--bg-raise); margin: 1.6rem auto 0; }
+    .matswitch button, .matswitch a { display: inline-flex; align-items: center; gap: .5rem; border: none; background: transparent; color: var(--text-2); font: inherit; font-weight: 600; font-size: .9rem; padding: .65rem 1.3rem; border-radius: 10px; cursor: pointer; transition: background .14s ease, color .14s ease; text-decoration: none; }
+    .matswitch button svg { width: 17px; height: 17px; }
+    .matswitch button.is-on, .matswitch a.is-on { background: var(--acc); color: #17130a; }
+    .matswitch a:hover { color: var(--text-1); }
+    /* Vier tot zeven keuzes passen niet naast elkaar op een telefoon. Zonder
+       wrap liep de rij het scherm uit: de laatste optie was onbereikbaar en
+       de hele pagina schoof horizontaal mee. */
+    @media (max-width: 640px) {
+      .matswitch { gap: .25rem; }
+      .matswitch button, .matswitch a { padding: .55rem .8rem; font-size: .8rem; }
+    }
+
+    /* presets */
+    .presets { margin: 1.5rem auto 0; max-width: 900px; }
+    .presets__lbl { display: block; font-family: var(--mono); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: var(--text-3); margin-bottom: .7rem; }
+    .presets__row { display: flex; gap: .7rem; flex-wrap: wrap; justify-content: center; }
+    .preset { display: flex; align-items: center; gap: .6rem; border: 1px solid var(--line-strong); border-radius: 12px; background: var(--bg-raise); padding: .45rem .7rem .45rem .45rem; cursor: pointer; transition: border-color .12s ease, background .12s ease; text-align: left; }
+    .preset:hover { border-color: var(--acc); background: var(--bg-raise-2); }
+    .preset__th { width: 46px; height: 34px; border-radius: 7px; background-size: cover; background-position: center; flex: none; border: 1px solid rgba(255,255,255,.1); }
+    .preset__t b { display: block; font-size: .82rem; font-weight: 600; color: var(--text); line-height: 1.1; }
+    .preset__t span { font-size: .68rem; color: var(--text-3); }
+
+    /* configurator shell */
+    .conf { margin-top: clamp(1.8rem, 5vh, 3rem); }
+    .conf__layout { display: grid; grid-template-columns: 1fr; gap: 1.1rem; margin-top: 1.1rem; }
+    .conf__visual, .conf__options { min-width: 0; }
+    @media (min-width: 900px){
+      .conf__layout { grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); align-items: start; }
+      .conf__visual { position: sticky; top: 80px; }
+    @media (min-width:900px){ .conf__layout{ grid-template-columns:minmax(0,1.55fr) minmax(0,1fr); } }
+    @media (min-width:1200px){ .conf__layout{ grid-template-columns:minmax(0,1.7fr) minmax(0,1fr); } }
+
+    }
+    @media (max-width: 899px){
+      .conf__visual { position: sticky; top: 52px; z-index: 6; background: var(--bg); padding: 8px 0 10px; margin-top: -8px; }
+    }
+    .conf__head { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1.1rem; }
+    .conf__title { font-size: clamp(1.5rem, 4vw, 2.1rem); font-weight: 800; letter-spacing: -.02em; line-height: 1.05; }
+    .conf__title span { color: var(--acc); }
+    .conf__sub { font-size: .84rem; color: var(--text-2); margin-top: .3rem; }
+    .conf__badge { flex: none; display: inline-flex; align-items: center; gap: .5rem; border: 1px solid var(--line-strong); border-radius: 11px; padding: .55rem .8rem; font-size: .74rem; color: var(--text-2); background: var(--bg-raise); line-height: 1.2; max-width: 150px; }
+    .conf__badge svg { width: 20px; height: 20px; color: var(--acc); flex: none; }
+
+    .conf__hero { position: relative; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); margin-bottom: 1.2rem; aspect-ratio: 16/9; background: var(--bg-raise); }
+    .conf__hero .hbg { position: absolute; inset: 0; background-size: cover; background-position: center; filter: blur(30px) brightness(.42) saturate(.9); transform: scale(1.18); z-index: 0; transition: background-image .22s ease; }
+    .conf__hero .hbg::after { content:''; position:absolute; inset:0; background: radial-gradient(120% 90% at 50% 45%, transparent 55%, rgba(0,0,0,.5) 100%); }
+    .conf__hero img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: cover; display: block; transform-origin: center center; transition: opacity .22s ease, transform .38s cubic-bezier(.4,0,.2,1); will-change: transform; }
+    .conf__hero.is-scaled img { border-radius: 10px; box-shadow: 0 18px 50px rgba(0,0,0,.5); }
+    .conf__hero .live { position: absolute; top: .8rem; left: .8rem; z-index: 2; display: inline-flex; align-items: center; gap: .45rem; font-family: var(--mono); font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; color: #fff; background: rgba(0,0,0,.45); backdrop-filter: blur(6px); padding: .35rem .6rem; border-radius: 7px; }
+    .conf__hero .live .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--acc); box-shadow: 0 0 8px var(--acc); }
+    .conf__hero .dim { position: absolute; bottom: .8rem; right: .8rem; z-index: 2; font-family: var(--mono); font-size: .62rem; letter-spacing: .06em; color: #fff; background: rgba(0,0,0,.5); backdrop-filter: blur(6px); padding: .35rem .6rem; border-radius: 7px; display: inline-flex; align-items: center; gap: .4rem; }
+    .conf__hero .dim b { color: var(--acc); font-weight: 400; }
+    .tile__img { width: 100%; height: 54px; border-radius: 8px; background-size: cover; background-position: center; border: 1px solid rgba(255,255,255,.1); }
+
+    .grp { border: 1px solid var(--line); border-radius: 14px; background: var(--bg-raise); padding: 1.15rem 1.2rem 1.25rem; margin-bottom: .9rem; }
+    .grp__h { font-size: .78rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--text); margin-bottom: .85rem; }
+    .grp__h b { color: var(--acc); font-weight: 700; margin-right: .4rem; }
+    .grp__row { display: grid; gap: .8rem; }
+    @media (min-width: 720px){ .grp__row.cols3 { grid-template-columns: 1fr 1fr 1fr; } }
+
+    .tiles { display: grid; gap: .6rem; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+    .tiles.sm { grid-template-columns: repeat(auto-fit, minmax(84px, 1fr)); }
+    .tile { position: relative; cursor: pointer; }
+    .tile input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+    .tile__c { border: 1.5px solid var(--line); border-radius: 11px; background: var(--bg-raise-2); padding: .7rem .6rem; display: flex; flex-direction: column; align-items: center; gap: .5rem; text-align: center; height: 100%; transition: border-color .12s ease, background .12s ease; }
+    .tile__c .ico { width: 30px; height: 30px; color: var(--text-2); }
+    .tile__c .ico svg { width: 100%; height: 100%; }
+    .tile__c .lab { font-size: .76rem; font-weight: 600; color: var(--text); line-height: 1.25; }
+    .tile__c .sub { font-size: .68rem; color: var(--text-3); }
+    @media (max-width: 600px) { .tile__c .sub { font-size: .78rem; } }
+    .tile__sw { width: 100%; height: 40px; border-radius: 7px; border: 1px solid rgba(255,255,255,.12); }
+    .tile input:checked + .tile__c { border-color: var(--acc); background: color-mix(in srgb, var(--acc) 12%, var(--bg-raise-2)); }
+    .tile input:checked + .tile__c .ico { color: var(--acc); }
+    .tile input:focus-visible + .tile__c { outline: 2px solid var(--acc); outline-offset: 2px; }
+
+    /* price bar */
+    .pricebar { margin-top: 1rem; border: 1px solid var(--line-strong); border-radius: 14px; background: linear-gradient(var(--bg-raise-2), var(--bg-raise)); padding: 1.1rem 1.2rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .pricebar__p { flex: 1 1 auto; min-width: 140px; }
+    .pricebar__p .k { display: flex; align-items: center; gap: .5rem; font-family: var(--mono); font-size: .66rem; text-transform: uppercase; letter-spacing: .06em; color: var(--text-3); }
+    .pricebar__p .v { font-size: 1.8rem; font-weight: 800; color: var(--text); letter-spacing: -.02em; margin-top: .1rem; }
+    .btw { display: inline-flex; border: 1px solid var(--line-strong); border-radius: 7px; overflow: hidden; }
+    .btw button { border: none; background: transparent; color: var(--text-3); font: inherit; font-size: .62rem; font-family: var(--mono); padding: .28rem .5rem; cursor: pointer; }
+    .btw button.is-on { background: var(--acc-soft); color: var(--acc); }
+    .pricebar__cta { display: flex; gap: .5rem; align-items: stretch; flex-wrap: wrap; }
+    .btn--acc { background: var(--acc); color: #17130a; border: none; font-weight: 700; }
+    .btn--acc:hover { filter: brightness(1.06); box-shadow: 0 8px 24px color-mix(in srgb, var(--acc) 30%, transparent); }
+    .btn--icon { width: 46px; padding: 0; display: grid; place-items: center; }
+    .btn--icon svg { width: 18px; height: 18px; }
+
+    /* lead form */
+    .lead { display: grid; gap: .8rem; }
+    .lead__grid { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+    @media (max-width: 520px){ .lead__grid { grid-template-columns: 1fr; } }
+    .fld { display: grid; gap: .35rem; }
+    .fld label { font-size: .76rem; color: var(--text-2); font-weight: 500; }
+    .fld input, .fld textarea { width: 100%; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--bg-raise); color: var(--text); font: inherit; font-size: .88rem; padding: .7rem .85rem; }
+    .fld input:focus, .fld textarea:focus { outline: none; border-color: var(--acc); }
+    .lead__note { font-size: .74rem; color: var(--text-3); line-height: 1.5; }
+    .lead__msg { font-size: .84rem; padding: .8rem 1rem; border-radius: 10px; line-height: 1.5; }
+    .lead__msg.ok { background: var(--acc-soft); color: var(--acc); border: 1px solid color-mix(in srgb, var(--acc) 40%, transparent); }
+    .lead__msg.err { background: rgba(220,80,80,.1); color: #e88; border: 1px solid rgba(220,80,80,.35); }
+    .cfg__panel { padding: 1.6rem 1.6rem; display: grid; gap: 1.4rem; }
+  </style>
+  <style id="ng-protect-css">
+    /* Beeld- en kopieerbeveiliging */
+    img,picture,svg,.conf__hero,.conf__hero img,.tile__img,.preset__th,.hbg,.matswitch{
+      -webkit-user-drag:none;-khtml-user-drag:none;-moz-user-drag:none;-o-user-drag:none;user-select:none;
+      -webkit-touch-callout:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;
+    }
+    body{ -webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none; }
+    input,textarea,select,[contenteditable]{ -webkit-user-select:text!important;-moz-user-select:text!important;-ms-user-select:text!important;user-select:text!important; -webkit-touch-callout:default; }
+    .conf__hero,.conf__hero img,.tile__img,.preset__th,.hbg{ pointer-events:none; }
+    .tile,.preset,.matswitch a,.matswitch button{ pointer-events:auto; }
+  </style>
+  <script id="ng-protect-js">
+  (function(){
+    function inField(t){ return t && t.closest && t.closest('input,textarea,select,[contenteditable]'); }
+    document.addEventListener('contextmenu',function(e){ if(inField(e.target)) return; e.preventDefault(); },{capture:true});
+    document.addEventListener('dragstart',function(e){ e.preventDefault(); },{capture:true});
+    document.addEventListener('drop',function(e){ e.preventDefault(); },{capture:true});
+    document.addEventListener('copy',function(e){ if(!inField(e.target)) e.preventDefault(); },{capture:true});
+    document.addEventListener('cut',function(e){ if(!inField(e.target)) e.preventDefault(); },{capture:true});
+    // long-press op mobiel: blokkeer standaard-callout op beelden
+    document.addEventListener('touchstart',function(e){ var t=e.target; if(t&&t.closest&&t.closest('img,.conf__hero,.tile__img,.preset__th,.hbg')&&e.touches.length>1){ e.preventDefault(); } },{passive:false});
+  })();
+  </script>
+    <!-- ============ ENTITEIT (scripts/entiteit.py) ============ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://nextgrowthdigital.nl/#organization",
+          "name": "Next Growth",
+          "url": "https://nextgrowthdigital.nl/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://nextgrowthdigital.nl/assets/media/next-growth-logo.svg"
+          },
+          "description": "Next Growth is een creatief groeibureau voor branding, websites, marketing en configurators. Het bureau bouwt productconfiguratoren, offertesoftware, CRM-koppelingen en websites voor bedrijven in onder meer de bouw en installatietechniek, door heel Nederland.",
+          "email": "info@nextgrowthdigital.nl",
+          "telephone": "+31683902192",
+          "vatID": "NL004420281B57",
+          "taxID": "96002913",
+          "identifier": [
+            {
+              "@type": "PropertyValue",
+              "name": "KvK-nummer",
+              "value": "96002913"
+            },
+            {
+              "@type": "PropertyValue",
+              "name": "btw-identificatienummer",
+              "value": "NL004420281B57"
+            }
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "Noord-Brabant",
+            "addressCountry": "NL"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "sales",
+            "telephone": "+31683902192",
+            "email": "info@nextgrowthdigital.nl",
+            "areaServed": "NL",
+            "availableLanguage": [
+              "nl",
+              "en",
+              "de"
+            ]
+          },
+          "areaServed": [
+            {
+              "@type": "Country",
+              "name": "Nederland"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Noord-Brabant"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Gelderland"
+            },
+            {
+              "@type": "City",
+              "name": "Nijmegen"
+            },
+            {
+              "@type": "City",
+              "name": "Den Bosch"
+            },
+            {
+              "@type": "City",
+              "name": "Eindhoven"
+            },
+            {
+              "@type": "City",
+              "name": "Arnhem"
+            },
+            {
+              "@type": "City",
+              "name": "Uden"
+            },
+            {
+              "@type": "City",
+              "name": "Veghel"
+            },
+            {
+              "@type": "City",
+              "name": "Wijchen"
+            },
+            {
+              "@type": "City",
+              "name": "Vught"
+            },
+            {
+              "@type": "City",
+              "name": "Cuijk"
+            },
+            {
+              "@type": "City",
+              "name": "Grave"
+            }
+          ],
+          "knowsAbout": [
+            "Productconfigurator laten maken",
+            "Offertesoftware voor bouwbedrijven",
+            "Website laten maken voor bouw- en installatiebedrijven",
+            "Zoekmachineoptimalisatie",
+            "CRM voor bouwbedrijven",
+            "Dakopbouw",
+            "Uitbouw en aanbouw",
+            "Badkamer verbouwen",
+            "Overkapping op maat",
+            "Zwembad aanleggen",
+            "Dakkapel",
+            "Omgevingsvergunning bij verbouwen"
+          ],
+          "alternateName": [
+            "Next Growth Digital"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://nextgrowthdigital.nl/#website",
+          "url": "https://nextgrowthdigital.nl/",
+          "name": "Next Growth",
+          "inLanguage": "nl-NL",
+          "publisher": {
+            "@id": "https://nextgrowthdigital.nl/#organization"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://nextgrowthdigital.nl/overkapping-configurator",
+          "url": "https://nextgrowthdigital.nl/overkapping-configurator",
+          "name": "Overkapping-configurator | live demo | Next Growth",
+          "inLanguage": "nl",
+          "isPartOf": {
+            "@id": "https://nextgrowthdigital.nl/#website"
+          },
+          "about": {
+            "@id": "https://nextgrowthdigital.nl/#organization"
+          },
+          "description": "Live demo van de overkapping-configurator die Next Growth bouwt voor verandabouwers. Je klant kiest hout of aluminium, maat, daktype en opties en ziet direct de richtprijs.",
+          "dateModified": "2026-08-28"
+        }
+      ]
+    }
+    </script>
+    <!-- ============ EINDE ENTITEIT ============ -->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,900;125,900&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/ngx-shell.css"><script>document.documentElement.classList.add("ngx-display")</script><style id="ngx-world">:root{--ink-900:#0A1E14;--ink-800:#0E2A1C;--ink-700:#11301F;--ink-600:#133524;--ink-500:#183F2B;--ink-400:#235038;--tint:#11301F;--bg:#0E2A1C;--bg-raise:#133524;--bg-raise-2:#183F2B;--accent:#4CC38A;--accent-strong:#36A973;--accent-light:#A8E6C5;--accent-deep:#1F6B4A;--accent-dim:rgba(76,195,138,.13);--glow:rgba(76,195,138,.30);--accent-rgb:76,195,138;--acc:#4CC38A;--acc-soft:rgba(76,195,138,.14);--acc-diep:#1F6B4A;--goud-metaal:linear-gradient(150deg,#1F6B4A 0%,#4CC38A 26%,#A8E6C5 46%,#4CC38A 66%,#1F6B4A 100%);--goud-lijn:linear-gradient(90deg,transparent,rgba(76,195,138,.55) 30%,rgba(76,195,138,.55) 70%,transparent);--serif:'Archivo','Arial Black',sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;}html,body{background:#0E2A1C}.ngx-nav{--x-sig:#4CC38A;--x-ink:#FFFFFF;background:#0E2A1CF5}.ngx-nav .ngx-mark{background:#FFC400}</style></head>
+<body>
+  <a class="skip" href="#main">Direct naar inhoud</a>
+  <header class="ngx-nav"><div class="ngx-wrap">
+<a class="ngx-brand" href="/"><span class="ngx-ring">NG</span><span>Next Growth<small>Creatief groeibureau · Landelijk</small></span></a>
+<a class="ngx-mark" href="/" aria-label="Next Growth, naar de homepage"><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14V4l10 10V4" stroke="#0A0800" stroke-width="2.8" stroke-linecap="square"/></svg></a>
+<nav class="ngx-links" aria-label="Hoofdmenu"><a href="/">Home</a><a href="/dienst-webdesign">Websites</a><a href="/dienst-branding">Branding</a><a href="/dienst-marketing">Marketing</a><a href="/dienst-configurators">Configurators</a><a href="/kennisbank">Kennisbank</a><a href="/prijzen">Prijzen</a></nav>
+<a class="ngx-cta" href="/#contact">Kennismaken</a>
+<button class="ngx-menu" type="button" aria-expanded="false" aria-controls="ngx-mnav">Menu</button>
+</div><nav id="ngx-mnav" class="ngx-mnav" aria-label="Mobiel menu" hidden><a href="/">Home</a><a href="/dienst-webdesign">Websites</a><a href="/dienst-branding">Branding</a><a href="/dienst-marketing">Marketing</a><a href="/dienst-configurators">Configurators</a><a href="/kennisbank">Kennisbank</a><a href="/prijzen">Prijzen</a><a href="/#contact" class="ngx-cta">Plan een kennismaking</a></nav></header>
+
+  <main id="main">
+    <section class="cfg-hero" aria-label="Overkapping configurator">
+      <div class="wrap">
+        <p class="pill" data-reveal><span class="dot dot--ok"></span>Live demo &middot; hout &amp; aluminium</p>
+        <h1 class="h1" data-reveal style="--i:1">Stel je overkapping samen <span class="grad-text">en zie direct je prijs.</span></h1>
+        <p class="lede" data-reveal style="--i:2">Dit is een live demo van de configurator die Next Growth bouwt voor verandabouwers en overkappingbedrijven. Kies materiaal, afmeting, afwerking en opties. De totaalprijs, inclusief montage door het montageteam van het bedrijf, rekent live mee.</p>
+        <div class="matswitch" role="radiogroup" aria-label="Materiaal" data-reveal style="--i:3">
+          <button type="button" id="mHout" class="is-on" aria-pressed="true" data-mat="hout"></button>
+          <button type="button" id="mAlu" aria-pressed="false" data-mat="aluminium"></button>
+          <a href="/poolhouse-configurator" title="Naar de poolhouse configurator">Poolhouse</a>
+          <a href="/pvc-configurator" title="Naar de PVC-vloer configurator">PVC-vloer</a>
+          <a href="/kunstgras-configurator" title="Naar de kunstgras configurator">Kunstgras</a>
+          <a href="/aanbouw-configurator" title="Naar de aanbouw &amp; uitbouw configurator">Aanbouw</a>
+        </div>
+        <div class="presets" data-reveal style="--i:4">
+          <span class="presets__lbl">Populaire samenstellingen</span>
+          <div class="presets__row" id="presetRow"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sectie" style="padding-top: clamp(1.5rem,4vh,2.5rem);" aria-label="Configurator">
+      <div class="wrap" style="max-width: 1600px; width: min(100%, 1600px);">
+        <div class="conf" data-reveal>
+          <div class="conf__head">
+            <div>
+              <div class="conf__title" id="confTitle"></div>
+              <div class="conf__sub" id="confSub"></div>
+            </div>
+            <div class="conf__badge" id="confBadge"></div>
+          </div>
+          <div class="conf__layout">
+            <div class="conf__visual">
+              <div class="conf__hero" id="confHeroWrap"><div class="hbg" id="confHeroBg"></div><img id="confHero" src="./assets/media/hero-hout-douglas.webp" alt="Voorbeeld van je overkapping" width="1200" height="560" fetchpriority="high"><span class="live"><span class="dot"></span>Live voorbeeld</span><span class="dim" id="confDim"><b>3,00 × 3,00 m</b></span></div>
+              <div class="pricebar">
+                <div class="pricebar__p">
+                  <span class="k">Totaalprijs
+                    <span class="btw" role="group" aria-label="btw">
+                      <button type="button" id="btwIncl" class="is-on" aria-pressed="true">incl. btw</button>
+                      <button type="button" id="btwExcl" aria-pressed="false">excl. btw</button>
+                    </span>
+                  </span>
+                  <span class="v" id="prijs">€ 0</span>
+                </div>
+                <div class="pricebar__cta">
+                  <button class="btn btn--acc" type="button" id="naarOfferte">Offerte aanvragen</button>
+                  <button class="btn btn--ghost btn--icon" type="button" id="downloadBtn" aria-label="Download configuratie" title="Download je configuratie">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="conf__options">
+              <div id="groups"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LEAD FORM -->
+        <div class="card cfg__panel" id="offerte" data-reveal style="margin-top:1.4rem;">
+          <div>
+            <p class="eyebrow">Bijna klaar</p>
+            <h2 class="h2" style="font-size:1.4rem; margin-top:.4rem;">Ontvang je offerte op maat.</h2>
+            <p style="font-size:.86rem; margin-top:.5rem;">Je volledige configuratie wordt automatisch meegestuurd. Het bedrijf neemt binnen één werkdag contact op om het inmeten in te plannen.</p>
+          </div>
+          <form class="lead" id="leadForm">
+            <div class="lead__grid">
+              <div class="fld"><label for="f_naam">Naam</label><input id="f_naam" name="naam" required autocomplete="name"></div>
+              <div class="fld"><label for="f_plaats">Plaats</label><input id="f_plaats" name="plaats" autocomplete="address-level2"></div>
+              <div class="fld"><label for="f_email">E-mailadres</label><input id="f_email" name="email" type="email" required autocomplete="email"></div>
+              <div class="fld"><label for="f_tel">Telefoon</label><input id="f_tel" name="telefoon" type="tel" autocomplete="tel"></div>
+            </div>
+            <div class="fld"><label for="f_ber">Bericht (optioneel)</label><textarea id="f_ber" name="bericht" rows="3" placeholder="Bijzonderheden, gewenste periode, locatie…"></textarea></div>
+            <input type="hidden" id="f_config" name="configuratie">
+            <button class="btn btn--acc" type="submit" id="leadBtn" style="justify-self:start;">Verstuur aanvraag</button>
+            <p class="lead__msg" id="leadMsg" role="status" hidden></p>
+            <p class="lead__note">In deze demo komt je aanvraag met de volledige configuratie binnen bij Next Growth. Liever bellen? <a href="tel:+31683902192" style="color:var(--acc)"><a href="tel:+31683902192">06 83 90 21 92</a></a>.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  
+    <section class="sectie" aria-label="Tekeningen" style="padding-top:clamp(1rem,3vh,2rem);">
+      <div class="wrap" style="max-width:1180px;">
+        <div id="tekenprogramma"></div>
+      </div>
+    </section>
+
+<section class="sectie" aria-label="Een echte opname, geen animatie.">
+  <div class="wrap">
+    <div class="sectie-kop">
+      <p class="eyebrow">Zo werkt het</p>
+      <h2>Een echte opname, geen animatie.</h2>
+      <p style="color:var(--muted,#9c9a94);max-width:44rem;margin-top:.6rem">Twee schermopnames uit deze configurator. Je ziet precies wat jouw klant ziet: elke klik verandert het beeld en de prijs.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%, 30rem),1fr));gap:clamp(1rem,2.5vw,1.6rem)">
+      <figure style="margin:0">
+        <div style="border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#0C0D10">
+          <video controls preload="none" playsinline poster="./assets/media/poster-demo-overkapping.webp"
+                 style="width:100%;aspect-ratio:16/9;display:block;background:#0C0D10">
+            <source src="./assets/video/demo-overkapping.mp4" type="video/mp4">
+            Je browser kan deze video niet afspelen. <a href="./assets/video/demo-overkapping.mp4">Download hem hier.</a>
+          </video>
+        </div>
+        <figcaption style="margin-top:.7rem">
+          <strong style="display:block">Houten overkapping, 32 seconden</strong>
+          <span style="color:var(--muted,#9c9a94);font-size:.92rem">Houtsoort, dakbedekking, wanden en maat.</span>
+        </figcaption>
+      </figure>
+      <figure style="margin:0">
+        <div style="border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#0C0D10">
+          <video controls preload="none" playsinline poster="./assets/media/poster-demo-veranda.webp"
+                 style="width:100%;aspect-ratio:16/9;display:block;background:#0C0D10">
+            <source src="./assets/video/demo-veranda.mp4" type="video/mp4">
+            Je browser kan deze video niet afspelen. <a href="./assets/video/demo-veranda.mp4">Download hem hier.</a>
+          </video>
+        </div>
+        <figcaption style="margin-top:.7rem">
+          <strong style="display:block">Aluminium veranda, 30 seconden</strong>
+          <span style="color:var(--muted,#9c9a94);font-size:.92rem">Maat, RAL-kleur, dak en zijwanden.</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="sectie" aria-label="Zie de overkapping in je eigen tuin">
+  <div class="wrap">
+    <div id="aifoto"></div>
+  </div>
+</section>
+
+<section class="sectie ng-vraag" aria-label="Zelf zo'n configurator">
+  <div class="wrap">
+    <div class="ng-vraag__kaart">
+      <div class="ng-vraag__tekst">
+        <p class="eyebrow">Dit is een demo van Next Growth</p>
+        <h2>Zo'n overkapping-configurator op je eigen website?</h2>
+        <p class="lede">Je klanten stellen zelf samen, zien direct hun richtprijs en sturen
+          een complete aanvraag door. Jij krijgt hem binnen met alles erin. Geen telefoontjes
+          meer om uit te zoeken wat iemand eigenlijk wil.</p>
+        <ul class="ng-vraag__punten">
+          <li><span></span>Jouw huisstijl, jouw assortiment, jouw prijzen</li>
+          <li><span></span>Twee weken van start tot live</li>
+          <li><span></span>Elke aanvraag compleet in je dashboard</li>
+        </ul>
+        <div class="ng-vraag__knoppen">
+          <a class="btn" href="./contact.html?over=overkapping">Laat zien hoe dit er voor mijn product uitziet</a>
+          <a class="btn btn--ghost" href="/prijzen">Wat kost het?</a>
+        </div>
+        <p class="ng-vraag__noot">Vrijblijvend. Je krijgt binnen 24 uur een voorbeeld van je
+          eigen product in deze configurator te zien.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sectie" aria-labelledby="ovk-uitleg">
+  <div class="wrap">
+    <div class="sectie-kop">
+      <p class="eyebrow">Waar je op let</p>
+      <h2 class="h2" id="ovk-uitleg">Een overkapping samenstellen: wat bepaalt de prijs</h2>
+      <p class="lede">Vier keuzes bepalen bijna de hele prijs: de maat, het hout of aluminium,
+        het dak en of er wanden in komen. Hieronder staat wat elke keuze in de praktijk betekent,
+        zodat je weet waar je naar kijkt terwijl je samenstelt.</p>
+    </div>
+
+    <div class="ovk-uitleg">
+      <article>
+        <h3>Houtsoort of aluminium</h3>
+        <p><strong>Douglas</strong> is de meest gekozen houtsoort: sterk, grofnervig en van
+          zichzelf redelijk duurzaam. Onbehandeld vergrijst het in twee tot drie jaar naar
+          zilvergrijs. <strong>Lariks</strong> lijkt erop maar is iets fijner van nerf en wat
+          harsrijker. <strong>Eiken</strong> is het zwaarst en het duurst, en blijft decennia
+          staan. <strong>Grenen</strong> is de voordeligste optie, maar geïmpregneerd en met
+          onderhoud om de paar jaar.</p>
+        <p>Een <strong>aluminium</strong> frame is onderhoudsvrij en kan slanker gebouwd worden
+          bij dezelfde overspanning. In een RAL-kleur naar keuze: antraciet en zwart worden
+          het meest gekozen, wit en taupe passen beter bij een lichte gevel.</p>
+      </article>
+
+      <article>
+        <h3>Overspanning en het aantal palen</h3>
+        <p>Dit is de keuze die het vaakst misgaat. Een houten ligger overspant in de praktijk
+          drie tot vier meter voordat er een paal onder moet. In aluminium kan dat verder,
+          afhankelijk van het profiel. Wie een overkapping van zes meter breed wil zonder paal
+          in het midden, komt dus bijna altijd bij aluminium uit, of bij een zwaardere
+          houtconstructie die navenant duurder is.</p>
+        <p>Vraag daarom altijd waar de palen komen te staan voordat je tekent. Een paal midden
+          in het zicht op de tuin is achteraf niet meer te verplaatsen.</p>
+      </article>
+
+      <article>
+        <h3>Het dak</h3>
+        <p><strong>Helder glas</strong> geeft het meeste licht en is het makkelijkst schoon te
+          houden, maar het wordt eronder warm in de zomer. <strong>Opaal of melkglas</strong>
+          filtert het licht en houdt de warmte beter buiten. <strong>Polycarbonaat</strong> is
+          lichter en goedkoper, maar krast sneller en vergeelt op termijn.
+          <strong>Lamellen</strong> die je kunt kantelen zijn de duurste optie en meteen de meest
+          flexibele: dicht bij regen, open bij warmte.</p>
+        <p>Kies je een dichte dakbedekking (EPDM, dakpannen of riet), dan wordt het
+          eronder donkerder. Een lichtstraat of doorzichtige strook lost dat op.</p>
+      </article>
+
+      <article>
+        <h3>Wanden en zijkanten</h3>
+        <p>Een open overkapping is goedkoper en luchtiger, maar je zit er bij zijwind alsnog in
+          de regen. <strong>Glazen schuifwanden</strong> maken er een tuinkamer van die je in het
+          voorjaar en najaar gebruikt; ze zijn niet isolerend, dus het blijft een buitenruimte.
+          <strong>Screens</strong> in een cassette houden zon en insecten tegen en rollen weg als
+          je ze niet nodig hebt.</p>
+      </article>
+
+      <article>
+        <h3>Vergunning</h3>
+        <p>Een overkapping in de achtertuin is in Nederland vaak vergunningsvrij, maar daar zitten
+          voorwaarden aan: hij moet meestal achter de achtergevelrooilijn staan, lager blijven dan
+          drie meter, en samen met andere bijgebouwen onder een maximaal percentage van het
+          erf blijven. Bij een monument, een beschermd dorpsgezicht of een voortuin gelden andere
+          regels.</p>
+        <p>Dit verschilt per gemeente en verandert regelmatig. Controleer het bij je gemeente of
+          via het Omgevingsloket voordat je bestelt. Een richtprijs uit een configurator zegt
+          niets over wat er op jouw perceel mag.</p>
+      </article>
+
+      <article>
+        <h3>Onderhoud</h3>
+        <p>Onbehandeld douglas of lariks hoeft niet onderhouden te worden; het vergrijst en gaat
+          door. Wil je de warme houtkleur houden, dan is dat elke twee tot drie jaar
+          schoonmaken en opnieuw oliën. Geïmpregneerd grenen vraagt vaker om aandacht.
+          Aluminium is een emmer sop per jaar, en een glasdak twee keer per jaar afnemen:
+          bladeren en groene aanslag zijn het enige echte werk.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sectie" aria-labelledby="ovk-faq">
+  <div class="wrap">
+    <div class="sectie-kop">
+      <p class="eyebrow">Veelgestelde vragen</p>
+      <h2 class="h2" id="ovk-faq">Vragen over het samenstellen van een overkapping</h2>
+    </div>
+    <div class="ovk-faq">
+      <details>
+        <summary><span>Kan ik een overkapping online samenstellen?</span></summary>
+        <p>Ja. In de demo hierboven kies je maat, houtsoort of RAL-kleur, daktype en wandopties, en je ziet bij elke keuze direct het beeld en de richtprijs veranderen. Aan het eind stuur je de samenstelling als aanvraag door. Zo werkt het straks ook op de website van een verandabouwer.</p>
+      </details>
+      <details>
+        <summary><span>Hoe ver kan een overkapping overspannen zonder paal?</span></summary>
+        <p>Een houten ligger overspant in de praktijk drie tot vier meter voordat er een paal onder moet. Met aluminium profielen kan dat verder. Wil je zes meter vrij overspannen, dan kom je vrijwel altijd bij aluminium uit of bij een zwaardere houtconstructie.</p>
+      </details>
+      <details>
+        <summary><span>Welke houtsoort is het beste voor een overkapping?</span></summary>
+        <p>Douglas wordt het meest gekozen: sterk, van zichzelf redelijk duurzaam en zonder onderhoud vergrijzend naar zilvergrijs. Eiken gaat het langst mee en is het duurst. Grenen is de voordeligste keuze maar vraagt om de paar jaar onderhoud.</p>
+      </details>
+      <details>
+        <summary><span>Is een overkapping vergunningsvrij?</span></summary>
+        <p>In de achtertuin vaak wel, maar er zitten voorwaarden aan: achter de achtergevelrooilijn, meestal lager dan drie meter, en binnen een maximaal percentage van het erf. Bij een monument, beschermd dorpsgezicht of voortuin gelden andere regels. Controleer het altijd bij je gemeente of via het Omgevingsloket.</p>
+      </details>
+      <details>
+        <summary><span>Wat is het verschil tussen glas en polycarbonaat als dak?</span></summary>
+        <p>Glas geeft meer licht, is makkelijker schoon te houden en vergeelt niet. Polycarbonaat is lichter en goedkoper, maar krast sneller en verkleurt op termijn. Opaalglas filtert het licht en houdt de warmte beter buiten dan helder glas.</p>
+      </details>
+      <details>
+        <summary><span>Wat kost een houten overkapping?</span></summary>
+        <p>Dat hangt vooral af van de maat, de houtsoort en het daktype. In de configurator hierboven zie je bij elke keuze direct een richtprijs; de definitieve prijs volgt na het opmeten ter plaatse door het bedrijf.</p>
+      </details>
+    </div>
+  </div>
+</section>
+    <!-- ============ PER PLAATS (scripts/configuratorsteden.py) ============ -->
+    <div class="ng-blok" role="region" aria-labelledby="perplaats-kop">
+      <div class="wrap">
+        <div class="sectie-kop">
+          <p class="eyebrow">Per plaats</p>
+          <h2 class="h2" id="perplaats-kop">Zo'n configurator voor je eigen bedrijf, per plaats</h2>
+          <p>Deze overkapping-configurator bouwen we voor bedrijven, in hun eigen huisstijl en met hun eigen prijzen. Per plaats staat wat de markt daar vraagt.</p>
+        </div>
+        <div class="ng-branches">
+          <a class="ng-branche" href="/dienst-webdesign"><b>Configurator laten maken</b><span>Heel Nederland</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-nijmegen"><b>Configurator laten maken in Nijmegen</b><span>Gelderland</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-arnhem"><b>Configurator laten maken in Arnhem</b><span>Gelderland</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-den-bosch"><b>Configurator laten maken in Den Bosch</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-uden"><b>Configurator laten maken in Uden</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-veghel"><b>Configurator laten maken in Veghel</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-wijchen"><b>Configurator laten maken in Wijchen</b><span>Gelderland</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-vught"><b>Configurator laten maken in Vught</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-cuijk"><b>Configurator laten maken in Cuijk</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-grave"><b>Configurator laten maken in Grave</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a class="ng-branche" href="/lokaal-webdesign-eindhoven"><b>Configurator laten maken in Eindhoven</b><span>Noord-Brabant</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <!-- ============ EINDE PER PLAATS ============ -->
+</main>
+
+  <footer class="ngx-foot"><div class="ngx-wrap">
+<div class="ngx-end"><h2>Zo'n configurator <span>op jouw site?</span></h2><div><p>Eén gesprek van twintig minuten. Je spreekt direct met de mensen die het bouwen en krijgt dezelfde dag een eerlijk advies.</p><a class="ngx-cta big" href="/#contact">Plan een kennismaking</a><a class="ngx-tel" href="tel:+31683902192">06 83 90 21 92</a></div></div>
+<div class="ngx-cols">
+<div><a class="ngx-brand" href="/"><span class="ngx-mk"><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14V4l10 10V4" stroke="#0A0800" stroke-width="2.8" stroke-linecap="square"/></svg></span><span>Next Growth Digital</span></a><p>Creatief groeibureau, landelijk actief. Branding, webdesign, marketing en eigen software.</p><p>info@nextgrowthdigital.nl</p></div>
+<div><h4>Diensten</h4><ul><li><a href="/dienst-branding">Branding</a></li><li><a href="/dienst-webdesign">Webdesign</a></li><li><a href="/dienst-marketing">Marketing</a></li><li><a href="/dienst-configurators">Configurators</a></li><li><a href="/dienst-crm">CRM &amp; offertes</a></li><li><a href="/prijzen">Prijzen</a></li></ul></div>
+<div><h4>Configurators</h4><ul><li><a href="/overkapping-configurator">Overkapping</a></li><li><a href="/aanbouw-configurator">Uitbouw</a></li><li><a href="/dakkapel-configurator">Dakkapel</a></li><li><a href="/dakopbouw-configurator">Dakopbouw</a></li><li><a href="/badkamer-configurator">Badkamer</a></li><li><a href="/zwembad-configurator">Zwembad</a></li><li><a href="/jacht-configurator">Jacht</a></li></ul></div>
+<div><h4>Kennisbank</h4><ul><li><a href="/kennisbank">Alle artikelen</a></li><li><a href="/kennisbank-configurator-kosten">Wat kost een configurator?</a></li><li><a href="/configurator-laten-maken">Configurator laten maken</a></li><li><a href="/kennisbank-website-kosten">Wat kost een website?</a></li></ul></div>
+<div><h4>Bedrijf</h4><ul><li><a href="/#cases">Cases</a></li><li><a href="/werkgebied">Werkgebied</a></li><li><a href="/privacyverklaring">Privacyverklaring</a></li><li><a href="/auteursrecht">Auteursrecht</a></li><li><a href="/#contact">Contact</a></li></ul></div>
+</div>
+<div class="ngx-legal"><span>© 2026 Next Growth Digital</span><span>KVK 96002913</span><span>Landelijk actief · Nederland</span></div>
+<p class="ngx-giant" aria-hidden="true">NEXT GROWTH</p></div></footer>
+<script>(function(){var b=document.querySelector('.ngx-menu'),n=document.getElementById('ngx-mnav');if(!b||!n)return;b.addEventListener('click',function(){var o=n.hasAttribute('hidden');if(o)n.removeAttribute('hidden');else n.setAttribute('hidden','');b.setAttribute('aria-expanded',o?'true':'false');b.textContent=o?'Sluiten':'Menu'})})();</script>
+
+    <script>
+  (function(){
+    if(window.__lbInit) return; window.__lbInit=1;
+    function init(){
+      var hero=document.querySelector('.conf__hero'); var img=document.getElementById('confHero');
+      if(!hero||!img){ setTimeout(init,300); return; }
+      hero.style.cursor='zoom-in';
+      var btn=document.createElement('button');
+      btn.type='button'; btn.setAttribute('aria-label','Bekijk afbeelding op volledig scherm');
+      btn.innerHTML='&#x26F6;';
+      btn.style.cssText='position:absolute;top:.8rem;right:.8rem;z-index:3;width:42px;height:42px;border-radius:10px;border:1px solid rgba(255,255,255,.28);background:rgba(0,0,0,.45);backdrop-filter:blur(6px);color:#fff;font-size:1.15rem;cursor:zoom-in;display:flex;align-items:center;justify-content:center;';
+      hero.appendChild(btn);
+      function openLB(){
+        var ov=document.createElement('div');
+        ov.style.cssText='position:fixed;inset:0;z-index:100000;background:rgba(6,6,5,.95);display:flex;align-items:center;justify-content:center;cursor:zoom-out;padding:2vh 2vw;';
+        var big=document.createElement('img');
+        big.src=img.getAttribute('src'); big.alt=img.getAttribute('alt')||'';
+        big.style.cssText='max-width:96vw;max-height:92vh;width:auto;height:auto;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.6);';
+        var x=document.createElement('button'); x.innerHTML='&times;'; x.setAttribute('aria-label','Sluiten');
+        x.style.cssText='position:fixed;top:12px;right:20px;background:none;border:none;color:#fff;font-size:2.4rem;cursor:pointer;line-height:1;z-index:100001;';
+        ov.appendChild(big); ov.appendChild(x); document.body.appendChild(ov);
+        document.body.style.overflow='hidden';
+        function close(){ ov.remove(); document.body.style.overflow=''; document.removeEventListener('keydown',esc); }
+        function esc(e){ if(e.key==='Escape') close(); }
+        ov.addEventListener('click',close); document.addEventListener('keydown',esc);
+      }
+      img.addEventListener('click',openLB);
+      btn.addEventListener('click',function(e){ e.stopPropagation(); openLB(); });
+    }
+    if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+  })();
+  </script>
+  <script src="./assets/meting.js" defer></script>
+  <script src="./assets/core.js" defer></script>
+  <script>
+  (function(){
+    "use strict";
+    var BTW = 0.21;
+    /* De hero's staan als WebP naast de JPEG's (scripts/herowebp.py): een derde
+       van het gewicht, en dit is het LCP-element van de best bekeken pagina van
+       het domein. De JPEG's blijven bestaan voor het tekenwerk en de og:image. */
+    var HAVE = new Set(["hero-alu-antraciet","hero-alu-antraciet-compact","hero-alu-antraciet-dicht","hero-alu-antraciet-dicht-compact","hero-alu-antraciet-glas","hero-alu-antraciet-glas-compact","hero-alu-antraciet-glas-dicht","hero-alu-antraciet-glas-dicht-compact","hero-alu-antraciet-glas-schuif","hero-alu-antraciet-glas-schuif-compact","hero-alu-antraciet-glas-screens","hero-alu-antraciet-glas-screens-compact","hero-alu-antraciet-glas-spots","hero-alu-antraciet-glas-spots-compact","hero-alu-antraciet-licht","hero-alu-antraciet-licht-compact","hero-alu-antraciet-poly","hero-alu-antraciet-poly-compact","hero-alu-antraciet-poly-dicht","hero-alu-antraciet-poly-dicht-compact","hero-alu-antraciet-poly-schuif","hero-alu-antraciet-poly-schuif-compact","hero-alu-antraciet-poly-screens","hero-alu-antraciet-poly-screens-compact","hero-alu-antraciet-poly-spots","hero-alu-antraciet-poly-spots-compact","hero-alu-antraciet-schuif","hero-alu-antraciet-schuif-compact","hero-alu-antraciet-screens","hero-alu-antraciet-screens-compact","hero-alu-antraciet-spots","hero-alu-antraciet-spots-compact","hero-alu-antraciet-vrijstaand","hero-alu-antraciet-vrijstaand-compact","hero-alu-antraciet-vrijstaand-dicht","hero-alu-antraciet-vrijstaand-dicht-compact","hero-alu-antraciet-vrijstaand-glas","hero-alu-antraciet-vrijstaand-glas-compact","hero-alu-antraciet-vrijstaand-glas-dicht","hero-alu-antraciet-vrijstaand-glas-dicht-compact","hero-alu-antraciet-vrijstaand-glas-schuif","hero-alu-antraciet-vrijstaand-glas-schuif-compact","hero-alu-antraciet-vrijstaand-glas-screens","hero-alu-antraciet-vrijstaand-glas-screens-compact","hero-alu-antraciet-vrijstaand-glas-spots","hero-alu-antraciet-vrijstaand-glas-spots-compact","hero-alu-antraciet-vrijstaand-licht","hero-alu-antraciet-vrijstaand-licht-compact","hero-alu-antraciet-vrijstaand-poly","hero-alu-antraciet-vrijstaand-poly-compact","hero-alu-antraciet-vrijstaand-poly-dicht","hero-alu-antraciet-vrijstaand-poly-dicht-compact","hero-alu-antraciet-vrijstaand-poly-schuif","hero-alu-antraciet-vrijstaand-poly-schuif-compact","hero-alu-antraciet-vrijstaand-poly-screens","hero-alu-antraciet-vrijstaand-poly-screens-compact","hero-alu-antraciet-vrijstaand-poly-spots","hero-alu-antraciet-vrijstaand-poly-spots-compact","hero-alu-antraciet-vrijstaand-schuif","hero-alu-antraciet-vrijstaand-schuif-compact","hero-alu-antraciet-vrijstaand-screens","hero-alu-antraciet-vrijstaand-screens-compact","hero-alu-antraciet-vrijstaand-spots","hero-alu-antraciet-vrijstaand-spots-compact","hero-alu-taupe","hero-alu-taupe-compact","hero-alu-taupe-dicht","hero-alu-taupe-dicht-compact","hero-alu-taupe-glas","hero-alu-taupe-glas-compact","hero-alu-taupe-glas-dicht","hero-alu-taupe-glas-dicht-compact","hero-alu-taupe-glas-schuif","hero-alu-taupe-glas-schuif-compact","hero-alu-taupe-glas-screens","hero-alu-taupe-glas-screens-compact","hero-alu-taupe-glas-spots","hero-alu-taupe-glas-spots-compact","hero-alu-taupe-licht","hero-alu-taupe-licht-compact","hero-alu-taupe-poly","hero-alu-taupe-poly-compact","hero-alu-taupe-poly-dicht","hero-alu-taupe-poly-dicht-compact","hero-alu-taupe-poly-schuif","hero-alu-taupe-poly-schuif-compact","hero-alu-taupe-poly-screens","hero-alu-taupe-poly-screens-compact","hero-alu-taupe-poly-spots","hero-alu-taupe-poly-spots-compact","hero-alu-taupe-schuif","hero-alu-taupe-schuif-compact","hero-alu-taupe-screens","hero-alu-taupe-screens-compact","hero-alu-taupe-spots","hero-alu-taupe-spots-compact","hero-alu-taupe-vrijstaand","hero-alu-taupe-vrijstaand-compact","hero-alu-taupe-vrijstaand-dicht","hero-alu-taupe-vrijstaand-dicht-compact","hero-alu-taupe-vrijstaand-glas","hero-alu-taupe-vrijstaand-glas-compact","hero-alu-taupe-vrijstaand-glas-dicht","hero-alu-taupe-vrijstaand-glas-dicht-compact","hero-alu-taupe-vrijstaand-glas-schuif","hero-alu-taupe-vrijstaand-glas-schuif-compact","hero-alu-taupe-vrijstaand-glas-screens","hero-alu-taupe-vrijstaand-glas-screens-compact","hero-alu-taupe-vrijstaand-glas-spots","hero-alu-taupe-vrijstaand-glas-spots-compact","hero-alu-taupe-vrijstaand-licht","hero-alu-taupe-vrijstaand-licht-compact","hero-alu-taupe-vrijstaand-poly","hero-alu-taupe-vrijstaand-poly-compact","hero-alu-taupe-vrijstaand-poly-dicht","hero-alu-taupe-vrijstaand-poly-dicht-compact","hero-alu-taupe-vrijstaand-poly-schuif","hero-alu-taupe-vrijstaand-poly-schuif-compact","hero-alu-taupe-vrijstaand-poly-screens","hero-alu-taupe-vrijstaand-poly-screens-compact","hero-alu-taupe-vrijstaand-poly-spots","hero-alu-taupe-vrijstaand-poly-spots-compact","hero-alu-taupe-vrijstaand-schuif","hero-alu-taupe-vrijstaand-schuif-compact","hero-alu-taupe-vrijstaand-screens","hero-alu-taupe-vrijstaand-screens-compact","hero-alu-taupe-vrijstaand-spots","hero-alu-taupe-vrijstaand-spots-compact","hero-alu-wit","hero-alu-wit-compact","hero-alu-wit-dicht","hero-alu-wit-dicht-compact","hero-alu-wit-glas","hero-alu-wit-glas-compact","hero-alu-wit-glas-dicht","hero-alu-wit-glas-dicht-compact","hero-alu-wit-glas-schuif","hero-alu-wit-glas-schuif-compact","hero-alu-wit-glas-screens","hero-alu-wit-glas-screens-compact","hero-alu-wit-glas-spots","hero-alu-wit-glas-spots-compact","hero-alu-wit-licht","hero-alu-wit-licht-compact","hero-alu-wit-poly","hero-alu-wit-poly-compact","hero-alu-wit-poly-dicht","hero-alu-wit-poly-dicht-compact","hero-alu-wit-poly-schuif","hero-alu-wit-poly-schuif-compact","hero-alu-wit-poly-screens","hero-alu-wit-poly-screens-compact","hero-alu-wit-poly-spots","hero-alu-wit-poly-spots-compact","hero-alu-wit-schuif","hero-alu-wit-schuif-compact","hero-alu-wit-screens","hero-alu-wit-screens-compact","hero-alu-wit-spots","hero-alu-wit-spots-compact","hero-alu-wit-vrijstaand","hero-alu-wit-vrijstaand-compact","hero-alu-wit-vrijstaand-dicht","hero-alu-wit-vrijstaand-dicht-compact","hero-alu-wit-vrijstaand-glas","hero-alu-wit-vrijstaand-glas-compact","hero-alu-wit-vrijstaand-glas-dicht","hero-alu-wit-vrijstaand-glas-dicht-compact","hero-alu-wit-vrijstaand-glas-schuif","hero-alu-wit-vrijstaand-glas-schuif-compact","hero-alu-wit-vrijstaand-glas-screens","hero-alu-wit-vrijstaand-glas-screens-compact","hero-alu-wit-vrijstaand-glas-spots","hero-alu-wit-vrijstaand-glas-spots-compact","hero-alu-wit-vrijstaand-licht","hero-alu-wit-vrijstaand-licht-compact","hero-alu-wit-vrijstaand-poly","hero-alu-wit-vrijstaand-poly-compact","hero-alu-wit-vrijstaand-poly-dicht","hero-alu-wit-vrijstaand-poly-dicht-compact","hero-alu-wit-vrijstaand-poly-schuif","hero-alu-wit-vrijstaand-poly-schuif-compact","hero-alu-wit-vrijstaand-poly-screens","hero-alu-wit-vrijstaand-poly-screens-compact","hero-alu-wit-vrijstaand-poly-spots","hero-alu-wit-vrijstaand-poly-spots-compact","hero-alu-wit-vrijstaand-schuif","hero-alu-wit-vrijstaand-schuif-compact","hero-alu-wit-vrijstaand-screens","hero-alu-wit-vrijstaand-screens-compact","hero-alu-wit-vrijstaand-spots","hero-alu-wit-vrijstaand-spots-compact","hero-alu-zilver","hero-alu-zilver-compact","hero-alu-zilver-dicht","hero-alu-zilver-dicht-compact","hero-alu-zilver-glas","hero-alu-zilver-glas-compact","hero-alu-zilver-glas-dicht","hero-alu-zilver-glas-dicht-compact","hero-alu-zilver-glas-schuif","hero-alu-zilver-glas-schuif-compact","hero-alu-zilver-glas-screens","hero-alu-zilver-glas-screens-compact","hero-alu-zilver-glas-spots","hero-alu-zilver-glas-spots-compact","hero-alu-zilver-licht","hero-alu-zilver-licht-compact","hero-alu-zilver-poly","hero-alu-zilver-poly-compact","hero-alu-zilver-poly-dicht","hero-alu-zilver-poly-dicht-compact","hero-alu-zilver-poly-schuif","hero-alu-zilver-poly-schuif-compact","hero-alu-zilver-poly-screens","hero-alu-zilver-poly-screens-compact","hero-alu-zilver-poly-spots","hero-alu-zilver-poly-spots-compact","hero-alu-zilver-schuif","hero-alu-zilver-schuif-compact","hero-alu-zilver-screens","hero-alu-zilver-screens-compact","hero-alu-zilver-spots","hero-alu-zilver-spots-compact","hero-alu-zilver-vrijstaand","hero-alu-zilver-vrijstaand-compact","hero-alu-zilver-vrijstaand-dicht","hero-alu-zilver-vrijstaand-dicht-compact","hero-alu-zilver-vrijstaand-glas","hero-alu-zilver-vrijstaand-glas-compact","hero-alu-zilver-vrijstaand-glas-dicht","hero-alu-zilver-vrijstaand-glas-dicht-compact","hero-alu-zilver-vrijstaand-glas-schuif","hero-alu-zilver-vrijstaand-glas-schuif-compact","hero-alu-zilver-vrijstaand-glas-screens","hero-alu-zilver-vrijstaand-glas-screens-compact","hero-alu-zilver-vrijstaand-glas-spots","hero-alu-zilver-vrijstaand-glas-spots-compact","hero-alu-zilver-vrijstaand-licht","hero-alu-zilver-vrijstaand-licht-compact","hero-alu-zilver-vrijstaand-poly","hero-alu-zilver-vrijstaand-poly-compact","hero-alu-zilver-vrijstaand-poly-dicht","hero-alu-zilver-vrijstaand-poly-dicht-compact","hero-alu-zilver-vrijstaand-poly-schuif","hero-alu-zilver-vrijstaand-poly-schuif-compact","hero-alu-zilver-vrijstaand-poly-screens","hero-alu-zilver-vrijstaand-poly-screens-compact","hero-alu-zilver-vrijstaand-poly-spots","hero-alu-zilver-vrijstaand-poly-spots-compact","hero-alu-zilver-vrijstaand-schuif","hero-alu-zilver-vrijstaand-schuif-compact","hero-alu-zilver-vrijstaand-screens","hero-alu-zilver-vrijstaand-screens-compact","hero-alu-zilver-vrijstaand-spots","hero-alu-zilver-vrijstaand-spots-compact","hero-alu-zwart","hero-alu-zwart-compact","hero-alu-zwart-dicht","hero-alu-zwart-dicht-compact","hero-alu-zwart-glas","hero-alu-zwart-glas-compact","hero-alu-zwart-glas-dicht","hero-alu-zwart-glas-dicht-compact","hero-alu-zwart-glas-schuif","hero-alu-zwart-glas-schuif-compact","hero-alu-zwart-glas-screens","hero-alu-zwart-glas-screens-compact","hero-alu-zwart-glas-spots","hero-alu-zwart-glas-spots-compact","hero-alu-zwart-licht","hero-alu-zwart-licht-compact","hero-alu-zwart-poly","hero-alu-zwart-poly-compact","hero-alu-zwart-poly-dicht","hero-alu-zwart-poly-dicht-compact","hero-alu-zwart-poly-schuif","hero-alu-zwart-poly-schuif-compact","hero-alu-zwart-poly-screens","hero-alu-zwart-poly-screens-compact","hero-alu-zwart-poly-spots","hero-alu-zwart-poly-spots-compact","hero-alu-zwart-schuif","hero-alu-zwart-schuif-compact","hero-alu-zwart-screens","hero-alu-zwart-screens-compact","hero-alu-zwart-spots","hero-alu-zwart-spots-compact","hero-alu-zwart-vrijstaand","hero-alu-zwart-vrijstaand-compact","hero-alu-zwart-vrijstaand-dicht","hero-alu-zwart-vrijstaand-dicht-compact","hero-alu-zwart-vrijstaand-glas","hero-alu-zwart-vrijstaand-glas-compact","hero-alu-zwart-vrijstaand-glas-dicht","hero-alu-zwart-vrijstaand-glas-dicht-compact","hero-alu-zwart-vrijstaand-glas-schuif","hero-alu-zwart-vrijstaand-glas-schuif-compact","hero-alu-zwart-vrijstaand-glas-screens","hero-alu-zwart-vrijstaand-glas-screens-compact","hero-alu-zwart-vrijstaand-glas-spots","hero-alu-zwart-vrijstaand-glas-spots-compact","hero-alu-zwart-vrijstaand-licht","hero-alu-zwart-vrijstaand-licht-compact","hero-alu-zwart-vrijstaand-poly","hero-alu-zwart-vrijstaand-poly-compact","hero-alu-zwart-vrijstaand-poly-dicht","hero-alu-zwart-vrijstaand-poly-dicht-compact","hero-alu-zwart-vrijstaand-poly-schuif","hero-alu-zwart-vrijstaand-poly-schuif-compact","hero-alu-zwart-vrijstaand-poly-screens","hero-alu-zwart-vrijstaand-poly-screens-compact","hero-alu-zwart-vrijstaand-poly-spots","hero-alu-zwart-vrijstaand-poly-spots-compact","hero-alu-zwart-vrijstaand-schuif","hero-alu-zwart-vrijstaand-schuif-compact","hero-alu-zwart-vrijstaand-screens","hero-alu-zwart-vrijstaand-screens-compact","hero-alu-zwart-vrijstaand-spots","hero-alu-zwart-vrijstaand-spots-compact","hero-hout-douglas","hero-hout-douglas-achterhout","hero-hout-douglas-achterhout-compact","hero-hout-douglas-achterrabat","hero-hout-douglas-achterrabat-compact","hero-hout-douglas-compact","hero-hout-douglas-dakpan","hero-hout-douglas-dakpan-achterhout","hero-hout-douglas-dakpan-achterhout-compact","hero-hout-douglas-dakpan-achterrabat","hero-hout-douglas-dakpan-achterrabat-compact","hero-hout-douglas-dakpan-compact","hero-hout-douglas-dakpan-dicht","hero-hout-douglas-dakpan-dicht-compact","hero-hout-douglas-dakpan-schuif","hero-hout-douglas-dakpan-schuif-compact","hero-hout-douglas-dakpan-spots","hero-hout-douglas-dakpan-spots-compact","hero-hout-douglas-dicht","hero-hout-douglas-dicht-compact","hero-hout-douglas-licht","hero-hout-douglas-licht-compact","hero-hout-douglas-riet","hero-hout-douglas-riet-achterhout","hero-hout-douglas-riet-achterhout-compact","hero-hout-douglas-riet-achterrabat","hero-hout-douglas-riet-achterrabat-compact","hero-hout-douglas-riet-compact","hero-hout-douglas-riet-dicht","hero-hout-douglas-riet-dicht-compact","hero-hout-douglas-riet-schuif","hero-hout-douglas-riet-schuif-compact","hero-hout-douglas-riet-spots","hero-hout-douglas-riet-spots-compact","hero-hout-douglas-schuif","hero-hout-douglas-schuif-compact","hero-hout-douglas-schuin","hero-hout-douglas-schuin-achterhout","hero-hout-douglas-schuin-achterhout-compact","hero-hout-douglas-schuin-achterrabat","hero-hout-douglas-schuin-achterrabat-compact","hero-hout-douglas-schuin-compact","hero-hout-douglas-schuin-dicht","hero-hout-douglas-schuin-dicht-compact","hero-hout-douglas-schuin-schuif","hero-hout-douglas-schuin-schuif-compact","hero-hout-douglas-schuin-spots","hero-hout-douglas-schuin-spots-compact","hero-hout-douglas-spots","hero-hout-douglas-spots-compact","hero-hout-douglas-zwartwand","hero-hout-douglas-zwartwand-achterhout","hero-hout-douglas-zwartwand-achterhout-compact","hero-hout-douglas-zwartwand-achterrabat","hero-hout-douglas-zwartwand-achterrabat-compact","hero-hout-douglas-zwartwand-compact","hero-hout-douglas-zwartwand-dakpan","hero-hout-douglas-zwartwand-dakpan-achterhout","hero-hout-douglas-zwartwand-dakpan-achterhout-compact","hero-hout-douglas-zwartwand-dakpan-achterrabat","hero-hout-douglas-zwartwand-dakpan-achterrabat-compact","hero-hout-douglas-zwartwand-dakpan-compact","hero-hout-douglas-zwartwand-dakpan-dicht","hero-hout-douglas-zwartwand-dakpan-dicht-compact","hero-hout-douglas-zwartwand-dakpan-schuif","hero-hout-douglas-zwartwand-dakpan-schuif-compact","hero-hout-douglas-zwartwand-dakpan-spots","hero-hout-douglas-zwartwand-dakpan-spots-compact","hero-hout-douglas-zwartwand-dicht","hero-hout-douglas-zwartwand-dicht-compact","hero-hout-douglas-zwartwand-licht","hero-hout-douglas-zwartwand-licht-compact","hero-hout-douglas-zwartwand-riet","hero-hout-douglas-zwartwand-riet-achterhout","hero-hout-douglas-zwartwand-riet-achterhout-compact","hero-hout-douglas-zwartwand-riet-achterrabat","hero-hout-douglas-zwartwand-riet-achterrabat-compact","hero-hout-douglas-zwartwand-riet-compact","hero-hout-douglas-zwartwand-riet-dicht","hero-hout-douglas-zwartwand-riet-dicht-compact","hero-hout-douglas-zwartwand-riet-schuif","hero-hout-douglas-zwartwand-riet-schuif-compact","hero-hout-douglas-zwartwand-riet-spots","hero-hout-douglas-zwartwand-riet-spots-compact","hero-hout-douglas-zwartwand-schuif","hero-hout-douglas-zwartwand-schuif-compact","hero-hout-douglas-zwartwand-schuin","hero-hout-douglas-zwartwand-schuin-achterhout","hero-hout-douglas-zwartwand-schuin-achterhout-compact","hero-hout-douglas-zwartwand-schuin-achterrabat","hero-hout-douglas-zwartwand-schuin-achterrabat-compact","hero-hout-douglas-zwartwand-schuin-compact","hero-hout-douglas-zwartwand-schuin-dicht","hero-hout-douglas-zwartwand-schuin-dicht-compact","hero-hout-douglas-zwartwand-schuin-schuif","hero-hout-douglas-zwartwand-schuin-schuif-compact","hero-hout-douglas-zwartwand-schuin-spots","hero-hout-douglas-zwartwand-schuin-spots-compact","hero-hout-douglas-zwartwand-spots","hero-hout-douglas-zwartwand-spots-compact","hero-hout-eiken","hero-hout-eiken-achterhout","hero-hout-eiken-achterhout-compact","hero-hout-eiken-achterrabat","hero-hout-eiken-achterrabat-compact","hero-hout-eiken-compact","hero-hout-eiken-dakpan","hero-hout-eiken-dakpan-achterhout","hero-hout-eiken-dakpan-achterhout-compact","hero-hout-eiken-dakpan-achterrabat","hero-hout-eiken-dakpan-achterrabat-compact","hero-hout-eiken-dakpan-compact","hero-hout-eiken-dakpan-dicht","hero-hout-eiken-dakpan-dicht-compact","hero-hout-eiken-dakpan-schuif","hero-hout-eiken-dakpan-schuif-compact","hero-hout-eiken-dakpan-spots","hero-hout-eiken-dakpan-spots-compact","hero-hout-eiken-dicht","hero-hout-eiken-dicht-compact","hero-hout-eiken-licht","hero-hout-eiken-licht-compact","hero-hout-eiken-riet","hero-hout-eiken-riet-achterhout","hero-hout-eiken-riet-achterhout-compact","hero-hout-eiken-riet-achterrabat","hero-hout-eiken-riet-achterrabat-compact","hero-hout-eiken-riet-compact","hero-hout-eiken-riet-dicht","hero-hout-eiken-riet-dicht-compact","hero-hout-eiken-riet-schuif","hero-hout-eiken-riet-schuif-compact","hero-hout-eiken-riet-spots","hero-hout-eiken-riet-spots-compact","hero-hout-eiken-schuif","hero-hout-eiken-schuif-compact","hero-hout-eiken-schuin","hero-hout-eiken-schuin-achterhout","hero-hout-eiken-schuin-achterhout-compact","hero-hout-eiken-schuin-achterrabat","hero-hout-eiken-schuin-achterrabat-compact","hero-hout-eiken-schuin-compact","hero-hout-eiken-schuin-dicht","hero-hout-eiken-schuin-dicht-compact","hero-hout-eiken-schuin-schuif","hero-hout-eiken-schuin-schuif-compact","hero-hout-eiken-schuin-spots","hero-hout-eiken-schuin-spots-compact","hero-hout-eiken-spots","hero-hout-eiken-spots-compact","hero-hout-grenen","hero-hout-grenen-achterhout","hero-hout-grenen-achterhout-compact","hero-hout-grenen-achterrabat","hero-hout-grenen-achterrabat-compact","hero-hout-grenen-compact","hero-hout-grenen-dakpan","hero-hout-grenen-dakpan-achterhout","hero-hout-grenen-dakpan-achterhout-compact","hero-hout-grenen-dakpan-achterrabat","hero-hout-grenen-dakpan-achterrabat-compact","hero-hout-grenen-dakpan-compact","hero-hout-grenen-dakpan-dicht","hero-hout-grenen-dakpan-dicht-compact","hero-hout-grenen-dakpan-schuif","hero-hout-grenen-dakpan-schuif-compact","hero-hout-grenen-dakpan-spots","hero-hout-grenen-dakpan-spots-compact","hero-hout-grenen-dicht","hero-hout-grenen-dicht-compact","hero-hout-grenen-licht","hero-hout-grenen-licht-compact","hero-hout-grenen-riet","hero-hout-grenen-riet-achterhout","hero-hout-grenen-riet-achterhout-compact","hero-hout-grenen-riet-achterrabat","hero-hout-grenen-riet-achterrabat-compact","hero-hout-grenen-riet-compact","hero-hout-grenen-riet-dicht","hero-hout-grenen-riet-dicht-compact","hero-hout-grenen-riet-schuif","hero-hout-grenen-riet-schuif-compact","hero-hout-grenen-riet-spots","hero-hout-grenen-riet-spots-compact","hero-hout-grenen-schuif","hero-hout-grenen-schuif-compact","hero-hout-grenen-schuin","hero-hout-grenen-schuin-achterhout","hero-hout-grenen-schuin-achterhout-compact","hero-hout-grenen-schuin-achterrabat","hero-hout-grenen-schuin-achterrabat-compact","hero-hout-grenen-schuin-compact","hero-hout-grenen-schuin-dicht","hero-hout-grenen-schuin-dicht-compact","hero-hout-grenen-schuin-schuif","hero-hout-grenen-schuin-schuif-compact","hero-hout-grenen-schuin-spots","hero-hout-grenen-schuin-spots-compact","hero-hout-grenen-spots","hero-hout-grenen-spots-compact","hero-hout-lariks","hero-hout-lariks-achterhout","hero-hout-lariks-achterhout-compact","hero-hout-lariks-achterrabat","hero-hout-lariks-achterrabat-compact","hero-hout-lariks-compact","hero-hout-lariks-dakpan","hero-hout-lariks-dakpan-achterhout","hero-hout-lariks-dakpan-achterhout-compact","hero-hout-lariks-dakpan-achterrabat","hero-hout-lariks-dakpan-achterrabat-compact","hero-hout-lariks-dakpan-compact","hero-hout-lariks-dakpan-dicht","hero-hout-lariks-dakpan-dicht-compact","hero-hout-lariks-dakpan-schuif","hero-hout-lariks-dakpan-schuif-compact","hero-hout-lariks-dakpan-spots","hero-hout-lariks-dakpan-spots-compact","hero-hout-lariks-dicht","hero-hout-lariks-dicht-compact","hero-hout-lariks-licht","hero-hout-lariks-licht-compact","hero-hout-lariks-riet","hero-hout-lariks-riet-achterhout","hero-hout-lariks-riet-achterhout-compact","hero-hout-lariks-riet-achterrabat","hero-hout-lariks-riet-achterrabat-compact","hero-hout-lariks-riet-compact","hero-hout-lariks-riet-dicht","hero-hout-lariks-riet-dicht-compact","hero-hout-lariks-riet-schuif","hero-hout-lariks-riet-schuif-compact","hero-hout-lariks-riet-spots","hero-hout-lariks-riet-spots-compact","hero-hout-lariks-schuif","hero-hout-lariks-schuif-compact","hero-hout-lariks-schuin","hero-hout-lariks-schuin-achterhout","hero-hout-lariks-schuin-achterhout-compact","hero-hout-lariks-schuin-achterrabat","hero-hout-lariks-schuin-achterrabat-compact","hero-hout-lariks-schuin-compact","hero-hout-lariks-schuin-dicht","hero-hout-lariks-schuin-dicht-compact","hero-hout-lariks-schuin-schuif","hero-hout-lariks-schuin-schuif-compact","hero-hout-lariks-schuin-spots","hero-hout-lariks-schuin-spots-compact","hero-hout-lariks-spots","hero-hout-lariks-spots-compact","hero-hout-thermohout","hero-hout-thermohout-achterhout","hero-hout-thermohout-achterhout-compact","hero-hout-thermohout-achterrabat","hero-hout-thermohout-achterrabat-compact","hero-hout-thermohout-compact","hero-hout-thermohout-dakpan","hero-hout-thermohout-dakpan-achterhout","hero-hout-thermohout-dakpan-achterhout-compact","hero-hout-thermohout-dakpan-achterrabat","hero-hout-thermohout-dakpan-achterrabat-compact","hero-hout-thermohout-dakpan-compact","hero-hout-thermohout-dakpan-dicht","hero-hout-thermohout-dakpan-dicht-compact","hero-hout-thermohout-dakpan-schuif","hero-hout-thermohout-dakpan-schuif-compact","hero-hout-thermohout-dakpan-spots","hero-hout-thermohout-dakpan-spots-compact","hero-hout-thermohout-dicht","hero-hout-thermohout-dicht-compact","hero-hout-thermohout-licht","hero-hout-thermohout-licht-compact","hero-hout-thermohout-riet","hero-hout-thermohout-riet-achterhout","hero-hout-thermohout-riet-achterhout-compact","hero-hout-thermohout-riet-achterrabat","hero-hout-thermohout-riet-achterrabat-compact","hero-hout-thermohout-riet-compact","hero-hout-thermohout-riet-dicht","hero-hout-thermohout-riet-dicht-compact","hero-hout-thermohout-riet-schuif","hero-hout-thermohout-riet-schuif-compact","hero-hout-thermohout-riet-spots","hero-hout-thermohout-riet-spots-compact","hero-hout-thermohout-schuif","hero-hout-thermohout-schuif-compact","hero-hout-thermohout-schuin","hero-hout-thermohout-schuin-achterhout","hero-hout-thermohout-schuin-achterhout-compact","hero-hout-thermohout-schuin-achterrabat","hero-hout-thermohout-schuin-achterrabat-compact","hero-hout-thermohout-schuin-compact","hero-hout-thermohout-schuin-dicht","hero-hout-thermohout-schuin-dicht-compact","hero-hout-thermohout-schuin-schuif","hero-hout-thermohout-schuin-schuif-compact","hero-hout-thermohout-schuin-spots","hero-hout-thermohout-schuin-spots-compact","hero-hout-thermohout-spots","hero-hout-thermohout-spots-compact","hero-hout-zwart-douglas","hero-hout-zwart-douglas-achterhout","hero-hout-zwart-douglas-achterhout-compact","hero-hout-zwart-douglas-achterrabat","hero-hout-zwart-douglas-achterrabat-compact","hero-hout-zwart-douglas-compact","hero-hout-zwart-douglas-dakpan","hero-hout-zwart-douglas-dakpan-achterhout","hero-hout-zwart-douglas-dakpan-achterhout-compact","hero-hout-zwart-douglas-dakpan-achterrabat","hero-hout-zwart-douglas-dakpan-achterrabat-compact","hero-hout-zwart-douglas-dakpan-compact","hero-hout-zwart-douglas-dakpan-dicht","hero-hout-zwart-douglas-dakpan-dicht-compact","hero-hout-zwart-douglas-dakpan-schuif","hero-hout-zwart-douglas-dakpan-schuif-compact","hero-hout-zwart-douglas-dakpan-spots","hero-hout-zwart-douglas-dakpan-spots-compact","hero-hout-zwart-douglas-dicht","hero-hout-zwart-douglas-dicht-compact","hero-hout-zwart-douglas-licht","hero-hout-zwart-douglas-licht-compact","hero-hout-zwart-douglas-riet","hero-hout-zwart-douglas-riet-achterhout","hero-hout-zwart-douglas-riet-achterhout-compact","hero-hout-zwart-douglas-riet-achterrabat","hero-hout-zwart-douglas-riet-achterrabat-compact","hero-hout-zwart-douglas-riet-compact","hero-hout-zwart-douglas-riet-dicht","hero-hout-zwart-douglas-riet-dicht-compact","hero-hout-zwart-douglas-riet-schuif","hero-hout-zwart-douglas-riet-schuif-compact","hero-hout-zwart-douglas-riet-spots","hero-hout-zwart-douglas-riet-spots-compact","hero-hout-zwart-douglas-schuif","hero-hout-zwart-douglas-schuif-compact","hero-hout-zwart-douglas-schuin","hero-hout-zwart-douglas-schuin-achterhout","hero-hout-zwart-douglas-schuin-achterhout-compact","hero-hout-zwart-douglas-schuin-achterrabat","hero-hout-zwart-douglas-schuin-achterrabat-compact","hero-hout-zwart-douglas-schuin-compact","hero-hout-zwart-douglas-schuin-dicht","hero-hout-zwart-douglas-schuin-dicht-compact","hero-hout-zwart-douglas-schuin-schuif","hero-hout-zwart-douglas-schuin-schuif-compact","hero-hout-zwart-douglas-schuin-spots","hero-hout-zwart-douglas-schuin-spots-compact","hero-hout-zwart-douglas-spots","hero-hout-zwart-douglas-spots-compact"]);
+    /* ==== FORMULIER: plak je gratis Web3Forms access key (web3forms.com). Leeg = e-mail fallback. ==== */
+    var WEB3FORMS_KEY = "695172ae-1f2d-40b7-bb31-b8a4a882ad62";
+
+    /* ---- kleine SVG-iconenset ---- */
+    function S(p){ return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">'+p+'</svg>'; }
+    var IC = {
+      ruler:  S('<path d="M3 8h18v8H3z"/><path d="M7 8v3M11 8v4M15 8v3M19 8v4"/>'),
+      tree:   S('<path d="M12 2L6 11h3l-4 6h5v5h4v-5h5l-4-6h3z"/>'),
+      diamond:S('<path d="M6 3h12l3 5-9 13L3 8z"/><path d="M3 8h18M9 3l-3 5 6 13 6-13-3-5"/>'),
+      platdak:S('<path d="M3 9h18M4 9v7M20 9v7"/><path d="M3 16h18"/>'),
+      schuindak:S('<path d="M3 13L12 6l9 7"/><path d="M5 13v5M19 13v5"/>'),
+      lamellen:S('<rect x="3" y="6" width="18" height="12" rx="1"/><path d="M3 10h18M3 14h18"/>'),
+      glasdak:S('<rect x="3" y="5" width="18" height="14" rx="1"/><path d="M9 5v14M15 5v14M3 12h18"/>'),
+      poly:   S('<rect x="3" y="6" width="18" height="12" rx="1"/><path d="M6 6v12M10 6v12M14 6v12M18 6v12"/>'),
+      epdm:   S('<path d="M3 8h18M3 12h18M3 16h18"/>'),
+      dakpan: S('<path d="M3 10c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/><path d="M3 15c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/>'),
+      riet:   S('<path d="M5 20V7M9 20V5M13 20V7M17 20V5"/>'),
+      geen:   S('<circle cx="12" cy="12" r="8"/><path d="M6 6l12 12"/>'),
+      houtwand:S('<rect x="4" y="4" width="16" height="16" rx="1"/><path d="M9 4v16M15 4v16"/>'),
+      rabat:  S('<rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 9h16M4 14h16"/>'),
+      schuifwand:S('<rect x="3" y="5" width="18" height="14" rx="1"/><path d="M12 5v14"/><path d="M8 12h-3M6 10l-2 2 2 2"/>'),
+      screens:S('<rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 8h16M4 12h16M4 16h16M8 4v16M12 4v16M16 4v16"/>'),
+      vrijstaand:S('<path d="M4 20V8M20 20V8M4 8h16"/>'),
+      aanhuis:S('<path d="M3 20V10l6-5 6 5"/><path d="M15 20V9h6v11"/>'),
+      led:    S('<path d="M9 18h6M10 21h4M12 3a6 6 0 00-4 10c1 1 1 2 1 3h6c0-1 0-2 1-3a6 6 0 00-4-10z"/>'),
+      stopcontact:S('<rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/>'),
+      warmte: S('<path d="M8 3c1 2-1 3 0 5M12 3c1 2-1 3 0 5M16 3c1 2-1 3 0 5"/><rect x="5" y="10" width="14" height="4" rx="2"/><path d="M7 18v2M12 18v2M17 18v2"/>'),
+      dakgoot:S('<path d="M3 8h18v4a4 4 0 01-4 4H7a4 4 0 01-4-4z"/><path d="M3 8V6M21 8V6"/>'),
+      lichtstraat:S('<path d="M4 14L12 7l8 7"/><rect x="9" y="10" width="6" height="4"/>'),
+      regen:  S('<path d="M7 14a5 5 0 011-9 6 6 0 0111 3 4 4 0 01-1 6"/><path d="M8 18l-1 2M12 18l-1 2M16 18l-1 2"/>'),
+      wind:   S('<path d="M3 8h11a3 3 0 100-6"/><path d="M3 12h15a3 3 0 110 6"/><path d="M3 16h7"/>'),
+      remote: S('<rect x="8" y="2" width="8" height="20" rx="3"/><circle cx="12" cy="7" r="1.3"/><path d="M10 12h4M10 15h4"/>')
+    };
+
+    /* ---- materiaal-data (alle bedragen EXCL. btw, incl. montage; pas hier aan) ---- */
+    var MAT = {
+      hout: {
+        knop: 'Hout', titel: '<span>Houten</span> overkapping', accent: (getComputedStyle(document.documentElement).getPropertyValue('--accent').trim()||'#FFC400'), soft: ('rgba('+(getComputedStyle(document.documentElement).getPropertyValue('--accent-rgb').trim()||'255,196,0')+',.14)'),
+        sub: 'Premium kwaliteit. Tijdloos design. Natuurlijke uitstraling.',
+        badge: { ic: IC.tree, t: 'Natuurlijke uitstraling' },
+        hero: './assets/media/hero-hout-douglas.webp',
+        basisM2: 820,
+        groepen: [
+          { id:'afm', t:'Afmetingen', style:'text', kz:[
+            {v:'300x300', l:'300 × 300 cm', m2:9},
+            {v:'400x300', l:'400 × 300 cm', m2:12},
+            {v:'500x300', l:'500 × 300 cm', m2:15, def:1},
+            {v:'600x300', l:'600 × 300 cm', m2:18},
+            {v:'maatwerk', l:'Maatwerk', ic:IC.ruler, m2:15}
+          ]},
+          { id:'hout', t:'Houtsoort', style:'swatch', hero:1, kz:[
+            {v:'douglas', l:'Douglas', img:'./assets/media/mat-douglas.jpg', heroKey:'hout-douglas', m2:0, def:1},
+            {v:'eiken', l:'Eiken', img:'./assets/media/mat-eiken.jpg', heroKey:'hout-eiken', m2:140},
+            {v:'lariks', l:'Lariks', img:'./assets/media/mat-lariks.jpg', heroKey:'hout-lariks', m2:25},
+            {v:'grenen', l:'Grenen', img:'./assets/media/mat-grenen.jpg', heroKey:'hout-grenen', m2:-30},
+            {v:'thermohout', l:'Thermohout', img:'./assets/media/mat-thermohout.jpg', heroKey:'hout-thermohout', m2:75},
+            {v:'zwart-douglas', l:'Zwart Douglas', img:'./assets/media/mat-zwart-douglas.jpg', heroKey:'hout-zwart-douglas', m2:60},
+            {v:'douglas-zwartwand', l:'Douglas + zwarte wand', img:'./assets/media/mat-douglas-zwartwand.jpg', heroKey:'hout-douglas-zwartwand', m2:70}
+          ]},
+          { row:1, groepen:[
+            { id:'daktype', t:'Daktype', style:'icon', kz:[
+              {v:'platdak', l:'Platdak', img:'./assets/media/opt-platdak.jpg', p:0, def:1},
+              {v:'schuindak', l:'Schuindak', img:'./assets/media/opt-schuindak.jpg', heroMod:'-schuin', p:950}
+            ]},
+            { id:'dakbedekking', t:'Dakbedekking', style:'icon', kz:[
+              {v:'epdm', l:'EPDM', img:'./assets/media/opt-epdm.jpg', p:0, def:1},
+              {v:'dakpan', l:'Dakpanprofiel', img:'./assets/media/opt-dakpan.jpg', heroMod:'-dakpan', m2:45},
+              {v:'riet', l:'Riet look', img:'./assets/media/opt-riet.jpg', heroMod:'-riet', m2:150}
+            ]},
+            { id:'achterwand', t:'Achterwand', style:'icon', kz:[
+              {v:'geen', l:'Geen', ic:IC.geen, p:0, def:1},
+              {v:'hout', l:'Hout', img:'./assets/media/opt-houtwand.jpg', heroMod:'-achterhout', m2:110},
+              {v:'rabat', l:'Zwart rabat', img:'./assets/media/opt-rabat.jpg', heroMod:'-achterrabat', m2:125}
+            ]}
+          ]},
+          { id:'wanden', t:'Wanden', style:'icon', kz:[
+            {v:'open', l:'Open', ic:IC.geen, p:0, def:1},
+            {v:'schuif', l:'Glazen schuifwand', img:'./assets/media/opt-schuifwand.jpg', heroMod:'-schuif', p:1150},
+            {v:'dicht', l:'Dicht, glas rondom', img:'./assets/media/opt-glasdak.jpg', heroMod:'-dicht', p:2400}
+          ]}
+        ],
+        extra: [
+          {v:'led', l:'LED strip', ic:IC.led, p:395, def:1},
+          {v:'spots', l:'LED spots', ic:IC.led, heroMod:'-spots', p:295},
+          {v:'stopcontact', l:'Stopcontact', ic:IC.stopcontact, p:95},
+          {v:'verwarming', l:'Verwarming', ic:IC.warmte, p:349},
+          {v:'dakgoot', l:'Dakgoot', ic:IC.dakgoot, p:180},
+          {v:'lichtstraat', l:'Lichtstraat', ic:IC.lichtstraat, heroMod:'-licht', p:650}
+        ]
+      },
+      aluminium: {
+        knop: 'Aluminium', titel: '<span>Aluminium</span> overkapping', accent: '#A9BED2', soft: 'rgba(169,190,210,.16)',
+        sub: 'Strak design. Onderhoudsvrij. Moderne uitstraling.',
+        badge: { ic: IC.diamond, t: 'Moderne uitstraling' },
+        hero: './assets/media/hero-alu-antraciet.webp',
+        basisM2: 1018,
+        groepen: [
+          { id:'afm', t:'Afmetingen', style:'text', kz:[
+            {v:'300x300', l:'300 × 300 cm', m2:9},
+            {v:'400x300', l:'400 × 300 cm', m2:12},
+            {v:'500x300', l:'500 × 300 cm', m2:15, def:1},
+            {v:'600x300', l:'600 × 300 cm', m2:18},
+            {v:'maatwerk', l:'Maatwerk', ic:IC.ruler, m2:15}
+          ]},
+          { id:'kleur', t:'Kleur frame', style:'swatch', hero:1, kz:[
+            {v:'antraciet', l:'Antraciet', sub:'RAL 7016', sw:'#383E42', heroKey:'alu-antraciet', p:0, def:1},
+            {v:'zwart', l:'Zwart', sub:'RAL 9005', sw:'#0E0E10', heroKey:'alu-zwart', p:0},
+            {v:'wit', l:'Wit', sub:'RAL 9010', sw:'#F1F0EA', heroKey:'alu-wit', p:0},
+            {v:'taupe', l:'Taupe', sub:'RAL 7006', sw:'#7A6E5D', heroKey:'alu-taupe', p:120},
+            {v:'zilver', l:'Zilver', sub:'RAL 9006', sw:'#A1A1A0', heroKey:'alu-zilver', p:0}
+          ]},
+          { row:1, groepen:[
+            { id:'daktype', t:'Daktype', style:'icon', kz:[
+              {v:'lamellen', l:'Lamellendak', img:'./assets/media/opt-lamellen.jpg', p:0, def:1},
+              {v:'glasdak', l:'Glazen dak', img:'./assets/media/opt-glasdak.jpg', heroMod:'-glas', p:-350},
+              {v:'poly', l:'Polycarbonaat', ic:IC.poly, heroMod:'-poly', p:-550}
+            ]},
+            { id:'zijwanden', t:'Zijwanden', style:'icon', kz:[
+              {v:'geen', l:'Geen', ic:IC.geen, p:0, def:1},
+              {v:'schuif', l:'Glazen schuifwand', img:'./assets/media/opt-schuifwand.jpg', heroMod:'-schuif', p:1150},
+              {v:'dicht', l:'Dicht, glas rondom', img:'./assets/media/opt-glasdak.jpg', heroMod:'-dicht', p:2400},
+              {v:'screens', l:'Screens', img:'./assets/media/opt-screens.jpg', heroMod:'-screens', p:450}
+            ]},
+            { id:'montage', t:'Montage', style:'icon', kz:[
+              {v:'aanhuis', l:'Aan huis', ic:IC.aanhuis, p:0, def:1},
+              {v:'vrijstaand', l:'Vrijstaand', ic:IC.vrijstaand, heroMod:'-vrijstaand', p:0}
+            ]}
+          ]}
+        ],
+        extra: [
+          {v:'led', l:'LED strip', ic:IC.led, p:395, def:1},
+          {v:'spots', l:'LED spots', ic:IC.led, heroMod:'-spots', p:295},
+          {v:'lichtstraat', l:'Lichtstraat', ic:IC.lichtstraat, heroMod:'-licht', p:650},
+          {v:'stopcontact', l:'Stopcontact', ic:IC.stopcontact, p:95},
+          {v:'verwarming', l:'Verwarming', ic:IC.warmte, p:349},
+          {v:'regensensor', l:'Regensensor', ic:IC.regen, p:225},
+          {v:'windsensor', l:'Wind sensor', ic:IC.wind, p:195},
+          {v:'afstand', l:'Afstandsbediening', ic:IC.remote, p:150}
+        ]
+      }
+    };
+
+    var $ = function(s,r){ return (r||document).querySelector(s); };
+    function euro(n){ return "€ " + (Math.round(n/5)*5).toLocaleString('nl-NL') + ",-"; }
+
+    var mat = 'hout';
+    var sel = {};      // group id -> value
+    var extras = {};   // extra v -> bool
+    var btwIncl = true;
+
+    function cur(){ return MAT[mat]; }
+    function allGroups(){ // flatten (incl. nested row groups)
+      var out=[]; cur().groepen.forEach(function(g){ if(g.row){ g.groepen.forEach(function(x){out.push(x);}); } else out.push(g); }); return out;
+    }
+    function findKz(g){ return g.kz.filter(function(k){return k.v===sel[g.id];})[0] || g.kz[0]; }
+
+    function initSelection(){
+      sel = {}; extras = {};
+      allGroups().forEach(function(g){ var d=g.kz.filter(function(k){return k.def;})[0]||g.kz[0]; sel[g.id]=d.v; });
+      cur().extra.forEach(function(e){ extras[e.v] = !!e.def; });
+    }
+
+    function m2(){ var g=allGroups().filter(function(x){return x.id==='afm';})[0]; return findKz(g).m2 || 15; }
+
+    function calc(){
+      var opp = m2(), tot = cur().basisM2 * opp;
+      allGroups().forEach(function(g){ if(g.id==='afm') return; var k=findKz(g); if(k.p) tot+=k.p; if(k.m2) tot+=k.m2*opp; });
+      cur().extra.forEach(function(e){ if(extras[e.v]) tot += e.p; });
+      return tot;
+    }
+
+    /* ---- render ---- */
+    function tile(name, k, checked, multi){
+      var input = '<input type="'+(multi?'checkbox':'radio')+'" name="'+name+'" value="'+k.v+'"'+(checked?' checked':'')+'>';
+      var inner;
+      if (k.img) inner = '<span class="tile__img" style="background-image:url('+k.img+')"></span>';
+      else if (k.sw) inner = '<span class="tile__sw" style="background:'+k.sw+'"></span>';
+      else inner = '<span class="ico">'+(k.ic||'')+'</span>';
+      var sub = k.sub ? '<span class="sub">'+k.sub+'</span>' : '';
+      return '<label class="tile">'+input+'<span class="tile__c">'+inner+'<span class="lab">'+k.l+'</span>'+sub+'</span></label>';
+    }
+    function groupBox(g, nr){
+      var cls = g.style==='swatch' ? 'tiles' : (g.style==='icon' ? 'tiles sm' : 'tiles');
+      var tiles = g.kz.map(function(k){ return tile('g_'+g.id, k, sel[g.id]===k.v, false); }).join('');
+      return '<div class="grp"><div class="grp__h"><b>'+nr+'.</b>'+g.t.toUpperCase()+'</div><div class="'+cls+'">'+tiles+'</div></div>';
+    }
+
+    function render(){
+      var c = cur();
+      document.documentElement.style.setProperty('--acc', c.accent);
+      document.documentElement.style.setProperty('--acc-soft', c.soft);
+      $('#mHout').textContent = 'Hout'; $('#mAlu').textContent = 'Aluminium';
+      $('#confTitle').innerHTML = c.titel;
+      $('#confSub').textContent = c.sub;
+      $('#confBadge').innerHTML = '<span>'+c.badge.ic+'</span><span>'+c.badge.t+'</span>';
+
+      var nr=0, html='';
+      c.groepen.forEach(function(g){
+        if (g.row){
+          html += '<div class="grp__row cols3">';
+          g.groepen.forEach(function(x){ nr++; html += groupBox(x, nr); });
+          html += '</div>';
+        } else { nr++; html += groupBox(g, nr); }
+      });
+      // extra opties
+      nr++;
+      var ex = c.extra.map(function(e){ return tile('x_'+e.v, e, !!extras[e.v], true); }).join('');
+      html += '<div class="grp"><div class="grp__h"><b>'+nr+'.</b>EXTRA OPTIES</div><div class="tiles sm">'+ex+'</div></div>';
+      $('#groups').innerHTML = html;
+
+      // wire tiles
+      allGroups().forEach(function(g){
+        $('#groups').querySelectorAll('input[name="g_'+g.id+'"]').forEach(function(inp){
+          inp.addEventListener('change', function(){
+            sel[g.id]=this.value;
+            if (coerce(g.id)) { render(); return; } // gekoppelde keuze aangepast -> tiles opnieuw tekenen
+            price(); updateHero(); applyGates();
+          });
+        });
+      });
+      c.extra.forEach(function(e){
+        var inp = $('#groups').querySelector('input[name="x_'+e.v+'"]');
+        if(inp) inp.addEventListener('change', function(){ extras[e.v]=this.checked; price(); updateHero(); });
+      });
+      applyGates();
+      updateHero(true);
+      price();
+    }
+
+    // ---- samenhang tussen keuzes ----
+    // dakpan/riet horen bij een schuin dak; op een plat dak ligt EPDM; lichtstraat kan alleen in een plat dak
+    function coerce(changedId){
+      var changed=false;
+      if (mat==='hout'){
+        if (changedId==='dakbedekking' && (sel.dakbedekking==='dakpan'||sel.dakbedekking==='riet') && sel.daktype!=='schuindak'){ sel.daktype='schuindak'; changed=true; }
+        if (changedId==='daktype' && sel.daktype==='platdak' && (sel.dakbedekking==='dakpan'||sel.dakbedekking==='riet')){ sel.dakbedekking='epdm'; changed=true; }
+        if (changedId==='daktype' && sel.daktype!=='platdak' && extras.lichtstraat){ extras.lichtstraat=false; changed=true; }
+      }
+      return changed;
+    }
+    // visuele gates: lichtstraat-tegel uitschakelen als die niet kan
+    function applyGates(){
+      if (mat!=='hout') return;
+      var li = $('#groups').querySelector('input[name="x_lichtstraat"]');
+      if (!li) return;
+      var ok = sel.daktype==='platdak';
+      li.disabled = !ok;
+      var lbl = li.closest('label');
+      if (lbl){ lbl.style.opacity = ok? '' : '.45'; lbl.title = ok? '' : 'Lichtstraat kan alleen in een plat dak'; }
+    }
+
+    function sizeBucket(){
+      // kleine maten tonen de compacte render: een écht kleinere overkapping in dezelfde scène
+      var v = sel['afm'];
+      return (v==='300x300' || v==='400x300') ? 'compact' : 'ruim';
+    }
+    function groupById(id){ var r=null; allGroups().forEach(function(g){ if(g.id===id) r=g; }); return r; }
+    function heroSrc(){
+      // colour/wood key
+      var key=null;
+      allGroups().forEach(function(g){ if(g.hero){ var k=findKz(g); if(k.heroKey) key=k.heroKey; } });
+      if(!key) return cur().hero;
+      var c=cur();
+      // DAK-token eerst (het dak mag nooit verkeerd getoond worden):
+      // hout: dakbedekking (-dakpan/-riet) is specifieker dan daktype (-schuin); alu: daktype (-glas/-poly)
+      var roof='';
+      var bg=groupById('dakbedekking'); if(bg){ var bk=findKz(bg); if(bk.heroMod) roof=bk.heroMod; }
+      if(!roof){ var dg=groupById('daktype'); if(dg){ var dk=findKz(dg); if(dk.heroMod) roof=dk.heroMod; } }
+      // FEATURE-token: montage (vrijstaand) > wanden/zijwanden > achterwand > lichtstraat (alleen platdak) > spots
+      var feat='';
+      var vrij='';
+      var mg=groupById('montage'); if(mg){ var mk=findKz(mg); if(mk.heroMod==='-vrijstaand') vrij='-vrijstaand'; else if(mk.heroMod) feat=mk.heroMod; }
+      if(!feat){ var wg=groupById('wanden')||groupById('zijwanden'); if(wg){ var wk=findKz(wg); if(wk.heroMod) feat=wk.heroMod; } }
+      if(!feat){ var awg=groupById('achterwand'); if(awg){ var awk=findKz(awg); if(awk.heroMod) feat=awk.heroMod; } }
+      if(!feat && extras['lichtstraat'] && roof===''){ var le=c.extra.filter(function(x){return x.v==='lichtstraat';})[0]; if(le&&le.heroMod) feat=le.heroMod; }
+      if(!feat && extras['spots']){ var se=c.extra.filter(function(x){return x.v==='spots';})[0]; if(se&&se.heroMod) feat=se.heroMod; }
+      // meest specifiek -> minst; dak-correctheid gaat boven feature, opties gaan boven maat
+      var size = sizeBucket()==='compact' ? '-compact' : '';
+      // vrijstaand hoort bij de sleutel: eigen renderserie (dubbele constructie)
+      var vkey=key+vrij;
+      var cands=[
+        vkey+roof+feat+size, // exacte combinatie op de juiste maat
+        vkey+roof+feat,      // exacte combinatie (ruim)
+        vkey+roof+size,      // juiste dak op de juiste maat
+        vkey+roof,           // juiste dak (ruim)
+        vkey+feat+size,      // feature op maat (geen dak-token)
+        vkey+feat,           // feature (ruim)
+        vkey+size,           // basis op maat
+        vkey                 // basis
+      ];
+      if(vrij){ cands.push(key+roof+feat,key+roof,key+feat,key); }
+      for(var i=0;i<cands.length;i++){ if(HAVE.has('hero-'+cands[i])) return './assets/media/hero-'+cands[i]+'.webp'; }
+      return cur().hero;
+    }
+    function heroScale(){
+      // de maat wordt getoond met échte compacte renders (kleinere overkapping in
+      // dezelfde scène) — de foto zelf blijft altijd beeldvullend.
+      return 1;
+    }
+    function dimLabel(){
+      var v = sel['afm'] || '';
+      if (v === 'maatwerk') return 'Maatwerk';
+      var p = v.split('x');
+      if (p.length < 2) return '';
+      var b = (parseInt(p[0],10)/100).toFixed(2).replace('.',',');
+      var d = (parseInt(p[1],10)/100).toFixed(2).replace('.',',');
+      return b + ' × ' + d + ' m';
+    }
+    function applyScaleAndBg(src){
+      var wrap = $('#confHeroWrap'), bg = $('#confHeroBg'), dim = $('#confDim');
+      var sc = heroScale();
+      var img = $('#confHero');
+      if (img) img.style.transform = 'scale(' + sc + ')';
+      if (wrap) wrap.classList.toggle('is-scaled', sc < 0.995);
+      if (bg && src) bg.style.backgroundImage = "url('" + src + "')";
+      if (dim) dim.innerHTML = '<b>' + dimLabel() + '</b>';
+    }
+    /* Elke beeldwissel krijgt een volgnummer, en een fade die nog loopt terwijl
+       er alweer gekozen is zet zijn beeld niet meer neer. Zonder dat legt de
+       trage timer het oude beeld over de nieuwe keuze heen: wie binnen die
+       150 ms twee keer klikt, ziet iets staan wat hij net heeft weggeklikt,
+       naast een keuzelijst die iets anders zegt. */
+    var heroBeurt = 0;
+    function updateHero(instant){
+      var img = $('#confHero'), src = heroSrc();
+      // maat-schaal + achtergrond + label altijd bijwerken (ook als de foto zelf gelijk blijft)
+      applyScaleAndBg(src);
+      var beurt = ++heroBeurt;
+      if (img.getAttribute('src') === src){ img.style.opacity = '1'; return; }
+      if (instant){ img.src = src; img.style.opacity = '1'; return; }
+      img.style.opacity = '0';
+      // swap na fade-out; achtergrond volgt de nieuwe bron zodra die geladen is
+      setTimeout(function(){
+        if (beurt !== heroBeurt) return;   // ingehaald door een nieuwere keuze
+        img.src = src; img.style.opacity = '1';
+      }, 150);
+    }
+
+    function summaryText(){
+      var c=cur(), lines=['Materiaal: '+ (mat==='hout'?'Hout':'Aluminium')];
+      allGroups().forEach(function(g){ lines.push(g.t+': '+findKz(g).l); });
+      var chosen = c.extra.filter(function(e){return extras[e.v];}).map(function(e){return e.l;});
+      lines.push('Extra opties: '+(chosen.length?chosen.join(', '):'geen'));
+      var excl=calc(), incl=excl*(1+BTW);
+      lines.push('Totaalprijs incl. montage: '+euro(excl)+' excl. btw  /  '+euro(incl)+' incl. btw');
+      return lines.join('\n');
+    }
+    function price(){
+      var excl=calc(), incl=excl*(1+BTW);
+      $('#prijs').textContent = euro(btwIncl?incl:excl);
+      $('#f_config').value = summaryText();
+    }
+
+    /* ---- material switch ---- */
+    function setMat(m){
+      mat=m; initSelection();
+      $('#mHout').classList.toggle('is-on', m==='hout'); $('#mHout').setAttribute('aria-pressed', m==='hout');
+      $('#mAlu').classList.toggle('is-on', m==='aluminium'); $('#mAlu').setAttribute('aria-pressed', m==='aluminium');
+      render();
+    }
+    $('#mHout').addEventListener('click', function(){ setMat('hout'); });
+    $('#mAlu').addEventListener('click', function(){ setMat('aluminium'); });
+
+    // btw toggle
+    function setBtw(on){ btwIncl=on;
+      $('#btwIncl').classList.toggle('is-on', on); $('#btwIncl').setAttribute('aria-pressed', on);
+      $('#btwExcl').classList.toggle('is-on', !on); $('#btwExcl').setAttribute('aria-pressed', !on);
+      price();
+    }
+    $('#btwIncl').addEventListener('click', function(){ setBtw(true); });
+    $('#btwExcl').addEventListener('click', function(){ setBtw(false); });
+
+    $('#naarOfferte').addEventListener('click', function(){ $('#offerte').scrollIntoView({behavior:'smooth', block:'start'}); });
+
+    // download config as .txt
+    $('#downloadBtn').addEventListener('click', function(){
+      var blob = new Blob(['Overkapping configuratie · Next Growth\n\n'+summaryText()+'\n\nnextgrowthdigital.nl · <a href="tel:+31683902192">06 83 90 21 92</a>'], {type:'text/plain'});
+      var a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+      a.download='overkapping-'+mat+'.txt'; a.click(); URL.revokeObjectURL(a.href);
+    });
+
+    /* ---- lead form: Web3Forms + mailto fallback ---- */
+    function msg(t,type){ var m=$('#leadMsg'); m.hidden=false; m.textContent=t; m.className='lead__msg '+(type||''); }
+    function mailtoFallback(f){
+      var body="Aanvraag overkapping via configurator\n=====================================\n\n"+f.configuratie.value+
+        "\n\n--- Contactgegevens ---\nNaam: "+f.naam.value+"\nE-mail: "+f.email.value+
+        "\nTelefoon: "+(f.telefoon.value||"-")+"\nPlaats: "+(f.plaats.value||"-")+"\nBericht: "+(f.bericht.value||"-")+"\n";
+      window.location.href="mailto:info@nextgrowthdigital.nl?subject="+encodeURIComponent("Offerteaanvraag overkapping: "+(f.naam.value||""))+"&body="+encodeURIComponent(body);
+    }
+  /* Twee routes naast elkaar: FormSubmit levert vandaag af, Web3Forms vangt op
+     als die dienst hapert. Geeft hetzelfde antwoord terug als FormSubmit, zodat
+     de rest van de afhandeling ongewijzigd blijft. Pas als beide mislukken
+     opent de mailclient. */
+  function ngDubbel(payload, sleutel){
+    var a=fetch("https://formsubmit.co/ajax/info@nextgrowthdigital.nl",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(payload)})
+      .then(function(r){return r.json();}).then(function(d){return !!(d&&(d.success===true||d.success==="true"));}).catch(function(){return false;});
+    var b=sleutel?fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},
+      body:JSON.stringify(Object.assign({access_key:sleutel,from_name:"nextgrowthdigital.nl",subject:payload._subject},payload))})
+      .then(function(r){return r.ok;}).catch(function(){return false;}):Promise.resolve(false);
+    /* Niet Promise.all: dan wacht de bezoeker op het traagste kanaal, ook als
+       het eerste al ja heeft gezegd. Web3Forms staat op sommige blokkeerlijsten
+       en hangt dan tot de browser er zelf mee ophoudt. De lead is op dat moment
+       allang binnen via FormSubmit, maar het scherm blijft op Versturen staan en
+       de bezoeker denkt dat het mislukt is.
+
+       Dus: zodra een van de twee slaagt is het klaar. Zeggen ze allebei nee, dan
+       pas het mailtovangnet. Blijft er een hangen, dan valt na tien seconden de
+       beslissing alsnog op nee - want dan weten we het niet, en dan is de e-mail
+       openen eerlijker dan een bedankje dat nergens op slaat. Beide verzoeken
+       lopen intussen gewoon door; er wordt niets afgebroken. */
+    var beslist = new Promise(function (klaar) {
+      var open = 2;
+      [a, b].forEach(function (p) {
+        p.then(function (ok) { if (ok) klaar(true); else if (!--open) klaar(false); });
+      });
+      setTimeout(function () { klaar(false); }, 10000);
+    });
+    return beslist.then(function(ok){return {json:function(){return {success:ok};}};});
+  }
+
+    $('#leadForm').addEventListener('submit', function(e){
+      e.preventDefault(); var f=e.target;
+      if (f.reportValidity && !f.reportValidity()) return;
+      var btn=$('#leadBtn'), oud=btn.textContent; btn.disabled=true; btn.textContent="Versturen…";
+      ngDubbel({_subject:"Offerteaanvraag overkapping: "+(f.naam.value||""), _template:"table", _captcha:"false", _replyto:f.email.value, Product:"Overkapping",
+          Naam:f.naam.value, "E-mail":f.email.value, Telefoon:(f.telefoon.value||"-"), Plaats:(f.plaats.value||"-"), Bericht:(f.bericht.value||"-"), Configuratie:f.configuratie.value}, WEB3FORMS_KEY).then(function(r){return r.json();}).then(function(d){
+        if(d&&(d.success===true||d.success==="true")){ f.reset(); msg("Bedankt! Je aanvraag is verstuurd. We nemen binnen één werkdag contact op.","ok"); }
+        else { msg("Er ging iets mis. We openen je e-mail met de aanvraag klaar.","err"); mailtoFallback(f); }
+      }).catch(function(){ msg("Geen verbinding. We openen je e-mail met de aanvraag klaar.","err"); mailtoFallback(f); })
+        .finally(function(){ btn.disabled=false; btn.textContent=oud; });
+    });
+
+    // ---- presets (populaire samenstellingen) ----
+    var PRESETS=[
+      {n:'Zwarte tuinkamer', d:'Douglas + zwarte wand, dicht', th:'hero-hout-douglas-zwartwand', mat:'hout',
+        sel:{afm:'500x300', hout:'douglas-zwartwand', daktype:'platdak', wanden:'dicht'}, extras:{spots:true, led:false}},
+      {n:'Warm & open', d:'Eiken, platdak, sfeer-LED', th:'hero-hout-eiken', mat:'hout',
+        sel:{afm:'400x300', hout:'eiken', daktype:'platdak', wanden:'open'}, extras:{led:true}},
+      {n:'Lichtstraat luxe', d:'Douglas met lichtstraat + spots', th:'hero-hout-douglas-licht', mat:'hout',
+        sel:{afm:'600x300', hout:'douglas', daktype:'platdak', wanden:'open'}, extras:{lichtstraat:true, spots:true}},
+      {n:'Modern aluminium', d:'Antraciet, lamellen, schuifwand', th:'hero-alu-antraciet-schuif', mat:'aluminium',
+        sel:{afm:'500x300', kleur:'antraciet', daktype:'lamellen', zijwanden:'schuif'}, extras:{led:true}}
+    ];
+    function applyPreset(p){
+      setMat(p.mat);
+      if(p.sel) Object.keys(p.sel).forEach(function(k){ sel[k]=p.sel[k]; });
+      if(p.extras) Object.keys(p.extras).forEach(function(k){ extras[k]=p.extras[k]; });
+      render();
+    }
+    function renderPresets(){
+      $('#presetRow').innerHTML = PRESETS.map(function(p,i){
+        return '<button type="button" class="preset" data-i="'+i+'">'+
+          '<span class="preset__th" style="background-image:url(./assets/media/'+p.th+'-thumb.webp)"></span>'+
+          '<span class="preset__t"><b>'+p.n+'</b><span>'+p.d+'</span></span></button>';
+      }).join('');
+      $('#presetRow').querySelectorAll('.preset').forEach(function(btn){
+        btn.addEventListener('click', function(){ applyPreset(PRESETS[+this.getAttribute('data-i')]); });
+      });
+    }
+    renderPresets();
+
+    // init — deep-link #aluminium opent direct de aluminium veranda
+    setMat(location.hash === '#aluminium' ? 'aluminium' : 'hout');
+  
+  /* De keuzes bereikbaar maken voor de AI-foto onderaan de pagina. De
+     configurator draait in zijn eigen scope; zonder deze regel ziet de
+     fotomodule geen enkele keuze en stuurt hij een lege beschrijving mee. */
+  window.NGKeuze = function () { return typeof sel === 'undefined' ? null : sel; };
+})();
+  </script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Kan ik een overkapping online samenstellen?","acceptedAnswer":{"@type":"Answer","text":"Ja. In de demo hierboven kies je maat, houtsoort of RAL-kleur, daktype en wandopties, en je ziet bij elke keuze direct het beeld en de richtprijs veranderen. Aan het eind stuur je de samenstelling als aanvraag door. Zo werkt het straks ook op de website van een verandabouwer."}},{"@type":"Question","name":"Hoe ver kan een overkapping overspannen zonder paal?","acceptedAnswer":{"@type":"Answer","text":"Een houten ligger overspant in de praktijk drie tot vier meter voordat er een paal onder moet. Met aluminium profielen kan dat verder. Wil je zes meter vrij overspannen, dan kom je vrijwel altijd bij aluminium uit of bij een zwaardere houtconstructie."}},{"@type":"Question","name":"Welke houtsoort is het beste voor een overkapping?","acceptedAnswer":{"@type":"Answer","text":"Douglas wordt het meest gekozen: sterk, van zichzelf redelijk duurzaam en zonder onderhoud vergrijzend naar zilvergrijs. Eiken gaat het langst mee en is het duurst. Grenen is de voordeligste keuze maar vraagt om de paar jaar onderhoud."}},{"@type":"Question","name":"Is een overkapping vergunningsvrij?","acceptedAnswer":{"@type":"Answer","text":"In de achtertuin vaak wel, maar er zitten voorwaarden aan: achter de achtergevelrooilijn, meestal lager dan drie meter, en binnen een maximaal percentage van het erf. Bij een monument, beschermd dorpsgezicht of voortuin gelden andere regels. Controleer het altijd bij je gemeente of via het Omgevingsloket."}},{"@type":"Question","name":"Wat is het verschil tussen glas en polycarbonaat als dak?","acceptedAnswer":{"@type":"Answer","text":"Glas geeft meer licht, is makkelijker schoon te houden en vergeelt niet. Polycarbonaat is lichter en goedkoper, maar krast sneller en verkleurt op termijn. Opaalglas filtert het licht en houdt de warmte beter buiten dan helder glas."}},{"@type":"Question","name":"Wat kost een houten overkapping?","acceptedAnswer":{"@type":"Answer","text":"Dat hangt vooral af van de maat, de houtsoort en het daktype. In de configurator hierboven zie je bij elke keuze direct een richtprijs; de definitieve prijs volgt na het opmeten ter plaatse door het bedrijf."}}]}</script>
+
+<script src="./assets/afdrukvenster.js" defer></script>
+<script src="./assets/technische-tekeningen-houtbouw.js" defer></script>
+<script src="./assets/tuinbouwwerk.js" defer></script>
+<script src="./assets/bouwaanzichten.js" defer></script>
+<script src="./assets/tekenprogramma.js" defer></script>
+<script>
+/* Het tekenprogramma op deze pagina tekent een open bouwwerk en niet een
+   gesloten geïsoleerd gebouw, dus wijst de pagina zijn eigen motor aan. De
+   maten en profielen komen uit hetzelfde model als het technische
+   tekeningenpakket hieronder -- twee waarheden in één dossier zou betekenen
+   dat het ene blad een staander van 120 mm noemt waar het andere er 150
+   tekent. */
+window.addEventListener('DOMContentLoaded', function () {
+  window.NGTekenMotor = window.NGTuinbouwwerk || null;
+  window.NGTekenBron = function () {
+    var sel = window.NGKeuze && window.NGKeuze();
+    return sel ? { product: 'overkapping', sel: sel } : null;
+  };
+  if (window.NGTekenprogramma) window.NGTekenprogramma.ververs();
+});
+</script>
+
+<script>window.addEventListener('DOMContentLoaded',function(){if(window.NGTekeningenHout)NGTekeningenHout.init({product:'overkapping'});});</script>
+<script src="./assets/aifoto.js" defer></script>
+<script>
+/* De AI-foto: keuzes van deze configurator vertalen naar de beschrijving die
+   het beeldmodel krijgt. Onbekende waarden worden aan de andere kant netjes
+   opgevangen met een standaardwaarde, dus een nieuwe optie breekt niets - hij
+   valt alleen terug tot hij hier ook genoemd wordt. */
+window.addEventListener('DOMContentLoaded', function () {
+  if (!window.NGFoto) return;
+  NGFoto.init({
+    product: 'overkapping',
+    scene: 'buiten',
+    kop: 'Zie de overkapping in je eigen tuin',
+    lead: 'Upload een foto van je terras. Je krijgt je eigen samenstelling er fotorealistisch op terug, en alles eromheen blijft precies zoals het is.',
+    payload: function () {
+      var sel = window.NGKeuze && window.NGKeuze();
+      if (!sel) return {};
+      var afm = String(sel.afm || '500x300').split('x');
+      // hout- en aluminiumuitvoeringen komen uit twee verschillende groepen
+      var hout = sel.hout || '';
+      var mat = hout ? (hout.indexOf('douglas') >= 0 ? 'douglas'
+                      : hout.indexOf('eiken') >= 0 ? 'eiken'
+                      : hout.indexOf('grenen') >= 0 ? 'grenen' : 'hout') : 'alu';
+      var dak = sel.dakbedekking || sel.daktype || '';
+      return {
+        w: (Number(afm[0]) || 500) / 100,
+        dp: (Number(afm[1]) || 300) / 100,
+        h: 2.6,
+        material: mat,
+        color: hout ? 'naturel' : (sel.kleur || 'antraciet'),
+        roof: dak === 'glasdak' ? 'glas' : dak === 'lamellen' ? 'lamellen'
+            : dak === 'epdm' ? 'dicht' : dak === 'dakpan' ? 'dicht' : 'poly',
+        wall: sel.wanden === 'schuif' ? 'schuif' : sel.wanden === 'dicht' ? 'dicht'
+            : sel.zijwanden === 'glas' ? 'glas' : '',
+        mount: sel.montage === 'vrijstaand' ? 'vrijstaand' : 'muur',
+        spots: (sel.montage === 'spots' || sel.wanden === 'spots') ? '1' : ''
+      };
+    }
+  });
+});
+</script>
+  
+  <a class="nx-wa" href="https://wa.me/31683902192" target="_blank" rel="noopener" aria-label="Stel je vraag via WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a9.9 9.9 0 0 0-8.5 15L2 22l5.2-1.4A9.9 9.9 0 1 0 12 2zm0 1.7a8.2 8.2 0 1 1-4.2 15.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.7zm-3.1 4.2c-.2 0-.5 0-.7.3-.2.3-.9.9-.9 2.1s.9 2.5 1 2.6c.1.2 1.8 2.8 4.3 3.8 2.1.8 2.6.7 3 .6.5 0 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.4-.2-1.5-.7c-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.5 7.5 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5v-.5L9.5 8.2c-.2-.4-.4-.3-.6-.3z"/></svg></a>
+  <!-- Vercel Analytics (scripts/analytics.py) -->
+  
+  
+</body>
+</html>
