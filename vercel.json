@@ -85,10 +85,6 @@
     {
       "source": "/assets/:path*",
       "destination": "https://next-growth-prefabselect.vercel.app/assets/:path*"
-    },
-    {
-      "source": "/api/:path*",
-      "destination": "https://next-growth-prefabselect.vercel.app/api/:path*"
     }
   ],
   "redirects": [

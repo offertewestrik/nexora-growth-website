@@ -1449,7 +1449,14 @@ function Cases(){
 /* ---------- contact ---------- */
 function Contact(){
   var st=useState({}),err=st[0],setErr=st[1],sent=useState(false),ok=sent[0],setOk=sent[1];
-  function submit(e){e.preventDefault();var f=e.currentTarget,n=f.naam.value.trim(),t=f.tel.value.trim();var E={};if(!n)E.n='Vul je naam in.';if(!/^[+\d][\d\s\-()]{7,}$/.test(t))E.t='Vul een telefoonnummer in, bijvoorbeeld 06 12 34 56 78.';setErr(E);if(Object.keys(E).length)return;setOk(true)}
+  var bz=useState(false),busy=bz[0],setBusy=bz[1];
+  function submit(e){e.preventDefault();var f=e.currentTarget,n=f.naam.value.trim(),t=f.tel.value.trim(),w=f.wat.value;var E={};if(!n)E.n='Vul je naam in.';if(!/^[+\d][\d\s\-()]{7,}$/.test(t))E.t='Vul een telefoonnummer in, bijvoorbeeld 06 12 34 56 78.';if(f.website&&f.website.value)return;setErr(E);if(Object.keys(E).length)return;
+    setBusy(true);
+    function mailto(){location.href='mailto:info@nextgrowthdigital.nl?subject='+encodeURIComponent('Terugbelverzoek: '+w)+'&body='+encodeURIComponent('Naam: '+n+'\nTelefoon: '+t+'\nOnderwerp: '+w+'\nPagina: '+location.href)}
+    var klaar=false,wekker=setTimeout(function(){if(klaar)return;klaar=true;setBusy(false);mailto()},9000);
+    fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({access_key:'695172ae-1f2d-40b7-bb31-b8a4a882ad62',subject:'Terugbelverzoek via nextgrowthdigital.nl: '+n,from_name:'nextgrowthdigital.nl',naam:n,telefoon:t,onderwerp:w,pagina:location.href})})
+      .then(function(r){return r.ok}).catch(function(){return false})
+      .then(function(ok){if(klaar)return;klaar=true;clearTimeout(wekker);setBusy(false);if(ok){setOk(true);f.reset()}else{mailto()}})}
   return h`<section class="contact" id="contact"><div class="wrap"><${Arrow}/>
     <div>
       <p class="eyebrow mono" style=${{color:'var(--sig-ink)'}}>Terugbelverzoek</p>
@@ -1463,9 +1470,10 @@ function Contact(){
       <label>Naam<input id="f-naam" name="naam" autoComplete="name"/><span class="err">${err.n||''}</span></label>
       <label>Telefoonnummer<input id="f-tel" name="tel" type="tel" autoComplete="tel" inputMode="tel"/><span class="err">${err.t||''}</span></label>
       <label>Waar gaat het om?<select id="f-wat" name="wat">${['Branding of rebrand','Website of webshop','Marketing, social & content','Influencer-samenwerking','Configurator, offerte & CRM','Alles: merk, site en marketing','Anders'].map(function(o){return h`<option key=${o}>${o}</option>`})}</select></label>
-      <${Magnet} type="submit">Bel mij terug</${Magnet}>
+      <input name="website" tabIndex="-1" autoComplete="off" aria-hidden="true" style=${{position:'absolute',left:'-9999px',width:1,height:1,opacity:0}}/>
+      <${Magnet} type="submit">${busy?'Versturen…':'Bel mij terug'}</${Magnet}>
       <span class="fine">Alleen om je terug te bellen. Geen nieuwsbrief, geen belrondes.</span>
-      <div id="sent" class=${ok?'on':''} role="status">Bedankt. Dit is een ontwerpvoorbeeld: het formulier is nog niet gekoppeld. Bel of mail ons direct, dan reageren we dezelfde werkdag.</div>
+      <div id="sent" class=${ok?'on':''} role="status">Bedankt, je aanvraag is binnen. We bellen je dezelfde werkdag terug.</div>
     </form></${Rise}>
   </div></section>`;
 }
