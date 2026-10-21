@@ -1,1 +1,6 @@
 /index.html
+
+# Leesbare configurator-broncode en bouwstap: gaan niet live
+/bron-configurators
+/scripts
+node_modules

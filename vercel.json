@@ -35,6 +35,10 @@
         {
           "key": "X-Content-Type-Options",
           "value": "nosniff"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "frame-ancestors 'self' https://nextgrowthdigital.nl https://www.nextgrowthdigital.nl https://adcmbouwenrenovatiebv.nl https://*.adcmbouwenrenovatiebv.nl"
         }
       ]
     }

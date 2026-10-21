@@ -488,7 +488,60 @@
     }
     </script>
     <!-- ============ EINDE ENTITEIT ============ -->
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,900;125,900&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/ngx-shell.css"><script>document.documentElement.classList.add("ngx-serif")</script><style id="ngx-world">:root{--ink-900:#050F1E;--ink-800:#07172B;--ink-700:#0A1D36;--ink-600:#0B2140;--ink-500:#102A4F;--ink-400:#1C3A63;--tint:#0A1D36;--bg:#07172B;--bg-raise:#0B2140;--bg-raise-2:#102A4F;--accent:#D9B77C;--accent-strong:#C49E5E;--accent-light:#F0DDB5;--accent-deep:#8A6A3A;--accent-dim:rgba(217,183,124,.13);--glow:rgba(217,183,124,.30);--accent-rgb:217,183,124;--acc:#D9B77C;--acc-soft:rgba(217,183,124,.14);--acc-diep:#8A6A3A;--goud-metaal:linear-gradient(150deg,#8A6A3A 0%,#D9B77C 26%,#F0DDB5 46%,#D9B77C 66%,#8A6A3A 100%);--goud-lijn:linear-gradient(90deg,transparent,rgba(217,183,124,.55) 30%,rgba(217,183,124,.55) 70%,transparent);--serif:'Fraunces',Georgia,serif;--mono:'JetBrains Mono',ui-monospace,monospace;}html,body{background:#07172B}.ngx-nav{--x-sig:#D9B77C;--x-ink:#0A0800;background:#07172BF5}.ngx-nav .ngx-mark{background:#FFC400}</style></head>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,900;125,900&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/ngx-shell.css"><script>
+/* ng-domeinslot:begin */
+(function (w, d) {
+var l = w.location || {}, h = String(l.hostname || '').toLowerCase();
+if (l.protocol !== 'file:' && (
+h === 'nextgrowthdigital.nl' || h === 'www.nextgrowthdigital.nl' ||
+h === 'next-growth-nieuw.vercel.app' ||
+/^next-growth-nieuw-[a-z0-9-]+-prefabselect\.vercel\.app$/.test(h) ||
+h === 'localhost' || h === '127.0.0.1'
+)) return;
+function maak(tag, css, tekst) {
+var e = d.createElement(tag);
+if (css) e.style.cssText = css;
+if (tekst) e.textContent = tekst;
+return e;
+}
+function toon() {
+var r = d.documentElement;
+if (!r) return;
+if (d.body && d.body.__ngSlot && r.childNodes.length === 2) return;
+while (r.firstChild) r.removeChild(r.firstChild);
+var kop = maak('head'), lijf = maak('body', 'margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#0A0A0A;color:#F4F1EA;font-family:Manrope,system-ui,-apple-system,"Segoe UI",sans-serif;padding:24px 16px;box-sizing:border-box');
+lijf.__ngSlot = 1;
+var m = maak('meta'); m.name = 'viewport'; m.content = 'width=device-width,initial-scale=1'; kop.appendChild(m);
+var f = maak('link'); f.rel = 'stylesheet'; f.href = 'https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=Manrope:wght@400;600&display=swap'; kop.appendChild(f);
+kop.appendChild(maak('title', '', 'Next Growth Digital'));
+var vak = maak('main', 'max-width:600px;width:100%;border-top:4px solid #FFC400;padding-top:28px');
+vak.appendChild(maak('p', 'margin:0 0 18px;font-family:Archivo,system-ui,sans-serif;font-weight:800;letter-spacing:.14em;font-size:13px;color:#FFC400', 'NEXT GROWTH DIGITAL'));
+vak.appendChild(maak('h1', 'margin:0 0 18px;font-family:Archivo,system-ui,sans-serif;font-weight:800;font-size:clamp(26px,5vw,40px);line-height:1.1;color:#FFFFFF', 'Deze configurator is eigendom van Next Growth Digital en mag niet worden gekopieerd.'));
+var p = maak('p', 'margin:0 0 28px;font-size:18px;line-height:1.55;color:#D9D5CC', 'Wil je er zelf een? Bekijk ');
+var a = maak('a', 'color:#FFC400;font-weight:600;text-decoration:underline;text-underline-offset:3px', 'nextgrowthdigital.nl');
+a.href = 'https://nextgrowthdigital.nl/';
+p.appendChild(a);
+vak.appendChild(p);
+var knop = maak('a', 'display:inline-block;background:#FFC400;color:#0A0A0A;font-family:Archivo,system-ui,sans-serif;font-weight:800;font-size:15px;padding:14px 22px;text-decoration:none;border-radius:2px', 'Naar nextgrowthdigital.nl');
+knop.href = 'https://nextgrowthdigital.nl/';
+vak.appendChild(knop);
+lijf.appendChild(vak);
+r.appendChild(kop);
+r.appendChild(lijf);
+}
+if (!w.__ngSlotActief) {
+w.__ngSlotActief = 1;
+toon();
+d.addEventListener('DOMContentLoaded', toon);
+w.addEventListener('load', toon);
+setTimeout(toon, 50); setTimeout(toon, 600); setTimeout(toon, 2500);
+} else {
+toon();
+}
+throw new Error('Next Growth Digital: deze configurator mag alleen draaien op nextgrowthdigital.nl');
+})(window, document);
+/* ng-domeinslot:end */
+document.documentElement.classList.add("ngx-serif")</script><style id="ngx-world">:root{--ink-900:#050F1E;--ink-800:#07172B;--ink-700:#0A1D36;--ink-600:#0B2140;--ink-500:#102A4F;--ink-400:#1C3A63;--tint:#0A1D36;--bg:#07172B;--bg-raise:#0B2140;--bg-raise-2:#102A4F;--accent:#D9B77C;--accent-strong:#C49E5E;--accent-light:#F0DDB5;--accent-deep:#8A6A3A;--accent-dim:rgba(217,183,124,.13);--glow:rgba(217,183,124,.30);--accent-rgb:217,183,124;--acc:#D9B77C;--acc-soft:rgba(217,183,124,.14);--acc-diep:#8A6A3A;--goud-metaal:linear-gradient(150deg,#8A6A3A 0%,#D9B77C 26%,#F0DDB5 46%,#D9B77C 66%,#8A6A3A 100%);--goud-lijn:linear-gradient(90deg,transparent,rgba(217,183,124,.55) 30%,rgba(217,183,124,.55) 70%,transparent);--serif:'Fraunces',Georgia,serif;--mono:'JetBrains Mono',ui-monospace,monospace;}html,body{background:#07172B}.ngx-nav{--x-sig:#D9B77C;--x-ink:#0A0800;background:#07172BF5}.ngx-nav .ngx-mark{background:#FFC400}</style></head>
 <body><header class="ngx-nav"><div class="ngx-wrap">
 <a class="ngx-brand" href="/"><span class="ngx-ring">NG</span><span>Next Growth<small>Creatief groeibureau · Landelijk</small></span></a>
 <a class="ngx-mark" href="/" aria-label="Next Growth, naar de homepage"><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14V4l10 10V4" stroke="#0A0800" stroke-width="2.8" stroke-linecap="square"/></svg></a>
@@ -654,7 +707,60 @@
 <div><h4>Kennisbank</h4><ul><li><a href="/kennisbank">Alle artikelen</a></li><li><a href="/kennisbank-configurator-kosten">Wat kost een configurator?</a></li><li><a href="/configurator-laten-maken">Configurator laten maken</a></li><li><a href="/kennisbank-website-kosten">Wat kost een website?</a></li></ul></div>
 <div><h4>Bedrijf</h4><ul><li><a href="/#cases">Cases</a></li><li><a href="/werkgebied">Werkgebied</a></li><li><a href="/privacyverklaring">Privacyverklaring</a></li><li><a href="/auteursrecht">Auteursrecht</a></li><li><a href="/#contact">Contact</a></li></ul></div>
 </div>
-<div class="ngx-legal"><span>© 2026 Next Growth Digital</span><span>KVK 96002913</span><span>Landelijk actief · Nederland</span></div>
+<div class="ngx-legal"><span>© 2026 Next Growth Digital. Deze configurator is auteursrechtelijk beschermd.</span><span>KVK 96002913</span><span>Landelijk actief · Nederland</span></div>
 <p class="ngx-giant" aria-hidden="true">NEXT GROWTH</p></div></footer>
-<script>(function(){var b=document.querySelector('.ngx-menu'),n=document.getElementById('ngx-mnav');if(!b||!n)return;b.addEventListener('click',function(){var o=n.hasAttribute('hidden');if(o)n.removeAttribute('hidden');else n.setAttribute('hidden','');b.setAttribute('aria-expanded',o?'true':'false');b.textContent=o?'Sluiten':'Menu'});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!n.hasAttribute('hidden')){n.setAttribute('hidden','');b.setAttribute('aria-expanded','false');b.textContent='Menu';b.focus()}})})();</script></body>
+<script>
+/* ng-domeinslot:begin */
+(function (w, d) {
+var l = w.location || {}, h = String(l.hostname || '').toLowerCase();
+if (l.protocol !== 'file:' && (
+h === 'nextgrowthdigital.nl' || h === 'www.nextgrowthdigital.nl' ||
+h === 'next-growth-nieuw.vercel.app' ||
+/^next-growth-nieuw-[a-z0-9-]+-prefabselect\.vercel\.app$/.test(h) ||
+h === 'localhost' || h === '127.0.0.1'
+)) return;
+function maak(tag, css, tekst) {
+var e = d.createElement(tag);
+if (css) e.style.cssText = css;
+if (tekst) e.textContent = tekst;
+return e;
+}
+function toon() {
+var r = d.documentElement;
+if (!r) return;
+if (d.body && d.body.__ngSlot && r.childNodes.length === 2) return;
+while (r.firstChild) r.removeChild(r.firstChild);
+var kop = maak('head'), lijf = maak('body', 'margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#0A0A0A;color:#F4F1EA;font-family:Manrope,system-ui,-apple-system,"Segoe UI",sans-serif;padding:24px 16px;box-sizing:border-box');
+lijf.__ngSlot = 1;
+var m = maak('meta'); m.name = 'viewport'; m.content = 'width=device-width,initial-scale=1'; kop.appendChild(m);
+var f = maak('link'); f.rel = 'stylesheet'; f.href = 'https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=Manrope:wght@400;600&display=swap'; kop.appendChild(f);
+kop.appendChild(maak('title', '', 'Next Growth Digital'));
+var vak = maak('main', 'max-width:600px;width:100%;border-top:4px solid #FFC400;padding-top:28px');
+vak.appendChild(maak('p', 'margin:0 0 18px;font-family:Archivo,system-ui,sans-serif;font-weight:800;letter-spacing:.14em;font-size:13px;color:#FFC400', 'NEXT GROWTH DIGITAL'));
+vak.appendChild(maak('h1', 'margin:0 0 18px;font-family:Archivo,system-ui,sans-serif;font-weight:800;font-size:clamp(26px,5vw,40px);line-height:1.1;color:#FFFFFF', 'Deze configurator is eigendom van Next Growth Digital en mag niet worden gekopieerd.'));
+var p = maak('p', 'margin:0 0 28px;font-size:18px;line-height:1.55;color:#D9D5CC', 'Wil je er zelf een? Bekijk ');
+var a = maak('a', 'color:#FFC400;font-weight:600;text-decoration:underline;text-underline-offset:3px', 'nextgrowthdigital.nl');
+a.href = 'https://nextgrowthdigital.nl/';
+p.appendChild(a);
+vak.appendChild(p);
+var knop = maak('a', 'display:inline-block;background:#FFC400;color:#0A0A0A;font-family:Archivo,system-ui,sans-serif;font-weight:800;font-size:15px;padding:14px 22px;text-decoration:none;border-radius:2px', 'Naar nextgrowthdigital.nl');
+knop.href = 'https://nextgrowthdigital.nl/';
+vak.appendChild(knop);
+lijf.appendChild(vak);
+r.appendChild(kop);
+r.appendChild(lijf);
+}
+if (!w.__ngSlotActief) {
+w.__ngSlotActief = 1;
+toon();
+d.addEventListener('DOMContentLoaded', toon);
+w.addEventListener('load', toon);
+setTimeout(toon, 50); setTimeout(toon, 600); setTimeout(toon, 2500);
+} else {
+toon();
+}
+throw new Error('Next Growth Digital: deze configurator mag alleen draaien op nextgrowthdigital.nl');
+})(window, document);
+/* ng-domeinslot:end */
+(function(){var b=document.querySelector('.ngx-menu'),n=document.getElementById('ngx-mnav');if(!b||!n)return;b.addEventListener('click',function(){var o=n.hasAttribute('hidden');if(o)n.removeAttribute('hidden');else n.setAttribute('hidden','');b.setAttribute('aria-expanded',o?'true':'false');b.textContent=o?'Sluiten':'Menu'});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!n.hasAttribute('hidden')){n.setAttribute('hidden','');b.setAttribute('aria-expanded','false');b.textContent='Menu';b.focus()}})})();</script></body>
 </html>

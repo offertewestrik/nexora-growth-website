@@ -1,0 +1,5 @@
+node_modules/
+
+# Leesbare configuratorbron en bouwstap staan in de privé-repo prefab-select (branch next-growth-configurator-bron)
+/bron-configurators/
+/scripts/
