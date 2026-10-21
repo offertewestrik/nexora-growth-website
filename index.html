@@ -2254,7 +2254,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(h`<${App}/>`);
   function prep(v){v.muted=true;v.setAttribute('muted','');v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');v.loop=true;v.setAttribute('loop','')}
   function tryPlay(v){prep(v);if(v.preload==='none')v.preload='auto';var pr=v.play();if(pr&&pr.catch)pr.catch(function(){})}
   /* maximaal een paar video's tegelijk decoderen: de best zichtbare spelen, de rest pauzeert */
-  var MAX=matchMedia('(max-width:860px)').matches?2:3;
+  var MAX=matchMedia('(max-width:860px)').matches?4:6;
   var ratio=new Map(),timer=null;
   function apply(){timer=null;var vis=[];ratio.forEach(function(r,v){if(r>=.35&&document.contains(v))vis.push([r,v])});vis.sort(function(a,b){return b[0]-a[0]});
     var keep=vis.slice(0,MAX).map(function(x){return x[1]});ratio.forEach(function(r,v){if(keep.indexOf(v)>=0){if(v.paused)tryPlay(v)}else if(!v.paused)v.pause()})}
