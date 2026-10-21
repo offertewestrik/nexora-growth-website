@@ -2101,7 +2101,10 @@ function HeroBoost(props){
     if(io)io.observe(v);
     function vis(){if(document.hidden)v.pause();else if(go&&!paused.current)v.play().catch(function(){})}
     document.addEventListener('visibilitychange',vis);
-    return function(){clearTimeout(fb);cancelAnimationFrame(raf.current);if(io)io.disconnect();document.removeEventListener('visibilitychange',vis);v.removeEventListener('playing',start);v.removeEventListener('pause',stop);v.removeEventListener('waiting',stop)};
+    /* iOS (energiebesparing, databesparing) start video's alleen binnen een aanraking: dan direct afspelen */
+    function tik(){if(go&&!paused.current&&v.paused){var pr=v.play();if(pr&&pr.catch)pr.catch(function(){})}}
+    ['touchstart','touchend','click','scroll'].forEach(function(ev){addEventListener(ev,tik,{passive:true,capture:true})});
+    return function(){['touchstart','touchend','click','scroll'].forEach(function(ev){removeEventListener(ev,tik,{capture:true})});clearTimeout(fb);cancelAnimationFrame(raf.current);if(io)io.disconnect();document.removeEventListener('visibilitychange',vis);v.removeEventListener('playing',start);v.removeEventListener('pause',stop);v.removeEventListener('waiting',stop)};
   },[go]);
   useEffect(function(){var v=vref.current;if(!v||reduce||!go||paused.current)return;var tm=setTimeout(function(){v.play().catch(function(){})},started.current?0:900);return function(){clearTimeout(tm)}},[go]);
   function toggle(){var v=vref.current;if(!v)return;if(v.paused){paused.current=false;v.play().catch(function(){})}else{paused.current=true;v.pause()}}
