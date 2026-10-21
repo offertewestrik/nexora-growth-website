@@ -7,7 +7,10 @@
   var vids=[].slice.call(document.querySelectorAll('video'));
   if(vids.length&&'IntersectionObserver' in window){vids.forEach(function(v){v.removeAttribute('autoplay');v.muted=true;v.playsInline=true});
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.play().catch(function(){})}else{e.target.pause()}})},{threshold:.35});
-    vids.forEach(function(v){io.observe(v)})}
+    vids.forEach(function(v){io.observe(v)});
+    /* iOS in energiebesparing: alleen starten binnen een aanraking */
+    var zicht=function(v){var r=v.getBoundingClientRect();return r.bottom>0&&r.top<innerHeight};
+    ['touchend','click'].forEach(function(ev){addEventListener(ev,function(){vids.forEach(function(v){if(v.paused&&zicht(v))v.play().catch(function(){})})},{passive:true,capture:true})})}
   /* Terugbelverzoek: rechtstreeks naar de mail van Next Growth (Web3Forms). Lukt dat niet, dan opent een e-mail met de gegevens. */
   [].slice.call(document.querySelectorAll('form[data-cb]')).forEach(function(f){
     f.addEventListener('submit',function(e){e.preventDefault();
