@@ -5,6 +5,8 @@
     n.addEventListener('click',function(e){if(e.target.tagName==='A'){n.setAttribute('hidden','');b.setAttribute('aria-expanded','false');b.textContent='Menu'}});
     document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!n.hasAttribute('hidden')){n.setAttribute('hidden','');b.setAttribute('aria-expanded','false');b.textContent='Menu';b.focus()}})}
   var vids=[].slice.call(document.querySelectorAll('video'));
+  /* op nextgrowthdigital.nl video's rechtstreeks van de nieuwe site laden (de omweg via het oude project werkt niet in Safari) */
+  if(/(^|\.)nextgrowthdigital\.nl$/.test(location.hostname))vids.forEach(function(v){[v].concat([].slice.call(v.querySelectorAll('source'))).forEach(function(e){var s=e.getAttribute('src');if(s&&/^\/?assets\//.test(s))e.setAttribute('src','https://next-growth-nieuw.vercel.app/'+s.replace(/^\//,''))});v.load&&v.getAttribute('src')&&v.load()});
   if(vids.length&&'IntersectionObserver' in window){vids.forEach(function(v){v.removeAttribute('autoplay');v.muted=true;v.playsInline=true});
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.play().catch(function(){})}else{e.target.pause()}})},{threshold:.35});
     vids.forEach(function(v){io.observe(v)});

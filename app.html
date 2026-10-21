@@ -2249,7 +2249,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(h`<${App}/>`);
 
 /* video's: alleen afspelen in beeld, met fallback op eerste interactie */
 (function(){
-  function prep(v){v.muted=true;v.setAttribute('muted','');v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');v.loop=true;v.setAttribute('loop','')}
+  /* Op nextgrowthdigital.nl loopt de site via het oude project, en die omweg levert video's niet zoals Safari wil.
+     Video's daarom rechtstreeks van de nieuwe site laden. */
+  var MEDIA=/(^|\.)nextgrowthdigital\.nl$/.test(location.hostname)?'https://next-growth-nieuw.vercel.app/':'';
+  function bron(v){if(!MEDIA)return;var s=v.getAttribute('src');if(s&&!/^(https?:|blob:|data:)/.test(s)){v.setAttribute('src',MEDIA+s.replace(/^\.?\//,''))}}
+  function prep(v){bron(v);v.muted=true;v.setAttribute('muted','');v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');v.loop=true;v.setAttribute('loop','')}
   function tryPlay(v){prep(v);if(v.preload==='none')v.preload='auto';var pr=v.play();if(pr&&pr.catch)pr.catch(function(){})}
   /* maximaal een paar video's tegelijk decoderen: de best zichtbare spelen, de rest pauzeert */
   var MAX=matchMedia('(max-width:860px)').matches?4:6;
@@ -2260,7 +2264,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(h`<${App}/>`);
   var io=('IntersectionObserver' in window)?new IntersectionObserver(function(es){es.forEach(function(e){ratio.set(e.target,e.isIntersecting?e.intersectionRatio:0)});sched()},{threshold:[0,.2,.35,.5,.75,1]}):null;
   /* posters pas ophalen als de video binnen een schermhoogte komt */
   var pio=('IntersectionObserver' in window)?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var v=e.target;if(v.dataset.poster){v.setAttribute('poster',v.dataset.poster);delete v.dataset.poster}pio.unobserve(v)}})},{rootMargin:'900px 0px'}):null;
-  function scan(){document.querySelectorAll('video[data-auto]:not([data-io])').forEach(function(v){v.setAttribute('data-io','1');prep(v);
+  function scan(){document.querySelectorAll('video:not([data-bron])').forEach(function(v){v.setAttribute('data-bron','1');bron(v)});document.querySelectorAll('video[data-auto]:not([data-io])').forEach(function(v){v.setAttribute('data-io','1');prep(v);
     if(v.dataset.poster){if(pio)pio.observe(v);else{v.setAttribute('poster',v.dataset.poster);delete v.dataset.poster}}
     if(io)io.observe(v);else tryPlay(v)})}
   var root=document.getElementById('root');
