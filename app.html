@@ -2097,7 +2097,7 @@ function HeroBoost(props){
     function start(){cancelAnimationFrame(raf.current);started.current=true;setPhase('play');raf.current=requestAnimationFrame(tick)}
     function stop(){cancelAnimationFrame(raf.current);setCur(function(c){return {t:c.t,playing:false}})}
     v.addEventListener('playing',start);v.addEventListener('pause',stop);v.addEventListener('waiting',stop);
-    var fb=setTimeout(function(){if(!started.current)setPhase('static')},3500);
+    var fb=setTimeout(function(){if(!started.current)setPhase('static')},1800);
     var io=('IntersectionObserver' in window)?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){if(go&&!paused.current)v.play().catch(function(){})}else v.pause()})},{threshold:.15}):null;
     if(io)io.observe(v);
     function vis(){if(document.hidden)v.pause();else if(go&&!paused.current)v.play().catch(function(){})}
