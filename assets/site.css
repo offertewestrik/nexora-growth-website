@@ -246,3 +246,12 @@ details.faq>div p{margin:0 0 10px}
 .rbody .gallery figure img{max-height:220px}
 .hero.long h1{font-size:clamp(30px,4.2vw,66px);overflow-wrap:break-word;hyphens:auto}
 .fcard h3,.row h3,.shead h2{overflow-wrap:break-word;hyphens:auto;-webkit-hyphens:auto}
+
+/* Contrast: accentkleur op lichte (cream) vlakken. Geel #FFC400 op #E9E8E3 is 1,3:1; deze tinten halen 5:1 of meer (WCAG AA). */
+body:not([class*="t-"]){--sig-cream:#7A5C00}
+.t-tuin{--sig-cream:#4F6310}
+.t-interieur{--sig-cream:#80571A}
+.t-jacht{--sig-cream:#7D5E2A}
+.t-dak{--sig-cream:#B3261B}
+.cream .sig{color:var(--sig-cream,var(--sig))}
+.cream .rbody li::marker,.cream details.faq summary::after{color:var(--sig-cream,var(--sig))}

@@ -57,6 +57,10 @@
       "destination": "/seo/llms.txt"
     },
     {
+      "source": "/llms-full.txt",
+      "destination": "/seo/llms-full.txt"
+    },
+    {
       "source": "/:p(360|demo-adcm|demo-alureh|demo-crm|demo-dakdekker|demo-opbouwineenweek|demo-wellnesstuinier|demos|jacht-360-proef|jacht-dashboard|jachtaanvraag|ng-crm|offerte-dakopbouw|opvolging-engine|plattegrond|render-controle|tekenprogramma-demo|van-oss-vloerenstudio)",
       "destination": "https://next-growth-prefabselect.vercel.app/:p.html"
     },
