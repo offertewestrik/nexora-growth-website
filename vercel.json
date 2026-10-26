@@ -107,7 +107,7 @@
       "destination": "/seo/:slug"
     },
     {
-      "source": "/:slug([a-z0-9-]+)",
+      "source": "/:slug(branche-autobedrijven|branche-bouwbedrijven|branche-brands|branche-creators|branche-dakdekkers|branche-hoveniers|branche-installatiebedrijven|branche-overkapping-veranda|branche-restaurants-horeca|branche-webshops|dienst-automatisering|dienst-branding|dienst-configurators|dienst-crm|dienst-marketing|dienst-software|dienst-webdesign|lokaal-marketing-den-bosch|lokaal-marketing-eindhoven|lokaal-marketing-nijmegen|lokaal-marketing-uden|lokaal-marketing-veghel|lokaal-webdesign-arnhem|lokaal-webdesign-cuijk|lokaal-webdesign-den-bosch|lokaal-webdesign-eindhoven|lokaal-webdesign-grave|lokaal-webdesign-nijmegen|lokaal-webdesign-uden|lokaal-webdesign-veghel|lokaal-webdesign-vught|lokaal-webdesign-wijchen|prijzen|sales|branches|demo-fashion|index)",
       "destination": "/app"
     }
   ],
