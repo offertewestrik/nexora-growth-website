@@ -620,6 +620,95 @@ Antwoord: Je kunt gemeten herkomst verbinden aan gewonnen opdrachten in CRM. Ben
 
 ---
 
+## Hoe snel kan een zakelijke website live staan?
+URL: https://nextgrowthdigital.nl/kennisbank-website-snel-live
+Categorie: Websites
+Bijgewerkt: 2026-10-26
+
+Vraag: Hoe snel kan een zakelijke website live staan?
+
+Kort antwoord: Een overzichtelijke zakelijke website kan binnen twee weken live staan, mits teksten, foto's en toegang tot domein en accounts op tijd klaar zijn en één persoon snel beslist. Vertraging ontstaat zelden door het bouwen zelf, maar door ontbrekende inhoud, lange feedbackrondes, koppelingen met andere systemen of het verhuizen van een bestaande website.
+
+Kernpunten:
+- Twee weken is haalbaar voor een overzichtelijke zakelijke website met een duidelijke scope.
+- De grootste vertragers zijn teksten, foto's en besluitvorming, niet de techniek.
+- Wijs één beslisser aan en plan feedbackmomenten vooraf in.
+- Live staan is iets anders dan gevonden worden: Google heeft tijd nodig om pagina's te verwerken.
+- Koppelingen en het verhuizen van een oude site vragen extra tijd.
+
+### Waarom het ene project twee weken duurt en het andere drie maanden
+
+Het bouwen van een overzichtelijke website met een handvol paginatypen is voor een ervaren bouwer geen werk van maanden. Wat projecten lang maakt, is vrijwel altijd wachten: op teksten, op foto's, op inloggegevens van het oude domein, op een akkoord van een compagnon die op vakantie is. Een website met tien pagina's waarvan de inhoud klaarligt, staat sneller live dan een website met vijf pagina's waarvan niemand weet wie de teksten schrijft.
+
+Daarom is de belangrijkste vraag niet hoe snel de bouwer is, maar hoe snel jij kunt aanleveren en beslissen. Een realistische planning begint met een eerlijke inschatting van je eigen beschikbaarheid in de komende weken.
+
+### Wat bepaalt de doorlooptijd?
+| Factor | Versnelt | Vertraagt |
+|---|---|---|
+| Teksten | Bouwer schrijft op basis van een intakegesprek, of teksten liggen klaar | Teksten moeten nog geschreven worden door iemand die het druk heeft |
+| Beeld | Eigen projectfoto's zijn beschikbaar en geselecteerd | Er moet nog een fotograaf komen of alles moet bij elkaar gezocht worden |
+| Besluiten | Eén beslisser met vaste feedbackmomenten | Meerdere mensen geven los van elkaar feedback |
+| Toegang | Inloggegevens voor domein, e-mail en hosting zijn bekend | Niemand weet waar het domein geregistreerd staat |
+| Koppelingen | Formulier mailt naar je inbox | Koppeling met CRM, planning of boekhouding moet gebouwd en getest worden |
+| Bestaande site | Nieuwe website, geen oude pagina's om rekening mee te houden | Oude site met posities in Google die je wilt behouden |
+
+### Een planning van twee weken in de praktijk
+
+Een korte doorlooptijd werkt alleen als de stappen strak achter elkaar lopen. Een globaal schema voor een overzichtelijke zakelijke website ziet er zo uit:
+
+- Dag 1 tot 2: intakegesprek over je diensten, klanten en het type aanvragen dat je wilt; toegang tot domein en accounts regelen.
+- Dag 3 tot 5: structuur, teksten en ontwerp van de belangrijkste pagina's met echte inhoud.
+- Dag 6 tot 8: één ronde gebundelde feedback en verwerking.
+- Dag 9 tot 11: bouwen van de overige pagina's, formulier, meting en technische basis voor Google.
+- Dag 12 tot 14: testen op mobiel en desktop, testaanvraag doen, livegang en overdracht.
+
+### Wat kun je zelf doen om sneller live te gaan?
+- Zoek vooraf uit waar je domeinnaam staat en wie de inloggegevens heeft.
+- Verzamel twintig tot dertig goede foto's van je eigen werk, bij voorkeur recent.
+- Schrijf per dienst in steekwoorden wat je doet, voor wie en in welke regio.
+- Verzamel bestaande reviews, certificeringen en lidmaatschappen die je mag tonen.
+- Spreek af wie beslist en reserveer tijd in je agenda voor de feedbackronde.
+- Bepaal waar aanvragen naartoe moeten: welk e-mailadres of welk systeem.
+
+### Live staan is nog niet gevonden worden
+
+Een website die vandaag live gaat, staat niet morgen bovenaan in Google. Google ontdekt nieuwe pagina's vooral via links en kan een sitemap gebruiken als hulp. Volgens Google kan het crawlen van pagina's een paar dagen tot een paar weken duren, en een verzoek tot crawlen geeft geen garantie dat een pagina snel of überhaupt in de resultaten verschijnt. In de SEO-startersgids schrijft Google dat sommige wijzigingen binnen uren effect hebben en andere pas na maanden.
+
+Plan daarom na de livegang een paar praktische stappen: meld de website aan in Google Search Console, dien de sitemap in, zet de nieuwe link in je Google Bedrijfsprofiel en verwijs vanuit je e-mailhandtekening en social media naar de site. Heb je haast met aanvragen, dan kan een tijdelijke advertentiecampagne de periode overbruggen tot de organische vindbaarheid op gang komt.
+
+### Wanneer is snel juist niet verstandig?
+
+Een korte doorlooptijd is prima voor een nieuwe of overzichtelijke website. Het is minder verstandig als je een bestaande website met veel bezoekers uit Google vervangt. Dan moeten oude adressen netjes worden doorverwezen en wil je eerst weten welke pagina's verkeer opleveren. Google beschrijft voor zo'n verhuizing een apart migratieproces. Ook bij koppelingen met een CRM, offertesysteem of configurator is testen belangrijker dan snelheid: een aanvraag die verdwijnt, kost meer dan een week extra planning.
+
+Twijfel je, kies dan voor fasering: zet eerst de kern live en voeg koppelingen of extra onderdelen toe zodra die getest zijn.
+
+### Hoe snel werkt Next Growth?
+
+Een zakelijke website van Next Growth staat binnen twee weken live, voor een vaste prijs vanaf € 1.500. Wij schrijven de teksten op basis van een intakegesprek, zodat je niet zelf weken achter je bureau hoeft. Domein, code en accounts komen op jouw naam. Wil je weten of jouw planning haalbaar is? Vraag een terugbelverzoek aan; we bellen dezelfde werkdag terug. Of bel zelf: 06 83 90 21 92.
+
+### Veelgestelde vragen
+Vraag: Kan een website binnen een week live staan?
+Antwoord: Voor een eenvoudige one-pager met klaarliggende inhoud kan dat. Voor een zakelijke website met meerdere dienstpagina's, een goed formulier en testen is twee weken realistischer.
+
+Vraag: Hoe lang duurt het voordat mijn website in Google staat?
+Antwoord: Volgens Google kan crawlen een paar dagen tot een paar weken duren, zonder garantie op een positie. Search Console en een sitemap helpen Google je pagina's te vinden.
+
+Vraag: Kan mijn oude website online blijven tot de nieuwe klaar is?
+Antwoord: Ja. De nieuwe website wordt meestal op een testadres gebouwd en pas bij de livegang op je domein gezet.
+
+Vraag: Wat vertraagt een websiteproject het meest?
+Antwoord: Ontbrekende teksten en foto's, feedback van meerdere mensen tegelijk en onduidelijkheid over wie toegang heeft tot domein en hosting.
+
+Vraag: Moet ik de teksten zelf schrijven om snel live te gaan?
+Antwoord: Niet per se. Als de bouwer de teksten schrijft na een intakegesprek, gaat het vaak juist sneller dan wanneer je alles zelf moet aanleveren.
+
+
+### Bronnen
+- [Google Search Central: Ask Google to recrawl your URLs](https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl)
+- [Google Search Central: SEO-startersgids](https://developers.google.com/search/docs/fundamentals/seo-starter-guide)
+
+---
+
 ## Hoe verloopt het laten bouwen van een zakelijke website?
 URL: https://nextgrowthdigital.nl/kennisbank-website-traject
 Categorie: Websites
@@ -946,6 +1035,95 @@ Antwoord: Het principe van houderschap geldt overal, maar de procedure verschilt
 
 ---
 
+## Waarom levert mijn website geen aanvragen op?
+URL: https://nextgrowthdigital.nl/kennisbank-website-geen-aanvragen
+Categorie: Websites
+Bijgewerkt: 2026-10-26
+
+Vraag: Waarom levert mijn website geen aanvragen op en wat kan ik eraan doen?
+
+Kort antwoord: Een website zonder aanvragen heeft meestal één van vijf oorzaken: te weinig bezoekers, de verkeerde bezoekers, te weinig vertrouwen op de pagina, een vervolgstap die te moeilijk is, of een technische fout waardoor aanvragen niet aankomen. Stel eerst vast welke oorzaak speelt met Search Console, je statistieken en een testaanvraag, en los dan alleen dat probleem op.
+
+Kernpunten:
+- Begin met een testaanvraag: komt hij aan, ook op mobiel en niet in de spam?
+- Kijk in Search Console of je website bezoekers uit Google krijgt en op welke zoekwoorden.
+- Weinig bezoekers vraagt om vindbaarheid; veel bezoekers zonder aanvragen vraagt om betere pagina's.
+- Vertrouwen ontstaat door echte projecten, reviews en duidelijke contactgegevens.
+- Een nieuwe website is niet altijd nodig; soms is de oorzaak in een middag op te lossen.
+
+### Eerst meten, dan pas veranderen
+
+Het is verleidelijk om bij weinig aanvragen meteen een nieuwe website te laten maken of een advertentiebudget te verhogen. Maar als je niet weet waar het misgaat, los je misschien het verkeerde probleem op. Een mooiere website helpt niet als niemand hem vindt, en meer bezoekers helpen niet als het formulier stuk is.
+
+Werk daarom van achter naar voren. Controleer eerst of aanvragen technisch aankomen, kijk dan naar het aantal en type bezoekers en beoordeel pas daarna de inhoud van je pagina's.
+
+### De vijf oorzaken op een rij
+| Oorzaak | Hoe je het herkent | Wat je eraan doet |
+|---|---|---|
+| Technische fout | Testaanvraag komt niet of in de spam aan; formulier werkt niet op mobiel | Formulier repareren, verzendinstellingen laten controleren, maandelijks testen |
+| Te weinig bezoekers | Search Console toont weinig vertoningen en klikken | Dienstpagina's per klus en regio, Google Bedrijfsprofiel, eventueel advertenties |
+| Verkeerde bezoekers | Bezoekers komen op zoekwoorden die niet bij je aanbod passen | Teksten en titels richten op de klussen en regio die je wilt |
+| Te weinig vertrouwen | Bezoekers bekijken pagina's maar nemen geen contact op | Echte projecten, reviews, werkwijze, duidelijke contactgegevens |
+| Lastige vervolgstap | Geen zichtbare knop, lang formulier, telefoonnummer niet klikbaar | Eén duidelijke actie per pagina, kort formulier, bellen met één tik |
+
+### Oorzaak 1: aanvragen komen niet aan
+
+Dit komt vaker voor dan je denkt. Een formulier dat na een update niet meer verstuurt, een e-mailadres dat niet meer bestaat of berichten die in de spamfolder belanden: je merkt het pas als een klant belt met de vraag waarom je nooit hebt gereageerd. Doe daarom nu een testaanvraag, zowel vanaf je telefoon als vanaf een computer, en controleer of hij aankomt en of de bevestiging voor de klant klopt.
+
+Laat aanvragen bij voorkeur niet alleen in één mailbox landen. Een kopie in een CRM of een tweede adres zorgt dat er niets verdwijnt als iemand op vakantie is.
+
+### Oorzaak 2 en 3: te weinig of de verkeerde bezoekers
+
+Google Search Console is gratis en laat zien hoe vaak je website in Google verschijnt, hoe vaak erop wordt geklikt en op welke zoekopdrachten. Volgens Google verschijnt verkeer uit AI Overviews en AI Mode ook in het prestatierapport onder zoektype Web. Zie je weinig vertoningen, dan is vindbaarheid het probleem. Zie je veel vertoningen op zoektermen die niet bij je passen, dan trek je de verkeerde bezoekers.
+
+De oplossing is meestal een eigen pagina per belangrijke dienst, met in gewone woorden wat je doet en waar. Een installateur die alleen een pagina 'diensten' heeft met tien opsommingstekens, wordt slecht gevonden op 'warmtepomp laten installeren'. Vergeet ook je Google Bedrijfsprofiel niet: voor lokale klussen is dat vaak de eerste plek waar klanten je zien.
+
+### Oorzaak 4: bezoekers vertrouwen het niet genoeg
+
+Als bezoekers wel komen maar geen contact opnemen, mist er vaak bewijs. Mensen die een klus van duizenden euro's uitbesteden, willen zien dat je het werk eerder hebt gedaan. Laat echte projecten zien met foto's en een korte beschrijving, verwijs naar reviews, vertel wie er achter het bedrijf zit en leg uit wat er gebeurt na een aanvraag. Ook een prijsindicatie of uitleg waar de prijs van afhangt, haalt een drempel weg.
+
+### Oorzaak 5: de vervolgstap is te moeilijk
+
+Loop je eigen website eens door op je telefoon alsof je een klant bent. Is binnen een paar seconden duidelijk hoe je contact opneemt? Is het telefoonnummer klikbaar? Moet je in het formulier tien velden invullen voordat je iets kunt versturen? Een snelle website helpt ook: web.dev noemt een Largest Contentful Paint van 2,5 seconden of minder als goede score.
+
+- Zet op elke pagina één duidelijke knop met een concrete actie.
+- Maak het telefoonnummer klikbaar en zichtbaar in de kop op mobiel.
+- Vraag in het eerste contact alleen wat nodig is om terug te bellen.
+- Bied een terugbelverzoek aan voor mensen die liever niet zelf bellen.
+- Vertel wanneer de klant antwoord krijgt.
+
+### Heb je een nieuwe website nodig?
+
+Niet altijd. Een kapot formulier, een ontbrekende knop of een niet-klikbaar telefoonnummer los je op zonder nieuwe website. Ook een paar extra dienstpagina's kunnen vaak binnen de bestaande site. Een nieuwe website wordt pas zinvol als de structuur niet deugt, de site traag is op mobiel, je hem zelf niet kunt aanpassen of als hij er zo verouderd uitziet dat hij vertrouwen kost.
+
+### Laat je website eerlijk beoordelen
+
+Weet je niet waar het bij jou misgaat? Next Growth kijkt mee en zegt het eerlijk als een kleine aanpassing genoeg is. Is een nieuwe website wel nodig, dan bouwen we die vanaf € 1.500 voor een vaste prijs, binnen twee weken live, met code, domein en accounts op jouw naam. Moeten aanvragen direct in een CRM landen, dan begint een website met CRM vanaf € 6.995. Vraag een terugbelverzoek aan; we bellen dezelfde werkdag. Bellen kan ook: 06 83 90 21 92.
+
+### Veelgestelde vragen
+Vraag: Hoeveel aanvragen moet een website opleveren?
+Antwoord: Daar is geen vast getal voor; het hangt af van je branche, regio en aanbod. Meet je eigen startpunt en kijk of het aantal stijgt na een aanpassing.
+
+Vraag: Hoe test ik of mijn contactformulier werkt?
+Antwoord: Verstuur een testaanvraag vanaf je telefoon en je computer, controleer je inbox en spamfolder en kijk of de klant een bevestiging krijgt. Herhaal dat na elke update.
+
+Vraag: Wat is Google Search Console?
+Antwoord: Een gratis dienst van Google die laat zien hoe vaak je website in de zoekresultaten verschijnt, hoe vaak erop geklikt wordt en of er technische problemen zijn.
+
+Vraag: Helpen advertenties als mijn website geen aanvragen oplevert?
+Antwoord: Alleen als het probleem te weinig bezoekers is. Als bezoekers niet overtuigd raken of het formulier niet werkt, betaal je voor klikken die niets opleveren.
+
+Vraag: Hoe lang duurt het voordat verbeteringen effect hebben?
+Antwoord: Een gerepareerd formulier of duidelijkere knop werkt direct. Verbeteringen in vindbaarheid hebben tijd nodig; Google noemt dat sommige wijzigingen uren en andere maanden duren.
+
+
+### Bronnen
+- [Google Search Central: AI features and your website](https://developers.google.com/search/docs/appearance/ai-features)
+- [Google Search Central: SEO-startersgids](https://developers.google.com/search/docs/fundamentals/seo-starter-guide)
+- [web.dev: Web Vitals](https://web.dev/articles/vitals)
+
+---
+
 ## Wat is een conversiegerichte website, en hoe herken je die?
 URL: https://nextgrowthdigital.nl/kennisbank-conversiegerichte-website
 Categorie: Websites
@@ -1028,6 +1206,194 @@ Antwoord: Vaak wel. Begin met een duidelijke boodschap bovenaan, zichtbaar bewij
 
 ### Bronnen
 - [web.dev: Web Vitals](https://web.dev/articles/vitals)
+
+---
+
+## Wat moet er in de offerte voor je website staan voordat je tekent?
+URL: https://nextgrowthdigital.nl/kennisbank-website-offerte-checklist-tekenen
+Categorie: Websites
+Bijgewerkt: 2026-10-26
+
+Vraag: Wat moet er in een offerte of overeenkomst voor een website staan voordat ik teken?
+
+Kort antwoord: Teken een website-offerte pas als zes dingen op papier staan: wat er precies wordt opgeleverd, de prijs en terugkerende kosten, de planning met jouw aanlevermomenten, hoe meerwerk wordt afgesproken, op wiens naam domein, code en accounts komen, en welke algemene voorwaarden en privacyafspraken gelden. Wat niet op papier staat, is achteraf lastig te bewijzen.
+
+Kernpunten:
+- Een offerte beschrijft het resultaat, niet alleen een bedrag.
+- Laat eigendom van domein, code, teksten en accounts expliciet vastleggen.
+- Algemene voorwaarden gelden volgens KVK alleen als je ze vooraf kon lezen.
+- Verwerkt de bouwer persoonsgegevens voor jou, dan is een verwerkersovereenkomst nodig.
+- Leg vast wat er na de livegang gebeurt en wat dat kost.
+
+### Waarom de offerte belangrijker is dan het kennismakingsgesprek
+
+In een kennismakingsgesprek wordt veel beloofd en klinkt alles logisch. Maar als er later onduidelijkheid ontstaat over een extra pagina, een koppeling of wie de hosting betaalt, telt wat op papier staat. Een goede offerte beschermt beide partijen: jij weet wat je krijgt, de bouwer weet wat hij moet leveren.
+
+Gebruik de checklist hieronder om een offerte te controleren voordat je tekent. Staat een punt er niet in, vraag het dan na en laat het toevoegen. Een betrouwbare bouwer heeft daar geen moeite mee.
+
+### Checklist: 15 punten om te controleren
+- Welke pagina's en paginatypen worden opgeleverd?
+- Wie schrijft de teksten en wie levert de foto's?
+- Welke formulieren en koppelingen worden volledig werkend opgeleverd?
+- Hoeveel correctierondes zitten in de prijs?
+- Wat is de totale prijs, inclusief of exclusief btw?
+- Welke kosten komen er jaarlijks bij voor domein, hosting, licenties en onderhoud?
+- Wat zijn de betaaltermijnen en aan welke momenten zijn ze gekoppeld?
+- Wat is de planning, en wanneer moet jij wat aanleveren?
+- Hoe wordt meerwerk voorgesteld, geprijsd en goedgekeurd?
+- Op wiens naam komen domein, hosting, code en accounts?
+- Wie bezit de teksten, het ontwerp en de foto's na oplevering?
+- Wanneer is de website opgeleverd en hoe wordt dat getest?
+- Welke algemene voorwaarden zijn van toepassing en heb je ze ontvangen?
+- Is er een verwerkersovereenkomst als de bouwer persoonsgegevens voor jou verwerkt?
+- Wat gebeurt er na de livegang: onderhoud, reactietijd en opzegging?
+
+### Scope: wat wordt er precies gemaakt?
+
+Een omschrijving als 'professionele website met vijf pagina's' is te vaag. Vraag om een lijst van pagina's of paginatypen, de formulieren met hun velden en de koppelingen met wat ze precies doen. Een plek voor een configurator of een CRM-koppeling die 'voorbereid' wordt, is niet hetzelfde als een werkende koppeling. Laat ook vastleggen wat technische SEO inhoudt, zoals titels, sitemap, doorverwijzingen van oude pagina's en snelheid op mobiel.
+
+### Eigendom: van wie is wat?
+
+Dit punt wordt het vaakst vergeten en levert later de meeste problemen op. Laat expliciet vastleggen dat het domein op jouw naam staat als houder, dat je beheerderstoegang krijgt tot hosting, CMS en meetaccounts, en dat code, teksten en ontwerp na betaling van jou zijn of dat je ze onbeperkt mag gebruiken. Gebruikt de bouwer betaalde thema's of plug-ins, vraag dan op wiens naam die licenties staan.
+
+Wil je later overstappen, dan moet je de website kunnen meenemen of de inhoud kunnen exporteren. Vraag hoe dat werkt voordat je tekent, niet als het moment al daar is.
+
+| Onderdeel | Goede afspraak | Waarschuwingssignaal |
+|---|---|---|
+| Domeinnaam | Jij bent geregistreerd als houder | Bureau is houder, jij huurt |
+| Hosting en CMS | Account op jouw naam of beheerderstoegang voor jou | Alleen het bureau kan erin |
+| Code en ontwerp | Na betaling van jou of vrij te gebruiken | Blijft eigendom van het bureau |
+| Licenties | Op jouw naam of overdraagbaar | Stoppen bij einde samenwerking |
+| Meetaccounts | Search Console en statistieken op jouw naam | Bureau deelt alleen rapportjes |
+
+### Algemene voorwaarden: lees ze vooraf
+
+Veel bouwers verwijzen in de offerte naar hun algemene voorwaarden. Volgens KVK gelden algemene voorwaarden alleen als de klant weet dat ze er zijn en ze heeft kunnen lezen voordat hij iets kocht of een contract tekende. Vraag ze dus op en lees ze, vooral de stukken over aansprakelijkheid, opzegging, eigendom en betaling. Staat er iets in dat afwijkt van wat je hebt afgesproken, laat het dan in de offerte zelf anders vastleggen.
+
+### Privacy: is een verwerkersovereenkomst nodig?
+
+Via je website komen persoonsgegevens binnen, zoals namen, telefoonnummers en adressen uit het contactformulier. Als de bouwer of hostingpartij die gegevens voor jou opslaat of beheert, is hij in AVG-termen vaak een verwerker. De Autoriteit Persoonsgegevens geeft aan dat je met een organisatie die in jouw opdracht persoonsgegevens verwerkt een verwerkersovereenkomst moet sluiten. Vraag of de bouwer die standaard aanbiedt.
+
+Wanneer is het niet nodig? Als de bouwer na oplevering geen toegang meer heeft tot je gegevens en de hosting rechtstreeks bij een partij op jouw naam loopt, sluit je de verwerkersovereenkomst met die hostingpartij in plaats van met de bouwer.
+
+### Na de livegang
+
+Spreek af wat er gebeurt als er na de oplevering een fout opduikt. Is herstel van fouten in de eerste weken inbegrepen? Wat valt onder onderhoud, wat kost het per maand en hoe zeg je het op? En hoe snel reageert de bouwer als je formulier niet meer werkt? Die afspraken voorkomen discussie op het moment dat je ze nodig hebt.
+
+### Een offerte van Next Growth
+
+In een voorstel van Next Growth staat een vaste prijs, wat er in zit en wat de terugkerende kosten zijn. Een zakelijke website begint vanaf € 1.500 en staat binnen twee weken live; een website met CRM begint vanaf € 6.995. Code, domein en accounts komen standaard op jouw naam. Wil je een offerte die je met deze checklist kunt controleren? Vraag een terugbelverzoek aan; we bellen dezelfde werkdag. Of bel 06 83 90 21 92.
+
+### Veelgestelde vragen
+Vraag: Is een getekende offerte een contract?
+Antwoord: Een aanvaarde offerte legt de afspraak tussen jou en de bouwer vast. Lees hem daarom net zo zorgvuldig als een contract en laat ontbrekende punten toevoegen voordat je tekent.
+
+Vraag: Gelden algemene voorwaarden die ik nooit heb gezien?
+Antwoord: Volgens KVK gelden algemene voorwaarden alleen als je wist dat ze er waren en ze vooraf kon lezen. Vraag ze dus altijd op.
+
+Vraag: Heb ik een verwerkersovereenkomst nodig met mijn webbouwer?
+Antwoord: Als de bouwer in jouw opdracht persoonsgegevens verwerkt, zoals aanvragen uit je formulier, wel. Heeft hij na oplevering geen toegang meer, dan sluit je hem met je hostingpartij.
+
+Vraag: Wat als het project uitloopt door de bouwer?
+Antwoord: Leg een planning vast met mijlpalen en wat er gebeurt bij vertraging. Leg daarbij ook vast wat jij wanneer moet aanleveren, want vertraging aan jouw kant schuift de planning op.
+
+Vraag: Moet ik een advocaat laten kijken naar een website-offerte?
+Antwoord: Bij een gewone zakelijke website meestal niet, als je deze checklist doorloopt. Bij grote projecten met maatwerksoftware of lange contracten kan juridisch advies verstandig zijn.
+
+
+### Bronnen
+- [KVK: Algemene voorwaarden delen, zo pak je dat aan](https://www.kvk.nl/wetten-en-regels/algemene-voorwaarden-delen-zo-pak-je-dat-aan/)
+- [Autoriteit Persoonsgegevens: Verwerkers](https://autoriteitpersoonsgegevens.nl/nl/onderwerpen/algemene-informatie-avg/verwerkers)
+
+---
+
+## Wat moet er op de homepage van een vakbedrijf of aannemer staan om aanvragen te krijgen?
+URL: https://nextgrowthdigital.nl/kennisbank-homepage-vakbedrijf
+Categorie: Websites
+Bijgewerkt: 2026-10-26
+
+Vraag: Wat moet er op de homepage van een vakbedrijf of aannemer staan zodat bezoekers een aanvraag doen?
+
+Kort antwoord: Een homepage van een vakbedrijf moet binnen een paar seconden drie vragen beantwoorden: wat doe je, in welke regio werk je en hoe neem ik contact op. Daaronder horen bewijs van je werk met echte projectfoto's en reviews, een korte uitleg van hoe een opdracht verloopt en een duidelijke vervolgstap, zoals bellen, een offerteaanvraag of een terugbelverzoek.
+
+Kernpunten:
+- Het eerste scherm noemt je vak, je werkgebied en een directe manier van contact.
+- Echte projectfoto's en reviews zijn overtuigender dan stockfoto's en algemene beloftes.
+- Laat zien hoe een opdracht verloopt, van eerste contact tot oplevering.
+- Op mobiel moet bellen met één tik kunnen.
+- Houd naam, adres en telefoonnummer gelijk aan je Google Bedrijfsprofiel.
+
+### Waarom de homepage zo zwaar weegt
+
+Veel bezoekers van een vakbedrijf komen binnen via de homepage: ze zoeken op je bedrijfsnaam na een tip van de buren, klikken door vanuit je Google Bedrijfsprofiel of zien je bus rijden. Die mensen hebben al interesse. De homepage hoeft ze niet meer te vinden, maar moet ze overtuigen en de drempel naar contact zo laag mogelijk maken.
+
+Een veelgemaakte fout is dat de homepage begint met het bedrijf in plaats van met de klant. Een zin als 'wij zijn een allround bedrijf met jarenlange ervaring' beantwoordt geen enkele vraag. De bezoeker wil weten of je zijn klus doet, in zijn regio werkt en te vertrouwen bent.
+
+### De onderdelen van een sterke homepage, van boven naar beneden
+| Blok | Wat erin staat | Waarom |
+|---|---|---|
+| Eerste scherm | Wat je doet, voor wie en in welke regio, plus telefoonnummer en één duidelijke knop | De bezoeker weet direct of hij goed zit |
+| Diensten | Je belangrijkste diensten met een korte uitleg en een link naar een eigen pagina | Bezoekers zoeken hun specifieke klus |
+| Bewijs | Echte projectfoto's met plaats en type klus, reviews, keurmerken die je echt hebt | Vertrouwen wint het van beloftes |
+| Werkwijze | Drie tot vijf stappen van eerste contact tot oplevering | Neemt onzekerheid weg over wat er gebeurt |
+| Veelgestelde vragen | Prijsindicatie of waar de prijs van afhangt, planning, garantie | Beantwoordt bezwaren voordat ze tot afhaken leiden |
+| Afsluiting | Herhaling van de vervolgstap: bellen, offerte aanvragen of laten terugbellen | Wie onderaan komt, is klaar om te handelen |
+
+### Het eerste scherm: drie vragen in drie seconden
+
+Op een telefoon ziet een bezoeker eerst alleen het bovenste stuk. Zet daar je vak en regio in gewone woorden, bijvoorbeeld 'Dakdekker voor particulieren in de regio Utrecht', met daaronder je telefoonnummer en één knop. Kies één hoofdactie; drie knoppen naast elkaar maken de keuze moeilijker.
+
+Google indexeert websites op basis van de mobiele versie. Inhoud die alleen op de desktopversie staat, wordt volgens Google mogelijk niet meegenomen. Ontwerp de homepage daarom eerst voor mobiel en zorg dat het telefoonnummer klikbaar is.
+
+### Bewijs: wat telt en wat niet
+
+Voor vakbedrijven is beeld het sterkste bewijs. Foto's van echte projecten, met de plaats en het type klus erbij, laten zien dat je het werk daadwerkelijk doet. Telefoonfoto's zijn prima, zolang ze scherp zijn en het eindresultaat goed laten zien. Een voor- en nafoto zegt vaak meer dan een alinea tekst.
+
+Reviews werken het best als ze herkenbaar zijn: verwijs naar je Google-reviews of toon een paar recente reacties met toestemming. Keurmerken en lidmaatschappen noem je alleen als je ze echt hebt en ze iets betekenen voor de klant. Verzin nooit reviews of aantallen; dat is misleidend en valt vroeg of laat op.
+
+### Wat je beter van de homepage weglaat
+- Een slider met wisselende beelden en slogans die niemand afwacht.
+- Lange teksten over de geschiedenis van het bedrijf; die horen op een over-ons-pagina.
+- Stockfoto's van lachende mensen met een helm.
+- Vage beloftes als 'kwaliteit staat bij ons voorop' zonder bewijs.
+- Een contactformulier met tien verplichte velden op de homepage.
+- Zware video's of animaties die de pagina op mobiel traag maken.
+
+### Snelheid en vindbaarheid horen erbij
+
+Een homepage die traag laadt, verliest bezoekers voordat ze iets hebben gezien. Google meet laadsnelheid onder meer met Largest Contentful Paint; volgens web.dev is 2,5 seconden of sneller een goede score. Comprimeer foto's en vermijd onnodige scripts.
+
+Zorg dat je bedrijfsnaam, adres en telefoonnummer op de homepage overeenkomen met je Google Bedrijfsprofiel. Google vraagt in zijn richtlijnen om je echte bedrijfsnaam consequent te gebruiken op gevel, website en briefpapier. Werk je bij klanten op locatie, vermeld dan duidelijk je werkgebied.
+
+### Is een uitgebreide homepage altijd nodig?
+
+Nee. Heb je één dienst en een kleine regio, dan kan een sterke one-pager met dezelfde blokken volstaan. Bied je meerdere diensten aan of wil je in Google gevonden worden op specifieke klussen, dan werkt de homepage als wegwijzer naar aparte dienstpagina's. De homepage overtuigt; de dienstpagina's beantwoorden de detailvragen.
+
+### Hulp bij een homepage die aanvragen oplevert
+
+Next Growth bouwt websites voor vakbedrijven en aannemers, zoals de website met offerteaanvraag en SEO voor Westrik Bouw & Installaties. Een zakelijke website begint vanaf € 1.500 voor een vaste prijs, staat binnen twee weken live en code, domein en accounts staan op jouw naam. Wil je dat iemand eerlijk naar je huidige homepage kijkt? Vraag een terugbelverzoek aan; we bellen dezelfde werkdag. Of bel 06 83 90 21 92.
+
+### Veelgestelde vragen
+Vraag: Moet ik prijzen op mijn homepage zetten?
+Antwoord: Een vaste prijs is bij maatwerk zelden mogelijk, maar een vanafprijs of uitleg waar de prijs van afhangt helpt bezoekers inschatten of je bij hun budget past.
+
+Vraag: Hoeveel projectfoto's zet ik op de homepage?
+Antwoord: Een selectie van zes tot twaalf sterke, recente projecten is genoeg. Verwijs voor de rest naar een projectenpagina.
+
+Vraag: Is een contactformulier beter dan een telefoonnummer?
+Antwoord: Bied beide. Sommige klanten bellen liever, anderen sturen 's avonds een aanvraag. Houd het formulier kort en vraag alleen wat je nodig hebt om terug te bellen.
+
+Vraag: Moet mijn werkgebied op de homepage staan?
+Antwoord: Ja. Noem je regio en de belangrijkste plaatsen in gewone tekst, zodat bezoekers en zoekmachines zien waar je werkt.
+
+Vraag: Hoe vaak moet ik mijn homepage aanpassen?
+Antwoord: Vervang projectfoto's en reviews regelmatig door recente voorbeelden. De opbouw zelf hoeft niet vaak te veranderen als hij werkt.
+
+
+### Bronnen
+- [Google Search Central: mobile-first indexing](https://developers.google.com/search/docs/crawling-indexing/mobile/mobile-sites-mobile-first-indexing)
+- [web.dev: Web Vitals](https://web.dev/articles/vitals)
+- [Google Bedrijfsprofiel: richtlijnen voor het weergeven van je bedrijf](https://support.google.com/business/answer/3038177?hl=nl)
 
 ---
 
@@ -1408,6 +1774,96 @@ Antwoord: Nee. Het plan beperkt vermijdbare fouten. Google geeft aan dat zoekzic
 
 Vraag: Moet ik na livegang alleen Google Analytics bekijken?
 Antwoord: Nee. Controleer ook Search Console, redirects, foutmeldingen en echte aanvragen. Verschillende bronnen helpen onderscheid maken tussen meetproblemen, technische fouten en veranderingen in zoekverkeer.
+
+---
+
+## Website zelf bouwen met Wix of WordPress, of laten maken: wat is slimmer?
+URL: https://nextgrowthdigital.nl/kennisbank-website-zelf-bouwen-of-laten-maken
+Categorie: Websites
+Bijgewerkt: 2026-10-26
+
+Vraag: Kan ik mijn bedrijfswebsite beter zelf bouwen met Wix of WordPress, of laten maken?
+
+Kort antwoord: Zelf bouwen met Wix of WordPress is slim als je website vooral een visitekaartje is, je weinig budget hebt en tijd wilt steken in leren. Laten maken is slimmer als de website nieuwe klanten moet opleveren, gevonden moet worden in een concurrerende markt of moet koppelen met CRM of offertes. Tel bij zelf bouwen altijd je eigen uren mee.
+
+Kernpunten:
+- Een websitebouwer is snel en goedkoop om mee te starten, maar je zit vast aan het platform.
+- Een Wix-site kan volgens Wix niet naar een andere host worden verhuisd; je domein wel.
+- WordPress is gratis open source software, maar hosting, thema's en onderhoud regel je zelf.
+- De echte kosten van zelf bouwen zitten in je eigen tijd en in gemiste aanvragen.
+- Laten maken loont vooral als één extra opdracht de investering al terugverdient.
+
+### Wat zijn de echte verschillen?
+
+Wix, Squarespace en vergelijkbare websitebouwers werken met een abonnement: hosting, software en templates zitten in één pakket en je bouwt met slepen en neerzetten. WordPress is open source software onder de GPL-licentie die je gratis mag gebruiken en aanpassen, maar je moet zelf hosting regelen, een thema kiezen, plug-ins installeren en alles bijhouden. Laten maken betekent dat iemand anders structuur, teksten, ontwerp en techniek voor je regelt.
+
+Het verschil zit niet in of je een mooie website kunt krijgen. Met alle drie lukt dat. Het verschil zit in hoeveel tijd het jou kost, hoe vrij je later bent en of de website is ingericht om van bezoekers aanvragen te maken.
+
+|  | Zelf met Wix of vergelijkbaar | Zelf met WordPress | Laten maken |
+|---|---|---|---|
+| Kosten vooraf | Laag, alleen abonnement | Laag, hosting en eventueel thema | Hoger, eenmalige bouwprijs |
+| Jouw tijd | Gemiddeld: leren, bouwen, schrijven | Hoog: installeren, configureren, bijhouden | Laag: intake, aanleveren, feedback |
+| Vrijheid later | Beperkt: de site draait alleen bij het platform | Groot: je kunt van host wisselen | Hangt af van afspraken over eigendom |
+| Onderhoud | Platform regelt techniek | Jij regelt updates en beveiliging | Afhankelijk van afspraak |
+| Gericht op aanvragen | Alleen als jij weet hoe | Alleen als jij weet hoe | Als je een bouwer kiest die daarop stuurt |
+
+### Waar moet je op letten bij zelf bouwen met Wix?
+
+Een websitebouwer is laagdrempelig: je hebt binnen een middag iets online. Voor een eigen domein en zonder platformreclame heb je wel een betaald pakket nodig; Wix noemt dat alle betaalde pakketten een eigen domein en verwijdering van de Wix-branding bevatten. De prijzen worden per jaar vooruit betaald.
+
+Belangrijker is het punt van verhuizen. Wix schrijft in zijn eigen helpcentrum dat een Wix-site op de servers van Wix moet draaien en niet naar een externe host kan. Je domeinnaam kun je wel meenemen. Wil je later overstappen, dan bouw je de website dus opnieuw op. Voor een kleine site is dat geen ramp; voor een site met tientallen projectpagina's wel.
+
+### Waar moet je op letten bij zelf bouwen met WordPress?
+
+WordPress geeft je veel vrijheid en je kunt altijd van hostingpartij wisselen. Daar staat tegenover dat je zelf verantwoordelijk bent voor updates, back-ups, beveiliging en de keuze van plug-ins. Een premiumthema en een paar betaalde plug-ins hebben vaak elk een jaarlicentie. Wie WordPress zelf beheert zonder dit bij te houden, loopt het risico dat formulieren ongemerkt stoppen of dat de site traag wordt.
+
+WordPress zelf bouwen is daarom vooral een goede keuze als je technisch nieuwsgierig bent en er structureel tijd voor hebt, of als je iemand in je omgeving hebt die het beheer betrouwbaar oppakt.
+
+### Reken je eigen tijd mee
+
+De meeste ondernemers onderschatten hoeveel tijd een eigen website kost. Niet het slepen van blokken, maar het bedenken van de structuur, het schrijven van teksten die klanten overtuigen, het selecteren van foto's en het testen op mobiel. Maak voor jezelf een eerlijke som:
+
+- Hoeveel uur denk je nodig te hebben voor leren, bouwen, schrijven en testen?
+- Wat is je uurtarief of wat levert een uur werk in je bedrijf op?
+- Wat kost het abonnement of de hosting over drie jaar?
+- Wat levert één extra opdracht via de website je op?
+- Hoeveel aanvragen mis je als de website minder goed overtuigt?
+
+### Wanneer is zelf bouwen echt de beste keuze?
+
+Zelf bouwen is een prima keuze als je net start en eerst wilt testen of er vraag is, als klanten vooral via netwerk en doorverwijzing komen, als je website alleen hoeft te bevestigen dat je betrouwbaar bent, of als je het leuk vindt en er tijd voor hebt. In die situaties is een dure website weggegooid geld. Kies dan een eenvoudig template, schrijf helder wat je doet en voor wie, zet goede foto's van je werk erop en zorg dat je telefoonnummer op elke pagina staat.
+
+Laten maken wordt slimmer zodra de website zelf klanten moet binnenhalen. Denk aan een installateur, aannemer of dienstverlener die gevonden wil worden op zoekopdrachten in de regio, een bedrijf dat aanvragen in een CRM wil laten landen, of een ondernemer die gewoon geen avonden aan een website wil besteden.
+
+### De middenweg: zelf beginnen, later laten maken
+
+Je kunt ook in fases werken. Begin met een eenvoudige site op een websitebouwer, maar registreer je domeinnaam op je eigen naam bij een partij naar keuze en verzamel ondertussen projectfoto's, reviews en vragen die klanten stellen. Dat materiaal maakt een latere professionele website sneller en beter. Zorg wel dat je weet dat je bij een overstap van een websitebouwer opnieuw bouwt.
+
+### Wat Next Growth anders doet
+
+Kies je voor laten maken, dan bouwt Next Growth een zakelijke website vanaf € 1.500 voor een vaste prijs, binnen twee weken live, met de teksten erbij. Code, domein en accounts staan op jouw naam, zodat je niet vastzit aan een platform of aan ons. Heb je ook een CRM nodig, dan begint een website met CRM vanaf € 6.995. Weet je het nog niet, laat je dan terugbellen; we bellen dezelfde werkdag en zeggen het eerlijk als zelf bouwen voor jou volstaat. Direct bellen kan via 06 83 90 21 92.
+
+### Veelgestelde vragen
+Vraag: Is Wix goed genoeg voor een zakelijke website?
+Antwoord: Voor een eenvoudige zakelijke site wel. Let op dat je voor een eigen domein een betaald pakket nodig hebt en dat je de site volgens Wix niet naar een andere host kunt verhuizen.
+
+Vraag: Is WordPress gratis?
+Antwoord: De software is gratis en open source. Hosting, eventuele premiumthema's, plug-ins en onderhoud kosten wel geld of tijd.
+
+Vraag: Kan ik mijn Wix-website later laten overzetten naar WordPress?
+Antwoord: Niet automatisch. De teksten en foto's kun je hergebruiken en je domein kun je meenemen, maar de website zelf wordt opnieuw gebouwd.
+
+Vraag: Scoort een zelfgebouwde website slechter in Google?
+Antwoord: Niet per definitie. Het verschil zit meestal in structuur, teksten, snelheid en dienstpagina's, en die vragen kennis, ongeacht het platform.
+
+Vraag: Hoeveel tijd kost het om zelf een website te bouwen?
+Antwoord: Dat verschilt sterk per persoon. Reken niet alleen het bouwen, maar ook het schrijven van teksten, het kiezen van foto's en het testen op mobiel mee.
+
+
+### Bronnen
+- [Wix: Exporting or Embedding Your Wix Site Elsewhere](https://support.wix.com/en/article/exporting-or-embedding-your-wix-site-elsewhere)
+- [Wix: Choosing a Premium Plan](https://support.wix.com/en/article/choosing-a-premium-plan)
+- [WordPress.org: About (GPL-licentie)](https://wordpress.org/about/)
 
 ---
 
@@ -4037,6 +4493,95 @@ Antwoord: De specificatie stelt dat voor, maar voor een kleine bedrijfssite is h
 - [llmstxt.org: The /llms.txt file (Jeremy Howard)](https://llmstxt.org/)
 - [Google Search Central: AI features and your website](https://developers.google.com/search/docs/appearance/ai-features)
 - [Google Search Central: optimaliseren voor generatieve AI-functies](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide)
+
+---
+
+## Wat moet je webbouwer regelen zodat je nieuwe website in ChatGPT en Google AI-antwoorden kan verschijnen?
+URL: https://nextgrowthdigital.nl/kennisbank-nieuwe-website-ai-antwoorden
+Categorie: AI-zoekmachines
+Bijgewerkt: 2026-10-26
+
+Vraag: Hoe zorg ik dat mijn nieuwe bedrijfswebsite gevonden wordt in ChatGPT, Perplexity en Google AI Overviews?
+
+Kort antwoord: Laat je webbouwer vier dingen regelen: zoekbots zoals Googlebot, OAI-SearchBot en PerplexityBot krijgen toegang, belangrijke inhoud staat als gewone tekst op de pagina, elke dienst heeft een eigen pagina die de vragen van klanten direct beantwoordt, en je bedrijfsgegevens zijn overal gelijk. Een garantie op vermelding bestaat niet, maar zonder deze basis is de kans klein.
+
+Kernpunten:
+- Google stelt voor AI Overviews en AI Mode geen extra eisen naast gewone SEO.
+- ChatGPT gebruikt OAI-SearchBot voor zoeken; blokkeer je die, dan verschijn je niet in ChatGPT-zoekantwoorden.
+- Perplexity raadt aan PerplexityBot toe te laten in robots.txt.
+- Schrijf per dienst een pagina met een direct antwoord op de vraag die klanten stellen.
+- Niemand kan garanderen dat een AI-assistent je bedrijf noemt.
+
+### Hoe komen AI-assistenten aan hun antwoorden?
+
+Als iemand aan ChatGPT, Perplexity of Google vraagt welke bedrijven in de buurt een website, dakkapel of warmtepomp leveren, zoeken die diensten actuele bronnen op het web en vatten ze samen. Daarvoor moeten ze je website kunnen bezoeken, je pagina's kunnen lezen en begrijpen wat je doet en waar. Dat lijkt sterk op gewone zoekmachineoptimalisatie, met extra nadruk op heldere antwoorden en betrouwbare gegevens.
+
+Google schrijft dat er voor AI Overviews en AI Mode geen aanvullende eisen gelden: een pagina moet geïndexeerd zijn en geschikt om met een fragment in de zoekresultaten te verschijnen. Een speciaal AI-bestand of speciale structured data is volgens Google niet nodig. Dat is goed nieuws: een website die technisch en inhoudelijk goed in elkaar zit, heeft al de basis.
+
+### De technische basis die je bouwer moet regelen
+| Onderdeel | Wat het inhoudt | Bron |
+|---|---|---|
+| Toegang voor Google | Crawlen toestaan in robots.txt en bij hosting of CDN, pagina's indexeerbaar | Google Search Central |
+| Toegang voor ChatGPT | OAI-SearchBot niet blokkeren; GPTBot voor training kun je los daarvan regelen | OpenAI |
+| Toegang voor Perplexity | PerplexityBot toestaan in robots.txt | Perplexity |
+| Tekst in de pagina | Belangrijke informatie als gewone tekst, niet alleen in afbeeldingen of na klikken | Google Search Central |
+| Interne links | Diensten, projecten en artikelen naar elkaar laten verwijzen | Google Search Central |
+| Structured data | Alleen als het overeenkomt met de zichtbare tekst; geen voorwaarde voor AI-functies | Google Search Central |
+| Search Console | Website verifiëren om problemen en verkeer te zien | Google Search Central |
+
+### Let op beveiliging die bots onbedoeld weert
+
+Sommige hostingpartijen en beveiligingsdiensten blokkeren automatisch onbekende bots. Dat kan ertoe leiden dat OAI-SearchBot of PerplexityBot je website niet kan lezen, terwijl je robots.txt alles toestaat. OpenAI en Perplexity adviseren daarom ook hun gepubliceerde IP-adressen toe te laten. Volgens beide partijen kan het tot ongeveer 24 uur duren voordat een wijziging in robots.txt doorwerkt.
+
+OpenAI maakt een duidelijk onderscheid: OAI-SearchBot bepaalt of je in ChatGPT-zoekantwoorden kunt verschijnen, GPTBot verzamelt inhoud die mogelijk voor training wordt gebruikt. Je kunt het ene toestaan en het andere blokkeren. Wil je niet dat je teksten voor training worden gebruikt maar wel gevonden worden, dan is dat dus mogelijk.
+
+### De inhoud: schrijf antwoorden, geen slogans
+
+AI-assistenten zoeken naar pagina's die een vraag duidelijk beantwoorden. Een pagina met 'wij leveren kwaliteit en service' geeft ze weinig om mee te werken. Een pagina die zegt wat je doet, voor wie, in welke regio, wat het ongeveer kost en hoe het verloopt, wel. Google raadt aan inhoud te schrijven voor mensen, met zichtbare ervaring, duidelijke bronnen en informatie over wie erachter zit.
+
+- Eén pagina per dienst, met bovenaan een kort en direct antwoord.
+- Je werkgebied in gewone tekst, met de belangrijkste plaatsen.
+- Echte projecten met plaats, type klus en resultaat.
+- Een eerlijke prijsindicatie of uitleg waar de prijs van afhangt.
+- Veelgestelde vragen met korte, concrete antwoorden.
+- Een over-ons-pagina met wie je bent, KVK-nummer en contactgegevens.
+
+### Zorg dat je gegevens overal hetzelfde zijn
+
+AI-assistenten combineren informatie uit verschillende bronnen. Als je bedrijfsnaam, adres of telefoonnummer op je website anders is dan op je Google Bedrijfsprofiel of in bedrijvengidsen, wordt het lastiger om te bepalen welke informatie klopt. Google noemt in zijn uitleg over AI-functies ook het actueel houden van je Bedrijfsprofiel. Controleer bij de livegang van je nieuwe website of alle vermeldingen naar de juiste pagina en het juiste nummer verwijzen.
+
+### Wat je niet hoeft te doen
+
+Je hoeft geen speciale AI-teksten te schrijven, geen honderden bijna gelijke pagina's te maken en geen dure tools te kopen voordat de basis klopt. Een bestand als llms.txt is volgens Google geen vereiste voor zijn AI-functies. Wees ook kritisch op aanbieders die een vermelding in ChatGPT garanderen: AI-antwoorden verschillen per vraag, per gebruiker en per moment, en niemand bepaalt ze.
+
+Wil je weten of je al genoemd wordt, stel dan regelmatig dezelfde vragen aan verschillende AI-assistenten en noteer de uitkomst met datum. In Search Console zie je volgens Google verkeer uit AI Overviews en AI Mode terug onder zoektype Web.
+
+### Een nieuwe website die hier vanaf dag één klaar voor is
+
+Next Growth bouwt websites waarin deze basis standaard zit: toegankelijk voor zoekbots, inhoud als leesbare tekst, een pagina per dienst en een kennisbank met directe antwoorden, zoals deze. Een zakelijke website begint vanaf € 1.500 voor een vaste prijs en staat binnen twee weken live, met code, domein en accounts op jouw naam. Wil je weten hoe jouw huidige website ervoor staat? Vraag een terugbelverzoek aan; we bellen dezelfde werkdag. Of bel 06 83 90 21 92.
+
+### Veelgestelde vragen
+Vraag: Kan een webbouwer garanderen dat ChatGPT mijn bedrijf noemt?
+Antwoord: Nee. AI-antwoorden verschillen per vraag en per moment. Een bouwer kan wel zorgen dat je website toegankelijk en duidelijk is, zodat de kans groter wordt.
+
+Vraag: Moet ik GPTBot toelaten om in ChatGPT te verschijnen?
+Antwoord: Volgens OpenAI bepaalt OAI-SearchBot of je in ChatGPT-zoekantwoorden verschijnt. GPTBot is voor training en kun je los daarvan toestaan of blokkeren.
+
+Vraag: Heb ik structured data nodig voor AI Overviews?
+Antwoord: Volgens Google niet. Structured data kan wel helpen bij andere zoekresultaten, zolang het overeenkomt met wat zichtbaar op de pagina staat.
+
+Vraag: Hoe snel verschijnt een nieuwe website in AI-antwoorden?
+Antwoord: Dat is niet te voorspellen. Pagina's moeten eerst gevonden en verwerkt worden; bij Google kan crawlen dagen tot weken duren.
+
+Vraag: Is AI-vindbaarheid iets anders dan SEO?
+Antwoord: Grotendeels niet. De basis is hetzelfde: toegankelijke, snelle pagina's met duidelijke antwoorden en betrouwbare bedrijfsgegevens.
+
+
+### Bronnen
+- [Google Search Central: AI features and your website](https://developers.google.com/search/docs/appearance/ai-features)
+- [OpenAI: Overview of OpenAI Crawlers](https://developers.openai.com/api/docs/bots)
+- [Perplexity: Perplexity Crawlers](https://docs.perplexity.ai/guides/bots)
+- [Google Search Central: Creating helpful, reliable, people-first content](https://developers.google.com/search/docs/fundamentals/creating-helpful-content)
 
 ---
 
@@ -7874,6 +8419,179 @@ Antwoord: Op korte termijn meestal niet, op lange termijn vaak wel. Reken met de
 
 Vraag: Kan ik bij kopen ook in termijnen betalen?
 Antwoord: Bij veel bureaus kan de bouw in termijnen worden betaald, bijvoorbeeld bij start en oplevering. Dat is iets anders dan huur, omdat de website na betaling van jou is.
+
+---
+
+## Website laten maken met een vaste prijs of uurtarief: waar let je op?
+URL: https://nextgrowthdigital.nl/kennisbank-website-vaste-prijs-of-uurtarief
+Categorie: Prijzen en kosten
+Bijgewerkt: 2026-10-26
+
+Vraag: Kan ik een website beter laten maken voor een vaste prijs of op basis van uurtarief?
+
+Kort antwoord: Voor een zakelijke website met een duidelijke scope is een vaste prijs meestal de beste keuze: je weet vooraf wat je betaalt en het risico van uitloop ligt bij de bouwer. Een uurtarief past bij werk dat vooraf niet te overzien is, zoals doorontwikkeling. Let bij beide op wat er precies in zit en hoe meerwerk wordt afgesproken.
+
+Kernpunten:
+- Een vaste prijs is alleen zo vast als de omschrijving van wat erin zit.
+- Bij een uurtarief draag jij het risico van uitloop; vraag een schatting met bovengrens.
+- Spreek vooraf af hoe meerwerk wordt aangevraagd, geprijsd en goedgekeurd.
+- Het aantal correctierondes en wie de teksten schrijft, bepalen vaak het verschil.
+- Vergelijk aanbieders altijd met dezelfde briefing.
+
+### Wat is het verschil?
+
+Bij een vaste prijs spreek je vooraf een bedrag af voor een omschreven resultaat. Werkt de bouwer meer uren dan gedacht, dan is dat in principe zijn risico. Bij een uurtarief betaal je voor de daadwerkelijk gewerkte tijd. Je krijgt meer flexibiliteit, maar je weet vooraf niet precies wat het totaal wordt.
+
+Er bestaan ook mengvormen. Een vaste prijs voor de basiswebsite met een uurtarief voor extra wensen komt veel voor, net als een uurtarief met een afgesproken maximum. De vorm zelf is minder belangrijk dan de afspraken eromheen.
+
+|  | Vaste prijs | Uurtarief |
+|---|---|---|
+| Zekerheid over kosten | Hoog, als de scope goed beschreven is | Laag, tenzij er een bovengrens is |
+| Flexibiliteit tijdens het project | Beperkt: wijzigingen worden meerwerk | Groot: je kunt bijsturen |
+| Risico van uitloop | Ligt bij de bouwer | Ligt bij jou |
+| Geschikt voor | Zakelijke website met duidelijke pagina's en functies | Doorontwikkeling, onderhoud, onzekere koppelingen |
+| Valkuil | Vage omschrijving waardoor veel meerwerk ontstaat | Geen inzicht in uren tot de factuur komt |
+
+### Wanneer past een vaste prijs het best?
+
+Een vaste prijs werkt goed als vooraf duidelijk is wat de website moet doen: welke paginatypen er komen, welke formulieren, wie de teksten schrijft en welke koppelingen nodig zijn. Voor de meeste websites van kleine en middelgrote bedrijven is dat goed te overzien. Je weet waar je aan toe bent en je kunt de investering vooraf afwegen tegen wat de website moet opleveren.
+
+Let wel op dat een lage vaste prijs soms laag is omdat er weinig in zit. Een vaste prijs zonder teksten, met één correctieronde en zonder hulp bij foto's legt veel werk bij jou neer. Dat is niet verkeerd, maar je moet het weten.
+
+### Wanneer past een uurtarief beter?
+
+Een uurtarief is eerlijker als het werk vooraf echt niet te overzien is. Denk aan een koppeling met een ouder systeem waarvan niemand de documentatie heeft, aan doorlopende verbeteringen na de livegang, of aan onderzoek waarvan de uitkomst bepaalt wat er gebouwd wordt. Een bouwer die dan toch een vaste prijs noemt, rekent vaak een flinke marge voor onzekerheid in.
+
+Vraag bij een uurtarief altijd een schatting in uren per onderdeel en spreek een bovengrens af waarboven eerst overleg nodig is. Vraag ook hoe vaak je een overzicht van de gewerkte uren krijgt.
+
+### Waar let je op bij een vaste prijs?
+- Welke pagina's en paginatypen zijn inbegrepen?
+- Wie schrijft de teksten en wie regelt de foto's?
+- Hoeveel correctierondes zitten in de prijs?
+- Welke formulieren en koppelingen worden volledig werkend opgeleverd?
+- Is de technische basis voor Google, zoals titels, snelheid en sitemap, inbegrepen?
+- Zijn domein, hosting en licenties inbegrepen of komen die apart?
+- Wat kost meerwerk per uur en hoe wordt het vooraf goedgekeurd?
+- Staan de bedragen inclusief of exclusief btw?
+
+### Meerwerk: de plek waar het meestal misgaat
+
+Onenigheid over websiteprojecten gaat zelden over de afgesproken prijs, maar bijna altijd over wat wel en niet in die prijs zat. Een extra pagina, een tweede taal of een andere opbouw van het formulier halverwege het project: is dat meerwerk of niet? Spreek daarom af dat meerwerk altijd vooraf schriftelijk wordt voorgesteld met een prijs, en dat er pas aan begonnen wordt na jouw akkoord. Een e-mail volstaat, zolang het maar vastligt.
+
+Bundel daarnaast je feedback. Losse opmerkingen van meerdere mensen leiden tot extra rondes die bij een vaste prijs als meerwerk kunnen gelden en bij een uurtarief gewoon doortikken.
+
+### Zo vergelijk je twee offertes eerlijk
+
+Geef elke aanbieder dezelfde briefing: je diensten, het aantal paginatypen, wie teksten levert, gewenste koppelingen en wanneer de website live moet. Leg de offertes daarna naast elkaar en zet per onderdeel wat er wel en niet in zit. Reken de jaarlijkse kosten over drie jaar erbij. Een offerte met een hogere bouwprijs kan dan goedkoper blijken, omdat er meer in zit of de vaste lasten lager zijn.
+
+### Hoe Next Growth prijst
+
+Next Growth werkt voor websites met een vaste prijs: een zakelijke website begint vanaf € 1.500 en staat binnen twee weken live, een website met CRM begint vanaf € 6.995. In het voorstel staat wat er in zit, inclusief de teksten, en wat de terugkerende kosten zijn. Code, domein en accounts komen op jouw naam. Wil je een voorstel op basis van jouw situatie? Laat je terugbellen; we reageren dezelfde werkdag. Bellen kan ook direct via 06 83 90 21 92.
+
+### Veelgestelde vragen
+Vraag: Is een vaste prijs duurder dan werken op uurbasis?
+Antwoord: Niet per se. Een vaste prijs bevat soms een marge voor onzekerheid, maar beschermt je tegen uitloop. Bij een goed omschreven website is het verschil vaak klein en de zekerheid groot.
+
+Vraag: Wat is meerwerk bij een website?
+Antwoord: Alles wat buiten de afgesproken omschrijving valt, zoals extra pagina's, extra talen of een nieuwe koppeling. Spreek af dat meerwerk vooraf met prijs wordt voorgesteld.
+
+Vraag: Hoeveel correctierondes zijn normaal?
+Antwoord: Dat verschilt per aanbieder. Belangrijker is dat het aantal in de offerte staat en dat je feedback per ronde bundelt.
+
+Vraag: Kan ik een vaste prijs krijgen voor onderhoud?
+Antwoord: Vaak wel, als een vast bedrag per maand of jaar voor afgesproken werkzaamheden. Inhoudelijke wijzigingen vallen meestal daarbuiten.
+
+Vraag: Moet ik een aanbetaling doen?
+Antwoord: Dat is gebruikelijk bij websiteprojecten. Let op dat de betaaltermijnen gekoppeld zijn aan momenten in het project, zoals de start en de livegang.
+
+---
+
+## Welk budget heb je in 2026 nodig voor een website als klein bedrijf?
+URL: https://nextgrowthdigital.nl/kennisbank-website-budget-klein-bedrijf
+Categorie: Prijzen en kosten
+Bijgewerkt: 2026-10-26
+
+Vraag: Hoeveel budget moet ik als zzp'er of klein bedrijf in 2026 reserveren voor een website?
+
+Kort antwoord: Je budget hangt af van wat de website moet doen. Wil je alleen vindbaar en bereikbaar zijn, dan kan een zelfgebouwde site met een betaald abonnement volstaan. Moet de website aanvragen opleveren, dan reken je met een vaste bouwprijs plus jaarlijkse kosten. Moeten aanvragen direct in een CRM of offertesysteem landen, dan ligt het budget een stap hoger.
+
+Kernpunten:
+- Bepaal eerst de taak van de website: visitekaartje, aanvragen binnenhalen of aanvragen verwerken.
+- Reken met drie posten: bouw, jaarlijkse kosten en je eigen tijd.
+- Je eigen uren zijn ook geld; tel ze mee bij zelf bouwen.
+- Begin klein en breid uit als de basis aanvragen oplevert.
+- Vraag altijd een vaste prijs met een duidelijke lijst van wat erin zit.
+
+### Begin bij de taak van je website, niet bij een bedrag
+
+De vraag wat een website kost, krijgt zelden een bruikbaar antwoord, omdat het verschil tussen de goedkoopste en de duurste oplossing enorm is. Een betere vraag is: wat moet mijn website over een jaar voor mij gedaan hebben? Een zzp'er die vooral via netwerk en mond-tot-mondreclame werkt, heeft iets anders nodig dan een installateur die elke week nieuwe klanten uit Google wil halen.
+
+Grofweg zijn er drie taken. De website als visitekaartje bevestigt dat je bestaat en hoe mensen je bereiken. De website als verkoper overtuigt bezoekers die je nog niet kennen en zet ze aan tot een aanvraag. De website als onderdeel van je bedrijfsproces stuurt aanvragen door naar een CRM, offertesysteem of planning. Elke stap vraagt meer werk en dus meer budget.
+
+| Taak van de website | Wat je minimaal nodig hebt | Passende aanpak |
+|---|---|---|
+| Visitekaartje | Een paar pagina's, contactgegevens, eigen domein | Zelf bouwen met een websitebouwer of een eenvoudige one-pager |
+| Aanvragen binnenhalen | Dienstpagina's, bewijs zoals projecten en reviews, goed formulier, basis-SEO | Laten maken voor een vaste prijs, met hulp bij teksten en structuur |
+| Aanvragen verwerken | Alles hierboven plus koppeling met CRM, offertes of planning | Website met CRM of offertesysteem, gebouwd als één geheel |
+
+### Welke kosten moet je meerekenen?
+
+Een budget bestaat uit meer dan de factuur van de bouwer. Veel ondernemers vergeten de jaarlijkse kosten en hun eigen tijd. Zet daarom alle posten onder elkaar, ook als je een deel zelf doet.
+
+- Bouw: ontwerp, ontwikkeling, formulieren, eventuele koppelingen.
+- Inhoud: teksten, foto's van je werk, eventueel een fotograaf.
+- Jaarlijkse kosten: domeinnaam, hosting, e-mail, licenties en onderhoud.
+- Je eigen tijd: briefing, teksten aanleveren, feedback geven en testen.
+- Na de livegang: aanpassingen, nieuwe projecten plaatsen, eventueel advertenties.
+
+### Wanneer is zelf bouwen genoeg?
+
+Eerlijk is eerlijk: niet elk bedrijf heeft een gebouwde website nodig. Werk je vooral voor vaste opdrachtgevers, komen nieuwe klanten via je netwerk en wil je alleen dat mensen je kunnen controleren, dan is een eenvoudige site met een websitebouwer zoals Wix vaak voldoende. Let wel op: voor een eigen domein en zonder reclame van het platform heb je een betaald abonnement nodig. Wix vermeldt dat alle betaalde pakketten een eigen domein en verwijdering van de Wix-branding bevatten; de actuele prijzen staan op de prijspagina van Wix en worden per jaar vooruit betaald.
+
+Reken bij zelf bouwen ook je eigen uren mee. Als je twintig uur kwijt bent aan leren, bouwen en schrijven, en je uurtarief is vijftig euro, dan kost de website je in feite duizend euro aan tijd. Dat kan prima de moeite waard zijn, zolang je het bewust kiest.
+
+### Wanneer loont het om te laten maken?
+
+Moet de website nieuwe klanten opleveren die je nog niet kennen, dan wordt het verschil tussen een website die er is en een website die verkoopt belangrijk. Dan gaat het om een duidelijke opbouw per dienst, bewijs van je werk, een formulier dat de juiste vragen stelt, snelheid op mobiel en een technisch goede basis voor Google. Dat is geen hogere wiskunde, maar het vraagt ervaring en tijd.
+
+Een rekensom helpt. Wat levert één nieuwe opdracht gemiddeld op? Als één extra opdracht per kwartaal de investering al terugverdient, is een professionele website snel rendabel. Levert een opdracht weinig op en heb je al genoeg werk, dan is een kleinere oplossing verstandiger.
+
+### Zo bepaal je je budget in vier stappen
+- Schrijf op hoeveel nieuwe aanvragen per maand je wilt en wat een gemiddelde opdracht oplevert.
+- Kies de taak van de website: visitekaartje, aanvragen binnenhalen of aanvragen verwerken.
+- Vraag twee of drie vaste prijzen op met dezelfde briefing en vergelijk wat er precies in zit.
+- Tel de jaarlijkse kosten over drie jaar erbij en vergelijk het totaal, niet alleen de bouwprijs.
+
+### Waar kun je op besparen en waar beter niet?
+
+Besparen kan op omvang. Begin met de pagina's die echt nodig zijn: een sterke homepage, een pagina per hoofddienst, projecten en contact. Een blog, extra talen of een klantportaal kunnen later. Ook kun je zelf de basis van de teksten schrijven en die laten redigeren in plaats van alles uit te besteden.
+
+Besparen is onverstandig op eigendom en op de werking van je formulier. Een goedkope site waarbij domein en hosting op naam van de bouwer staan, kan later duur uitpakken als je wilt overstappen. En een formulier dat aanvragen kwijtraakt of in de spam laat belanden, kost je klanten zonder dat je het merkt.
+
+### Wat kost een website bij Next Growth?
+
+Bij Next Growth begint een zakelijke website vanaf € 1.500 voor een vaste prijs en staat hij binnen twee weken live. Wil je dat aanvragen direct in een eigen CRM met offertes landen, dan begint een website met CRM vanaf € 6.995. Domein, code en accounts komen op jouw naam. Twijfel je of je dat nodig hebt, of volstaat een zelfgebouwde site? Laat je terugbellen; we reageren dezelfde werkdag en zeggen het eerlijk als een eenvoudiger oplossing beter bij je past. Bellen kan ook direct: 06 83 90 21 92.
+
+### Veelgestelde vragen
+Vraag: Is een website van een paar honderd euro genoeg voor een klein bedrijf?
+Antwoord: Als visitekaartje vaak wel. Moet de website nieuwe klanten overtuigen en aanvragen opleveren, dan ontbreken bij zulke pakketten meestal structuur, teksten en een goed formulier.
+
+Vraag: Moet ik als zzp'er een website hebben?
+Antwoord: Niet verplicht, maar veel opdrachtgevers zoeken je eerst online op. Een eenvoudige site met je diensten, voorbeelden van je werk en contactgegevens is dan vaak al genoeg.
+
+Vraag: Wat zijn de jaarlijkse kosten van een kleine website?
+Antwoord: Reken op domeinnaam, hosting, eventueel e-mail, licenties en onderhoud. Vraag die posten apart op en tel ze op over drie jaar.
+
+Vraag: Kan ik klein beginnen en later uitbreiden?
+Antwoord: Ja, als de techniek en structuur dat toelaten. Vraag vooraf of je later pagina's, een CRM-koppeling of een configurator kunt toevoegen zonder opnieuw te beginnen.
+
+Vraag: Is een vaste prijs altijd beter dan een uurtarief?
+Antwoord: Voor een kleine website meestal wel, omdat je vooraf weet waar je aan toe bent. Voorwaarde is dat duidelijk op papier staat wat er in de prijs zit.
+
+
+### Bronnen
+- [Wix: Choosing a Premium Plan](https://support.wix.com/en/article/choosing-a-premium-plan)
+- [Wix: prijspagina](https://www.wix.com/plans)
 
 ---
 
