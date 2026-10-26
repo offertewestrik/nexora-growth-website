@@ -1,4 +1,7 @@
 /* Next Growth: statische pagina's in dezelfde opbouw als de branchepagina's */
+/* Vervangende lettertypen met dezelfde breedte als Archivo en Manrope: geen verspringende koppen zolang de webfont laadt */
+@font-face{font-family:'Archivo Fallback';src:local('Arial Bold'),local('Arial-BoldMT'),local('LiberationSans-Bold'),local('Liberation Sans Bold');font-weight:900;size-adjust:108%}
+@font-face{font-family:'Manrope Fallback';src:local('Arial'),local('ArialMT'),local('LiberationSans'),local('Liberation Sans');size-adjust:105.8%}
 img{max-width:100%;height:auto}
 :root{
   --bg:#0A0A0A;--bg-2:#111;--bg-3:#181818;--line:#262626;
@@ -6,8 +9,8 @@ img{max-width:100%;height:auto}
   --text:#D3D3CF;--lead:#D6D6D2;--nav-bg:rgba(10,10,10,.94);
   --cream:#E9E8E3;--cream-ink:#0A0A0A;--cream-muted:#55554F;--cream-line:#CFCEC7;--cream-2:#F4F3EF;--cream-text:#2E2E2A;
   --md-r:16px;
-  --display:'Archivo','Arial Black','Helvetica Neue',Arial,sans-serif;
-  --body:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --display:'Archivo','Archivo Fallback','Arial Black','Helvetica Neue',Arial,sans-serif;
+  --body:'Manrope','Manrope Fallback',system-ui,-apple-system,'Segoe UI',sans-serif;
   --mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;
   color-scheme:dark;
 }
@@ -255,3 +258,136 @@ body:not([class*="t-"]){--sig-cream:#7A5C00}
 .t-dak{--sig-cream:#B3261B}
 .cream .sig{color:var(--sig-cream,var(--sig))}
 .cream .rbody li::marker,.cream details.faq summary::after{color:var(--sig-cream,var(--sig))}
+
+/* ===== Ontwerpronde okt 2026: branchekop, sticky belbalk, leesbaarheid ===== */
+/* kleine accenttekst (eyebrows) haalt overal 4,5:1 */
+.t-dak{--sig-text:#F26457}
+.t-tech{--sig-text:#0B5FDB}
+.t-merk{--sig-text:#B0124F}
+.eyebrow{color:var(--sig-text,var(--sig))}
+.cream .eyebrow{color:var(--cream-ink)}
+.cb .eyebrow{color:var(--sig-ink)}
+
+/* koppen: nette afbreking (zachte afbreekstreepjes uit de bouwstraat + hyphens), nooit buiten beeld */
+h1,h2,h3{overflow-wrap:break-word;hyphens:manual;-webkit-hyphens:manual}
+html[lang|="nl"] h1,html[lang|="nl"] h2{hyphens:auto;-webkit-hyphens:auto}
+.hero h1{font-size:clamp(32px,8.4vw,88px);max-width:100%}
+@media(min-width:1001px){.hero h1{font-size:clamp(44px,5.6vw,88px)}}
+.hero.long h1{font-size:clamp(28px,7.2vw,66px)}
+@media(min-width:1001px){.hero.long h1{font-size:clamp(38px,4.2vw,66px)}}
+
+/* kop: H1 en beeld eerst, op mobiel het beeld direct onder de H1 */
+.hgrid>.hhead{grid-column:1;grid-row:2;align-self:end}
+.hgrid>.hhead~.htext{grid-column:1;grid-row:3}
+.hgrid>.hhead~.hmedia{grid-column:2;grid-row:1/5;align-self:center}
+.hgrid:has(>.hhead){grid-template-rows:1fr auto auto 1fr;row-gap:0}
+.hgrid>.hhead+.htext .kort,.hgrid>.hhead~.htext>.lead:first-child{margin-top:22px}
+.hero.nomedia .hgrid>.hhead,.hero.nomedia .hgrid>.htext{grid-column:1}
+@media(max-width:1000px){
+  .hgrid>.hhead,.hgrid>.hhead~.htext,.hgrid>.hhead~.hmedia{grid-column:1;grid-row:auto}
+  .hgrid:has(>.hhead){grid-template-rows:none;row-gap:22px}
+  .hgrid>.hhead~.htext>.lead:first-child,.hgrid>.hhead+.htext .kort{margin-top:0}
+  .hmedia{aspect-ratio:16/10}
+}
+
+/* labels op beeld: donker met wit, leesbaar op elk beeld en in elk thema */
+.htag{background:rgba(10,10,10,.8);color:#fff;display:inline-flex;align-items:center;gap:8px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.htag::before{content:"";width:7px;height:7px;border-radius:50%;background:#FFC400}
+
+/* branchekop (/website-voor-*) */
+.bh{padding-top:clamp(20px,3vw,40px)}
+.bgrid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);grid-template-rows:1fr auto auto auto 1fr;column-gap:clamp(28px,4vw,64px);align-items:start}
+.bgrid>.beb{grid-column:1;grid-row:2;margin-bottom:16px}
+.bgrid>h1{grid-column:1;grid-row:3;font-size:clamp(34px,9vw,78px);line-height:.92;letter-spacing:-.035em;max-width:8.6em}
+.bgrid>.bmedia{grid-column:2;grid-row:1/-1;align-self:center}
+.bgrid>.bbody{grid-column:1;grid-row:4}
+.bh .lead{max-width:62ch;margin:22px 0 0;font-size:clamp(16px,1.25vw,18.5px);line-height:1.6;color:var(--lead)}
+.bmedia{position:relative;margin:0;border-radius:calc(var(--md-r) + 4px);overflow:hidden;border:1px solid var(--line);background:#0C0D10;aspect-ratio:16/9;box-shadow:0 40px 90px -40px rgba(0,0,0,.55)}
+.bmedia video,.bmedia img{display:block;width:100%;height:100%;object-fit:cover}
+.bmedia .htag{position:absolute;left:12px;top:12px}
+.chiplbl{margin:22px 0 10px;font:500 11px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.bchips{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+.bchips li{display:inline-flex;align-items:center;gap:8px;padding:9px 13px;border-radius:999px;border:1.5px solid color-mix(in srgb,var(--sig) 70%,transparent);background:color-mix(in srgb,var(--sig) 10%,transparent);color:var(--fg);font:600 13.5px/1.2 var(--body)}
+.bchips li::before{content:"";flex:0 0 8px;height:8px;border-radius:50%;background:var(--sig)}
+.bh .acts{margin-top:26px}
+.bp .bh .btn:not(.ghost),.bp .prijs .btn,.bp .end .btn{background:#FFC400;border-color:#FFC400;color:#0A0800}
+.bp .bh .btn:not(.ghost) .ar,.bp .prijs .btn .ar{background:#0A0800;color:#FFC400}
+.bh .btn.ghost{color:var(--fg);border-color:color-mix(in srgb,var(--fg) 40%,transparent)}
+.nudge{margin:14px 0 0;font-size:14.5px;color:var(--text)}
+.nudge a{color:var(--fg);font-weight:700;text-decoration:underline;text-decoration-color:var(--sig);text-decoration-thickness:2px;text-underline-offset:3px}
+@media(max-width:1000px){
+  .bgrid{grid-template-columns:1fr;grid-template-rows:none}
+  .bgrid>.beb,.bgrid>h1,.bgrid>.bmedia,.bgrid>.bbody{grid-column:1;grid-row:auto}
+  .bgrid>h1{max-width:none}
+  .bgrid>.bmedia{margin-top:20px}
+  .bh .lead{margin-top:18px}
+}
+@media(max-width:520px){.bh .acts .btn{width:100%;justify-content:space-between}.bh .acts .btn.ghost{justify-content:center}}
+
+/* prijsregel onderaan de branchepagina's */
+.prijs{border-top:1px solid var(--line)}
+.pgrid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(28px,5vw,72px);align-items:center}
+.prijs h2{font-size:clamp(34px,5vw,72px);line-height:.92}
+.plead{margin:18px 0 26px;max-width:46ch;color:var(--text)}
+.pcard{border:1px solid var(--line);border-radius:var(--md-r);background:var(--bg-2);padding:clamp(20px,3vw,32px)}
+.pcard .mono{margin:0 0 12px;color:var(--muted)}
+.pcard ul{list-style:none;margin:0;padding:0}
+.pcard li{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-weight:600}
+.pcard li::before{content:"✓";color:var(--sig-text,var(--sig));font-weight:800}
+.pnote{margin:14px 0 0;font-size:14.5px;color:var(--text)}
+@media(max-width:860px){.pgrid{grid-template-columns:1fr}}
+
+/* voor en na: twee beelden naast elkaar met een label */
+.voorna{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(18px,3vw,32px)}
+.paar h3{font-size:clamp(18px,1.8vw,24px);margin:0 0 12px}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.duo figure{position:relative;margin:0;border-radius:var(--md-r);overflow:hidden;border:1px solid var(--line);background:var(--bg-2)}
+.duo img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.duo figcaption{position:absolute;left:10px;top:10px;padding:6px 10px;border-radius:999px;background:rgba(10,10,10,.8);color:#fff;font:500 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.duo figure+figure figcaption{background:#FFC400;color:#0A0800}
+.paar>p{margin:12px 0 0;color:var(--text);font-size:15px}
+
+/* kaarten: geen lege kolommen of wezen, tekst nooit midden in een woord afgekapt */
+.fgrid{grid-template-columns:repeat(auto-fit,minmax(max(240px,calc((100% - (var(--cols,4) - 1) * 14px) / var(--cols,4))),1fr))}
+@media(max-width:560px){.fgrid{grid-template-columns:1fr}}
+a.fcard p{display:-webkit-box;-webkit-line-clamp:4;line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+
+/* knoppen in lichte (cream) blokken: donkere tekst, contrast > 4,5:1 */
+.cream .btn.ghost,.rbody .btn.ghost{color:var(--cream-ink);border-color:color-mix(in srgb,var(--cream-ink) 40%,transparent);background:transparent}
+.cream .btn.ghost:hover,.rbody .btn.ghost:hover{border-color:var(--cream-ink)}
+.rel a{color:var(--cream-ink)}
+
+/* tikdoelen op mobiel minstens 44 px */
+@media(max-width:760px){
+  .foot li{margin:0}
+  .foot li a,.legal a{display:inline-flex;align-items:center;min-height:44px}
+  .crumbs a{display:inline-block;padding:14px 0;margin:-14px 0}
+  .cbl .alt a{display:inline-block;padding:10px 0}
+}
+
+/* video's: vaste verhouding, zodat er niets verspringt of leeg blijft */
+.rbody video,.sec video{width:100%;height:auto;aspect-ratio:16/9;background:#0C0D10;border-radius:12px}
+.bmedia video{border-radius:0}
+
+/* sticky belbalk op mobiel, gelijk aan de SPA */
+.mobbar{display:none}
+@media(max-width:759px){
+  body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+  .mobbar{position:fixed;left:0;right:0;bottom:0;z-index:45;display:grid;grid-template-columns:1fr auto;gap:10px;padding:10px max(14px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(14px,env(safe-area-inset-left,0px));background:rgba(10,10,10,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,.12);transition:transform .25s ease,visibility .25s}
+  .mobbar a{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;border-radius:999px;text-decoration:none;font:800 15px/1 var(--body)}
+  .mobbar .p{background:#FFC400;color:#0A0800}
+  .mobbar .s{border:1.5px solid rgba(255,255,255,.55);color:#fff;padding:0 22px}
+  .mobbar.uit{transform:translateY(110%);visibility:hidden}
+}
+@media(prefers-reduced-motion:reduce){.mobbar{transition:none}}
+/* verzendknop in het terugbelformulier altijd in huisgeel */
+.cbf .btn{background:#FFC400;border-color:#FFC400;color:#0A0800}
+.cbf .btn .ar{background:#0A0800;color:#FFC400}
+
+/* Visueel verborgen, wel voor zoekmachines en schermlezers (zoekterm in de H1 van branchepagina's) */
+.vh{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
+
+/* Eén logo in de header, gelijk aan de homepage: gele N naast "Next Growth" */
+.ngm{display:grid;place-items:center;flex:0 0 40px;width:40px;height:40px;border-radius:10px;background:#FFC400}
+.ngm svg{width:18px;height:18px}
+.nav nav{margin-left:auto}

@@ -13,6 +13,17 @@
     /* iOS in energiebesparing: alleen starten binnen een aanraking */
     var zicht=function(v){var r=v.getBoundingClientRect();return r.bottom>0&&r.top<innerHeight};
     ['touchend','click'].forEach(function(ev){addEventListener(ev,function(){vids.forEach(function(v){if(v.paused&&zicht(v))v.play().catch(function(){})})},{passive:true,capture:true})})}
+  /* "Bel mij terug": naar het terugbelformulier en de cursor direct in het eerste veld */
+  var cb=document.getElementById('terugbellen'),bar=document.querySelector('.mobbar');
+  if(cb){var veld=cb.querySelector('input[name=naam]');
+    [].slice.call(document.querySelectorAll('a[href="#terugbellen"]')).forEach(function(a){a.addEventListener('click',function(e){
+      e.preventDefault();var stil=matchMedia('(prefers-reduced-motion: reduce)').matches;
+      (veld?veld.closest('form')||cb:cb).scrollIntoView({behavior:stil?'auto':'smooth',block:'center'});
+      if(veld){try{veld.focus({preventScroll:true})}catch(_){veld.focus()}}
+      if(history.replaceState)history.replaceState(null,'','#terugbellen')})});
+    /* de belbalk verdwijnt zodra het formulier in beeld is */
+    if(bar&&'IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){
+      bar.classList.toggle('uit',e.isIntersecting);if(e.isIntersecting){bar.setAttribute('aria-hidden','true')}else{bar.removeAttribute('aria-hidden')}})},{threshold:0,rootMargin:'0px 0px -15% 0px'}).observe(cb.querySelector('form')||cb)}}
   /* Terugbelverzoek: rechtstreeks naar de mail van Next Growth (Web3Forms). Lukt dat niet, dan opent een e-mail met de gegevens. */
   [].slice.call(document.querySelectorAll('form[data-cb]')).forEach(function(f){
     f.addEventListener('submit',function(e){e.preventDefault();

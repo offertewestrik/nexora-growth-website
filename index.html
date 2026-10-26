@@ -7,6 +7,7 @@
 <meta property="og:image" content="https://nextgrowthdigital.nl/assets/hero.webp">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="claude:viewport-fit-sides" content="cover">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23FFC400'/%3E%3Cpath d='M9 24V8l14 16V8' stroke='%230A0800' stroke-width='3.6' fill='none'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,900;125,900&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Yantramanav:wght@400;500;700&display=swap" rel="stylesheet">
@@ -1084,6 +1085,120 @@ footer.boost .giantword{font:900 clamp(56px,10.6vw,160px)/.8 var(--display);lett
 .yacht .mdwrap .mhead .rule{flex:1;height:1px;background:rgba(244,241,234,.22)}
 
 .boot{position:relative;min-height:100svh;background:#DCEBF6;overflow:hidden}.boot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.9}.boot .bnav{position:absolute;left:24px;top:20px;display:flex;gap:10px;align-items:center;font:700 14px Manrope,system-ui,sans-serif;color:#0E1A2B}.boot .bl{width:36px;height:36px;border-radius:50%;background:#0E1A2B;color:#fff;display:grid;place-items:center;font:800 12px Archivo,Arial Black,sans-serif}.boot .bt{position:absolute;left:6%;top:34%;font:900 clamp(48px,9vw,140px)/1 Archivo,Arial Black,sans-serif;font-stretch:125%;color:#0E1A2B;letter-spacing:-.02em}
+/* ===== conversie-update 10/2026 ===== */
+/* één logo */
+.nav .brand-l .nm{width:36px;height:36px;border-radius:9px;background:var(--sig);display:grid;place-items:center;transform:rotate(-4deg);flex:none}
+.nav .brand-l .nm svg{width:22px;height:22px}
+@media(min-width:1101px){.nav .brand-l div{font:800 14px/1.15 var(--body)}}
+/* knoppen: huisgeel voor de hoofdactie, ook op branchepagina's met een eigen accent */
+.btn.hg{background:#FFC400;color:#0A0800;border-color:#FFC400}
+.btn.hg .i{background:#0A0800;color:#FFC400}
+.btn.hgh{background:rgba(255,255,255,.7);color:#0E1A2B;border-color:rgba(14,26,43,.25)}
+.mobbar .p{background:#FFC400!important;color:#0A0800!important}
+/* rustige entree: alleen opacity en transform */
+@keyframes ngIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.fadein{animation:ngIn .7s cubic-bezier(.2,.7,.2,1) both}.fadein.d2{animation-delay:.12s}.fadein.d3{animation-delay:.25s}
+@media(prefers-reduced-motion:reduce){.fadein{animation:none}}
+/* bewijschips */
+.proofchips{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.proofchips li{display:inline-flex;align-items:center;gap:8px;padding:7px 12px 7px 8px;border-radius:999px;border:1px solid var(--line);background:var(--bg-2);color:var(--fg);font:600 13px/1.2 var(--body)}
+.proofchips li::before{content:"✓";width:18px;height:18px;border-radius:50%;background:#FFC400;color:#0A0800;display:grid;place-items:center;font:900 10px/1 var(--body);flex:none}
+/* homepage-hero: wat je krijgt, in vijf seconden */
+.hl .hpanel{position:absolute;left:5%;bottom:42px;z-index:4;width:min(560px,44%);padding:24px 26px 22px;border-radius:22px;background:rgba(244,249,252,.88);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 30px 70px -30px rgba(14,26,43,.5);color:#0E1A2B}
+.hl .hey{font-size:11px;color:#3C4A5C;display:flex;align-items:center;gap:8px}.hl .hey::before{content:"";width:9px;height:9px;border-radius:50%;background:#FFC400;box-shadow:0 0 0 3px rgba(255,196,0,.3)}
+.hl .hk{margin:10px 0 0;font:900 clamp(28px,2.7vw,44px)/.95 var(--display);text-transform:uppercase;letter-spacing:-.03em;color:#0E1A2B}
+.hl .hk em{font-style:normal;background:linear-gradient(transparent 60%,#FFC400 60%,#FFC400 92%,transparent 92%)}
+.hl .hprice{margin:12px 0 0;font:700 clamp(15px,1.15vw,17px)/1.4 var(--body);color:#0E1A2B}
+.hl .proofchips{margin-top:14px}.hl .proofchips li{background:#fff;border-color:rgba(14,26,43,.14);color:#0E1A2B}
+.hl .hbtns{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.hl .hbtns .btn{padding:14px 22px}
+.hl .hbtns .btn.hgh:hover{background:#fff}
+@media(max-width:1100px) and (min-width:861px){.hl .hpanel{width:min(520px,56%)}.hl .proofchips li{font-size:12px}}
+@media(max-width:860px){
+  .hl .hlrow{padding-block:20px 22px;gap:0}
+  .hl .mval .hk{margin-top:8px;font-size:clamp(28px,8.4vw,38px)}
+  .hl .mval .hprice{font-size:15.5px;margin-top:10px}
+  .hl .mval .proofchips{margin-top:12px;gap:6px}.hl .mval .proofchips li{font-size:12.5px;padding:6px 10px 6px 6px}
+  .hl .mval .hbtns{flex-direction:column;margin-top:16px}.hl .mval .hbtns .btn{justify-content:center;width:100%;min-height:52px}
+  .hl .mval .hbtns .btn.hgh{background:transparent}
+}
+/* branchehero: lead met prijs, pijnpunten, beeld direct onder de H1 op mobiel */
+.wh .blead{max-width:32em}
+.wh .blead b{color:var(--fg);font-weight:700;white-space:nowrap}
+.pains{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.pains li{display:inline-flex;align-items:center;gap:8px;padding:8px 13px 8px 10px;border-radius:999px;font:600 13px/1.2 var(--body);color:var(--fg);background:color-mix(in srgb,var(--sig) 12%,transparent);border:1px solid color-mix(in srgb,var(--sig) 55%,transparent)}
+.pains li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--sig);flex:none}
+.wh .cta{margin-top:24px}
+.wh .mediacard.mm{margin-top:18px;aspect-ratio:16/9;border-radius:16px;box-shadow:0 30px 60px -36px rgba(0,0,0,.7)}
+.wh .mediacard.mm img{width:100%;height:100%;object-fit:cover}
+.wh .mediacard .tag{text-transform:uppercase}
+@media(max-width:900px){
+  .wh.is-mob{padding:86px 0 40px;min-height:0;align-items:flex-start}
+  .wh.is-mob .crumbs{margin-bottom:12px;font-size:11px}
+  .wh.is-mob h1{font-size:clamp(34px,10vw,44px);margin-top:12px}
+  .wh.is-mob.serif h1,.wh.is-mob.l-bch h1{font-size:clamp(32px,9.4vw,42px)}
+  .wh.is-mob .def{margin-top:16px;font-size:15.5px;line-height:1.5}
+  .wh.is-mob .pains{margin-top:14px;gap:6px}.wh.is-mob .pains li{font-size:12.5px;padding:6px 11px 6px 9px}
+  .wh.is-mob .cta{flex-direction:column;align-items:stretch;gap:10px;margin-top:18px}.wh.is-mob .cta .btn{justify-content:center}
+  .wh.l-bch.is-mob{padding-top:80px}.wh.l-bch.is-mob .wrap{padding-top:0}.wh.l-bch.is-mob .cut{margin-top:40px}
+  .wh.l-edit.is-mob .txt{padding:0}
+  .wh.l-full.is-mob{min-height:0;padding-bottom:40px}
+}
+/* formulier: melding bij falen */
+.ferr{display:none;border:1px solid #FF7A6B;background:rgba(255,122,107,.08);border-radius:8px;padding:14px;font-size:15px;color:var(--cream)}
+.ferr.on{display:block}.ferr a{color:#FFC400;font-weight:700}
+#sent.on b{color:#FFC400}
+/* webshops: demolabel en Next Growth-actie boven de vouw */
+.fd .ngbar{position:relative;z-index:6;background:#0A0A0A;color:#fff;border-bottom:1px solid rgba(255,255,255,.12)}
+.fd .ngbar .wrap{display:flex;align-items:center;gap:12px;padding-block:10px}
+.fd .ngbar .dm{flex:none;background:#FFC400;color:#0A0800;font:700 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;border-radius:6px}
+.fd .ngbar .t{font:600 13.5px/1.35 var(--body);flex:1;min-width:0}
+.fd .ngbar .btn{padding:10px 16px;font-size:14px;min-height:0}.fd .ngbar .btn .i{display:none}
+.fd .demotag{position:absolute;right:16px;top:14px;z-index:6;background:rgba(0,0,0,.6);color:#fff;border:1px solid rgba(255,255,255,.5);font:700 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;border-radius:6px;backdrop-filter:blur(6px)}
+.fd .hero{display:flex;align-items:center}.fd .txt{flex:1 1 100%;min-width:0}
+.fd h1{min-height:2.52em;font-size:clamp(56px,11vw,190px)}.fd h1 .ln{white-space:nowrap}.fd .sub{min-height:3em}
+@media(max-width:860px){.fd h1{font-size:12.4vw}}
+@media(max-width:860px){.fd .ngbar .wrap{flex-wrap:wrap;gap:8px 10px}.fd .ngbar .t{font-size:12.5px;flex-basis:calc(100% - 70px)}.fd .ngbar .btn{width:100%;justify-content:center;min-height:44px}}
+.wsinfo{padding-block:44px 10px}.wsinfo h1{font-size:clamp(32px,4.4vw,60px);margin-top:14px;max-width:16em}.wsinfo .def{margin-top:16px;color:var(--muted);font-size:clamp(16px,1.3vw,19px)}.wsinfo .def b{color:var(--fg)}
+.wsinfo .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+/* dienst-webdesign: tekst links, beeld rechts (kop niet over het gezicht) */
+.whero{padding:118px 0 40px}
+.whero .grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(28px,4vw,64px);align-items:center}
+.whero h1{font-size:clamp(34px,4.1vw,64px);margin-top:16px}
+.whero .def{margin-top:20px;max-width:34em;font-size:clamp(16px,1.25vw,19px);line-height:1.55;color:rgba(244,241,234,.85)}
+.whero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.whero .pic{margin:0;border-radius:22px;overflow:hidden;aspect-ratio:4/3.4;background:#E9C8AE;box-shadow:0 50px 90px -50px rgba(0,0,0,.9)}
+.whero .pic img{width:100%;height:100%;object-fit:cover;object-position:50% 18%}
+@media(max-width:900px){.whero{padding:92px 0 24px}.whero .grid{grid-template-columns:1fr;gap:24px}.whero .pic{aspect-ratio:16/10}.whero .cta{flex-direction:column;align-items:stretch}.whero .cta .btn{justify-content:center}}
+.cfgteaser{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:0;margin-top:48px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--bg-2);text-decoration:none;color:var(--fg)}
+.cfgteaser img{width:100%;height:100%;aspect-ratio:16/9;object-fit:cover}
+.cfgteaser .t{padding:clamp(20px,3vw,36px);display:flex;flex-direction:column;justify-content:center;gap:10px}
+.cfgteaser .mono{color:var(--muted)}.cfgteaser b{font:900 clamp(22px,2.4vw,34px)/1 var(--display);text-transform:uppercase}.cfgteaser .t>span:last-child{color:var(--muted)}
+.cfgteaser:hover b{color:var(--sig)}
+@media(max-width:760px){.cfgteaser{grid-template-columns:1fr}}
+/* prijzen: € 1.500 als hoofdpakket */
+.page-hero.prh{min-height:0;padding:130px 0 44px}
+.pmain{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border:2px solid #FFC400;border-radius:22px;background:var(--bg-2);overflow:hidden;position:relative}
+.pmain .pl{padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:12px;position:relative}
+.pmain .badge2{align-self:flex-start;background:#FFC400;color:#0A0800;font:500 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:6px 11px;border-radius:999px}
+.page-hero>.wrap{width:100%}
+.pmain h2{font-size:clamp(28px,3vw,44px)}
+.pmain .amt{font:900 clamp(48px,5vw,76px)/1 var(--display);font-stretch:125%;letter-spacing:-.02em}
+.pmain .amt small{display:block;margin-top:10px;font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.pmain .pl p{color:var(--muted)}
+.pmain .cta{margin-top:10px}.pmain .cta .btn{white-space:normal}
+.pmain .pr{padding:clamp(24px,3vw,40px);background:var(--bg-3);border-left:1px solid var(--line)}
+.pmain .pr h3{font-size:clamp(20px,1.8vw,26px);margin-bottom:16px}
+.pmain .pr ul{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.pmain .pr li{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);font-weight:600}
+.pmain .pr li::before{content:"✓";color:#FFC400;font-weight:900}
+.pmain .pr .fine{margin-top:14px;font-size:13.5px;color:var(--muted)}
+@media(max-width:860px){.pmain{grid-template-columns:1fr}.pmain .pr{border-left:0;border-top:1px solid var(--line)}.pmain .cta .btn{width:100%;justify-content:center}}
+.prices.p3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:1000px){.prices.p3{grid-template-columns:1fr 1fr}}@media(max-width:560px){.prices.p3{grid-template-columns:1fr}}
+/* footer: juridische links met een ruim raakvlak */
+footer.boost .legal a{color:#A3A39D;padding:6px 0}footer.boost .legal a:hover{color:#fff}
+footer.boost ul a{display:inline-block;padding:3px 0}
 .wh.l-plate .pmedia{position:relative;margin-top:40px;border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:0 50px 90px -40px rgba(0,0,0,.9);background:#000}.wh.l-plate .pmedia video{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}.wh.l-plate .pmedia .mtag{position:absolute;left:16px;top:16px;font:500 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--sig-ink);background:var(--sig);padding:7px 10px;border-radius:999px}.wh.l-plate{min-height:0;padding-bottom:60px}
 </style></head><body>
 
@@ -1177,22 +1292,21 @@ function Nav(){
   </div>`}
   return h`<${React.Fragment}>
     <a class="skip" href="#inhoud">Naar de inhoud</a><header class="nav"><div class="wrap">
-      <a class="brand-l" href="#top" data-hover="1"><span class="ring">NG</span><div>Next Growth<small>Creatief groeibureau · Landelijk</small></div></a>
-      <a class="mark" href="#top" aria-label="Next Growth, naar boven"><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 14V4l10 10V4" stroke="#0A0800" stroke-width="2.8" stroke-linecap="square" stroke-linejoin="miter"/></svg></a>
+      <a class="brand-l" href="/" data-hover="1" aria-label="Next Growth, naar de homepage"><span class="nm" aria-hidden="true"><svg viewBox="0 0 18 18" fill="none"><path d="M4 14V4l10 10V4" stroke="#0A0800" stroke-width="2.8" stroke-linecap="square" stroke-linejoin="miter"/></svg></span><div>Next Growth<small>Websites · branding · content</small></div></a>
       <div class="right"><nav aria-label="Hoofdmenu">
-        <a href="#" data-hover="1">Home</a>
+        <a href="/" data-hover="1">Home</a>
         <${Drop} k="diensten" label="Diensten"><div class="groups">${NAV_GROUPS.map(function(g){return h`<div key=${g.t} class="grp"><p class="gt">${g.t}</p>${g.items.map(function(l){return h`<a key=${l[0]} href=${l[0]}><b>${l[1]}</b><span>${l[2]}</span></a>`})}</div>`})}</div></${Drop}>
         <${Drop} k="branches" label="Branches"><div class="cols3">${branches.map(function(l){return h`<a key=${l[0]} href=${l[0]}><b>${l[1]}</b></a>`})}<a href="#branches" class="all"><b>Alle branches →</b></a></div></${Drop}>
         <a href="#cases-home" data-hover="1">Cases</a>
         <a href="/kennisbank" data-hover="1">Kennisbank</a>
         <a href="#prijzen" data-hover="1">Prijzen</a>
         <a href="#contact" data-hover="1">Contact</a>
-      </nav><a class="pill" href="#contact" data-hover="1">Kennismaken</a><button id="menuBtn" type="button" aria-expanded=${open} onClick=${function(){setOpen(true)}}>Menu</button></div>
+      </nav><a class="pill" href="#contact" data-hover="1">Bel mij terug</a><button id="menuBtn" type="button" aria-expanded=${open} onClick=${function(){setOpen(true)}}>Menu</button></div>
     </div></header>
     <${AnimatePresence}>${open&&h`<${m.div} className="menu" key="menu" initial=${{y:'-100%'}} animate=${{y:0}} exit=${{y:'-100%'}} transition=${{duration:.6,ease:EASE}}>
       <div class="mtop"><span class="mono">Next Growth Digital</span><button class="close" type="button" onClick=${function(){setOpen(false)}}>Sluiten</button></div>
       <div class="mlist">
-        <a href="#" onClick=${function(){setOpen(false)}}>Home</a>
+        <a href="/" onClick=${function(){setOpen(false)}}>Home</a>
         <button type="button" class=${'grp'+(grp==='d'?' on':'')} aria-expanded=${grp==='d'} onClick=${function(){setGrp(grp==='d'?null:'d')}}>Diensten<i></i></button>
         ${grp==='d'&&h`<div class="sub subg">${NAV_GROUPS.map(function(g){return h`<div key=${g.t}><p class="gt">${g.t}</p>${g.items.map(function(l){return h`<a key=${l[0]} href=${l[0]} onClick=${function(){setOpen(false)}}>${l[1]}</a>`})}</div>`})}</div>`}
         <button type="button" class=${'grp'+(grp==='b'?' on':'')} aria-expanded=${grp==='b'} onClick=${function(){setGrp(grp==='b'?null:'b')}}>Branches<i></i></button>
@@ -1202,7 +1316,7 @@ function Nav(){
         <a href="#prijzen" onClick=${function(){setOpen(false)}}>Prijzen</a>
         <a href="#contact" onClick=${function(){setOpen(false)}}>Contact</a>
       </div>
-      <div class="mfoot"><a class="mcta" href="#contact" onClick=${function(){setOpen(false)}}>Plan een kennismaking →</a><span class="ft">06 83 90 21 92 · info@nextgrowthdigital.nl</span></div>
+      <div class="mfoot"><a class="mcta" href="#contact" onClick=${function(){setOpen(false)}}>Bel mij terug →</a><span class="ft">06 83 90 21 92 · info@nextgrowthdigital.nl</span></div>
     </${m.div}>`}</${AnimatePresence}>
   </${React.Fragment}>`;
 }
@@ -1440,10 +1554,10 @@ function Cases(){
   return h`<section class="cream" id="cases"><div class="wrap">
     <div class="head">
       <div><p class="eyebrow mono">Cases</p><h2><${Words} text="Gebouwd. Live. *Bewezen."/></h2></div>
-      <${Rise} delay=${.2}><p>Drie systemen die vandaag in productie staan, met het probleem waar ze mee begonnen.</p></${Rise}>
+      <${Rise} delay=${.2}><p>Twee systemen die vandaag bij klanten in productie staan, met het probleem waar ze mee begonnen.</p></${Rise}>
     </div>
     <div class="cases">${C.map(function(c,i){return h`<${m.article} key=${i} className="case" initial=${{opacity:0,y:50,rotate:i===1?0:(i?1.5:-1.5)}} whileInView=${{opacity:1,y:0,rotate:0}} viewport=${{once:true,margin:'-8% 0px'}} transition=${{delay:i*.12,duration:.9,ease:EASE}}>
-      <div class="vid"><video src=${MV+'assets/'+c.v+'.mp4'} data-poster=${c.p||({'case-lucky':'assets/lucky-laptop.webp'})[c.v]} muted loop playsInline preload="none" data-auto="1" aria-label=${'Video van '+c.d}></video></div>
+      <div class="vid"><video src=${MV+'assets/'+c.v+'.mp4'} data-poster=${({'case-lucky':'assets/lucky-laptop.webp'})[c.v]} data-frame=${c.v==='case-installatie'?'1':undefined} muted loop playsInline preload="none" data-auto="1" aria-label=${'Video van '+c.d}></video></div>
       <div class="who"><span>${c.d}</span><span class="st">${c.s}</span></div>
       <h3>${c.h[0]}<span class="sig">${c.h[1]}</span>${c.h[2]||''}</h3>
       <dl><dt>Probleem</dt><dd>${c.p}</dd><dt>Gebouwd</dt><dd>${c.b}</dd><dt>Resultaat</dt><dd class="res">${c.r}</dd></dl>
@@ -1453,16 +1567,30 @@ function Cases(){
 }
 
 /* ---------- contact ---------- */
+/* onderwerp van het terugbelformulier per pagina voorselecteren */
+var TOPICS=['Website of webshop','Branding of rebrand','Marketing, social & content','Influencer-samenwerking','Configurator, offerte & CRM','Alles: merk, site en marketing','Anders'];
+var CUR_PAGE='home';
+function topicFor(slug){
+  slug=slug||'home';
+  if(slug==='home'||slug==='branches'||slug==='prijzen'||slug==='dienst-webdesign'||slug==='demo-fashion'||slug.indexOf('lokaal-webdesign-')===0||slug.indexOf('branche-')===0)return 'Website of webshop';
+  if(slug==='dienst-branding')return 'Branding of rebrand';
+  if(slug==='dienst-marketing'||slug.indexOf('lokaal-marketing-')===0)return 'Marketing, social & content';
+  if(/^dienst-(configurators|crm|automatisering|software)$/.test(slug))return 'Configurator, offerte & CRM';
+  return 'Anders';
+}
 function Contact(){
   var st=useState({}),err=st[0],setErr=st[1],sent=useState(false),ok=sent[0],setOk=sent[1];
   var bz=useState(false),busy=bz[0],setBusy=bz[1];
+  var fl=useState(false),fail=fl[0],setFail=fl[1];
+  var tp=useState(topicFor(CUR_PAGE)),topic=tp[0],setTopic=tp[1];
+  useEffect(function(){function f(e){if(e.detail&&TOPICS.indexOf(e.detail)>=0)setTopic(e.detail)}addEventListener('ng:topic',f);return function(){removeEventListener('ng:topic',f)}},[]);
   function submit(e){e.preventDefault();var f=e.currentTarget,n=f.naam.value.trim(),t=f.tel.value.trim(),w=f.wat.value;var E={};if(!n)E.n='Vul je naam in.';if(!/^[+\d][\d\s\-()]{7,}$/.test(t))E.t='Vul een telefoonnummer in, bijvoorbeeld 06 12 34 56 78.';if(f.website&&f.website.value)return;setErr(E);if(Object.keys(E).length){var fe=E.n?f.naam:f.tel;if(fe)fe.focus();return;}
-    setBusy(true);
-    function mailto(){location.href='mailto:info@nextgrowthdigital.nl?subject='+encodeURIComponent('Terugbelverzoek: '+w)+'&body='+encodeURIComponent('Naam: '+n+'\nTelefoon: '+t+'\nOnderwerp: '+w+'\nPagina: '+location.href)}
-    var klaar=false,wekker=setTimeout(function(){if(klaar)return;klaar=true;setBusy(false);mailto()},9000);
+    setBusy(true);setFail(false);
+    function mislukt(){setFail(true)}
+    var klaar=false,wekker=setTimeout(function(){if(klaar)return;klaar=true;setBusy(false);mislukt()},9000);
     fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({access_key:'695172ae-1f2d-40b7-bb31-b8a4a882ad62',subject:'Terugbelverzoek via nextgrowthdigital.nl: '+n,from_name:'nextgrowthdigital.nl',naam:n,telefoon:t,onderwerp:w,pagina:location.href})})
       .then(function(r){return r.ok}).catch(function(){return false})
-      .then(function(ok){if(klaar)return;klaar=true;clearTimeout(wekker);setBusy(false);if(ok){setOk(true);f.reset()}else{mailto()}})}
+      .then(function(ok){if(klaar)return;klaar=true;clearTimeout(wekker);setBusy(false);if(ok){setOk(true);f.reset();setTopic(topicFor(CUR_PAGE));try{window.dispatchEvent(new CustomEvent('ng:lead',{detail:{page:CUR_PAGE,onderwerp:w}}))}catch(x){}}else{mislukt()}})}
   return h`<section class="contact" id="contact"><div class="wrap"><${Arrow}/>
     <div>
       <p class="eyebrow mono" style=${{color:'var(--sig-ink)'}}>Terugbelverzoek</p>
@@ -1475,11 +1603,12 @@ function Contact(){
       <span class="mono" style=${{color:'rgba(244,241,234,.6)'}}>3 velden · 20 seconden</span>
       <label>Naam<input id="f-naam" name="naam" autoComplete="name" aria-required="true" aria-invalid=${err.n?'true':'false'} aria-describedby="f-naam-err"/><span class="err" id="f-naam-err">${err.n||''}</span></label>
       <label>Telefoonnummer<input id="f-tel" name="tel" type="tel" autoComplete="tel" inputMode="tel" aria-required="true" aria-invalid=${err.t?'true':'false'} aria-describedby="f-tel-err"/><span class="err" id="f-tel-err">${err.t||''}</span></label>
-      <label>Waar gaat het om?<select id="f-wat" name="wat">${['Branding of rebrand','Website of webshop','Marketing, social & content','Influencer-samenwerking','Configurator, offerte & CRM','Alles: merk, site en marketing','Anders'].map(function(o){return h`<option key=${o}>${o}</option>`})}</select></label>
+      <label>Waar gaat het om?<select id="f-wat" name="wat" value=${topic} onChange=${function(e){setTopic(e.target.value)}}>${TOPICS.map(function(o){return h`<option key=${o} value=${o}>${o}</option>`})}</select></label>
       <input name="website" tabIndex="-1" autoComplete="off" aria-hidden="true" style=${{position:'absolute',left:'-9999px',width:1,height:1,opacity:0}}/>
       <${Magnet} type="submit">${busy?'Versturen…':'Bel mij terug'}</${Magnet}>
       <span class="fine">Alleen om je terug te bellen. Geen nieuwsbrief, geen belrondes.</span>
-      <div id="sent" class=${ok?'on':''} role="status">${ok?'Bedankt, je aanvraag is binnen. We bellen je dezelfde werkdag terug.':''}</div>
+      <div id="sent" class=${ok?'on':''} role="status">${ok?h`<${React.Fragment}><b>Bedankt, je aanvraag is binnen.</b><br/>We bellen je vandaag nog terug, uiterlijk de volgende werkdag. Je hoeft niets voor te bereiden.</${React.Fragment}>`:''}</div>
+      <div class=${'ferr'+(fail?' on':'')} role="alert">${fail?h`<${React.Fragment}><b>Versturen lukte niet.</b> Bel ons direct op <a href="tel:+31683902192">06 83 90 21 92</a>, dan helpen we je meteen. Of probeer het over een minuut nog een keer.</${React.Fragment}>`:''}</div>
     </form></${Rise}>
   </div></section>`;
 }
@@ -1509,7 +1638,11 @@ function useHead(slug){
     document.title=d.title;
     var m=document.querySelector('meta[name=description]');if(!m){m=document.createElement('meta');m.name='description';document.head.appendChild(m)}m.content=d.description;
     var c=document.querySelector('link[rel=canonical]');if(!c){c=document.createElement('link');c.rel='canonical';document.head.appendChild(c)}c.href='https://nextgrowthdigital.nl/'+(slug==='home'?'':slug);
-    var ld=document.getElementById('ld-page');if(!ld){ld=document.createElement('script');ld.type='application/ld+json';ld.id='ld-page';document.head.appendChild(ld)}if(d.jsonld)ld.textContent=JSON.stringify(d.jsonld);
+    /* altijd geldige JSON-LD: WebPage met kruimelpad (de volledige schema's staan in de crawler-export) */
+    var url='https://nextgrowthdigital.nl/'+(slug==='home'?'':slug);
+    var g=[{'@type':'WebPage','@id':url+'#webpage','url':url,'name':d.title,'description':d.description,'inLanguage':'nl-NL','isPartOf':{'@type':'WebSite','name':'Next Growth Digital','url':'https://nextgrowthdigital.nl/'}}];
+    if(slug!=='home')g.push({'@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':1,'name':'Home','item':'https://nextgrowthdigital.nl/'},{'@type':'ListItem','position':2,'name':(d.h1||d.title).replace(/\*/g,''),'item':url}]});
+    var ld=document.getElementById('ld-page');if(!ld){ld=document.createElement('script');ld.type='application/ld+json';ld.id='ld-page';document.head.appendChild(ld)}ld.textContent=JSON.stringify({'@context':'https://schema.org','@graph':g});
     var lo=document.getElementById('ld-org');if(!lo){lo=document.createElement('script');lo.type='application/ld+json';lo.id='ld-org';document.head.appendChild(lo);lo.textContent=JSON.stringify(SEO.site.organization_jsonld||{})}
   },[slug]);
 }
@@ -1568,7 +1701,7 @@ function Beats(props){
   </div></section>`;
 }
 function Kort(props){
-  var k=props.k||{wat:'Branding, website en marketing uit één hand',waar:'Heel Nederland, op locatie en op afstand',prijs:'Website vanaf € 1.500',doorlooptijd:'Website live in weken',voorwie:'Bedrijven die aanvragen of verkoop willen',eigendom:'Code, data en design zijn van jou'};
+  var k=Object.assign({wat:'Branding, website en marketing uit één hand',waar:'Heel Nederland, op locatie en op afstand',prijs:'Website vanaf € 1.500',doorlooptijd:'Website binnen twee weken live',voorwie:'Bedrijven die aanvragen of verkoop willen',eigendom:'Code, data en design zijn van jou'},props.k||{});
   var rows=[['Wat',k.wat],['Waar',k.waar],['Prijs',k.prijs],['Doorlooptijd',k.doorlooptijd],['Voor wie',k.voorwie],['Eigendom',k.eigendom]];
   return h`<${Rise} className="kort">${rows.map(function(r){return h`<div key=${r[0]}><span>${r[0]}</span><b>${r[1]}</b></div>`})}</${Rise}>`;
 }
@@ -1579,7 +1712,7 @@ function LocalPage(props){
   var parent=isWeb?['dienst-webdesign','Webdesign']:['dienst-marketing','Marketing'];
   var others=Object.keys(SEO.pages).filter(function(k){return k.indexOf(isWeb?'lokaal-webdesign-':'lokaal-marketing-')===0&&k!==slug});
   return h`<${React.Fragment}>
-    <${PageHero} slug=${slug} d=${d} parent=${parent} short=${plaats} eyebrow=${(isWeb?'Website laten maken · ':'Online marketing · ')+plaats} cta1=${h`<${Magnet} href="#contact" onClick=${toContact}>Plan een kennismaking</${Magnet}>`} cta2=${isWeb?h`<${Magnet} href="tel:+31683902192" kind="ghost" icon="↗">Bel 06 83 90 21 92</${Magnet}>`:h`<${Magnet} href="#wat" kind="ghost" icon="↓">Wat je krijgt</${Magnet}>`}/>
+    <${PageHero} slug=${slug} d=${d} parent=${parent} short=${plaats} eyebrow=${(isWeb?'Website laten maken · ':'Online marketing · ')+plaats} cta1=${h`<${Magnet} href="#contact" onClick=${toContact}>Bel mij terug</${Magnet}>`} cta2=${isWeb?h`<${Magnet} href="tel:+31683902192" kind="ghost" icon="↗">Bel 06 83 90 21 92</${Magnet}>`:h`<${Magnet} href="#wat" kind="ghost" icon="↓">Wat je krijgt</${Magnet}>`}/>
     <section style=${{paddingBlock:'36px 0'}}><div class="wrap"><${Kort} k=${d.kort}/></div></section>
     <${SeoBody} d=${d} eyebrow=${'In '+plaats}/>
     <section id="wat"><div class="wrap">
@@ -1609,15 +1742,31 @@ var PLANS=[{n:'Essential',a:'99',l:['Hosting','Updates','Back-ups','Monitoring']
 function PricesPage(){
   var d=SEO.pages.prijzen||SEO.pages.home;useHead(SEO.pages.prijzen?'prijzen':'home');
   return h`<${React.Fragment}>
-    <section class="page-hero" style=${{minHeight:'56svh'}}><div class="bigword" aria-hidden="true">Prijzen</div><div class="wrap"><${Crumbs} name="Prijzen"/><p class="eyebrow mono">Transparant · vaste startprijzen</p><h1 style=${{marginTop:22}}><${Words} text="Wat je bouwt, *weet je vooraf."/></h1><p class="def">Van een premium website tot een volledig digitaal bedrijfssysteem. Kies waar je nu staat; je groeit door naar de volgende stap zonder iets weg te gooien. Branding en marketing begroten we per traject na een kort gesprek.</p></div></section>
+    <section class="page-hero prh"><div class="bigword" aria-hidden="true">Prijzen</div><div class="wrap fadein"><${Crumbs} name="Prijzen"/><p class="eyebrow mono">Transparant · vaste startprijzen</p><h1 style=${{marginTop:22}}>Wat je bouwt, <span class="sig">weet je vooraf.</span></h1><p class="def">Zoek je een website? Dan is het pakket van € 1.500 je startpunt. Heb je meer nodig, dan groei je door naar CRM, automatisering of maatwerk zonder iets weg te gooien.</p></div></section>
     <section style=${{paddingTop:0}}><div class="wrap">
-      <div class="prices">${PRICES.map(function(p,i){return h`<${m.div} key=${p.n} className=${'price '+(p.hot?'hot':'')} initial=${{opacity:0,y:30}} whileInView=${{opacity:1,y:0}} viewport=${{once:true}} transition=${{delay:i*.08,duration:.7,ease:EASE}}>${p.hot&&h`<span class="badge2">Meest gekozen</span>`}<h3>${p.n}</h3><div class="amt">€ ${p.a}<small>vanaf</small></div><p>${p.d}</p><ul>${p.l.map(function(x){return h`<li key=${x}>${x}</li>`})}</ul><a class="btn gold" href="#contact" style=${{marginTop:'auto',justifyContent:'center'}}>Vraag een voorstel aan</a></${m.div}>`})}</div>
+      <div class="pmain fadein d2">
+        <div class="pl">
+          <span class="badge2">Voor wie een website zoekt</span>
+          <h2>${PRICES[0].n}</h2>
+          <div class="amt">€ ${PRICES[0].a}<small>vaste prijs, vanaf</small></div>
+          <p>${PRICES[0].d}</p>
+          <${ProofChips}/>
+          <div class="cta"><a class="btn hg" href="#contact" data-topic="Website of webshop" data-hover="1">Bel mij terug over een website<span class="i">→</span></a></div>
+        </div>
+        <div class="pr">
+          <h3>Wat zit er in € 1.500</h3>
+          <ul>${PRICES[0].l.concat(['Live binnen twee weken','Code, data en design zijn van jou']).map(function(x){return h`<li key=${x}>${x}</li>`})}</ul>
+          <p class="fine">Onderhoud is een los maandabonnement vanaf € 99, nooit verplicht.</p>
+        </div>
+      </div>
+      <div class="head" style=${{marginTop:64,marginBottom:22}}><div><p class="eyebrow mono">Meer nodig dan een website?</p><h2>Doorgroeien, <span class="sig">stap voor stap.</span></h2></div><p>Elke stap bouwt voort op wat er al staat.</p></div>
+      <div class="prices p3">${PRICES.slice(1).map(function(p,i){return h`<div key=${p.n} class="price"><h3>${p.n}</h3><div class="amt">€ ${p.a}<small>vanaf</small></div><p>${p.d}</p><ul>${p.l.map(function(x){return h`<li key=${x}>${x}</li>`})}</ul><a class="btn ghost" href="#contact" data-topic="Configurator, offerte & CRM" style=${{marginTop:'auto',justifyContent:'center'}}>Bel mij terug</a></div>`})}</div>
       <div class="head" style=${{marginTop:70,marginBottom:24}}><div><p class="eyebrow mono">Doorontwikkeling & onderhoud</p><h2><${Words} text="Je systeem blijft *meegroeien."/></h2></div><${Rise} delay=${.2}><p>Na de livegang houden we alles snel, veilig en actueel. Nooit verplicht: je systeem is en blijft van jou.</p></${Rise}></div>
       <${Rise} className="plans">${PLANS.map(function(p){return h`<div key=${p.n} class="plan"><b>${p.n}</b><div class="amt">€ ${p.a}<small>per maand</small></div><ul>${p.l.map(function(x){return h`<li key=${x}>${x}</li>`})}</ul></div>`})}</${Rise}>
       <div style=${{marginTop:60}}><${Kort}/></div>
     </div></section>
     <section class="cream"><div class="wrap"><div class="editorial"><div><p class="eyebrow mono">Prijzen & werkwijze</p><h2 style=${{marginTop:22,fontSize:'clamp(32px,4vw,56px)'}}>Veelgestelde <span class="sig">vragen.</span></h2></div>
-      <${Faq} items=${[{q:'Waarom "vanaf"-prijzen?',a:'Elk systeem is maatwerk. De startprijs dekt een volwaardige oplevering; de uiteindelijke prijs hangt af van omvang, koppelingen en automatiseringen. Na een kort gesprek weet je precies waar je aan toe bent, zwart op wit.'},{q:'Kan ik later opschalen?',a:'Ja. De pakketten zijn zo gebouwd dat je doorgroeit: van een website naar website + CRM, en verder naar volledige automatisering. Je bouwt voort op wat er al staat; niets gaat verloren.'},{q:'Wat kost het onderhoud?',a:'Onderhoud is een los maandabonnement (Essential, Growth of Business) en nooit verplicht. Je systeem is en blijft van jou; je kiest zelf of en hoe je het laat onderhouden.'},{q:'Hoe snel staat het live?',a:'Een premium website staat doorgaans in enkele weken live. Grotere systemen leveren we in fases op, zodat je snel het eerste werkende deel gebruikt in plaats van maanden te wachten.'},{q:'Wat kost branding of marketing?',a:'Branding en marketing begroten we per traject, afhankelijk van wat er nodig is: van logo en huisstijl tot campagnes en influencer-samenwerkingen. Bij marketing werk je met een vaste maandprijs, maandelijks opzegbaar, en blijf je eigenaar van je eigen accounts.'}]}/></div></div></section>
+      <${Faq} items=${[{q:'Waarom "vanaf"-prijzen?',a:'Elk systeem is maatwerk. De startprijs dekt een volwaardige oplevering; de uiteindelijke prijs hangt af van omvang, koppelingen en automatiseringen. Na een kort gesprek weet je precies waar je aan toe bent, zwart op wit.'},{q:'Kan ik later opschalen?',a:'Ja. De pakketten zijn zo gebouwd dat je doorgroeit: van een website naar website + CRM, en verder naar volledige automatisering. Je bouwt voort op wat er al staat; niets gaat verloren.'},{q:'Wat kost het onderhoud?',a:'Onderhoud is een los maandabonnement (Essential, Growth of Business) en nooit verplicht. Je systeem is en blijft van jou; je kiest zelf of en hoe je het laat onderhouden.'},{q:'Hoe snel staat het live?',a:'Een zakelijke website staat binnen twee weken live. Grotere systemen leveren we in fases op, zodat je snel het eerste werkende deel gebruikt in plaats van maanden te wachten.'},{q:'Wat kost branding of marketing?',a:'Branding en marketing begroten we per traject, afhankelijk van wat er nodig is: van logo en huisstijl tot campagnes en influencer-samenwerkingen. Bij marketing werk je met een vaste maandprijs, maandelijks opzegbaar, en blijf je eigenaar van je eigen accounts.'}]}/></div></div></section>
     <${Contact}/>
   </${React.Fragment}>`;
 }
@@ -1635,15 +1784,17 @@ function FashionDemo(props){
   useEffect(function(){if(reduce)return;var t=setInterval(function(){if(!pause.current)setI(function(x){return (x+1)%WORLDS.length})},3400);return function(){clearInterval(t)}},[]);
   var vars={'--w':w.w,'--w2':w.w2,'--wa':w.wa,'--wt':'#FFFFFF'};
   var media=props.media&&props.media[w.id];
-  return h`<div class="fd" style=${vars} onMouseEnter=${function(){pause.current=true}} onMouseLeave=${function(){pause.current=false}}>
+  return h`<div class=${'fd'+(props.demo?' is-demo':'')} style=${vars} onMouseEnter=${function(){pause.current=true}} onMouseLeave=${function(){pause.current=false}}>
+    ${props.demo&&h`<div class="ngbar"><div class="wrap"><span class="dm">Demo</span><span class="t">VYRA is een fictieve webshop, gebouwd door Next Growth. Zo kan jouw shop eruitzien.</span><a class="btn hg" href="#contact">Bel mij terug</a></div></div>`}
     <div class="wrap">
       <div class="promo">Gratis verzending vanaf € 75 · Retour binnen 30 dagen · Nieuwe drop elke maand</div>
       <div class="shopnav"><b>VYRA<small>Clothing brand</small></b><nav><span>Nieuw</span><span>Hoodies</span><span>Sneakers</span><span>Caps</span><span>Sale</span></nav><span class="sb">Shop de drop</span></div>
     </div>
     <div class="hero">
+      ${props.demo&&h`<span class="demotag" aria-hidden="true">Demo · fictief merk</span>`}
       <${AnimatePresence}>
         <${m.div} key=${w.id} className="bgv" initial=${{clipPath:'inset(0 100% 0 0)'}} animate=${{clipPath:'inset(0 0% 0 0)'}} exit=${{opacity:0,transition:{duration:.4,delay:.5}}} transition=${{duration:.85,ease:[.76,0,.24,1]}}>
-          ${media?(media.endsWith('.mp4')?h`<video src=${media} data-poster=${media.replace('.mp4','.jpg')} muted loop playsInline autoPlay preload="auto" data-auto="1"></video>`:h`<img src=${media} alt=""/>`):h`<div class="fill" style=${{position:'absolute',inset:0,background:'radial-gradient(ellipse at 50% 40%,'+w.w+' 0%,'+w.w2+' 70%)'}}></div>`}
+          ${media?(media.endsWith('.mp4')?h`<video src=${MV+media} poster=${media.replace('.mp4','.jpg')} muted loop playsInline autoPlay preload="metadata" data-auto="1"></video>`:h`<img src=${media} alt=""/>`):h`<div class="fill" style=${{position:'absolute',inset:0,background:'radial-gradient(ellipse at 50% 40%,'+w.w+' 0%,'+w.w2+' 70%)'}}></div>`}
           <div class="tint"></div><div class="shade"></div>
         </${m.div}>
       </${AnimatePresence}>
@@ -1651,7 +1802,7 @@ function FashionDemo(props){
         <${m.div} key=${'t'+w.id} className="tag" initial=${{opacity:0,y:10}} animate=${{opacity:1,y:0}} transition=${{delay:.3}}><i></i>${w.naam} · wereld ${i+1} van 4</${m.div}>
         <h1 key=${'h'+w.id}>${w.kop.map(function(line,k){return h`<span class=${'ln'+(k===1?' a':'')} key=${w.id+k}>${line.split(' ').map(function(word,wi){return h`<span class="wd" key=${wi}>${word.split('').map(function(ch,ci){var d=.25+k*.14+wi*.06+ci*.035;return h`<${m.span} key=${ci} className="ch" initial=${{y:'115%',rotate:12,opacity:0}} animate=${{y:0,rotate:0,opacity:1}} transition=${{type:'spring',stiffness:380,damping:22,mass:.9,delay:d}}>${ch}</${m.span}>`})}</span>`})}</span>`})}</h1>
         <${m.p} key=${'s'+w.id} className="sub" initial=${{opacity:0,y:14}} animate=${{opacity:1,y:0}} transition=${{delay:.9}}>${w.sub}</${m.p}>
-        <${m.div} key=${'c'+w.id} className="ctas" initial=${{opacity:0,y:14}} animate=${{opacity:1,y:0}} transition=${{delay:1.05}}><a class="b1" href="#contact">Shop de drop</a><a class="b2" href="#contact">Bekijk de lookbook</a></${m.div}>
+        <${m.div} key=${'c'+w.id} className="ctas" initial=${{opacity:0,y:14}} animate=${{opacity:1,y:0}} transition=${{delay:1.05}}><a class="b1" href=${props.demo?'#webshop-info':'#contact'}>Shop de drop</a><a class="b2" href=${props.demo?'#webshop-info':'#contact'}>Bekijk de lookbook</a></${m.div}>
       </div>
       ${[['s1 y','Nieuw binnen','Drop 0'+(i+1)],['s2','Nu in de drop',w.lbl+' · '+w.prijs],['s3 k','Gratis verzending','vanaf € 75'],['s4','Kleur','#'+w.naam.toUpperCase()]].map(function(st,k){return h`<${m.div} key=${w.id+'st'+k} className=${'stk '+st[0]} initial=${{scale:0,rotate:(k%2?10:-8),opacity:0}} animate=${{scale:1,rotate:(k%2?6:-5),opacity:1}} transition=${{type:'spring',stiffness:300,damping:14,delay:1+k*.12}}><small>${st[1]}</small>${st[2]}</${m.div}>`})}
       <div class="swatches over">${WORLDS.map(function(x,k){return h`<button key=${x.id} class="sw" style=${{background:x.w}} aria-pressed=${k===i} aria-label=${x.naam} onClick=${function(){setI(k);pause.current=true}}/>`})}</div>
@@ -1666,8 +1817,8 @@ function FashionDemo(props){
 function FashionPage(){useHead('branche-webshops');return h`<${React.Fragment}><${FashionDemo} media=${{night:'assets/fd-night.mp4',volt:'assets/fd-volt.mp4',heat:'assets/fd-heat.mp4',ice:'assets/fd-ice.mp4'}}/><section><div class="wrap"><div class="head"><div><p class="eyebrow mono">Hoe dit werkt</p><h2><${Words} text="Vier werelden. *Eén webshop."/></h2></div><${Rise} delay=${.2}><p>Elke wereld is een kleurthema met eigen kop, model en productgrid. De winkel wisselt automatisch of op klik, met een vegende overgang. Het model per wereld is een AI-video van dezelfde figuur in vier kleuren, gemaakt in jouw huisstijl; wij bouwen de shop eromheen, inclusief checkout, voorraad en koppelingen.</p></${Rise}></div><div class="related"><a href="#branche-webshops">Webshops voor kleding →</a><a href="#dienst-webdesign">Webdesign →</a><a href="#contact">Dit wil ik ook →</a></div></div></section><${Contact}/></${React.Fragment}>`}
 /* ---------- gedeelde pagina-onderdelen ---------- */
 var PROOF={ 'dienst-configurators':['prod-poolhouse','prod-overkapping','lucky'],'dienst-crm':['lucky','dakcentrale','installatie'],'dienst-automatisering':['installatie','lucky','dakcentrale'],'dienst-software':['installatie','ongedierte','westrik'],'branche-bouwbedrijven':['staal','aannemer','bouwcentrale','bouwbroers'],'branche-overkapping-veranda':['poppelaars','prod-overkapping','lucky'],'branche-dakdekkers':['heesbeen','dakcentrale'],'branche-installatiebedrijven':['westrik','installatie'],'branche-hoveniers':['prod-poolhouse','prod-zwembad','poppelaars'],'branche-autobedrijven':['autohero','autoui','shop'],'branche-webshops':['babylap','sport','babyweb','shop'],'branche-brands':['sport','shop'],'branche-restaurants-horeca':['cans','bars','kelly'],'branche-creators':['kelly','cans'],'dienst-webdesign':['poppelaars','uitbouw','shop'],'dienst-marketing':['cans','westrik','bars'],'dienst-branding':['packages','bars','protein'],'sales':['bouwbroers','poppelaars','installatie'] };
-var PROOF_ITEMS={ westrik:{v:'westrik',n:'Westrik Bouw & Installaties',t:'Website · offerte · SEO',u:'https://westrikbouw-installaties.nl'},heesbeen:{v:'heesbeen',n:'Heesbeen Dakwerken',t:'Website · dakinspectie · lokale SEO'},dakcentrale:{v:'dakcentrale',n:'Dakcentrale Holland',t:'Website · CRM · offertesjablonen'},lucky:{v:'lucky',n:'Lucky Zonwering',t:'Website · configurator · CRM',u:'https://crm.luckyzonwering.nl'},ongedierte:{v:'ongedierte',n:'Lokaal Ongediertebestrijding',t:'Platform · regiozoeker'},kelly:{v:'kelly',p:'assets/kelly-laptop.webp',n:'Kelly Bobson',t:'Portfolio · video · boekingsflow'},installatie:{v:'case-installatie',n:'Installatieplatform',t:'Offerte in 2 minuten',u:'https://installatieplatform.nl'},cans:{v:'reel-cans',p:'assets/reel-cans.jpg',n:'Pulse drankmerk',t:'Productvideo · brand'},packages:{v:'reel-packages',p:'assets/reel-packages.jpg',n:'Verpakkingsontwerp',t:'Branding · packaging'},bars:{v:'reel-bars',p:'assets/reel-bars.jpg',n:'Atlas Protein Bar',t:'Productvideo · food brand'},protein:{v:'reel-protein',p:'assets/reel-protein.jpg',n:'Atlas Whey Protein',t:'Productvideo · brand'},bouwcentrale:{v:'lap-bouwcentrale',p:'assets/lap-bouwcentrale.jpg',n:'Bouwcentrale Holland',t:'Website · aannemer · leadflow',u:'https://bouwcentraleholland.nl'},bouwbroers:{v:'lap-bouwbroers',p:'assets/lap-bouwbroers.jpg',n:'Bouwbroers',t:'Website · bouwbedrijf · merk'},poppelaars:{v:'lap-poppelaars',p:'assets/lap-poppelaars.jpg',n:'Poppelaars',t:'Overkapping-configurator · website'},uitbouw:{v:'lap-uitbouw',p:'assets/lap-uitbouw.jpg',n:'Uitbouw-configurator',t:'Kies jouw uitstraling · website'},babylap:{v:'lap-baby-lap',p:'assets/lap-baby-lap.jpg',n:'Babyboetiek-concept',t:'Demonstratiebeeld · collectie en productpagina'},babyweb:{v:'lap-baby-web',p:'assets/lap-baby-web.jpg',n:'Babykleding-webshop',t:'Demonstratiebeeld · nieuwe collectie en filters'},sport:{v:'lap-sport',p:'assets/lap-sport.jpg',n:'Sportmerk-concept',t:'Demonstratiebeeld · webshop en productlijn'},aannemer:{v:'lap-aannemer',p:'assets/lap-aannemer.jpg',n:'Aannemer-concept',t:'Demonstratiebeeld · projecten en offerte'},autohero:{v:'lap-auto-hero',p:'assets/lap-auto-hero.jpg',n:'Autobedrijf-concept',t:'Demonstratiebeeld · hero, modellen en configurator'},autoui:{v:'lap-auto-ui',p:'assets/lap-auto-ui.jpg',n:'Occasion-overzicht',t:'Demonstratiebeeld · voorraad en detailpagina'},staal:{v:'lap-staal',p:'assets/lap-staal.jpg',n:'Staalbouw-concept',t:'Demonstratiebeeld · projecten en diensten'},shop:{v:'lap-shop',p:'assets/lap-shop.jpg',n:'Webshop-concept',t:'E-commerce · productpagina\u2019s en checkout'},'prod-poolhouse':{v:'prod-poolhouse',p:'assets/prod-poolhouse.webp',n:'Poolhouse-configurator',t:'Demonstratiebeeld · engine'},'prod-overkapping':{v:'prod-overkapping-studio',p:'assets/prod-overkapping-studio.webp',n:'Overkapping-configurator',t:'Demonstratiebeeld · engine'},'prod-zwembad':{v:'prod-zwembad',p:'assets/prod-zwembad.webp',n:'Zwembad-configurator',t:'Demonstratiebeeld · engine'},'eng-overkapping':{v:'engine-overkapping',p:'assets/engine-overkapping.jpg',n:'Overkapping-configurator',t:'Engine · live'},'eng-poolhouse':{v:'engine-poolhouse',p:'assets/engine-poolhouse.jpg',n:'Poolhouse-configurator',t:'Engine · live'} };
-function ProofRow(props){var keys=PROOF[props.slug]||['kelly'];return h`<div class="proofrow">${keys.map(function(k){var it=PROOF_ITEMS[k];var Tag=it.u?'a':'div';var port=it.v.indexOf('reel-')===0,poster=it.p||('assets/'+it.v+'-laptop.webp');var vid=h`<video src=${MV+'assets/'+it.v+'.mp4'} data-poster=${poster} muted loop playsInline preload="none" data-auto="1" aria-label=${it.n}></video>`;return h`<${Tag} key=${k} class="pc" href=${it.u} target=${it.u?'_blank':undefined} rel=${it.u?'noopener':undefined}>${port?h`<div class="vid"><div class="bg" style=${{backgroundImage:'url('+poster+')'}}></div>${vid}</div>`:vid}<div class="pm"><b>${it.n}</b><span>${it.t}</span></div></${Tag}>`})}</div>`}
+var PROOF_ITEMS={ westrik:{v:'westrik',n:'Westrik Bouw & Installaties',t:'Website · offerte · SEO',u:'https://westrikbouw-installaties.nl'},heesbeen:{v:'heesbeen',n:'Heesbeen Dakwerken',t:'Website · dakinspectie · lokale SEO'},dakcentrale:{v:'dakcentrale',n:'Dakcentrale Holland',t:'Website · CRM · offertesjablonen'},lucky:{v:'lucky',n:'Lucky Zonwering',t:'Website · configurator · CRM',u:'https://crm.luckyzonwering.nl'},ongedierte:{v:'ongedierte',n:'Lokaal Ongediertebestrijding',t:'Platform · regiozoeker'},kelly:{v:'kelly',p:'assets/kelly-laptop.webp',n:'Kelly Bobson',t:'Portfolio · video · boekingsflow'},installatie:{v:'case-installatie',p:null,n:'Installatieplatform',t:'Offerte in 2 minuten',u:'https://installatieplatform.nl'},cans:{v:'reel-cans',p:'assets/reel-cans.jpg',n:'Pulse drankmerk',t:'Productvideo · brand'},packages:{v:'reel-packages',p:'assets/reel-packages.jpg',n:'Verpakkingsontwerp',t:'Branding · packaging'},bars:{v:'reel-bars',p:'assets/reel-bars.jpg',n:'Atlas Protein Bar',t:'Productvideo · food brand'},protein:{v:'reel-protein',p:'assets/reel-protein.jpg',n:'Atlas Whey Protein',t:'Productvideo · brand'},bouwcentrale:{v:'lap-bouwcentrale',p:'assets/lap-bouwcentrale.jpg',n:'Bouwcentrale Holland',t:'Website · aannemer · leadflow',u:'https://bouwcentraleholland.nl'},bouwbroers:{v:'lap-bouwbroers',p:'assets/lap-bouwbroers.jpg',n:'Bouwbroers',t:'Website · bouwbedrijf · merk'},poppelaars:{v:'lap-poppelaars',p:'assets/lap-poppelaars.jpg',n:'Poppelaars',t:'Overkapping-configurator · website'},uitbouw:{v:'lap-uitbouw',p:'assets/lap-uitbouw.jpg',n:'Uitbouw-configurator',t:'Kies jouw uitstraling · website'},babylap:{v:'lap-baby-lap',p:'assets/lap-baby-lap.jpg',n:'Babyboetiek-concept',t:'Demonstratiebeeld · collectie en productpagina'},babyweb:{v:'lap-baby-web',p:'assets/lap-baby-web.jpg',n:'Babykleding-webshop',t:'Demonstratiebeeld · nieuwe collectie en filters'},sport:{v:'lap-sport',p:'assets/lap-sport.jpg',n:'Sportmerk-concept',t:'Demonstratiebeeld · webshop en productlijn'},aannemer:{v:'lap-aannemer',p:'assets/lap-aannemer.jpg',n:'Aannemer-concept',t:'Demonstratiebeeld · projecten en offerte'},autohero:{v:'lap-auto-hero',p:'assets/lap-auto-hero.jpg',n:'Autobedrijf-concept',t:'Demonstratiebeeld · hero, modellen en configurator'},autoui:{v:'lap-auto-ui',p:'assets/lap-auto-ui.jpg',n:'Occasion-overzicht',t:'Demonstratiebeeld · voorraad en detailpagina'},staal:{v:'lap-staal',p:'assets/lap-staal.jpg',n:'Staalbouw-concept',t:'Demonstratiebeeld · projecten en diensten'},shop:{v:'lap-shop',p:'assets/lap-shop.jpg',n:'Webshop-concept',t:'E-commerce · productpagina\u2019s en checkout'},'prod-poolhouse':{v:'prod-poolhouse',p:'assets/prod-poolhouse.webp',n:'Poolhouse-configurator',t:'Demonstratiebeeld · engine'},'prod-overkapping':{v:'prod-overkapping-studio',p:'assets/prod-overkapping-studio.webp',n:'Overkapping-configurator',t:'Demonstratiebeeld · engine'},'prod-zwembad':{v:'prod-zwembad',p:'assets/prod-zwembad.webp',n:'Zwembad-configurator',t:'Demonstratiebeeld · engine'},'eng-overkapping':{v:'engine-overkapping',p:'assets/engine-overkapping.jpg',n:'Overkapping-configurator',t:'Engine · live'},'eng-poolhouse':{v:'engine-poolhouse',p:'assets/engine-poolhouse.jpg',n:'Poolhouse-configurator',t:'Engine · live'} };
+function ProofRow(props){var keys=PROOF[props.slug]||['kelly'];return h`<div class="proofrow">${keys.map(function(k){var it=PROOF_ITEMS[k];var Tag=it.u?'a':'div';var port=it.v.indexOf('reel-')===0,poster=it.p===null?null:(it.p||('assets/'+it.v+'-laptop.webp'));var vid=h`<video src=${MV+'assets/'+it.v+'.mp4'} data-poster=${poster||undefined} data-frame=${poster?undefined:'1'} muted loop playsInline preload="none" data-auto="1" aria-label=${it.n}></video>`;return h`<${Tag} key=${k} class="pc" href=${it.u} target=${it.u?'_blank':undefined} rel=${it.u?'noopener':undefined}>${port?h`<div class="vid"><div class="bg" style=${{backgroundImage:'url('+poster+')'}}></div>${vid}</div>`:vid}<div class="pm"><b>${it.n}</b><span>${it.t}</span></div></${Tag}>`})}</div>`}
 function SeoBody(props){var d=props.d;return h`<section class=${props.cream?'cream':''}><div class="wrap">
   <div class="editorial"><${Rise}><p class="eyebrow mono">${props.eyebrow||'Waarom dit werkt'}</p><p class="lead" style=${{marginTop:20}}>${d.definition}</p></${Rise}><${Rise} delay=${.15} className="ed-intro">${d.intro.split(/\n\n+/).map(function(p,i){return h`<p key=${i}>${p}</p>`})}</${Rise}></div>
   <div class="secs">${d.sections.map(function(x,i){return h`<${m.div} key=${i} className="sec" initial=${{opacity:0,y:24}} whileInView=${{opacity:1,y:0}} viewport=${{once:true}} transition=${{duration:.7,ease:EASE,delay:i*.05}}><h2>${x.h2}</h2><p>${x.body}</p></${m.div}>`})}</div>
@@ -1685,51 +1836,80 @@ function PageHero(props){var d=props.d,img=HERO_IMG[props.slug];return h`<sectio
   ${img&&h`<div class="bgimg"><img src=${img} alt=""/></div>`}
   <div class="bigword" aria-hidden="true">${BIGWORD[props.slug]||''}</div>
   <div class="wrap"><${Crumbs} parent=${props.parent} name=${props.short}/><p class="eyebrow mono">${props.eyebrow}</p><h1 style=${{marginTop:22}}><${Words} text=${d.h1} delay=${.1}/></h1><${m.p} className="def" initial=${{opacity:0,y:16}} animate=${{opacity:1,y:0}} transition=${{delay:.5,duration:.8,ease:EASE}}>${d.definition}</${m.p}>
-  <${m.div} className="cta" initial=${{opacity:0,y:16}} animate=${{opacity:1,y:0}} transition=${{delay:.7,duration:.8,ease:EASE}}>${props.cta1||h`<${Magnet} href="#contact">Plan een kennismaking</${Magnet}>`}${props.cta2}</${m.div}></div>
+  <${m.div} className="cta" initial=${{opacity:0,y:16}} animate=${{opacity:1,y:0}} transition=${{delay:.7,duration:.8,ease:EASE}}>${props.cta1||h`<${Magnet} href="#contact" kind="hg">Bel mij terug</${Magnet}>`}${props.cta2}</${m.div}></div>
 </section>`}
 
 /* ---------- branchewerelden ---------- */
 var WORLD={
-  'branche-bouwbedrijven':{layout:'bch',light:true,vars:{'--md-r':'4px','--bg':'#FFFFFF','--bg-2':'#F6F6F6','--bg-3':'#FBE3DC','--line':'#E3E6EA','--fg':'#0E1A2B','--muted':'#4B5563','--sig':'#E04522','--sig-ink':'#FFFFFF'},eyebrow:'Website, branding & marketing voor aannemers en bouwbedrijven',h1:'Meer aanvragen, *zonder gedoe.',media:{v:'lap-bouwcentrale',p:'assets/lap-bouwcentrale.jpg',tag:'Bouwcentrale Holland · website'},form:['Voornaam','Achternaam','E-mailadres','Telefoonnummer','Postcode','Selecteer dienst'],cards:[['Website die leads binnenhaalt','Opname-aanvraag bovenaan, per dienst een pagina, reviews met naam en plaats.'],['Offerte in één flow','Aanvraag, opname en offerte in één systeem, zodat niets blijft liggen.'],['Lokaal vindbaar','Pagina’s per plaats en dienst, zodat je in jouw werkgebied bovenaan staat.']],chips:['Website','Offerteflow','Projectfoto’s','Google-reviews']},
-  'branche-overkapping-veranda':{layout:'card',light:true,vars:{'--md-r':'16px','--bg':'#F3F1EA','--bg-2':'#FFFFFF','--bg-3':'#ECE9E0','--line':'#D9D5C9','--fg':'#10261C','--muted':'#5B6B62','--sig':'#1F6B4A','--sig-ink':'#FFFFFF'},eyebrow:'Website met configurator voor overkappingen en veranda’s',h1:'Jouw overkapping, *live in beeld.',media:{v:'prod-overkapping-studio',p:'assets/prod-overkapping-studio.webp',tag:'Nieuwe overkapping-studio · configurator'},steps:['Klant kiest model en maat','Ziet direct prijs en beeld','Vraagt met één klik offerte aan']},
-  'branche-dakdekkers':{layout:'split',vars:{'--md-r':'6px','--bg':'#0F1620','--bg-2':'#161F2B','--bg-3':'#1D2836','--line':'#2A3545','--fg':'#F2F4F7','--muted':'#9AA6B5','--sig':'#E63B2E','--sig-ink':'#FFFFFF'},eyebrow:'Website, branding & marketing voor dakdekkers',h1:'Dakwerk dat *opvalt in de straat.',media:{v:'heesbeen',p:'assets/heesbeen-laptop.webp',tag:'Heesbeen Dakwerken · website'},tape:['Dakinspectie','Offerte','Planning','Lokale SEO'],chips:['Dakinspectie-aanvraag','Lokale pagina’s','Spoedknop','Reviews']},
-  'branche-installatiebedrijven':{layout:'split',light:true,vars:{'--md-r':'10px','--bg':'#F4F7FB','--bg-2':'#FFFFFF','--bg-3':'#E9EFF7','--line':'#D5DEEA','--fg':'#0B1A2E','--muted':'#4F6078','--sig':'#0E6EFF','--sig-ink':'#FFFFFF'},eyebrow:'Website, offerteflow & CRM voor installatiebedrijven',h1:'Van storing naar *offerte in 2 minuten.',media:{v:'case-installatie',p:'assets/westrik-laptop.webp',tag:'Installatieplatform · offerte in 2 min'},chips:['Storingsformulier','Offerte in 2 min','Onderhoudscontract','Planning']},
-  'branche-hoveniers':{layout:'full',serif:true,vars:{'--md-r':'10px','--md-h':"'Fraunces',Georgia,serif",'--bg':'#0E2A1C','--bg-2':'#133524','--bg-3':'#183F2B','--line':'#235038','--fg':'#F2F5EE','--muted':'#B9C9B9','--sig':'#CFE36A','--sig-ink':'#0E2A1C'},eyebrow:'Website, branding & marketing voor hoveniers',h1:'Tuinen die *zichzelf verkopen.',media:{v:'engine-poolhouse',p:'assets/engine-poolhouse.jpg'},bigword:'Tuin',chips:['Portfolio met voor/na','Poolhouse-configurator','Offerteaanvraag','Seizoenscampagnes']},
-  'branche-autobedrijven':{layout:'plate',bg:'assets/img/11-auto-hero.webp',media:{v:'lap-auto-hero',p:'assets/lap-auto-hero.jpg',tag:'Conceptwebsite'},vars:{'--bg':'#0B0B0D','--bg-2':'#141417','--bg-3':'#1C1C20','--line':'#2A2A30','--fg':'#F2F2F4','--muted':'#9B9BA3','--sig':'#F7D117','--sig-ink':'#0A0A0A'},eyebrow:'Website, occasionfeed & marketing voor autobedrijven',h1:'Meer proefritten. *Minder stilstand.',plate:'PROEFRIT',chips:['Occasionfeed','Proefrit-planner','Financiering','Reviews']},
-  'branche-brands':{layout:'phone',light:true,vars:{'--bg':'#DCEBF6','--bg-2':'#FFFFFF','--bg-3':'#CFE3F2','--line':'#B9D2E6','--fg':'#0E1B2A','--muted':'#4A5E72','--sig':'#FF2E7E','--sig-ink':'#FFFFFF'},eyebrow:'Branding, productvideo & social voor brands',h1:'Een merk dat *van het scherm springt.',media:{v:'reel-cans',p:'assets/reel-cans.jpg'},blobs:['#FF2E7E','#2EE6C8'],floats:[['Productvideo','Pulse · 4 smaken','l'],['Packaging','Verpakkingsreeks','r'],['Social','Reels & ads','b']],chips:['Productvideo','Packaging','Social','Webshop']},
+  'branche-bouwbedrijven':{layout:'bch',light:true,vars:{'--md-r':'4px','--bg':'#FFFFFF','--bg-2':'#F6F6F6','--bg-3':'#FBE3DC','--line':'#E3E6EA','--fg':'#0E1A2B','--muted':'#4B5563','--sig':'#E04522','--sig-ink':'#FFFFFF'},eyebrow:'Website, branding & marketing voor aannemers en bouwbedrijven',h1:'Meer aanvragen, *zonder gedoe.',media:{v:'lap-bouwcentrale',p:'assets/lap-bouwcentrale.jpg',tag:'Live · klant · Bouwcentrale Holland'},form:['Voornaam','Achternaam','E-mailadres','Telefoonnummer','Postcode','Selecteer dienst'],cards:[['Website die leads binnenhaalt','Opname-aanvraag bovenaan, per dienst een pagina, reviews met naam en plaats.'],['Offerte in één flow','Aanvraag, opname en offerte in één systeem, zodat niets blijft liggen.'],['Lokaal vindbaar','Pagina’s per plaats en dienst, zodat je in jouw werkgebied bovenaan staat.']],chips:['Website','Offerteflow','Projectfoto’s','Google-reviews']},
+  'branche-overkapping-veranda':{layout:'card',light:true,vars:{'--md-r':'16px','--bg':'#F3F1EA','--bg-2':'#FFFFFF','--bg-3':'#ECE9E0','--line':'#D9D5C9','--fg':'#10261C','--muted':'#5B6B62','--sig':'#1F6B4A','--sig-ink':'#FFFFFF'},eyebrow:'Website met configurator voor overkappingen en veranda’s',h1:'Jouw overkapping, *live in beeld.',media:{v:'prod-overkapping-studio',p:'assets/prod-overkapping-studio.webp',tag:'Demo · overkapping-configurator'},steps:['Klant kiest model en maat','Ziet direct prijs en beeld','Vraagt met één klik offerte aan']},
+  'branche-dakdekkers':{layout:'split',vars:{'--md-r':'6px','--bg':'#0F1620','--bg-2':'#161F2B','--bg-3':'#1D2836','--line':'#2A3545','--fg':'#F2F4F7','--muted':'#9AA6B5','--sig':'#E63B2E','--sig-ink':'#FFFFFF'},eyebrow:'Website, branding & marketing voor dakdekkers',h1:'Dakwerk dat *opvalt in de straat.',media:{v:'video/branche-dakdekkers',p:'assets/media/poster-branche-dakdekkers.jpg',tag:'Demo · dak-configurator'},tape:['Dakinspectie','Offerte','Planning','Lokale SEO'],chips:['Dakinspectie-aanvraag','Lokale pagina’s','Spoedknop','Reviews']},
+  'branche-installatiebedrijven':{layout:'split',light:true,vars:{'--md-r':'10px','--bg':'#F4F7FB','--bg-2':'#FFFFFF','--bg-3':'#E9EFF7','--line':'#D5DEEA','--fg':'#0B1A2E','--muted':'#4F6078','--sig':'#0E6EFF','--sig-ink':'#FFFFFF'},eyebrow:'Website, offerteflow & CRM voor installatiebedrijven',h1:'Van storing naar *offerte in 2 minuten.',media:{v:'case-installatie',p:null,tag:'Live · klant · Installatieplatform'},chips:['Storingsformulier','Offerte in 2 min','Onderhoudscontract','Planning']},
+  'branche-hoveniers':{layout:'full',serif:true,vars:{'--md-r':'10px','--md-h':"'Fraunces',Georgia,serif",'--bg':'#0E2A1C','--bg-2':'#133524','--bg-3':'#183F2B','--line':'#235038','--fg':'#F2F5EE','--muted':'#B9C9B9','--sig':'#CFE36A','--sig-ink':'#0E2A1C'},eyebrow:'Website, branding & marketing voor hoveniers',h1:'Tuinen die *zichzelf verkopen.',media:{v:'engine-poolhouse',p:'assets/engine-poolhouse.jpg',tag:'Demo · poolhouse-configurator'},bigword:'Tuin',chips:['Portfolio met voor/na','Poolhouse-configurator','Offerteaanvraag','Seizoenscampagnes']},
+  'branche-autobedrijven':{layout:'plate',bg:'assets/img/11-auto-hero.webp',media:{v:'lap-auto-hero',p:'assets/lap-auto-hero.jpg',tag:'Demo · conceptwebsite'},vars:{'--bg':'#0B0B0D','--bg-2':'#141417','--bg-3':'#1C1C20','--line':'#2A2A30','--fg':'#F2F2F4','--muted':'#9B9BA3','--sig':'#F7D117','--sig-ink':'#0A0A0A'},eyebrow:'Website, occasionfeed & marketing voor autobedrijven',h1:'Meer proefritten. *Minder stilstand.',plate:'PROEFRIT',chips:['Occasionfeed','Proefrit-planner','Financiering','Reviews']},
+  'branche-brands':{layout:'phone',light:true,vars:{'--bg':'#DCEBF6','--bg-2':'#FFFFFF','--bg-3':'#CFE3F2','--line':'#B9D2E6','--fg':'#0E1B2A','--muted':'#4A5E72','--sig':'#FF2E7E','--sig-ink':'#FFFFFF'},eyebrow:'Branding, productvideo & social voor brands',h1:'Een merk dat *van het scherm springt.',media:{v:'reel-cans',p:'assets/reel-cans.jpg',tag:'Pulse · productvideo'},blobs:['#FF2E7E','#2EE6C8'],floats:[['Productvideo','Pulse · 4 smaken','l'],['Packaging','Verpakkingsreeks','r'],['Social','Reels & ads','b']],chips:['Productvideo','Packaging','Social','Webshop']},
   'branche-restaurants-horeca':{layout:'menu',serif:true,bg:'assets/img/41-restaurant-hero.webp',vars:{'--md-h':"'Fraunces',Georgia,serif",'--bg':'#17100B','--bg-2':'#1F1610','--bg-3':'#2A1E15','--line':'#3A2B20','--fg':'#F6EFE6','--muted':'#C2B3A3','--sig':'#E0B15A','--sig-ink':'#17100B'},eyebrow:'Website, reserveringen & social voor restaurants en horeca',h1:'Volle tafels *beginnen online.',kaart:{t:'Wat de website moet doen',items:[['Reserveren in tien seconden','zonder app'],['Menukaart die verkoopt','foto’s & allergenen'],['Reviews die binnenkomen','Google & socials'],['Social content elke week','reels & stories']]},chips:['Reserveringen','Menukaart','Google-reviews','Social']},
-  'branche-creators':{layout:'edit',light:true,serif:true,vars:{'--md-r':'22px','--md-h':"'Fraunces',Georgia,serif",'--bg':'#F7E6E3','--bg-2':'#FFFFFF','--bg-3':'#F1D9D5','--line':'#E4C9C4','--fg':'#2A1A1C','--muted':'#6B5558','--sig':'#7B1E3A','--sig-ink':'#FFFFFF'},eyebrow:'Portfolio, boekingsflow & merkdeals voor creators',h1:'Van volgers naar *boekingen.',media:{v:'kelly',p:'assets/kelly-laptop.webp',tag:'Kelly Bobson · portfolio & boekingsflow'},badge:'SHOOTS · REELS · TIKTOK · CAMPAGNES · ',chips:['Portfolio','Boekingsflow','Media kit','Merkdeals']}
+  'branche-creators':{layout:'edit',light:true,serif:true,vars:{'--md-r':'22px','--md-h':"'Fraunces',Georgia,serif",'--bg':'#F7E6E3','--bg-2':'#FFFFFF','--bg-3':'#F1D9D5','--line':'#E4C9C4','--fg':'#2A1A1C','--muted':'#6B5558','--sig':'#7B1E3A','--sig-ink':'#FFFFFF'},eyebrow:'Portfolio, boekingsflow & merkdeals voor creators',h1:'Van volgers naar *boekingen.',media:{v:'kelly',p:'assets/kelly-laptop.webp',tag:'Live · klant · Kelly Bobson'},badge:'SHOOTS · REELS · TIKTOK · CAMPAGNES · ',chips:['Portfolio','Boekingsflow','Media kit','Merkdeals']}
 };
+/* branchehero: korte lead met prijs, drie pijnpunten en een eigen tweede knop per branche (bron: branche-tabel audit) */
+var PRICE_LINE='Vanaf € 1.500, live in twee weken.';
+var BR={
+  'branche-dakdekkers':{lead:'Een site die spoed en dakrenovaties binnenhaalt.',pains:['Spoed ’s avonds gemist','Renovatieklant vergelijkt weken','Geen eigen daken als bewijs'],cta:['Probeer de dakrenovatie-demo','#demo']},
+  'branche-bouwbedrijven':{lead:'Je projecten in beeld, serieuze aanvragen binnen.',pains:['Stil als mond-tot-mond opdroogt','Offertes voor dromers','Projecten nergens te zien'],cta:['Probeer de uitbouw-demo','#demo']},
+  'branche-overkapping-veranda':{lead:'Aanvragen met maat en wensen er al bij.',pains:['Eerst de vraag: wat kost het?','RAL en maat per mail','Seizoenspiek'],cta:['Stel een veranda samen','#demo']},
+  'branche-installatiebedrijven':{lead:'Storingen en offertevragen direct goed binnen.',pains:['Storing niet opgenomen','Onderhoudscontract op papier','Offerte duurt dagen'],cta:['Bekijk de offerteflow','https://installatieplatform.nl']},
+  'branche-hoveniers':{lead:'Je tuinen in beeld, de juiste aanvragen binnen.',pains:['Stille maanden','Je werk is nergens te zien','Offerte op locatie per vraag'],cta:['Probeer de kunstgras-demo','#demo']},
+  'branche-restaurants-horeca':{lead:'Gasten zien je kaart en reserveren direct.',pains:['Reserveren via een platform','Menukaart als pdf','Doordeweeks lege tafels'],cta:['Bekijk prijzen','#prijzen']},
+  'branche-autobedrijven':{lead:'Je voorraad in beeld, proefritten direct aangevraagd.',pains:['Occasions alleen op platforms','Proefrit via de telefoon','Aanvragen blijven liggen'],cta:['Bekijk prijzen','#prijzen']},
+  'branche-webshops':{lead:'Een webshop in jouw stijl, gebouwd om te verkopen.',price:'Website vanaf € 1.500, live in twee weken. Een webshop krijgt een vaste prijs die we vooraf afspreken.',pains:['Bezoekers rekenen niet af','Shop lijkt op alle andere','Productbeeld zonder sfeer'],cta:['Bekijk prijzen','#prijzen']},
+  'branche-brands':{lead:'Een merk dat opvalt, online en in de winkel.',price:'Website vanaf € 1.500, live in twee weken.',pains:['Merk valt weg in de feed','Elke post een andere stijl','Geen productvideo'],cta:['Bekijk prijzen','#prijzen']},
+  'branche-creators':{lead:'Merken vragen direct een samenwerking aan.',pains:['Aanvragen via DM’s','Geen media kit','Tarieven onduidelijk'],cta:['Bekijk prijzen','#prijzen']}
+};
+function useMob(q){
+  q=q||'(max-width:900px)';
+  var s=useState(typeof matchMedia!=='undefined'&&matchMedia(q).matches),v=s[0],set=s[1];
+  useEffect(function(){var mq=matchMedia(q);function f(){set(mq.matches)}if(mq.addEventListener)mq.addEventListener('change',f);else mq.addListener(f);return function(){if(mq.removeEventListener)mq.removeEventListener('change',f);else mq.removeListener(f)}},[q]);
+  return v;
+}
+function BranchCtas(props){var c=props.c||['Bekijk prijzen','#prijzen'],ext=/^https?:/.test(c[1]);return h`<div class="cta"><${Magnet} href="#contact" kind="hg">Bel mij terug</${Magnet}><${Magnet} href=${c[1]} target=${ext?'_blank':undefined} kind="ghost" icon=${ext?'↗':(c[1]==='#prijzen'?'→':'↓')}>${c[0]}</${Magnet}></div>`}
 function WorldHero(props){
-  var w=props.w,slug=props.slug,d=props.d;
+  var w=props.w,slug=props.slug,d=props.d,br=BR[slug]||{};
+  var mob=useMob();
   var lines=w.h1.split(' ').map(function(x,i){var sig=x.charAt(0)==='*';return h`<${React.Fragment} key=${i}><span class=${sig?'sig':''}>${sig?x.slice(1):x}</span>${' '}</${React.Fragment}>`});
+  var tag=w.media&&w.media.tag;
+  var media=w.media&&h`<video src=${MV+'assets/'+w.media.v+'.mp4'+(w.media.p?'':'#t=0.1')} poster=${w.media.p||undefined} muted loop playsInline preload="metadata" data-auto="1" aria-hidden="true"></video>`;
+  /* op mobiel staat het branchebeeld direct onder de H1, in één kaart; het desktopbeeld wordt dan niet gerenderd (geen dubbele video) */
+  var mobImg=w.bg||HERO_IMG[slug];
+  var mcard=mob&&h`<div class="mediacard mm">${media||(mobImg&&h`<img src=${mobImg} alt="" decoding="async"/>`)}${tag&&h`<span class="tag">${tag}</span>`}</div>`;
   var head=h`<${React.Fragment}>
     <${Crumbs} parent=${['branches','Branches']} name=${BRANCH_NAME[slug]}/>
-    <p class="eyebrow mono">${w.eyebrow}</p>
-    <${m.h1} initial=${{opacity:0,y:30}} animate=${{opacity:1,y:0}} transition=${{duration:.9,ease:EASE,delay:.1}}>${lines}</${m.h1}>
-    <${m.p} className="def" initial=${{opacity:0,y:16}} animate=${{opacity:1,y:0}} transition=${{delay:.45,duration:.8,ease:EASE}}>${d.definition}</${m.p}>
-    ${w.chips&&h`<${m.div} className="chips" initial=${{opacity:0}} animate=${{opacity:1}} transition=${{delay:.6}}>${w.chips.map(function(c,i){return h`<span key=${c} class=${i===0?'on':''}>${c}</span>`})}</${m.div}>`}
-    <${m.div} className="cta" initial=${{opacity:0,y:16}} animate=${{opacity:1,y:0}} transition=${{delay:.7,duration:.8,ease:EASE}}><${Magnet} href="#contact">Plan een kennismaking</${Magnet}><${Magnet} href=${BRANCH_DEMOS[slug]?"#demo":"#studio"} kind="ghost" icon="↓">${BRANCH_DEMOS[slug]?"Probeer de configurator":"Wat er allemaal op kan"}</${Magnet}></${m.div}>
+    <p class="eyebrow mono">${br.ey||('Websites · voor '+BRANCH_NAME[slug].toLowerCase())}</p>
+    <h1 class="fadein">${lines}</h1>
+    ${mcard}
+    <p class="def blead">${br.lead||''} <b>${br.price||PRICE_LINE}</b></p>
+    ${br.pains&&h`<ul class="pains" aria-label="Herken je dit?">${br.pains.map(function(c){return h`<li key=${c}>${c}</li>`})}</ul>`}
+    <${BranchCtas} c=${br.cta}/>
   </${React.Fragment}>`;
-  var media=w.media&&h`<video src=${MV+'assets/'+w.media.v+'.mp4'} data-poster=${w.media.p} muted loop playsInline preload="metadata" data-auto="1" aria-hidden="true"></video>`;
-  var cls='wh l-'+w.layout+(w.serif?' serif':'');
-  if(w.layout==='split')return h`<section class=${cls} id="top"><div class="wrap"><div class="grid"><div>${head}</div><${m.div} initial=${{opacity:0,x:60,rotate:2}} animate=${{opacity:1,x:0,rotate:0}} transition=${{duration:1,ease:EASE,delay:.3}}><div class="mediacard">${media}${w.media.tag&&h`<span class="tag">${w.media.tag}</span>`}</div></${m.div}></div></div>
+  if(mob)media=null;
+  var cls='wh l-'+w.layout+(w.serif?' serif':'')+(mob?' is-mob':'');
+  var bgimg=!mob&&w.bg&&h`<div class="bgimg" aria-hidden="true"><img src=${w.bg} alt=""/></div>`;
+  var mc=media&&h`<div class="mediacard">${media}${tag&&h`<span class="tag">${tag}</span>`}</div>`;
+  if(w.layout==='split')return h`<section class=${cls} id="top"><div class="wrap"><div class="grid"><div>${head}</div>${mc&&h`<div class="fadein d2">${mc}</div>`}</div></div>
     </section>`;
-  if(w.layout==='card')return h`<section class=${cls} id="top"><div class="wrap">${head}<${m.div} className="mediacard" initial=${{opacity:0,y:60}} animate=${{opacity:1,y:0}} transition=${{duration:1,ease:EASE,delay:.4}}>${media}${w.media.tag&&h`<span class="tag">${w.media.tag}</span>`}</${m.div}>
-    <div class="steps">${w.steps.map(function(t,i){return h`<${m.div} key=${i} initial=${{opacity:0,y:20}} animate=${{opacity:1,y:0}} transition=${{delay:.8+i*.1}}><i>${i+1}</i><b>${t}</b></${m.div}>`})}</div></div></section>`;
-  if(w.layout==='full')return h`<section class=${cls} id="top"><div class="bg">${media}</div>${w.bigword&&h`<div class="bigword" aria-hidden="true">${w.bigword}</div>`}<div class="wrap">${head}</div></section>`;
+  if(w.layout==='card')return h`<section class=${cls} id="top"><div class="wrap">${head}${mc}
+    ${!mob&&h`<div class="steps">${w.steps.map(function(t,i){return h`<div key=${i}><i>${i+1}</i><b>${t}</b></div>`})}</div>`}</div></section>`;
+  if(w.layout==='full')return h`<section class=${cls} id="top">${media&&h`<div class="bg">${media}</div>`}${w.bigword&&h`<div class="bigword" aria-hidden="true">${w.bigword}</div>`}<div class="wrap">${head}</div></section>`;
   if(w.layout==='phone')return h`<section class=${cls} id="top">${w.blobs&&h`<${React.Fragment}><div class="blob" style=${{background:w.blobs[0],left:'-20vw',top:'-10vw'}}></div><div class="blob" style=${{background:w.blobs[1],right:'-20vw',bottom:'-20vw'}}></div></${React.Fragment}>`}
-    <div class="wrap"><div class="grid"><div>${head}</div><div style=${{position:'relative'}}><${m.div} className="frame" initial=${{opacity:0,y:80,rotate:-10}} animate=${{opacity:1,y:0,rotate:-4}} transition=${{duration:1.1,ease:EASE,delay:.3}}><div class="notch"></div>${media}</${m.div}>
-      ${w.floats&&w.floats.map(function(f,i){var pos=f[2]==='l'?{left:'-4%',top:'18%'}:f[2]==='r'?{right:'-2%',top:'38%'}:{left:'8%',bottom:'10%'};return h`<${m.div} key=${i} className="float" style=${pos} initial=${{opacity:0,scale:.6}} animate=${{opacity:1,scale:1}} transition=${{type:'spring',stiffness:260,damping:16,delay:.9+i*.15}}><small>${f[0]}</small>${f[1]}</${m.div}>`})}</div></div></div></section>`;
+    <div class="wrap"><div class="grid"><div>${head}</div>${media&&h`<div style=${{position:'relative'}}><div class="frame fadein d2"><div class="notch"></div>${media}</div>
+      ${w.floats&&w.floats.map(function(f,i){var pos=f[2]==='l'?{left:'-4%',top:'18%'}:f[2]==='r'?{right:'-2%',top:'38%'}:{left:'8%',bottom:'10%'};return h`<div key=${i} class="float fadein d3" style=${pos}><small>${f[0]}</small>${f[1]}</div>`})}</div>`}</div></div></section>`;
   if(w.layout==='bch')return h`<section class=${cls} id="top"><div class="wrap"><div class="grid"><div>${head}</div>
-      <${m.div} className="lead" initial=${{opacity:0,y:40}} animate=${{opacity:1,y:0}} transition=${{duration:.9,ease:EASE,delay:.35}} aria-hidden="true"><h3>Zo ziet de aanvraag op jouw site eruit</h3><p>Bezoeker vult in, jij belt terug. Alles landt in je CRM.</p><div class="f">${w.form.map(function(f,i){return h`<div key=${i} class=${i===5?'':''}>${f}</div>`})}<div class="w">Korte omschrijving (optioneel)</div></div><div class="b">Vraag vrijblijvend aan</div><small>Voorbeeld van de leadflow die we voor Bouwcentrale Holland bouwden</small></${m.div}>
+      ${!mob&&h`<div class="lead fadein d2" aria-hidden="true"><h3>Zo ziet de aanvraag op jouw site eruit</h3><p>Bezoeker vult in, jij belt terug. Alles landt in je CRM.</p><div class="f">${w.form.map(function(f,i){return h`<div key=${i}>${f}</div>`})}<div class="w">Korte omschrijving (optioneel)</div></div><div class="b">Vraag vrijblijvend aan</div><small>Voorbeeld van de leadflow die we voor Bouwcentrale Holland bouwden</small></div>`}
     </div></div>
-    <div class="cut"><div class="wrap"><div class="cards">${w.cards.map(function(c,i){return h`<${m.div} key=${i} className="cardx" initial=${{opacity:0,y:30}} animate=${{opacity:1,y:0}} transition=${{delay:.7+i*.12,duration:.7,ease:EASE}}><span class="ic">${['⌂','✎','⌖'][i]}</span><b>${c[0]}</b><p>${c[1]}</p></${m.div}>`})}</div>
-      <${m.div} className="lapwrap" initial=${{opacity:0,y:40}} whileInView=${{opacity:1,y:0}} viewport=${{once:true}} transition=${{duration:.9,ease:EASE}}>${media}<span class="tag">${w.media.tag}</span></${m.div}></div></div></section>`;
-  if(w.layout==='edit')return h`<section class=${cls} id="top"><div class="wrap"><div class="grid"><div class="txt">${head}</div><${m.div} className="bleed" initial=${{opacity:0,x:40}} animate=${{opacity:1,x:0}} transition=${{duration:1,ease:EASE,delay:.3}}>${media}${w.media.tag&&h`<span class="tag">${w.media.tag}</span>`}${w.badge&&h`<div class="badge" aria-hidden="true"><svg viewBox="0 0 124 124"><defs><path id="kbp" d="M62,62 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs><text><textPath href="#kbp">${w.badge}</textPath></text></svg><i>↓</i></div>`}</${m.div}></div></div></section>`;
-  if(w.layout==='menu')return h`<section class=${cls} id="top">${bgimg}<div class="wrap"><div class="grid"><div>${head}</div><${m.div} className="kaart" initial=${{opacity:0,y:40}} animate=${{opacity:1,y:0}} transition=${{duration:.9,ease:EASE,delay:.4}}><h3>${w.kaart.t}</h3><ul>${w.kaart.items.map(function(it,i){return h`<li key=${i}><b>${it[0]}</b><span>${it[1]}</span></li>`})}</ul><div class="res"><div>Vanavond · 19:30</div><div>2 personen</div><b>Reserveer</b></div></${m.div}></div></div></section>`;
-  var bgimg=w.bg&&h`<div class="bgimg" aria-hidden="true"><img src=${w.bg} alt=""/></div>`;
-  if(w.layout==='plate')return h`<section class=${cls} id="top">${bgimg}<div class="lines" aria-hidden="true"></div><div class="wrap">${head}<${m.div} className="kenteken" initial=${{opacity:0,x:-30}} animate=${{opacity:1,x:0}} transition=${{delay:.8,duration:.7,ease:EASE}} aria-hidden="true"><i>NL</i><b>${w.plate}</b></${m.div}>${media&&h`<${m.div} className="pmedia" initial=${{opacity:0,y:40}} animate=${{opacity:1,y:0}} transition=${{delay:.6,duration:.9,ease:EASE}}>${media}${w.media.tag&&h`<span class="mtag">${w.media.tag}</span>`}</${m.div}>`}</div></section>`;
+    <div class="cut"><div class="wrap"><div class="cards">${w.cards.map(function(c,i){return h`<div key=${i} class="cardx"><span class="ic">${['⌂','✎','⌖'][i]}</span><b>${c[0]}</b><p>${c[1]}</p></div>`})}</div>
+      ${media&&h`<div class="lapwrap">${media}<span class="tag">${tag}</span></div>`}</div></div></section>`;
+  if(w.layout==='edit')return h`<section class=${cls} id="top"><div class="wrap"><div class="grid"><div class="txt">${head}</div>${media&&h`<div class="bleed fadein d2">${media}${tag&&h`<span class="tag">${tag}</span>`}${w.badge&&h`<div class="badge" aria-hidden="true"><svg viewBox="0 0 124 124"><defs><path id="kbp" d="M62,62 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs><text><textPath href="#kbp">${w.badge}</textPath></text></svg><i>↓</i></div>`}</div>`}</div></div></section>`;
+  if(w.layout==='menu')return h`<section class=${cls} id="top">${bgimg}<div class="wrap"><div class="grid"><div>${head}</div>${!mob&&h`<div class="kaart fadein d2"><h3>${w.kaart.t}</h3><ul>${w.kaart.items.map(function(it,i){return h`<li key=${i}><b>${it[0]}</b><span>${it[1]}</span></li>`})}</ul><div class="res"><div>Vanavond · 19:30</div><div>2 personen</div><b>Reserveer</b></div></div>`}</div></div></section>`;
+  if(w.layout==='plate')return h`<section class=${cls} id="top">${bgimg}<div class="lines" aria-hidden="true"></div><div class="wrap">${head}${!mob&&h`<div class="kenteken" aria-hidden="true"><i>NL</i><b>${w.plate}</b></div>`}${media&&h`<div class="pmedia">${media}${tag&&h`<span class="mtag">${tag}</span>`}</div>`}</div></section>`;
   return null;
 }
 
@@ -1776,7 +1956,7 @@ function ProductHero(props){ // configuratorpagina: montage in de laptop, HTML-t
       <div class="txt"><${Crumbs} parent=${null} name=${BRANCH_NAME[slug]}/><p class="eyebrow mono">Systemen · Next Growth</p>
         <h1><${Words} text=${d.h1} delay=${.1}/></h1>
         <${m.p} className="def" initial=${{opacity:0,y:16}} animate=${{opacity:1,y:0}} transition=${{delay:.5,duration:.8,ease:EASE}}>${d.definition}</${m.p}>
-        <${m.div} className="cta" initial=${{opacity:0,y:16}} animate=${{opacity:1,y:0}} transition=${{delay:.7,duration:.8,ease:EASE}}><${Magnet} href="#contact">Plan een kennismaking</${Magnet}><${Magnet} href="#producten" kind="ghost" icon="↓">Bekijk de vijf producten</${Magnet}></${m.div}></div>
+        <${m.div} className="cta" initial=${{opacity:0,y:16}} animate=${{opacity:1,y:0}} transition=${{delay:.7,duration:.8,ease:EASE}}><${Magnet} href="#contact" kind="hg">Bel mij terug</${Magnet}><${Magnet} href="#producten" kind="ghost" icon="↓">Bekijk de vijf producten</${Magnet}></${m.div}></div>
       <${m.div} className="lap" initial=${{opacity:0,y:40}} animate=${{opacity:1,y:0}} transition=${{duration:1,ease:EASE,delay:.3}}>
         ${reduce?h`<img src="assets/prod-montage.jpg" alt="Productconfigurators op een laptop"/>`:h`<video ref=${vref} src=${MV+((window.matchMedia&&window.matchMedia("(max-width:860px)").matches)?"assets/prod-montage-m.mp4":"assets/prod-montage.mp4")} poster="assets/prod-montage.jpg" muted playsInline loop preload="metadata" aria-label="Montage van zes productconfiguratorpresentaties"></video>`}
         ${!reduce&&h`<button type="button" class="pz" onClick=${toggle} aria-pressed=${!playing}>${playing?'Pauzeer':'Speel af'}</button>`}
@@ -1972,7 +2152,8 @@ function BranchPage(props){
   var slug=props.slug,d=SEO.pages[slug],b=STUDIO.branches[slug];useHead(slug);
   var short=d.h1.split(' voor ').pop().split(' die ')[0];
   var w=WORLD[slug];
-  var hero=slug==='branche-webshops'?h`<${React.Fragment}><${FashionDemo} media=${{night:'assets/fd-night.mp4',volt:'assets/fd-volt.mp4',heat:'assets/fd-heat.mp4',ice:'assets/fd-ice.mp4'}}/><section style=${{paddingBlock:'40px 0'}}><div class="wrap"><${Crumbs} parent=${['branches','Branches']} name=${BRANCH_NAME[slug]}/><h1 style=${{fontSize:'clamp(34px,4.6vw,64px)',marginTop:14}}><${Words} text=${d.h1}/></h1><p class="lead" style=${{maxWidth:'38em',marginTop:18,color:'var(--muted)'}}>${d.definition}</p><div class="cta" style=${{display:'flex',gap:12,flexWrap:'wrap',marginTop:24}}><${Magnet} href="#contact">Plan een kennismaking</${Magnet}><${Magnet} href="#fashion" kind="ghost" icon="↑">Switch the look</${Magnet}></div></div></section></${React.Fragment}>`
+  var br=BR[slug]||{};
+  var hero=slug==='branche-webshops'?h`<${React.Fragment}><${FashionDemo} demo=${true} media=${{night:'assets/fd-night.mp4',volt:'assets/fd-volt.mp4',heat:'assets/fd-heat.mp4',ice:'assets/fd-ice.mp4'}}/><section class="wsinfo" id="webshop-info"><div class="wrap"><${Crumbs} parent=${['branches','Branches']} name=${BRANCH_NAME[slug]}/><p class="eyebrow mono">Webshops · voor merken</p><h1>${d.h1}</h1><p class="def blead">${br.lead} <b>${br.price}</b></p><ul class="pains" aria-label="Herken je dit?">${br.pains.map(function(c){return h`<li key=${c}>${c}</li>`})}</ul><${BranchCtas} c=${br.cta}/></div></section></${React.Fragment}>`
     :w?h`<${WorldHero} w=${w} slug=${slug} d=${d}/>`
     :h`<${PageHero} slug=${slug} d=${d} parent=${['branches','Branches']} short=${BRANCH_NAME[slug]} eyebrow=${'Website, branding & marketing'}/>`;
   return h`<div class=${'bp'+(w&&w.light?' light':'')+(w&&w.layout==='bch'?' bch':'')} style=${w?w.vars:{}}>
@@ -1999,8 +2180,44 @@ function BranchPage(props){
   </div>`;
 }
 /* ---------- dienst / sales pagina ---------- */
+function ProofChips(){return h`<ul class="proofchips"><li>Vaste prijs vanaf € 1.500</li><li>Binnen twee weken live</li><li>Terugbellen dezelfde werkdag</li></ul>`}
+function WebdesignPage(props){ // rustige opbouw: hero met prijs, cases, wat je krijgt, werkwijze, regio, FAQ, formulier
+  var slug='dienst-webdesign',d=SEO.pages[slug],sv=STUDIO.services[slug]||{stappen:[],inclusief:[]};useHead(slug);
+  return h`<${React.Fragment}>
+    <section class="whero" id="top"><div class="wrap"><div class="grid">
+      <div class="txt fadein">
+        <${Crumbs} name="Webdesign"/>
+        <p class="eyebrow mono">Webdesign · website laten maken</p>
+        <h1>${d.h1}</h1>
+        <p class="def">Vanaf € 1.500, live in twee weken, 100% jouw eigendom. Een snelle site op maat met teksten, mobiel ontwerp, SEO-basis en een duidelijke route naar contact.</p>
+        <${ProofChips}/>
+        <div class="cta"><${Magnet} href="#contact" kind="hg">Bel mij terug</${Magnet}><${Magnet} href="#prijzen" kind="ghost">Bekijk prijzen</${Magnet}></div>
+      </div>
+      <figure class="pic fadein d2"><img src="assets/img/29-web-design-hero.webp" alt="Ontwerper met een website op laptop en telefoon" width="1672" height="941" fetchpriority="high" decoding="async"/></figure>
+    </div></div></section>
+    <section style=${{paddingBlock:'28px 0'}}><div class="wrap"><${Kort} k=${Object.assign({},d.kort||{},{wat:'Een website die aanvragen binnenhaalt'})}/></div></section>
+    <${Work}/>
+    <${Cases}/>
+    <section id="wat"><div class="wrap">
+      <div class="head"><div><p class="eyebrow mono">Inclusief</p><h2>Wat je <span class="sig">krijgt.</span></h2></div><p>${sv.sub||''}</p></div>
+      <ul class="incl">${sv.inclusief.map(function(x){return h`<li key=${x}>${x}</li>`})}</ul>
+      <div class="feat" style=${{marginTop:40}}>${d.features.map(function(f,i){return h`<div key=${i}><b>${f.t}</b><p>${f.d}</p></div>`})}</div>
+      <a class="cfgteaser" href="#dienst-configurators" data-hover="1"><img src="assets/img/37-configurator-presenter.webp" alt="" loading="lazy" decoding="async" width="1672" height="941"/><span class="t"><span class="mono">Optioneel · voor wie maatwerk verkoopt</span><b>Er kan een configurator bij.</b><span>Je klant stelt zelf samen, ziet beeld en richtprijs en stuurt een complete aanvraag. Bekijk hoe dat werkt →</span></span></a>
+    </div></section>
+    <section class="cream" id="werkwijze"><div class="wrap">
+      <div class="head"><div><p class="eyebrow mono">Werkwijze</p><h2>In twee weken <span class="sig">live.</span></h2></div><p>Een vast proces van strategiegesprek tot oplevering. Je kijkt tussentijds mee via een link.</p></div>
+      <div class="steps4">${sv.stappen.map(function(x,i){return h`<div key=${i}><span class="n">Stap 0${i+1}</span><b>${x.t}</b><p>${x.d}</p></div>`})}</div>
+    </div></section>
+    <${SeoBody} d=${d}/>
+    <${RegioWeb}/>
+    <section class="cream"><div class="wrap"><div class="editorial"><div><p class="eyebrow mono">Veelgestelde vragen</p><h2 style=${{marginTop:22,fontSize:'clamp(32px,4vw,56px)'}}>Wat je vooraf <span class="sig">wilt weten.</span></h2><div style=${{marginTop:30}}><p class="mono" style=${{color:'var(--cream-muted)',marginBottom:12}}>Ook interessant</p><${Related} slugs=${d.internal_links}/></div></div><${Faq} items=${d.faq}/></div></div></section>
+    <${Contact}/>
+  </${React.Fragment}>`;
+}
 function ServicePage(props){
-  var slug=props.slug,d=SEO.pages[slug],sv=STUDIO.services[slug];useHead(slug);
+  var slug=props.slug,d=SEO.pages[slug],sv=STUDIO.services[slug];
+  if(slug==='dienst-webdesign')return h`<${WebdesignPage}/>`;
+  useHead(slug);
   return h`<${React.Fragment}>
     ${slug==='dienst-configurators'?h`<${ProductHero} slug=${slug} d=${d}/>`:h`<${PageHero} slug=${slug} d=${d} parent=${null} short=${BRANCH_NAME[slug]} eyebrow=${slug==='sales'?'Sales op commissie · bouw & verduurzaming':(['dienst-configurators','dienst-crm','dienst-automatisering','dienst-software'].indexOf(slug)>-1?'Systemen · Next Growth':'Dienst · Next Growth')} cta2=${h`<${Magnet} href="#werk-proof" kind="ghost" icon="↓">Bekijk werk</${Magnet}>`}/>`}
     <section style=${{paddingBlock:'36px 0'}}><div class="wrap"><${Kort} k=${d.kort}/></div></section>
@@ -2013,11 +2230,9 @@ function ServicePage(props){
     ${slug==='dienst-configurators'&&h`<${React.Fragment}><${ProductGallery}/><${DemoOverview}/><${YachtStudio}/></${React.Fragment}>`}
     ${(slug==='dienst-automatisering'||slug==='dienst-crm'||slug==='dienst-software')&&h`<${BranchDemos} slug=${slug} title="Van klik *naar aanvraag." lead="De configurator is het begin van de flow: de klant kiest, het beeld verandert, en de aanvraag landt compleet in CRM en offerte. Probeer het hier."/>`}
     ${slug==='sales'&&h`<${Story}/>`}
-    ${slug==='dienst-webdesign'&&h`<${React.Fragment}><${Work}/><${Demo}/><${Strip}/><${Cases}/></${React.Fragment}>`}
     <${Beeldstrip} slug=${slug}/>
     <${SeoBody} d=${d} cream=${slug==='sales'}/>
     <${Beats} cream=${slug!=='sales'}/>
-    ${slug==='dienst-webdesign'&&h`<${RegioWeb}/>`}
     <section id="werk-proof"><div class="wrap">
       <div class="head"><div><p class="eyebrow mono">Bewijs</p><h2><${Words} text="Gebouwd. Live. *Bewezen."/></h2></div><${Rise} delay=${.2}><p>${d.proof}</p></${Rise}></div>
       <${ProofRow} slug=${slug}/>
@@ -2028,7 +2243,7 @@ function ServicePage(props){
   </${React.Fragment}>`;
 }
 function RegioWeb(){var l=Object.keys(SEO.pages).filter(function(k){return k.indexOf('lokaal-webdesign-')===0});if(!l.length)return null;
-  return h`<section id="regio"><div class="wrap"><div class="head"><div><p class="eyebrow mono">Op locatie en op afstand</p><h2>Website laten maken in je regio</h2></div><${Rise} delay=${.2}><p>We werken op locatie in Noord-Brabant en Gelderland en op afstand in heel Nederland. Per plaats lees je wat een website daar kost, wat klanten er zoeken en hoe snel hij live staat.</p></${Rise}></div>
+  return h`<section id="regio" style=${{paddingTop:'clamp(40px,5vw,72px)'}}><div class="wrap"><div class="head"><div><p class="eyebrow mono">Op locatie en op afstand</p><h2>Website laten maken in je regio</h2></div><${Rise} delay=${.2}><p>We werken op locatie in Noord-Brabant en Gelderland en op afstand in heel Nederland. Per plaats lees je wat een website daar kost, wat klanten er zoeken en hoe snel hij live staat.</p></${Rise}></div>
     <div class="related">${l.map(function(k){return h`<a key=${k} href=${'#'+k}>${SEO.pages[k].h1} →</a>`})}</div></div></section>`}
 /* ---------- branches overzicht ---------- */
 var BRANCH_ORDER=['branche-bouwbedrijven','branche-overkapping-veranda','branche-dakdekkers','branche-installatiebedrijven','branche-hoveniers','branche-restaurants-horeca','branche-autobedrijven','branche-webshops','branche-brands','branche-creators'];
@@ -2047,7 +2262,7 @@ function FallLine(props){ // letters vallen van boven het beeld en landen met ko
   })}</span>`;
 }
 var HL_SCENES=[
-  {s:0,e:4,in_:1.1,out:3.6,kind:'letters',lines:['VAL OP.'],pos:{left:'6%',top:'34%'},size:9},
+  {s:0,e:4,in_:1.1,out:3.6,kind:'letters',lines:['VAL OP.'],pos:{left:'6%',top:'11%'},size:9},
   {s:4,e:8,in_:4.4,out:7.5,lines:['JOUW MERK.','ONMISKENBAAR.'],outline:1,pos:{left:'4%',top:'8%'},size:4.2},
   {s:8,e:12,in_:8.4,out:10.9,lines:['WEBSITES DIE','VERKOPEN.'],pos:{left:'4%',top:'6%'},size:4.8},
   {s:12,e:16,in_:12.4,out:15.3,lines:['CONTENT DIE OPVALT.'],pos:{right:'5%',top:'7%'},size:4.8,align:'right'},
@@ -2125,27 +2340,27 @@ function HeroBoost(props){
   var veil=!cur.playing?0:t>23.5?Math.min(1,(t-23.5)/.5):(t<.45?Math.max(0,1-t/.45):0); // zachte terugkeer naar de lege openingsstudio
   var staticTxt=phase==='static';
   var ready=phase!=='wait';
-  var textLayer=staticTxt?h`<div class="hlt" style=${mob?{}:{left:'6%',top:'34%',fontSize:'9cqw'}}><div class="ln">VAL OP.</div></div>`:h`<${AnimatePresence}>${sc&&h`<${HLText} key=${sc.s} sc=${sc} mob=${mob}/>`}</${AnimatePresence}>`;
-  return h`<section class="hl" id="top"><h1 class="vh">Next Growth: websites, branding en content die klanten in beweging brengen</h1>
+  var textLayer=staticTxt?h`<div class="hlt" style=${mob?{}:{left:'6%',top:'11%',fontSize:'9cqw'}}><div class="ln">VAL OP.</div></div>`:h`<${AnimatePresence}>${sc&&h`<${HLText} key=${sc.s} sc=${sc} mob=${mob}/>`}</${AnimatePresence}>`;
+  var val=h`<${React.Fragment}>
+      <p class="hey mono">Websites · vaste prijs</p>
+      <p class="hk">Een website die <em>aanvragen</em> binnenhaalt.</p>
+      <p class="hprice">Vanaf € 1.500, live in twee weken, 100% jouw eigendom.</p>
+      <${ProofChips}/>
+      <div class="hbtns"><a class="btn hg" href="#contact" data-hover="1">Bel mij terug<span class="i">→</span></a><a class="btn hgh" href="#prijzen" data-hover="1">Bekijk prijzen</a></div>
+    </${React.Fragment}>`;
+  return h`<section class="hl" id="top"><h1 class="vh">Next Growth: een website die aanvragen binnenhaalt, vanaf € 1.500 en live in twee weken. Plus branding en content.</h1>
     <div class="vwrap">
-      <video ref=${vref} src=${MV+(mob?"assets/hero-light-m.mp4":"assets/hero-light.mp4")} poster="assets/hero-light.jpg" muted playsInline loop preload="metadata" aria-label="Showreel Next Growth: websites, branding, productvideo’s en configurators"></video>
+      <video ref=${vref} src=${MV+(mob?"assets/hero-light-m.mp4":"assets/hero-light.mp4")} poster="assets/hero-light.jpg" muted playsInline loop preload="none" aria-label="Showreel Next Growth: websites, branding, productvideo’s en configurators"></video>
       <div class="hlstage" aria-hidden=${mob?'true':'false'}>${!mob&&textLayer}</div>
       <div class="veil" style=${{opacity:veil}}></div>
-      ${!mob&&h`<${m.p} className="hfix" initial=${reduce?{opacity:1}:{opacity:0,y:14}} animate=${{opacity:1,y:0}} transition=${{delay:reduce?0:1.1,duration:.6,ease:EASE}}><span class="hfdot"></span>Websites, branding en content die klanten in beweging brengen.</${m.p}>`}
-      ${!mob&&h`<div class="hcta"><${m.a} className="hb hb1" href="#contact" data-hover="1" initial=${reduce?{opacity:1}:{opacity:0,x:-520,y:260,rotate:-14,scale:.55}} animate=${{opacity:1,x:0,y:0,rotate:0,scale:1}} transition=${reduce?{duration:0}:{delay:1.35,type:"spring",stiffness:230,damping:17,mass:1.1}}>Plan een kennismaking <span>→</span></${m.a}><${m.a} className="hb hb2" href="#cases-home" data-hover="1" initial=${reduce?{opacity:1}:{opacity:0,x:-420,y:380,rotate:10,scale:.5}} animate=${{opacity:1,x:0,y:0,rotate:0,scale:1}} transition=${reduce?{duration:0}:{delay:1.55,type:"spring",stiffness:230,damping:17,mass:1.1}}>Bekijk ons werk</${m.a}></div>`}
+      ${!mob&&h`<div class="hpanel">${val}</div>`}
       <div class="dots" aria-hidden="true">${HL_SCENES.map(function(x,k){return h`<span key=${k} class=${k===active?'on':''}></span>`})}</div>
       ${blocked&&!reduce&&h`<button type="button" class="hplay" onClick=${function(){var v=vref.current;if(!v)return;paused.current=false;var pr=v.play();if(pr&&pr.catch)pr.catch(function(){})}}><span aria-hidden="true">▶</span> Speel showreel</button>`}
       ${!reduce&&h`<button type="button" class="pz" onClick=${toggle}>${cur.playing?'Pauzeer video':'Speel video af'}</button>`}
     </div>
     <div class="hlbar">
       <div class="wrap hlrow">
-        ${mob&&h`<div class="mtxt" aria-hidden="true">${staticTxt?h`<div class="ln">VAL OP.</div>`:h`<${AnimatePresence} mode="wait">${h`<${m.div} key=${active} initial=${{opacity:0,y:10}} animate=${{opacity:1,y:0}} exit=${{opacity:0,y:-8}} transition=${{duration:.35}}>${HL_SCENES[active].lines.map(function(l,i){return h`<div key=${i} class=${'ln'+(HL_SCENES[active].outline&&i===1?' ol':'')}>${l}</div>`})}${HL_SCENES[active].sub&&h`<p class="sub">${HL_SCENES[active].sub}</p>`}</${m.div}>`}</${AnimatePresence}>`}</div>`}
-        <p class="lead">Creatief groeibureau, landelijk actief. Websites, branding, productvideo’s en configurators voor fashion, autobedrijven, bouwbedrijven, creators en horeca.</p>
-        <${m.div} className="cta" initial=${{opacity:0,y:18}} animate=${ready?{opacity:1,y:0}:{}} transition=${{type:'spring',stiffness:220,damping:22,delay:phase==='play'?.9:0}}>
-          <a href="#cases-home" class="btn ink" data-hover="1">Bekijk ons werk</a>
-          <a href="#contact" class="btn navy" data-hover="1">Plan een kennismaking<span class="i">→</span></a>
-        </${m.div}>
-        <a class="hint" href="#showreel" aria-label="Naar het volgende onderdeel"><span></span></a>
+        ${mob?h`<div class="mval">${val}</div>`:h`<${React.Fragment}><p class="lead">Ook branding, productvideo’s en configurators, voor bouw, horeca, fashion, autobedrijven en creators. Landelijk actief.</p><div class="cta"><a href="#cases-home" class="btn ink" data-hover="1">Bekijk ons werk</a></div><a class="hint" href="#diensten" aria-label="Naar het volgende onderdeel"><span></span></a></${React.Fragment}>`}
       </div>
     </div>
   </section>`;
@@ -2170,7 +2385,7 @@ function LogoBar(){
 function FanCards(){
   var items=[['lap-bouwbroers','v','assets/lap-bouwbroers.jpg'],['kelly','v','assets/kelly-laptop.webp'],['reel-protein','v','assets/reel-protein.jpg'],['reel-bars','v','assets/reel-bars.jpg'],['reel-packages','v','assets/reel-packages.jpg'],['reel-cans','v','assets/reel-cans.jpg'],['01-fashion-hero','i','assets/img/01-fashion-hero.webp'],['11-auto-hero','i','assets/img/11-auto-hero.webp'],['reel-beige','v','assets/reel-beige.jpg'],['41-restaurant-hero','i','assets/img/41-restaurant-hero.webp'],['19-roofer-hero','i','assets/img/19-roofer-hero.webp'],['westrik','v','assets/westrik-laptop.webp'],['engine-poolhouse','v','assets/engine-poolhouse.jpg']];
   var n=items.length;
-  return h`<section class="fanrow" style=${{paddingBlock:'40px 20px'}}><div class="wrap"><div class="fan2">${items.map(function(it,i){var c=i-(n-1)/2;return h`<${m.div} key=${it[0]} className="fc" initial=${{opacity:0,y:80,rotate:0}} whileInView=${{opacity:1,y:Math.abs(c)*14,rotate:c*9}} viewport=${{once:true,margin:'-10% 0px'}} transition=${{delay:.08*i,duration:.9,ease:EASE}} whileHover=${{y:-16,zIndex:5}} style=${{zIndex:n-Math.abs(c)}}>${it[1]==='v'?h`<video src=${MV+'assets/'+it[0]+'.mp4'} data-poster=${it[2]} muted loop playsInline preload="none" data-auto="1" aria-hidden="true"></video>`:h`<img src=${it[2]} alt="" loading="lazy"/>`}</${m.div}>`})}</div>
+  return h`<section class="fanrow" style=${{paddingBlock:'40px 20px'}}><div class="wrap"><div class="fan2">${items.map(function(it,i){var c=i-(n-1)/2;return h`<${m.div} key=${it[0]} className="fc" initial=${{opacity:0,y:80,rotate:0}} whileInView=${{opacity:1,y:Math.abs(c)*14,rotate:c*9}} viewport=${{once:true,margin:'-10% 0px'}} transition=${{delay:.08*i,duration:.9,ease:EASE}} whileHover=${{y:-16,zIndex:5}} style=${{zIndex:n-Math.abs(c)}}><img src=${it[2]} alt="" loading="lazy" decoding="async"/></${m.div}>`})}</div>
     <${Rise}><p class="center-p">Branding, websites, content en campagnes voor restaurants, brands, webshops, bouw- en autobedrijven en creators. Plus eigen software: configurators, offerteflows en CRM, zodat marketing niet stopt bij een klik maar doorloopt tot de opdracht.</p></${Rise}>
     <${Rise} className="counters">
       <div><${Counter} to=${2} suffix=" min"/><span>van aanvraag naar offerte bij Installatieplatform</span></div>
@@ -2194,7 +2409,7 @@ function ReelRow(){
 }
 function Banner(){
   return h`<section class="banner"><div class="wrap"><${m.div} className="box" initial=${{opacity:0,y:40}} whileInView=${{opacity:1,y:0}} viewport=${{once:true}} transition=${{duration:.9,ease:EASE}}>
-    <div class="txt"><h2>Jouw merk <span class="sig">kan meer.</span></h2><p>Ontdek in twintig minuten waar jouw merk nu groei, aandacht en aanvragen laat liggen. Je spreekt direct met de mensen die het werk maken.</p><div style=${{marginTop:26}}><a class="btn white" href="#contact" data-hover="1">Plan een kennismaking</a></div><p class="meta">Vrijblijvend · duurt minder dan 20 minuten</p></div>
+    <div class="txt"><h2>Jouw merk <span class="sig">kan meer.</span></h2><p>Ontdek in twintig minuten waar jouw merk nu groei, aandacht en aanvragen laat liggen. Je spreekt direct met de mensen die het werk maken.</p><div style=${{marginTop:26}}><a class="btn white" href="#contact" data-hover="1">Bel mij terug</a></div><p class="meta">Vrijblijvend · duurt minder dan 20 minuten</p></div>
     <div class="img"><div class="giant2">Next<br/>Growth</div><img src="assets/img/48-campaign-presenter.webp" alt=""/></div>
   </${m.div}></div></section>`;
 }
@@ -2202,7 +2417,7 @@ function FooterBoost(){
   return h`<footer class="boost"><div class="wrap">
     <div class="cta">
       <h2><${Words} text="Klaar om *op *te *vallen?"/></h2>
-      <div class="r"><p>Eén gesprek van twintig minuten. Je spreekt direct met de mensen die het werk maken en krijgt dezelfde dag een eerlijk advies.</p><a class="btn" href="#contact" data-hover="1">Plan een kennismaking<span class="i">→</span></a><a class="tel" href="tel:+31683902192">06 83 90 21 92</a></div>
+      <div class="r"><p>Laat je nummer achter en we bellen je dezelfde werkdag terug. Je spreekt direct met de mensen die het werk maken. Website vanaf € 1.500, live in twee weken.</p><a class="btn" href="#contact" data-hover="1">Bel mij terug<span class="i">→</span></a><a class="tel" href="tel:+31683902192">06 83 90 21 92</a></div>
     </div>
     <div class="cols">
       <div><div class="brandline"><i>N</i>Next Growth Digital</div><p style=${{margin:0,fontSize:14,lineHeight:1.6}}>Creatief groeibureau, landelijk actief.<br/>Branding, webdesign, marketing en eigen software.<br/><a href="mailto:info@nextgrowthdigital.nl">info@nextgrowthdigital.nl</a></p></div>
@@ -2210,7 +2425,7 @@ function FooterBoost(){
       <div><h4>Branches</h4><ul>${BRANCH_ORDER.slice(0,6).map(function(s){return h`<li key=${s}><a href=${'#'+s}>${BRANCH_NAME[s]}</a></li>`})}<li><a href="#branches">Alle branches</a></li></ul></div>
       <div><h4>Website laten maken in</h4><ul>${Object.keys(SEO.pages).filter(function(k){return k.indexOf('lokaal-webdesign-')===0}).slice(0,7).map(function(k){return h`<li key=${k}><a href=${'#'+k}>${SEO.pages[k].cities[0]}</a></li>`})}</ul></div>
     </div>
-    <div class="legal"><span>© 2026 Next Growth Digital</span><span>KVK 96002913</span><span>BTW NL004420281B57</span><span>Landelijk actief · Nederland</span></div>
+    <div class="legal"><span>© 2026 Next Growth Digital</span><span>KVK 96002913</span><span>BTW NL004420281B57</span><span>Landelijk actief · Nederland</span><a href="/privacyverklaring">Privacyverklaring</a><a href="/auteursrecht">Auteursrecht</a></div>
     <div class="giantword" aria-hidden="true">Next Growth</div>
   </div></footer>`;
 }
@@ -2221,7 +2436,6 @@ function HomeBody(props){return h`<${React.Fragment}>
       <${Parts}/>
       <${CaseTiles}/>
       <${FanCards}/>
-      <${Showreel}/>
       <${ReelRow}/>
       <${Showreel} reels=${FASHION_REELS} label="Fashion-edits · demonstratiebeeld" id="fashion-home" pad="0 0 60px" vert=${true}/>
       <${HomeDemos}/>
@@ -2239,7 +2453,7 @@ function App(){
   useEffect(function(){document.body.style.overflow=intro?'hidden':'';},[intro]);
   useEffect(function(){function k(e){if(e.key==='Escape'&&intro)done()}addEventListener('keydown',k);return function(){removeEventListener('keydown',k)}},[intro]);
   var go=!intro;
-  var rt=useRoute(),page=rt.page;
+  var rt=useRoute(),page=rt.page;CUR_PAGE=page;
   useEffect(function(){ // bij paginawissel naar boven; bij anker op home scrollen
     if(page==='home'&&rt.hash&&rt.hash!=='home'){var el=document.getElementById(rt.hash);if(el){setTimeout(function(){el.scrollIntoView({behavior:reduce?'auto':'smooth'})},450);return}}
     scrollTo(0,0);
@@ -2255,12 +2469,34 @@ function App(){
   return h`<${React.Fragment}>
     <${AnimatePresence}>${intro&&h`<${Intro} key="intro" onDone=${done}/>`}</${AnimatePresence}>
     <${Nav}/>
-    <div class="mobbar" role="navigation" aria-label="Snelle acties"><a class="p" href="#contact">Plan een kennismaking</a><a class="s" href="tel:+31683902192" aria-label="Bel 06 83 90 21 92">Bel</a></div>
+    <div class="mobbar" role="navigation" aria-label="Snelle acties"><a class="p" href="#contact">Bel mij terug</a><a class="s" href="tel:+31683902192" aria-label="Bel 06 83 90 21 92">Bel</a></div>
     <${AnimatePresence} mode="wait" initial=${false}><${m.main} id="inhoud" tabIndex="-1" key=${page} initial=${{opacity:0}} animate=${{opacity:1}} exit=${{opacity:0}} transition=${{duration:.35}}>${body}</${m.main}></${AnimatePresence}>
     <${FooterBoost}/>
   </${React.Fragment}>`;
 }
-ReactDOM.createRoot(document.getElementById('root')).render(h`<${App}/>`);
+/* in-pagina-ankers (#contact, #demo, #wat ...) scrollen binnen de huidige pagina in plaats van naar de homepage te springen */
+document.addEventListener('click',function(e){
+  if(e.defaultPrevented||e.button>0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
+  var a=e.target.closest&&e.target.closest('a[href^="#"],a[href="/#contact"]');if(!a)return;
+  var id=a.getAttribute('href').replace(/^\/?#/,'');if(!id||ROUTES.indexOf(id)>=0)return;
+  if(a.dataset.topic){try{window.dispatchEvent(new CustomEvent('ng:topic',{detail:a.dataset.topic}))}catch(x){}}
+  var el=document.getElementById(id);
+  if(!el){if(id==='contact'){e.preventDefault();location.href='/#contact'}return}
+  e.preventDefault();
+  el.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+  if(id==='contact')setTimeout(function(){var f=document.getElementById('f-naam');if(f)f.focus({preventScroll:true})},reduce?0:800);
+});
+/* pas renderen als de koppen- en tekstletter er zijn (max 1,2 s): geen verspringende tekst door font-swap */
+(function(){
+  var root=ReactDOM.createRoot(document.getElementById('root'));
+  function go(){if(go.d)return;go.d=1;root.render(h`<${App}/>`)}
+  try{
+    if(document.fonts&&document.fonts.load){
+      Promise.all(['900 64px Archivo','expanded 900 64px Archivo','500 16px Manrope','700 16px Manrope','500 12px "JetBrains Mono"'].map(function(f){return document.fonts.load(f).catch(function(){})})).then(go,go);
+      setTimeout(go,1200);
+    }else go();
+  }catch(e){go()}
+})();
 
 /* video's: alleen afspelen in beeld, met fallback op eerste interactie */
 (function(){
@@ -2278,9 +2514,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(h`<${App}/>`);
   function sched(){if(!timer)timer=setTimeout(apply,80)}
   var io=('IntersectionObserver' in window)?new IntersectionObserver(function(es){es.forEach(function(e){ratio.set(e.target,e.isIntersecting?e.intersectionRatio:0)});sched()},{threshold:[0,.2,.35,.5,.75,1]}):null;
   /* posters pas ophalen als de video binnen een schermhoogte komt */
-  var pio=('IntersectionObserver' in window)?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var v=e.target;if(v.dataset.poster){v.setAttribute('poster',v.dataset.poster);delete v.dataset.poster}pio.unobserve(v)}})},{rootMargin:'900px 0px'}):null;
+  /* zonder posterbestand: eerste beeld van de video als poster (alleen metadata laden, pas als hij in de buurt komt) */
+  function frame(v){if(!v.dataset.frame)return;delete v.dataset.frame;var s=v.getAttribute('src')||'';if(s.indexOf('#t=')<0)v.setAttribute('src',s+'#t=0.1');v.preload='metadata'}
+  var pio=('IntersectionObserver' in window)?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var v=e.target;if(v.dataset.poster){v.setAttribute('poster',v.dataset.poster);delete v.dataset.poster}frame(v);pio.unobserve(v)}})},{rootMargin:'900px 0px'}):null;
   function scan(){document.querySelectorAll('video:not([data-bron])').forEach(function(v){v.setAttribute('data-bron','1');bron(v)});document.querySelectorAll('video[data-auto]:not([data-io])').forEach(function(v){v.setAttribute('data-io','1');prep(v);
-    if(v.dataset.poster){if(pio)pio.observe(v);else{v.setAttribute('poster',v.dataset.poster);delete v.dataset.poster}}
+    if(v.dataset.poster||v.dataset.frame){if(pio)pio.observe(v);else{if(v.dataset.poster){v.setAttribute('poster',v.dataset.poster);delete v.dataset.poster}frame(v)}}
     if(io)io.observe(v);else tryPlay(v)})}
   var root=document.getElementById('root');
   new MutationObserver(function(){scan()}).observe(root,{childList:true,subtree:true});scan();
