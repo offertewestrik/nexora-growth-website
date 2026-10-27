@@ -1,3 +1,5 @@
+/* Meting: Vercel Web Analytics (alleen op nextgrowthdigital.nl) en een event per terugbelverzoek */
+(function(){if(!/(^|\.)nextgrowthdigital\.nl$/.test(location.hostname))return;window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};var s=document.createElement('script');s.defer=true;s.src='/_vercel/insights/script.js';document.head.appendChild(s);window.addEventListener('ng:lead',function(e){try{window.va('event',{name:'Terugbelverzoek',data:e.detail||{}})}catch(_){}})})();
 /* Statische pagina's: menu, video's in beeld, terugbelformulier */
 (function(){
   var b=document.querySelector('.menu'),n=document.getElementById('mnav');
@@ -33,14 +35,12 @@
       var tOk=/^[+\d][\d\s\-()]{7,}$/.test(tel);f.tel.setAttribute('aria-invalid',tOk?'false':'true');if(!tOk)bad=true;
       if(bad){ok.hidden=false;ok.textContent='Vul je naam en een geldig telefoonnummer in.';(naam?f.tel:f.naam).focus();return}
       var label=knop?knop.innerHTML:'';if(knop){knop.disabled=true;knop.textContent='Versturen…'}
-      function mailto(){var body='Naam: '+naam+'\nTelefoon: '+tel+'\nOnderwerp: '+wat+'\nPagina: '+location.href;
-        location.href='mailto:info@nextgrowthdigital.nl?subject='+encodeURIComponent('Terugbelverzoek: '+wat)+'&body='+encodeURIComponent(body);
-        ok.hidden=false;ok.textContent='Je e-mailprogramma opent met je gegevens. Verstuur het bericht, of bel 06 83 90 21 92.'}
+      function mailto(){ok.hidden=false;ok.innerHTML='Versturen lukte niet. Bel ons direct op <a href="tel:+31683902192">06 83 90 21 92</a>, dan helpen we je meteen.'}
       var klaar=false,wekker=setTimeout(function(){if(klaar)return;klaar=true;if(knop){knop.disabled=false;knop.innerHTML=label}mailto()},9000);
       fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({access_key:'695172ae-1f2d-40b7-bb31-b8a4a882ad62',subject:'Terugbelverzoek via nextgrowthdigital.nl: '+naam,from_name:'nextgrowthdigital.nl',naam:naam,telefoon:tel,onderwerp:wat,pagina:location.href})})
         .then(function(r){return r.ok}).catch(function(){return false})
         .then(function(gelukt){if(klaar)return;klaar=true;clearTimeout(wekker);if(knop){knop.disabled=false;knop.innerHTML=label}
-          if(gelukt){f.reset();ok.hidden=false;ok.textContent='Bedankt, je aanvraag is binnen. We bellen je dezelfde werkdag terug.'}else{mailto()}});
+          if(gelukt){f.reset();ok.hidden=false;ok.textContent='Bedankt, je aanvraag is binnen. We bellen je dezelfde werkdag terug.';try{window.dispatchEvent(new CustomEvent('ng:lead',{detail:{page:location.pathname,onderwerp:wat}}))}catch(_){}}else{mailto()}});
     });
   });
 })();
