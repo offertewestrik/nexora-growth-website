@@ -325,6 +325,104 @@ Antwoord: De ACM kan bedrijven aanspreken en richt zich eerst op kritieke proble
 
 ---
 
+## Heeft je bedrijf een meertalige website nodig en hoe pak je dat aan?
+URL: https://nextgrowthdigital.nl/kennisbank-meertalige-website
+Categorie: Websites
+Bijgewerkt: 2026-11-01
+
+Vraag: Heeft mijn bedrijf een meertalige website nodig en hoe pak ik dat aan?
+
+Kort antwoord: Je hebt een meertalige website nodig als je klanten in een andere taal zoeken, vergelijken en kopen, bijvoorbeeld omdat je exporteert of buitenlandse klanten bedient. Gebruik per taal een eigen URL, koppel de versies met hreflang en laat teksten door iemand beoordelen die de taal beheerst. Is er geen vraag, houd het dan bij Nederlands.
+
+Kernpunten:
+- Meertalig is alleen zinvol als er vraag is: kijk eerst naar je aanvragen, klantenlijst en zoekverkeer.
+- Google adviseert een eigen URL per taalversie, gelabeld met hreflang of in een sitemap.
+- Een submap zoals jouwdomein.nl/de/ is volgens Google een goede optie met weinig onderhoud.
+- Redirect bezoekers niet automatisch op basis van taal of IP-adres; geef een duidelijke taalkeuze.
+- Elke taal is blijvend onderhoud: prijzen, diensten en juridische pagina's moeten overal actueel blijven.
+
+### Wanneer heeft een meertalige website zin?
+
+Een tweede taal is geen kwaliteitskenmerk op zich. Het is een investering die zich terugbetaalt als er klanten zijn die jou in die taal zoeken of die vertrouwen krijgen van een site in hun eigen taal. Begin dus niet met de vraag welke talen je kunt toevoegen, maar met de vraag waar je nu al vraag uit het buitenland ziet.
+
+Goede aanwijzingen zijn aanvragen of orders uit het buitenland, een klantenkring van bijvoorbeeld Duitse of Belgische bedrijven, anderstalige medewerkers of klanten in je werkgebied, of een export die je wilt laten groeien. Ben je een lokaal bedrijf voor Nederlandse klanten, dan voegt een Engelse versie meestal weinig toe.
+
+| Situatie | Advies |
+|---|---|
+| Alleen Nederlandse klanten | Eén taal. Steek de tijd in goede Nederlandse teksten. |
+| Een paar anderstalige klanten per jaar | Een compacte pagina of PDF in die taal is vaak genoeg. |
+| Structurele export of grensregio | Volledige versie van de belangrijkste pagina's in de doeltaal. |
+| Webshop die verzendt naar andere landen | Meertalig, met lokale prijzen, verzending, retour en btw-informatie. |
+| Internationaal zoekverkeer gewenst | Aparte URL's per taal met hreflang en echte lokale inhoud. |
+
+### Hoe kies je de URL-structuur?
+
+Google beschrijft in de documentatie over meertalige en meerregionale sites dat je elke taalversie een eigen URL geeft. Vertrouw niet op cookies of browserinstellingen om de taal te wisselen, want dan kan Google die versies niet vinden. Voor de structuur noemt Google drie goede opties. URL-parameters raadt Google af.
+
+| Optie | Voorbeeld | Kenmerk volgens Google |
+|---|---|---|
+| Landdomein (ccTLD) | jouwbedrijf.de | Duur en soms beperkt |
+| Subdomein | de.jouwbedrijf.nl | Eenvoudig op te zetten |
+| Submap | jouwbedrijf.nl/de/ | Weinig onderhoud |
+
+### Wat is hreflang en hoe gebruik je het?
+
+Met hreflang laat je Google weten dat pagina's dezelfde inhoud in een andere taal of voor een andere regio hebben, zodat de juiste versie aan de juiste zoeker wordt getoond. Je kunt het op drie manieren aangeven: met link-tags in de head van de pagina, met HTTP-headers (handig voor bijvoorbeeld PDF's) of in een XML-sitemap. Google behandelt ze gelijkwaardig, dus kies er een.
+
+Google noemt een aantal vaste regels. Het is nuttig deze op een rij te hebben, want de meeste fouten zitten hier.
+
+- Elke taalversie verwijst naar zichzelf en naar alle andere versies.
+- De verwijzingen moeten wederzijds zijn. Verwijst pagina A naar B, maar B niet terug naar A, dan worden ze genegeerd.
+- Gebruik volledige URL's, inclusief https://.
+- Een taalcode volgt ISO 639-1 (nl, de, en), eventueel gevolgd door een regiocode volgens ISO 3166-1 Alpha 2 (nl-NL, nl-BE, en-GB). Een losse landcode is ongeldig, en gebruik GB, niet UK.
+- Met x-default geef je een terugvalpagina aan voor talen die je niet ondersteunt, zoals een taalkeuzepagina.
+
+### Hoe laat je de site vertalen?
+
+Dit is de keuze die de kwaliteit bepaalt. Google geeft aan dat de taal van een pagina wordt bepaald uit de zichtbare inhoud, niet uit hreflang of het lang-attribuut. Een pagina moet dus echt in een taal zijn geschreven, met navigatie en knoppen in dezelfde taal. Een half vertaalde pagina met Nederlandse menu-items is voor bezoeker en zoekmachine verwarrend.
+
+Er zijn grofweg drie manieren. Machinevertaling is snel en goedkoop, maar fouten in vakjargon, toon en cijfers vallen op en kosten vertrouwen. Een menselijke vertaler of moedertaalspreker kost meer, maar levert teksten die kloppen. De middenweg is een machinevertaling die door een moedertaalspreker wordt nagelopen. Dat werkt voor de meeste mkb-sites goed.
+
+Let op het spambeleid van Google. Daarin worden geautomatiseerde transformaties zoals vertalen genoemd als een van de manieren waarop met weinig waarde veel pagina's worden gemaakt. Een vertaling van je eigen, echte inhoud is iets anders, maar een grote hoeveelheid ongecontroleerde machinevertalingen is een risico.
+
+### Wat doet meertalig met je onderhoud?
+
+Elke taal vermenigvuldigt het werk. Een prijswijziging, een nieuwe dienst of een aangepaste voorwaarde moet in alle talen worden doorgevoerd, anders spreken je versies elkaar tegen. Denk ook aan de juridische pagina's, zoals privacyverklaring en algemene voorwaarden, die per land kunnen verschillen.
+
+Stel daarom van tevoren vast wie wat bijhoudt. Beperk het aantal pagina's per extra taal tot wat klanten echt nodig hebben: diensten of producten, prijsinformatie, werkwijze en contact. Een kennisbank of blog in drie talen is een flinke vaste last. Kies voor een extra taal liever tien goede pagina's dan honderd middelmatige.
+
+### Praktische tips voor de taalkeuze
+
+Google adviseert links naar andere taalversies, zodat bezoekers zelf kunnen kiezen. Vermijd automatische doorverwijzingen op basis van taal of IP-adres, omdat dan niet alle versies bereikbaar zijn voor gebruikers en zoekmachines. Een zichtbare taalwisselaar in de header volstaat.
+
+Heb je dubbele inhoud, bijvoorbeeld een Nederlandse en Belgische versie die vrijwel hetzelfde zijn? Kies dan een voorkeursversie en gebruik canonical en hreflang om aan te geven welke versie waar bij hoort. Pas ook valuta, telefoonnummers en adressen aan, want dat zijn volgens Google signalen over de doelgroep.
+
+Bij Next Growth bouwen we meertalige websites met aparte URL's per taal, een nette taalkeuze en hreflang. Wat het in jouw situatie kost en oplevert, bespreken we vooraf, zodat je niet met een tweede of derde taal begint die niemand gebruikt. Een zakelijke website staat bij ons doorgaans binnen twee weken live; extra talen en grote hoeveelheden vertaalwerk plannen we apart in.
+
+### Veelgestelde vragen
+Vraag: Heb ik hreflang nodig als ik maar twee talen heb?
+Antwoord: Ja, zodra je twee taalversies van dezelfde pagina hebt is hreflang de aangewezen manier om Google de koppeling te laten zien. Het werkt alleen als de verwijzingen wederzijds zijn.
+
+Vraag: Is automatisch vertalen met een plug-in genoeg?
+Antwoord: Voor een eerste indruk wel, maar voor een zakelijke site is het riskant. Laat vertaalde teksten naijlopen door een moedertaalspreker, zeker bij prijzen, voorwaarden en vakjargon.
+
+Vraag: Is een submap, subdomein of landdomein het beste?
+Antwoord: Google noemt ze alle drie als goede opties. Een submap is eenvoudig en vraagt weinig onderhoud, een landdomein is duurder en soms beperkt. Voor de meeste mkb-bedrijven is een submap het praktisch.
+
+Vraag: Moet ik bezoekers automatisch naar hun taal doorsturen?
+Antwoord: Nee. Google raadt automatische doorverwijzingen op basis van taal of IP-adres af, omdat niet alle versies dan bereikbaar zijn. Bied een duidelijke taalkeuze aan.
+
+Vraag: Hoeveel pagina's moet ik vertalen?
+Antwoord: Begin met de pagina's die klanten nodig hebben om te beslissen: diensten of producten, prijs, werkwijze en contact. Breid pas uit als je ziet dat de extra taal aanvragen of omzet oplevert.
+
+
+### Bronnen
+- [Google Search Central: Tell Google about localized versions of your page (hreflang)](https://developers.google.com/search/docs/specialty/international/localized-versions)
+- [Google Search Central: Managing multi-regional and multilingual sites](https://developers.google.com/search/docs/specialty/international/managing-multi-regional-sites)
+- [Google Search Central: Spam policies for Google web search](https://developers.google.com/search/docs/essentials/spam-policies)
+
+---
+
 ## Hoe kies je een webdesignbureau? Vragen die je moet stellen
 URL: https://nextgrowthdigital.nl/kennisbank-webdesignbureau-kiezen
 Categorie: Websites
@@ -617,6 +715,108 @@ Antwoord: Gebruik een vast ritme dat past bij je bezoekersvolume en verkoopcyclu
 
 Vraag: Kan ik omzet aan SEO koppelen?
 Antwoord: Je kunt gemeten herkomst verbinden aan gewonnen opdrachten in CRM. Benoem ontbrekende gegevens en attributiebeperkingen; niet iedere klantreis is volledig zichtbaar.
+
+---
+
+## Hoe schrijf je een goede over-ons-pagina?
+URL: https://nextgrowthdigital.nl/kennisbank-over-ons-pagina-schrijven
+Categorie: Websites
+Bijgewerkt: 2026-11-01
+
+Vraag: Hoe schrijf je een goede over-ons-pagina voor je bedrijfswebsite?
+
+Kort antwoord: Een goede over-ons-pagina begint met één duidelijke zin over wat je doet en voor wie, en laat daarna de mensen erachter zien met echte foto's. Onderzoek van Nielsen Norman Group laat zien dat bezoekers scepsis hebben en zoeken naar duidelijkheid, echtheid en bewijs. Houd het concreet, zonder jargon, en eindig met een logische volgende stap.
+
+Kernpunten:
+- Zet bovenaan in één tot twee zinnen wat je doet, voor wie en waar; bezoekers van over-ons-pagina's willen dat snel weten.
+- Laat de mensen zien: echte foto's van jezelf en je team werken beter dan stockfoto's, die bezoekers snel herkennen.
+- Vervang vage superlatieven door feiten: jaartal van oprichting, werkgebied, aantal jaren ervaring, echte projecten en reviews.
+- Houd je gegevens overal gelijk: website, Google Bedrijfsprofiel en andere vermeldingen moeten hetzelfde vertellen.
+- Sluit af met een duidelijke vervolgstap, zoals bellen, een offerte aanvragen of je werk bekijken.
+
+### Waarom bezoeken mensen je over-ons-pagina?
+
+Een over-ons-pagina is vaak geen pagina waar bezoekers beginnen, maar waar ze controleren. Iemand heeft je dienst of product gezien en wil nu weten: wie zijn dit eigenlijk, kan ik ze vertrouwen? Voor een aannemer, installateur of adviseur is dat extra belangrijk, omdat de klant een groot bedrag uitgeeft aan iemand die hij nog niet kent.
+
+Nielsen Norman Group onderzocht hoe mensen over-ons-informatie op bedrijfswebsites gebruiken. Bezoekers zoeken een duidelijke omschrijving van wat het bedrijf doet, wie erachter zit, waar het gevestigd is en hoe ze contact opnemen. Ze zijn kritisch: jargon en stockfoto's vallen op en schaden het vertrouwen. Gewone taal, echte foto's van medewerkers en producten en een eerlijk verhaal werken beter.
+
+Daar komt bij dat bezoekers je niet alleen op je eigen site beoordelen. Ze vergelijken wat je schrijft met reviews op bijvoorbeeld Google. Als je pagina grote woorden gebruikt en je reviews iets anders laten zien, werkt dat tegen je.
+
+### Welke opbouw werkt voor een mkb-bedrijf?
+
+Nielsen Norman Group adviseert de belangrijkste informatie bovenaan te zetten, zodat iemand die alleen scant toch begrijpt wat je doet en waarom je bestaat. Voor een bedrijfssite vertaalt dat zich naar een vaste volgorde.
+
+- Kop en inleiding: wat doe je, voor wie en in welk gebied, in één of twee zinnen.
+- Het gezicht erachter: een echte foto van jezelf of het team, met naam en functie.
+- Je verhaal in het kort: waarom is het bedrijf gestart en wat maakt je werkwijze anders. Twee tot vier zinnen zijn genoeg.
+- Bewijs: jaartal van oprichting, aantal jaren ervaring, een paar herkenbare projecten, echte reviews of keurmerken die je werkelijk hebt.
+- Werkwijze of waarden, maar alleen als ze iets concreets betekenen, bijvoorbeeld 'je krijgt altijd dezelfde dag een terugbelafspraak'.
+- Bedrijfsgegevens en contact: telefoonnummer, e-mailadres, adres, KVK-nummer.
+- Een vervolgstap: een knop naar offerte aanvragen, contact of je projecten.
+
+### Wat schrijf je wel en niet?
+
+De grootste fout is een pagina die over het bedrijf gaat in plaats van over wat het de klant oplevert. Nielsen Norman Group raadt aan vage superlatieven en algemene slogans te vervangen door concrete feiten. Een tagline die op elk bedrijf in je branche zou kunnen slaan, helpt niemand.
+
+| In plaats van | Schrijf liever |
+|---|---|
+| Wij zijn dé specialist met passie voor kwaliteit. | Wij bouwen dakkapellen in Noord-Brabant en Gelderland, van opname tot oplevering, en zijn opgericht in [jaar]. |
+| Ons team staat voor je klaar. | Je belt direct met de eigenaar; terugbellen doen we dezelfde werkdag. |
+| Wij bieden totaaloplossingen. | Wij leveren de tekening, de vergunningaanvraag en de bouw, zodat je één aanspreekpunt hebt. |
+| Tevreden klanten door de jaren heen. | Jouw echte Google-score en het aantal reviews, precies zoals het op Google staat. |
+| Stockfoto van handen die een hand schudden. | Foto van jou voor een eigen project. |
+
+### Hoe laat je zien wie je bent zonder te overdrijven?
+
+Foto's zijn de snelste manier om vertrouwen te winnen. Een gewone foto op een bouwplaats of in je kantoor is beter dan een gepolijst plaatje dat niemand gelooft. Zet er een naam en functie bij, zodat een bezoeker weet met wie hij belt.
+
+Je hoeft geen levensverhaal te vertellen. Kies het moment dat verklaart waarom je doet wat je doet: een vakman die zelf ontevreden was over de service van zijn vorige werkgever, een adviseur die het zat was dat klanten niet begrepen wat ze kregen. Eén herkenbaar punt is sterker dan een lange tijdlijn.
+
+Wees ook eerlijk over wat je niet doet. Dat klinkt tegenstrijdig, maar het helpt de juiste klanten sneller contact op te nemen en bespaart je gesprekken die toch nergens heen gaan.
+
+### Wat heeft dit met SEO en vertrouwen in zoekmachines te maken?
+
+Google stelt in zijn richtlijnen over behulpzame content de vraag of het voor bezoekers duidelijk is wie de inhoud heeft gemaakt. Google noemt expliciet dat een bezoeker moet kunnen doorklikken naar achtergrondinformatie over de auteur of de uitgever, bijvoorbeeld via een auteurspagina of de over-ons-pagina van de site. Een goede over-ons-pagina geeft die achtergrond dus ook voor zoekmachines en AI-systemen.
+
+Zet daarom je bedrijfsnaam, werkgebied, contactgegevens en KVK-nummer consequent neer en gebruik dezelfde gegevens in je Google Bedrijfsprofiel. Nielsen Norman Group wijst erop dat bezoekers hun antwoorden vaak uit zoekresultaten en reviewsites halen, dus dat je verhaal overal hetzelfde moet zijn.
+
+### Veelgemaakte fouten en hoe je ze voorkomt
+
+Een paar patronen komen steeds terug op bedrijfssites. De meeste zijn in een uur op te lossen.
+
+- Geen naam of gezicht: bezoekers weten niet met wie ze zaken doen. Voeg minimaal één echte foto met naam toe.
+- Alleen maar 'wij': de pagina beschrijft het bedrijf, niet wat de klant eraan heeft. Herschrijf elke alinea vanuit de vraag 'wat betekent dit voor mij?'.
+- Verouderde informatie: oude teamleden, verkeerd adres of een jaartal van jaren terug. Zet een kwartaalherinnering om de pagina na te lopen.
+- Te lang: een muur van tekst wordt niet gelezen. Houd de hoofdpagina scanbaar en zet details, zoals een volledige geschiedenis, op een aparte pagina als dat nodig is.
+- Geen vervolgstap: de bezoeker is overtuigd, maar ziet geen knop of telefoonnummer. Eindig altijd met een uitnodiging.
+
+### Zelf schrijven of laten doen?
+
+Een over-ons-pagina schrijf je het best zelf, omdat jij je verhaal het beste kent. Wat vaak lastig is, is afstand nemen en kiezen wat je weglaat. Een uitgebreide briefing en een nuchtere buitenstaander die doorvraagt, maakt de pagina doorgaans sterker.
+
+Bij Next Growth bouwen we zakelijke websites vanaf € 1.500, en de website staat binnen twee weken live. De over-ons-pagina maken we samen met jou, met jouw foto's en feiten, en alle accounts, code en data staan op jouw naam. Stuur je teksten en beeld op tijd aan, dan loopt dat traject vlot.
+
+### Veelgestelde vragen
+Vraag: Hoe lang moet een over-ons-pagina zijn?
+Antwoord: Genoeg voor een goede indruk, niet meer. Voor een mkb-site werken 200 tot 400 woorden met foto's en een paar feiten meestal goed. Nielsen Norman Group adviseert de kerninformatie bovenaan en details op subpagina's.
+
+Vraag: Moet ik een foto van mezelf en mijn team plaatsen?
+Antwoord: Ja, als je kunt. Echte foto's van mensen maken een bedrijf volgens onderzoek van Nielsen Norman Group toegankelijker en geloofwaardiger dan stockfoto's. Zet er een naam en functie bij.
+
+Vraag: Schrijf ik in de wij-vorm of de ik-vorm?
+Antwoord: Dat hangt af van je bedrijf. Als zzp'er of klein team werkt 'ik' vaak persoonlijker, bij een groter bedrijf past 'wij'. Kies één vorm en houd die op de hele site vol.
+
+Vraag: Welke bedrijfsgegevens horen op de over-ons-pagina?
+Antwoord: Naam, vestigingsplaats, telefoon, e-mail en KVK-nummer. Wettelijk verplichte gegevens staan ook in je contactgegevens of voettekst; zie ons artikel over verplichte gegevens op je website.
+
+Vraag: Kan ik reviews op de over-ons-pagina zetten?
+Antwoord: Ja, maar alleen echte reviews met een bron. Bezoekers controleren die volgens Nielsen Norman Group vaak bij Google of andere sites, dus ze moeten overeenkomen met wat daar staat.
+
+
+### Bronnen
+- [Nielsen Norman Group: 'About Us' Information on Corporate Websites, User Research Findings](https://www.nngroup.com/articles/about-us-information-on-websites/)
+- [Nielsen Norman Group: Great Summaries on 'About Us' Pages Engage Users and Build Trust](https://www.nngroup.com/articles/about-us-summaries/)
+- [Google Search Central: Creating helpful, reliable, people-first content](https://developers.google.com/search/docs/fundamentals/creating-helpful-content)
 
 ---
 
@@ -1098,7 +1298,7 @@ Niet altijd. Een kapot formulier, een ontbrekende knop of een niet-klikbaar tele
 
 ### Laat je website eerlijk beoordelen
 
-Weet je niet waar het bij jou misgaat? Next Growth kijkt mee en zegt het eerlijk als een kleine aanpassing genoeg is. Is een nieuwe website wel nodig, dan bouwen we die vanaf € 1.500 voor een vaste prijs, binnen twee weken live, met code, domein en accounts op jouw naam. Moeten aanvragen direct in een CRM landen, dan begint een website met CRM vanaf € 6.995. Vraag een terugbelverzoek aan; we bellen dezelfde werkdag. Bellen kan ook: 06 83 90 21 92.
+Weet je niet waar het bij jou misgaat? Next Growth kijkt mee en zegt het eerlijk als een kleine aanpassing genoeg is. Is een nieuwe website wel nodig, dan bouwen we die vanaf € 1.500 voor een vaste prijs, binnen twee weken live, met code, domein en accounts op jouw naam. Moeten aanvragen direct in een CRM landen, dan begint een website met CRM vanaf € 2.500. Vraag een terugbelverzoek aan; we bellen dezelfde werkdag. Bellen kan ook: 06 83 90 21 92.
 
 ### Veelgestelde vragen
 Vraag: Hoeveel aanvragen moet een website opleveren?
@@ -1282,7 +1482,7 @@ Spreek af wat er gebeurt als er na de oplevering een fout opduikt. Is herstel va
 
 ### Een offerte van Next Growth
 
-In een voorstel van Next Growth staat een vaste prijs, wat er in zit en wat de terugkerende kosten zijn. Een zakelijke website begint vanaf € 1.500 en staat binnen twee weken live; een website met CRM begint vanaf € 6.995. Code, domein en accounts komen standaard op jouw naam. Wil je een offerte die je met deze checklist kunt controleren? Vraag een terugbelverzoek aan; we bellen dezelfde werkdag. Of bel 06 83 90 21 92.
+In een voorstel van Next Growth staat een vaste prijs, wat er in zit en wat de terugkerende kosten zijn. Een zakelijke website begint vanaf € 1.500 en staat binnen twee weken live; een website met CRM begint vanaf € 2.500. Code, domein en accounts komen standaard op jouw naam. Wil je een offerte die je met deze checklist kunt controleren? Vraag een terugbelverzoek aan; we bellen dezelfde werkdag. Of bel 06 83 90 21 92.
 
 ### Veelgestelde vragen
 Vraag: Is een getekende offerte een contract?
@@ -1841,7 +2041,7 @@ Je kunt ook in fases werken. Begin met een eenvoudige site op een websitebouwer,
 
 ### Wat Next Growth anders doet
 
-Kies je voor laten maken, dan bouwt Next Growth een zakelijke website vanaf € 1.500 voor een vaste prijs, binnen twee weken live, met de teksten erbij. Code, domein en accounts staan op jouw naam, zodat je niet vastzit aan een platform of aan ons. Heb je ook een CRM nodig, dan begint een website met CRM vanaf € 6.995. Weet je het nog niet, laat je dan terugbellen; we bellen dezelfde werkdag en zeggen het eerlijk als zelf bouwen voor jou volstaat. Direct bellen kan via 06 83 90 21 92.
+Kies je voor laten maken, dan bouwt Next Growth een zakelijke website vanaf € 1.500 voor een vaste prijs, binnen twee weken live, met de teksten erbij. Code, domein en accounts staan op jouw naam, zodat je niet vastzit aan een platform of aan ons. Heb je ook een CRM nodig, dan begint een website met CRM vanaf € 2.500. Weet je het nog niet, laat je dan terugbellen; we bellen dezelfde werkdag en zeggen het eerlijk als zelf bouwen voor jou volstaat. Direct bellen kan via 06 83 90 21 92.
 
 ### Veelgestelde vragen
 Vraag: Is Wix goed genoeg voor een zakelijke website?
@@ -1938,6 +2138,95 @@ Antwoord: Wijs daar expliciet een verantwoordelijke voor aan. Combineer technisc
 
 ---
 
+## Welke hosting heb je nodig voor een zakelijke website en wat kost dat?
+URL: https://nextgrowthdigital.nl/kennisbank-hosting-zakelijke-website
+Categorie: Websites
+Bijgewerkt: 2026-11-01
+
+Vraag: Welke hosting heb ik nodig voor een zakelijke website en wat kost dat?
+
+Kort antwoord: Een gewone zakelijke website draait prima op standaard webhosting. Bij een bekende Nederlandse aanbieder als TransIP begint dat bij € 9,99 per maand excl. btw en loopt het op tot € 29,99 voor grotere pakketten (stand 1 november 2026). Let op SSL, back-ups, e-mail en dat het account op jouw naam staat.
+
+Kernpunten:
+- Webhosting voor een bedrijfssite kost bij TransIP € 9,99 tot € 29,99 per maand excl. btw; een VPS begint bij € 5 per maand excl. btw maar vraagt technisch beheer.
+- Een goed pakket bevat minimaal een SSL-certificaat, regelmatige back-ups en e-mailboxen.
+- Hosting en domeinnaam moeten op jouw naam en onder jouw login staan, niet op die van je bureau.
+- Snelheid hangt niet alleen af van hosting: ook de bouw van de site bepaalt hoe snel de server de eerste respons stuurt.
+- Meer rekenkracht heb je pas nodig bij een webshop, veel bezoekers of een eigen systeem zoals een configurator.
+
+### Wat is hosting en wat heeft een zakelijke site nodig?
+
+Hosting is de computer waarop je website staat en die de pagina's naar bezoekers stuurt. Het is iets anders dan je domeinnaam, het adres dat bezoekers intypen. Beide heb je nodig, en ze worden vaak apart afgerekend, al verkoopt dezelfde aanbieder ze meestal samen.
+
+Voor een zakelijke website van 5 tot 30 pagina's heb je geen krachtige server nodig. Wat je wel wilt, is een betrouwbare omgeving met een veilig certificaat (https), automatische back-ups, zakelijke e-mailadressen op je eigen domein en een duidelijke manier om bij een storing hulp te krijgen. De rest is bijzaak.
+
+### Welke soorten hosting zijn er en wat kosten ze?
+
+De prijzen hieronder komen van de openbare pagina's van TransIP, een Nederlandse aanbieder, en zijn bekeken op 1 november 2026. Ze gelden als voorbeeld, andere aanbieders hanteren vergelijkbare bandbreedtes. Prijzen wijzigen, dus controleer ze voordat je bestelt.
+
+TransIP vermeldt de prijzen exclusief btw. TransIP rekent voor webhosting een actietarief van € 1 per maand voor de eerste drie maanden; daarna betaal je het normale tarief.
+
+| Type | Prijs per maand (excl. btw) | Past bij |
+|---|---|---|
+| Webhosting Core (TransIP) | € 9,99 | Eén bedrijfswebsite, 5 e-mailboxen, 20 GB opslag |
+| Webhosting Pro (TransIP) | € 15,99 | Tot 3 websites, 10 e-mailboxen, 100 GB opslag |
+| Webhosting Max (TransIP) | € 29,99 | Tot 5 websites, 25 e-mailboxen, 250 GB opslag |
+| VPS V1 tot V3 (TransIP) | € 5 tot € 20 | Eigen software of maatwerk; je beheert zelf of laat beheren |
+| VPS V4 en V5 (TransIP) | € 50 tot € 100 | Zwaardere toepassingen en veel gelijktijdige gebruikers |
+
+### Wat zit er normaal in een hostingpakket?
+
+Bij de webhostingpakketten van TransIP zijn een gratis Let's Encrypt-certificaat, uurlijkse back-ups die tot 30 dagen terug beschikbaar zijn, onbeperkt dataverkeer en SFTP-toegang inbegrepen. Dat is een goede maatstaf: dit vind je ook bij andere serieuze aanbieders, en als een pakket dit mist, vraag dan waarom.
+
+- SSL-certificaat: zonder https toont de browser een waarschuwing en verlies je vertrouwen.
+- Back-ups: vraag hoe vaak, hoe lang ze bewaard blijven en of je ze zelf kunt terugzetten.
+- E-mail: zakelijke adressen als info@jouwbedrijf.nl zijn vaak inbegrepen, met een maximum aantal mailboxen.
+- Opslag en verkeer: voor een bedrijfssite zelden een knelpunt, tenzij je veel video's of foto's op de server zet.
+- Support: kun je bellen of chatten als er iets misgaat, en op welke tijden?
+- Locatie van de servers: voor privacy is het prettig als gegevens binnen de EU staan; vraag dit na bij de aanbieder.
+
+### Wanneer is een VPS of maatwerkhosting nodig?
+
+Een VPS is een eigen virtuele server. Dat geeft vrijheid, maar het betekent ook dat iemand de server moet beheren: updates, beveiliging, monitoring. Bij TransIP begint een VPS op € 5 per maand excl. btw, maar de uren voor beheer zijn daar niet in verwerkt.
+
+Voor een normale bedrijfssite is dat meestal niet nodig. Het wordt relevant als je een webshop met veel verkeer hebt, een zelfgebouwde applicatie draait, bijvoorbeeld een configurator of CRM, of als je specifieke software nodig hebt die gewone webhosting niet ondersteunt. Laat dat dan bij voorkeur beheren door degene die het systeem bouwde, met duidelijke afspraken.
+
+### Wat bepaalt hoe snel je site is?
+
+Hosting speelt mee, maar het is niet de enige factor. Op web.dev legt Google uit dat de Time to First Byte, de tijd tot de server de eerste respons stuurt, bij voorkeur 0,8 seconde of minder is en dat meer dan 1,8 seconde als slecht geldt. Die tijd bestaat uit onder meer DNS-opzoeking, verbindingsopbouw en de verwerkingstijd van de server. Een zwaar gebouwde site op goede hosting kan dus nog steeds traag zijn.
+
+TTFB is volgens web.dev bovendien geen Core Web Vital. Kijk dus ook naar wat bezoekers in de praktijk zien, zoals de laadtijd van de zichtbare inhoud. Een slank gebouwde site met optimale afbeeldingen doet meer voor je snelheid dan een duurder pakket.
+
+### Op wiens naam moet je hosting staan?
+
+Dit is de vraag die het vaakst vergeten wordt en die later de meeste ellende voorkomt. Zorg dat domeinnaam, hosting, e-mail en eventuele analytics-accounts op naam van jouw bedrijf staan, met een login waar jij bij kunt. Dan kun je altijd van bureau wisselen zonder dat je site, mail of gegevens vastzitten.
+
+Vraag een bureau dat 'alles regelt' dus altijd waar het account staat en op wiens naam. Bij Next Growth staan accounts, code en data op naam van de klant. Een website begint bij ons vanaf € 1.500 en staat binnen twee weken live; wat de hosting daarnaast kost, hangt af van de aanbieder en het pakket dat bij jouw site past, en dat bespreken we vooraf.
+
+### Veelgestelde vragen
+Vraag: Is gratis hosting goed genoeg voor een bedrijf?
+Antwoord: Meestal niet. Gratis hosting heeft vaak reclame, beperkte support en geen zakelijk e-mailadres op je eigen domein. Voor een bedrijf dat vertrouwen moet wekken is een betaald pakket een kleine, nuttige uitgave.
+
+Vraag: Moet ik elk jaar of elke maand betalen voor hosting?
+Antwoord: Dat verschilt per aanbieder. TransIP rekent bijvoorbeeld een bedrag per maand, andere aanbieders factureren per jaar. Vraag altijd naar de looptijd en opzegtermijn.
+
+Vraag: Hoeveel e-mailboxen heb ik nodig?
+Antwoord: Reken op één per medewerker plus eventueel een algemeen adres als info@. Pakketten bevatten vaak 5 tot 25 mailboxen; meer kan meestal tegen bijbetaling.
+
+Vraag: Kan ik mijn website verhuizen naar een andere hostingaanbieder?
+Antwoord: Ja, als de site en de domeinnaam op jouw naam staan. Een verhuizing vraagt wat technisch werk, zoals het overzetten van bestanden en het aanpassen van DNS-instellingen, maar je zit niet vast.
+
+Vraag: Heeft mijn webshop andere hosting nodig dan een bedrijfssite?
+Antwoord: Vaak wel meer rekenkracht, omdat een webshop dynamisch is en bezoekers gelijktijdig zoeken en afrekenen. Kijk naar het type shop en het verwachte verkeer; een grotere shop kan een VPS of gespecialiseerde hosting vragen.
+
+
+### Bronnen
+- [TransIP: Webhosting pakketten en prijzen](https://www.transip.nl/webhosting/)
+- [TransIP: VPS pakketten en prijzen](https://www.transip.nl/vps/)
+- [web.dev: Time to First Byte (TTFB)](https://web.dev/articles/ttfb)
+
+---
+
 ## WordPress, Webflow of maatwerk: wat past bij jouw bedrijf?
 URL: https://nextgrowthdigital.nl/kennisbank-wordpress-webflow-maatwerk
 Categorie: Websites
@@ -2028,6 +2317,109 @@ Antwoord: Ja. Een veelgebruikte aanpak is WordPress voor de inhoud en een losse 
 - [W3Techs: Usage statistics of WordPress](https://w3techs.com/technologies/details/cm-wordpress)
 - [WordPress.org: About](https://wordpress.org/about/)
 - [Webflow Help Center: How do I export my Webflow site code?](https://help.webflow.com/hc/en-us/articles/33961386739347)
+
+---
+
+## Hoe schrijf je productbeschrijvingen die verkopen en vindbaar zijn?
+URL: https://nextgrowthdigital.nl/kennisbank-productbeschrijvingen-webshop
+Categorie: Webshops en e-commerce
+Bijgewerkt: 2026-11-01
+
+Vraag: Hoe schrijf ik productbeschrijvingen die verkopen en goed vindbaar zijn?
+
+Kort antwoord: Schrijf elke productbeschrijving zelf, voor de klant die twijfelt: wat is het, voor wie is het, welke maat of eigenschap telt en wat kost het. Kopieer niet de tekst van de leverancier, want die staat al op tientallen sites. Voeg Product-markup toe zodat Google prijs, voorraad en retourbeleid kan lezen, en zorg dat die gegevens kloppen met de zichtbare pagina.
+
+Kernpunten:
+- Een unieke tekst per product helpt de klant en voorkomt dat je pagina dezelfde inhoud heeft als andere shops.
+- Begin met de belangrijkste vragen van de koper: wat, voor wie, afmetingen, materiaal, levering en retour.
+- Product-markup (schema.org) is voor Google een duidelijke hulp: vereist zijn name, image en een offer met prijs en valuta.
+- Massaal teksten genereren zonder controle valt onder de spambeleidsregels van Google als er geen waarde voor de gebruiker is.
+- Begin bij je bestsellers, niet bij je hele assortiment tegelijk.
+
+### Wat maakt een productbeschrijving goed?
+
+Een goede productbeschrijving beantwoordt de vragen die een klant heeft voordat die op kopen klikt. Bij een product dat je niet kunt vasthouden gaat het om zekerheid: past het, wat zit erbij, hoe zwaar is het, hoe snel is het er en wat als het niet bevalt. Een tekst die alleen bijvoeglijke naamwoorden bevat, zoals mooi, hoogwaardig en stijlvol, beantwoordt geen enkele van die vragen.
+
+Google adviseert in algemene zin content te maken voor mensen, niet voor zoekmachines. In de richtlijn over nuttige, betrouwbare content staat als toetsvraag of de content originele informatie, onderzoek of analyse biedt. Voor een webshop betekent dat: voeg iets toe wat een leveranciersfolder niet heeft, zoals eigen foto's, ervaringen, vergelijkingen met andere modellen of praktische tips.
+
+### Waarom kopieer je de tekst van de leverancier niet?
+
+Leveranciersteksten staan vaak op tientallen webshops tegelijk. Dan is er voor jou geen reden om hoger te staan dan een ander, en voor de klant geen reden om juist bij jou te kopen. In het spambeleid van Google worden dunne affiliatiepagina's omschreven als pagina's waarvan productbeschrijvingen en reviews rechtstreeks van de oorspronkelijke verkoper zijn gekopieerd. Dat gaat over affiliate-sites, maar de les is dezelfde: gekopieerde teksten voegen niets toe.
+
+Begin niet met het herschrijven van alles. Pak eerst de producten die het meeste omzet of verkeer opleveren, en kijk daarna naar de rest. Voor een assortiment van duizenden producten is een combinatie handig: uitgebreide teksten voor de top, korte maar feitelijk juiste teksten voor de staart.
+
+### Kun je AI gebruiken voor productteksten?
+
+Ja, als hulpmiddel, niet als lopende band. Google zegt in het spambeleid dat het gaat om de waarde voor de gebruiker, niet om hoe de tekst is gemaakt. Het gebruik van generatieve AI om veel pagina's te maken zonder waarde toe te voegen, noemt Google wel als voorbeeld van misbruik van content op grote schaal. In de richtlijn over nuttige content vraagt Google ook om uit te leggen hoe content is gemaakt als automatisering een rol speelt.
+
+Praktisch betekent dit: laat AI een eerste opzet maken op basis van jouw echte productgegevens, controleer elk feit, haal vulzinnen weg en voeg zelf toe wat alleen jij weet. Laat een model nooit specificaties bedenken.
+
+### Opbouw van een productpagina die verkoopt
+
+Een vaste opbouw maakt je pagina's sneller te schrijven en makkelijker te scannen.
+
+- Een duidelijke productnaam met merk, type en het belangrijkste kenmerk, zonder keyword stuffing.
+- Twee of drie zinnen bovenaan die zeggen wat het is en voor wie het geschikt is.
+- Een lijst met specificaties: afmetingen, materiaal, gewicht, kleur, wat er in de doos zit.
+- Een korte alinea met gebruik of voordelen, in gewone taal.
+- Praktische informatie: levertijd, verzendkosten en retour, met een link naar je retourbeleid.
+- Eigen foto's vanuit meerdere hoeken en, als het past, een korte video.
+- Reviews van echte klanten, als je die hebt.
+
+### Wat zegt Google over Product-markup?
+
+Met structured data in schema.org-vorm geef je Google in machineleesbare vorm door wat er op de pagina staat. Google onderscheidt twee soorten: productsnippets voor pagina's waar je het product niet direct kunt kopen, en merchant listings voor pagina's waar de klant het bij jou kan kopen. Voor een webshop is de tweede soort relevant.
+
+Volgens de documentatie over merchant listings zijn de volgende velden vereist: de naam van het product, een of meer afbeeldingen en een offer met prijs en valuta. De prijs moet groter zijn dan nul. Aanbevolen zijn onder meer beschikbaarheid, conditie, merk, SKU of GTIN, en een retourbeleid en verzendgegevens. Voor die laatste twee adviseert Google een globaal beleid onder Organization te zetten en alleen bij afwijkingen op productniveau in te vullen.
+
+| Veld | Status volgens Google | Waarom |
+|---|---|---|
+| name | Vereist | De naam van het product |
+| image | Vereist | Productfoto's, bij voorkeur meerdere en in hoge resolutie |
+| offers met price en priceCurrency | Vereist | Actieve prijs groter dan nul, valuta in ISO 4217 |
+| availability | Aanbevolen | Bijvoorbeeld InStock, maar één waarde |
+| brand, sku of gtin | Aanbevolen | Helpt Google het product te herkennen |
+| hasMerchantReturnPolicy, shippingDetails | Aanbevolen | Retour en verzending, bij voorkeur als globaal beleid |
+| aggregateRating, review | Aanbevolen | Alleen met echte reviews |
+
+### Praktische regels voor markup
+
+Een paar punten uit de Google-documentatie die je bij het bouwen niet moet vergeten:
+
+- De pagina moet gaan over één product (of varianten van hetzelfde product), niet over een categorie of overzicht.
+- Bied je in meerdere valuta's aan, gebruik dan een aparte URL per valuta.
+- Markup die met JavaScript wordt gegenereerd kan minder vaak en minder betrouwbaar worden gecrawld. Zet Product-markup bij voorkeur in de eerste HTML.
+- Een verlopen priceValidUntil kan ertoe leiden dat je listing niet wordt getoond.
+- Test met de Rich Results Test, controleer enkele pagina's met de URL Inspection tool in Search Console en zorg dat ze niet door robots.txt of noindex worden geblokkeerd.
+
+### Welke fouten maken webshops het vaakst?
+
+De vaakste fout is een mismatch tussen markup en pagina, bijvoorbeeld een prijs in de markup die niet meer klopt na een actie. Mogelijk gevolg: je listing verdwijnt of de klant ziet een andere prijs dan Google toont. Een goed webshopsysteem haalt prijs en voorraad uit dezelfde bron voor zowel de zichtbare pagina als de markup. Ook gebruikelijk: één tekst voor alle varianten, lege specificaties en teksten die vooral zijn volgepropt met zoekwoorden.
+
+Next Growth bouwt webshops waarin Product-markup, prijzen en voorraad uit dezelfde productdata komen, zodat ze niet uit elkaar lopen. De teksten schrijf je zelf of samen met ons aan; wij zorgen voor de structuur, de koppelingen en een pagina die snel laadt.
+
+### Veelgestelde vragen
+Vraag: Hoe lang moet een productbeschrijving zijn?
+Antwoord: Zo lang als nodig is om de vragen van de koper te beantwoorden. Voor een eenvoudig product zijn twee of drie zinnen plus specificaties genoeg; voor een duur of technisch product is meer uitleg nodig. Lengte op zich is geen doel.
+
+Vraag: Mag ik de tekst van de leverancier gebruiken?
+Antwoord: Technisch kan het, maar het levert je weinig op: dezelfde tekst staat op andere sites en voegt niets toe. Pas de tekst in elk geval aan met eigen informatie, eigen foto's en praktische details.
+
+Vraag: Is Product-markup verplicht om gevonden te worden?
+Antwoord: Nee, maar het helpt Google je prijs, voorraad en andere productgegevens begrijpen en kan je in aanmerking brengen voor uitgebreide weergave in de zoekresultaten. Een garantie op een betere positie is er niet.
+
+Vraag: Mag ik AI gebruiken om productteksten te schrijven?
+Antwoord: Ja, zolang je de output controleert en echte waarde toevoegt. Google kijkt naar de waarde voor de gebruiker; massaal gegenereerde pagina's zonder toegevoegde waarde zijn volgens het spambeleid een risico.
+
+Vraag: Waar begin ik bij een webshop met veel producten?
+Antwoord: Begin bij de producten met de meeste omzet of het meeste verkeer, en schrijf die als eerste uitgebreid. Geef de rest een korte, feitelijk juiste beschrijving en breid die later uit.
+
+
+### Bronnen
+- [Google Search Central: Product structured data](https://developers.google.com/search/docs/appearance/structured-data/product)
+- [Google Search Central: Merchant listing structured data](https://developers.google.com/search/docs/appearance/structured-data/merchant-listing)
+- [Google Search Central: Creating helpful, reliable, people-first content](https://developers.google.com/search/docs/fundamentals/creating-helpful-content)
+- [Google Search Central: Spam policies for Google web search](https://developers.google.com/search/docs/essentials/spam-policies)
 
 ---
 
@@ -2470,6 +2862,112 @@ Antwoord: Minimaal voor, achter en zijkant op een model, een detailfoto en een v
 
 ---
 
+## Welk retourbeleid moet je webshop hebben?
+URL: https://nextgrowthdigital.nl/kennisbank-retourbeleid-webshop
+Categorie: Webshops en e-commerce
+Bijgewerkt: 2026-11-01
+
+Vraag: Welk retourbeleid moet mijn webshop hebben?
+
+Kort antwoord: Verkoop je online aan consumenten, dan moet je minimaal 14 dagen bedenktijd bieden na ontvangst van het product. Je betaalt het aankoopbedrag en de verzendkosten binnen 14 dagen terug. Retourkosten mag je bij de klant leggen, maar alleen als je dat vooraf duidelijk meldt. Sinds 19 juni 2026 hoort daar ook een herroepingsknop bij.
+
+Kernpunten:
+- De wettelijke bedenktijd is 14 dagen en gaat in nadat de klant het product heeft ontvangen.
+- Je betaalt het aankoopbedrag en de verzendkosten binnen 14 dagen terug nadat de klant heeft herroepen. Je mag wachten tot je het product terug hebt of bewijs van verzending.
+- Retourkosten zijn voor de klant als je dat duidelijk en vooraf meldt. Alleen in de algemene voorwaarden is niet voldoende.
+- Geef je de klant niet de juiste informatie, dan wordt de bedenktijd met een jaar verlengd.
+- Je mag royaler zijn dan de wet, bijvoorbeeld 30 dagen of gratis retour, als je dat zelf kiest en helder vermeldt.
+
+### Wat is de wettelijke basis: 14 dagen bedenktijd?
+
+Koopt een consument online bij jou, dan mag die de aankoop zonder opgave van reden ongedaan maken. Volgens de ACM (ConsuWijzer) is de bedenktijd standaard 14 dagen. Bij een product telt die termijn vanaf het moment dat de klant het ontvangt. Bestelt iemand meerdere producten die apart worden geleverd, dan gaat de termijn in na ontvangst van het laatste product.
+
+Het einde van de termijn valt op de 14e dag om 24:00 uur. Valt die dag in het weekend of op een feestdag, dan loopt de termijn door tot de eerstvolgende werkdag. De klant hoeft het product dus niet binnen 14 dagen bij jou te hebben, maar moet het binnen 14 dagen na zijn herroeping terugsturen. De verzenddatum telt.
+
+Dit geldt voor consumenten. Verkoop je alleen aan bedrijven (B2B), dan geldt dit wettelijke herroepingsrecht niet. Je kunt dan zelf kiezen wat je in je voorwaarden afspreekt.
+
+### Wie betaalt de retourkosten?
+
+Dit is de plek waar webshops de meeste fouten maken. Volgens de ACM zijn de kosten voor het terugsturen voor de klant als je duidelijk hebt gemeld dat de klant die betaalt. Duidelijk betekent dat de informatie makkelijk op je website te vinden is. Staat het alleen in de algemene voorwaarden, dan is dat niet voldoende. Heb je het niet vooraf gemeld, dan betaal jij de retourkosten.
+
+Je hebt daarmee drie keuzes. Gratis retour is een commerciële keuze die het vertrouwen vergroot, maar kost marge. Retour op kosten van de klant is toegestaan als je het zichtbaar vermeldt, bijvoorbeeld op de productpagina, in de winkelwagen en in de bevestigingsmail. Een tussenvorm is gratis retour binnen een bepaalde termijn of bij ruilen.
+
+### Hoe en wanneer betaal je terug?
+
+Je moet het aankoopbedrag en de verzendkosten terugbetalen, uiterlijk binnen 14 dagen nadat de klant het contract ongedaan heeft gemaakt. Je mag wachten met terugbetalen tot je het product terug hebt, of tot de klant bewijs van retour heeft laten zien, wat eerst komt. De terugbetaling doe je in principe via dezelfde betaalmethode als waarmee de klant betaalde.
+
+Stuurt de klant maar een deel van de bestelling terug, dan hoef je de verzendkosten niet terug te betalen. Het risico op verlies of beschadiging onderweg ligt bij de klant, tenzij jij het product zelf laat ophalen.
+
+### Wat is het modelformulier en moet je het aanbieden?
+
+De ACM heeft modelinstructies en een modelformulier voor herroeping opgesteld. In die instructies staat dat de klant het formulier mag gebruiken, maar daartoe niet verplicht is: een ondubbelzinnige verklaring, bijvoorbeeld per e-mail, volstaat. Het formulier is dus een hulpmiddel dat je klanten aanbiedt, geen eis aan de klant.
+
+Handig is om het modelformulier als download of als eenvoudig formulier op je site te zetten, naast uitleg over het retourneren. Houd het eenvoudig: een klant die moeite moet doen om te herroepen, zorgt voor boze reviews en voor risico op een boete.
+
+### Wat is de herroepingsknop?
+
+De ACM meldt dat webshops en online dienstverleners vanaf 19 juni 2026 een herroepingsknop moeten aanbieden. Daarmee kunnen klanten hun online aankoop digitaal ongedaan maken binnen de bedenktijd van 14 dagen. Jij kiest het ontwerp, maar de functie moet duidelijk te vinden zijn en tijdens de hele bedenktijd beschikbaar blijven.
+
+Volgens de ACM mag je geen onnodige drempels opwerpen. Een klant hoeft alleen de gegevens in te vullen die nodig zijn om de herroeping te verwerken. Inloggen mag een optie zijn, maar een account aanmaken mag je niet eisen. Na het gebruik van de knop stuur je direct een bevestiging. Bij de aankoop zelf moet je klanten ook melden dat het herroepingsrecht bestaat en hoe ze het uitoefenen. Controleer dus je checkout en je e-mails bij een bestaande webshop.
+
+### Voor welke producten geldt de bedenktijd niet?
+
+De ACM noemt een aantal uitzonderingen waarbij de consument geen wettelijk recht op bedenktijd heeft. Vermeld in je voorwaarden en op de productpagina wanneer dit voor jouw assortiment geldt.
+
+- Op maat gemaakte of persoonlijke producten.
+- Producten die snel bederven of verouderen.
+- Producten die na levering met iets anders zijn vermengd.
+- Digitale producten met een geopende verzegeling, zoals games of dvd's.
+- Hygiënische producten waarvan de verpakking is verwijderd.
+- Toegangskaarten voor een specifieke datum of tijd.
+
+### Wat gebeurt er als je het fout doet?
+
+Geef je klanten niet de juiste informatie over de bedenktijd, dan wordt die volgens de ACM met een jaar verlengd. Dat betekent dat een klant een jaar later nog kan herroepen. Daarnaast kan de ACM boetes opleggen. Voor een kleine webshop is dat geen reden tot paniek, wel tot een nette inrichting van je retourinformatie en checkout.
+
+### Checklist voor je retourpagina
+
+Een goede retourpagina is kort, concreet en makkelijk te vinden. Zet een link in de footer, op de productpagina en in de winkelwagen.
+
+| Onderdeel | Wat je vermeldt |
+|---|---|
+| Termijn | 14 dagen na ontvangst, of langer als jij dat kiest |
+| Hoe herroepen | Herroepingsknop, modelformulier of een e-mail naar een vast adres |
+| Retourkosten | Duidelijk wie ze betaalt, met bedrag of verzendmethode |
+| Terugbetaling | Binnen 14 dagen, via dezelfde betaalmethode |
+| Staat van het product | Alleen waardevermindering door onnodig gebruik valt bij de klant |
+| Uitzonderingen | Alleen de uitzonderingen die voor jouw producten gelden |
+
+### Wat betekent dit voor het bouwen van je webshop?
+
+Een retourbeleid hoort in de opzet van je webshop, niet als losse pagina erna. Bij Next Growth bouwen we webshops waarin de retourinformatie op de plekken staat waar klanten haar nodig hebben: productpagina, winkelwagen, bevestigingsmail en een duidelijke retourpagina. Welke termijn en kosten je kiest, bepaal jij. Wij zorgen dat het zichtbaar en werkbaar is.
+
+Let op: dit artikel is algemene informatie en geen juridisch advies. Verkoop je bijzondere producten, zoals maatwerk of digitale producten, laat je voorwaarden dan controleren door een jurist.
+
+### Veelgestelde vragen
+Vraag: Moet ik gratis retour aanbieden?
+Antwoord: Nee. Je mag de retourkosten bij de klant leggen, mits je dat vooraf duidelijk meldt. Staat het alleen in de algemene voorwaarden, dan is dat niet duidelijk genoeg en betaal jij de kosten.
+
+Vraag: Moet ik het modelformulier gebruiken?
+Antwoord: Je biedt het aan, maar de klant hoeft het niet te gebruiken. Een ondubbelzinnige verklaring, bijvoorbeeld per e-mail, is voldoende om te herroepen.
+
+Vraag: Mag ik de verzendkosten houden bij een retour?
+Antwoord: Nee. Bij een volledige herroeping betaal je het aankoopbedrag en de verzendkosten terug. Bij een deel van de bestelling vallen de verzendkosten niet onder de terugbetaling.
+
+Vraag: Geldt de bedenktijd ook als ik alleen aan bedrijven verkoop?
+Antwoord: Nee, het wettelijke herroepingsrecht is bedoeld voor consumenten. Voor zakelijke klanten spreek je zelf af wat geldt in je algemene voorwaarden.
+
+Vraag: Wat is de herroepingsknop en moet mijn webshop die hebben?
+Antwoord: Het is een digitale functie waarmee klanten binnen de bedenktijd hun online aankoop ongedaan maken. Volgens de ACM moeten webshops en online dienstverleners die vanaf 19 juni 2026 aanbieden.
+
+
+### Bronnen
+- [ACM ConsuWijzer: Bedenktijd](https://consument.acm.nl/aankoop-dienst-annuleren/bedenktijd)
+- [ACM: ACM roept online retailers op zich voor te bereiden op herroepingsknop](https://www.acm.nl/nl/publicaties/acm-roept-online-retailers-op-zich-voor-te-bereiden-op-herroepingsknop)
+- [ACM: Modelinstructies ontbinding herroeping 2014](https://acm.nl/nl/download/publicatie/?id=12753)
+
+---
+
 ## Welke betaalmethoden en verzendopties heeft een Nederlandse webshop nodig?
 URL: https://nextgrowthdigital.nl/kennisbank-betaalmethoden-verzending-webshop
 Categorie: Webshops en e-commerce
@@ -2637,6 +3135,214 @@ Antwoord: Nee, een recente smartphone met goed licht en stabiel beeld is voor de
 
 ### Bronnen
 - [Betaalvereniging Nederland: Thuiswinkel Markt Monitor 2025 (31 maart 2026)](https://www.betaalvereniging.nl/en/news/more-online-product-purchases-less-spending-on-travel-and-events-in-2025/)
+
+---
+
+## Hoe kies je een goede bedrijfsnaam?
+URL: https://nextgrowthdigital.nl/kennisbank-bedrijfsnaam-kiezen
+Categorie: Branding
+Bijgewerkt: 2026-11-01
+
+Vraag: Hoe kies ik een goede bedrijfsnaam?
+
+Kort antwoord: Een goede bedrijfsnaam is makkelijk uit te spreken, past bij wat je doet en is juridisch vrij. Controleer eerst de regels van de Handelsnaamwet, zoek daarna met de Naamchecker van KVK en BOIP of de naam al voorkomt, en check ook of het .nl-domein beschikbaar is. Registreer het domein voordat je de naam bij KVK inschrijft.
+
+Kernpunten:
+- De Handelsnaamwet beschermt wie een naam als eerste gebruikt, ook zonder inschrijving. Een naam die al in gebruik is, kun je dus niet zomaar nemen.
+- De Naamchecker zoekt tegelijk in het Handelsregister van KVK en het merkenregister van BOIP, maar niet in domeinnamen of buitenlandse registers.
+- Een naam die je klanten op het verkeerde been zet, zoals 'en zonen' of 'groep' voor een eenmanszaak, is misleidend.
+- Een Benelux-merk bij BOIP geeft exclusieve rechten, maar beschrijvende namen worden geweigerd.
+- Kijk ook naar je domeinnaam, uitspraak, spelling en eventueel gebruik in het buitenland voordat je drukwerk, een logo en een website laat maken.
+
+### Waar moet een bedrijfsnaam aan voldoen?
+
+Een goede naam is in de eerste plaats een naam die je mag voeren. Volgens KVK beschermt de Handelsnaamwet degene die een naam als eerste gebruikt, ook als die naam niet in het Handelsregister staat. Dat werkt twee kanten op: jij kunt een bestaande naam niet zomaar overnemen, en een ander kan jou een naam die jij al gebruikt niet zomaar afpakken.
+
+Daarnaast mag een naam niet misleiden. KVK noemt een paar duidelijke voorbeelden. 'Jansen & partners' suggereert dat er meerdere eigenaren zijn, en hetzelfde geldt voor woorden als 'groep' of 'en zonen' bij een eenmanszaak. 'Koninklijk' of 'Royal' mag alleen met het predicaat Koninklijk. Een naam die een andere activiteit suggereert dan je daadwerkelijk doet, is ook misleidend. Beschermde termen zoals bank, architect, accountant, advocaat en notaris kun je niet vrij gebruiken.
+
+Een naam hoeft ook niet saai te zijn. Cijfers en tekens als punt, komma, streepje, plus en ampersand mogen. Let wel op: de naam moet leesbaar en uitspreekbaar blijven, en volgens KVK worden overdreven symbolen niet beschermd door de Handelsnaamwet. Een rechtsvorm als V.O.F. mag je niet in een extra handelsnaam zetten.
+
+### Hoe controleer je of een naam vrij is?
+
+Begin met de Naamchecker van KVK. Die zoekt tegelijk in het Handelsregister en het merkenregister van BOIP, het Benelux-Bureau voor de Intellectuele Eigendom. Dat is een snelle eerste filter, maar geen volledig onderzoek. De pagina zelf noemt alleen die twee registers; domeinnamen, sociale media en buitenlandse merkenregisters zitten er niet bij.
+
+Het Ondernemersplein van de Rijksoverheid adviseert verder te kijken dan de exacte naam. Zoek ook naar varianten en naar vergelijkbare merken voor vergelijkbare activiteiten, en zoek op internet of de naam al ergens als handelsnaam in gebruik is. Volgens KVK helpt het niet om een bestaande naam licht te veranderen of er je woonplaats achter te zetten: de oorspronkelijke eigenaar kan dan nog steeds juridische stappen nemen.
+
+- Toets de naam aan de regels van de Handelsnaamwet: niet misleidend, niet verwarrend dicht bij een bestaande naam.
+- Zoek met de Naamchecker in het Handelsregister en het BOIP-merkenregister.
+- Zoek ook op varianten, andere spelling en vergelijkbare klank.
+- Zoek op internet en in sociale media naar bedrijven in dezelfde of een aanpalende branche.
+- Controleer het .nl-domein bij SIDN en kijk of een passende social-handle vrij is.
+- Vraag bij twijfel of bij plannen voor het buitenland advies van een juridisch specialist in intellectueel eigendom.
+
+### Wat is het verschil tussen handelsnaam en merk?
+
+Een handelsnaam is de naam waaronder je onderneming zaken doet. Je legt die vast bij je inschrijving bij KVK. Een merk is een naam of logo waarmee je producten of diensten onderscheidt, en dat registreer je bij BOIP. De meeste kleine bedrijven beginnen met alleen een handelsnaam; een merkregistratie is een extra stap voor wie zijn naam serieus wil beschermen.
+
+Volgens het Ondernemersplein geldt een Benelux-registratie voor België, Nederland en Luxemburg samen, je kunt dus niet voor alleen Nederland registreren. De registratie is tien jaar geldig en daarna steeds met tien jaar te verlengen. Een merk moet onderscheidend zijn: beschrijvende namen worden geweigerd. Het voorbeeld van het Ondernemersplein is het woord 'fiets' als merk voor fietsen. Het aanvraagbedrag krijg je bij een weigering niet terug.
+
+Meer over het verschil tussen logo, huisstijl en merk lees je in ons artikel over dat onderwerp.
+
+|  | Handelsnaam | Merk |
+|---|---|---|
+| Waar leg je het vast? | Handelsregister van KVK | Merkenregister van BOIP |
+| Waar komt de bescherming vandaan? | Het eerste gebruik van de naam (Handelsnaamwet) | Registratie, met exclusieve rechten in de Benelux |
+| Mag de naam beschrijvend zijn? | Binnen de regels, mits niet misleidend | Nee, beschrijvende namen worden geweigerd |
+| Voor wie is het zinvol? | Elke ondernemer | Wie een naam of logo extra wil beschermen |
+
+### Waarom je domeinnaam bij de naamkeuze hoort
+
+Een bedrijfsnaam zonder bruikbaar domein is lastig. KVK adviseert het .nl-domein te controleren bij SIDN en het domein te registreren voordat je je bij KVK inschrijft. De reden: zodra je naam in het Handelsregister staat, is die openbaar en kan een ander het domein voor je pakken.
+
+Zorg dat het domein op jouw naam of die van je bedrijf komt te staan, niet op die van een bureau of freelancer. Hoe dat zit lees je in ons artikel over een domeinnaam op eigen naam. Kies bij voorkeur een domein dat gelijk is aan de bedrijfsnaam, zonder streepjes of cijfers die je steeds moet uitleggen. Test de naam hardop: als je hem aan de telefoon drie keer moet spellen, is hij waarschijnlijk te ingewikkeld.
+
+### Praktische tips voor een naam die blijft werken
+
+Naast de juridische kant zijn er commerciële keuzes. Een persoonlijke naam is eenvoudig, maar KVK wijst erop dat jouw naam in het openbare Handelsregister je persoonlijk kan identificeren. Een naam die te smal is, zoals een plaatsnaam of één product, remt je als je later uitbreidt. Een naam die te algemeen is, wordt slecht gevonden en is moeilijk te beschermen.
+
+KVK adviseert ook te controleren hoe een naam klinkt in andere talen als je van plan bent in het buitenland te werken. Dat voorkomt vervelende verrassingen. Laat tot slot een paar mensen uit je doelgroep de naam lezen en horen, zonder dat jij uitleg geeft. Wat zij onthouden en wat zij verkeerd spellen zegt meer dan jouw eigen voorkeur.
+
+- Kort en uitspreekbaar, ook door iemand die de naam alleen hoort.
+- Past bij wat je over drie tot vijf jaar doet, niet alleen bij nu.
+- Beschikbaar als .nl-domein en bij voorkeur als social-handle.
+- Niet misleidend en niet te dicht op een bestaande naam.
+- Werkt in een logo, op een bedrijfsauto en in een e-mailadres.
+
+### Wanneer is een merkregistratie niet nodig?
+
+Niet elke ondernemer hoeft een merk te registreren. Voor een lokaal bedrijf dat vooral via mond-tot-mondreclame en een eigen website werkt, geeft de Handelsnaamwet al een basis, zolang je de naam daadwerkelijk gebruikt. Een merkregistratie wordt interessanter als je landelijk of in meerdere landen werkt, als je naam een kernonderdeel van je product is of als je producten onder je naam gaat verkopen via anderen. De Rijksoverheid wijst erop dat het bij specifieke merkbeslissingen verstandig is advies van een merkadviseur of jurist in te winnen. Dat sluit aan op onze ervaring: naamkeuze is geen webdesignvraag, maar de uitkomst bepaalt wel alles wat daarna komt.
+
+Als je naam vaststaat, helpt Next Growth bij het vertalen ervan naar een logo, huisstijl en website. De juridische controle blijft bij jou en eventueel een specialist. Wij leveren geen juridisch advies; wij zorgen dat de gekozen naam consequent terugkomt in je ontwerp, je domein en je site.
+
+### Veelgestelde vragen
+Vraag: Moet ik mijn bedrijfsnaam laten registreren?
+Antwoord: Je handelsnaam leg je vast bij je inschrijving bij KVK. Een merkregistratie bij BOIP is vrijwillig en geeft extra, exclusieve rechten in de Benelux.
+
+Vraag: Mag ik mijn eigen naam als bedrijfsnaam gebruiken?
+Antwoord: Ja, dat is eenvoudig en niet misleidend. Houd er wel rekening mee dat je naam dan openbaar in het Handelsregister staat.
+
+Vraag: Wat als mijn gewenste naam al bestaat?
+Antwoord: Een kleine aanpassing of een plaatsnaam erachter beschermt je volgens KVK niet. Kies liever een duidelijk andere naam.
+
+Vraag: Hoe lang is een Benelux-merk geldig?
+Antwoord: Volgens het Ondernemersplein tien jaar, daarna steeds met tien jaar te verlengen.
+
+Vraag: Moet ik eerst mijn domein of eerst mijn KVK-inschrijving regelen?
+Antwoord: Eerst het domein. KVK adviseert het domein bij SIDN te registreren voordat je naam openbaar wordt in het Handelsregister.
+
+
+### Bronnen
+- [KVK: Een bedrijfsnaam kiezen, dit moet je weten](https://www.kvk.nl/starten/alles-wat-je-moet-weten-over-een-bedrijfsnaam-kiezen/)
+- [KVK: Naamchecker](https://www.kvk.nl/starten/naamchecker/)
+- [Ondernemersplein (Rijksoverheid): Merkenrecht](https://ondernemersplein.overheid.nl/wetten-en-regels/merkenrecht/)
+
+---
+
+## Hoe kies je kleuren en lettertypen voor je huisstijl?
+URL: https://nextgrowthdigital.nl/kennisbank-huisstijlkleuren-lettertypen
+Categorie: Branding
+Bijgewerkt: 2026-11-01
+
+Vraag: Hoe kies ik kleuren en lettertypen voor mijn huisstijl?
+
+Kort antwoord: Kies een kleine set: een hoofdkleur, een of twee steunkleuren, neutrale tinten en maximaal twee lettertypen. Toets elke tekstkleur op contrast: WCAG niveau AA vraagt minimaal 4,5 op 1 voor gewone tekst en 3 op 1 voor grote tekst. Controleer ook de licentie van elk lettertype voordat je het op je website, in drukwerk of in een logo gebruikt.
+
+Kernpunten:
+- Een werkbare huisstijl heeft een beperkt palet: een hoofdkleur, steunkleuren, neutrale tinten en een duidelijke tekstkleur.
+- WCAG 2.2 niveau AA vraagt een contrastverhouding van minimaal 4,5 op 1 voor gewone tekst en 3 op 1 voor grote tekst.
+- Kleur mag nooit het enige signaal zijn: een foutmelding of status heeft ook tekst, vorm of icoon nodig.
+- Gebruik maximaal twee lettertypen, één voor koppen en één voor lopende tekst, en test ze op mobiel.
+- Lettertypen hebben een licentie. Open lettertypen onder de SIL Open Font License mag je commercieel gebruiken, andere lettertypen heb je vaak te koop of in abonnement.
+
+### Hoe bouw je een kleurenpalet dat in de praktijk werkt?
+
+Begin niet met 'welke kleur vind ik mooi', maar met 'waar moet deze kleur werken'. Een huisstijlkleur komt terug op een website, op een bedrijfsauto, in een offerte, op sociale media en soms op een bouwhek of werkkleding. Een kleur die op een schermpje prachtig is, kan in druk dof worden of op een foto verdwijnen. Maak dus een palet dat op al die plekken bruikbaar is.
+
+Een beproefde opbouw is klein. Je hebt een hoofdkleur voor je merkidentiteit en knoppen, een of twee steunkleuren voor accenten, een aantal neutrale tinten voor achtergronden en randen, en een donkere tekstkleur. Meer kleuren leveren zelden iets op en maken het lastiger om consequent te blijven. Leg per kleur de exacte waarden vast: HEX of RGB voor scherm, CMYK of een Pantone-code voor druk.
+
+Kleuren hebben associaties, maar die zijn cultureel en wisselend. Zie ze als gespreksstof, niet als bewezen regel. Kijk vooral naar je branche: als alle collega's donkerblauw gebruiken, val je op met een andere hoofdkleur, zolang die bij je diensten en klanten past.
+
+- Een hoofdkleur voor logo, knoppen en belangrijke accenten.
+- Een of twee steunkleuren voor lijnen, icoontjes en secundaire acties.
+- Drie tot vijf neutrale tinten (wit, lichtgrijs, grijs, donkergrijs, bijna zwart).
+- Een vaste tekstkleur die op elke achtergrond in het palet leesbaar blijft.
+- Een lijst met waarden per kleur voor scherm en voor druk.
+
+### Welk contrast moet je minimaal aanhouden?
+
+Dit is het deel waar veel huisstijlen fout gaan. Lichtgrijze tekst op wit of witte tekst op een lichte oranje knop ziet er strak uit, maar is voor veel mensen slecht leesbaar, zeker op een telefoon in daglicht. De webrichtlijnen WCAG 2.2 geven concrete getallen voor niveau AA, dat meestal als norm wordt gehanteerd.
+
+Volgens W3C moet gewone tekst een contrastverhouding van minimaal 4,5 op 1 hebben met de achtergrond. Voor grote tekst is 3 op 1 genoeg. W3C noemt tekst groot vanaf ongeveer 18 punt, of 14 punt als de tekst vet is. Dat komt neer op ongeveer 24 pixels, of ongeveer 18,5 pixels in vet. W3C waarschuwt ook dat dunne of ongebruikelijke lettertypen meer contrast kunnen nodig hebben dan de grens suggereert.
+
+Er is een uitzondering voor logo's: tekst die onderdeel is van een logo of merknaam heeft volgens W3C geen contrasteis. Die uitzondering geldt niet als je logo als bedienbaar element werkt, bijvoorbeeld als knop, en ook niet als je het bewust met laag contrast toont terwijl de merkregels dat niet vragen. Je hoofdkleur hoeft dus niet zelf aan 4,5 op 1 te voldoen, maar de tekst die erop of erlangs staat wel.
+
+| Soort tekst | Minimaal contrast (WCAG 2.2, niveau AA) |
+|---|---|
+| Gewone tekst | 4,5 op 1 |
+| Grote tekst (vanaf ongeveer 18 punt, of 14 punt vet) | 3 op 1 |
+| Tekst in een logo of merknaam | Geen eis |
+
+### Waarom kleur nooit het enige signaal mag zijn
+
+Naast contrast is er een tweede regel die in huisstijlen vaak vergeten wordt. WCAG succescriterium 1.4.1 zegt dat kleur niet het enige visuele middel mag zijn om informatie over te brengen. Een verplicht formulierveld dat alleen rood is gemarkeerd, valt erdoor. Voeg een icoon of een tekst toe en het is opgelost.
+
+Dit raakt je huisstijl direct. Als je groen kiest voor 'gelukt' en rood voor 'fout', zorg dan dat die toestanden ook met woorden of symbolen worden aangegeven. Ook links in lopende tekst moeten zich op meer dan alleen kleur onderscheiden, bijvoorbeeld met een onderstreping. Op deze manier blijft je site bruikbaar voor mensen die kleuren minder goed zien, en ook voor iedereen in fel zonlicht.
+
+Of toegankelijkheidseisen voor jouw site verplicht zijn, lees je in ons artikel over toegankelijkheid en de EAA.
+
+### Hoe kies je lettertypen?
+
+Beperk je tot twee lettertypen: één voor koppen, één voor lopende tekst. Soms is één lettertype in meerdere gewichten genoeg. Meer lettertypen geven onrust en maken je site trager, omdat elk lettertype en elk gewicht extra bestanden laadt.
+
+Kies voor lopende tekst een lettertype dat op een telefoon prettig leest bij 16 pixels of groter. Zet in je huisstijlhandleiding vast welke groottes en gewichten je gebruikt, bijvoorbeeld voor H1, H2 en lopende tekst. Test koppen en een stuk lange tekst op een echte telefoon, niet alleen op een groot scherm. Let ook op tekens: een lettertype zonder goede ondersteuning van accenten, euroteken of cijfers in tabellen levert in een Nederlandse tekst snel gedoe op.
+
+Houd rekening met een reservelettertype: als het gekozen lettertype niet laadt, valt de browser terug op een standaard. Kies een fallback van vergelijkbare breedte, zodat de pagina niet verspringt.
+
+- Maximaal twee lettertypen, in een beperkt aantal gewichten.
+- Goed leesbaar bij 16 pixels of groter op een telefoon.
+- Ondersteuning voor Nederlandse tekens, euroteken en cijfers.
+- Een passende fallback voor als het lettertype niet laadt.
+- Een duidelijke licentie voor web, druk en eventueel app.
+
+### Wat moet je weten over licenties van lettertypen?
+
+Een lettertype is een werk met een licentie, ook als je het gratis kunt downloaden. Dat vergeten veel ondernemers tot een ontwerper of leverancier ernaar vraagt. De SIL Open Font License (OFL) is een veelgebruikte open licentie. Volgens de officiële OFL-FAQ mag je zulke lettertypen commercieel gebruiken zonder extra toestemming, bijvoorbeeld in een logo, op posters en op merchandise. Gebruik als webfont via CSS is uitdrukkelijk toegestaan. Wat je niet mag, is het lettertype zelfstandig verkopen. Bij verspreiding van het lettertype zelf moeten copyright- en licentie-informatie meegaan.
+
+Voor commerciële lettertypen gelden de voorwaarden van de uitgever. Daarin staat vaak apart wat je mag voor desktop (drukwerk), voor web en voor apps, en soms hangt de prijs af van het aantal bezoekers of gebruikers. Lees de licentie voordat je een lettertype in een logo of een volledige huisstijl verwerkt, want terugdraaien is later duur. Vraag bij een ontwerper altijd welke lettertypen zijn gebruikt, waar de licentie is gekocht en op wiens naam die staat.
+
+Zorg dat licenties op naam van je bedrijf staan, niet van een bureau of freelancer. Zo sta je later niet met lege handen als je van ontwerper wisselt.
+
+### Een korte checklist voor je keuze
+
+Loop dit rijtje na voordat je palet en lettertypen definitief zijn. Het kost een uur en voorkomt aanpassingen achteraf.
+
+- Elke tekst-achtergrondcombinatie haalt 4,5 op 1 (gewone tekst) of 3 op 1 (grote tekst).
+- Knoppen, links en foutmeldingen zijn ook zonder kleur te begrijpen.
+- Je palet werkt in druk, op scherm en op een foto of bedrijfsauto.
+- Je gebruikt maximaal twee lettertypen en kent de licentie van elk.
+- Alle waarden staan vastgelegd, zodat iedereen die aan je huisstijl werkt hetzelfde gebruikt.
+
+### Veelgestelde vragen
+Vraag: Hoeveel kleuren mag een huisstijl hebben?
+Antwoord: Er is geen vaste regel, maar een klein palet met een hoofdkleur, een of twee steunkleuren en neutrale tinten werkt in de praktijk het best. Meer kleuren maken consequent blijven lastiger.
+
+Vraag: Welk contrast is verplicht voor tekst op een website?
+Antwoord: WCAG 2.2 niveau AA vraagt 4,5 op 1 voor gewone tekst en 3 op 1 voor grote tekst. Of je hieraan moet voldoen hangt af van je situatie, maar het is ook gewoon goede leesbaarheid.
+
+Vraag: Moet mijn logo aan de contrasteisen voldoen?
+Antwoord: Tekst die deel is van een logo of merknaam valt volgens W3C buiten de contrasteis. Dat geldt niet als het logo als knop of bedienbaar element werkt.
+
+Vraag: Mag ik een gratis lettertype commercieel gebruiken?
+Antwoord: Dat hangt af van de licentie. Bij lettertypen onder de SIL Open Font License is commercieel gebruik toegestaan, maar andere gratis lettertypen kunnen alleen privégebruik toestaan. Controleer de licentie per lettertype.
+
+Vraag: Hoeveel lettertypen kun je het best gebruiken?
+Antwoord: Maximaal twee, bijvoorbeeld één voor koppen en één voor lopende tekst. Dat houdt je huisstijl rustig en je site sneller.
+
+
+### Bronnen
+- [W3C: Understanding SC 1.4.3 Contrast (Minimum), WCAG 2.2](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html)
+- [W3C: Understanding SC 1.4.1 Use of Color, WCAG 2.2](https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html)
+- [SIL Open Font License: FAQ](https://openfontlicense.org/ofl-faq/)
 
 ---
 
@@ -3304,6 +4010,94 @@ Antwoord: Dat is zonder gegevens niet te bepalen. Vergelijk passende aanvragen p
 
 ---
 
+## Hoe lang duurt het voordat SEO resultaat geeft?
+URL: https://nextgrowthdigital.nl/kennisbank-seo-resultaat-hoe-lang
+Categorie: Marketing en SEO
+Bijgewerkt: 2026-11-01
+
+Vraag: Hoe lang duurt het voordat SEO resultaat geeft?
+
+Kort antwoord: SEO geeft zelden binnen weken resultaat. Google zegt dat sommige wijzigingen in uren zichtbaar zijn en andere maanden kosten. Uit onderzoek van Ahrefs blijkt dat 6,11% van een steekproef nieuwe Engelstalige pagina's binnen een jaar in de top 10 kwam. Reken dus op enkele maanden voor eerste beweging en langer voor concurrerende zoektermen.
+
+Kernpunten:
+- Google zegt zelf dat wijzigingen 'in een paar uur' tot 'enkele maanden' kunnen duren voordat ze zichtbaar zijn.
+- Ahrefs: 6,11% van 2 miljoen nieuwe Engelstalige pagina's bereikte binnen een jaar de top 10; bij een bredere steekproef was dat 1,74%.
+- Ruim 40% van de pagina's die de top 10 haalden, deed dat al in de eerste maand; wie na ongeveer 6 maanden nog niet zichtbaar is, heeft zonder aanpassingen weinig kans.
+- Lokale en weinig concurrerende zoektermen gaan sneller dan landelijke termen met veel concurrentie.
+- Meet eerst tussenstappen, zoals indexatie, vertoningen en posities, voordat je op aanvragen of omzet stuurt.
+
+### Wat zegt Google over de duur van SEO?
+
+In de SEO-starterguide van Google staat dat elke wijziging die je maakt enige tijd kost voordat Google haar verwerkt. Sommige wijzigingen zijn volgens Google binnen enkele uren zichtbaar, andere kunnen enkele maanden duren. Google adviseert enkele weken te wachten voordat je beoordeelt of je werk effect had.
+
+Er bestaat dus geen vaste termijn. Hoe snel je iets merkt, hangt af van hoe vaak Google je site bezoekt, hoe groot de wijziging is en hoe sterk de concurrentie voor jouw zoekterm is.
+
+### Wat laat onderzoek zien over rankingtijd?
+
+Ahrefs onderzocht hoe lang pagina's erover doen om de top 10 van Google te halen. In een steekproef van 1 miljoen willekeurige URL's uit september 2023 haalde 1,74% binnen een jaar de top 10; in 2017 was dat nog 5,7%. In een andere steekproef van 2 miljoen Engelstalige URL's die in oktober 2023 waren aangemaakt, waarbij alleen pagina's met inhoud meetelden, was dat 6,11%.
+
+Van de pagina's die de top 10 bereikten, deed 40,82% dat in de eerste maand. Na ongeveer zes maanden hebben pagina's die er nog niet staan volgens Ahrefs weinig kans om er zonder aanpassingen alsnog te komen. Ook zegt Ahrefs dat de gemiddelde nummer 1 vijf jaar oud is, tegen twee jaar in 2017, en dat 72,9% van de top 10-pagina's ouder is dan drie jaar.
+
+Let op wat dit niet zegt. Het zijn Engelstalige, wereldwijde steekproeven en geen Nederlandse bedrijfssites. Ze laten vooral zien dat de meeste nieuwe pagina's nooit bovenaan komen, en dat oudere pagina's een voordeel hebben. Voor een Nederlands mkb-bedrijf met lokale zoektermen kan de uitkomst gunstiger zijn, maar dat is geen belofte.
+
+### Welke tijdlijn kun je realistisch verwachten?
+
+Onderstaande tabel is een praktische richtlijn gebaseerd op bovenstaande bronnen en onze ervaring met bedrijfssites. Het is geen garantie; per bedrijf kan het sneller of trager gaan.
+
+| Periode | Wat je mag verwachten |
+|---|---|
+| Week 1 tot 4 | Site wordt gecrawld en geïndexeerd; technische problemen komen boven; eerste vertoningen in Search Console. |
+| Maand 2 tot 3 | Pagina's krijgen posities, vaak nog laag; eerste lage-concurrentie termen en merknaam-zoekopdrachten bewegen. |
+| Maand 4 tot 6 | Stabielere posities voor gerichte pagina's; eerste klikken en aanvragen via zoeken, vooral lokaal. |
+| Na 6 maanden | Beoordelen wat werkt, pagina's verbeteren die stilstaan, nieuwe onderwerpen toevoegen. |
+| Na 12 maanden of langer | Concurrerende zoektermen binnen bereik als je consequent content en autoriteit opbouwt. |
+
+### Waarom gaat het bij de één sneller dan bij de ander?
+
+De snelheid van SEO is geen vast getal. Een paar factoren maken het grootste verschil.
+
+- Leeftijd en autoriteit van je domein: een nieuwe site start achter op een site die al jaren bestaat en wordt genoemd.
+- Concurrentie: 'dakkapel Eindhoven' is makkelijker dan 'dakkapel' of 'dakkapel kosten' voor heel Nederland.
+- Zoekintentie: past je pagina bij wat de zoeker wil? Een pagina die dat beter dekt dan de huidige top 10, heeft de beste kans.
+- Technische basis: een snelle, indexeerbare site zonder foutmeldingen scheelt weken.
+- Doorlopende aandacht: Ahrefs ziet dat pagina's zonder updates na ongeveer zes maanden weinig kans meer hebben, dus verbeteren en uitbreiden hoort erbij.
+- Lokale signalen: een goed ingevuld Google Bedrijfsprofiel en echte reviews helpen bij zoekopdrachten met een plaatsnaam.
+
+### Wat doe je in de tussentijd?
+
+SEO is een investering die pas later terugbetaalt, dus je wilt niet maanden zonder zicht werken. Meet daarom de stappen onderweg: zijn je pagina's geïndexeerd, krijgen ze vertoningen in Google Search Console, stijgen de posities voor je belangrijkste zoektermen, en komen er klikken? Pas daarna kijk je naar aanvragen en omzet.
+
+Voor snellere resultaten bestaan betaalde advertenties, zoals Google Ads, die direct verkeer geven maar stoppen als je stopt met betalen. Veel bedrijven combineren beide: advertenties voor de korte termijn, SEO als blijvende basis. Dat is een afweging van budget en doel, niet van goed of fout.
+
+### Zo help je SEO sneller op weg
+
+Het meeste van de winst zit in de start. Zorg dat de site technisch klopt, dat elke dienst een eigen pagina met een duidelijk antwoord heeft en dat je bedrijfsgegevens overal gelijk zijn. Bij een nieuwe site is het slim om SEO mee te nemen in de bouw, in plaats van achteraf te repareren.
+
+Next Growth bouwt zakelijke websites vanaf € 1.500 die binnen twee weken live staan, met de SEO-basis er standaard in. De resultaten daarna volgen het tempo dat hierboven staat: we beloven geen posities, wel een site die zoekmachines goed kunnen lezen en die je zelf kunt meten.
+
+### Veelgestelde vragen
+Vraag: Kan SEO binnen een maand resultaat geven?
+Antwoord: Soms voor merknaam- of weinig concurrerende zoektermen, maar niet betrouwbaar. Google zegt dat wijzigingen van uren tot maanden kunnen duren, en Ahrefs zag dat 40,82% van de pagina's die de top 10 haalden dat in de eerste maand deed.
+
+Vraag: Waarom staat mijn nieuwe website na twee maanden nog niet bovenaan?
+Antwoord: Dat is normaal. Een nieuwe site moet worden gecrawld, geïndexeerd en vertrouwen opbouwen. Ahrefs vond dat slechts een klein deel van de nieuwe pagina's binnen een jaar de top 10 haalt.
+
+Vraag: Wanneer moet ik me zorgen maken?
+Antwoord: Als pagina's na enkele weken niet geïndexeerd zijn, of als er na ongeveer zes maanden geen beweging is. Controleer dan indexatie, zoekintentie en of de pagina echt beter is dan de huidige top 10.
+
+Vraag: Is SEO sneller voor lokale bedrijven?
+Antwoord: Vaak wel, omdat lokale zoektermen minder concurrentie hebben. Een goed Google Bedrijfsprofiel, reviews en een duidelijke dienstpagina helpen. Een garantie bestaat niet.
+
+Vraag: Is een SEO-bureau dat posities garandeert te vertrouwen?
+Antwoord: Wees voorzichtig. Google bepaalt de resultaten, niet het bureau. Een eerlijk bureau belooft werkzaamheden en meetbare tussenstappen, geen vaste positie binnen een vaste tijd.
+
+
+### Bronnen
+- [Google Search Central: SEO Starter Guide](https://developers.google.com/search/docs/fundamentals/seo-starter-guide)
+- [Ahrefs: How Long Does It Take to Rank?](https://ahrefs.com/blog/how-long-does-it-take-to-rank/)
+
+---
+
 ## Hoe maak je een contentkalender die een klein marketingteam volhoudt?
 URL: https://nextgrowthdigital.nl/kennisbank-contentkalender-klein-team
 Categorie: Marketing en SEO
@@ -3490,6 +4284,102 @@ Antwoord: Wijzigingen in gegevens zijn vaak binnen dagen zichtbaar. Een betere p
 - [Google Bedrijfsprofiel Help: Richtlijnen voor het weergeven van je bedrijf op Google](https://support.google.com/business/answer/3038177?hl=nl)
 - [Google Maps: beleid voor door gebruikers bijgedragen content (nepbetrokkenheid)](https://support.google.com/contributionpolicy/answer/7400114?hl=en)
 - [Google Bedrijfsprofiel Help: Reviews van klanten krijgen](https://support.google.com/business/answer/3474122?hl=nl)
+
+---
+
+## Hoe start je met e-mailmarketing en wat mag er volgens de AVG?
+URL: https://nextgrowthdigital.nl/kennisbank-nieuwsbrief-email-marketing-avg
+Categorie: Marketing en SEO
+Bijgewerkt: 2026-11-01
+
+Vraag: Hoe start ik met e-mailmarketing en wat mag er volgens de AVG en de Telecommunicatiewet?
+
+Kort antwoord: Je mag reclame per e-mail alleen sturen naar mensen die daar vooraf duidelijk toestemming voor gaven. Een uitzondering geldt voor bestaande klanten en vergelijkbare producten. Elk bericht moet herkenbaar van jou komen en een eenvoudige, gratis afmeldoptie hebben. Bewaar bewijs van de toestemming, want de ACM kan bij overtreding boetes opleggen tot € 900.000.
+
+Kernpunten:
+- Het spamverbod staat in artikel 11.7 van de Telecommunicatiewet en wordt gehandhaafd door de ACM; de AVG regelt daarnaast hoe je persoonsgegevens gebruikt.
+- Toestemming moet een bewuste keuze zijn: geen voorgevinkt hokje, geen druk en niet verstopt in algemene voorwaarden.
+- Je moet toestemming kunnen bewijzen tot vijf jaar na het versturen.
+- Bestaande klanten mag je mailen over vergelijkbare producten of diensten, mits afmelden kan en je duidelijk de afzender bent.
+- Een e-mailadres dat je voor een factuur kreeg, mag je niet zomaar voor reclame gebruiken.
+
+### Welke regels gelden er voor e-mailmarketing?
+
+Twee wetten bepalen wat je mag. De eerste is het spamverbod in artikel 11.7 van de Telecommunicatiewet. Dat gaat over het versturen van elektronische reclame zelf: wanneer mag je een bericht sturen en wat moet erin staan. De Autoriteit Consument & Markt (ACM) houdt hier toezicht op en kan volgens het Ondernemersplein boetes tot € 900.000 per overtreding opleggen.
+
+De tweede is de Algemene verordening gegevensbescherming (AVG). Die gaat over wat je met de persoonsgegevens van je abonnees doet: welke gegevens je opslaat, op welke grondslag, hoe lang en met wie je ze deelt. Een e-mailadres van een persoon is een persoonsgegeven. De Autoriteit Persoonsgegevens (AP) houdt hier toezicht op. In de praktijk moet je dus aan beide voldoen.
+
+Het spamverbod geldt volgens de ACM voor de afzender, voor de partij die het bericht daadwerkelijk verstuurt en voor bedrijven die helpen, zoals leveranciers van adreslijsten. De regels gelden in de hele Europese Economische Ruimte. Een mailtool in het buitenland ontslaat je dus niet van je verantwoordelijkheid.
+
+### Wanneer heb je toestemming nodig en wat telt als toestemming?
+
+De hoofdregel van de ACM is helder: stuur je berichten alleen naar mensen die vooraf toestemming gaven. Die toestemming moet een bewuste keuze zijn. Een voorgevinkt hokje, druk of een verwijzing in je algemene voorwaarden telt niet. Het moet ook duidelijk gaan over reclame of promotionele berichten, zodat iemand weet waarvoor hij of zij zich aanmeldt.
+
+De AVG zegt hetzelfde in andere woorden. Toestemming moet vrij, specifiek, geïnformeerd en ondubbelzinnig zijn. Je moet kunnen aantonen dat iemand heeft toegestemd, en mensen mogen toestemming op elk moment intrekken, op een even makkelijke manier als ze die gaven. Het Ondernemersplein vult aan dat abonnees actief toestemming geven op basis van begrijpelijke informatie, en dat je niet meer gegevens vraagt dan nodig. Voor een nieuwsbrief is een e-mailadres genoeg, een geboortedatum is overbodig.
+
+Je moet toestemming volgens de ACM tot vijf jaar na verzending kunnen bewijzen. Leg daarom vast wie zich wanneer aanmeldde, via welk formulier en met welke tekst erbij. Een bevestigingsmail met een link (dubbele opt-in) is een gangbare manier om dit sluitend te maken, al staat dat niet als verplichting in de bronnen die wij raadpleegden.
+
+### Wat mag je wel zonder aparte toestemming?
+
+Er is een uitzondering voor bestaande klanten. Volgens de ACM mag je klanten ongevraagd berichten sturen over producten of diensten die samenhangen met wat ze eerder bij je kochten. Ze moeten zich kunnen afmelden en jij moet duidelijk als afzender herkenbaar zijn. Dat is dus geen vrijbrief om klanten alles te sturen: een installateur die een onderhoudsaanbieding mailt aan iemand die een cv-ketel kocht, past hierin. Een algemene reclamemail over een heel ander product past minder snel.
+
+Daar staat de AVG tegenover. Het Ondernemersplein noemt doelbinding: een e-mailadres dat je kreeg om een factuur te versturen, mag je niet zomaar voor marketing gebruiken. In de praktijk loop je het veiligst door klanten bij het afrekenen of bij de offerte een duidelijke, niet-voorgevinkte keuze voor je nieuwsbrief te geven. Dan weet je zeker dat je rechtmatig mailt.
+
+Berichten die geen reclame zijn, zoals een orderbevestiging, een planning van de afspraak of een factuur, vallen niet onder het spamverbod. Zodra je er een aanbieding aan toevoegt, schuift het op richting reclame. Hou die twee gescheiden.
+
+### Wat moet er in elke e-mail staan?
+
+De regels voor de inhoud zijn praktisch en goed te volgen. Maak er een vaste sjabloon van.
+
+| Onderdeel | Wat je moet doen |
+|---|---|
+| Afzender | Duidelijk jouw bedrijfsnaam of e-mailadres, geen schuilnaam. |
+| Herkenbaar als reclame | Maak duidelijk dat het om reclame gaat (Code reclame via e-mail). |
+| Afmelden | In elk bericht een snelle, eenvoudige en gratis afmeldoptie. |
+| Privacy | Een link naar je privacyverklaring over wat je opslaat, waarom en hoe lang. |
+| Bewijs | Bewaar datum, formulier en tekst van de aanmelding. |
+
+### Hoe start je praktisch met een nieuwsbrief?
+
+Begin klein en netjes. Een goede lijst van honderd mensen die je mail willen lezen is meer waard dan een gekochte lijst van tienduizend. Gekochte lijsten zijn bovendien een risico: het spamverbod geldt volgens de ACM ook voor leveranciers van adreslijsten, en jij moet kunnen laten zien dat de mensen toestemming gaven.
+
+Kies vervolgens een mailtool en regel de AVG-kant. Het Ondernemersplein wijst erop dat je een verwerkersovereenkomst nodig hebt als een externe dienst e-mails voor je verstuurt, dat je je abonnees moet kunnen laten zien wat je vastlegt in een verwerkingsregister, en dat een datalek, zoals een mailing naar de verkeerde ontvanger, gedocumenteerd moet worden. Ernstige datalekken meld je binnen 72 uur bij de AP.
+
+- Schrijf op wat je met de nieuwsbrief wilt bereiken en voor wie die bedoeld is.
+- Maak een aanmeldformulier met alleen e-mailadres, een niet-voorgevinkt vakje en een korte tekst over wat men ontvangt.
+- Stuur een bevestigingsmail met een link en bewaar de aanmelding met datum en tekst.
+- Sluit een verwerkersovereenkomst met je mailtool en noem de tool in je privacyverklaring.
+- Gebruik in elk bericht een herkenbare afzender, een duidelijke aanduiding dat het reclame is en een afmeldlink.
+- Verwerk afmeldingen direct en houd een lijst bij van mensen die niet meer gemaild willen worden.
+- Plan een vaste frequentie die je kunt volhouden, bijvoorbeeld één keer per maand.
+
+### Wanneer is e-mailmarketing niet de beste keuze?
+
+E-mail is een goed kanaal voor wie al klanten of bezoekers heeft, maar niet voor iedereen de eerste stap. Heb je weinig verkeer op je site en geen klantenbestand, dan kost het opbouwen van een lijst tijd en levert het eerst weinig op. Zet dan eerst in op vindbaarheid en een goede aanvraagroute. Ook als je niet de capaciteit hebt om regelmatig iets waardevols te schrijven, is een slapende nieuwsbrief erger dan geen nieuwsbrief.
+
+Bij Next Growth koppelen we aanmeldformulieren en opvolging aan een website of CRM, zodat aanmeldingen en afmeldingen op één plek staan en je toestemming kunt aantonen. Voor het juridische oordeel over jouw specifieke situatie kun je het beste een jurist raadplegen; dit artikel is algemene informatie en geen juridisch advies.
+
+### Veelgestelde vragen
+Vraag: Mag ik zakelijke contacten mailen zonder toestemming?
+Antwoord: De bronnen van de ACM en het Ondernemersplein maken geen apart onderscheid voor zakelijke ontvangers en spreken in het algemeen over ontvangers. Ga er dus van uit dat dezelfde regels gelden en vraag toestemming, tenzij je een bestaande klantrelatie hebt.
+
+Vraag: Heb ik een dubbele opt-in nodig?
+Antwoord: De bronnen schrijven het niet voor, maar je moet toestemming wel kunnen bewijzen. Een bevestigingsmail maakt dat bewijs sterker en voorkomt dat iemand anders een adres aanmeldt.
+
+Vraag: Hoe lang moet ik bewijs van toestemming bewaren?
+Antwoord: Volgens de ACM moet je toestemming tot vijf jaar na het versturen van het bericht kunnen aantonen.
+
+Vraag: Wat als iemand zich afmeldt?
+Antwoord: Dan mag je diegene geen reclame meer sturen. Onder de AVG heeft iemand bovendien altijd het recht om bezwaar te maken tegen direct marketing.
+
+Vraag: Wat is de maximale boete bij spam?
+Antwoord: Volgens het Ondernemersplein kan de ACM een boete tot € 900.000 per overtreding opleggen.
+
+
+### Bronnen
+- [ACM: Spam voorkomen in reclame](https://www.acm.nl/nl/verkoop-aan-consumenten/reclame-en-verleiden/spam-voorkomen-uw-reclame)
+- [Ondernemersplein (Rijksoverheid): Regels voor reclame](https://ondernemersplein.overheid.nl/wetten-en-regels/regels-voor-reclame/)
+- [Ondernemersplein (Rijksoverheid): Privacywetgeving AVG, checklist voor ondernemers](https://ondernemersplein.overheid.nl/bedrijfsvoering/juridische-zaken/privacywetgeving-avg-checklist-voor-ondernemers/)
 
 ---
 
@@ -4056,6 +4946,91 @@ Antwoord: Alleen met hun toestemming. Laat geen adressen, kentekens of persoonli
 
 ---
 
+## Helpen vermeldingen op andere websites om door AI genoemd te worden?
+URL: https://nextgrowthdigital.nl/kennisbank-merkvermeldingen-ai-zichtbaarheid
+Categorie: AI-zoekmachines
+Bijgewerkt: 2026-11-01
+
+Vraag: Helpen vermeldingen op andere websites om door AI genoemd te worden?
+
+Kort antwoord: Waarschijnlijk wel, maar het is niet hard bewezen. Onderzoek van Muck Rack laat zien dat AI-antwoorden veel bronnen buiten de eigen site van een merk aanhalen. Dat is een correlatie, geen bewezen oorzaak. Google waarschuwt bovendien voor het najagen van onechte vermeldingen. Echte reviews en kloppende profielen zijn de verstandige route.
+
+Kernpunten:
+- Uit een analyse van meer dan een miljoen AI-citaties (Muck Rack, 2025) bleek dat journalistieke bronnen ruim 27 procent van de citaties vormden, en 49 procent bij vragen over recente zaken.
+- Het onderzoek komt van een bedrijf dat zelf software voor dit onderwerp verkoopt en gaat vooral over nieuwsmedia, niet over lokale bedrijfsgidsen.
+- Er is geen publiek bewijs dat een vermelding in een branchegids of op een reviewsite jou vaker in ChatGPT laat verschijnen.
+- Google zegt dat spamsystemen onechte vermeldingen blokkeren en raadt af ze na te jagen.
+- Zorg voor kloppende, consistente bedrijfsgegevens en echte reviews: dat helpt klanten, ook als AI het niet oppikt.
+
+### Wat is bekend over bronnen die AI aanhaalt?
+
+AI-zoekmachines halen hun antwoorden grotendeels van het open web, en dat is vaker een andere site dan die van het bedrijf zelf. Het meest geciteerde onderzoek hierover komt van Muck Rack, een bedrijf dat software voor public relations verkoopt. In juli 2025 publiceerde het een analyse van meer dan een miljoen citaties uit antwoorden van onder meer GPT-4o, Gemini en Claude. Nieman Lab, dat erover berichtte, meldt dat journalistieke content meer dan 27 procent van de citaties uitmaakte en 49 procent bij vragen die om recente informatie vragen. Bij vragen om advies of stappenplannen kwamen juist veel meer bedrijfsblogs en eigen content voor.
+
+Dat laatste is voor een mkb-bedrijf het interessantste: voor praktische vragen noemen AI-systemen ook bedrijfspagina's. Het onderzoek zegt dus niet dat alleen externe vermeldingen tellen.
+
+### Wat bewijst dit niet?
+
+Er zijn flinke kanttekeningen. Het onderzoek meet welke bronnen worden aangehaald, niet of een extra vermelding de kans vergroot dat jouw bedrijf wordt genoemd. Het gaat om landelijke en internationale nieuwsmedia en niet om lokale gidsen of reviewsites voor een installateur in Brabant. Het is uitgevoerd in één maand, op Engelstalige vragen, en door een partij met een commercieel belang. Nieman Lab merkt bovendien op dat verschillen tussen modellen groot zijn: Claude citeerde journalistieke bronnen veel minder dan ChatGPT en Gemini.
+
+Wie beweert dat een vermelding op site X je zeker meer AI-verwijzingen oplevert, heeft dat bewijs niet. Voor lokale bedrijven bestaat naar ons weten geen openbaar, onafhankelijk onderzoek met een causaal verband. Dit artikel is daarom bewust voorzichtig.
+
+### Wat zegt Google over vermeldingen?
+
+In de handleiding over generatieve AI-functies adviseert Google om geen onechte webvermeldingen na te jagen, omdat spamsystemen die blokkeren. Google schrijft ook dat voor AI-functies geen extra eisen gelden bovenop gewone SEO. Voor Google geldt dus: een goede, vindbare site, en daarnaast actuele gegevens in je Google Bedrijfsprofiel. Dat laatste noemt Google uitdrukkelijk als onderdeel van wat actueel moet zijn.
+
+Schaf dus geen pakket kunstmatige vermeldingen, betaalde linkpagina's of nepreviews aan. Het risico is groter dan de kans op winst, en reviews moeten daarnaast aan regels voldoen (zie ons artikel over reviews verzamelen).
+
+### Welke vermeldingen zijn verstandig?
+
+Denk niet in aantallen, maar in plekken waar echte klanten en vakgenoten je al zoeken. Onderstaande tabel zet de opties op een rij, met eerlijk aangegeven wat het bewijs is.
+
+| Soort vermelding | Waarom nuttig | Bewijs voor AI-effect |
+|---|---|---|
+| Google Bedrijfsprofiel met actuele gegevens | Klanten vinden je direct; Google noemt actuele gegevens zelf | Google noemt het, een meetbaar AI-effect is niet gepubliceerd |
+| Echte klantreviews | Vertrouwen en keuze voor klanten | Niet aangetoond voor AI |
+| Branchegids of vakvereniging | Klopt je vak en regio, vindbaar voor klanten | Niet aangetoond |
+| Vermelding in lokale of vakmedia | Echte aandacht, soms ook AI-bron | Nieuwsmedia worden vaak geciteerd (Muck Rack), niet specifiek voor lokale bedrijven |
+| Betaalde of massaal geplaatste vermeldingen | Meestal weinig | Google raadt af; spamsystemen blokkeren onechte vermeldingen |
+
+### Hoe pak je het praktisch aan?
+
+Dit kost weinig en blijft nuttig, ook als AI-zichtbaarheid minder oplevert dan gehoopt.
+
+- Gebruik overal dezelfde bedrijfsnaam, hetzelfde adres en telefoonnummer, ook op je website en KVK-inschrijving.
+- Houd je Google Bedrijfsprofiel actueel: diensten, openingstijden, werkgebied en foto's.
+- Vraag tevreden klanten om een echte review en reageer op elke review.
+- Meld je aan bij de branchevereniging of keurmerkgids die in jouw vak echt wordt gebruikt.
+- Deel projecten met lokale of vakmedia als er iets te vertellen valt, zonder het te forceren.
+- Test het zelf: stel de vragen die klanten stellen aan meerdere AI-systemen, noteer welke bronnen worden genoemd en kijk of jouw vermeldingen daar zichtbaar zijn.
+
+### Wat betekent dit voor jouw bedrijf?
+
+Bouw eerst een site die zelf goed antwoord geeft, want ook bedrijfspagina's worden aangehaald. Zie vermeldingen elders als aanvulling die vooral mensen helpt. Bij Next Growth begint dat met een website die klopt en koppelingen met je reviews en bedrijfsprofiel, zodat gegevens overal gelijk blijven. Vind je dat resultaat uit AI-zoekmachines ontbreekt, controleer dan eerst met een eenvoudige test wat er nu wordt genoemd.
+
+### Veelgestelde vragen
+Vraag: Moet ik betalen voor vermeldingen om in AI-antwoorden te komen?
+Antwoord: Nee. Er is geen bewijs dat betaalde vermeldingen werken, en Google raadt af onechte vermeldingen na te jagen. Besteed je tijd liever aan echte reviews en kloppende gegevens.
+
+Vraag: Tellen reviews mee voor ChatGPT of Perplexity?
+Antwoord: Dat weten we niet zeker. Aanbieders publiceren niet hoe ze bronnen kiezen. Reviews helpen klanten wel bij hun keuze, en een goede score op Google is zichtbaar voor iedereen.
+
+Vraag: Is een vermelding in een branchegids genoeg?
+Antwoord: Nee. Een branchegids is een aanvulling. Het meeste gewicht heeft een eigen website die de vraag van de klant helder beantwoordt.
+
+Vraag: Hoe controleer ik of AI mijn bedrijf noemt?
+Antwoord: Stel je belangrijkste klantvragen aan meerdere AI-systemen en noteer wat er wordt genoemd, inclusief de bronnen. Herhaal dat elke paar maanden, want antwoorden veranderen.
+
+Vraag: Kan ik nepreviews gebruiken om sneller te groeien?
+Antwoord: Nee. Dat is misleidend en kan leiden tot sancties. Vraag echte klanten om een review.
+
+
+### Bronnen
+- [Nieman Lab: Generative AI models love to cite Reuters and Axios, study finds (over het Muck Rack-onderzoek)](https://www.niemanlab.org/2025/07/generative-ai-models-love-to-cite-reuters-and-axios-study-finds/)
+- [Google Search Central: optimaliseren voor generatieve AI-functies](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide)
+- [Google Search Central: AI features and your website](https://developers.google.com/search/docs/appearance/ai-features)
+
+---
+
 ## Hoe controleer je wat ChatGPT, Perplexity en Google AI over je bedrijf zeggen?
 URL: https://nextgrowthdigital.nl/kennisbank-ai-zichtbaarheid-controleren
 Categorie: AI-zoekmachines
@@ -4144,6 +5119,100 @@ Antwoord: Nee, het rapport gaat over Copilot, Bing-samenvattingen en een aantal 
 - [Google Search Central: AI features and your website](https://developers.google.com/search/docs/appearance/ai-features)
 - [Practical Ecommerce: Bing's improved AI Performance section (juni 2026)](https://www.practicalecommerce.com/bings-improved-ai-performance-section)
 - [Seer Interactive: Are AI sites like ChatGPT sending your website traffic?](https://www.seerinteractive.com/insights/are-ai-sites-like-chatgpt-sending-your-website-traffic)
+
+---
+
+## Hoe schrijf je pagina's die AI-zoekmachines kunnen citeren?
+URL: https://nextgrowthdigital.nl/kennisbank-content-schrijven-ai-citeert
+Categorie: AI-zoekmachines
+Bijgewerkt: 2026-11-01
+
+Vraag: Hoe schrijf ik pagina's die AI-zoekmachines kunnen citeren?
+
+Kort antwoord: Zet het antwoord op de vraag van je klant in de eerste alinea, gebruik duidelijke koppen, onderbouw feiten met een bron en voeg iets toe wat nergens anders staat, zoals eigen prijzen of ervaring. Google zegt dat hier geen speciale AI-trucs voor nodig zijn: goede, indexeerbare content die mensen helpt, is de basis.
+
+Kernpunten:
+- Begin elke pagina met een direct antwoord van 40 tot 60 woorden dat ook los van de rest te lezen is.
+- Gebruik koppen die de vraag van de bezoeker benoemen en houd per alinea één onderwerp aan.
+- Noem feiten met cijfer, datum en bron; vage claims worden zelden overgenomen en zijn voor bezoekers ook minder waard.
+- Google zegt dat je geen speciale markup of AI-bestanden nodig hebt en dat je niet anders hoeft te schrijven voor AI.
+- Eigen, eerstehands informatie (prijzen, werkwijze, voorbeelden) onderscheidt je van pagina's die alleen samenvatten wat al bestaat.
+
+### Wat vragen AI-zoekmachines eigenlijk van je tekst?
+
+Een AI-zoekmachine zoekt eerst gewone pagina's op en vat daar een antwoord uit samen, met links naar de bronnen. Google beschrijft dit zelf: AI Overviews en AI Mode kunnen meerdere gerelateerde zoekopdrachten tegelijk uitvoeren (query fan-out) en tonen links naar de websites die het antwoord ondersteunen. Een pagina komt alleen in aanmerking als hij geïndexeerd is en met een snippet getoond mag worden.
+
+Daar komt volgens Google niets extra's bij. In de handleiding over AI-functies staat dat er geen aanvullende eisen zijn en geen speciale optimalisaties nodig zijn. In de handleiding over generatieve AI staat zelfs dat optimaliseren voor generatieve zoekmachines hetzelfde is als optimaliseren voor de zoekervaring, dus gewoon SEO. Dat is goed nieuws: wat je schrijft voor een klant, is ook wat een AI-systeem kan gebruiken.
+
+Niet alle AI-zoekmachines zijn Google. ChatGPT, Perplexity en Claude hebben eigen crawlers en eigen keuzes. Voor hen publiceren de aanbieders minder over hoe ze bronnen kiezen. De schrijfregels hieronder zijn daarom gebaseerd op wat Google schrijft, aangevuld met onderzoek en eigen praktijk, en niet op een garantie.
+
+### Zet het antwoord bovenaan
+
+Beantwoord de vraag uit je kop in de eerste alinea, in 40 tot 60 woorden, zonder inleiding. Schrijf die alinea zo dat een lezer of een AI-systeem hem kan overnemen zonder de rest te lezen: noem het onderwerp bij naam in plaats van 'dit' of 'het', geef het getal of de keuze en eventueel de belangrijkste voorwaarde.
+
+Dit werkt voor mensen net zo goed. Een bezoeker die op zoek is naar een prijs of een werkwijze, wil niet eerst drie alinea's over 'het belang van een goede website' lezen. Daarna volgt de uitleg: waarom, voor wie, wat het kost, wat de nadelen zijn.
+
+### Gebruik koppen die vragen beantwoorden
+
+Een kop is een belofte over de alinea eronder. Formuleer koppen zoals je klant zoekt: 'Wat kost een dakkapel?' in plaats van 'Investering'. Houd per sectie één onderwerp aan en begin ook daar met het antwoord. Google adviseert heldere alinea's en secties met koppen die lezers helpen navigeren. Semantische HTML (echte H2's, lijsten en tabellen) wordt aanbevolen, maar is volgens Google niet verplicht.
+
+Hak je tekst niet op in kleine stukjes alleen voor AI. Google schrijft uitdrukkelijk dat daar geen noodzaak voor is. Een logisch opgebouwde pagina met duidelijke koppen is voldoende.
+
+### Onderbouw feiten met een bron
+
+Onderzoekers van onder meer Princeton introduceerden in 2024 'Generative Engine Optimization' en testten welke aanpassingen een bron zichtbaarder maken in antwoorden van generatieve zoekmachines. Volgens de samenvatting van het artikel kan dat de zichtbaarheid met maximaal 40 procent verhogen, en werkt het effect per vakgebied verschillend. Lees dat als een aanwijzing en niet als belofte: het was een experiment met een eigen testset, geen meting bij ChatGPT of Google in de praktijk.
+
+Wat je er wel praktisch uit kunt halen: schrijf concreet. Een zin als 'onze vaste prijs voor een website begint bij € 1.500' is bruikbaarder dan 'prijzen verschillen sterk'. Zet erbij waar het cijfer vandaan komt, met datum, en link naar de bron als die bestaat. Houd cijfers actueel; een verouderde prijs die wordt geciteerd, schaadt je meer dan geen prijs.
+
+### Voeg iets toe wat een ander niet heeft
+
+Google raadt aan om een eerstehands, uniek perspectief te bieden en geen herhaling van wat al overal staat. Voor een bedrijf is dat eenvoudig: je hebt echte prijzen, echte projecten, een eigen werkwijze en vragen die klanten werkelijk stellen. Gebruik die. Een pagina die alleen samenvat wat tien andere pagina's zeggen, geeft een AI-systeem geen reden om juist naar jou te verwijzen.
+
+Een goede toets die Google zelf noemt: zouden je bezoekers deze content bevredigend vinden? Zo ja, dan komt het bijna altijd goed met zowel gewone zoekresultaten als AI-antwoorden.
+
+### Praktische checklist per pagina
+
+Loop deze punten langs voordat je een pagina publiceert of vernieuwt.
+
+- Staat het antwoord in de eerste alinea, in gewone taal?
+- Zijn koppen vragen of duidelijke stellingen, en past elke alinea bij zijn kop?
+- Staan prijzen, termijnen en voorwaarden er concreet in, met datum van bijwerken?
+- Heeft elk cijfer dat je niet zelf hebt gemeten een bron?
+- Staat de belangrijke informatie als tekst op de pagina, en niet alleen in een afbeelding of video?
+- Staat er iets op wat alleen jij kunt vertellen: eigen ervaring, voorbeeld of werkwijze?
+- Is de pagina bereikbaar voor zoekcrawlers en intern gelinkt vanaf andere pagina's?
+
+### Wat werkt niet of is niet nodig
+
+Google geeft in de handleiding een duidelijke lijst met dingen die je kunt laten. Je hoeft niet anders te schrijven voor AI-systemen dan voor mensen, want de modellen begrijpen synonielen en de strekking. Je hoeft geen llms.txt of andere AI-bestanden te maken, want Google Zoeken gebruikt ze niet. Voor AI-functies is geen speciale structured data nodig, al blijft markup die klopt met de zichtbare tekst nuttig voor andere zoekresultaten. En je moet niet massaal pagina's maken voor elke variant van een zoekvraag: dat valt onder het beleid tegen scaled content abuse.
+
+Wees ook kritisch op tools en bureaus die beloven te weten hoe AI-systemen jouw pagina scoren. Google schrijft dat geen enkele externe tool toegang heeft tot de interne rangschikkings- of AI-systemen.
+
+### Wat betekent dit voor jouw website?
+
+Schrijven voor citeerbaarheid is vooral schrijven voor duidelijkheid. Bij Next Growth zetten we dit in elke website door: een direct antwoord bovenaan elke dienstpagina, koppen die klantvragen volgen, vaste prijzen op de pagina en teksten die je zelf kunt bijwerken. Een website vanaf € 1.500 staat binnen twee weken live; teksten en voorbeelden uit je eigen praktijk maken het verschil in hoe vaak je wordt overgenomen.
+
+### Veelgestelde vragen
+Vraag: Hoe lang moet het directe antwoord boven aan de pagina zijn?
+Antwoord: Streef naar 40 tot 60 woorden. Dat is lang genoeg om een vraag volledig te beantwoorden en kort genoeg om los te kunnen worden overgenomen.
+
+Vraag: Moet ik FAQ-markup toevoegen om geciteerd te worden?
+Antwoord: Nee. Google zegt dat voor AI-functies geen speciale structured data nodig is. Een zichtbare vragensectie op de pagina zelf is wel nuttig voor je bezoekers.
+
+Vraag: Kan ik AI-zoekmachines garanderen dat ze mijn pagina citeren?
+Antwoord: Nee. Google schrijft dat indexeren en tonen nooit gegarandeerd is, en andere aanbieders doen geen toezeggingen. Je kunt wel de kans vergroten met duidelijke, bronvaste en unieke content.
+
+Vraag: Moet ik mijn bestaande pagina's herschrijven?
+Antwoord: Begin met de pagina's waar klanten het vaakst naar zoeken, zoals diensten en prijzen. Zet het antwoord bovenaan, voeg bronnen en actuele cijfers toe en laat de rest staan als die klopt.
+
+Vraag: Is schrijven met ChatGPT toegestaan als ik geciteerd wil worden?
+Antwoord: Dat mag, maar tekst die alleen samenvat wat al bestaat, voegt weinig toe. Google vraagt om unieke, eerstehands inhoud. Gebruik AI als hulp en vul aan met je eigen prijzen, projecten en ervaring.
+
+
+### Bronnen
+- [Google Search Central: AI features and your website](https://developers.google.com/search/docs/appearance/ai-features)
+- [Google Search Central: optimaliseren voor generatieve AI-functies](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide)
+- [Aggarwal e.a.: GEO: Generative Engine Optimization (arXiv, KDD 2024)](https://arxiv.org/abs/2311.09735)
 
 ---
 
@@ -6498,7 +7567,7 @@ Een klant kan vragen om zijn gegevens te verwijderen. Dan verwijder je wat je ni
 
 Heb je een klein klantenbestand dat je jaarlijks met de hand doorloopt, en staat je bewaarbeleid in je privacyverklaring, dan is een geautomatiseerde oplossing niet direct nodig. Het wordt pas lastig als gegevens op meerdere plekken staan: mailbox, spreadsheet, telefoon en CRM. Dan weet niemand meer wat waar bewaard wordt.
 
-Next Growth bouwt CRM-systemen met statussen, eigenaarschap en opruimregels als onderdeel van het ontwerp, met de data op naam van de klant. Een website met CRM begint bij € 6.995. Dit artikel is geen juridisch advies; laat je bewaarbeleid bij twijfel toetsen door een privacyspecialist.
+Next Growth bouwt CRM-systemen met statussen, eigenaarschap en opruimregels als onderdeel van het ontwerp, met de data op naam van de klant. Een website met CRM begint bij € 2.500. Dit artikel is geen juridisch advies; laat je bewaarbeleid bij twijfel toetsen door een privacyspecialist.
 
 ### Veelgestelde vragen
 Vraag: Hoe lang mag ik leadgegevens bewaren?
@@ -6584,7 +7653,7 @@ De derde is dubbel werk door een boekingstool die los staat van je CRM. Dan typt
 
 Heb je een paar afspraken per week en bel je klanten toch al terug, dan is een boekingspagina weinig winst. En als je klanten vooral oudere particulieren zijn die liever bellen, houd dan het telefoonnummer minstens zo prominent als de boekingsknop. Zelf inplannen is een extra route, geen vervanging van een goede telefonische bereikbaarheid.
 
-Next Growth koppelt websites, formulieren en afspraken aan een CRM, zodat elke aanvraag een eigenaar, een status en een volgende stap heeft. Een website met CRM begint bij € 6.995 met een vaste prijs.
+Next Growth koppelt websites, formulieren en afspraken aan een CRM, zodat elke aanvraag een eigenaar, een status en een volgende stap heeft. Een website met CRM begint bij € 2.500 met een vaste prijs.
 
 ### Veelgestelde vragen
 Vraag: Kan ik een boekingspagina op mijn eigen website zetten?
@@ -6745,6 +7814,99 @@ Antwoord: Controleer aantallen én inhoudelijke steekproeven, inclusief uitzonde
 
 ---
 
+## Wat is een klantportaal en wanneer heeft je bedrijf er een nodig?
+URL: https://nextgrowthdigital.nl/kennisbank-klantportaal
+Categorie: CRM en automatisering
+Bijgewerkt: 2026-11-01
+
+Vraag: Wat is een klantportaal en wanneer heeft mijn bedrijf er een nodig?
+
+Kort antwoord: Een klantportaal is een beveiligde omgeving waarin klanten na inloggen zelf hun offertes, documenten, planning en voortgang zien. Het loont als je vaak dezelfde vragen krijgt, met veel documenten of lange trajecten werkt. Bij een paar klussen per jaar is een goed ingericht e-mailproces vaak genoeg. De AVG vraagt passende beveiliging.
+
+Kernpunten:
+- Een klantportaal geeft klanten na inloggen toegang tot hun eigen gegevens: offertes, facturen, documenten, planning en berichten.
+- Het loont bij lange trajecten, veel documenten of veel terugkerende statusvragen, bijvoorbeeld bij verbouwingen, onderhoudscontracten en installaties.
+- Voordelen zijn minder telefoon en mailverkeer, minder zoekwerk en een vaste plek voor afspraken; nadelen zijn bouw, beheer en beveiliging.
+- Voor de AVG gelden passende beveiligingsmaatregelen; artikel 32 AVG noemt onder meer versleuteling, herstel na incidenten en regelmatig testen van de maatregelen.
+- Begin klein: eerst een portaal met alleen de functie die de meeste vragen oplost, koppel het aan je CRM.
+
+### Wat is een klantportaal precies?
+
+Een klantportaal is een deel van je website of een aparte webapplicatie waar klanten met een persoonlijk account inloggen. Ze zien daar alleen hun eigen gegevens. Wat erin staat, bepaal je zelf. Denk aan openstaande en geaccepteerde offertes, facturen, tekeningen en keuzelijsten, de planning van een project, de status van een aanvraag en een veilige plek om berichten of foto's te sturen.
+
+Het verschil met e-mail is dat alles op één plek staat en actueel blijft. Het verschil met een gewone website is dat de inhoud per klant verschilt en achter een inlog zit. Technisch hangt een portaal meestal aan een CRM of ander systeem waar de gegevens al staan, zodat je niets dubbel hoeft in te voeren.
+
+### Voorbeelden uit installatie, bouw en dienstverlening
+
+Een portaal is geen doel op zich. Het lost een concreet probleem op. Enkele voorbeelden:
+
+- Installatiebedrijf: klant ziet de offerte, kiest een afspraak voor de montage, downloadt later het onderhoudscontract en de inspectierapporten.
+- Bouwbedrijf of aannemer: bij een verbouwing ziet de klant planning, tekeningen, meerwerkoffertes en foto's van de voortgang, in plaats van alles via appjes en mail.
+- Dakwerker of zonweringbedrijf: klant ziet de offerte en kan die digitaal accepteren, plus garantiebewijzen en onderhoudsbeurten.
+- Adviseur of dienstverlener: klanten uploaden documenten, zien openstaande taken en vinden eerdere rapporten terug.
+- Onderhoud en service: klant meldt een storing, ziet de status en de historie van eerdere werkzaamheden.
+
+### Wanneer heb je een klantportaal nodig?
+
+Het antwoord hangt af van hoe vaak klanten iets van je nodig hebben en hoeveel informatie je met ze deelt. De tabel helpt bij een eerlijke afweging.
+
+| Situatie | Portaal nodig? |
+|---|---|
+| Je krijgt dagelijks dezelfde vragen over status, planning of facturen | Ja, dit is het sterkste signaal |
+| Trajecten duren maanden en er gaan veel documenten heen en weer | Ja, een vaste plek voorkomt zoekwerk |
+| Klanten hebben terugkerend contact, zoals onderhoudscontracten | Waarschijnlijk, vooral met herinneringen en historie |
+| Je doet enkele kleine klussen per maand en alles is binnen een week klaar | Meestal niet, een goede offerte per mail is genoeg |
+| Klanten willen vooral één offerte tekenen | Niet nodig; een offertelink met digitale handtekening is lichter |
+
+### Voordelen en nadelen op een rij
+
+Voordelen: minder tijd aan telefoontjes en mailtjes over status, minder fouten door verspreide documenten, een professionelere indruk en een duidelijk dossier per klant. Het kan ook zorgen voor sneller akkoord op offertes en meerwerk, omdat de klant direct kan reageren.
+
+Nadelen: je moet het bouwen en onderhouden, en gebruikers moeten het willen gebruiken. Niet elke klant logt in; sommige klanten willen simpelweg bellen. Wachtwoorden worden vergeten, gegevens moeten actueel blijven en beveiliging is jouw verantwoordelijkheid. Een portaal naast e-mail betekent in het begin dubbel werk. Plan daarom een duidelijk moment waarop je klanten ernaartoe leidt.
+
+### Welke AVG-aspecten spelen er?
+
+In een portaal staan persoonsgegevens: namen, adressen, projecten, soms foto's van een woning. De AVG vraagt dat je daarvoor passende technische en organisatorische maatregelen neemt, in verhouding tot het risico. Artikel 32 AVG noemt als voorbeelden pseudonimisering en versleuteling, het waarborgen van vertrouwelijkheid en beschikbaarheid, snel herstel na een technisch incident en een proces om de maatregelen regelmatig te testen. Praktisch betekent dat voor een portaal onder meer een eigen account per gebruiker, versleutelde verbindingen en back-ups waarvan je het terugzetten test.
+
+Praktisch betekent dat: laat elke klant alleen zijn eigen gegevens zien, geef medewerkers alleen toegang tot wat ze nodig hebben, werk met individuele inlogs en tweestapsverificatie, bewaar niet langer dan nodig en sluit met je softwareleverancier of hostingpartij een verwerkersovereenkomst af. Ontdek je een datalek met waarschijnlijk risico voor betrokkenen, dan geldt een meldplicht bij de AP, in principe binnen 72 uur (artikel 33 AVG). Dit is geen juridisch advies; leg je situatie bij twijfel voor aan een privacyjurist of de functionaris gegevensbescherming van je organisatie.
+
+### Hoe begin je zonder groot project?
+
+Start met de vraag die je het vaakst krijgt, en bouw alleen dat.
+
+- Noteer een maand lang welke vragen klanten stellen en kies de top drie.
+- Bepaal welke gegevens al in je CRM staan en welke je nog moet vastleggen.
+- Begin met een kleine versie: bijvoorbeeld alleen offertes en documenten of alleen projectstatus.
+- Stel inlog- en bewaarregels vast en leg ze vast in je privacyverklaring.
+- Test met vijf bestaande klanten voordat je het bij iedereen uitrolt.
+
+### Hoe past dit bij Next Growth?
+
+Next Growth bouwt CRM-systemen en portalen als eigen systemen op maat: code, data en accounts staan op naam van de klant. Een website met CRM begint bij € 6.995, een website bij € 1.500. Een klantportaal koppelen we aan het CRM zodat offertes, planning en documenten maar één keer worden ingevoerd. De exacte omvang en prijs hangen af van wat het portaal moet kunnen; daar maken we vooraf een voorstel voor.
+
+### Veelgestelde vragen
+Vraag: Wat is het verschil tussen een klantportaal en een CRM?
+Antwoord: Een CRM is het systeem voor jouw team, met klantgegevens en opvolging. Een klantportaal is het deel dat klanten zelf zien en gebruiken. Het portaal haalt zijn gegevens meestal uit het CRM.
+
+Vraag: Moet een klant een account aanmaken?
+Antwoord: Meestal wel, met een persoonlijke inlog. Voor een enkele offerte kan een beveiligde link met digitale handtekening lichter zijn, zonder volledig account.
+
+Vraag: Is een klantportaal AVG-proof?
+Antwoord: Dat hangt af van de uitvoering. De AVG vraagt passende beveiliging, zoals individuele accounts, toegangsbeheer en een verwerkersovereenkomst met je leverancier. Een portaal kan dus AVG-proof zijn, maar is dat niet vanzelf.
+
+Vraag: Wat kost een klantportaal?
+Antwoord: Dat hangt af van functies en koppelingen. Een portaal met alleen offertes en documenten is kleiner dan een met planning en betalingen. Vraag altijd een vaste prijs op basis van een korte briefing.
+
+Vraag: Kunnen klanten ook zonder portaal blijven bellen?
+Antwoord: Ja, en dat is verstandig. Zie het portaal als extra gemak en niet als verplichting. Houd telefoon en mail gewoon beschikbaar.
+
+
+### Bronnen
+- [AVG artikel 32: beveiliging van de verwerking](https://gdpr-info.eu/art-32-gdpr/)
+- [AVG artikel 33: melding van een datalek](https://gdpr-info.eu/art-33-gdpr/)
+
+---
+
 ## Welk CRM past bij een klein bedrijf: HubSpot, Pipedrive of maatwerk?
 URL: https://nextgrowthdigital.nl/kennisbank-crm-klein-bedrijf-hubspot-pipedrive
 Categorie: CRM en automatisering
@@ -6804,7 +7966,7 @@ Het nadeel van maatwerk is de hogere startinvestering en de afhankelijkheid van 
 
 ### Wat doet Next Growth hierin?
 
-Next Growth bouwt CRM en offertesystemen als eigen systemen, gekoppeld aan je website en eventueel een configurator. Een website met CRM begint bij € 6.995 met een vaste prijs. Past een standaardpakket beter bij je situatie, dan is dat een eerlijk antwoord dat je in het eerste gesprek hoort.
+Next Growth bouwt CRM en offertesystemen als eigen systemen, gekoppeld aan je website en eventueel een configurator. Een website met CRM begint bij € 2.500 met een vaste prijs. Past een standaardpakket beter bij je situatie, dan is dat een eerlijk antwoord dat je in het eerste gesprek hoort.
 
 ### Veelgestelde vragen
 Vraag: Is HubSpot echt gratis?
@@ -7176,7 +8338,7 @@ Een herinnering zonder makkelijke volgende stap is half werk. Als de klant op de
 
 Heb je een kleine, vaste klantenkring die je allemaal persoonlijk kent en zelf belt, dan is een telefoontje persoonlijker dan een automatische mail. En zolang klantgegevens verspreid staan over een kassasysteem, een agenda en losse briefjes, begin je met het op één plek krijgen van kenteken en contactgegevens. Zonder betrouwbare data stuurt een automatisering vooral verkeerde berichten.
 
-Next Growth bouwt websites voor autobedrijven met een CRM eronder, waarin werkplaatsklanten, kentekens en afspraken samenkomen. Een website met CRM begint bij € 6.995 met een vaste prijs, en de data staat op jouw naam.
+Next Growth bouwt websites voor autobedrijven met een CRM eronder, waarin werkplaatsklanten, kentekens en afspraken samenkomen. Een website met CRM begint bij € 2.500 met een vaste prijs, en de data staat op jouw naam.
 
 ### Veelgestelde vragen
 Vraag: Mag ik een klant zonder toestemming een APK-herinnering mailen?
@@ -7397,7 +8559,7 @@ Een digitale machtiging in je aanmeldformulier, gekoppeld aan je incassoprovider
 
 Heb je maar enkele tientallen contracten en loopt de planning prima via een vaste medewerker, dan is een volledige koppeling vooral een investering zonder directe winst. Een duidelijke contractpagina met een simpel formulier kan dan al genoeg zijn. Ook als je contracten per klant sterk verschillen, is een standaard online aanmelding lastig; dan werkt een gesprek beter.
 
-Next Growth bouwt websites voor installatiebedrijven, zoals voor Westrik Bouw & Installaties, en CRM-systemen waarin contracten, planning en opvolging samenkomen. Een website met CRM begint bij € 6.995 met een vaste prijs. Bij Installatieplatform maakte het offertesysteem een offerte in 2 minuten mogelijk.
+Next Growth bouwt websites voor installatiebedrijven, zoals voor Westrik Bouw & Installaties, en CRM-systemen waarin contracten, planning en opvolging samenkomen. Een website met CRM begint bij € 2.500 met een vaste prijs. Bij Installatieplatform maakte het offertesysteem een offerte in 2 minuten mogelijk.
 
 ### Veelgestelde vragen
 Vraag: Heeft een klant bedenktijd bij een online afgesloten onderhoudscontract?
@@ -7646,7 +8808,7 @@ Landt die aanvraag in een CRM met een eigenaar en een opvolgmoment, dan blijft d
 
 Verkoop je vrijwel alleen via de platforms en heb je een kleine, snel wisselende voorraad, dan is een complete koppeling niet altijd de moeite waard. Een duidelijke link naar je platformprofiel en een goede werkplaatspagina kunnen dan genoeg zijn. Ook als je hoofdzakelijk aan handelaren verkoopt, gelden andere afwegingen dan bij particuliere kopers.
 
-Wil je wel een eigen site die voorraad, proefrit en werkplaats samenbrengt, dan bouwt Next Growth dat als website met CRM, vanaf € 6.995 met een vaste prijs. Een website zonder CRM begint bij € 1.500. Code, accounts en data staan op jouw naam.
+Wil je wel een eigen site die voorraad, proefrit en werkplaats samenbrengt, dan bouwt Next Growth dat als website met CRM, vanaf € 2.500 met een vaste prijs. Een website zonder CRM begint bij € 1.500. Code, accounts en data staan op jouw naam.
 
 ### Veelgestelde vragen
 Vraag: Moet ik rijklaarmaakkosten in de prijs van een occasion opnemen?
@@ -8402,7 +9564,7 @@ Huren kan passen als je net begint en geen investering vooraf wilt doen, als je 
 
 Kopen past als de website een vaste rol heeft in je verkoop, als je hem wilt koppelen aan een offerteproces, configurator of CRM, en als je zelf wilt bepalen met welke partij je verder werkt. Voor bedrijven die maatwerk verkopen, zoals in de bouw of installatie, is de website vaak het begin van het verkoopproces. Dan wil je er geen afhankelijkheid van een abonnement in hebben.
 
-Next Growth werkt met een vaste prijs: een website vanaf € 1.500, of website met CRM vanaf € 6.995. Domein, code, accounts en data staan op naam van de klant. Je kunt daarna kiezen of je het onderhoud bij ons laat of elders onderbrengt.
+Next Growth werkt met een vaste prijs: een website vanaf € 1.500, of website met CRM vanaf € 2.500. Domein, code, accounts en data staan op naam van de klant. Je kunt daarna kiezen of je het onderhoud bij ons laat of elders onderbrengt.
 
 ### Veelgestelde vragen
 Vraag: Is een website huren fiscaal aftrekbaar?
@@ -8486,7 +9648,7 @@ Geef elke aanbieder dezelfde briefing: je diensten, het aantal paginatypen, wie 
 
 ### Hoe Next Growth prijst
 
-Next Growth werkt voor websites met een vaste prijs: een zakelijke website begint vanaf € 1.500 en staat binnen twee weken live, een website met CRM begint vanaf € 6.995. In het voorstel staat wat er in zit, inclusief de teksten, en wat de terugkerende kosten zijn. Code, domein en accounts komen op jouw naam. Wil je een voorstel op basis van jouw situatie? Laat je terugbellen; we reageren dezelfde werkdag. Bellen kan ook direct via 06 83 90 21 92.
+Next Growth werkt voor websites met een vaste prijs: een zakelijke website begint vanaf € 1.500 en staat binnen twee weken live, een website met CRM begint vanaf € 2.500. In het voorstel staat wat er in zit, inclusief de teksten, en wat de terugkerende kosten zijn. Code, domein en accounts komen op jouw naam. Wil je een voorstel op basis van jouw situatie? Laat je terugbellen; we reageren dezelfde werkdag. Bellen kan ook direct via 06 83 90 21 92.
 
 ### Veelgestelde vragen
 Vraag: Is een vaste prijs duurder dan werken op uurbasis?
@@ -8570,7 +9732,7 @@ Besparen is onverstandig op eigendom en op de werking van je formulier. Een goed
 
 ### Wat kost een website bij Next Growth?
 
-Bij Next Growth begint een zakelijke website vanaf € 1.500 voor een vaste prijs en staat hij binnen twee weken live. Wil je dat aanvragen direct in een eigen CRM met offertes landen, dan begint een website met CRM vanaf € 6.995. Domein, code en accounts komen op jouw naam. Twijfel je of je dat nodig hebt, of volstaat een zelfgebouwde site? Laat je terugbellen; we reageren dezelfde werkdag en zeggen het eerlijk als een eenvoudiger oplossing beter bij je past. Bellen kan ook direct: 06 83 90 21 92.
+Bij Next Growth begint een zakelijke website vanaf € 1.500 voor een vaste prijs en staat hij binnen twee weken live. Wil je dat aanvragen direct in een eigen CRM met offertes landen, dan begint een website met CRM vanaf € 2.500. Domein, code en accounts komen op jouw naam. Twijfel je of je dat nodig hebt, of volstaat een zelfgebouwde site? Laat je terugbellen; we reageren dezelfde werkdag en zeggen het eerlijk als een eenvoudiger oplossing beter bij je past. Bellen kan ook direct: 06 83 90 21 92.
 
 ### Veelgestelde vragen
 Vraag: Is een website van een paar honderd euro genoeg voor een klein bedrijf?
@@ -8733,7 +9895,7 @@ Dat laatste risico verklein je door eigendom goed te regelen. Bij Next Growth st
 |  | Standaardsoftware | Eigen systeem van Next Growth |
 |---|---|---|
 | Start | Snel, met een abonnement | Bouwtraject, doorgaans enkele weken, afhankelijk van aangeleverde prijsregels, teksten en beeld |
-| Kosten | Vaak per gebruiker per maand | Vaste projectprijs; website met CRM vanaf € 6.995 |
+| Kosten | Vaak per gebruiker per maand | Vaste projectprijs; website met CRM vanaf € 2.500 |
 | Maatwerkprijzen en configuraties | Beperkt, vaak met losse rekenbladen | Precies volgens jouw regels |
 | Eigendom | Licentie bij de leverancier | Code, accounts en data op jouw naam |
 | Beste keuze als | Je proces in de standaard past | Je verkoop draait op maatwerk en eigen calculatie |
@@ -8824,7 +9986,7 @@ Zoek je alleen een campagneconcept voor een landelijke merkcampagne, dan is een 
 
 ### Hoe werkt Next Growth als creatief groeibureau?
 
-Next Growth Digital werkt landelijk, en op locatie in Noord-Brabant en Gelderland, aan branding, websites, marketing en eigen software. Bijzonder is dat configurators en CRM als eigen systemen worden gebouwd, zodat een website niet eindigt bij een formulier maar doorloopt tot offerte en opvolging. Een website begint bij € 1.500 en een website met CRM bij € 6.995, beide met een vaste prijs. Accounts, code en data staan op naam van de klant. Voorbeelden zijn Westrik Bouw & Installaties (website, offerteaanvraag en SEO) en Lucky Zonwering (CRM en offertesysteem). Bel 06 83 90 21 92 of mail info@nextgrowthdigital.nl; je wordt dezelfde werkdag teruggebeld.
+Next Growth Digital werkt landelijk, en op locatie in Noord-Brabant en Gelderland, aan branding, websites, marketing en eigen software. Bijzonder is dat configurators en CRM als eigen systemen worden gebouwd, zodat een website niet eindigt bij een formulier maar doorloopt tot offerte en opvolging. Een website begint bij € 1.500 en een website met CRM bij € 2.500, beide met een vaste prijs. Accounts, code en data staan op naam van de klant. Voorbeelden zijn Westrik Bouw & Installaties (website, offerteaanvraag en SEO) en Lucky Zonwering (CRM en offertesysteem). Bel 06 83 90 21 92 of mail info@nextgrowthdigital.nl; je wordt dezelfde werkdag teruggebeld.
 
 ### Veelgestelde vragen
 Vraag: Is een creatief groeibureau duurder dan een webbureau?
