@@ -9764,7 +9764,7 @@ Bijgewerkt: 2026-08-27
 
 Vraag: Hoe een traject bij ons verloopt
 
-Kort antwoord: Van eerste gesprek tot oplevering: wie wat doet, wat je zelf aanlevert, wat het kost aan tijd en waar het in de praktijk vastloopt. Voor verbouwingen en voor software.
+Kort antwoord: Van eerste gesprek tot oplevering: wie wat doet, wat je zelf aanlevert, wat het kost aan tijd en waar het vastloopt. Voor verbouwingen en voor software.
 
 ### Wat er in dit artikel staat
 - Een verbouwing: van configurator tot oplevering
